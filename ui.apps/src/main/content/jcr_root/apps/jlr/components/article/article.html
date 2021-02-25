@@ -1,0 +1,16 @@
+<sly data-sly-use.article="com.jlr.core.models.ArticleModel" />
+<div data-sly-test="${!article.title}" class="cq-placeholder"
+	 data-emptytext="Article Component"></div>
+
+Title : ${article.title}<br/>
+Subtitle : ${article.subtitle}<br/>
+Copy : ${article.copy @context='html'}<br/><br/>
+
+Image : ${article.fileReference}<br/>
+Alt Text : ${article.imageAlt}<br/>
+Image Link : ${article.imageLink}<br/><br/>
+
+CTAs: 
+<ul data-sly-list.cta="${article.ctaArrayList}">
+  <li>${cta}</li>
+</ul>
