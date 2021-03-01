@@ -11,6 +11,7 @@ Alt Text : ${article.imageAlt}<br/>
 Image Link : ${article.imageLink}<br/><br/>
 
 CTAs: 
-<ul data-sly-list.cta="${article.ctaArrayList}">
-  <li>${cta}</li>
+<ul data-sly-list.cta="${article.ctaList}">
+  <li>${cta.text} - ${cta.link} - ${cta.target} </li>
+  <a href="${cta.link}">link</a>
 </ul>
