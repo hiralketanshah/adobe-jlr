@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -23,7 +24,7 @@ import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, adapters = { ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
 public class ArticleModelImpl implements ArticleModel {
 
-    public static final String RESOURCE_TYPE = "/apps/jlr/components/article/v1/article";
+    public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
 
     private static final Logger logger = LoggerFactory.getLogger(ArticleModelImpl.class);
 
@@ -54,16 +55,22 @@ public class ArticleModelImpl implements ArticleModel {
 
     List<CTAPojo> list = new ArrayList<>();
 
+    @PostConstruct
+    public void init() {
+        if (ctaList != null && ctaList.hasChildren()) {
+            Iterator<Resource> childResources = ctaList.listChildren();
+            while (childResources.hasNext()) {
+                Resource child = childResources.next();
+                ValueMap properties = child.adaptTo(ValueMap.class);
+                list.add(new CTAPojo(properties.get("text", String.class),
+                        LinkUtils.getLinkURL(properties.get("link", String.class), resourceResolver),
+                        properties.get("target", String.class)));
+            }
+        }
+    }
+
     @Override
     public List<CTAPojo> getCtaList() {
-        Iterator<Resource> childResources = ctaList.listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            ValueMap properties = child.adaptTo(ValueMap.class);
-            list.add(new CTAPojo(properties.get("text", String.class),
-                    LinkUtils.getLinkURL(properties.get("link", String.class), resourceResolver),
-                    properties.get("target", String.class)));
-        }
         return list;
     }
 
@@ -94,7 +101,7 @@ public class ArticleModelImpl implements ArticleModel {
 
     @Override
     public String getImageLink() {
-        return imageLink;
+        return LinkUtils.getLinkURL(imageLink, resourceResolver);
     }
 
 }

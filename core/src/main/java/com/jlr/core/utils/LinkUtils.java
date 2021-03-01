@@ -10,7 +10,7 @@ public class LinkUtils {
         String reqUrl;
         if (path != null && path.startsWith(Constants.CONTENT_PATH)) {
 
-            String[] splitPath = path.split("\\" + Constants.EXTENSION_DOT_HTML);
+            String[] splitPath = path.split(Constants.DOUBLE_BACKSLASHES + Constants.EXTENSION_DOT_HTML);
             reqUrl = (splitPath.length > 1)
                     ? (resolver.map(splitPath[0]).concat(Constants.EXTENSION_DOT_HTML)).concat(splitPath[1])
                     : (resolver.map(splitPath[0]).concat(Constants.EXTENSION_DOT_HTML));
