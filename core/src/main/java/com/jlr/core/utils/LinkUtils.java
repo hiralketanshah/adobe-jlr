@@ -28,11 +28,17 @@ public class LinkUtils {
      */
     public static String appendLinkExtension(String path, ResourceResolver resolver) {
         String reqUrl = path;
-        PageManager pageManager = resolver.adaptTo(PageManager.class);
-        if (null != pageManager) {
-            Page page = pageManager.getPage(path);
-            if (null != page) {
-                reqUrl = path.concat(Constants.EXTENSION_DOT_HTML);
+        if (path != null && resolver.getResource(path) != null) {
+            PageManager pageManager = resolver.adaptTo(PageManager.class);
+            if (null != pageManager) {
+                Page page = pageManager.getPage(path);
+                if (null != page) {
+                    reqUrl = path.concat(Constants.EXTENSION_DOT_HTML);
+                }
+            }
+        } else {
+            if (path != null && !path.startsWith(Constants.PATH_CONTENT) && !path.startsWith(Constants.PROTOCOL_HTTP)) {
+                reqUrl = Constants.PREFIX_HTTPS.concat(path);
             }
         }
         return reqUrl;

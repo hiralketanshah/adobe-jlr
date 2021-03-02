@@ -1,4 +1,5 @@
-<sly data-sly-use.article="com.jlr.core.models.ArticleModel" />
+<sly data-sly-use.model="com.jlr.core.models.ArticleModel" data-sly-call="${renderArticle @ article=model}" />
+<template data-sly-template.renderArticle="${ @ article }">
 <div data-sly-test="${!article.title}" class="cq-placeholder"
 	 data-emptytext="Article Component"></div>
 
@@ -16,3 +17,4 @@ CTAs:
   <li>${cta.text} - ${cta.link} - ${cta.target} </li>
   <a href="${cta.link}">link</a>
 </ul>
+</template>

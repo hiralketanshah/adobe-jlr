@@ -15,6 +15,7 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.jlr.core.constants.Constants;
 import com.jlr.core.models.ArticleModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
@@ -74,9 +75,9 @@ public class ArticleModelImpl implements ArticleModel {
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
                 ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(new CTAPojo(properties.get("text", String.class),
-                        LinkUtils.appendLinkExtension(properties.get("link", String.class), resourceResolver),
-                        properties.get("target", String.class)));
+                list.add(new CTAPojo(properties.get(Constants.PROP_CTA_TEXT, String.class), LinkUtils
+                        .appendLinkExtension(properties.get(Constants.PROP_CTA_LINK, String.class), resourceResolver),
+                        properties.get(Constants.PROP_CTA_TARGET, String.class)));
             }
         }
     }
