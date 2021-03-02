@@ -1,18 +1,3 @@
-/*
- *  Copyright 2015 Adobe Systems Incorporated
- *
- *  Licensed under the Apache License, Version 2.0 (the "License");
- *  you may not use this file except in compliance with the License.
- *  You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing, software
- *  distributed under the License is distributed on an "AS IS" BASIS,
- *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- *  See the License for the specific language governing permissions and
- *  limitations under the License.
- */
 package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -31,22 +16,30 @@ import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
- * Simple JUnit test verifying the HelloWorldModel
+ * Simple JUnit test verifying the ArticleModelImpl.
  */
 @ExtendWith(AemContextExtension.class)
 class ArticleModelImplTest {
 
+    /** The article model. */
     private ArticleModel articleModel;
 
-    private Resource resource;
-
+    /**
+     * Sets the up.
+     *
+     * @param context
+     *            the new up
+     */
     @BeforeEach
     public void setup(AemContext context) {
         context.load().json("/content/jlr/article/article.json", "/content/jlr/article.html");
-        resource = context.resourceResolver().getResource("/content/jlr/article.html");
-        articleModel = resource.adaptTo(ArticleModel.class);
+        Resource resource = context.resourceResolver().getResource("/content/jlr/article.html");
+        articleModel = resource.adaptTo(ArticleModelImpl.class);
     }
 
+    /**
+     * Test properties.
+     */
     @Test
     void testProperties() {
         assertEquals("test_title", articleModel.getTitle());
@@ -54,13 +47,19 @@ class ArticleModelImplTest {
         assertEquals("test_copy", articleModel.getCopy());
     }
 
+    /**
+     * Test image properties.
+     */
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", articleModel.getFileReference());
         assertEquals("test_imageAlt", articleModel.getImageAlt());
-        assertEquals("/content/jlr/au.html", articleModel.getImageLink());
+        assertEquals("/content/jlr/au", articleModel.getImageLink());
     }
 
+    /**
+     * Test cta properties.
+     */
     @Test
     void testCtaProperties() {
         List<CTAPojo> list = articleModel.getCtaList();
@@ -70,7 +69,5 @@ class ArticleModelImplTest {
             assertEquals("http://www.google.com", item.getLink());
             assertEquals("_self", item.getTarget());
         });
-
     }
-
 }

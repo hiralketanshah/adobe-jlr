@@ -14,47 +14,59 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.jlr.core.models.ArticleModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
 
+/**
+ * The Class ArticleModelImpl.
+ */
 @Model(adaptables = Resource.class, adapters = { ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
 public class ArticleModelImpl implements ArticleModel {
 
+    /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
 
-    private static final Logger logger = LoggerFactory.getLogger(ArticleModelImpl.class);
-
+    /** The title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String title;
 
+    /** The subtitle. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String subtitle;
 
+    /** The copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String copy;
 
+    /** The file reference. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String fileReference;
 
+    /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
 
+    /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageLink;
 
+    /** The cta list. */
     @Inject
     @Optional
     private Resource ctaList;
 
+    /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The list. */
     List<CTAPojo> list = new ArrayList<>();
 
+    /**
+     * Inits the Article Model.
+     */
     @PostConstruct
     public void init() {
         if (ctaList != null && ctaList.hasChildren()) {
@@ -63,45 +75,79 @@ public class ArticleModelImpl implements ArticleModel {
                 Resource child = childResources.next();
                 ValueMap properties = child.adaptTo(ValueMap.class);
                 list.add(new CTAPojo(properties.get("text", String.class),
-                        LinkUtils.getLinkURL(properties.get("link", String.class), resourceResolver),
+                        LinkUtils.appendLinkExtension(properties.get("link", String.class), resourceResolver),
                         properties.get("target", String.class)));
             }
         }
     }
 
+    /**
+     * Gets the cta list.
+     *
+     * @return the cta list
+     */
     @Override
     public List<CTAPojo> getCtaList() {
         return list;
     }
 
+    /**
+     * Gets title.
+     *
+     * @return the title
+     */
     @Override
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Gets subtitle.
+     *
+     * @return the subtitle
+     */
     @Override
     public String getSubtitle() {
         return subtitle;
     }
 
+    /**
+     * Gets copy.
+     *
+     * @return the copy
+     */
     @Override
     public String getCopy() {
         return copy;
     }
 
+    /**
+     * Gets file reference.
+     *
+     * @return the file reference
+     */
     @Override
     public String getFileReference() {
         return fileReference;
     }
 
+    /**
+     * Gets image alt.
+     *
+     * @return the image alt
+     */
     @Override
     public String getImageAlt() {
         return imageAlt;
     }
 
+    /**
+     * Gets image link.
+     *
+     * @return the resolved image link
+     */
     @Override
     public String getImageLink() {
-        return LinkUtils.getLinkURL(imageLink, resourceResolver);
+        return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
     }
-
 }

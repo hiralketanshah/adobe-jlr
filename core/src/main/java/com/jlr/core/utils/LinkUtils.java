@@ -2,20 +2,38 @@ package com.jlr.core.utils;
 
 import org.apache.sling.api.resource.ResourceResolver;
 
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import com.jlr.core.constants.Constants;
 
+/**
+ * The Class LinkUtils.
+ */
 public class LinkUtils {
 
-    public static String getLinkURL(String path, ResourceResolver resolver) {
-        String reqUrl;
-        if (path != null && path.startsWith(Constants.CONTENT_PATH)) {
+    /**
+     * Instantiates a new link utils.
+     */
+    private LinkUtils() {
+    }
 
-            String[] splitPath = path.split(Constants.DOUBLE_BACKSLASHES + Constants.EXTENSION_DOT_HTML);
-            reqUrl = (splitPath.length > 1)
-                    ? (resolver.map(splitPath[0]).concat(Constants.EXTENSION_DOT_HTML)).concat(splitPath[1])
-                    : (resolver.map(splitPath[0]).concat(Constants.EXTENSION_DOT_HTML));
-        } else {
-            reqUrl = path;
+    /**
+     * Append link extension.
+     *
+     * @param path
+     *            the path
+     * @param resolver
+     *            the resolver
+     * @return the string
+     */
+    public static String appendLinkExtension(String path, ResourceResolver resolver) {
+        String reqUrl = path;
+        PageManager pageManager = resolver.adaptTo(PageManager.class);
+        if (null != pageManager) {
+            Page page = pageManager.getPage(path);
+            if (null != page) {
+                reqUrl = path.concat(Constants.EXTENSION_DOT_HTML);
+            }
         }
         return reqUrl;
     }

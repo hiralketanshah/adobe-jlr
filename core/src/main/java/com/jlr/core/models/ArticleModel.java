@@ -1,40 +1,88 @@
 package com.jlr.core.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
 import com.jlr.core.pojos.CTAPojo;
 
+/**
+ * The Interface ArticleModel.
+ */
 @ConsumerType
 public interface ArticleModel {
 
+    /**
+     * Gets the cta list.
+     *
+     * @return the cta list
+     */
     default List<CTAPojo> getCtaList() {
-        throw new UnsupportedOperationException();
+        return new ArrayList<>();
     }
 
+    /**
+     * Gets the title.
+     *
+     * @return the title
+     */
     default String getTitle() {
-        throw new UnsupportedOperationException();
+        return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the subtitle.
+     *
+     * @return the subtitle
+     */
     default String getSubtitle() {
-        throw new UnsupportedOperationException();
+        return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the copy.
+     *
+     * @return the copy
+     */
     default String getCopy() {
-        throw new UnsupportedOperationException();
+        return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the file reference.
+     *
+     * @return the file reference
+     */
     default String getFileReference() {
-        throw new UnsupportedOperationException();
+        return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the image alt.
+     *
+     * @return the image alt
+     */
     default String getImageAlt() {
-        throw new UnsupportedOperationException();
+        return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the image link.
+     *
+     * @return the image link
+     */
     default String getImageLink() {
-        throw new UnsupportedOperationException();
+        return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the hide image.
+     *
+     * @return the hide image
+     */
+    default boolean getHideImage() {
+        return false;
+    }
 }
