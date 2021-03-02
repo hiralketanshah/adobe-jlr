@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
 @ServiceDescription("Demo to listen on changes in the resource tree")
 public class SimpleResourceListener implements EventHandler {
 
-    private final Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger logger = LoggerFactory.getLogger(SimpleResourceListener.class);
 
     public void handleEvent(final Event event) {
         logger.debug("Resource event: {} at: {}", event.getTopic(), event.getProperty(SlingConstants.PROPERTY_PATH));

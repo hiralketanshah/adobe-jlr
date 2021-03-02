@@ -80,6 +80,18 @@
                     <failOnError>true</failOnError>
                 </configuration>
             </plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<configuration>
+                    <skip>true</skip>
+					<analysisCache>true</analysisCache>
+					<!-- enable incremental analysis -->
+					<excludes>
+						<exclude>**/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 

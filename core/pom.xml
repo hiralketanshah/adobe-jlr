@@ -203,6 +203,10 @@ Import-Package: javax.annotation;version=0.0.0,*
             </exclusions>
             <scope>test</scope>
         </dependency>
+		<dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+        </dependency>
         <!-- Required to be able to support injection with @Self and @Via -->
         <dependency>
             <groupId>org.apache.sling</groupId>
@@ -213,7 +217,6 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>com.adobe.acs</groupId>
             <artifactId>acs-aem-commons-bundle</artifactId>
-            <version>4.11.2</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
