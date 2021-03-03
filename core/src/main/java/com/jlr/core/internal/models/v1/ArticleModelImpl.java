@@ -15,7 +15,7 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.jlr.core.constants.Constants;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ArticleModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
@@ -28,6 +28,10 @@ public class ArticleModelImpl implements ArticleModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
+
+    /** The id. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String id;
 
     /** The title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -75,9 +79,11 @@ public class ArticleModelImpl implements ArticleModel {
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
                 ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(new CTAPojo(properties.get(Constants.PROP_CTA_TEXT, String.class), LinkUtils
-                        .appendLinkExtension(properties.get(Constants.PROP_CTA_LINK, String.class), resourceResolver),
-                        properties.get(Constants.PROP_CTA_TARGET, String.class)));
+                list.add(
+                        new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                        resourceResolver),
+                                properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
             }
         }
     }
@@ -90,6 +96,16 @@ public class ArticleModelImpl implements ArticleModel {
     @Override
     public List<CTAPojo> getCtaList() {
         return list;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    @Override
+    public String getId() {
+        return id;
     }
 
     /**

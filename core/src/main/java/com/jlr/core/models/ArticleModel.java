@@ -24,6 +24,15 @@ public interface ArticleModel {
     }
 
     /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    default String getId() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
      * Gets the title.
      *
      * @return the title
