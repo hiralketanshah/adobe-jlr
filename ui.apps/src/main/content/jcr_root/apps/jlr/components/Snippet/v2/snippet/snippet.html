@@ -1,0 +1,18 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.all @ categories=['JCR-snippet']}"/>
+
+<div data-sly-use.snippet="com.jlr.core.models.SnippetModel" class="snippet_container">
+
+<h2 data-sly-test="${snippet.title}" aria-label="title">${snippet.title}</h2>
+
+<div data-sly-test="${snippet.description}" aria-label="description" class="snippet_container-desc">${snippet.description  @ context="html"}</div>
+
+
+<div data-sly-list.item=${snippet.ctaList}>
+
+    <a target="${item.target}" href="${item.link}">
+        <button class="snippet_container_btn">${item.text}</button></a>
+
+    </div>
+
+</div>

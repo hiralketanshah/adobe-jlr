@@ -1,0 +1,22 @@
+{
+   "jcr:primaryType":"nt:unstructured",
+   "jcr:createdBy":"admin",
+   "description":"Choose from a range of features designed to make driving and parking simpler and safer. With many innovative technologies available, you’ll find all features have been designed to increase your driving experience.SOFIX and Airbags improve safety even further, two ISOFIX points for baby/child seat restraints are fitted on each side of the rear seats and a comprehensive system of six airbags including driver, passenger, side curtain and thorax airbags are standard to protect occupants.",
+   "jcr:lastModifiedBy":"admin",
+   "jcr:created":"Thu Mar 04 2021 15:04:39 GMT+0530",
+   "title":"Discovery",
+   "jcr:lastModified":"Thu Mar 04 2021 15:17:53 GMT+0530",
+   "sling:resourceType":"jlr/components/Snippet/v2/snippet",
+   "cq:styleIds":[
+      "1614597950157"
+   ],
+   "ctaList":{
+      "jcr:primaryType":"nt:unstructured",
+      "item0":{
+         "jcr:primaryType":"nt:unstructured",
+         "target":"_blank",
+         "link":"/content/jlr/au",
+         "text":"Find out more"
+      }
+   }
+}
