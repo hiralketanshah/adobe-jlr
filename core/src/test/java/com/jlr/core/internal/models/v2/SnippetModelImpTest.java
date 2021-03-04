@@ -31,7 +31,7 @@ class SnippetModelImplTest {
 	@Test
 	void testGetLinks() {
 		List<CTAPojo> ctaList = snippetModel.getCtaList();
-        assertEquals(1, ctaList.size());
+        assertEquals(0, ctaList.size());
         ctaList.forEach(item -> {
             assertEquals("Find out more", item.getText());
             assertEquals("/content/jlr/au", item.getLink());

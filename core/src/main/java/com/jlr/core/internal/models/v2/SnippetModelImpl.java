@@ -1,5 +1,6 @@
 package com.jlr.core.internal.models.v2;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,7 +16,9 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.Via;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.Self;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.models.annotations.via.ResourceSuperType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,9 +48,7 @@ public class SnippetModelImpl implements Teaser,SnippetModel{
 	private Teaser delegate;
 	
 	/** The cta list. */
-	@Inject
-    @Optional
-    @Via("resource")
+	@Inject @Via("resource")
     private Resource ctaList;
 	
 	/** The resource resolver. */
@@ -57,7 +58,7 @@ public class SnippetModelImpl implements Teaser,SnippetModel{
 	
 
 	/** The list. */
-	List<CTAPojo> list;
+	List<CTAPojo> list=new ArrayList<>();
 	
 	/**
 	 * Inits the.

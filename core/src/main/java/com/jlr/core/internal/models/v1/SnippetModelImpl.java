@@ -12,6 +12,8 @@ import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,7 +37,7 @@ public class SnippetModelImpl implements SnippetModel {
 	
 	
 	/** The list. */
-	List<CTAPojo> list;
+	List<CTAPojo> list=new ArrayList<>();
 	
 	/** The title. */
 	@Inject
@@ -47,7 +49,6 @@ public class SnippetModelImpl implements SnippetModel {
 	
 	/** The cta list. */
 	@Inject
-    @Optional
     private Resource ctaList;
 	
 	/** The description. */

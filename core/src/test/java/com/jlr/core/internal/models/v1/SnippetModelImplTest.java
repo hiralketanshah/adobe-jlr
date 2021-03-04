@@ -46,7 +46,7 @@ class SnippetModelImplTest {
         assertEquals(1, ctaList.size());
         ctaList.forEach(item -> {
             assertEquals("Find out more", item.getText());
-            assertEquals("/content/jlr/au.html", item.getLink());
+            assertEquals("/content/jlr/au", item.getLink());
             assertEquals("_blank", item.getTarget());
         });
 
