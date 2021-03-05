@@ -1,0 +1,16 @@
+<div data-sly-use.model="com.jlr.core.models.ReadyToGoBarModel">
+
+<div data-sly-list.item=${model.rtgb}>
+
+<div>
+    <div>
+    <img src="${item.fileReference}" alt="${item.imgAltText}" height="20px" aria-label="icon">
+    </div>
+        <div>
+        <a target="${item.target}" href="${item.link}"><button>${item.text}</button></a>
+        </div>
+        <div aria-label="description">${item.description}</div>
+    </div>
+ </div>
+
+</div>

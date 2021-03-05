@@ -1,0 +1,20 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "jcr:createdBy":"admin",
+  "jcr:lastModifiedBy":"admin",
+  "jcr:created":"Fri Mar 05 2021 11:40:29 GMT+0530",
+  "jcr:lastModified":"Fri Mar 05 2021 11:41:15 GMT+0530",
+  "sling:resourceType":"jlr/components/readytogobar/v1/readytogobar",
+  "rtgb":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "description":"description",
+      "fileReference":"/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg",
+      "target":"_blank",
+      "link":"/content/jlr/au",
+      "text":"link text",
+      "imgAltText":"alternate text"
+    }
+  }
+}
