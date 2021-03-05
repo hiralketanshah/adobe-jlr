@@ -52,7 +52,7 @@
                                 sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
                                 allowUpload="{Boolean}false"
                                 fieldDescription="Upload an image for background"
-                                fileReferenceParameter="./fileReference"
+                                fileReferenceParameter="./backgroundImage"
                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                 multiple="{Boolean}false"
 								fieldLabel="Background Image"

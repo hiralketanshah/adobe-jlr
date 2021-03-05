@@ -3,7 +3,7 @@
     jcr:primaryType="nt:unstructured"
     sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
     allowUpload="{Boolean}false"
-    fieldDescription="Upload an image asset for logo"
+    fieldDescription="Upload an image for logo"
     fieldLabel="Logo Image"
     fileReferenceParameter="./logoImage"
     mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"

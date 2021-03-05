@@ -7,4 +7,5 @@
     fileReferenceParameter="./fileReference"
     mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
     multiple="{Boolean}false"
+    fieldLabel="Image"
     name="./file"/>
