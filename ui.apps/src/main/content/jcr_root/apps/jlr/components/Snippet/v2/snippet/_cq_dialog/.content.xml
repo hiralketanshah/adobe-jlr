@@ -73,6 +73,9 @@
                                                         </target>
                                                     </items>
                                                 </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    maxlimit="2"/>
                                             </calltoaction>
                                         </items>
                                     </column>
