@@ -7,15 +7,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.AccoladeModel;
-
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 @ExtendWith(AemContextExtension.class)
 class AccoladeModelImplTest {
 
-    private AccoladeModel accoladeModel;
+    private AccoladeModelImpl accoladeModel;
 
     @BeforeEach
     void setUp(AemContext context) throws Exception {
@@ -28,15 +26,14 @@ class AccoladeModelImplTest {
     void testGeneralProperties() {
         assertEquals("12345", accoladeModel.getId());
         assertEquals("test_header_Copy", accoladeModel.getHeaderCopy());
-        assertEquals("test_body_copy", accoladeModel.getBodyCopy());
+        assertEquals("test_body_copy", accoladeModel.getCopy());
+        assertEquals("25/02/2021", accoladeModel.getDate());
     }
 
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", accoladeModel.getBackgroundImage());
-        assertEquals("test_background_alt", accoladeModel.getBackgroundImageAlt());
-        assertEquals("/content/dam/test.png", accoladeModel.getLogo());
-        assertEquals("test_logo_alt", accoladeModel.getLogoAlt());
+        assertEquals("/content/dam/test.png", accoladeModel.getLogoImage());
     }
 
     @Test

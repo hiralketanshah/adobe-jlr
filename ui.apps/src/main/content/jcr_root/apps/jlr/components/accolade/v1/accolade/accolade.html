@@ -1,0 +1,23 @@
+<sly data-sly-use.model="com.jlr.core.models.AccoladeModel" data-sly-call="${renderAccolade @ accolade=model}" />
+
+<template data-sly-template.renderAccolade="${ @ accolade }">
+<div data-sly-test="${!accolade.id}" class="cq-placeholder"
+	 data-emptytext="Accolade Component"></div>
+
+
+     <div style="background-image: url(${accolade.fileReference @ context='styleString'});">
+
+ID : ${accolade.id}<br/>
+Header : ${accolade.headerCopy @context='html'}<br/>
+Body : ${accolade.copy @context='html'}<br/>
+Date : ${accolade.date }<br/><br/>
+
+Background Image : ${accolade.fileReference}<br/>
+Logo Image : ${accolade.logoImage}<br/>
+
+CTA text : ${accolade.text}<br/>
+CTA link : ${accolade.link}<br/>
+CTA target : ${accolade.target}<br/>
+    </div>
+</template>
+
