@@ -16,11 +16,21 @@ import com.jlr.core.pojos.ReadyToGoBar;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ReadyToGoBarTest.
+ */
 @ExtendWith(AemContextExtension.class)
 class ReadyToGoBarTest {
 	
+	/** The ready to go bar model. */
 	private ReadyToGoBarModel readyToGoBarModel;
 
+	/**
+	 * Sets the up.
+	 *
+	 * @param context the new up
+	 */
 	@BeforeEach
     public void setup(AemContext context) {
         context.load().json("/content/jlr/readytogobar/readytogobar.json", "/content/jlr/readytogobar.html");
@@ -28,6 +38,9 @@ class ReadyToGoBarTest {
         readyToGoBarModel = resource.adaptTo(ReadyToGoBarImpl.class);
     }
 	
+	/**
+	 * Test rtgb properties.
+	 */
 	@Test
     void testRtgbProperties() {
         List<ReadyToGoBar> list = readyToGoBarModel.getRtgb();
