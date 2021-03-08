@@ -14,7 +14,7 @@
                     <title
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/include"
-                        path="/mnt/overlay/jlr/components/globalfields/general/headerCopy"/>
+                        path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
                     <description
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/include"

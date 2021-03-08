@@ -36,7 +36,7 @@ public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
 
     /** The header copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String headerCopy;
+    private String headerTitle;
 
     /** The copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -108,8 +108,8 @@ public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
      * @return the header copy
      */
     @Override
-	public String getHeaderCopy() {
-		return headerCopy;
+	public String getHeaderTitle() {
+		return headerTitle;
 	}
 	
     /**
