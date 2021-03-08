@@ -17,7 +17,6 @@ import com.jlr.core.models.ReadyToGoBarModel;
 import com.jlr.core.pojos.ReadyToGoBar;
 import com.jlr.core.utils.LinkUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ReadyToGoBarImpl.
  */
@@ -27,7 +26,7 @@ resourceType = ReadyToGoBarImpl.RESOURCE_TYPE)
 public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 
 	    /** The Constant RESOURCE_TYPE. */
-	    public static final String RESOURCE_TYPE = "jlr/components/readytogobar";
+	    public static final String RESOURCE_TYPE = "jlr/components/readytogobar/v1/readytogobar";
 
 
 	    

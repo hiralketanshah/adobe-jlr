@@ -16,7 +16,6 @@ import com.jlr.core.pojos.ReadyToGoBar;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ReadyToGoBarTest.
  */

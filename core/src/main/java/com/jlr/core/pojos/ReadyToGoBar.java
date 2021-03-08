@@ -1,6 +1,5 @@
 package com.jlr.core.pojos;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ReadyToGoBar.
  */
