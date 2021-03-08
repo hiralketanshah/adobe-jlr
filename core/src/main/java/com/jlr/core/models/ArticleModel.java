@@ -24,15 +24,6 @@ public interface ArticleModel {
     }
 
     /**
-     * Gets the id.
-     *
-     * @return the id
-     */
-    default String getId() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
      * Gets the title.
      *
      * @return the title
@@ -47,42 +38,6 @@ public interface ArticleModel {
      * @return the subtitle
      */
     default String getSubtitle() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the copy.
-     *
-     * @return the copy
-     */
-    default String getCopy() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the file reference.
-     *
-     * @return the file reference
-     */
-    default String getFileReference() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the image alt.
-     *
-     * @return the image alt
-     */
-    default String getImageAlt() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the image link.
-     *
-     * @return the image link
-     */
-    default String getImageLink() {
         return StringUtils.EMPTY;
     }
 
