@@ -15,11 +15,20 @@ import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class HeroTitleBannerModelTest.
+ */
 @ExtendWith(AemContextExtension.class)
 class HeroTitleBannerModelTest {
 	
+	/** The hero title banner model. */
 	private HeroTitleBannerModel heroTitleBannerModel;
 	
+	/**
+	 * Sets the up.
+	 *
+	 * @param context the new up
+	 */
 	@BeforeEach
     public void setup(AemContext context) {
         context.load().json("/content/jlr/heroTitleBanner/heroTitleBanner.json", "/content/jlr/heroTitleBanner.html");
@@ -27,6 +36,9 @@ class HeroTitleBannerModelTest {
         heroTitleBannerModel = resource.adaptTo(HeroTitleBannerImpl.class);
     }
 	
+	/**
+	 * Test properties.
+	 */
 	@Test
     void testProperties() {
 		List<CTAPojo> list = heroTitleBannerModel.getHeroCta();

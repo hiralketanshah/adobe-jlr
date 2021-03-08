@@ -21,35 +21,50 @@ import com.jlr.core.models.HeroTitleBannerModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
 
+/**
+ * The Class HeroTitleBannerImpl.
+ */
 @Model(adaptables = Resource.class, adapters = { HeroTitleBannerModel.class, GlobalModel.class }, resourceType = HeroTitleBannerImpl.RESOURCE_TYPE)
 public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
 	
+	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/heroTitleBanner/v1/heroTitleBanner";
 	
+	/** The id. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String id;
 
+    /** The header copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String headerCopy;
 
+    /** The copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String copy;
 
+    /** The file reference. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String fileReference;
 
+    /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
     
+    /** The hero cta. */
     @Inject
     @Optional
     private Resource heroCta;
     
+    /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
     
+    /** The list. */
     List<CTAPojo> list = new ArrayList<>();
 
+	/**
+	 * Inits the.
+	 */
 	@PostConstruct
     public void init() {
         if (heroCta != null && heroCta.hasChildren()) {
@@ -67,31 +82,61 @@ public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
         }
     }
     
+    /**
+     * Gets the hero cta.
+     *
+     * @return the hero cta
+     */
     @Override
     public List<CTAPojo> getHeroCta() {
         return list;
     }
     
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
     @Override
     public String getId() {
 		return id;
 	}
     
+    /**
+     * Gets the header copy.
+     *
+     * @return the header copy
+     */
     @Override
 	public String getHeaderCopy() {
 		return headerCopy;
 	}
 	
+    /**
+     * Gets the copy.
+     *
+     * @return the copy
+     */
     @Override
 	public String getCopy() {
 		return copy;
 	}
     
+    /**
+     * Gets the file reference.
+     *
+     * @return the file reference
+     */
     @Override
 	public String getFileReference() {
 		return fileReference;
 	}
     
+    /**
+     * Gets the image alt.
+     *
+     * @return the image alt
+     */
     @Override
 	public String getImageAlt() {
 		return imageAlt;
