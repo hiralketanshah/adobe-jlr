@@ -45,4 +45,8 @@ public interface GlobalModel {
     default String getTarget() {
         return StringUtils.EMPTY;
     }
+    
+    default String getLinkType() {
+        return StringUtils.EMPTY;
+    }
 }
