@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.ArticleModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -22,7 +21,7 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 class ArticleModelImplTest {
 
     /** The article model. */
-    private ArticleModel articleModel;
+    private ArticleModelImpl articleModel;
 
     /**
      * Sets the up.
