@@ -34,7 +34,7 @@ public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String id;
 
-    /** The header copy. */
+    /** The header title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String headerTitle;
 
