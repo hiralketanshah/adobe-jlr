@@ -1,6 +1,5 @@
 package com.jlr.core.pojos;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ReadyToGoBar.
  */
@@ -23,24 +22,29 @@ public class ReadyToGoBar {
 	
 	/** The file reference. */
 	private String fileReference;
+	
+	/** The link type. */
+	private String linkType;
     
     /**
      * Instantiates a new ready to go bar.
      *
      * @param link the link
      * @param target the target
-     * @param description the description
+     * @param copy the copy
      * @param text the text
      * @param imageAlt the image alt
      * @param fileReference the file reference
+     * @param linkType the link type
      */
-    public ReadyToGoBar(String link, String target, String copy, String text, String imageAlt, String fileReference) {
+    public ReadyToGoBar(String link, String target, String copy, String text, String imageAlt, String fileReference, String linkType) {
         this.text = text;
         this.link = link;
         this.target = target;
         this.copy = copy;
         this.imageAlt = imageAlt;
         this.fileReference = fileReference;
+        this.linkType=linkType;
     }
     
 
@@ -56,7 +60,7 @@ public class ReadyToGoBar {
 	/**
 	 * Sets the description.
 	 *
-	 * @param description the new description
+	 * @param copy the new copy
 	 */
 	public void setCopy(String copy) {
 		this.copy = copy;
@@ -151,5 +155,25 @@ public class ReadyToGoBar {
     public void setTarget(String target) {
         this.target = target;
     }
+
+
+	/**
+	 * Sets the link type.
+	 *
+	 * @param linkType the new link type
+	 */
+	public void setLinkType(String linkType) {
+		this.linkType = linkType;
+	}
+
+
+	/**
+	 * Gets the link type.
+	 *
+	 * @return the link type
+	 */
+	public String getLinkType() {
+		return linkType;
+	}
 }
 

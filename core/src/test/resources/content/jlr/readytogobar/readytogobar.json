@@ -14,7 +14,8 @@
       "target":"_blank",
       "link":"/content/jlr/au",
       "text":"link text",
-      "imageAlt":"alternate text"
+      "imageAlt":"alternate text",
+      "linkType":"primary"
     }
   }
 }

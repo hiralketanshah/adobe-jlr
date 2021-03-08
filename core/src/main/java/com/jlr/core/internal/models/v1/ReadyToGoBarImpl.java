@@ -68,7 +68,8 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	                                properties.get(CommonConstants.PN_DESCRIPTION, String.class),
 	                                properties.get(CommonConstants.PN_CTA_TEXT, String.class),
 	                                properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
-	                                properties.get(CommonConstants.PN_FILE_REFERENCE, String.class)));
+	                                properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
+	                                properties.get(CommonConstants.PN_LINK_TYPE, String.class)));
 	            }
 	        }
 	    }

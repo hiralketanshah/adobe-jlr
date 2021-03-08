@@ -51,6 +51,7 @@ class ReadyToGoBarTest {
             assertEquals("link text", item.getText());
             assertEquals("alternate text", item.getImageAlt());
             assertEquals("/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg", item.getFileReference());
+            assertEquals("primary", item.getLinkType());
         });
     }
 

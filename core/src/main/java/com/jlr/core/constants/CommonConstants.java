@@ -23,5 +23,6 @@ public class CommonConstants {
     public static final String PN_DESCRIPTION = "copy";
     public static final String PN_FILE_REFERENCE = "fileReference";
     public static final String PN_IMAGE_ALT = "imageAlt";
+    public static final String PN_LINK_TYPE="linkType";
 
 }
