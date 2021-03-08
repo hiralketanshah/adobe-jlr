@@ -12,6 +12,9 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ReadyToGoBarModel;
 import com.jlr.core.pojos.ReadyToGoBar;
@@ -38,9 +41,13 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	    /** The resource resolver. */
 	    @Inject
 	    private ResourceResolver resourceResolver;
-
 	    
-	    /** The list. */
+	    /** The id. */
+    	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	    private String id;
+
+
+		/** The list. */
     	List<ReadyToGoBar> list = new ArrayList<>();
 
 	   
@@ -60,7 +67,7 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	                                properties.get(CommonConstants.PN_CTA_TARGET, String.class),
 	                                properties.get(CommonConstants.PN_DESCRIPTION, String.class),
 	                                properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-	                                properties.get(CommonConstants.PN_IMG_ALT_TEXT, String.class),
+	                                properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
 	                                properties.get(CommonConstants.PN_FILE_REFERENCE, String.class)));
 	            }
 	        }
@@ -75,6 +82,15 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	    public List<ReadyToGoBar> getRtgb() {
 	        return list;
 	    }
+    	
+    	/**
+	     * Gets the id.
+	     *
+	     * @return the id
+	     */
+	    public String getId() {
+			return id;
+		}
 	   
 	}
 

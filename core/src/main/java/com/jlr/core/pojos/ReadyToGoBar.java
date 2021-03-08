@@ -1,5 +1,6 @@
 package com.jlr.core.pojos;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class ReadyToGoBar.
  */
@@ -15,10 +16,10 @@ public class ReadyToGoBar {
     private String target;
     
     /** The description. */
-    private String description;
+    private String copy;
     
     /** The img alt text. */
-    private String imgAltText;
+    private String imageAlt;
 	
 	/** The file reference. */
 	private String fileReference;
@@ -30,15 +31,15 @@ public class ReadyToGoBar {
      * @param target the target
      * @param description the description
      * @param text the text
-     * @param imgAltText the img alt text
+     * @param imageAlt the image alt
      * @param fileReference the file reference
      */
-    public ReadyToGoBar(String link, String target, String description, String text, String imgAltText, String fileReference) {
+    public ReadyToGoBar(String link, String target, String copy, String text, String imageAlt, String fileReference) {
         this.text = text;
         this.link = link;
         this.target = target;
-        this.description = description;
-        this.imgAltText = imgAltText;
+        this.copy = copy;
+        this.imageAlt = imageAlt;
         this.fileReference = fileReference;
     }
     
@@ -48,8 +49,8 @@ public class ReadyToGoBar {
      *
      * @return the description
      */
-    public String getDescription() {
-		return description;
+    public String getCopy() {
+		return copy;
 	}
 
 	/**
@@ -57,8 +58,8 @@ public class ReadyToGoBar {
 	 *
 	 * @param description the new description
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setCopy(String copy) {
+		this.copy = copy;
 	}
 
 	/**
@@ -66,17 +67,17 @@ public class ReadyToGoBar {
 	 *
 	 * @return the img alt
 	 */
-	public String getImgAltText() {
-		return imgAltText;
+	public String getImageAlt() {
+		return imageAlt;
 	}
 
 	/**
 	 * Sets the img alt.
 	 *
-	 * @param imgAlt the new img alt
+	 * @param imageAlt the new image alt
 	 */
-	public void setImgAltText(String imgAltText) {
-		this.imgAltText = imgAltText;
+	public void setImageAlt(String imageAlt) {
+		this.imageAlt = imageAlt;
 	}
 
 	/**

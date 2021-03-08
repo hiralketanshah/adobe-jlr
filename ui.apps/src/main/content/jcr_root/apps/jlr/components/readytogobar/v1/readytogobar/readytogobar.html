@@ -4,10 +4,12 @@
 <div class="cq-placeholder"
 	 data-emptytext="ReadyTo Go Bar Component"></div>
 
+
 <div data-sly-list.item="${readytogobar.rtgb}">
 
-   <div><img src="${item.fileReference}" alt="${item.imgAltText}" height="20px" aria-label="icon"></div>
+   <div><img src="${item.fileReference}" alt="${item.imageAlt}" aria-label="icon"></div>
    <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
-   <div aria-label="description">${item.description}</div>
+   <div aria-label="description">${item.copy @ context="html"}</div>
+
 </div>
 </template>

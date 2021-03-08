@@ -47,9 +47,9 @@ class ReadyToGoBarTest {
         list.forEach(item -> {
             assertEquals("/content/jlr/au", item.getLink());
             assertEquals("_blank", item.getTarget());
-            assertEquals("description", item.getDescription());
+            assertEquals("description", item.getCopy());
             assertEquals("link text", item.getText());
-            assertEquals("alternate text", item.getImgAltText());
+            assertEquals("alternate text", item.getImageAlt());
             assertEquals("/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg", item.getFileReference());
         });
     }

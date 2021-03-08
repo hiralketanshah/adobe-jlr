@@ -9,12 +9,12 @@
     "jcr:primaryType":"nt:unstructured",
     "item0":{
       "jcr:primaryType":"nt:unstructured",
-      "description":"description",
+      "copy":"description",
       "fileReference":"/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg",
       "target":"_blank",
       "link":"/content/jlr/au",
       "text":"link text",
-      "imgAltText":"alternate text"
+      "imageAlt":"alternate text"
     }
   }
 }
