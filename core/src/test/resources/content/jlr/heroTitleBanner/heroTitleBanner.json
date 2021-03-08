@@ -1,0 +1,27 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "jcr:createdBy":"admin",
+  "fileReference":"/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
+  "jcr:lastModifiedBy":"admin",
+  "imageAlt":"image",
+  "jcr:created":"Mon Mar 08 2021 15:48:26 GMT+0530",
+  "id":"hero title",
+  "copy":"<p>test_copy</p>\r\n",
+  "jcr:lastModified":"Mon Mar 08 2021 15:49:15 GMT+0530",
+  "sling:resourceType":"jlr/components/heroTitleBanner/v1/heroTitleBanner",
+  "textIsRich":[
+    "true",
+    "true"
+  ],
+  "headerCopy":"<p>HeaderTitle</p>\r\n",
+  "heroCta":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"http://www.google.com",
+      "text":"test_text",
+      "linkType":"primary"
+    }
+  }
+}
