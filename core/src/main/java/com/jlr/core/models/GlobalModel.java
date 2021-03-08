@@ -49,4 +49,8 @@ public interface GlobalModel {
     default String getLinkType() {
         return StringUtils.EMPTY;
     }
+    
+    default String getHeaderTitle() {
+        return StringUtils.EMPTY;
+    }
 }
