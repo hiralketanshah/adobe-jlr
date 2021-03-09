@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.jlr.core.models.GlobalModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -17,13 +18,15 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 @ExtendWith(AemContextExtension.class)
 class DualFrameCarouselTest {
 
-    private DualFrameCarouselImpl dualFrameModel;
+    private GlobalModel dualFrameModel;
+    private DualFrameCarouselImpl dualFrameImpl;
 
     @BeforeEach
     void setUp(AemContext context) throws Exception {
         context.load().json("/content/jlr/dualframecarousel/dualframecarousel.json", "/content/jlr/duelframecarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/duelframecarousel.html");
         dualFrameModel = resource.adaptTo(DualFrameCarouselImpl.class);
+        dualFrameImpl = resource.adaptTo(DualFrameCarouselImpl.class);
     }
 
     @Test
@@ -42,7 +45,7 @@ class DualFrameCarouselTest {
 
     @Test
     void testCtaProperties() {
-		List<CTAPojo> list = dualFrameModel.getCtaList();
+		List<CTAPojo> list = dualFrameImpl.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> { 
         assertEquals("test_cta_text", item.getText());
