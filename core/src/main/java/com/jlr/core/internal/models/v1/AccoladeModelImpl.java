@@ -47,6 +47,9 @@ public class AccoladeModelImpl implements GlobalModel, AccoladeModel {
     private String link;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String linkType;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
 
     @Inject
@@ -95,6 +98,11 @@ public class AccoladeModelImpl implements GlobalModel, AccoladeModel {
     @Override
     public String getLink() {
         return LinkUtils.appendLinkExtension(link, resourceResolver);
+    }
+
+    @Override
+    public String getLinkType() {
+        return linkType;
     }
 
     @Override
