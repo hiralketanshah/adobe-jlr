@@ -22,7 +22,8 @@ The following properties are written to JCR for this Carousel component and are 
 7. `./hideImage` - defines whether the image needs to be hidden
 8. `./text` - defines the CTA text for the component
 9. `./link` - defines the CTA link for the component
-10. `./target` - defines the CTA target (new tab or current tab) for the component
+10. `./linkType` - defines the CTA link types such as Primary or secondary for the component
+11. `./target` - defines the CTA target (new tab or current tab) for the component
 
 
 The edit dialog allows the page to be refreshed after editing the component

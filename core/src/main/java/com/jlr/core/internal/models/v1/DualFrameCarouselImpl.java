@@ -16,34 +16,21 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.models.ArticleModel;
 import com.jlr.core.models.GlobalModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
 
-/**
- * The Class ArticleModelImpl.
- */
-@Model(adaptables = Resource.class, adapters = { GlobalModel.class,
-        ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
-public class ArticleModelImpl implements ArticleModel, GlobalModel {
+@Model(adaptables = Resource.class, adapters = { GlobalModel.class}, resourceType = DualFrameCarouselImpl.RESOURCE_TYPE)
+public class DualFrameCarouselImpl implements GlobalModel {
 
-    /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
+    public static final String RESOURCE_TYPE = "jlr/components/dualframecarousel/v1/dualframecarousel";
 
-    /** The id. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String id;
 
-    /** The title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String title;
+    private String headerTitle;
 
-    /** The subtitle. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String subtitle;
-
-    /** The copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String copy;
 
@@ -59,18 +46,17 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageLink;
 
+    @Inject
+    private ResourceResolver resourceResolver;
+    
     /** The cta list. */
     @Inject
     @Optional
     private Resource ctaList;
-
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
-
+    
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-
+    
     /**
      * Inits the Article Model.
      */
@@ -81,11 +67,12 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
                 ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                        LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                resourceResolver),
-                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-                        properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
+                list.add(
+                        new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                        resourceResolver),
+                                properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+                                properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
             }
         }
     }
@@ -95,78 +82,36 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
      *
      * @return the cta list
      */
-    @Override
     public List<CTAPojo> getCtaList() {
         return list;
     }
 
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
     @Override
     public String getId() {
         return id;
     }
 
-    /**
-     * Gets title.
-     *
-     * @return the title
-     */
     @Override
-    public String getTitle() {
-        return title;
+    public String getHeaderTitle() {
+        return headerTitle;
     }
 
-    /**
-     * Gets subtitle.
-     *
-     * @return the subtitle
-     */
-    @Override
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    /**
-     * Gets copy.
-     *
-     * @return the copy
-     */
     @Override
     public String getCopy() {
         return copy;
     }
 
-    /**
-     * Gets file reference.
-     *
-     * @return the file reference
-     */
     @Override
-    public String getFileReference() {
-        return fileReference;
-    }
-
-    /**
-     * Gets image alt.
-     *
-     * @return the image alt
-     */
+	public String getFileReference() {
+		return fileReference;
+	}
     @Override
-    public String getImageAlt() {
-        return imageAlt;
-    }
-
-    /**
-     * Gets image link.
-     *
-     * @return the resolved image link
-     */
+	public String getImageAlt() {
+		return imageAlt;
+	}
     @Override
-    public String getImageLink() {
-        return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
-    }
+	public String getImageLink() {
+		return imageLink;
+	}
+    
 }

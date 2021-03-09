@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Article"
+    jcr:title="Dual Frame Carousel"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
@@ -13,7 +13,7 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <properties
+                    <general
                         jcr:primaryType="nt:unstructured"
                         jcr:title="General"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
@@ -23,24 +23,16 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/id"/>
-                            <title
+                            <headerTitle
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The title that needs to be displayed."
-                                fieldLabel="Title"
-                                name="./title"/>
-                            <subitle
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The subtitle that needs to be displayed"
-                                fieldLabel="Subtitle"
-                                name="./subtitle"/>
-                            <copy
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
+                            <bodyCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/copy"/>
                         </items>
-                    </properties>
+                    </general>
                     <image
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Image"
