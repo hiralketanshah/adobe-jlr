@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.ArticleModel;
-import com.jlr.core.models.GlobalModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -25,9 +24,6 @@ class ArticleModelImplTest {
     /** The article model. */
     private ArticleModel articleModel;
 
-    /** The global model. */
-    private GlobalModel globalModel;
-
     /**
      * Sets the up.
      *
@@ -39,7 +35,6 @@ class ArticleModelImplTest {
         context.load().json("/content/jlr/article/article.json", "/content/jlr/article.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/article.html");
         articleModel = resource.adaptTo(ArticleModelImpl.class);
-        globalModel = resource.adaptTo(ArticleModelImpl.class);
     }
 
     /**
@@ -49,17 +44,6 @@ class ArticleModelImplTest {
     void testProperties() {
         assertEquals("test_title", articleModel.getTitle());
         assertEquals("test_subtitle", articleModel.getSubtitle());
-        assertEquals("test_copy", globalModel.getCopy());
-    }
-
-    /**
-     * Test image properties.
-     */
-    @Test
-    void testImageProperties() {
-        assertEquals("/content/dam/test.png", globalModel.getFileReference());
-        assertEquals("test_imageAlt", globalModel.getImageAlt());
-        assertEquals("/content/jlr/au", globalModel.getImageLink());
     }
 
     /**
