@@ -60,6 +60,10 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                        <imageLink
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
                                         <text
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"

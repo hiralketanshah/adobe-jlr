@@ -25,6 +25,9 @@ public class ReadyToGoBar {
 	
 	/** The link type. */
 	private String linkType;
+	
+	/** The image link. */
+	private String imageLink;
     
     /**
      * Instantiates a new ready to go bar.
@@ -36,8 +39,9 @@ public class ReadyToGoBar {
      * @param imageAlt the image alt
      * @param fileReference the file reference
      * @param linkType the link type
+     * @param imageLink the image link
      */
-    public ReadyToGoBar(String link, String target, String copy, String text, String imageAlt, String fileReference, String linkType) {
+    public ReadyToGoBar(String link, String target, String copy, String text, String imageAlt, String fileReference, String linkType, String imageLink) {
         this.text = text;
         this.link = link;
         this.target = target;
@@ -45,6 +49,7 @@ public class ReadyToGoBar {
         this.imageAlt = imageAlt;
         this.fileReference = fileReference;
         this.linkType=linkType;
+        this.imageLink = imageLink;
     }
     
 
@@ -174,6 +179,26 @@ public class ReadyToGoBar {
 	 */
 	public String getLinkType() {
 		return linkType;
+	}
+
+
+	/**
+	 * Gets the image link.
+	 *
+	 * @return the image link
+	 */
+	public String getImageLink() {
+		return imageLink;
+	}
+
+
+	/**
+	 * Sets the image link.
+	 *
+	 * @param imageLink the new image link
+	 */
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
 	}
 }
 
