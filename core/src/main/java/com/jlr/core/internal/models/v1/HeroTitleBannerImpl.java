@@ -46,13 +46,9 @@ public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String fileReference;
 
-	/** The image alt. */
+    /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
-    
-    /** The image link. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageLink;
     
     /** The hero cta. */
     @Inject
@@ -144,16 +140,6 @@ public class HeroTitleBannerImpl implements GlobalModel, HeroTitleBannerModel{
     @Override
 	public String getImageAlt() {
 		return imageAlt;
-	}
-    
-    /**
-     * Gets the image link.
-     *
-     * @return the image link
-     */
-    @Override
-    public String getImageLink() {
-		return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
 	}
 
 }

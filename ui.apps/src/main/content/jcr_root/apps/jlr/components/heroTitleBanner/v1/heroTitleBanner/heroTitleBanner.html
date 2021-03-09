@@ -5,9 +5,8 @@
 	 data-emptytext="Hero Title Banner Component"></div>
 
      <img alt="${heroTitleBanner.imageAlt}" src="${heroTitleBanner.fileReference}">
-     Title: ${heroTitleBanner.headerTitle @ context="html"}
+     Title: ${heroTitleBanner.headerCopy @ context="html"}
      Copy: ${heroTitleBanner.copy @ context="html"}
-     ImageLink: ${heroTitleBanner.imageLink}
 
 <div data-sly-list.item="${heroTitleBanner.heroCta}">
 
