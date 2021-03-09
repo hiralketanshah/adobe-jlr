@@ -1,0 +1,21 @@
+<sly data-sly-use.model="com.jlr.core.models.FullFrameCarouselModel" data-sly-call="${renderFFC @ model=model}" />
+
+<template data-sly-template.renderFFC="${ @ model }">
+<div data-sly-test="${!model.id}" class="cq-placeholder"
+	 data-emptytext="Full Frame Carousel Component"></div>
+
+
+     <div style="background-image: url(${model.backgroundImage @ context='styleString'});">
+
+ID : ${model.id}<br/>
+Header : ${model.headerTitle @context='html'}<br/>
+Body : ${model.copy @context='html'}<br/>
+
+Background Image : ${model.backgroundImage}<br/>
+
+CTA text : ${model.text}<br/>
+CTA link : ${model.link}<br/>
+CTA link type : ${model.linkType}<br/>
+CTA target : ${model.target}<br/>
+    </div>
+</template>
