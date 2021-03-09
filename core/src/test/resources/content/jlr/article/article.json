@@ -11,6 +11,7 @@
     	"item0": {
     	"text": "test_text",
     	"link": "http://www.google.com",
+    	"linkType":"primary",
     	"target": "_self"
     	} 
     }

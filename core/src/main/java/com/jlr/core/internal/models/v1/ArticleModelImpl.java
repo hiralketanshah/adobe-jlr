@@ -81,11 +81,11 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
                 ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(
-                        new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                        resourceResolver),
-                                properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+                list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+                        LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                resourceResolver),
+                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+                        properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
             }
         }
     }
