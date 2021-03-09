@@ -17,23 +17,17 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ArticleModel;
-import com.jlr.core.models.GlobalModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class ArticleModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = { GlobalModel.class,
-        ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
-public class ArticleModelImpl implements ArticleModel, GlobalModel {
+@Model(adaptables = Resource.class, adapters = { ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
+public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
-
-    /** The id. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String id;
 
     /** The title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -42,22 +36,6 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
     /** The subtitle. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String subtitle;
-
-    /** The copy. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String copy;
-
-    /** The file reference. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String fileReference;
-
-    /** The image alt. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageAlt;
-
-    /** The image link. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageLink;
 
     /** The cta list. */
     @Inject
@@ -101,16 +79,6 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
     }
 
     /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    @Override
-    public String getId() {
-        return id;
-    }
-
-    /**
      * Gets title.
      *
      * @return the title
@@ -128,45 +96,5 @@ public class ArticleModelImpl implements ArticleModel, GlobalModel {
     @Override
     public String getSubtitle() {
         return subtitle;
-    }
-
-    /**
-     * Gets copy.
-     *
-     * @return the copy
-     */
-    @Override
-    public String getCopy() {
-        return copy;
-    }
-
-    /**
-     * Gets file reference.
-     *
-     * @return the file reference
-     */
-    @Override
-    public String getFileReference() {
-        return fileReference;
-    }
-
-    /**
-     * Gets image alt.
-     *
-     * @return the image alt
-     */
-    @Override
-    public String getImageAlt() {
-        return imageAlt;
-    }
-
-    /**
-     * Gets image link.
-     *
-     * @return the resolved image link
-     */
-    @Override
-    public String getImageLink() {
-        return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
     }
 }
