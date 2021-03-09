@@ -1,10 +1,6 @@
 {
     "title": "test_title",
     "subtitle": "test_subtitle",
-    "copy": "test_copy",
-    "fileReference": "/content/dam/test.png",
-    "imageAlt": "test_imageAlt",
-    "imageLink": "/content/jlr/au",
     "hideImage": "false",
     "jcr:primaryType": "nt:unstructured",
     "ctaList": {
