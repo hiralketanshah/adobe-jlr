@@ -71,7 +71,8 @@ public class DualFrameCarouselImpl implements GlobalModel {
                         new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
                                 LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                                         resourceResolver),
-                                properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+                                properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+                                properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
             }
         }
     }
