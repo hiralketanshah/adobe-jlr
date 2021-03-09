@@ -45,6 +45,10 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	    /** The id. */
     	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
 	    private String id;
+    	
+    	/** The enable FAB. */
+	    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	    private String enableFAB;
 
 
 		/** The list. */
@@ -69,7 +73,7 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	                                properties.get(CommonConstants.PN_CTA_TEXT, String.class),
 	                                properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
 	                                properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
-	                                properties.get(CommonConstants.PN_LINK_TYPE, String.class)));
+	                                properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
 	            }
 	        }
 	    }
@@ -92,6 +96,15 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	    public String getId() {
 			return id;
 		}
+	    
+	    /**
+    	 * Gets the enable FAB.
+    	 *
+    	 * @return the enable FAB
+    	 */
+    	public String getEnableFAB() {
+	    	return enableFAB;
+	    }
 	   
 	}
 
