@@ -17,14 +17,16 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ArticleModel;
+import com.jlr.core.models.GlobalModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class ArticleModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = { ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
-public class ArticleModelImpl implements ArticleModel {
+@Model(adaptables = Resource.class, adapters = { GlobalModel.class,
+        ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
+public class ArticleModelImpl implements ArticleModel, GlobalModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
@@ -79,11 +81,11 @@ public class ArticleModelImpl implements ArticleModel {
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
                 ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(
-                        new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                        resourceResolver),
-                                properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+                list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+                        LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                resourceResolver),
+                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+                        properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
             }
         }
     }

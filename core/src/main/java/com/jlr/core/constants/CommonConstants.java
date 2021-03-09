@@ -20,5 +20,6 @@ public class CommonConstants {
     public static final String PN_CTA_TEXT = "text";
     public static final String PN_CTA_LINK = "link";
     public static final String PN_CTA_TARGET = "target";
+    public static final String PN_CTA_LINK_TYPE = "linkType";
 
 }
