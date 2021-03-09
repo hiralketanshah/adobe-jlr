@@ -5,11 +5,19 @@ public class CTAPojo {
     private String text;
     private String link;
     private String target;
+	private String linkType;
 
     public CTAPojo(String text, String link, String target) {
         this.text = text;
         this.link = link;
         this.target = target;
+    }
+    
+    public CTAPojo(String text, String link, String target, String linkType) {
+    	this.text = text;
+        this.link = link;
+        this.target = target;
+    	this.linkType=linkType;
     }
 
     public String getText() {
@@ -35,4 +43,12 @@ public class CTAPojo {
     public void setTarget(String target) {
         this.target = target;
     }
+
+	public String getLinkType() {
+		return linkType;
+	}
+
+	public void setLinkType(String linkType) {
+		this.linkType = linkType;
+	}
 }
