@@ -45,7 +45,7 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
      */
     @PostConstruct
     public void init() {
-        if (heroCta != null && heroCta.hasChildren()) {
+        if (null != heroCta && heroCta.hasChildren()) {
             Iterator<Resource> childResources = heroCta.listChildren();
             while (childResources.hasNext()) {
                 Resource child = childResources.next();

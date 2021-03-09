@@ -54,7 +54,7 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
      */
     @PostConstruct
     public void init() {
-        if (ctaList != null && ctaList.hasChildren()) {
+        if (null != ctaList && ctaList.hasChildren()) {
             Iterator<Resource> childResources = ctaList.listChildren();
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
