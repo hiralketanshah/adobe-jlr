@@ -1,11 +1,7 @@
 {
    "jcr:primaryType":"nt:unstructured",
-   "jcr:createdBy":"admin",
-   "description":"description_test",
-   "jcr:lastModifiedBy":"admin",
-   "jcr:created":"Thu Mar 04 2021 15:04:39 GMT+0530",
-   "title":"title_test",
-   "jcr:lastModified":"Thu Mar 04 2021 15:17:53 GMT+0530",
+   "copy":"description_test",
+   "headerTitle":"title_test",
    "sling:resourceType":"jlr/components/Snippet/v1/snippet",
    "cq:styleIds":[
       "1614597950157"
@@ -16,7 +12,8 @@
          "jcr:primaryType":"nt:unstructured",
          "target":"_blank",
          "link":"/content/jlr/au",
-         "text":"Find out more"
+         "text":"Find out more",
+         "linkType":"primary"
       }
    }
 }

@@ -9,7 +9,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.internal.models.v1.SnippetModelImpl;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -30,15 +29,6 @@ class SnippetModelImplTest {
         snippetModel = resource.adaptTo(SnippetModelImpl.class);
     }
 
-	@Test
-	void testGetTitle() {
-		assertEquals("title_test", snippetModel.getTitle());
-	}
-
-	@Test
-	void testGetDescription() {
-		assertEquals("description_test", snippetModel.getDescription());
-	}
 
 	@Test
 	void testGetLinks() {
@@ -48,6 +38,7 @@ class SnippetModelImplTest {
             assertEquals("Find out more", item.getText());
             assertEquals("/content/jlr/au", item.getLink());
             assertEquals("_blank", item.getTarget());
+            assertEquals("primary", item.getLinkType());
         });
 
 	}

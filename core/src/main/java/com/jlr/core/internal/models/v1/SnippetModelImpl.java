@@ -11,37 +11,41 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.models.GlobalModel;
 import com.jlr.core.models.SnippetModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.LinkUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class SnippetModelImpl.
  */
 @Model(adaptables = Resource.class,
-adapters = {SnippetModel.class},
-resourceType = "jlr/components/Snippet/v1/snippet",
+adapters = {SnippetModel.class, GlobalModel.class},
+resourceType = SnippetModelImpl.RESOURCE_TYPE,
 defaultInjectionStrategy=DefaultInjectionStrategy.OPTIONAL)
-public class SnippetModelImpl implements SnippetModel {
+public class SnippetModelImpl implements SnippetModel, GlobalModel {
 	
 	/** The logger. */
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+	/** The Constant RESOURCE_TYPE. */
+    public static final String RESOURCE_TYPE = "jlr/components/Snippet/v1/snippet";
 	
 	/** The list. */
 	List<CTAPojo> list=new ArrayList<>();
 	
-	/** The title. */
+	/** The id. */
 	@Inject
-	String title;
+    private String id;
+
+	/** The headerTitle. */
+	@Inject
+	private String headerTitle;
 	
 	/** The resource resolver. */
 	@Inject
@@ -51,9 +55,9 @@ public class SnippetModelImpl implements SnippetModel {
 	@Inject
     private Resource ctaList;
 	
-	/** The description. */
+	/** The copy. */
 	@Inject
-	String description;
+	String copy;
 	
 	/**
 	 * Inits the.
@@ -69,29 +73,30 @@ public class SnippetModelImpl implements SnippetModel {
 						new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
 								LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
 										resourceResolver),
-								properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+								properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+								properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
 			}
 		}
 	}
 
 	/**
-	 * Gets the title.
+	 * Gets the headerTitle.
 	 *
-	 * @return the title
+	 * @return the headerTitle
 	 */
 	@Override
-	public String getTitle() {
-		return title;
+	public String getHeaderTitle() {
+		return headerTitle;
 	}
 
 	/**
-	 * Gets the description.
+	 * Gets the copy.
 	 *
-	 * @return the description
+	 * @return the copy
 	 */
 	@Override
-	public String getDescription() {
-		return description;
+	public String getCopy() {
+		return copy;
 	}
 	
 	/**
@@ -102,6 +107,16 @@ public class SnippetModelImpl implements SnippetModel {
 	@Override
 	public List<CTAPojo> getCtaList() {
 		return list;
+	}
+	
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
+	@Override
+	public String getId() {
+		return id;
 	}
 
 
