@@ -8,7 +8,7 @@ Dual Frame Carousel component written in HTL.
 * Full Dual Carousel are a versatile component used in a variety of ways on DX.
 
 ### Use Object
-The Dual Frame Carousel component uses the `com.jlr.core.models.GloabalModel` Sling model as its Use-object.
+The Dual Frame Carousel component uses the `com.jlr.core.models.DualFrameCarouselModel` Sling model as its Use-object.
 
 ### Edit Dialog Properties
 The following properties are written to JCR for this Full Frame Carousel component and are expected to be available as `Resource` properties:

@@ -26,7 +26,7 @@ import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, 
 adapters = { ReadyToGoBarModel.class }, 
 resourceType = ReadyToGoBarImpl.RESOURCE_TYPE)
-public class ReadyToGoBarImpl implements ReadyToGoBarModel {
+public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarModel {
 
 	    /** The Constant RESOURCE_TYPE. */
 	    public static final String RESOURCE_TYPE = "jlr/components/readytogobar/v1/readytogobar";
@@ -42,10 +42,6 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	    @Inject
 	    private ResourceResolver resourceResolver;
 	    
-	    /** The id. */
-    	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	    private String id;
-    	
     	/** The enable FAB. */
 	    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
 	    private String enableFAB;
@@ -89,15 +85,6 @@ public class ReadyToGoBarImpl implements ReadyToGoBarModel {
 	        return list;
 	    }
     	
-    	/**
-	     * Gets the id.
-	     *
-	     * @return the id
-	     */
-	    public String getId() {
-			return id;
-		}
-	    
 	    /**
     	 * Gets the enable FAB.
     	 *

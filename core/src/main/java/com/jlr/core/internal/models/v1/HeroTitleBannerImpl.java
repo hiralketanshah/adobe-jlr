@@ -28,22 +28,6 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/heroTitleBanner/v1/heroTitleBanner";
 
-    /** The copy. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String copy;
-
-    /** The file reference. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String fileReference;
-
-    /** The image alt. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageAlt;
-    
-    /** The image link. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageLink;
-    
     /** The hero cta. */
     @Inject
     @Optional
@@ -84,65 +68,5 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     public List<CTAPojo> getHeroCta() {
         return list;
     }
-  
-    /**
-     * Gets the id.
-     *
-     * @return the id
-     */
-    @Override
-    public String getId() {
-		return id;
-	}
-    
-    /**
-     * Gets the header copy.
-     *
-     * @return the header copy
-     */
-    @Override
-	public String getHeaderTitle() {
-		return headerTitle;
-	}
-	
-    /**
-     * Gets the copy.
-     *
-     * @return the copy
-     */
-    @Override
-	public String getCopy() {
-		return copy;
-	}
-    
-    /**
-     * Gets the file reference.
-     *
-     * @return the file reference
-     */
-    @Override
-	public String getFileReference() {
-		return fileReference;
-	}
-    
-    /**
-     * Gets the image alt.
-     *
-     * @return the image alt
-     */
-    @Override
-	public String getImageAlt() {
-		return imageAlt;
-	}
-    
-    /**
-     * Gets the image link.
-     *
-     * @return the image link
-     */
-    @Override
-    public String getImageLink() {
-		return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
-	}
   
 }
