@@ -1,0 +1,19 @@
+{
+   "jcr:primaryType":"nt:unstructured",
+   "copy":"description_test",
+   "headerTitle":"title_test",
+   "sling:resourceType":"jlr/components/Snippet/v1/snippet",
+   "cq:styleIds":[
+      "1614597950157"
+   ],
+   "ctaList":{
+      "jcr:primaryType":"nt:unstructured",
+      "item0":{
+         "jcr:primaryType":"nt:unstructured",
+         "target":"_blank",
+         "link":"/content/jlr/au",
+         "text":"Find out more",
+         "linkType":"primary"
+      }
+   }
+}
