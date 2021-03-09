@@ -34,7 +34,7 @@ public class SnippetModelImpl implements SnippetModel, GlobalModel {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/Snippet/v1/snippet";
+    public static final String RESOURCE_TYPE = "jlr/components/snippet/v1/snippet";
 	
 	/** The list. */
 	List<CTAPojo> list=new ArrayList<>();
