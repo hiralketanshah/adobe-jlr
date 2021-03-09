@@ -59,9 +59,9 @@ public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameC
      *
      * @return the cta list
      */
+
     @Override
     public List<CTAPojo> getCtaList() {
         return list;
-    }
-    
+    }    
 }
