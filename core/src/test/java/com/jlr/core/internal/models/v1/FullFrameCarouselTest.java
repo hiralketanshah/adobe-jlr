@@ -38,7 +38,7 @@ class FullFrameCarouselTest {
  	 * Test properties.
  	 */
  	@Test
-	    void testProperties() {
+	    void testBackGroundImgProperty() {
 	        assertEquals("/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg", fullFrameCarouselModel.getBackgroundImage());
 	    }
 
