@@ -7,12 +7,6 @@ public class CTAPojo {
     private String target;
 	private String linkType;
 
-    public CTAPojo(String text, String link, String target) {
-        this.text = text;
-        this.link = link;
-        this.target = target;
-    }
-    
     public CTAPojo(String text, String link, String target, String linkType) {
     	this.text = text;
         this.link = link;
