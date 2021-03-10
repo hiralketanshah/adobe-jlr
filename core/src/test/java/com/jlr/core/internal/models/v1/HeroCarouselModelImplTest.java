@@ -42,7 +42,7 @@ class HeroCarouselModelImplTest {
 	@Test
     void testProperties() {
 		assertEquals("description_test", heroCarouselModel.getDescription());
-		assertEquals("true", heroCarouselModel.getEnableTco());
+		assertEquals(true, heroCarouselModel.getEnableTco());
 		List<CTAPojo> list = heroCarouselModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
