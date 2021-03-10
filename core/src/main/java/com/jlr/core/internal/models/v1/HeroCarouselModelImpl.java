@@ -38,7 +38,7 @@ public class HeroCarouselModelImpl extends GlobalModelImpl implements HeroCarous
     
     /** The enable TCO. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String enableTco;
+    private boolean enableTco;
     
     /** The description. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -67,7 +67,7 @@ public class HeroCarouselModelImpl extends GlobalModelImpl implements HeroCarous
         return list;
     }
     @Override
-	public String getEnableTco() {
+	public boolean getEnableTco() {
 		return enableTco;
 	}
     @Override

@@ -35,11 +35,11 @@
                                 required="{Boolean}true"/>
                             <enableTco
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}false"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                 fieldDescription="If checked, pricing and emission related information will be displayed"
                                 name="./enableTco"
                                 text="Show TCO"
+                                uncheckedValue="{Boolean}false"
                                 value="{Boolean}true"/>
                         </items>
                     </properties>

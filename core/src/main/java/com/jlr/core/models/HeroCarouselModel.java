@@ -21,8 +21,8 @@ public interface HeroCarouselModel {
         return new ArrayList<>();
     }
 	
-    default String getEnableTco() {
-    	return StringUtils.EMPTY;
+    default boolean getEnableTco() {
+    	return false;
     }
     
     default String getDescription() {
