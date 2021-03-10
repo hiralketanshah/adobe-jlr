@@ -56,7 +56,7 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     	 */
     	@PostConstruct
 	    public void init() {
-	        if (rtgb != null && rtgb.hasChildren()) {
+	        if (null != rtgb && rtgb.hasChildren()) {
 	            Iterator<Resource> childResources = rtgb.listChildren();
 	            while (childResources.hasNext()) {
 	                Resource child = childResources.next();
