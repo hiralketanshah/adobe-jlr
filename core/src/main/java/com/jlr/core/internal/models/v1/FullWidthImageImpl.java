@@ -18,6 +18,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.FullWidthImageModel;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
 
 /**
@@ -54,17 +55,8 @@ public class FullWidthImageImpl extends GlobalModelImpl implements FullWidthImag
     @PostConstruct
     public void init() {
         if (null != ctaList && ctaList.hasChildren()) {
-            Iterator<Resource> childResources = ctaList.listChildren();
-            while (childResources.hasNext()) {
-                Resource child = childResources.next();
-                ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                        LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                resourceResolver),
-                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-                        properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
+            list =  CtaUtils.createCtaList(ctaList, resourceResolver);
             }
-        }
     }
 
    
