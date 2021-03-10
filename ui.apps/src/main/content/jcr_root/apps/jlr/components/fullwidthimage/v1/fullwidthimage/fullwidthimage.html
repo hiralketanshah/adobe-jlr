@@ -1,0 +1,23 @@
+<sly data-sly-use.model="com.jlr.core.models.FullWidthImageModel" data-sly-call="${renderFullWidthImage @ fullWidthImage=model}" />
+
+<template data-sly-template.renderFullWidthImage="${ @ fullWidthImage }">
+<div class="cq-placeholder"
+	 data-emptytext="Full Width Image Component"></div>
+
+     <div style="background-image: url(${fullWidthImage.fileReference @ context='styleString'});">
+
+     Title: ${fullWidthImage.headerTitle @ context="html"}<br>
+     Copy: ${fullWidthImage.bodyCopy}<br>
+     ImageLink: ${fullWidthImage.imageLink}<br>
+     LogoImage: ${fullWidthImage.logoImage}<br>
+     ID: ${fullWidthImage.id}<br>
+     Alt Text: ${fullWidthImage.imageAlt}<br>
+
+<div data-sly-list.item="${fullWidthImage.ctaList}">
+
+   <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
+
+</div>
+</div>
+
+</template>

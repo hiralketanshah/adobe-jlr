@@ -26,7 +26,7 @@ import com.jlr.core.utils.LinkUtils;
 public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBannerModel {
 
     /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/heroTitleBanner/v1/heroTitleBanner";
+    public static final String RESOURCE_TYPE = "jlr/components/herotitlebanner/v1/herotitlebanner";
     
     /** The cta list. */
     @Inject
