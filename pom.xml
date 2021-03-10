@@ -697,6 +697,9 @@ Bundle-DocURL:
 						<excludes>
 							<exclude>*.html</exclude>
 						</excludes>
+						<rulesets>
+                            <ruleset>../acs/pmd/rules.xml</ruleset>
+                        </rulesets>
                     </configuration>
                     <executions>
                         <execution>
@@ -842,10 +845,31 @@ Bundle-DocURL:
             <dependency>
                 <groupId>com.adobe.aem</groupId>
                 <artifactId>uber-jar</artifactId>
-                <version>6.5.7</version>
+                <version>6.5.6-1.0</version>
               <!--  <classifier>apis</classifier> -->
                 <scope>provided</scope>
             </dependency>
+				<dependency>
+				<groupId>com.google.code.findbugs</groupId>
+				<artifactId>jsr305</artifactId>
+				<version>3.0.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<!-- ACS Commons Dependency -->
+			<dependency>
+				<groupId>com.adobe.acs</groupId>
+				<artifactId>acs-aem-commons-bundle</artifactId>
+				<version>4.11.2</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.adobe.acs</groupId>
+				<artifactId>acs-aem-commons-content</artifactId>
+				<version>4.11.2</version>
+				<scope>provided</scope>
+				<type>content-package</type>
+				<classifier>min</classifier>
+			</dependency>
             <!-- Apache Sling Dependencies -->
             <dependency>
                 <groupId>org.apache.sling</groupId>
@@ -905,7 +929,6 @@ Bundle-DocURL:
                 <version>${core.wcm.components.version}</version>
             </dependency>
 
-
             <!-- Testing -->
             <dependency>
                 <groupId>org.junit</groupId>
@@ -944,7 +967,12 @@ Bundle-DocURL:
                 <version>1.0.1</version>
                 <scope>test</scope>
             </dependency>
-			
+			<dependency>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>org.apache.sling.models.impl</artifactId>
+				<version>1.4.4</version>
+            <scope>test</scope>
+        </dependency>
         </dependencies>
     </dependencyManagement>
 

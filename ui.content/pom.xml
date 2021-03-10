@@ -80,6 +80,19 @@
                     <failOnError>true</failOnError>
                 </configuration>
             </plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.14.0</version>
+				<configuration>
+                    <skip>true</skip>
+					<analysisCache>true</analysisCache>
+					<!-- enable incremental analysis -->
+					<excludes>
+						<exclude>**/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
         </plugins>
     </build>
 
@@ -102,6 +115,12 @@
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
             <!-- <classifier>apis</classifier> -->
+        </dependency>
+        <dependency>
+            <groupId>com.adobe.acs</groupId>
+            <artifactId>acs-aem-commons-ui.content</artifactId>
+            <version>4.11.2</version>
+            <type>content-package</type>
         </dependency>
     </dependencies>
 </project>

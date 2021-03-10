@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2021-03-05T14:11:15.525+05:30"
+        cq:lastModifiedBy="translation-job-service"
+        cq:lastTranslationUpdate="{Date}2021-03-05T14:11:15.525+05:30"
+        cq:tags="[]"
+        cq:template="/conf/jlr/settings/wcm/templates/xf-web-variation"
+        cq:translationSourcePath="/content/experience-fragments/landrover/language-masters/de/en/header/master"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Header"
+        sling:resourceType="jlr/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="jlr/components/container"
+            layout="simple">
+            <navigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="jlr/components/navigation"
+                collectAllPages="false"
+                navigationRoot="/content/jlr/au/en"
+                skipNavigationRoot="false"
+                structureDepth="1"/>
+            <languagenavigation
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="jlr/components/languagenavigation"
+                navigationRoot="/content/jlr/au"
+                structureDepth="2"/>
+            <search
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="jlr/components/search"
+                searchRoot="/content/jlr/au"/>
+        </root>
+    </jcr:content>
+</jcr:root>

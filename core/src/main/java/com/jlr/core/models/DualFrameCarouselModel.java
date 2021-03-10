@@ -1,0 +1,22 @@
+package com.jlr.core.models;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jlr.core.pojos.CTAPojo;
+
+/**
+ * The Interface DualFrameCarouselModel.
+ */
+public interface DualFrameCarouselModel {
+	
+	/**
+	 * Gets the hero cta.
+	 *
+	 * @return the hero cta
+	 */
+	default List<CTAPojo> getCtaList() {
+        return new ArrayList<>();
+    }
+
+}

@@ -1,0 +1,15 @@
+{
+    "headerCopy": "test_header_Copy",
+    "headerTitle": "test_header_title",
+    "copy": "test_body_copy",
+    "id": "12345",
+    "logoImage": "/content/dam/test.png",
+    "text": "test_cta_text",
+    "link": "/content/jlr/au",
+    "linkType":"primary",
+    "target": "_self",
+    "fileReference": "/content/dam/test.png",
+    "imageAlt": "test_imageAlt",
+    "imageLink": "/content/jlr/au",
+    "jcr:primaryType": "nt:unstructured"
+}
