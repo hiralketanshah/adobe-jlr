@@ -10,7 +10,7 @@
     "true"
   ],
   "headerTitle":"HeaderTitle",
-  "heroCta":{
+  "ctaList":{
     "jcr:primaryType":"nt:unstructured",
     "item0":{
       "jcr:primaryType":"nt:unstructured",

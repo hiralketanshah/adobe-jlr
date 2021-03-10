@@ -27,11 +27,11 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/heroTitleBanner/v1/heroTitleBanner";
-
-    /** The hero cta. */
+    
+    /** The cta list. */
     @Inject
     @Optional
-    private Resource heroCta;
+    private Resource ctaList;
 
     /** The resource resolver. */
     @Inject
@@ -45,7 +45,7 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
      */
     @PostConstruct
     public void init() {
-        if (null != heroCta && heroCta.hasChildren()) {
+        if (null != ctaList && ctaList.hasChildren()) {
             Iterator<Resource> childResources = heroCta.listChildren();
             while (childResources.hasNext()) {
                 Resource child = childResources.next();
@@ -59,14 +59,16 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
         }
     }
 
+   
     /**
-     * Gets the hero cta.
+     * Gets the cta list.
      *
-     * @return the hero cta
+     * @return the cta list
      */
     @Override
-    public List<CTAPojo> getHeroCta() {
+    public List<CTAPojo> getCtaList() {
         return list;
     }
+  
   
 }

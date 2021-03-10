@@ -41,7 +41,7 @@ class HeroTitleBannerModelTest {
 	 */
 	@Test
     void testProperties() {
-		List<CTAPojo> list = heroTitleBannerModel.getHeroCta();
+		List<CTAPojo> list = heroTitleBannerModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_text", item.getText());
