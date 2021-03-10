@@ -4,7 +4,7 @@
   "imageAlt":"image",
   "id":"hero title",
   "copy":"<p>test_copy</p>\r\n",
-  "sling:resourceType":"jlr/components/heroTitleBanner/v1/heroTitleBanner",
+  "sling:resourceType":"jlr/components/herotitlebanner/v1/herotitlebanner",
   "textIsRich":[
     "true",
     "true"
