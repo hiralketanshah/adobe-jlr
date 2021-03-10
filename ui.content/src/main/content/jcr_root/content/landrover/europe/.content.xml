@@ -5,7 +5,7 @@
         cq:conf="/conf/jlr"
         cq:lastModified="{Date}2021-03-04T14:53:05.582+05:30"
         cq:lastModifiedBy="admin"
-        cq:template="/conf/jlr/settings/wcm/templates/page-content"
+        cq:template="/conf/jlr/settings/wcm/templates/content-page-template"
         jcr:primaryType="cq:PageContent"
         jcr:title="europe"
         sling:resourceType="jlr/components/page"
