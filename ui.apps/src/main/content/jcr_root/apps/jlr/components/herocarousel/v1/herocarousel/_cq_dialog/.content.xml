@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Hero Carousel"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <id
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
+                            <description
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                fieldDescription="Component main copy description"
+                                fieldLabel="Description"
+                                name="./description"
+                                required="{Boolean}true"/>
+                            <enableTco
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="If checked, pricing and emission related information will be displayed"
+                                name="./enableTco"
+                                text="Show TCO"
+                                value="{Boolean}true"/>
+                        </items>
+                    </properties>
+                    <image
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Image"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <image
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                            <link
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
+                            <imgAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                        </items>
+                    </image>
+                    <cta
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="CTA"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <ctaList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="CTA List">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./ctaList">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                <link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                <target
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                <linkType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="2"/>
+                            </ctaList>
+                        </items>
+                    </cta>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
