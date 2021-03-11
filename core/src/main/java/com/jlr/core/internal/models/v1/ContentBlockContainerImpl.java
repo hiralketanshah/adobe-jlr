@@ -85,4 +85,5 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
     public String getBodyCopy() {
 		return bodyCopy;
 	}
+    
 }

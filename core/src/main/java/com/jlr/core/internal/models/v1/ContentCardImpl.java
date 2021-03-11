@@ -1,6 +1,8 @@
 package com.jlr.core.internal.models.v1;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +14,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import java.text.ParseException;
 
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
@@ -29,6 +32,12 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     /** The body copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String bodyCopy;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String date;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String posted;
 
     /** The cta list. */
     @Inject
@@ -70,6 +79,13 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Override
     public String getBodyCopy() {
 		return bodyCopy;
+	}
+    
+    @Override
+    public String getDate() throws ParseException {
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Date postdate = sdf.parse(date);
+		return new SimpleDateFormat("dd-MM-yyyy").format(postdate);
 	}
 }
 

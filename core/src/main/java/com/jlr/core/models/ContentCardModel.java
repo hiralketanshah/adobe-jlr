@@ -1,5 +1,6 @@
 package com.jlr.core.models;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +30,10 @@ public interface ContentCardModel {
 	 * @return the body copy
 	 */
 	default String getBodyCopy() {
+        return StringUtils.EMPTY;
+    }
+	
+	default String getDate() throws ParseException {
         return StringUtils.EMPTY;
     }
 	
