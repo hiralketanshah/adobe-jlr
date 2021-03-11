@@ -3,7 +3,6 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -48,28 +47,33 @@ public class HeroCarouselModelImpl extends GlobalModelImpl implements HeroCarous
     List<CTAPojo> list = new ArrayList<>();
 
     /**
-     * Inits the.
-     */
-    @PostConstruct
-    public void init() {
-        if (null != ctaList && ctaList.hasChildren()) {
-           list =  CtaUtils.createCtaList(ctaList, resourceResolver);
-        }
-    }
-
-    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
     @Override
     public List<CTAPojo> getCtaList() {
+    	if (null != ctaList && ctaList.hasChildren()) {
+            list =  CtaUtils.createCtaList(ctaList, resourceResolver);
+         }
         return list;
     }
+    
+    /**
+     * Gets the enable tco.
+     *
+     * @return the enable tco
+     */
     @Override
 	public boolean getEnableTco() {
 		return enableTco;
 	}
+    
+    /**
+     * Gets the description.
+     *
+     * @return the description
+     */
     @Override
 	public String getDescription() {
 		return description;

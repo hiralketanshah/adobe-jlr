@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -30,8 +29,6 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
 
 	    /** The Constant RESOURCE_TYPE. */
 	    public static final String RESOURCE_TYPE = "jlr/components/readytogobar/v1/readytogobar";
-
-
 	    
 	    /** The rtgb. */
     	@Inject
@@ -50,40 +47,34 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
 		/** The list. */
     	List<ReadyToGoBar> list = new ArrayList<>();
 
-	   
-	    /**
-    	 * Inits the.
-    	 */
-    	@PostConstruct
-	    public void init() {
-	        if (null != rtgb && rtgb.hasChildren()) {
-	            Iterator<Resource> childResources = rtgb.listChildren();
-	            while (childResources.hasNext()) {
-	                Resource child = childResources.next();
-	                ValueMap properties = child.adaptTo(ValueMap.class);
-	                list.add(
-	                        new ReadyToGoBar(LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                    resourceResolver),
-	                                properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-	                                properties.get(CommonConstants.PN_DESCRIPTION, String.class),
-	                                properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-	                                properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
-	                                properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
-	                                properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
-	                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_IMAGE_LINK, String.class), resourceResolver)));
-	            }
-	        }
-	    }
-	    
     	/**
     	 * Gets the rtgb.
     	 *
     	 * @return the rtgb
     	 */
     	@Override
-	    public List<ReadyToGoBar> getRtgb() {
-	        return list;
-	    }
+		public List<ReadyToGoBar> getRtgb() {
+			if (null != rtgb && rtgb.hasChildren()) {
+				Iterator<Resource> childResources = rtgb.listChildren();
+				while (childResources.hasNext()) {
+					Resource child = childResources.next();
+					ValueMap properties = child.adaptTo(ValueMap.class);
+					list.add(new ReadyToGoBar(
+							LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+									resourceResolver),
+							properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+							properties.get(CommonConstants.PN_DESCRIPTION, String.class),
+							properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+							properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
+							properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
+							properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
+							LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_IMAGE_LINK, String.class),
+									resourceResolver)));
+				}
+			}
+
+			return list;
+		}
     	
 	    /**
     	 * Gets the enable FAB.
