@@ -32,23 +32,16 @@ public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameC
     List<CTAPojo> list = new ArrayList<>();
     
     /**
-     * Inits the Article Model.
-     */
-    @PostConstruct
-    public void init() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list =  CtaUtils.createCtaList(ctaList, resourceResolver);
-            }
-    }
-
-    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
 
     @Override
-    public List<CTAPojo> getCtaList() {
-        return list;
-    }    
+	public List<CTAPojo> getCtaList() {
+		if (null != ctaList && ctaList.hasChildren()) {
+			list = CtaUtils.createCtaList(ctaList, resourceResolver);
+		}
+		return list;
+	}    
 }
