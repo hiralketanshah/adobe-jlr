@@ -3,7 +3,6 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -43,23 +42,16 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     private Resource ctaList;
 
     /**
-     * Inits the.
-     */
-    @PostConstruct
-    public void init() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list =  CtaUtils.createCtaList(ctaList, resourceResolver);
-            }
-    }
-
-    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
     @Override
     public List<CTAPojo> getCtaList() {
-        return list;
-    }
+		if (null != ctaList && ctaList.hasChildren()) {
+			list = CtaUtils.createCtaList(ctaList, resourceResolver);
+		}
+		return list;
+	}
 
 }

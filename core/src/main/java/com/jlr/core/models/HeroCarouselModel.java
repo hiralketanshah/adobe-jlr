@@ -21,10 +21,20 @@ public interface HeroCarouselModel {
         return new ArrayList<>();
     }
 	
+    /**
+     * Gets the enable tco.
+     *
+     * @return the enable tco
+     */
     default boolean getEnableTco() {
     	return false;
     }
     
+    /**
+     * Gets the description.
+     *
+     * @return the description
+     */
     default String getDescription() {
     	return StringUtils.EMPTY;
     }
