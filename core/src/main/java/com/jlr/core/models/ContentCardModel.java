@@ -37,4 +37,12 @@ public interface ContentCardModel {
         return StringUtils.EMPTY;
     }
 	
+	default String getContentType() {
+        return StringUtils.EMPTY;
+    }
+	
+	default String getVideoType() {
+        return StringUtils.EMPTY;
+    }
+	
 }

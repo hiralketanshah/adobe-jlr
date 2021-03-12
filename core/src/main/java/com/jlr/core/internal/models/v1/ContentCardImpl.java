@@ -37,7 +37,11 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     private String date;
     
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String posted;
+    private String contentType;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoType;
+    
 
     /** The cta list. */
     @Inject
@@ -86,6 +90,16 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
         Date postdate = sdf.parse(date);
 		return new SimpleDateFormat("dd-MM-yyyy").format(postdate);
+	}
+
+    @Override
+	public String getContentType() {
+		return contentType;
+	}
+
+    @Override
+	public String getVideoType() {
+		return videoType;
 	}
 }
 
