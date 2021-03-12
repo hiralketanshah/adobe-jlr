@@ -32,7 +32,8 @@ public class CtaUtils {
 		            LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
 		                    resourceResolver),
 		            properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-		            properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
+		            properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
+		            properties.get(CommonConstants.PN_PRIMARY_LOGO, String.class)));
 		}
 		return list;
 	}

@@ -2,7 +2,6 @@ package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.text.ParseException;
 import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
@@ -24,8 +23,8 @@ class ContentCardModelTest {
 
 /** The content card model. */
 private ContentCardModel contentCardModel;
-	
-	/**
+
+/**
 	 * Sets the up.
 	 *
 	 * @param context the new up
@@ -66,16 +65,6 @@ private ContentCardModel contentCardModel;
 	@Test
 	void testContentType() {
 		assertEquals("image", contentCardModel.getContentType());
-	}
-	
-	/**
-	 * Test date.
-	 *
-	 * @throws ParseException the parse exception
-	 */
-	@Test
-	void testDate() throws ParseException {
-		assertEquals("03-03-2021", contentCardModel.getDate());
 	}
 	
 	/**
