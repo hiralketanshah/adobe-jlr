@@ -2,6 +2,7 @@ package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
@@ -9,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.internal.models.v1.ContentCardImpl;
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
 
@@ -58,6 +58,32 @@ private ContentCardModel contentCardModel;
 	@Test
 	void testBodyCopy() {
 		assertEquals("body_copy", contentCardModel.getBodyCopy());
+	}
+	
+	/**
+	 * Test content type.
+	 */
+	@Test
+	void testContentType() {
+		assertEquals("image", contentCardModel.getContentType());
+	}
+	
+	/**
+	 * Test date.
+	 *
+	 * @throws ParseException the parse exception
+	 */
+	@Test
+	void testDate() throws ParseException {
+		assertEquals("03-03-2021", contentCardModel.getDate());
+	}
+	
+	/**
+	 * Test video type.
+	 */
+	@Test
+	void testVideoType() {
+		assertEquals("videoId", contentCardModel.getVideoType());
 	}
 
 }

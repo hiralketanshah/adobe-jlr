@@ -33,14 +33,30 @@ public interface ContentCardModel {
         return StringUtils.EMPTY;
     }
 	
+	/**
+	 * Gets the date.
+	 *
+	 * @return the date
+	 * @throws ParseException the parse exception
+	 */
 	default String getDate() throws ParseException {
         return StringUtils.EMPTY;
     }
 	
+	/**
+	 * Gets the content type.
+	 *
+	 * @return the content type
+	 */
 	default String getContentType() {
         return StringUtils.EMPTY;
     }
 	
+	/**
+	 * Gets the video type.
+	 *
+	 * @return the video type
+	 */
 	default String getVideoType() {
         return StringUtils.EMPTY;
     }

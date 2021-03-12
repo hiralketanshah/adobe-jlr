@@ -47,24 +47,17 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
     List<CTAPojo> list = new ArrayList<>();
     
     /**
-     * Inits the.
-     */
-    @PostConstruct
-    public void init() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list =  CtaUtils.createCtaList(ctaList, resourceResolver);
-            }
-    }
-
-    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
     @Override
     public List<CTAPojo> getCtaList() {
-        return list;
-    }
+		if (null != ctaList && ctaList.hasChildren()) {
+			list = CtaUtils.createCtaList(ctaList, resourceResolver);
+		}
+		return list;
+	}
 
     /**
      * Gets the column.
