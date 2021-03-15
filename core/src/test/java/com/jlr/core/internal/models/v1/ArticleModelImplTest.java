@@ -2,15 +2,12 @@ package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.List;
-
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.ArticleModel;
-import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -42,22 +39,6 @@ class ArticleModelImplTest {
      */
     @Test
     void testProperties() {
-        assertEquals("test_title", articleModel.getTitle());
-        assertEquals("test_subtitle", articleModel.getSubtitle());
-    }
-
-    /**
-     * Test cta properties.
-     */
-    @Test
-    void testCtaProperties() {
-        List<CTAPojo> list = articleModel.getCtaList();
-        assertEquals(1, list.size());
-        list.forEach(item -> {
-            assertEquals("test_text", item.getText());
-            assertEquals("http://www.google.com", item.getLink());
-            assertEquals("primary", item.getLinkType());
-            assertEquals("_self", item.getTarget());
-        });
+        assertEquals("above", articleModel.getImagePosition());
     }
 }
