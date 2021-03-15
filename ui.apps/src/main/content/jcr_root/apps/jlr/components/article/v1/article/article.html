@@ -1,22 +1,20 @@
 <sly data-sly-use.model="com.jlr.core.models.ArticleModel" data-sly-call="${renderArticle @ article=model}" />
 
 <template data-sly-template.renderArticle="${ @ article }">
-<div data-sly-test="${!article.title}" class="cq-placeholder"
-	 data-emptytext="Article Component"></div>
+<div data-sly-test="${!article.headerCopy}" class="cq-placeholder"
+	 data-emptytext="Article Section Component"></div>
 
-ID : ${article.id}<br/>
-Title : ${article.title}<br/>
-Subtitle : ${article.subtitle}<br/>
+Header Copy : ${article.headerCopy @context='html'}<br/>
 Copy : ${article.copy @context='html'}<br/><br/>
 
 Image : ${article.fileReference}<br/>
 Alt Text : ${article.imageAlt}<br/>
 Image Link : ${article.imageLink}<br/><br/>
 
-CTAs: 
-<ul data-sly-list.cta="${article.ctaList}">
-  <li>${cta.text} - ${cta.link} - ${cta.linkType} - ${cta.target} </li>
-  <a href="${cta.link}">link</a>
-</ul>
+CTA : 
+text : ${article.text}
+link : ${article.link}
+target : ${article.target}
+linkType : ${article.linkType}
 </template>
 
