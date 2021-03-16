@@ -2,33 +2,37 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import com.jlr.core.models.ArticleModel;
+
+import com.jlr.core.models.ContentBlockContainerModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
 /**
- * The Class ArticleModelImpl.
+ * The Class ContentBlockContainerImpl.
  */
-@Model(adaptables = Resource.class, adapters = {ArticleModel.class}, resourceType = ArticleModelImpl.RESOURCE_TYPE)
-public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
+@Model(adaptables = Resource.class, adapters = { ContentBlockContainerModel.class }, resourceType = ContentBlockContainerImpl.RESOURCE_TYPE)
+public class ContentBlockContainerImpl extends GlobalModelImpl implements ContentBlockContainerModel {
 
-    /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
-
-    /** The title. */
+	/** The Constant RESOURCE_TYPE. */
+	public static final String RESOURCE_TYPE = "jlr/components/contentblockcontainer/v1/contentblockcontainer";
+	
+    /** The column. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String title;
-
-    /** The subtitle. */
+    private String column;
+    
+    /** The body copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String subtitle;
+    private String bodyCopy;
 
     /** The cta list. */
     @Inject
@@ -41,7 +45,7 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-
+    
     /**
      * Gets the cta list.
      *
@@ -49,30 +53,30 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
      */
     @Override
     public List<CTAPojo> getCtaList() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, resourceResolver);
-        }
-
-        return list;
-    }
-
-    /**
-     * Gets title.
-     *
-     * @return the title
-     */
-    @Override
-    public String getTitle() {
-        return title;
-    }
+		if (null != ctaList && ctaList.hasChildren()) {
+			list = CtaUtils.createCtaList(ctaList, resourceResolver);
+		}
+		return list;
+	}
 
     /**
-     * Gets subtitle.
+     * Gets the column.
      *
-     * @return the subtitle
+     * @return the column
      */
     @Override
-    public String getSubtitle() {
-        return subtitle;
+    public String getColumn() {
+        return column;
     }
+    
+    /**
+     * Gets the body copy.
+     *
+     * @return the body copy
+     */
+    @Override
+    public String getBodyCopy() {
+		return bodyCopy;
+	}
+    
 }

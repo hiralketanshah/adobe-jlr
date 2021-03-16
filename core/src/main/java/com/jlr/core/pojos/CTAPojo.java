@@ -6,12 +6,14 @@ public class CTAPojo {
     private String link;
     private String target;
 	private String linkType;
+	private String icon;
 
-    public CTAPojo(String text, String link, String target, String linkType) {
+    public CTAPojo(String text, String link, String target, String linkType, String icon) {
     	this.text = text;
         this.link = link;
         this.target = target;
-    	this.linkType=linkType;
+    	this.linkType = linkType;
+    	this.icon= icon;
     }
 
     public String getText() {
@@ -44,5 +46,13 @@ public class CTAPojo {
 
 	public void setLinkType(String linkType) {
 		this.linkType = linkType;
+	}
+	
+	public String getIcon() {
+		return icon;
+	}
+	
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 }
