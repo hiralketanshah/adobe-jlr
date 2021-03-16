@@ -53,6 +53,7 @@ public class SocialLinksImpl extends GlobalModelImpl implements SocialLinksModel
 	/**
 	 * Inits the.
 	 */
+	@PostConstruct
 	 public void init() {
 		 if (socialLinks != null && socialLinks.hasChildren()) {
 			 Iterator<Resource> childResources = socialLinks.listChildren();
