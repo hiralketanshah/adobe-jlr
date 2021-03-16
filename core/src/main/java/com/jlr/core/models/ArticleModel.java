@@ -19,6 +19,24 @@ public interface ArticleModel {
     }
 
     /**
+     * Gets the content type.
+     *
+     * @return the content type
+     */
+    default String getAssestType() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the video type.
+     *
+     * @return the video type
+     */
+    default String getVideoType() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
      * Gets the hide image.
      *
      * @return the hide image

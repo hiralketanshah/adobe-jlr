@@ -5,4 +5,4 @@
     fieldDescription="Icon to display at the UI"
     fieldLabel="Icon"
     name="./icon"
-    rootPath="/content"/>
+    rootPath="/content/dam/jlr"/>

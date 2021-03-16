@@ -4,9 +4,9 @@
  <div data-sly-test="${!article.id}" class="cq-placeholder" data-emptytext="Article Container Component"></div>
  <div id="landrover"> 
   <section class="cmp-article fontSmooth" id="${article.id}">
-   <br/>
-   <div data-sly-resource="${ 'parsys' @ resourceType='wcm/foundation/components/parsys'}"> </div>
-   <br/>
+   <div class="sectionWrapper clearfix">
+    <div data-sly-resource="${ 'parsys' @ resourceType='wcm/foundation/components/parsys'}"> </div>
+   </div>
   </section>
  </div>
 </template>

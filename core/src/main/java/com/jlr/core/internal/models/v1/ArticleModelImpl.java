@@ -20,6 +20,14 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imagePosition;
 
+    /** The content type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String assestType;
+
+    /** The video type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoType;
+
     /**
      * Gets the image position.
      *
@@ -28,5 +36,25 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
     @Override
     public String getImagePosition() {
         return imagePosition;
+    }
+
+    /**
+     * Gets the content type.
+     *
+     * @return the content type
+     */
+    @Override
+    public String getAssestType() {
+        return assestType;
+    }
+
+    /**
+     * Gets the video type.
+     *
+     * @return the video type
+     */
+    @Override
+    public String getVideoType() {
+        return videoType;
     }
 }
