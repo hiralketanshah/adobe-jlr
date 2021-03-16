@@ -1,0 +1,17 @@
+<sly data-sly-use.model="com.jlr.core.models.HygieneLinksModel" data-sly-call="${renderHygieneLinks @ hygienelink=model}"/>
+
+<template data-sly-template.renderHygieneLinks="${ @ hygienelink }">
+<div class="cq-placeholder"
+	 data-emptytext="Hygiene Links Component"></div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.all @ categories=['jaguar.components.hygienelinks.v1']}"/>
+
+
+<ul>
+      <ul class="toggleContent cmp_footerNav__key-links-list" data-sly-list.item="${hygienelink.hygienelinksList}">
+          <li><a class="toggleHandle" target="${item.target}" href="${item.link}">${item.text}</a></li>
+        </ul>
+        </ul>
+</template>
+

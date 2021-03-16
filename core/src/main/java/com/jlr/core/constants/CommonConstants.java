@@ -26,5 +26,6 @@ public class CommonConstants {
     public static final String PN_CTA_LINK_TYPE = "linkType";
     public static final String PN_IMAGE_LINK = "imageLink";
     public static final String PN_LOGO_PATH = "logoPath";
+    public static final String PN_SOCIAL_ICONS = "socialicon";
 
 }

@@ -5,25 +5,14 @@
 	 data-emptytext="Footer Links Component"></div>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['JCR-FooterLinks']}"/>
+data-sly-call="${clientlib.all @ categories=['jaguar.components.footerlinks.v1']}"/>
 
 
-<footer>
-  <div class="cmp_footerNav fontSmooth" data-show-less="Less" data-show-more="More" data-total="4">
-    <div class="cmp_footerNav__footerWrapper">
-      <div class="cmp_footerNav__navWrapper el">
+<div aria-level="2" class="cmp_footerNav__heading" role="heading">${footerlinks.headerTitle}</div>
 
-        <div aria-level="2" class="cmp_footerNav__heading" role="heading">${footerlinks.headerTitle}</div>
-        <ul class="cmp_footerNav__list" data-sly-list.item="${footerlinks.listItems}">
-          <li class="cmp_footerNav__footerSublist">
-            <a class="toggle" href="${item.URL}" data-sly-unwrap="${!footerlinks.linkItems}">${item.title}<i class="icon-chevron-down active"></i><i class="icon-chevron-up"></i></a>
 
-          </li>
-
+        <ul data-sly-list.item="${footerlinks.listItems}">
+          <li><a href="${item.URL}" data-sly-unwrap="${!footerlinks.linkItems}">${item.title}</a></li>
         </ul>
-        </div>
-        </div>
-        </div>
-        </footer>
         </template>
 

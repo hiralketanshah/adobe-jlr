@@ -7,21 +7,10 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
 data-sly-call="${clientlib.all @ categories=['jaguar.components.subfooter.v1']}"/>
 
-
-<ul data-sly-list.item="${subFooter.listItems}">
-
-    <li>
-
-    <a href="${item.URL}" data-sly-unwrap="${!subFooter.linkItems}">
-
-            <span>${item.title}</span></a>
-
-    </li>
-
-</ul>
-
-<div class="cmp-subFooter fontSmooth">
-	<div class="cmp-subFooter__container">
+<div class="cmp-subFooter fontSmooth lightTheme">
+	<div class="cmp-subFooter__container lightTheme">
  		<p>${subfooter.copy @context="html"}</p>
 	</div>
 </div>
+
+</template>

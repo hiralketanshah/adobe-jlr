@@ -83,7 +83,7 @@
 	width: 33.333%
 }
 
-.cmp_footerNav.col-four .cmp_footerNav__navWrapper {
+.cmp_footerNav[data-total="4"] .cmp_footerNav__navWrapper {
 	width: 25%
 }
 

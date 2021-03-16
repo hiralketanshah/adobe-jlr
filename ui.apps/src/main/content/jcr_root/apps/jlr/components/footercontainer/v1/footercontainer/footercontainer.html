@@ -1,39 +1,53 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1']}"/>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-/* Create three equal columns that floats next to each other */
-.column {
-  float: left;
-  width: 25%;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-</style>
+<sly data-sly-test="${wcmmode.edit}">
 <div class="row">
-  <div class="column" style="background-color:#aaa;">
-
+  <div class="columnedit">
     <div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
   </div>
-  <div class="column" style="background-color:#bbb;">
 
+  <div class="columnedit">
     <div data-sly-resource="${'col_two'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
   </div>
-  <div class="column" style="background-color:#ccc;">
 
+  <div class="columnedit">
     <div data-sly-resource="${'col_three'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
   </div>
-  <div class="column" style="background-color:#ccc;">
 
+  <div class="columnedit">
     <div data-sly-resource="${'col_four'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
   </div>
+
 </div>
+
+</sly>
+
+<sly data-sly-test="${!wcmmode.edit}">
+
+<footer>
+  <div class="cmp_footerNav fontSmooth col-four" data-show-less="Less" data-show-more="More">
+    <div class="cmp_footerNav__footerWrapper">
+      <div class="cmp_footerNav__navWrapper el">
+
+
+         <div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+         </div>
+
+      <div class="cmp_footerNav__navWrapper el">
+         <div data-sly-resource="${'col_two' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+      </div>
+
+      <div class="cmp_footerNav__navWrapper el">
+        <div data-sly-resource="${'col_three' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+      </div>
+
+      <div class="cmp_footerNav__navWrapper cmp_footerNav__socialLinks socialLinks el" id="social">
+        <div data-sly-resource="${'col_four' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+
+    </div>
+  </div>
+  </div>
+
+</footer>
+</sly>

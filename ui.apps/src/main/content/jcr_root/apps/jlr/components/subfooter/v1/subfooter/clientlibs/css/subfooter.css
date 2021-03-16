@@ -44,16 +44,16 @@
 	color: #a4a7a9
 }
 
-.lightTheme .cmp-subFooter {
-	background-color: #fff;
-	border-top-color: #e4e8e8;
-	color: #4a4f54
+.cmp-subFooter.lightTheme{
+    background-color: #fff;
+    border-top-color: #e4e8e8;
+    color: #4a4f54
 }
-
-.lightTheme .cmp-subFooter a {
-	color: #4a4f54
+ 
+ .cmp-subFooter.lightTheme a {
+    color: #4a4f54
 }
-
-.lightTheme .cmp-subFooter a:hover {
-	color: #a4a7a9
+ 
+.cmp-subFooter.lightTheme  a:hover {
+    color: #a4a7a9
 }

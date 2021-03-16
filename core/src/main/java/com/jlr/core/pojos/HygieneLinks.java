@@ -1,17 +1,15 @@
 package com.jlr.core.pojos;
 
-public class SocialLinks {
+public class HygieneLinks {
 
     private String text;
     private String link;
     private String target;
-	private String socialicon;
 
-    public SocialLinks(String text, String link, String target, String socialicon) {
+    public HygieneLinks(String text, String link, String target) {
     	this.text = text;
         this.link = link;
         this.target = target;
-    	this.socialicon = socialicon;
     }
 
     public String getText() {
@@ -38,11 +36,4 @@ public class SocialLinks {
         this.target = target;
     }
 
-	public String getSocialicon() {
-		return socialicon;
-	}
-
-	public void setSocialicon(String socialicon) {
-		this.socialicon = socialicon;
-	}
 }

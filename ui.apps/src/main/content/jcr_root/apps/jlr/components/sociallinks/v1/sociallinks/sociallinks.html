@@ -5,19 +5,12 @@
 	 data-emptytext="Social Links Component"></div>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['jaguar.components.footerlinks.v1']}"/>
+data-sly-call="${clientlib.all @ categories=['jaguar.components.sociallinks.v1']}"/>
 
-<footer>
-<div class="cmp_footerNav__navWrapper cmp_footerNav__socialLinks socialLinks el" id="social">
 <div aria-level="2" class="cmp_footerNav__heading" role="heading">${sociallinks.headerTitle}</div>
 
-        <ul data-sly-list.item="${sociallinks.socialLinks}">
-
-            <li><a class="social_wechat TargetLinks" data-link-desktop="#" data-target="${item.target}" href="${item.link}">
-<span class="icon-social_wechat"></span><img src="${item.logoPath}"><strong>${item.text}</strong></a></li>
-
-        </ul>
-</div>
-</footer>
+          <ul data-sly-list.item="${sociallinks.socialLinks}">
+            <li><a class="social_facebook TargetLinks" data-link-desktop="#" target="${item.target}" href="${item.link}"><span class="${item.socialicon}"></span><strong>${item.text}</strong></a></li>
+          </ul>
 
 </template>
