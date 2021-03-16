@@ -8,6 +8,7 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
 import com.jlr.core.utils.LinkUtils;
 
@@ -52,6 +53,18 @@ public class GlobalModelImpl implements GlobalModel {
     
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String logoPath;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoId;
+
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoPath;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoTitle;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String icon;
 
     @Inject
     private ResourceResolver resourceResolver;
@@ -120,4 +133,22 @@ public class GlobalModelImpl implements GlobalModel {
     public String getLogoPath() {
         return logoPath;
     }
+    public String getVideoId() {
+		return (CommonConstants.YOUTUBE_URL).concat(videoId);
+	}
+
+    @Override
+	public String getVideoPath() {
+		return videoPath;
+	}
+
+    @Override
+	public String getVideoTitle() {
+		return videoTitle;
+	}
+    
+    @Override
+	public String getIcon() {
+		return icon;
+	}
 }

@@ -1,14 +1,7 @@
 {
-    "title": "test_title",
-    "subtitle": "test_subtitle",
+    "imagePosition": "above",
     "hideImage": "false",
-    "jcr:primaryType": "nt:unstructured",
-    "ctaList": {
-    	"item0": {
-    	"text": "test_text",
-    	"link": "http://www.google.com",
-    	"linkType":"primary",
-    	"target": "_self"
-    	} 
-    }
+    "assestType": "image",
+    "videoType": "videoId",
+    "jcr:primaryType": "nt:unstructured"  
 }
