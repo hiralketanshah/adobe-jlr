@@ -1,78 +1,60 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 import com.jlr.core.models.ArticleModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
 
 /**
  * The Class ArticleModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = {ArticleModel.class}, resourceType = ArticleModelImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = { ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
 public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
 
-    /** The title. */
+    /** The image position. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String title;
+    private String imagePosition;
 
-    /** The subtitle. */
+    /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String subtitle;
+    private String assestType;
 
-    /** The cta list. */
-    @Inject
-    @Optional
-    private Resource ctaList;
-
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
-
-    /** The list. */
-    List<CTAPojo> list = new ArrayList<>();
+    /** The video type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoType;
 
     /**
-     * Gets the cta list.
+     * Gets the image position.
      *
-     * @return the cta list
+     * @return the image position
      */
     @Override
-    public List<CTAPojo> getCtaList() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, resourceResolver);
-        }
-
-        return list;
+    public String getImagePosition() {
+        return imagePosition;
     }
 
     /**
-     * Gets title.
+     * Gets the content type.
      *
-     * @return the title
+     * @return the content type
      */
     @Override
-    public String getTitle() {
-        return title;
+    public String getAssestType() {
+        return assestType;
     }
 
     /**
-     * Gets subtitle.
+     * Gets the video type.
      *
-     * @return the subtitle
+     * @return the video type
      */
     @Override
-    public String getSubtitle() {
-        return subtitle;
+    public String getVideoType() {
+        return videoType;
     }
 }
