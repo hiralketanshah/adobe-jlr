@@ -59,6 +59,9 @@ public class GlobalModelImpl implements GlobalModel {
     
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoTitle;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String icon;
 
     @Inject
     private ResourceResolver resourceResolver;
@@ -136,5 +139,10 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
 	public String getVideoTitle() {
 		return videoTitle;
+	}
+    
+    @Override
+	public String getIcon() {
+		return icon;
 	}
 }

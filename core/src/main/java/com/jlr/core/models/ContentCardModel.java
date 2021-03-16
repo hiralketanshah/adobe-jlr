@@ -48,7 +48,7 @@ public interface ContentCardModel {
 	 *
 	 * @return the content type
 	 */
-	default String getContentType() {
+	default String getAssestType() {
         return StringUtils.EMPTY;
     }
 	

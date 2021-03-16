@@ -46,14 +46,14 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <contentType
+                            <assestType
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/select"
                                 class="cq-dialog-dropdown-showhide"
                                 cq-dialog-dropdown-showhide-target=".image-video-hide-show"
                                 fieldDescription="Select Content Type as Video or Image"
-                                fieldLabel="Select Image or Video"
-                                name="./contentType">
+                                fieldLabel="Choose Image or Video assest"
+                                name="./assestType">
                                 <items jcr:primaryType="nt:unstructured">
                                     <image
                                         jcr:primaryType="nt:unstructured"
@@ -64,7 +64,7 @@
                                         text="Video"
                                         value="video"/>
                                 </items>
-                            </contentType>
+                            </assestType>
                             <image
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/container"
@@ -107,7 +107,7 @@
                                                 class="cq-dialog-dropdown-showhide"
                                                 cq-dialog-dropdown-showhide-target=".videoId-videoPath-hide-show"
                                                 fieldDescription="specify whether video will be from youtube or dam"
-                                                fieldLabel="Select Image or Video"
+                                                fieldLabel="Choose Youtube Video ID or Dam Video Assest"
                                                 name="./videoType">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <videoId
@@ -126,16 +126,10 @@
                                                 class="hide videoId-videoPath-hide-show"
                                                 showhidetargetvalue="videoId">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <well
+                                                    <videoId
                                                         jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
-                                                        <items jcr:primaryType="nt:unstructured">
-                                                            <videoId
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                                path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
-                                                        </items>
-                                                    </well>
+                                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                        path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
                                                 </items>
                                             </videoId>
                                             <videoPath
@@ -144,16 +138,10 @@
                                                 class="hide videoId-videoPath-hide-show"
                                                 showhidetargetvalue="videoPath">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <well
+                                                    <videoPath
                                                         jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
-                                                        <items jcr:primaryType="nt:unstructured">
-                                                            <videoPath
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                                path="/mnt/overlay/jlr/components/globalfields/video/videoPath"/>
-                                                        </items>
-                                                    </well>
+                                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                        path="/mnt/overlay/jlr/components/globalfields/video/videoPath"/>
                                                 </items>
                                             </videoPath>
                                             <videoTitle

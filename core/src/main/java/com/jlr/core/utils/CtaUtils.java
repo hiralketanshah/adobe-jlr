@@ -33,7 +33,7 @@ public class CtaUtils {
 		                    resourceResolver),
 		            properties.get(CommonConstants.PN_CTA_TARGET, String.class),
 		            properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
-		            properties.get(CommonConstants.PN_PRIMARY_LOGO, String.class)));
+		            properties.get(CommonConstants.PN_ICON, String.class)));
 		}
 		return list;
 	}

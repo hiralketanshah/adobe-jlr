@@ -15,6 +15,7 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import java.text.ParseException;
 
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
@@ -39,7 +40,7 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     
     /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String contentType;
+    private String assestType;
     
     /** The video type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -90,9 +91,12 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
      */
     @Override
     public String getDate() throws ParseException {
-    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-        Date postdate = sdf.parse(date);
-		return new SimpleDateFormat("dd-MM-yyyy").format(postdate);
+    	if(date!=null) {
+    	SimpleDateFormat sdf = new SimpleDateFormat(CommonConstants.PN_AEM_DATE_FORMAT);
+        Date posteddate = sdf.parse(date);
+		return new SimpleDateFormat(CommonConstants.PN_REVISED_DATE_FORMAT).format(posteddate);
+    	}
+    	return null;
 	}
 
     /**
@@ -101,8 +105,8 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
      * @return the content type
      */
     @Override
-	public String getContentType() {
-		return contentType;
+	public String getAssestType() {
+		return assestType;
 	}
 
     /**

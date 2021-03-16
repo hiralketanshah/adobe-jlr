@@ -26,6 +26,10 @@ public class CommonConstants {
     public static final String PN_CTA_LINK_TYPE = "linkType";
     public static final String PN_IMAGE_LINK = "imageLink";
     public static final String PN_VIDEO_ID = "https://youtu.be/";
-    public static final String PN_PRIMARY_LOGO = "logoPrimary";
+    public static final String PN_PRIMARY_LOGO = "iconPrimary";
+    public static final String PN_AEM_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+    public static final String PN_REVISED_DATE_FORMAT = "dd-MM-yyyy";
+    public static final String PN_ICON= "icon";
+    
 
 }
