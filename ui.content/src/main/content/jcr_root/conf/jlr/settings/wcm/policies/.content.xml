@@ -348,6 +348,29 @@
                             sling:resourceType="wcm/core/components/policy/policy"
                             components="/apps/jlr/components/article/v1/article">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-article--light light"
+                                            cq:styleId="1615873462893"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-article--grey grey"
+                                            cq:styleId="1615873467769"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="cmp-article--dark dark"
+                                            cq:styleId="1615873470542"
+                                            cq:styleLabel="Dark"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
                         </policy_1615803880912>
                     </container>
                 </v1>

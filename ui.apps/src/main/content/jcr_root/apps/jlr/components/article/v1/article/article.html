@@ -1,20 +1,29 @@
 <sly data-sly-use.model="com.jlr.core.models.ArticleModel" data-sly-call="${renderArticle @ article=model}" />
 
 <template data-sly-template.renderArticle="${ @ article }">
-<div data-sly-test="${!article.headerCopy}" class="cq-placeholder"
-	 data-emptytext="Article Section Component"></div>
-
-Header Copy : ${article.headerCopy @context='html'}<br/>
-Copy : ${article.copy @context='html'}<br/><br/>
-
-Image : ${article.fileReference}<br/>
-Alt Text : ${article.imageAlt}<br/>
-Image Link : ${article.imageLink}<br/><br/>
-
-CTA : 
-text : ${article.text}
-link : ${article.link}
-target : ${article.target}
-linkType : ${article.linkType}
+ <div data-sly-test="${!article.headerCopy}" class="cq-placeholder" data-emptytext="Article Section Component"></div>
+ <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.article.v1']}"/>
+ <div class="sectionWrapper clearfix">
+  <div class="section">
+   <picture data-sly-test="${article.imagePosition == 'above'}" class="Picture Article__Picture Article__Picture--top">
+    <a href="${article.imageLink}">
+     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </a>   
+   </picture>
+   <h1 class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
+   <div class="richText">${article.copy @context='html'}</div>
+   <picture data-sly-test="${article.imagePosition == 'below'}" class="Picture Article__Picture Article__Picture--bottom">
+    <a href="${article.imageLink}">
+     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </a>
+   </picture>
+   <div class="links">
+	<div class="${article.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
+      <a class="${article.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} icon-arrow-right TargetLinks" href="${article.link}" data-link-desktop="${article.link}" aria-label="${article.text}" target="${article.target}" data-aria-title="${article.text}">
+       <span aria-hidden="true">${article.text}</span>
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
 </template>
-
