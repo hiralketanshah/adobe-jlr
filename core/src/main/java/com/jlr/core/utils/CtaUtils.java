@@ -20,17 +20,20 @@ public class CtaUtils {
     private CtaUtils() {}
 
     public static List<CTAPojo> createCtaList(Resource ctaList, ResourceResolver resourceResolver) {
-        List<CTAPojo> list = new ArrayList<>();
-        Iterator<Resource> childResources = ctaList.listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            ValueMap properties = child.adaptTo(ValueMap.class);
-            if (null != properties) {
-                list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class), resourceResolver),
-                                properties.get(CommonConstants.PN_CTA_TARGET, String.class), properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
-            }
-        }
-        return list;
-    }
+
+    	List<CTAPojo> list = new ArrayList<>();
+		Iterator<Resource> childResources = ctaList.listChildren();
+		while (childResources.hasNext()) {
+		    Resource child = childResources.next();
+		    ValueMap properties = child.adaptTo(ValueMap.class);
+		    list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+		            LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+		                    resourceResolver),
+		            properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+		            properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
+		            properties.get(CommonConstants.PN_ICON, String.class)));
+		}
+		return list;
+	}
+
 }
