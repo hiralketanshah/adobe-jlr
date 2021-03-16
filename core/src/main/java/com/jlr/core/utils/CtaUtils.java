@@ -34,4 +34,3 @@ public class CtaUtils {
 		}
 		return list;
 	}
-}
