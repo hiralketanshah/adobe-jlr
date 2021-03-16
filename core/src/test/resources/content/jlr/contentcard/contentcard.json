@@ -4,7 +4,7 @@
   "fileReference":"/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg",
   "imageLink":"/content/landrover/en",
   "imageAlt":"image",
-  "contentType":"image",
+  "assestType":"image",
   "id":"CBC",
   "type":"video",
   "videoId":"dq_BZrXr00g",

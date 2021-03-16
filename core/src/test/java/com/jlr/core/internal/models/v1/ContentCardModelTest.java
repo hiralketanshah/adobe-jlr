@@ -64,7 +64,7 @@ private ContentCardModel contentCardModel;
 	 */
 	@Test
 	void testContentType() {
-		assertEquals("image", contentCardModel.getContentType());
+		assertEquals("image", contentCardModel.getAssestType());
 	}
 	
 	/**
