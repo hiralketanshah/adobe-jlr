@@ -40,5 +40,7 @@ class ArticleModelImplTest {
     @Test
     void testProperties() {
         assertEquals("above", articleModel.getImagePosition());
+        assertEquals("image", articleModel.getAssestType());
+        assertEquals("videoId", articleModel.getVideoType());
     }
 }

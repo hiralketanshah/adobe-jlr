@@ -1,5 +1,7 @@
 {
     "imagePosition": "above",
     "hideImage": "false",
+    "assestType": "image",
+    "videoType": "videoId",
     "jcr:primaryType": "nt:unstructured"  
 }

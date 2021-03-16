@@ -35,13 +35,4 @@ public interface ArticleModel {
     default String getVideoType() {
         return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the hide image.
-     *
-     * @return the hide image
-     */
-    default boolean getHideImage() {
-        return false;
-    }
 }
