@@ -190,6 +190,10 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
                                                     path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
                                             </items>
                                         </column>
                                     </items>
