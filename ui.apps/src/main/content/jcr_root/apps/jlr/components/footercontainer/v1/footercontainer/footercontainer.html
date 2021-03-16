@@ -1,0 +1,39 @@
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+
+    <div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+
+    <div data-sly-resource="${'col_two'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+
+    <div data-sly-resource="${'col_three'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+  </div>
+  <div class="column" style="background-color:#ccc;">
+
+    <div data-sly-resource="${'col_four'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+  </div>
+</div>

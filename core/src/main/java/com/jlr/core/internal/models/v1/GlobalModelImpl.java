@@ -49,6 +49,9 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
+    
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String logoPath;
 
     @Inject
     private ResourceResolver resourceResolver;
@@ -111,5 +114,10 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getTarget() {
         return target;
+    }
+    
+    @Override
+    public String getLogoPath() {
+        return logoPath;
     }
 }

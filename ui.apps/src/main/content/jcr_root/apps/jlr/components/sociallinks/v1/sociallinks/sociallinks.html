@@ -1,0 +1,27 @@
+<sly data-sly-use.model="com.jlr.core.models.SocialLinksModel" data-sly-call="${renderSocialLinks @ socialLinks=model}" />
+
+<template data-sly-template.renderSocialLinks="${ @ socialLinks }">
+<div class="cq-placeholder"
+	 data-emptytext="Social Links Component"></div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.all @ categories=['JCR-FooterLinks']}"/>
+
+
+<div class="cmp_footerNav__navWrapper cmp_footerNav__socialLinks socialLinks el" id="social">
+
+        <ul data-sly-list.item="${socialLinks.socialLinks}">
+
+            <li><a class="social_wechat TargetLinks" data-link-desktop="#" data-target="${item.target}" href="${item.link}"><span class="icon-social_wechat"></span><img src="${item.logoPath}"><strong>${item.text}</strong></a></li>
+
+        </ul>
+</div>
+
+<div data-sly-list.item="${socialLinks.socialLinks}">
+
+   <div><a target="${item.target}" href="${item.link}">${item.text}</a></div>
+   <img src="${item.logoPath}">
+
+</div>
+
+</template>

@@ -53,4 +53,8 @@ public interface GlobalModel {
     default String getHeaderTitle() {
         return StringUtils.EMPTY;
     }
+    
+    default String getLogoPath() {
+        return StringUtils.EMPTY;
+    }
 }

@@ -1,0 +1,15 @@
+<sly data-sly-use.subfooter="com.jlr.core.models.SubFooterModel" />
+
+
+<ul data-sly-list.item="${subfooter.listItems}">
+
+    <li>
+
+    <a href="${item.URL}" data-sly-unwrap="${!subfooter.linkItems}">
+
+            <span>${item.title}</span></a>
+
+    </li>
+
+</ul>
+<div>${subfooter.copy @context="html"}</div>
