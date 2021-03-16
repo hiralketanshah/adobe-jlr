@@ -128,7 +128,7 @@ public class GlobalModelImpl implements GlobalModel {
     
     @Override
     public String getVideoId() {
-		return (CommonConstants.PN_VIDEO_ID).concat(videoId);
+		return (CommonConstants.YOUTUBE_URL).concat(videoId);
 	}
 
     @Override
