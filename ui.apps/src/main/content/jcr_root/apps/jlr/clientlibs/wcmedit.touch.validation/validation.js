@@ -76,7 +76,7 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
 	selector: "form [data-validation='schema-json']",
 	validate: function (el) {
 		var input = el.value; 
-		if (input != "" && IsValidJSONString(input) && input != null) {
+		if (input == "" || IsValidJSONString(input) || input == null) {
 		// Valid JSON Format
 		} else {
 			return el.getAttribute("data-error-message");
