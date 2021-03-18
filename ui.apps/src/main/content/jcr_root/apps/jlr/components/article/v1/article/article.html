@@ -1,22 +1,27 @@
 <sly data-sly-use.model="com.jlr.core.models.ArticleModel" data-sly-call="${renderArticle @ article=model}" />
 
 <template data-sly-template.renderArticle="${ @ article }">
-<div data-sly-test="${!article.title}" class="cq-placeholder"
-	 data-emptytext="Article Component"></div>
-
-ID : ${article.id}<br/>
-Title : ${article.title}<br/>
-Subtitle : ${article.subtitle}<br/>
-Copy : ${article.copy @context='html'}<br/><br/>
-
-Image : ${article.fileReference}<br/>
-Alt Text : ${article.imageAlt}<br/>
-Image Link : ${article.imageLink}<br/><br/>
-
-CTAs: 
-<ul data-sly-list.cta="${article.ctaList}">
-  <li>${cta.text} - ${cta.link} - ${cta.linkType} - ${cta.target} </li>
-  <a href="${cta.link}">link</a>
-</ul>
+ <div data-sly-test="${!article.headerCopy || !article.copy}" class="cq-placeholder" data-emptytext="Article Section Component"></div>
+ <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.article.v1']}"/>
+  <div class="section">
+   <picture data-sly-test="${article.fileReference && article.imagePosition == 'above'}" class="Picture Article__Picture Article__Picture--top">
+    <a href="${article.imageLink}">
+     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </a>   
+   </picture>
+   <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
+   <div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
+   <picture data-sly-test="${article.fileReference && article.imagePosition == 'below'}" class="Picture Article__Picture Article__Picture--bottom">
+    <a href="${article.imageLink}">
+     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </a>
+   </picture>
+   <div data-sly-test="${article.text}" class="links">
+	<div class="${article.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
+      <a class="${article.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} TargetLinks" href="${article.link}" data-link-desktop="${article.link}" aria-label="${article.text}" target="${article.target}" data-aria-title="${article.text}">
+       <img data-sly-test="${article.icon}" style="width: 40px; height: 40px;" src="${article.icon}"></img> <span aria-hidden="true">${article.text}</span>
+      </a>
+     </div>
+    </div>
+  </div>
 </template>
-
