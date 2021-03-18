@@ -1,19 +1,17 @@
 package com.jlr.core.models;
 
-import org.apache.commons.lang.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.jlr.core.pojos.HygieneLinks;
 
 /**
  * The Interface FooterLinksModel.
  */
 public interface FooterLinksModel {
 	
-	/**
-	 * Gets the header title.
-	 *
-	 * @return the header title
-	 */
-	default String getHeaderTitle() {
-        return StringUtils.EMPTY;
+	default List<HygieneLinks> getFooterLinks() {
+        return new ArrayList<>();
     }
 
 }

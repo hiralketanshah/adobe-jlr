@@ -1,34 +1,34 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.Collection;
-
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.Via;
-import com.adobe.cq.wcm.core.components.models.List;
-import com.adobe.cq.wcm.core.components.models.ListItem;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.FooterLinksModel;
+import com.jlr.core.pojos.HygieneLinks;
+import com.jlr.core.utils.LinkUtils;
 
-import org.apache.sling.models.annotations.injectorspecific.Self;
-import org.apache.sling.models.annotations.via.ResourceSuperType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FooterLinksImpl.
  */
-@Model(adaptables = {SlingHttpServletRequest.class,Resource.class}, 
-adapters = {FooterLinksModel.class,List.class}, 
+@Model(adaptables = {Resource.class}, 
+adapters = {FooterLinksModel.class}, 
 resourceType = FooterLinksImpl.RESOURCE_TYPE,
 defaultInjectionStrategy=DefaultInjectionStrategy.OPTIONAL)
-public class FooterLinksImpl extends GlobalModelImpl implements List,FooterLinksModel{
+public class FooterLinksImpl extends GlobalModelImpl implements FooterLinksModel{
 	
 	
 	/** The logger. */
@@ -37,46 +37,35 @@ public class FooterLinksImpl extends GlobalModelImpl implements List,FooterLinks
 	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/footerlinks/v1/footerlinks";
 	
-	/** The delegate. */
-	@Self @Via(type=ResourceSuperType.class)
-	private List delegate;
-	
-	/** The header title. */
 	@Inject
-	@Optional
-	@Via("resource")
-    private String headerTitle;
+    @Optional
+    private Resource footerLinks;
+
+    /** The resource resolver. */
+    @Inject
+    private ResourceResolver resourceResolver;
 	
-	/**
-	 * Gets the header title.
-	 *
-	 * @return the header title
-	 */
+	/** The list. */
+	List<HygieneLinks> list = new ArrayList<>();
+	
+	@PostConstruct
+	 public void init() {
+		 if (footerLinks != null && footerLinks.hasChildren()) {
+			 Iterator<Resource> childResources = footerLinks.listChildren();
+	            while (childResources.hasNext()) {
+	                Resource child = childResources.next();
+	                ValueMap properties = child.adaptTo(ValueMap.class);
+	                list.add(new HygieneLinks(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+	                		LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                  resourceResolver),
+	                        properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+	            }
+	        }
+	    }
+	
 	@Override
-	public String getHeaderTitle() {
-		logger.debug("headerTitle-- ",headerTitle);
-		return headerTitle;
+    public List<HygieneLinks> getFooterLinks() {
+		return list;
 	}
-	
-	/**
-	 * Gets the list items.
-	 *
-	 * @return the list items
-	 */
-	@Override
-	public Collection<ListItem> getListItems(){
-		return delegate.getListItems();
-	}
-	
-	/**
-	 * Link items.
-	 *
-	 * @return true, if successful
-	 */
-	@Override
-	public boolean linkItems() {
-		return delegate.linkItems();
-	}
-	
 	
 }
