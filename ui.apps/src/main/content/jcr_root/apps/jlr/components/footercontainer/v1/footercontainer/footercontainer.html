@@ -1,53 +1,39 @@
+<sly data-sly-use.model="com.jlr.core.models.FooterContainerModel" data-sly-call="${renderFooterContainer @ footercontainer=model}"/>
+
+<template data-sly-template.renderFooterContainer="${ @ footercontainer }">
+<div class="cq-placeholder"
+	 data-emptytext="Footer Container Component"></div>
+
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1']}"/>
-
-<sly data-sly-test="${wcmmode.edit}">
-<div class="row">
-  <div class="columnedit">
-    <div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
-  </div>
-
-  <div class="columnedit">
-    <div data-sly-resource="${'col_two'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
-  </div>
-
-  <div class="columnedit">
-    <div data-sly-resource="${'col_three'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
-  </div>
-
-  <div class="columnedit">
-    <div data-sly-resource="${'col_four'  @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
-  </div>
-
-</div>
-
-</sly>
-
-<sly data-sly-test="${!wcmmode.edit}">
+data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}"/>
 
 <footer>
   <div class="cmp_footerNav fontSmooth col-four" data-show-less="Less" data-show-more="More">
     <div class="cmp_footerNav__footerWrapper">
       <div class="cmp_footerNav__navWrapper el">
-
-
-         <div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+<div data-sly-resource="${'footerlinks_col_one' @ resourceType='/apps/jlr/components/footerlinks/v1/footerlinks'}"  data-sly-unwrap="${!wcmmode.edit}"></div>
+         <div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.edit}"></div>
          </div>
 
       <div class="cmp_footerNav__navWrapper el">
-         <div data-sly-resource="${'col_two' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+      <div data-sly-resource="${'footerlinks_col_two' @ resourceType='/apps/jlr/components/footerlinks/v1/footerlinks'}"  data-sly-unwrap="${!wcmmode.edit}"></div>
+         <div data-sly-resource="${'col_two' @ resourceType='wcm/foundation/components/responsivegrid'}"  data-sly-unwrap="${!wcmmode.edit}"></div>
       </div>
 
       <div class="cmp_footerNav__navWrapper el">
-        <div data-sly-resource="${'col_three' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+      <div data-sly-resource="${'footerlinks_col_three' @ resourceType='/apps/jlr/components/footerlinks/v1/footerlinks'}"  data-sly-unwrap="${!wcmmode.edit}"></div>
+        <div data-sly-resource="${'col_three' @ resourceType='wcm/foundation/components/responsivegrid'}"  data-sly-unwrap="${!wcmmode.edit}"></div>
       </div>
 
       <div class="cmp_footerNav__navWrapper cmp_footerNav__socialLinks socialLinks el" id="social">
-        <div data-sly-resource="${'col_four' @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
+        <div data-sly-resource="${'col_four' @ resourceType='/apps/jlr/components/sociallinks/v1/sociallinks'}"  data-sly-unwrap="${!wcmmode.edit}"></div>
 
     </div>
   </div>
+   <div data-sly-resource="${'hygiene_link' @ resourceType='/apps/jlr/components/hygienelink/v1/hygienelink'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+        <div data-sly-resource="${ 'sub_footer' @ resourceType='/apps/jlr/components/subfooter/v1/subfooter'}" data-sly-unwrap="${!wcmmode.edit}"></div>
   </div>
 
+
 </footer>
-</sly>
+</template>

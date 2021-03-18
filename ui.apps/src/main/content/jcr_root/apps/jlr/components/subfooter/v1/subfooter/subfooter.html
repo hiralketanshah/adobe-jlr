@@ -5,10 +5,10 @@
 	 data-emptytext="Sub Footer Component"></div>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['jaguar.components.subfooter.v1']}"/>
+data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}"/>
 
-<div class="cmp-subFooter fontSmooth lightTheme">
-	<div class="cmp-subFooter__container lightTheme">
+<div class="cmp-subFooter fontSmooth">
+	<div class="cmp-subFooter__container">
  		<p>${subfooter.copy @context="html"}</p>
 	</div>
 </div>
