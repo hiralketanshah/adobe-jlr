@@ -16,26 +16,30 @@ import com.jlr.core.models.VehicleSummaryModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
-@Model(adaptables = Resource.class, adapters = { VehicleSummaryModel.class}, resourceType = VehicleSummaryImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = {
+        VehicleSummaryModel.class }, resourceType = VehicleSummaryImpl.RESOURCE_TYPE)
 public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummaryModel {
 
     public static final String RESOURCE_TYPE = "jlr/components/vehiclesummary/v1/vehiclesummary";
 
     @Inject
     private ResourceResolver resourceResolver;
-    
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String headerCopy;
+
     /** The cta list. */
     @Inject
     @Optional
     private Resource ctaList;
-    
+
     /** The price. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String price;
-    
+
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-    
+
     /**
      * Gets the cta list.
      *
@@ -43,21 +47,21 @@ public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummar
      */
 
     @Override
-	public List<CTAPojo> getCtaList() {
-		if (null != ctaList && ctaList.hasChildren()) {
-			list = CtaUtils.createCtaList(ctaList, resourceResolver);
-		}
-		return list;
-	}  
-    
+    public List<CTAPojo> getCtaList() {
+        if (null != ctaList && ctaList.hasChildren()) {
+            list = CtaUtils.createCtaList(ctaList, resourceResolver);
+        }
+        return list;
+    }
+
     /**
      * Gets the price.
      *
      * @return the price
      */
     @Override
-	public String getPrice() {
-		return price;
-	}
-    
+    public String getPrice() {
+        return price;
+    }
+
 }

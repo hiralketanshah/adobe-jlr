@@ -1,0 +1,272 @@
+li:before {
+    content: "\2013";
+    left: -1em;
+}
+.VehicleSummary {
+	position: relative;
+	width: 100%;
+	display: block;
+	padding: 0 70px
+}
+
+.VehicleSummary .VehicleSummary__image {
+	position: absolute;
+	height: 100%;
+	left: 33.33%;
+	right: -70px;
+	padding-left: 20px
+}
+
+.VehicleSummary .BazaarVoiceRating {
+	margin: 39px 0 24px
+}
+
+.VehicleSummary .summaryItemList+.BazaarVoiceRating {
+	padding-top: 15px;
+	margin-top: 0
+}
+
+.VehicleSummary .VehicleSummary__content {
+	padding: 60px 20px;
+	width: 33.33%;
+	position: relative
+}
+
+.VehicleSummary .VehicleSummary__content p {
+	margin-top: 3px
+}
+
+.VehicleSummary .VehicleSummary__header {
+	margin-bottom: 6px
+}
+
+.VehicleSummary .VehicleSummary__price {
+	margin-bottom: 18px;
+	margin-top: 0;
+	line-height: 1;
+	font-size: 11px;
+	letter-spacing: 1.5px;
+	font-family: "avenir", "arial", "helvetica", sans-serif;
+	font-weight: normal
+}
+
+.VehicleSummary .VehicleSummary__list {
+	margin-top: 36px;
+	margin-bottom: 24px
+}
+
+.VehicleSummary .VehicleSummary__list li {
+	margin-bottom: 6px
+}
+
+.VehicleSummary .SpecificationsAtAGlance {
+	overflow: hidden;
+	*zoom: 1;
+	text-align: left;
+	margin-top: 24px
+}
+
+.VehicleSummary .SpecificationsAtAGlance .items {
+	margin-right: -12px
+}
+
+.VehicleSummary .SpecificationsAtAGlance .el {
+	float: left;
+	width: 33.333%;
+	padding: 0 12px 0 0
+}
+
+.VehicleSummary .SpecificationsAtAGlance p {
+	margin-top: 0;
+	margin-bottom: 0
+}
+
+.VehicleSummary .VehicleSummary__feature {
+	font-size: 10px;
+	color: #4a4f54;
+	margin-bottom: 12px
+}
+
+.VehicleSummary .VehicleSummary__measurement {
+	margin-bottom: 0;
+	border-top: 1px solid #a4a7a9;
+	border-bottom: 1px solid #a4a7a9;
+	padding: 12px 0
+}
+
+.VehicleSummary .VehicleSummary__measurement .valueSmall {
+	font-size: 30px;
+	padding: 0
+}
+
+.VehicleSummary .VehicleSummary__measurement .unitSmall {
+	font-size: 16px
+}
+
+.VehicleSummary.dark .VehicleSummary__feature {
+	color: #e4e8e8
+}
+
+.VehicleSummary.grey {
+	color: #4a4f54
+}
+
+.VehicleSummary.grey .SpecificationsAtAGlance .feature,
+.VehicleSummary.grey .SpecificationsAtAGlance .items .el .measurement {
+	color: #4a4f54;
+	border-color: #a4a7a9
+}
+
+.VehicleSummary.light {
+	color: #4a4f54
+}
+
+.VehicleSummary.light .SpecificationsAtAGlance .feature,
+.VehicleSummary.light .SpecificationsAtAGlance .items .el .measurement {
+	color: #4a4f54;
+	border-color: #a4a7a9
+}
+
+@media screen and (min-width: 1px) and (max-width: 1240px) {
+	.VehicleSummary .VehicleSummary__image {
+		left: 40%
+	}
+	.VehicleSummary .VehicleSummary__content {
+		width: 40%
+	}
+	.VehicleSummary .VehicleSummary__measurement {
+		padding: 6px 0
+	}
+	.VehicleSummary .VehicleSummary__measurement .valueSmall {
+		font-size: 24px
+	}
+	.VehicleSummary .VehicleSummary__measurement .unitSmall {
+		font-size: 14px
+	}
+	.VehicleSummary .SpecificationsAtAGlance {
+		margin-top: 21px
+	}
+	.VehicleSummary .VehicleSummary__list {
+		margin-top: 24px;
+		margin-bottom: 12px
+	}
+	.VehicleSummary .VehicleSummary__feature {
+		margin-bottom: 9px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 1025px) {
+	.VehicleSummary .gridContext {
+		min-height: 426px
+	}
+	.VehicleSummary .VehicleSummary__image {
+		width: auto;
+		height: 306px;
+		right: 20px;
+		left: 50%;
+		top: 60px
+	}
+	.VehicleSummary .VehicleSummary__content {
+		width: 50%
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 960px) {
+	.VehicleSummary .VehicleSummary__image {
+		height: 260px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.VehicleSummary {
+		padding: 40px 40px
+	}
+	.VehicleSummary .gridContext {
+		min-height: inherit
+	}
+	.VehicleSummary .VehicleSummary__image {
+		top: auto;
+		height: 200px;
+		right: 0
+	}
+	.VehicleSummary .VehicleSummary__content {
+		width: 50%;
+		padding: 0 20px 0 0
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 800px) {
+	.VehicleSummary .VehicleSummary__image {
+		width: auto;
+		height: 215px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.VehicleSummary {
+		padding: 30px
+	}
+	.VehicleSummary .VehicleSummary__image {
+		width: 100%;
+		position: relative;
+		height: 330px;
+		left: 0;
+		right: auto;
+		overflow: hidden;
+		padding-left: 0
+	}
+	.VehicleSummary .VehicleSummary__content {
+		width: 100%;
+		margin-top: 30px;
+		padding: 0
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+	.VehicleSummary .VehicleSummary__image {
+		height: 182px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 400px) {
+	.VehicleSummary .VehicleSummary__content {
+		width: 100%;
+		margin-top: 30px;
+		padding: 0
+	}
+	.VehicleSummary .SpecificationsAtAGlance {
+		margin-top: 36px
+	}
+	.VehicleSummary .SpecificationsAtAGlance .el {
+		float: none;
+		width: auto;
+		margin-bottom: 24px
+	}
+	.VehicleSummary .VehicleSummary__feature {
+		margin-bottom: 12px
+	}
+	.VehicleSummary .VehicleSummary__measurement {
+		padding: 12px 0
+	}
+	.VehicleSummary .VehicleSummary__list {
+		margin-top: 0
+	}
+	.VehicleSummary .VehicleSummary__measurement .valueSmall {
+		font-size: 38px
+	}
+	.VehicleSummary .VehicleSummary__measurement .unitSmall {
+		font-size: 14px
+	}
+}
+
+#landrover .VehicleSummary .primaryLinkWithStyle {
+	margin-top: 15px
+}
+
+#landrover .VehicleSummary .secondaryLinkWithStyle {
+	margin-right: 10px
+}
+
+#landrover .VehicleSummary .secondaryLinkWithStyle:last-child {
+	margin-bottom: 20px
+}
