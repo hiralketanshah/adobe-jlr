@@ -16,29 +16,6 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/include"
                         path="/mnt/overlay/cq/gui/components/authoring/dialog/style/tab_design/styletab"/>
-                    <sizes
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Social Link option"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <column
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <disableLink
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                        checked="{Boolean}false"
-                                        fieldDescription="Check to disable support for links."
-                                        name="./linkDisabled"
-                                        text="Disable Link"
-                                        uncheckedValue="false"
-                                        value="true"/>
-                                </items>
-                            </column>
-                        </items>
-                    </sizes>
                 </items>
             </tabs>
         </items>

@@ -1,15 +1,14 @@
-<sly data-sly-use.model="com.jlr.core.models.FooterLinksModel" data-sly-call="${renderFooterLinks @ footerLinks=model}"/>
+<sly data-sly-use.model="com.jlr.core.models.SocialLinksModel" data-sly-call="${renderSocialLinks @ footerlinks=model}" />
 
-<template data-sly-template.renderFooterLinks="${ @ footerLinks }">
+<template data-sly-template.renderSocialLinks="${ @ footerlinks }">
 <div class="cq-placeholder"
 	 data-emptytext="Footer Links Component"></div>
 
 
-<div aria-level="2" class="cmp_footerNav__heading" role="heading">${footerlinks.headerTitle}</div>
+ <div aria-level="2" class="cmp_footerNav__heading" role="heading">${footerlinks.headerTitle}</div>
 
+          <ul data-sly-list.item="${footerlinks.socialLinks}">
+            <li><a target="${item.target}" href="${item.link}"><strong>${item.text}</strong></a></li>
+          </ul>
 
-        <ul data-sly-list.item="${footerlinks.footerLinks}">
-          <li><a target="${item.target}" href="${item.link}">${item.text}</a></li>
-        </ul>
-        </template>
-
+</template>

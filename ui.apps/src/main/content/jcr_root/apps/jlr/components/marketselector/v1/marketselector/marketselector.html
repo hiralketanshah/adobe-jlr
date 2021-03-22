@@ -1,0 +1,18 @@
+<sly data-sly-use.market="${'com.jlr.core.models.MarketListModel'}"></sly>
+<sly data-sly-test="${wcmmode.edit}">
+    <div data-emptytext="${component.title}" class="cq-placeholder"></div>
+</sly>
+<div>
+    <div data-sly-list.marketList="${market.marketList}">
+    <ul>
+        <li>MarketName: ${marketList.marketName}</li>
+        <li>MarketFlag: ${marketList.marketFlag}</li>
+        <li>Region: ${marketList.region}</li>
+</ul>
+        <ul data-sly-list="${marketList.languages}">
+           <li>Language Title: ${item.languageTitle}</li>
+           <li>Link: ${item.link}</li> 
+           <li>Target: ${item.target}</li>
+        </ul>
+    </div>
+</div>
