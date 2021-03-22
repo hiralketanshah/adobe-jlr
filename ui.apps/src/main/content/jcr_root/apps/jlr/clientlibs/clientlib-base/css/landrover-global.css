@@ -1473,8 +1473,8 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 
 @font-face {
 	font-family: "icons";
-	src: url("../../fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.html");
-	src: url("../../fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8d41d.html?#iefix") format("embedded-opentype"), url("../../fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.woff") format("woff"), url("../../fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.ttf") format("truetype"), url("../../fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8d41d.svg?#icons") format("svg");
+	src: url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.html");
+	src: url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8d41d.html?#iefix") format("embedded-opentype"), url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.woff") format("woff"), url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.ttf") format("truetype"), url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8d41d.svg?#icons") format("svg");
 	font-weight: normal;
 	font-style: normal
 }
@@ -5622,37 +5622,37 @@ p>a {
 	border-bottom: 1px solid #005a2b
 }
 
-#landrover .dark .secondaryLinkWithStyle,
+.dark #landrover .secondaryLinkWithStyle,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle {
 	color: #fff
 }
 
-#landrover .dark .secondaryLinkWithStyle:before,
+.dark #landrover .secondaryLinkWithStyle:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:before {
 	color: #fff
 }
 
-#landrover .dark .secondaryLinkWithStyle:hover,
-#landrover .dark .secondaryLinkWithStyle:active,
-#landrover .dark .secondaryLinkWithStyle:focus,
+.dark #landrover .secondaryLinkWithStyle:hover,
+.dark #landrover .secondaryLinkWithStyle:active,
+.dark #landrover .secondaryLinkWithStyle:focus,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:hover,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:active,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:focus {
 	color: #C9C9C9
 }
 
-#landrover .dark .secondaryLinkWithStyle:hover span,
-#landrover .dark .secondaryLinkWithStyle:active span,
-#landrover .dark .secondaryLinkWithStyle:focus span,
+.dark #landrover .secondaryLinkWithStyle:hover span,
+.dark #landrover .secondaryLinkWithStyle:active span,
+.dark #landrover .secondaryLinkWithStyle:focus span,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:hover span,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:active span,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:focus span {
 	border-bottom: 1px solid #C9C9C9
 }
 
-#landrover .dark .secondaryLinkWithStyle:hover:before,
-#landrover .dark .secondaryLinkWithStyle:active:before,
-#landrover .dark .secondaryLinkWithStyle:focus:before,
+.dark #landrover .secondaryLinkWithStyle:hover:before,
+.dark #landrover .secondaryLinkWithStyle:active:before,
+.dark #landrover .secondaryLinkWithStyle:focus:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:hover:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:active:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:focus:before {
