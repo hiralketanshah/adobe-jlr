@@ -4,7 +4,7 @@
     <jcr:content
         cq:lastModified="{Date}2021-03-04T14:41:52.011+05:30"
         cq:lastModifiedBy="admin"
-        cq:template="/conf/jlr/settings/wcm/templates/page-content"
+        cq:template="/conf/jlr/settings/wcm/templates/content-page-template"
         jcr:primaryType="cq:PageContent"
         jcr:title="Australia"
         sling:resourceType="jlr/components/page"

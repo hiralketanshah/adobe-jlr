@@ -1,0 +1,21 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "logoImage":"/content/dam/core-components-examples/library/sample-assets/lava-rock-formation.jpg",
+  "fileReference":"/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg",
+  "imageLink":"/content/dam/jlr/asset.jpg",
+  "imageAlt":"image",
+  "id":"full width image",
+  "headerTitle":"Discovery",
+  "sling:resourceType":"jlr/components/fullwidthimage/v1/fullwidthimage",
+  "bodyCopy":"body_copy",
+  "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"http://www.google.com",
+      "text":"test_text",
+      "linkType":"primary"
+    }
+  }
+}
