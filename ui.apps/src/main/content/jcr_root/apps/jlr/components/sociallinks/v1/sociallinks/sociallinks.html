@@ -1,8 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.SocialLinksModel" data-sly-call="${renderSocialLinks @ sociallinks=model}" />
 <template data-sly-template.renderSocialLinks="${ @ sociallinks }">
-	<sly data-sly-test="${wcmmode.edit}">
-	<div data-emptytext="${component.title}" class="cq-placeholder"></div>
-    </sly>
+	<div data-sly-test="${!sociallinks.headerTitle || !sociallinks.socialLinks}" class="cq-placeholder" data-emptytext="Social Links Component"></div>
 	<div aria-level="2" class="cmp_footerNav__heading" role="heading">${sociallinks.headerTitle}</div>
 	<ul data-sly-list.item="${sociallinks.socialLinks}">
 		<li><a class="${item.socialicon} TargetLinks" data-link-desktop="#" target="${item.target}" href="${item.link}"><span class="icon-${item.socialicon}"></span><strong>${item.text}</strong></a>
