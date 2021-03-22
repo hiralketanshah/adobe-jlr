@@ -9,7 +9,7 @@
 .cmp-vehicleSummary ul li:before {
   content: '\2013';
   position: absolute;
-  margin-left: -14px;
+  margin-left: -16px;
 }
 
 .cmp-vehicleSummary {
