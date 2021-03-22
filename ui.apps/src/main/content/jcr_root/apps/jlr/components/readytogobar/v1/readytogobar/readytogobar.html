@@ -1,15 +1,24 @@
 <sly data-sly-use.model="com.jlr.core.models.ReadyToGoBarModel" data-sly-call="${renderReadytogobar @ readytogobar=model}" />
 
 <template data-sly-template.renderReadytogobar="${ @ readytogobar }">
-<div class="cq-placeholder"
+<div data-sly-test="${!readytogobar.rtgb}" class="cq-placeholder"
 	 data-emptytext="ReadyTo Go Bar Component"></div>
 
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.readytogobar.v1','jlr.base']}"/>
 
-<div data-sly-list.item="${readytogobar.rtgb}">
+<div class="cmp-readyToGoBar container fontSmooth">
+	<ul class="cmp-readyToGoBar__list" data-sly-list.item="${readytogobar.rtgb}">
+		<li class="cmp-readyToGoBar__item">
 
-   <div><img src="${item.fileReference}" alt="${item.imageAlt}" aria-label="icon"></div>
-   <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
-   <div aria-label="description">${item.copy @ context="html"}</div>
+			<a class="cmp-readyToGoBar__link keepOriginalClasses" target="${item.target}" href="${item.link}">
+				<span class="cmp-readyToGoBar__icon"><i class="icon-ignite-configure"></i></span>
+				<h2 class="cmp-readyToGoBar__heading heading fontH5 headingH5"><span class="cmp-readyToGoBar__heading-inner">>${item.text}</span></h2>
 
+				<p class="cmp-readyToGoBar__copy fontBodyCopy">${item.copy @ context="html"}</p>
+			</a>
+
+		</li>
+	</ul>
 </div>
+
 </template>
