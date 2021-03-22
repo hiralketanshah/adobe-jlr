@@ -1,18 +1,12 @@
-<div data-sly-use.subfooter="com.adobe.cq.wcm.core.components.models.Text"
-     data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
-     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
-     data-sly-test.text="${subfooter.text}"
-     data-cmp-data-layer="${subfooter.data.json}"
-     id="${component.id}">
-
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}"/>
-
-    <div class="cmp-subFooter fontSmooth lightTheme">
-	<div class="cmp-subFooter__container">
- 		 <p class="cmp-text__paragraph"
-       data-sly-unwrap="${subfooter.isRichText}">${text @ context = subfooter.isRichText ? 'html' : 'text'}</p>
+<div data-sly-use.subfooter="com.adobe.cq.wcm.core.components.models.Text" data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component" 
+data-sly-use.templates="core/wcm/components/commons/v1/templates.html" 
+data-sly-test.text="${subfooter.text}" data-cmp-data-layer="${subfooter.data.json}" id="${component.id}">
+	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" 
+    data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}" />
+	<div class="cmp-subFooter fontSmooth lightTheme">
+		<div class="cmp-subFooter__container">
+			<p class="cmp-text__paragraph" data-sly-unwrap="${subfooter.isRichText}">${text @ context = subfooter.isRichText ? 'html' : 'text'}</p>
+		</div>
 	</div>
-</div>
 </div>
 <sly data-sly-call="${templates.placeholder @ isEmpty = !text}"></sly>

@@ -39,11 +39,13 @@
                                                         <marketName
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                            fieldDescription="Specify the name of the market or country"
                                                             fieldLabel="Market Name"
                                                             name="./marketName"/>
                                                         <marketFlag
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                            fieldDescription="Specify the icon for the market or country flag"
                                                             fieldLabel="Market Flag"
                                                             name="./marketFlag"/>
                                                         <region
@@ -51,6 +53,7 @@
                                                             sling:resourceType="cq/gui/components/coral/common/form/tagfield"
                                                             allowBulkEdit="{Boolean}true"
                                                             autocreateTag="{Boolean}true"
+                                                            fieldDescription="Specify the region in an market."
                                                             fieldLabel="Region"
                                                             multiple="{Boolean}true"
                                                             name="./region">
@@ -71,7 +74,7 @@
                                                                     <languageTitle
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                        fieldDescription="The Language Title to be used"
+                                                                        fieldDescription="Specify the Language of the market"
                                                                         fieldLabel="Language Title"
                                                                         name="./languageTitle"/>
                                                                     <link
