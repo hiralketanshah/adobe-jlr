@@ -230,7 +230,18 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <errorpagespath/>
+                                    <errorpagespath
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Browse an error page path"
+                                        fieldLabel="Error Page Path"
+                                        name="./errorPages"
+                                        rootPath="/content/landrover">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cq-msm-lockable="category"/>
+                                    </errorpagespath>
                                 </items>
                             </column>
                         </items>
