@@ -625,6 +625,43 @@
                     </container>
                 </v1>
             </article>
+            <vehiclesummary jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclesummary jcr:primaryType="nt:unstructured">
+                        <policy_1616070143899
+                            jcr:lastModified="{Date}2021-03-22T17:21:05.571+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Summary"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="light"
+                                            cq:styleId="1616413749230"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1616413752178"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="dark"
+                                            cq:styleId="1616413753875"
+                                            cq:styleLabel="Dark"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1616070143899>
+                    </vehiclesummary>
+                </v1>
+            </vehiclesummary>
         </components>
     </jlr>
 </jcr:root>
