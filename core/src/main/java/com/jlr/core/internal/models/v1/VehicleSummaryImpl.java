@@ -16,7 +16,7 @@ import com.jlr.core.models.VehicleSummaryModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
-=/**
+/**
  * The Class VehicleSummaryImpl.
  */
 @Model(adaptables = Resource.class, adapters = {
