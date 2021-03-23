@@ -11,13 +11,22 @@ import com.jlr.core.pojos.CTAPojo;
  * The Interface VehicleSummaryModel.
  */
 public interface VehicleSummaryModel {
-	
-	default List<CTAPojo> getCtaList() {
+
+    /**
+     * Gets the cta list.
+     *
+     * @return the cta list
+     */
+    default List<CTAPojo> getCtaList() {
         return new ArrayList<>();
     }
-	
-	default String getPrice() {
+
+    /**
+     * Gets the price.
+     *
+     * @return the price
+     */
+    default String getPrice() {
         return StringUtils.EMPTY;
     }
-
 }

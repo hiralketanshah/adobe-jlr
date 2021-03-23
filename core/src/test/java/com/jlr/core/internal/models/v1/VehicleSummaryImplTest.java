@@ -15,11 +15,23 @@ import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class VehicleSummaryImplTest.
+ */
 @ExtendWith(AemContextExtension.class)
 class VehicleSummaryImplTest {
 
+    /** The vehicle summary model. */
     private VehicleSummaryModel vehicleSummaryModel;
 
+    /**
+     * Sets the up.
+     *
+     * @param context
+     *            the new up
+     * @throws Exception
+     *             the exception
+     */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
         context.load().json("/content/jlr/vehiclesummary/vehiclesummary.json", "/content/jlr/vehiclesummary.html");
@@ -27,18 +39,21 @@ class VehicleSummaryImplTest {
         vehicleSummaryModel = resource.adaptTo(VehicleSummaryImpl.class);
     }
 
+    /**
+     * Test cta properties.
+     */
     @Test
     void testCtaProperties() {
-		List<CTAPojo> list = vehicleSummaryModel.getCtaList();
-		assertEquals("pricing_value", vehicleSummaryModel.getPrice());
+        List<CTAPojo> list = vehicleSummaryModel.getCtaList();
+        assertEquals("pricing_value", vehicleSummaryModel.getPrice());
         assertEquals(1, list.size());
-        list.forEach(item -> { 
-        assertEquals("test_cta_text", item.getText());
-        assertEquals("/content/jlr/au", item.getLink());
-        assertEquals("_self", item.getTarget());
-        assertEquals("primary", item.getLinkType());
+        list.forEach(item -> {
+            assertEquals("test_cta_text", item.getText());
+            assertEquals("/content/jlr/au", item.getLink());
+            assertEquals("_self", item.getTarget());
+            assertEquals("primary", item.getLinkType());
         });
-    
+
     }
 
 }

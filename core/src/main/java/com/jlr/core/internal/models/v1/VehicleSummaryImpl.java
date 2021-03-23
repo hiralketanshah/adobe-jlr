@@ -16,15 +16,21 @@ import com.jlr.core.models.VehicleSummaryModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
+=/**
+ * The Class VehicleSummaryImpl.
+ */
 @Model(adaptables = Resource.class, adapters = {
         VehicleSummaryModel.class }, resourceType = VehicleSummaryImpl.RESOURCE_TYPE)
 public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummaryModel {
 
+    /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/vehiclesummary/v1/vehiclesummary";
 
+    /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The header copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String headerCopy;
 
@@ -45,7 +51,6 @@ public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummar
      *
      * @return the cta list
      */
-
     @Override
     public List<CTAPojo> getCtaList() {
         if (null != ctaList && ctaList.hasChildren()) {
@@ -63,5 +68,4 @@ public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummar
     public String getPrice() {
         return price;
     }
-
 }
