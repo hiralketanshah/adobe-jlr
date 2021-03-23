@@ -221,6 +221,25 @@
                             </column>
                         </items>
                     </basic>
+                    <error
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Error Pages"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <errorpages
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Error pages for this content tree"
+                                        fieldLabel="Error Pages"
+                                        name="./errorPages"/>
+                                </items>
+                            </column>
+                        </items>
+                    </error>
                 </items>
             </tabs>
         </items>
