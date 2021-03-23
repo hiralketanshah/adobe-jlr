@@ -153,11 +153,8 @@
                             </headerCopy>
                             <pricing
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="This will be used to show the pricing info and related text"
-                                fieldLabel="Pricing"
-                                name="./price"
-                                required="{Boolean}false"/>
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/price"/>
                             <bodyCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
