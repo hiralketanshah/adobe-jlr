@@ -53,4 +53,20 @@ public interface GlobalModel {
     default String getHeaderTitle() {
         return StringUtils.EMPTY;
     }
+    
+    default String getVideoId() {
+        return StringUtils.EMPTY;
+    }
+    
+    default String getVideoPath() {
+        return StringUtils.EMPTY;
+    }
+    
+    default String getVideoTitle() {
+        return StringUtils.EMPTY;
+    }
+    
+    default String getIcon() {
+        return StringUtils.EMPTY;
+    }
 }

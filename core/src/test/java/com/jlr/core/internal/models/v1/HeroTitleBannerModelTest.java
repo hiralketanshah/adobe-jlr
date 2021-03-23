@@ -31,8 +31,8 @@ class HeroTitleBannerModelTest {
 	 */
 	@BeforeEach
     public void setup(AemContext context) {
-        context.load().json("/content/jlr/heroTitleBanner/heroTitleBanner.json", "/content/jlr/heroTitleBanner.html");
-        Resource resource = context.resourceResolver().getResource("/content/jlr/heroTitleBanner.html");
+        context.load().json("/content/jlr/herotitlebanner/herotitlebanner.json", "/content/jlr/herotitlebanner.html");
+        Resource resource = context.resourceResolver().getResource("/content/jlr/herotitlebanner.html");
         heroTitleBannerModel = resource.adaptTo(HeroTitleBannerImpl.class);
     }
 	
@@ -41,7 +41,7 @@ class HeroTitleBannerModelTest {
 	 */
 	@Test
     void testProperties() {
-		List<CTAPojo> list = heroTitleBannerModel.getHeroCta();
+		List<CTAPojo> list = heroTitleBannerModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_text", item.getText());

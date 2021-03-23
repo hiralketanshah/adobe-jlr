@@ -1,0 +1,18 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "column":"1",
+  "id":"CBC",
+  "headerTitle":"DESIGN",
+  "sling:resourceType":"jlr/components/contentblockcontainer/v1/contentblockcontainer",
+  "bodyCopy":"body_copy",
+  "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"http://www.google.com",
+      "text":"test_text",
+      "linkType":"primary"
+    }
+  }
+}

@@ -18,24 +18,209 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 size="L">
                 <items jcr:primaryType="nt:unstructured">
-                    <error
+                    <basic
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Error"
+                        jcr:title="Basic"
                         sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
                         <items jcr:primaryType="nt:unstructured">
                             <column
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <errorpages
+                                    <seo
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                        fieldLabel="Error Pages"
-                                        name="./errorPages"/>
+                                        jcr:title="SEO/SERP"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <keywords
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="This refers to specific keywords that users may use to find the page. Keywords authored separated by a comma (for SEO)."
+                                                fieldLabel="Keywords"
+                                                name="./keywords">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="keywords"/>
+                                            </keywords>
+                                            <siteName
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Site Name, e.g. Land Rover (for SEO)."
+                                                fieldLabel="Site Name"
+                                                name="./siteName">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="siteName"/>
+                                            </siteName>
+                                            <siteType
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Site Type, e.g. Automotive (for SEO)."
+                                                fieldLabel="Site Type"
+                                                name="./siteType">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="siteType"/>
+                                            </siteType>
+                                            <schema
+                                                granite:class="cmp-ld-schema"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="Is a semantic vocabulary of tags (or microdata) that you can add to your HTML to improve the way search engines read and represent your page in SERPs."
+                                                fieldLabel="Schema Markup"
+                                                name="./schema"
+                                                validation="schema-json">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="schema"
+                                                    error-message="JSON not properly formatted. Enter a valid schema."/>
+                                            </schema>
+                                            <ogTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Open Graph Title (If none authored, falls back to Page Title)."
+                                                fieldLabel="Open Graph Title"
+                                                maxlengthlong="{Long}160"
+                                                name="./ogTitle">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="ogTitle"/>
+                                            </ogTitle>
+                                            <ogDescription
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Open Graph Description (If none authored, falls back to Page Description)."
+                                                fieldLabel="Open Graph Description"
+                                                maxlengthlong="{Long}160"
+                                                name="./ogDescription">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="ogDescription"/>
+                                            </ogDescription>
+                                            <ogUrl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="A canonical URL is the URL of the page that Google thinks is most representative from a set of duplicate pages on your site."
+                                                fieldLabel="Canonical URL"
+                                                name="./ogUrl">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="ogUrl"/>
+                                            </ogUrl>
+                                            <ogType
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Describe the kind of object you are sharing."
+                                                fieldLabel="Open Graph Type"
+                                                name="./ogType">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="ogType"/>
+                                            </ogType>
+                                            <ogImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="The URL of the image that appears when someone shares the content to Facebook."
+                                                fieldLabel="Open Graph Image"
+                                                name="./ogImageUrl">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="ogImageUrl"/>
+                                            </ogImage>
+                                            <twitterCard
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                disabled="{Boolean}false"
+                                                fieldDescription="Twitter Card (Defaults to summary_large_image)."
+                                                fieldLabel="Twitter Card"
+                                                maxlengthlong="{Long}160"
+                                                name="./twitterCard">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="twitterCard"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <option
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Summary Card with Large Image"
+                                                        value="summary_large_image"/>
+                                                </items>
+                                            </twitterCard>
+                                            <twitterTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Twitter Title (If none authored, falls back to Page Title)."
+                                                fieldLabel="Twitter Title"
+                                                maxlengthlong="{Long}160"
+                                                name="./twitterTitle">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="ogTitle"/>
+                                            </twitterTitle>
+                                            <twitterDescription
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Twitter Description (If none authored, falls back to Page Description)."
+                                                fieldLabel="Twitter Description"
+                                                maxlengthlong="{Long}160"
+                                                name="./twitterDescription">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="twitterDescription"/>
+                                            </twitterDescription>
+                                            <noIndex
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="Select to prevent search engine from indexing this page, and index links in them."
+                                                fieldLabel="No Index"
+                                                name="./noIndex"
+                                                text="No Index">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="noIndex"/>
+                                            </noIndex>
+                                            <noFollow
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                fieldDescription="Select to prevent search engine from indexing this page, and do not index links in them."
+                                                fieldLabel="No Follow"
+                                                name="./noIndex"
+                                                text="No Follow">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="noFollow"/>
+                                            </noFollow>
+                                            <googleSiteVerification
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Google Site Verification Key from Google Console."
+                                                fieldLabel="Google Site Verification Key"
+                                                name="./googleSiteVerificationKey">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="googleSiteVerification"/>
+                                            </googleSiteVerification>
+                                        </items>
+                                    </seo>
                                 </items>
                             </column>
                         </items>
-                    </error>
+                    </basic>
                 </items>
             </tabs>
         </items>

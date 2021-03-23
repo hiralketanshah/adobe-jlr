@@ -1,0 +1,27 @@
+<sly data-sly-use.model="com.jlr.core.models.ContentCardModel" data-sly-call="${renderContentCard @ contentCard=model}" />
+
+<template data-sly-template.renderContentCard="${ @ contentCard }">
+<div class="cq-placeholder"
+	 data-emptytext="Content Card Component"></div>
+
+     <div style="background-image: url(${contentCard.fileReference @ context='styleString'});">
+
+     Title: ${contentCard.headerTitle @ context="html"}<br>
+     Copy: ${contentCard.bodyCopy}<br>
+     ID: ${contentCard.id}<br>
+     Alt Text: ${contentCard.imageAlt}<br>
+     Date: ${contentCard.date}<br>
+     Video ID: ${contentCard.videoId}<br>
+     Video Path: ${contentCard.videoPath}<br>
+     Video Title: ${contentCard.videoTitle}<br>
+     Video Type: ${contentCard.videoType}<br>
+     Image/ Video: ${contentCard.contentType}
+
+<div data-sly-list.item="${contentCard.ctaList}">
+
+   <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
+
+</div>
+</div>
+
+</template>
