@@ -9,8 +9,10 @@
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
     </a>   
    </picture>
-   <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'above'}" class="videowrapper">
-    <iframe width="560" height="315" src="${article.videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+   <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'above'}" class="cmp-article__videoframe">
+    <div class="cmp-article__video-container">
+     <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
+    </div>
    </div>
    <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
    <div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
@@ -19,8 +21,10 @@
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
     </a>
    </picture>
-   <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'below'}" class="videowrapper">
-    <iframe width="560" height="315" src="${article.videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">${article.videoTitle}</iframe>
+   <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'below'}" class="cmp-article__videoframe">
+    <div class="cmp-article__video-container">
+     <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
+    </div>
    </div>
    <div data-sly-test="${article.text}" class="links">
 	<div class="${article.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
