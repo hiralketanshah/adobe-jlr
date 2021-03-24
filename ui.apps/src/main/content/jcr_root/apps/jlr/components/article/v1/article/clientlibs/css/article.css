@@ -1,3 +1,7 @@
+.videowrapper{
+    max-width: 600px;
+    margin: 0 auto;
+}
 .cmp-article .richText ul {
 	padding-left: 1em;
 	margin-left: 0

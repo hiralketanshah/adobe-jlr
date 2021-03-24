@@ -19,20 +19,11 @@ public interface ArticleModel {
     }
 
     /**
-     * Gets the content type.
+     * Gets the asset type.
      *
-     * @return the content type
+     * @return the asset type
      */
-    default String getAssestType() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the video type.
-     *
-     * @return the video type
-     */
-    default String getVideoType() {
+    default String getAssetType() {
         return StringUtils.EMPTY;
     }
 }

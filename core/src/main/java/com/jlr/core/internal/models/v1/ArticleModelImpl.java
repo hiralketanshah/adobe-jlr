@@ -22,7 +22,7 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
 
     /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String assestType;
+    private String assetType;
 
     /** The video type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -44,17 +44,7 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
      * @return the content type
      */
     @Override
-    public String getAssestType() {
-        return assestType;
-    }
-
-    /**
-     * Gets the video type.
-     *
-     * @return the video type
-     */
-    @Override
-    public String getVideoType() {
-        return videoType;
+    public String getAssetType() {
+        return assetType;
     }
 }

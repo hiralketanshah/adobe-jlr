@@ -50,16 +50,16 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
-    
+
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoId;
 
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoPath;
-    
+
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoTitle;
-    
+
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String icon;
 
@@ -125,24 +125,24 @@ public class GlobalModelImpl implements GlobalModel {
     public String getTarget() {
         return target;
     }
-    
+
     @Override
     public String getVideoId() {
-		return (CommonConstants.YOUTUBE_URL).concat(videoId);
-	}
+        return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
+    }
 
     @Override
-	public String getVideoPath() {
-		return videoPath;
-	}
+    public String getVideoPath() {
+        return videoPath;
+    }
 
     @Override
-	public String getVideoTitle() {
-		return videoTitle;
-	}
-    
+    public String getVideoTitle() {
+        return videoTitle;
+    }
+
     @Override
-	public String getIcon() {
-		return icon;
-	}
+    public String getIcon() {
+        return icon;
+    }
 }
