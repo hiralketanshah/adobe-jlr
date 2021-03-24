@@ -4,4 +4,6 @@
     <filter root="/content/landrover" mode="merge"/>
     <filter root="/content/dam/landrover" mode="merge"/>
     <filter root="/content/experience-fragments/landrover" mode="merge"/>
+	<filter root="/var/acs-commons/reports/published-pages-report-all-markets" mode="merge"/>
+	<filter root="/var/acs-commons/reports/published-pages-report-per-market" mode="merge"/>
 </workspaceFilter>
