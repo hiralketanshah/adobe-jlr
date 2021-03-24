@@ -8,6 +8,7 @@ public class CommonConstants {
     /** The common constants. */
     public static final String DOUBLE_BACKSLASHES = "\\";
     public static final String EXTENSION_DOT_HTML = ".html";
+    public static final String COLON = ":";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
@@ -29,7 +30,6 @@ public class CommonConstants {
     public static final String PN_PRIMARY_LOGO = "iconPrimary";
     public static final String PN_AEM_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     public static final String PN_REVISED_DATE_FORMAT = "dd-MM-yyyy";
-    public static final String PN_ICON= "icon";
-    
+    public static final String PN_ICON = "icon";
 
 }
