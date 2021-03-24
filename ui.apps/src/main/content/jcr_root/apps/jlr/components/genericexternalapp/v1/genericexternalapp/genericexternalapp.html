@@ -1,0 +1,58 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+data-sly-call="${clientlib.all @ categories=['jaguar.components.genericexternalapp.v1']}"/>
+
+<sly data-sly-use.GEAmodel="com.jlr.core.models.GeneralExternalAppModel"/>
+
+${GEAmodel.containerId}</br>
+${GEAmodel.scriptURL}</br>
+${GEAmodel.consentCategory}</br>
+${GEAmodel.unconsentedheader}</br>
+${GEAmodel.unconsentedMessage}</br>
+${GEAmodel.ctaText}</br>
+${GEAmodel.ctaLink}</br>
+${GEAmodel.target}</br>
+
+<ul data-sly-list.item="${GEAmodel.scriptParam}">
+
+   <li>${item.keyParam}</li>
+   <li>${item.valueParam}</li>
+
+</ul>
+
+
+
+<div>
+            <div class="GenericExternalApplication" data-consent-categories="[&quot;functional&quot;]" data-script-parameters="{}" data-script-url="/content/dam/landrover/australia/en/tpGEA.js" id="GenericExternalApplicationScript">
+
+                        <div class="GenericExternalApplication__wrapper">
+
+                                    <span aria-hidden="true" class="GenericExternalApplication__icon"></span>
+                                    <h1 class="GenericExternalApplication__heading heading headingH3">
+                                                <span class="GenericExternalApplication__heading-text">INACTIVE COMPONENT</span>
+                                    </h1>
+                                    <div class="GenericExternalApplication__copy">
+                                                <span class="GenericExternalApplication__copy-text">This component is about [description] and uses a third party
+                                                            app. To view this component and other similar components please accept the following required cookies.</span>
+                                    </div>
+
+                                    <div class="GenericExternalApplication__options">
+                                                <ul class="GenericExternalApplication__options-list">
+                                                            <li class="GenericExternalApplication__options-list-item">
+                                                                        <span aria-hidden="true" class="GenericExternalApplication__options-icon"></span>
+                                                                        <span class="GenericExternalApplication__options-list-item-text">Marketing & Advertising</span>
+                                                            </li>
+                                                            <li class="GenericExternalApplication__options-list-item">
+                                                                        <span aria-hidden="true" class="GenericExternalApplication__options-icon"></span>
+                                                                        <span class="GenericExternalApplication__options-list-item-text">Analytics</span>
+                                                            </li>
+                                                </ul>
+                                    </div>
+
+                                    <button aria-label="Click here to manage your cookie settings" class="GenericExternalApplication__form-CTA primaryLinkWithStyle" onclick="truste.eu && truste.eu.clickListener()">
+                                                <span aria-hidden="true" class="GenericExternalApplication__form-CTA-text">MANAGE SETTING</span>
+                                    </button>
+
+                        </div>
+            </div>
+
+</div>
