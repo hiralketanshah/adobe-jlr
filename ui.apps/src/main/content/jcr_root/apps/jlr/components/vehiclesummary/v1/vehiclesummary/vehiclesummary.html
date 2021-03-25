@@ -1,7 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-call="${renderModel @ model=model}" />
 <template data-sly-template.renderModel="${ @ model }">
  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.vehiclesummary.v1']}"/>
- <div id="landrover">
   <div class="cmp-vehicleSummary fontSmooth clearfix" id="${model.id}">
    <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
@@ -36,5 +35,4 @@
     </div>
    </div>
   </div>
- </div>
 </template>
