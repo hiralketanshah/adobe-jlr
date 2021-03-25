@@ -21,13 +21,13 @@
       ${model.copy @context='html'}
      </p>
      <div data-sly-test="${model.text}" class="primaryLinkContainer">
-      <a class="primaryLinkWithStyle plwsTransparentLight icon-arrow-right TargetLinks" href="${model.link}" data-link-desktop="${model.link}" aria-label="${model.headerCopy}: ${model.text}" data-target="${model.target}">
+      <a class="primaryLinkWithStyle plwsTransparentLight icon-arrow-right TargetLinks" href="${model.link}" data-link-desktop="${model.link}" aria-label="${model.ariaLabel}" data-target="${model.target}">
        <span aria-hidden="true">${model.text}</span>
       </a>
      </div>
      <div class="VehicleSummary__secondaryLinks">
 	  <sly data-sly-list.cta="${model.ctaList}">
-	   <a class="secondaryLinkWithStyle slwsLight TargetLinks" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${model.headerCopy}: ${cta.text}" data-target="${cta.target}">
+	   <a class="secondaryLinkWithStyle slwsLight TargetLinks" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" data-target="${cta.target}">
         <span aria-hidden="true">${cta.text}</span>
        </a>
       </sly>

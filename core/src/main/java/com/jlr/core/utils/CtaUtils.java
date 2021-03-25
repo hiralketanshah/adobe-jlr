@@ -31,15 +31,22 @@ public class CtaUtils {
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
+            String ariaLabel = getComputedAriaLabel(properties, header);
             list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
                     LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                             resourceResolver),
                     properties.get(CommonConstants.PN_CTA_TARGET, String.class),
                     properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
-                    properties.get(CommonConstants.PN_ICON, String.class),
-                    getAriaLabel(header, properties.get(CommonConstants.PN_CTA_TEXT, String.class))));
+                    properties.get(CommonConstants.PN_ICON, String.class), ariaLabel));
         }
         return list;
+    }
+
+    private static String getComputedAriaLabel(ValueMap properties, String header) {
+        if (null != properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class)) {
+            return properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class);
+        }
+        return getAriaLabel(header, properties.get(CommonConstants.PN_CTA_TEXT, String.class));
     }
 
     public static String getAriaLabel(String header, String text) {
@@ -48,7 +55,7 @@ public class CtaUtils {
 
             Matcher m = removeTags.matcher(header);
             String updatedHeader = m.replaceAll("");
-            updatedHeader = updatedHeader.replaceAll("(?\\n|\\r)", "");
+            updatedHeader = updatedHeader.replaceAll("(\\n|\\r)", "");
             return updatedHeader.concat(CommonConstants.COLON).concat(text);
         }
 

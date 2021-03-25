@@ -2,7 +2,6 @@ package com.jlr.core.internal.models.v1;
 
 import javax.inject.Inject;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
@@ -58,6 +57,9 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String ariaLabel;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoId;
@@ -146,11 +148,12 @@ public class GlobalModelImpl implements GlobalModel {
 
     @Override
     public String getAriaLabel() {
-        String ariaLabel = StringUtils.EMPTY;
-        if (null != headerCopy) {
-            ariaLabel = CtaUtils.getAriaLabel(headerCopy, text);
-        } else if (null != headerTitle) {
-            ariaLabel = CtaUtils.getAriaLabel(headerTitle, text);
+        if (null == ariaLabel) {
+            if (null != headerCopy) {
+                ariaLabel = CtaUtils.getAriaLabel(headerCopy, text);
+            } else if (null != headerTitle) {
+                ariaLabel = CtaUtils.getAriaLabel(headerTitle, text);
+            }
         }
         return ariaLabel;
     }
