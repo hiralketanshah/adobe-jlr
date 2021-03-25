@@ -8,6 +8,7 @@ public class CommonConstants {
     /** The common constants. */
     public static final String DOUBLE_BACKSLASHES = "\\";
     public static final String EXTENSION_DOT_HTML = ".html";
+    public static final String COLON = ":";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
