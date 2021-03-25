@@ -4,4 +4,5 @@
     <filter root="/content/landrover" mode="merge"/>
     <filter root="/content/dam/landrover" mode="merge"/>
     <filter root="/content/experience-fragments/landrover" mode="merge"/>
+    <filter root="/etc/acs-commons/lists/icons"/>
 </workspaceFilter>

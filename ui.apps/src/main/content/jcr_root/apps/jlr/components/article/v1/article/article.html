@@ -35,7 +35,7 @@
    <sly data-sly-list.cta="${article.ctaList}">
    <div data-sly-test="${cta.text}" class="links">
 	<div class="${cta.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
-      <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle icon-arrow-right' : 'secondaryLinkWithStyle'} TargetLinks" aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}" data-aria-title="${cta.text}">
+      <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='_overlay' ? '' : cta.icon} TargetLinks" aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}" data-aria-title="${cta.text}">
        <span aria-hidden="true">${cta.text}</span>
       </a>
      </div>

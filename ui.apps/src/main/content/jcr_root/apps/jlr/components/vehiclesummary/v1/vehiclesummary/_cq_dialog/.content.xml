@@ -194,10 +194,8 @@
                                 text="Primary CTA"/>
                             <layout
                                 jcr:primaryType="nt:unstructured"
-                                jcr:title="ahaha"
                                 sling:resourceType="granite/ui/components/coral/foundation/well"
-                                fieldLabel="Secondary CTA List"
-                                text="ahaha">
+                                fieldLabel="Secondary CTA List">
                                 <items jcr:primaryType="nt:unstructured">
                                     <text
                                         jcr:primaryType="nt:unstructured"
@@ -219,6 +217,10 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
                                         path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                    <linkType
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                        path="/mnt/overlay/jlr/components/globalfields/cta/hiddenPrimaryLinkType"/>
                                 </items>
                             </layout>
                             <secondaryctalist
@@ -256,6 +258,10 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
                                                     path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                <linkType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/hiddenSecondaryLinkType"/>
                                             </items>
                                         </column>
                                     </items>

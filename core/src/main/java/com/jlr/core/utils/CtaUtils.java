@@ -31,13 +31,13 @@ public class CtaUtils {
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
-            String ariaLabel = getComputedAriaLabel(properties, header);
+            String icon = properties.get(CommonConstants.PN_ICON, String.class);
+            String linkType = properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class);
             list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
                     LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                             resourceResolver),
-                    properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-                    properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
-                    properties.get(CommonConstants.PN_ICON, String.class), ariaLabel));
+                    properties.get(CommonConstants.PN_CTA_TARGET, String.class), linkType, getIcon(icon, linkType),
+                    getComputedAriaLabel(properties, header)));
         }
         return list;
     }
@@ -60,6 +60,16 @@ public class CtaUtils {
         }
 
         return StringUtils.EMPTY;
+    }
+
+    public static String getIcon(String icon, String linkType) {
+        if (StringUtils.isNotEmpty(icon)) {
+            return icon;
+        }
+        if (null != linkType && linkType.equals("primary")) {
+            return CommonConstants.DEFAULT_PRIMARY_ICON;
+        }
+        return CommonConstants.DEFAULT_SECONDARY_ICON;
     }
 
 }

@@ -175,6 +175,6 @@ public class GlobalModelImpl implements GlobalModel {
 
     @Override
     public String getIcon() {
-        return icon;
+        return CtaUtils.getIcon(icon, linkType);
     }
 }
