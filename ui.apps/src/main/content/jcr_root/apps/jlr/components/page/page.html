@@ -22,6 +22,7 @@
     <body class="${page.cssClassNames}"
           id="${page.id} landrover"
           data-cmp-data-layer-enabled="${page.data ? true : false}">
+        <div id="landrover">
         <script data-sly-test.dataLayerEnabled="${page.data}">
           window.adobeDataLayer = window.adobeDataLayer || [];
           adobeDataLayer.push({
@@ -41,5 +42,6 @@
             <sly data-sly-call="${footer.footer @ page = page}"></sly>
             <sly data-sly-include="body.socialmedia_end.html"></sly>
         </sly>
+        </div>
     </body>
 </html>
