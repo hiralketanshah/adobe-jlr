@@ -505,16 +505,21 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1616587815381"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
                                             cq:styleClasses="cmp-article--light light"
                                             cq:styleId="1615873462893"
                                             cq:styleLabel="Light"
                                             jcr:primaryType="nt:unstructured"/>
-                                        <item1
+                                        <item2
                                             cq:styleClasses="cmp-article--grey grey"
                                             cq:styleId="1615873467769"
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
-                                        <item2
+                                        <item3
                                             cq:styleClasses="cmp-article--dark dark"
                                             cq:styleId="1615873470542"
                                             cq:styleLabel="Dark"
