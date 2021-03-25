@@ -5,7 +5,7 @@
         cq:lastModified="{Date}2021-03-04T13:28:08.045+05:30"
         cq:lastModifiedBy="reference-adjustment-service"
         cq:redirectTarget="/content/landrover/nas"
-        cq:template="/conf/jlr/settings/wcm/templates/page-content"
+        cq:template="/conf/jlr/settings/wcm/templates/content-page-template"
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"

@@ -1,24 +1,11 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ArticleModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class ArticleModelImpl.
@@ -29,72 +16,45 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
 
-    /** The title. */
+    /** The image position. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String title;
+    private String imagePosition;
 
-    /** The subtitle. */
+    /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String subtitle;
+    private String assestType;
 
-    /** The cta list. */
-    @Inject
-    @Optional
-    private Resource ctaList;
-
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
-
-    /** The list. */
-    List<CTAPojo> list = new ArrayList<>();
+    /** The video type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoType;
 
     /**
-     * Inits the Article Model.
+     * Gets the image position.
+     *
+     * @return the image position
      */
-    @PostConstruct
-    public void init() {
-        if (ctaList != null && ctaList.hasChildren()) {
-            Iterator<Resource> childResources = ctaList.listChildren();
-            while (childResources.hasNext()) {
-                Resource child = childResources.next();
-                ValueMap properties = child.adaptTo(ValueMap.class);
-                list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                        LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                resourceResolver),
-                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-                        properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class)));
-            }
-        }
+    @Override
+    public String getImagePosition() {
+        return imagePosition;
     }
 
     /**
-     * Gets the cta list.
+     * Gets the content type.
      *
-     * @return the cta list
+     * @return the content type
      */
     @Override
-    public List<CTAPojo> getCtaList() {
-        return list;
+    public String getAssestType() {
+        return assestType;
     }
 
     /**
-     * Gets title.
+     * Gets the video type.
      *
-     * @return the title
+     * @return the video type
      */
     @Override
-    public String getTitle() {
-        return title;
-    }
-
-    /**
-     * Gets subtitle.
-     *
-     * @return the subtitle
-     */
-    @Override
-    public String getSubtitle() {
-        return subtitle;
+    public String getVideoType() {
+        return videoType;
     }
 }

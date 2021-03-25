@@ -45,12 +45,32 @@ public interface GlobalModel {
     default String getTarget() {
         return StringUtils.EMPTY;
     }
-    
+
+    default String getAriaLabel() {
+        return StringUtils.EMPTY;
+    }
+
     default String getLinkType() {
         return StringUtils.EMPTY;
     }
-    
+
     default String getHeaderTitle() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getVideoId() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getVideoPath() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getVideoTitle() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getIcon() {
         return StringUtils.EMPTY;
     }
 }
