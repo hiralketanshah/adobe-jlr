@@ -9,14 +9,14 @@ data-sly-call="${clientlib.all @ categories=['JCR-snippet']}"/>
 
      <div class="snippet_container">
 
-     <h2 aria-label="title">${snippet.headerTitle}</h2>
+     <h2 data-sly-test="${snippet.headerTitle}" aria-label="title">${snippet.headerTitle}</h2>
 
-     <div class="snippet_container-desc" aria-label="description">${snippet.copy @ context="html"}</div>
-
-     <div data-sly-list.item=${snippet.ctaList}>
+     <div data-sly-test="${snippet.copy}" class="snippet_container-desc" aria-label="description">${snippet.copy @ context="html"}</div>
+${snippet.enablePricing}
+     <div data-sly-test="${snippet.ctaList}" data-sly-list.item=${snippet.ctaList}>
 
     <a target="${item.target}" href="${item.link}">
-    <button class="snippet_container_btn">${item.text}</button></a>
+    <button data-sly-test="${item.text}" class="snippet_container_btn">${item.text}</button></a>
 
 
     </div>

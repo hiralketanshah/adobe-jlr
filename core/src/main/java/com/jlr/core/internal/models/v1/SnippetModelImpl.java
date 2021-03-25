@@ -10,6 +10,8 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +35,7 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
 
+    /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
 
@@ -40,6 +43,10 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     @Inject
     @Optional
     private Resource ctaList;
+    
+    /** The enable pricing. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String enablePricing;
 
     /**
      * Gets the cta list.
@@ -52,6 +59,16 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
 			list = CtaUtils.createCtaList(ctaList, resourceResolver);
 		}
 		return list;
+	}
+    
+    /**
+     * Gets the enable pricing.
+     *
+     * @return the enable pricing
+     */
+    @Override
+	public String getEnablePricing() {
+		return enablePricing;
 	}
 
 }

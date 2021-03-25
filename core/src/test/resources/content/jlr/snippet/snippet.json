@@ -3,6 +3,7 @@
    "copy":"description_test",
    "headerTitle":"title_test",
    "sling:resourceType":"jlr/components/Snippet/v1/snippet",
+   "enablePricing":"true",
    "cq:styleIds":[
       "1614597950157"
    ],
