@@ -464,126 +464,27 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
-                                            cq:styleClasses="cmp-caveat--light"
+                                            cq:styleClasses="cmp-caveat--light light"
                                             cq:styleId="1615794152242"
                                             cq:styleLabel="Light"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="cmp-caveat--white"
+                                            cq:styleClasses="cmp-caveat--white white"
                                             cq:styleId="1615794162991"
                                             cq:styleLabel="White"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item2
-                                            cq:styleClasses="cmp-caveat--grey"
+                                            cq:styleClasses="cmp-caveat--grey grey"
                                             cq:styleId="1615794172668"
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item3
-                                            cq:styleClasses="cmp-caveat--dark"
+                                            cq:styleClasses="cmp-caveat--dark dark"
                                             cq:styleId="1615794178701"
                                             cq:styleLabel="Dark"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item0>
-                                <item1
-                                    cq:styleGroupLabel="Position"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="cmp-caveat--left"
-                                            cq:styleId="1615797608138"
-                                            cq:styleLabel="Left"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="cmp-caveat--right"
-                                            cq:styleId="1615797611915"
-                                            cq:styleLabel="Right"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item2
-                                            cq:styleClasses="cmp-caveat--centre"
-                                            cq:styleId="1615797614921"
-                                            cq:styleLabel="Centre"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item1>
-                                <item2
-                                    cq:styleGroupLabel="Width"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="cmp-caveat--fullWidth"
-                                            cq:styleId="1615812518597"
-                                            cq:styleLabel="Full Width"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="cmp-caveat--fixedWidth"
-                                            cq:styleId="1615812521747"
-                                            cq:styleLabel="Fixed Width"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item2>
-                                <item3
-                                    cq:styleGroupLabel="Top Padding"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="cmp-caveat--padTop-halfX"
-                                            cq:styleId="1615864350574"
-                                            cq:styleLabel="0.5X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="cmp-caveat--padTop-1X"
-                                            cq:styleId="1615864376771"
-                                            cq:styleLabel="1X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item2
-                                            cq:styleClasses="cmp-caveat--padTop-2X"
-                                            cq:styleId="1615864381082"
-                                            cq:styleLabel="2X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item3
-                                            cq:styleClasses="cmp-caveat--padTop-4X"
-                                            cq:styleId="1615864385930"
-                                            cq:styleLabel="4X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item4
-                                            cq:styleClasses="cmp-caveat--padTop-8X"
-                                            cq:styleId="1615864391718"
-                                            cq:styleLabel="8X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item3>
-                                <item4
-                                    cq:styleGroupLabel="Bottom Padding"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="cmp-caveat--padBottom-halfX"
-                                            cq:styleId="1615864426495"
-                                            cq:styleLabel="0.5X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="cmp-caveat--padBottom-1X"
-                                            cq:styleId="1615864428942"
-                                            cq:styleLabel="1X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item2
-                                            cq:styleClasses="cmp-caveat--padBottom-2X"
-                                            cq:styleId="1615864433287"
-                                            cq:styleLabel="2X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item3
-                                            cq:styleClasses="cmp-caveat--padBottom-4X"
-                                            cq:styleId="1615864436066"
-                                            cq:styleLabel="4X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item4
-                                            cq:styleClasses="cmp-caveat--padBottom-8X"
-                                            cq:styleId="1615864439196"
-                                            cq:styleLabel="8X"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item4>
                             </cq:styleGroups>
                         </policy_1615794114228>
                     </caveat>
@@ -625,6 +526,43 @@
                     </container>
                 </v1>
             </article>
+            <vehiclesummary jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclesummary jcr:primaryType="nt:unstructured">
+                        <policy_1616070143899
+                            jcr:lastModified="{Date}2021-03-22T17:21:05.571+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Summary"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="light"
+                                            cq:styleId="1616413749230"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1616413752178"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="dark"
+                                            cq:styleId="1616413753875"
+                                            cq:styleLabel="Dark"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1616070143899>
+                    </vehiclesummary>
+                </v1>
+            </vehiclesummary>
         </components>
     </jlr>
 </jcr:root>
