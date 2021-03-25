@@ -2,6 +2,7 @@ package com.jlr.core.internal.models.v1;
 
 import javax.inject.Inject;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
@@ -10,6 +11,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
+import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, adapters = { GlobalModel.class })
@@ -50,16 +52,16 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
-    
+
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoId;
 
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoPath;
-    
+
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoTitle;
-    
+
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String icon;
 
@@ -125,24 +127,35 @@ public class GlobalModelImpl implements GlobalModel {
     public String getTarget() {
         return target;
     }
-    
+
+    @Override
+    public String getAriaLabel() {
+        String ariaLabel = StringUtils.EMPTY;
+        if (null != headerCopy) {
+            ariaLabel = CtaUtils.getAriaLabel(headerCopy, text);
+        } else if (null != headerTitle) {
+            ariaLabel = CtaUtils.getAriaLabel(headerTitle, text);
+        }
+        return ariaLabel;
+    }
+
     @Override
     public String getVideoId() {
-		return (CommonConstants.YOUTUBE_URL).concat(videoId);
-	}
+        return (CommonConstants.YOUTUBE_URL).concat(videoId);
+    }
 
     @Override
-	public String getVideoPath() {
-		return videoPath;
-	}
+    public String getVideoPath() {
+        return videoPath;
+    }
 
     @Override
-	public String getVideoTitle() {
-		return videoTitle;
-	}
-    
+    public String getVideoTitle() {
+        return videoTitle;
+    }
+
     @Override
-	public String getIcon() {
-		return icon;
-	}
+    public String getIcon() {
+        return icon;
+    }
 }

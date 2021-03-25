@@ -3,7 +3,6 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -21,13 +20,13 @@ import com.jlr.core.utils.CtaUtils;
  * The Class FullWidthImageImpl.
  */
 @Model(adaptables = Resource.class, adapters = {
-		FullWidthImageModel.class }, resourceType = FullWidthImageImpl.RESOURCE_TYPE)
+        FullWidthImageModel.class }, resourceType = FullWidthImageImpl.RESOURCE_TYPE)
 public class FullWidthImageImpl extends GlobalModelImpl implements FullWidthImageModel {
-	
-	/** The Constant RESOURCE_TYPE. */
-	public static final String RESOURCE_TYPE = "jlr/components/fullwidthimage/v1/fullwidthimage";
-	
-	/** The cta list. */
+
+    /** The Constant RESOURCE_TYPE. */
+    public static final String RESOURCE_TYPE = "jlr/components/fullwidthimage/v1/fullwidthimage";
+
+    /** The cta list. */
     @Inject
     @Optional
     private Resource ctaList;
@@ -38,11 +37,11 @@ public class FullWidthImageImpl extends GlobalModelImpl implements FullWidthImag
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-    
+
     /** The body copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String bodyCopy;
-   
+
     /**
      * Gets the cta list.
      *
@@ -50,12 +49,12 @@ public class FullWidthImageImpl extends GlobalModelImpl implements FullWidthImag
      */
     @Override
     public List<CTAPojo> getCtaList() {
-		if (null != ctaList && ctaList.hasChildren()) {
-			list = CtaUtils.createCtaList(ctaList, resourceResolver);
-		}
-		return list;
-	}
-    
+        if (null != ctaList && ctaList.hasChildren()) {
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+        }
+        return list;
+    }
+
     /**
      * Gets the body copy.
      *
@@ -63,7 +62,7 @@ public class FullWidthImageImpl extends GlobalModelImpl implements FullWidthImag
      */
     @Override
     public String getBodyCopy() {
-		return bodyCopy;
-	}
+        return bodyCopy;
+    }
 
 }
