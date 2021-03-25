@@ -46,6 +46,12 @@ public class GlobalModelImpl implements GlobalModel {
     private String link;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String imageCaptionText;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String imageCaptionLink;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String linkType;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -104,6 +110,16 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getImageLink() {
         return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
+    }
+
+    @Override
+    public String getImageCaptionText() {
+        return imageCaptionText;
+    }
+
+    @Override
+    public String getImageCaptionLink() {
+        return LinkUtils.appendLinkExtension(imageCaptionLink, resourceResolver);
     }
 
     @Override

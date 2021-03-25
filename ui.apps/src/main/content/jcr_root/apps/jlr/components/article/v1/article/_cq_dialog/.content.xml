@@ -90,10 +90,18 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                                 path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
-                                            <imgAlt
+                                            <imageAlt
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                                 path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                            <imageCaptionText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/jlr/components/globalfields/image/imageCaptionText"/>
+                                            <imageCaptionLink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/jlr/components/globalfields/image/imageCaptionLink"/>
                                         </items>
                                     </well>
                                 </items>

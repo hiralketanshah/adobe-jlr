@@ -4,11 +4,14 @@
  <div data-sly-test="${!article.headerCopy || !article.copy}" class="cq-placeholder" data-emptytext="Article Section Component"></div>
  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.article.v1']}"/>
   <div class="section">
-   <picture data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'above'}" class="Picture Article__Picture Article__Picture--top">
+   <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'above'}">
+   <picture class="Picture Article__Picture Article__Picture--top">
     <a href="${article.imageLink}">
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
     </a>   
    </picture>
+   <p class="imageCaption bottom"><a href="${article.imageCaptionLink}" target="_blank">${article.imageCaptionText}</a></p>
+   </sly>
    <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'above'}" class="cmp-article__videoframe">
     <div class="cmp-article__video-container">
      <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
@@ -16,11 +19,14 @@
    </div>
    <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
    <div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
-   <picture data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'below'}" class="Picture Article__Picture Article__Picture--bottom">
+   <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'below'}">
+   <picture class="Picture Article__Picture Article__Picture--bottom">
     <a href="${article.imageLink}">
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
     </a>
    </picture>
+   <p class="imageCaption bottom"><a href="${article.imageCaptionLink}" target="_blank">${article.imageCaptionText}</a></p>
+   </sly>
    <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'below'}" class="cmp-article__videoframe">
     <div class="cmp-article__video-container">
      <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
