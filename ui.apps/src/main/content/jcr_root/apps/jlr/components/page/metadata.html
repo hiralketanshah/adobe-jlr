@@ -17,6 +17,7 @@
    <link rel="canonical" href="${properties.ogUrl}"/>
 
    <meta data-sly-test.keywords="${properties.keywords}" name="keywords" content="${keywords}"/>
+   <meta data-sly-test.title="${properties['jcr:title']}" name="title" content="${title}"/>
    <meta data-sly-test.description="${properties['jcr:description']}" name="description" content="${description}"/>
 
     <!-- Search Crawler controls --> 
@@ -33,8 +34,11 @@
      </script>
    </sly>
 
+   <!-- Last Modified -->
+   <meta data-sly-test.lastModified="${properties['cq:lastModified'] ? properties['cq:lastModified'] : properties['cq:lastPublished']  }" content="${ 'dd-MM-yyyy' @ format=lastModified}" name="last-modified" />
+
    <!-- Open Graph Details -->
-   <meta data-sly-test.ogTitle="${properties.ogTitle ? properties.ogTitle :properties.pageTitle}" property="og:title" content="${ogTitle}"/>
+   <meta data-sly-test.ogTitle="${properties.ogTitle ? properties.ogTitle : properties['jcr:title']}" property="og:title" content="${ogTitle}"/>
    <meta data-sly-test.ogType="${properties.ogType ? properties.ogType :'website'}"  property="og:type" content="${ogType}"/>
    <meta data-sly-test.ogUrl="${properties.ogUrl ? properties.ogUrl :''}" property="og:url" content="${ogURL}"/>
    <meta data-sly-test.description="${properties.ogDescription ? properties.ogDescription : properties.jcr:description}" property="og:description" content="${description}"/>		
@@ -42,7 +46,7 @@
    <meta data-sly-test.siteName="${properties.siteName ? properties.siteName :'landrover'}"  property="og:site_name" content="${siteName}"/>
 
 	<!-- Twitter Card Details -->
-   <meta data-sly-test.twitterTitle="${properties.twitterTitle ? properties.twitterTitle : properties.pageTitle}" property="twitter:title" content="${twitterTitle}"/>
+   <meta data-sly-test.twitterTitle="${properties.twitterTitle ? properties.twitterTitle : properties['jcr:title']}" property="twitter:title" content="${twitterTitle}"/>
    <meta data-sly-test.twitterDescription="${properties.twitterDescription ? properties.twitterDescription : properties.jcr:description}" property="twitter:description" content="${twitterDescription}"/>	
    <meta data-sly-test.twitterCard="${properties.twitterCard ? properties.twitterCard :'summary_large_image'}"  property="twitter:card" content="${twitterCard}"/>
 

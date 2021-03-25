@@ -12,62 +12,39 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.jlr.core.models.ArticleModel;
+import com.jlr.core.models.VehicleSummaryModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
 /**
- * The Class ArticleModelImpl.
+ * The Class VehicleSummaryImpl.
  */
-@Model(adaptables = Resource.class, adapters = { ArticleModel.class }, resourceType = ArticleModelImpl.RESOURCE_TYPE)
-public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
+@Model(adaptables = Resource.class, adapters = {
+        VehicleSummaryModel.class }, resourceType = VehicleSummaryImpl.RESOURCE_TYPE)
+public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummaryModel {
 
     /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
+    public static final String RESOURCE_TYPE = "jlr/components/vehiclesummary/v1/vehiclesummary";
 
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The image position. */
+    /** The header copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imagePosition;
-
-    /** The content type. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String assetType;
-
-    /** The video type. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String videoType;
+    private String headerCopy;
 
     /** The cta list. */
     @Inject
     @Optional
     private Resource ctaList;
 
+    /** The price. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String price;
+
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-
-    /**
-     * Gets the image position.
-     *
-     * @return the image position
-     */
-    @Override
-    public String getImagePosition() {
-        return imagePosition;
-    }
-
-    /**
-     * Gets the content type.
-     *
-     * @return the content type
-     */
-    @Override
-    public String getAssetType() {
-        return assetType;
-    }
 
     /**
      * Gets the cta list.
@@ -80,5 +57,15 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
             list = CtaUtils.createCtaList(ctaList, resourceResolver);
         }
         return list;
+    }
+
+    /**
+     * Gets the price.
+     *
+     * @return the price
+     */
+    @Override
+    public String getPrice() {
+        return price;
     }
 }

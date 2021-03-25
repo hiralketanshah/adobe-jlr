@@ -30,6 +30,14 @@ public interface GlobalModel {
         return StringUtils.EMPTY;
     }
 
+    default String getImageCaptionText() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getImageCaptionLink() {
+        return StringUtils.EMPTY;
+    }
+
     default String getLogoImage() {
         return StringUtils.EMPTY;
     }

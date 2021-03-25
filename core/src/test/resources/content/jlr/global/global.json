@@ -11,5 +11,7 @@
     "fileReference": "/content/dam/test.png",
     "imageAlt": "test_imageAlt",
     "imageLink": "/content/jlr/au",
+    "imageCaptionLink": "/content/jlr/au",
+    "imageCaptionText": "Image Caption Text",
     "jcr:primaryType": "nt:unstructured"
 }

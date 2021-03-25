@@ -9,41 +9,34 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.ArticleModel;
+import com.jlr.core.models.VehicleSummaryModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
- * Simple JUnit test verifying the ArticleModelImpl.
+ * The Class VehicleSummaryImplTest.
  */
 @ExtendWith(AemContextExtension.class)
-class ArticleModelImplTest {
+class VehicleSummaryImplTest {
 
-    /** The article model. */
-    private ArticleModel articleModel;
+    /** The vehicle summary model. */
+    private VehicleSummaryModel vehicleSummaryModel;
 
     /**
      * Sets the up.
      *
      * @param context
      *            the new up
+     * @throws Exception
+     *             the exception
      */
     @BeforeEach
-    public void setup(AemContext context) {
-        context.load().json("/content/jlr/article/article.json", "/content/jlr/article.html");
-        Resource resource = context.resourceResolver().getResource("/content/jlr/article.html");
-        articleModel = resource.adaptTo(ArticleModelImpl.class);
-    }
-
-    /**
-     * Test properties.
-     */
-    @Test
-    void testProperties() {
-        assertEquals("above", articleModel.getImagePosition());
-        assertEquals("image", articleModel.getAssetType());
+    void setUp(AemContext context) throws Exception {
+        context.load().json("/content/jlr/vehiclesummary/vehiclesummary.json", "/content/jlr/vehiclesummary.html");
+        Resource resource = context.resourceResolver().getResource("/content/jlr/vehiclesummary.html");
+        vehicleSummaryModel = resource.adaptTo(VehicleSummaryImpl.class);
     }
 
     /**
@@ -51,7 +44,8 @@ class ArticleModelImplTest {
      */
     @Test
     void testCtaProperties() {
-        List<CTAPojo> list = articleModel.getCtaList();
+        List<CTAPojo> list = vehicleSummaryModel.getCtaList();
+        assertEquals("pricing_value", vehicleSummaryModel.getPrice());
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_cta_text", item.getText());
@@ -59,5 +53,7 @@ class ArticleModelImplTest {
             assertEquals("_self", item.getTarget());
             assertEquals("primary", item.getLinkType());
         });
+
     }
+
 }

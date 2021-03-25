@@ -48,6 +48,12 @@ public class GlobalModelImpl implements GlobalModel {
     private String link;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String imageCaptionText;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String imageCaptionLink;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String linkType;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -109,6 +115,16 @@ public class GlobalModelImpl implements GlobalModel {
     }
 
     @Override
+    public String getImageCaptionText() {
+        return imageCaptionText;
+    }
+
+    @Override
+    public String getImageCaptionLink() {
+        return LinkUtils.appendLinkExtension(imageCaptionLink, resourceResolver);
+    }
+
+    @Override
     public String getText() {
         return text;
     }
@@ -141,7 +157,7 @@ public class GlobalModelImpl implements GlobalModel {
 
     @Override
     public String getVideoId() {
-        return (CommonConstants.YOUTUBE_URL).concat(videoId);
+        return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
     }
 
     @Override
