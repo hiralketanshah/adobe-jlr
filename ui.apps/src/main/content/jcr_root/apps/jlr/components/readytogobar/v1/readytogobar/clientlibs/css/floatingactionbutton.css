@@ -172,6 +172,7 @@ body.focusStylesOn .FloatingActionButton:focus {
   border-bottom: 1px solid transparent;
   transition: color 0.4s, border-bottom 0.4s;
   margin-bottom: -1px;
+  text-transform:uppercase
 }
 .FloatingActionButton__item-link:focus .FloatingActionButton__item-text,
 .FloatingActionButton__item-link:hover .FloatingActionButton__item-text {
@@ -336,6 +337,12 @@ body.focusStylesOn .FloatingActionButton:focus {
       display: none;
     }
     .FloatingActionButton[data-visibility-tablet="true"] {
+      display: block;
+    }
+	.FloatingActionButton[data-visibility-mobile="false"] {
+      display: none;
+    }
+    .FloatingActionButton[data-visibility-mobile="true"] {
       display: block;
     }
     .FloatingActionButton--opened .FloatingActionButton__overlay {

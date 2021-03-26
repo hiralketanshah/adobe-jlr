@@ -89,7 +89,8 @@
 
 .cmp-readyToGoBar__heading {
 	display: flex;
-	align-items: center
+	align-items: center;
+    text-transform:uppercase
 }
 
 .cmp-readyToGoBar__heading::before {

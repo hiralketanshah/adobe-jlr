@@ -86,27 +86,30 @@
                             <hideDesktop
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}true"
+                                defaultChecked="{Boolean}false"
                                 fieldDescription="Enable to supress desktop Viewport across the whole site"
                                 name="./hideDesktop"
                                 text="Supress desktop view"
-                                value="{Boolean}true"/>
+                                uncheckedValue="true"
+                                value="{Boolean}false"/>
                             <hideTablet
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}true"
+                                defaultChecked="{Boolean}false"
                                 fieldDescription="Enable to supress Tablet Viewport across the whole site"
                                 name="./hideTablet"
                                 text="Supress tablet view"
-                                value="{Boolean}true"/>
+                                uncheckedValue="true"
+                                value="{Boolean}false"/>
                             <hideMobile
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}true"
+                                defaultChecked="{Boolean}false"
                                 fieldDescription="Enable to supress Mobile Viewport across the whole site"
                                 name="./hideMobile"
                                 text="Supress mobile view"
-                                value="{Boolean}true"/>
+                                uncheckedValue="true"
+                                value="{Boolean}false"/>
                             <listType
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/select"
