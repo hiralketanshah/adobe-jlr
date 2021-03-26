@@ -2742,7 +2742,6 @@ html {
 body {
 	color: #fff;
 	height: 100%;
-	background-color: #4a4f54
 }
 
 body:not(.isFullscreen) {
@@ -5622,37 +5621,37 @@ p>a {
 	border-bottom: 1px solid #005a2b
 }
 
-.dark #landrover .secondaryLinkWithStyle,
+#landrover .dark .secondaryLinkWithStyle,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle {
 	color: #fff
 }
 
-.dark #landrover .secondaryLinkWithStyle:before,
+#landrover .dark .secondaryLinkWithStyle:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:before {
 	color: #fff
 }
 
-.dark #landrover .secondaryLinkWithStyle:hover,
-.dark #landrover .secondaryLinkWithStyle:active,
-.dark #landrover .secondaryLinkWithStyle:focus,
+#landrover .dark .secondaryLinkWithStyle:hover,
+#landrover .dark .secondaryLinkWithStyle:active,
+#landrover .dark .secondaryLinkWithStyle:focus,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:hover,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:active,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:focus {
 	color: #C9C9C9
 }
 
-.dark #landrover .secondaryLinkWithStyle:hover span,
-.dark #landrover .secondaryLinkWithStyle:active span,
-.dark #landrover .secondaryLinkWithStyle:focus span,
+#landrover .dark .secondaryLinkWithStyle:hover span,
+#landrover .dark .secondaryLinkWithStyle:active span,
+#landrover .dark .secondaryLinkWithStyle:focus span,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:hover span,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:active span,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:focus span {
 	border-bottom: 1px solid #C9C9C9
 }
 
-.dark #landrover .secondaryLinkWithStyle:hover:before,
-.dark #landrover .secondaryLinkWithStyle:active:before,
-.dark #landrover .secondaryLinkWithStyle:focus:before,
+#landrover .dark .secondaryLinkWithStyle:hover:before,
+#landrover .dark .secondaryLinkWithStyle:active:before,
+#landrover .dark .secondaryLinkWithStyle:focus:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:hover:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:active:before,
 #landrover [data-theme="dark"] .secondaryLinkWithStyle:focus:before {
@@ -6124,7 +6123,6 @@ h6 {
 	line-height: 1;
 	font-family: "lr_ot4", "arial", "helvetica", sans-serif;
 	font-weight: 700;
-	color: #0c121c
 }
 
 dl dt,
