@@ -1,338 +1,356 @@
 .FloatingActionButton {
-	transition: top .4s ease;
-	position: fixed;
-	right: 0;
-	bottom: 0;
-	z-index: 101
+  transition: top 0.4s ease;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 101;
 }
-
 .FloatingActionButton[data-visibility-mobile="false"] {
-	display: none
+  display: none;
 }
-
 .FloatingActionButton[data-visibility-mobile="true"] {
-	display: block
+  display: block;
 }
-
 .FloatingActionButton__trigger {
-	position: absolute;
-	right: 15px;
-	top: unset;
-	bottom: 15px;
-	border-radius: 50%;
-	width: 57px;
-	height: 57px;
-	opacity: 0;
-	visibility: hidden;
-	transition: visibility .3s, transform .3s, opacity .3s;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border: 1px solid transparent;
-	background-clip: padding-box;
-	z-index: 1;
-	transform: translateY(20px);
-	touch-action: manipulation
+  position: absolute;
+  right: 15px;
+  top: unset;
+  bottom: 15px;
+  border-radius: 50%;
+  width: 57px;
+  height: 57px;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.3s, transform 0.3s, opacity 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  z-index: 1;
+  transform: translateY(20px);
+  touch-action: manipulation;
 }
-
 .FloatingActionButton__trigger:hover,
 .FloatingActionButton__trigger:focus {
-	background-color: transparent
+  background-color: transparent;
 }
-
-body.focusStylesOn .FloatingActionButton__trigger:focus .FloatingActionButton__trigger-container {
-	background-color: #0c121c
+body.focusStylesOn
+  .FloatingActionButton__trigger:focus
+  .FloatingActionButton__trigger-container {
+  background-color: #0c121c;
 }
-
-.FloatingActionButton__trigger--touch .FloatingActionButton__trigger-dot:first-child,
-body.focusStylesOn .FloatingActionButton__trigger:focus .FloatingActionButton__trigger-dot:first-child {
-	transform: translateX(-2px)
+.FloatingActionButton__trigger--touch
+  .FloatingActionButton__trigger-dot:first-child,
+body.focusStylesOn
+  .FloatingActionButton__trigger:focus
+  .FloatingActionButton__trigger-dot:first-child {
+  transform: translateX(-2px);
 }
-
-.FloatingActionButton__trigger--touch .FloatingActionButton__trigger-dot:last-child,
-body.focusStylesOn .FloatingActionButton__trigger:focus .FloatingActionButton__trigger-dot:last-child {
-	transform: translateX(2px)
+.FloatingActionButton__trigger--touch
+  .FloatingActionButton__trigger-dot:last-child,
+body.focusStylesOn
+  .FloatingActionButton__trigger:focus
+  .FloatingActionButton__trigger-dot:last-child {
+  transform: translateX(2px);
 }
-
 .FloatingActionButton__trigger--touch .FloatingActionButton__trigger-container {
-	background-color: #0c121c
+  background-color: #0c121c;
 }
-
 body.focusStylesOn .FloatingActionButton:focus {
-	box-shadow: 0 0 5px #4a90e2, 0 0 5px #4a90e2 !important
+  box-shadow: 0 0 5px #4a90e2, 0 0 5px #4a90e2 !important;
 }
-
 .FloatingActionButton__trigger--show-delayed {
-	animation: show-trigger .4s;
-	animation-delay: 2s;
-	animation-fill-mode: forwards
+  animation: show-trigger 0.4s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
 }
-
 .FloatingActionButton__trigger--show-direct {
-	animation: show-direct .4s;
-	animation-delay: 0s;
-	opacity: 1 !important;
-	visibility: visible !important;
-	transform: translateY(0) !important
+  animation: show-direct 0.4s;
+  animation-delay: 0s;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
 }
-
 .FloatingActionButton__trigger-container {
-	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 55px;
-	height: 55px;
-	border-radius: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #005a2b;
-	transition: background-color .2s
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #005a2b;
+  transition: background-color 0.2s;
 }
-
 .FloatingActionButton__trigger-close {
-	transition: visibility .2s, transform .2s, opacity .2s;
-	transform: rotate(45deg);
-	visibility: hidden;
-	color: #fff;
-	font-size: 17px;
-	position: absolute;
-	display: flex;
-	opacity: 0
+  transition: visibility 0.2s, transform 0.2s, opacity 0.2s;
+  transform: rotate(45deg);
+  visibility: hidden;
+  color: #fff;
+  font-size: 17px;
+  position: absolute;
+  display: flex;
+  opacity: 0;
 }
-
 .FloatingActionButton__trigger-close:before {
-	margin: 0
+  margin: 0;
 }
-
 .FloatingActionButton__trigger-dots {
-	transition: visibility .2s, transform .2s, opacity .2s;
-	opacity: 1;
-	visibility: visible;
-	transform: rotate(0deg);
-	display: flex;
-	justify-content: center
+  transition: visibility 0.2s, transform 0.2s, opacity 0.2s;
+  opacity: 1;
+  visibility: visible;
+  transform: rotate(0deg);
+  display: flex;
+  justify-content: center;
 }
-
 .FloatingActionButton__trigger-dot {
-	transition: transform .2s;
-	border-radius: 50%;
-	background-color: #fff;
-	width: 4px;
-	height: 4px;
-	margin: 0 3px
+  transition: transform 0.2s;
+  border-radius: 50%;
+  background-color: #fff;
+  width: 4px;
+  height: 4px;
+  margin: 0 3px;
 }
-
 .FloatingActionButton__trigger-dot:first-child,
 .FloatingActionButton__trigger-dot:last-child {
-	transform: translateX(0)
+  transform: translateX(0);
 }
-
 .FloatingActionButton__items {
-	visibility: hidden;
-	opacity: 0;
-	background-color: #fff;
-	min-width: 240px;
-	max-width: 100%;
-	padding: 30px 30px 65px;
-	width: auto;
-	box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-	margin-top: unset;
-	transform: translateY(20px);
-	transition: visibility .3s, opacity .3s, transform .3s
+  visibility: hidden;
+  opacity: 0;
+  background-color: #fff;
+  min-width: 240px;
+  max-width: 100%;
+  padding: 30px 30px 65px;
+  width: auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  margin-top: unset;
+  transform: translateY(20px);
+  transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 }
-
 .FloatingActionButton__items-hide {
-	height: 0;
-	padding: 0 !important;
-	overflow: hidden
+  height: 0;
+  padding: 0 !important;
+  overflow: hidden;
 }
-
 .FloatingActionButton__item {
-	display: flex;
-	align-items: center;
-	height: 50px
+  display: flex;
+  align-items: center;
+  height: 50px;
 }
-
 .FloatingActionButton__item:not(:last-child) {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-
 .FloatingActionButton__item-link {
-	display: flex;
-	align-items: center;
-	width: 100%;
-	color: #0c121c;
-	text-decoration: none;
-	height: 100%;
-	padding: 0 10px 0 5px;
-	transition: background-color .4s
+  display: flex;
+  align-items: center;
+  width: 100%;
+  color: #0c121c;
+  text-decoration: none;
+  height: 100%;
+  padding: 0 10px 0 5px;
+  transition: background-color 0.4s;
 }
-
 .FloatingActionButton__item-link:before {
-	font-size: 1.8rem
+  font-size: 1.8rem;
 }
-
 .FloatingActionButton__item-link:focus,
 .FloatingActionButton__item-link:hover {
-	background-color: #f8f9f9
+  background-color: #f8f9f9;
 }
-
 .FloatingActionButton__item-text {
-	font-family: "avenir", "arial", "helvetica", sans-serif;
-	font-weight: 600;
-	font-size: .9rem;
-	letter-spacing: .18rem;
-	line-height: 1.2;
-	margin-left: 8px;
-	border-bottom: 1px solid transparent;
-	transition: color .4s, border-bottom .4s;
-	margin-bottom: -1px
+  font-family: "avenir", "arial", "helvetica", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.18rem;
+  line-height: 1.2;
+  margin-left: 8px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.4s, border-bottom 0.4s;
+  margin-bottom: -1px;
 }
-
 .FloatingActionButton__item-link:focus .FloatingActionButton__item-text,
 .FloatingActionButton__item-link:hover .FloatingActionButton__item-text {
-	color: #005a2b;
-	border-bottom: 1px solid #005a2b
+  color: #005a2b;
+  border-bottom: 1px solid #005a2b;
 }
-
 .FloatingActionButton__overlay {
-	transition: visibility .3s, opacity .3s;
-	visibility: hidden;
-	opacity: 0;
-	background: rgba(0, 0, 0, 0.7);
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	z-index: -1
+  transition: visibility 0.3s, opacity 0.3s;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }
-
 .FloatingActionButton--opened .FloatingActionButton__items {
-	visibility: visible;
-	opacity: 1;
-	transform: translateY(0)
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
 }
-
 .FloatingActionButton--opened .FloatingActionButton__trigger-close {
-	visibility: visible;
-	transform: rotate(0deg);
-	opacity: 1
+  visibility: visible;
+  transform: rotate(0deg);
+  opacity: 1;
 }
-
 .FloatingActionButton--opened .FloatingActionButton__trigger-dots {
-	visibility: hidden;
-	transform: rotate(-45deg);
-	opacity: 0
+  visibility: hidden;
+  transform: rotate(-45deg);
+  opacity: 0;
 }
-
 .FloatingActionButton--opened .FloatingActionButton__overlay {
-	visibility: visible;
-	opacity: 1
+  visibility: visible;
+  opacity: 1;
 }
-
 .FloatingActionButton__notifications {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 0;
-	height: 0;
-	overflow: hidden
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
-
 @media screen and (min-width: 741px) {
-	.FloatingActionButton {
-		z-index: 3
-	}
-	.FloatingActionButton[data-visibility-tablet="false"] {
-		display: none
-	}
-	.FloatingActionButton[data-visibility-tablet="true"] {
-		display: block
-	}
-	.FloatingActionButton--opened .FloatingActionButton__overlay {
-		display: none
-	}
-	.FloatingActionButton__items {
-		max-width: 360px
-	}
+  .FloatingActionButton {
+    z-index: 3;
+  }
+  .FloatingActionButton[data-visibility-tablet="false"] {
+    display: none;
+  }
+  .FloatingActionButton[data-visibility-tablet="true"] {
+    display: block;
+  }
+  .FloatingActionButton--opened .FloatingActionButton__overlay {
+    display: none;
+  }
+  .FloatingActionButton__items {
+    width: 303px;
+    max-height: 312px;
+  }
+  .FloatingActionButton__item{
+    max-height: 50px;
+    width: 210px;
+  }
 }
-
 @media screen and (min-width: 901px) {
-	.FloatingActionButton {
-		bottom: unset
-	}
-	.FloatingActionButton[data-visibility-desktop="false"] {
-		display: none
-	}
-	.FloatingActionButton[data-visibility-desktop="true"] {
-		display: block
-	}
-	.FloatingActionButton__trigger {
-		opacity: 0;
-		visibility: hidden;
-		transition: transform .4s, visibility .4s, opacity .4s;
-		right: 20px;
-		top: 20px;
-		bottom: unset;
-		transform: translateY(-20px)
-	}
-	.FloatingActionButton__trigger-dots--ellipsis-animation .FloatingActionButton__trigger-dot {
-		animation-name: ellipsis-animation;
-		animation-duration: .6s;
-		animation-timing-function: ease-in-out
-	}
-	.FloatingActionButton__trigger-dots--ellipsis-animation .FloatingActionButton__trigger-dot:nth-child(2) {
-		animation-delay: .2s
-	}
-	.FloatingActionButton__trigger-dots--ellipsis-animation .FloatingActionButton__trigger-dot:nth-child(3) {
-		animation-delay: .4s
-	}
-	html:not(.touchCapability) .FloatingActionButton .FloatingActionButton__trigger:hover .FloatingActionButton__trigger-container {
-		background-color: #0c121c
-	}
-	html:not(.touchCapability) .FloatingActionButton .FloatingActionButton__trigger:hover .FloatingActionButton__trigger-dot:first-child {
-		transform: translateX(-2px)
-	}
-	html:not(.touchCapability) .FloatingActionButton .FloatingActionButton__trigger:hover .FloatingActionButton__trigger-dot:last-child {
-		transform: translateX(2px)
-	}
-	.FloatingActionButton__items {
-		margin-bottom: unset;
-		padding: 75px 30px 30px;
-		transform: translateY(-20px)
-	}
-	.FloatingActionButton__item-text {
-		font-size: 1rem;
-		letter-spacing: .173rem;
-		line-height: 1.1
-	}
+  .FloatingActionButton {
+    bottom: unset;
+  }
+  .FloatingActionButton[data-visibility-desktop="false"] {
+    display: none;
+  }
+  .FloatingActionButton[data-visibility-desktop="true"] {
+    display: block;
+  }
+  .FloatingActionButton__trigger {
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.4s, visibility 0.4s, opacity 0.4s;
+    right: 20px;
+    top: 20px;
+    bottom: unset;
+    transform: translateY(-20px);
+  }
+  .FloatingActionButton__trigger-dots--ellipsis-animation
+    .FloatingActionButton__trigger-dot {
+    animation-name: ellipsis-animation;
+    animation-duration: 0.6s;
+    animation-timing-function: ease-in-out;
+  }
+  .FloatingActionButton__trigger-dots--ellipsis-animation
+    .FloatingActionButton__trigger-dot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .FloatingActionButton__trigger-dots--ellipsis-animation
+    .FloatingActionButton__trigger-dot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  html:not(.touchCapability)
+    .FloatingActionButton
+    .FloatingActionButton__trigger:hover
+    .FloatingActionButton__trigger-container {
+    background-color: #0c121c;
+  }
+  html:not(.touchCapability)
+    .FloatingActionButton
+    .FloatingActionButton__trigger:hover
+    .FloatingActionButton__trigger-dot:first-child {
+    transform: translateX(-2px);
+  }
+  html:not(.touchCapability)
+    .FloatingActionButton
+    .FloatingActionButton__trigger:hover
+    .FloatingActionButton__trigger-dot:last-child {
+    transform: translateX(2px);
+  }
+  .FloatingActionButton__items {
+    margin-bottom: unset;
+    padding-top: 91px;
+    padding-left: 63px;
+    /* padding-bottom: 36px; */
+    padding-right: 30px;
+    transform: translateY(-20px);
+  }
+  .FloatingActionButton__item-text {
+    font-size: 1rem;
+    letter-spacing: 0.173rem;
+    line-height: 1.1;
+  }
 }
-
 @keyframes show-trigger {
-	from {
-		visibility: hidden
-	}
-	to {
-		visibility: visible;
-		opacity: 1;
-		transform: translateY(0)
-	}
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 @keyframes ellipsis-animation {
-	0% {
-		transform: translateY(0);
-		opacity: 1
-	}
-	50% {
-		transform: translateY(-15px);
-		opacity: 0
-	}
-	100% {
-		transform: translateY(0);
-		opacity: 1
-	}
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-15px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
+@media screen and (min-width: 360px) and (max-width: 740px){
+    .FloatingActionButton {
+      z-index: 3;
+    }
+    .FloatingActionButton[data-visibility-tablet="false"] {
+      display: none;
+    }
+    .FloatingActionButton[data-visibility-tablet="true"] {
+      display: block;
+    }
+    .FloatingActionButton--opened .FloatingActionButton__overlay {
+      display: none;
+    }
+    .FloatingActionButton__items {
+      width: 258px;
+      max-height: 295px;
+      padding-top: 30px;
+      padding-left: 30px;
+      /* padding-bottom: 30px; */
+      padding-right: 30px;
+    }
+    .FloatingActionButton__item{
+      height: 50px;
+      width: 198px;
+    }
+  }

@@ -18,6 +18,6 @@
         <overlay
             jcr:primaryType="nt:unstructured"
             text="Overlay"
-            value="_overlay"/>
+            value="overlay"/>
     </items>
 </jcr:root>

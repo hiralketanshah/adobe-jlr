@@ -1,0 +1,33 @@
+<sly data-sly-use.model="com.jlr.core.models.ReadyToGoBarModel" data-sly-call="${renderReadytogobar @ readytogobar=model}" />
+<template data-sly-template.renderReadytogobar="${ @ readytogobar }">
+   <div class="cq-placeholder"
+      data-emptytext="ReadyTo Go Bar Component"></div>
+   <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+      data-sly-call="${clientlib.all @ categories=['jlr.base']}"/>
+
+   <div class="pageWrapper">
+      <div id="FloatingActionEnabler">
+         <div class="FloatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideTablet}" data-visibility-tablet="${readytogobar.hideMobile}">
+            <button aria-expanded="false" aria-label="Further Actions" class="FloatingActionButton__trigger">
+               <div class="FloatingActionButton__trigger-container">
+                  <div class="FloatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
+                  <div class="FloatingActionButton__trigger-dots">
+                     <span class="FloatingActionButton__trigger-dot"></span>
+                     <span class="FloatingActionButton__trigger-dot"></span>
+                     <span class="FloatingActionButton__trigger-dot"></span>
+                  </div>
+               </div>
+            </button>
+            <ul class="FloatingActionButton__items FloatingActionButton__items-hide" data-sly-list.item="${readytogobar.faboverride}">
+               <li class="FloatingActionButton__item">
+                   <a class=" FloatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" data-link-desktop="https://www.landrover.co.uk/how-to-order-online/index.html" aria-label="${item.ariaLabel}" data-target="overlay" data-trcprs_cta="sf_p_e_l405_a_z_1" data-tracking-id="FloatingActionButton:ORDER YOUR RANGE ROVER ONLINE:https://www.landrover.co.uk/how-to-order-online/index.html" data-aria-title="">
+                  <span class="FloatingActionButton__item-text" aria-hidden="true">"${item.text}"</span>
+                  </a>
+               </li>
+            </ul>
+            <div class="FloatingActionButton__overlay"></div>
+         </div>
+      </div>
+   </div>
+   </span>
+</template>

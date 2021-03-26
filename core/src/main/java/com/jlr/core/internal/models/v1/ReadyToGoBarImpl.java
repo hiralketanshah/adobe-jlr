@@ -26,6 +26,10 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     @Inject
     @Optional
     private Resource rtgb;
+    
+    @Inject
+    @Optional
+    private Resource faboverride;
 
     /** The resource resolver. */
     @Inject
@@ -34,10 +38,23 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     /** The enable FAB. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String enableFAB;
-
+	
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String hideDesktop;
+	
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String hideTablet;
+	
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String hideMobile;
+	
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String listType;
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
+    
+    List<CTAPojo> fabList = new ArrayList<>();
 
     /**
      * Gets the rtgb.
@@ -51,6 +68,14 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
         }
         return list;
     }
+    
+    @Override
+    public List<CTAPojo> getFaboverride() {
+    	if (null != faboverride && faboverride.hasChildren()) {
+            list = CtaUtils.createCtaList(faboverride, super.getHeaderCopy(), resourceResolver);
+        }
+        return list;
+    }
 
     /**
      * Gets the enable FAB.
@@ -60,6 +85,22 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     public String getEnableFAB() {
         return enableFAB;
     }
+    
+    public String getHideDesktop() {
+		return hideDesktop;
+	}
+
+	public String getHideTablet() {
+		return hideTablet;
+	}
+
+	public String getHideMobile() {
+		return hideMobile;
+	}
+
+	public String getListType() {
+		return listType;
+	}
 
 }
 

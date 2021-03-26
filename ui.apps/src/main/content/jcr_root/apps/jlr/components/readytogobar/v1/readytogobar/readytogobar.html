@@ -1,14 +1,11 @@
 <sly data-sly-use.model="com.jlr.core.models.ReadyToGoBarModel" data-sly-call="${renderReadytogobar @ readytogobar=model}" />
-
 <template data-sly-template.renderReadytogobar="${ @ readytogobar }">
-<div class="cq-placeholder"
-	 data-emptytext="ReadyTo Go Bar Component"></div>
+   <div class="cq-placeholder"
+      data-emptytext="ReadyTo Go Bar Component"></div>
+   <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+      data-sly-call="${clientlib.all @ categories=['jlr.base']}"/>
 
-
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['jaguar.components.readytogobar.v1','jlr.base']}"/>
-
-<div class="cmp-readyToGoBar container fontSmooth">
+      <div class="cmp-readyToGoBar container fontSmooth">
 	<ul class="cmp-readyToGoBar__list" data-sly-list.item="${readytogobar.rtgb}">
 		<li class="cmp-readyToGoBar__item">
 			<a class="cmp-readyToGoBar__link keepOriginalClasses" target="${item.target}" href="${item.link}">
@@ -19,54 +16,13 @@ data-sly-call="${clientlib.all @ categories=['jaguar.components.readytogobar.v1'
           <span class="cmp-readyToGoBar__heading-inner">${item.text}</span>
         </h2>
 
-				<span class="cmp-readyToGoBar__copy fontBodyCopy">${item.copy @ context="html"}</span>
+				<p class="cmp-readyToGoBar__copy fontBodyCopy">${item.copy}</p>
 			</a>
 		</li>
         </ul>
         </div>
 
-        <div class="pageWrapper">
-
-        <div id="FloatingActionEnabler">
-<div class="FloatingActionButton fontSmooth" data-visibility-desktop="true" data-visibility-mobile="true" data-visibility-tablet="true">
-  <button aria-expanded="false" aria-label="Further Actions" class="FloatingActionButton__trigger">
-    <div class="FloatingActionButton__trigger-container">
-      <div class="FloatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
-      <div class="FloatingActionButton__trigger-dots">
-        <span class="FloatingActionButton__trigger-dot"></span>
-        <span class="FloatingActionButton__trigger-dot"></span>
-        <span class="FloatingActionButton__trigger-dot"></span>
-      </div>
-    </div>
-  </button>
-  <ul class="FloatingActionButton__items FloatingActionButton__items-hide">
-    <li class="FloatingActionButton__item">
-      <a class=" FloatingActionButton__item-link icon-inventory TargetLinks" href="https://www.landrover.co.uk/how-to-order-online/index.html" data-link-desktop="https://www.landrover.co.uk/how-to-order-online/index.html" aria-label="ORDER YOUR RANGE ROVER ONLINE" data-target="current" data-trcprs_cta="sf_p_e_l405_a_z_1" data-tracking-id="FloatingActionButton:ORDER YOUR RANGE ROVER ONLINE:https://www.landrover.co.uk/how-to-order-online/index.html" data-aria-title="">
-        <span class="FloatingActionButton__item-text" aria-hidden="true">ORDER YOUR RANGE ROVER ONLINE</span>
-      </a>
-    </li>
-    <li class="FloatingActionButton__item">
-      <a class=" FloatingActionButton__item-link icon-driveonroad TargetLinks" href="https://lrdxforms.landrover.com/lr-gb-en/servlet/SmartForm.html?formCode=lr-td2-gb-en" data-link-desktop="https://lrdxforms.landrover.com/lr-gb-en/servlet/SmartForm.html?formCode=lr-td2-gb-en" aria-label="TEST DRIVE" data-target="overlay" data-trcprs_cta="sf_p_e_l405_a_a_1" data-tracking-id="FloatingActionButton:TEST DRIVE RANGE ROVER:https://lrdxforms.landrover.com/lr-gb-en/servlet/SmartForm.html" data-aria-title="" data-close-button-text="Close">
-        <span class="FloatingActionButton__item-text" aria-hidden="true">TEST DRIVE RANGE ROVER</span>
-      </a>
-    </li>
-    <li class="FloatingActionButton__item">
-      <a class=" FloatingActionButton__item-link icon-finance-calculator TargetLinks" href="https://www.landrover.co.uk/offers-and-finance/finance-calculator.html#/quote/l405_k215__47x5h__a-i6-300_a-std_a-swb_a-vogue" data-link-desktop="https://www.landrover.co.uk/offers-and-finance/finance-calculator.html#/quote/l405_k215__47x5h__a-i6-300_a-std_a-swb_a-vogue" aria-label="FINANCE OFFERS" data-target="current" data-trcprs_cta="sf_p_e_l405_a_c_1" data-tracking-id="FloatingActionButton:YOUR RANGE ROVER OFFERS:https://www.landrover.co.uk/offers-and-finance/finance-calculator.html#/quote/l405_k215__47x5h__a-i6-300_a-std_a-swb_a-vogue" data-aria-title="">
-        <span class="FloatingActionButton__item-text" aria-hidden="true">YOUR RANGE ROVER OFFERS</span>
-      </a>
-    </li>
-    <li class="FloatingActionButton__item">
-      <a class=" FloatingActionButton__item-link icon-ignite-brochure TargetLinks" href="https://lrdxforms.landrover.com/lr-gb-en/servlet/SmartForm.html?formCode=lr-bd2-gb-en&amp;nameplate=RangeRover&amp;tltsid=70758978174294121061585903246868" data-link-desktop="https://lrdxforms.landrover.com/lr-gb-en/servlet/SmartForm.html?formCode=lr-bd2-gb-en&amp;nameplate=RangeRover&amp;tltsid=70758978174294121061585903246868" aria-label="DOWNLOAD BROCHURE" data-target="overlay" data-trcprs_cta="sf_p_e_l405_a_k_1" data-tracking-id="FloatingActionButton:DOWNLOAD YOUR RANGE ROVER BROCHURE:https://lrdxforms.landrover.com/lr-gb-en/servlet/SmartForm.html" data-aria-title="" data-close-button-text="Close">
-        <span class="FloatingActionButton__item-text" aria-hidden="true">DOWNLOAD YOUR RANGE ROVER BROCHURE</span>
-      </a>
-    </li>
-  </ul>
-  <div class="FloatingActionButton__overlay"></div>
-</div>
-
-
-
-	</div>
-</div>
-
+          <span data-sly-test="${readytogobar.enableFAB}">
+          <div data-sly-include="floatingactionbutton.html"></div>
+   </span>
 </template>
