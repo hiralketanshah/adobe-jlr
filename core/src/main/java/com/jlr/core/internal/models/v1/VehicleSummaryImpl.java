@@ -54,7 +54,7 @@ public class VehicleSummaryImpl extends GlobalModelImpl implements VehicleSummar
     @Override
     public List<CTAPojo> getCtaList() {
         if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, resourceResolver);
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
         return list;
     }
