@@ -149,10 +149,6 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
                                                     path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
-                                                <imageAlt
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
                                                 <text
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
