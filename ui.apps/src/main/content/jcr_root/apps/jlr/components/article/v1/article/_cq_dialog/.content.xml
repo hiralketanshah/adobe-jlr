@@ -22,11 +22,11 @@
                             <headerCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/headerCopy"/>
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
                             <copy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/copy"/>
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte3"/>
                         </items>
                     </properties>
                     <imagevideo

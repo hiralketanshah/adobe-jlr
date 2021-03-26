@@ -14,12 +14,52 @@
                 value=""/>
             <item1
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Arrow Left"
-                value="icon-arrow-left"/>
+                jcr:title="360"
+                value="icon-360-view"/>
             <item2
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Arrow Right"
-                value="icon-arrow-right"/>
+                jcr:title="Accessories"
+                value="icon-accessories"/>
+            <item3
+                jcr:primaryType="nt:unstructured"
+                jcr:title="App Download"
+                value="icon-download"/>
+            <item4
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Approve Used"
+                value="icon-approved-used"/>
+            <item5
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Arrow Down"
+                value="icon-arrow-down"/>
+            <item6
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Bodyshop"
+                value="icon-bodyshop"/>
+            <item7
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Book a Test Drive"
+                value="icon-driveonroad"/>
+            <item8
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Compare"
+                value="icon-compare"/>
+            <item9
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Contact Us"
+                value="icon-comment"/>
+            <item10
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Download"
+                value="icon-download"/>
+            <item11
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Explore"
+                value="icon-explore"/>
+            <item12
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Fax"
+                value="icon-fax"/>
         </list>
     </jcr:content>
 </jcr:root>
