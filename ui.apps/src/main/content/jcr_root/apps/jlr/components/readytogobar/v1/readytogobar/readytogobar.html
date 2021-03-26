@@ -16,12 +16,11 @@
           <span class="cmp-readyToGoBar__heading-inner">${item.text}</span>
         </h2>
 
-				<p class="cmp-readyToGoBar__copy fontBodyCopy">${item.copy}</p>
+				<span class="cmp-readyToGoBar__copy fontBodyCopy">${item.copy @ context="html"}</span>
 			</a>
 		</li>
         </ul>
         </div>
-
           <span data-sly-test="${readytogobar.enableFAB}">
           <div data-sly-include="floatingactionbutton.html"></div>
    </span>
