@@ -12,8 +12,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.ReadyToGoBarModel;
 import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.pojos.ReadyToGoBar;
-
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 

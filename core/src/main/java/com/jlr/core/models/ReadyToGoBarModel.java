@@ -21,26 +21,56 @@ public interface ReadyToGoBarModel {
 		return new ArrayList<>();
 	 }
 	
+	/**
+	 * Gets the enable FAB.
+	 *
+	 * @return the enable FAB
+	 */
 	default String getEnableFAB() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the hide desktop.
+     *
+     * @return the hide desktop
+     */
     default String getHideDesktop() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the hide tablet.
+     *
+     * @return the hide tablet
+     */
     default String getHideTablet() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the hide mobile.
+     *
+     * @return the hide mobile
+     */
     default String getHideMobile() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the list type.
+     *
+     * @return the list type
+     */
     default String getListType() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the faboverride.
+     *
+     * @return the faboverride
+     */
     default List<CTAPojo> getFaboverride() {
 		return new ArrayList<>();
 	 }

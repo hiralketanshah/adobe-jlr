@@ -27,6 +27,7 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     @Optional
     private Resource rtgb;
     
+    /** The faboverride. */
     @Inject
     @Optional
     private Resource faboverride;
@@ -39,21 +40,26 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String enableFAB;
 	
+	/** The hide desktop. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String hideDesktop;
 	
+	/** The hide tablet. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String hideTablet;
 	
+	/** The hide mobile. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String hideMobile;
 	
+	/** The list type. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String listType;
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
     
+    /** The fab list. */
     List<CTAPojo> fabList = new ArrayList<>();
 
     /**
@@ -69,6 +75,11 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
         return list;
     }
     
+    /**
+     * Gets the faboverride.
+     *
+     * @return the faboverride
+     */
     @Override
     public List<CTAPojo> getFaboverride() {
     	if (null != faboverride && faboverride.hasChildren()) {
@@ -86,18 +97,38 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
         return enableFAB;
     }
     
+    /**
+     * Gets the hide desktop.
+     *
+     * @return the hide desktop
+     */
     public String getHideDesktop() {
 		return hideDesktop;
 	}
 
+	/**
+	 * Gets the hide tablet.
+	 *
+	 * @return the hide tablet
+	 */
 	public String getHideTablet() {
 		return hideTablet;
 	}
 
+	/**
+	 * Gets the hide mobile.
+	 *
+	 * @return the hide mobile
+	 */
 	public String getHideMobile() {
 		return hideMobile;
 	}
 
+	/**
+	 * Gets the list type.
+	 *
+	 * @return the list type
+	 */
 	public String getListType() {
 		return listType;
 	}
