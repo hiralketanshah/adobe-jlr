@@ -41,7 +41,6 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
 
     /** The cta list. */
     @Inject
-    @Optional
     private Resource ctaList;
     
     /** The enable pricing. */

@@ -16,9 +16,9 @@
          <span>SHOW PRICES</span>
          </button>
       </div>
-      <div class="linkContainer" data-sly-test="${snippet.ctaList}" data-sly-list.item=${snippet.ctaList}>
-         <span data-sly-test="${item.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle" target="${item.target}" href="${item.link}" aria-label="${snippet.headerCopy}: ${item.text}"><span>${item.text}</span></a></span>
-         <span data-sly-test="${item.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle" target="${item.target}" href="${item.link}" aria-label="${snippet.headerCopy}: ${item.text}"><span>${item.text}</span></a></span>
+      <div class="linkContainer" data-sly-test="${snippet.ctaList}" data-sly-list.cta=${snippet.ctaList}>
+         <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+         <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
       </div>
    </div>
 </template>
