@@ -23,7 +23,7 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/herotitlebanner/v1/herotitlebanner";
-    
+
     /** The cta list. */
     @Inject
     @Optional
@@ -43,10 +43,10 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
      */
     @Override
     public List<CTAPojo> getCtaList() {
-		if (null != ctaList && ctaList.hasChildren()) {
-			list = CtaUtils.createCtaList(ctaList, resourceResolver);
-		}
-		return list;
-	}
-  
+        if (null != ctaList && ctaList.hasChildren()) {
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+        }
+        return list;
+    }
+
 }

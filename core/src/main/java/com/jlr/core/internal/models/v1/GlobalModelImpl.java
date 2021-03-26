@@ -10,6 +10,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
+import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, adapters = { GlobalModel.class })
@@ -56,6 +57,9 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String ariaLabel;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoId;
@@ -143,6 +147,18 @@ public class GlobalModelImpl implements GlobalModel {
     }
 
     @Override
+    public String getAriaLabel() {
+        if (null == ariaLabel) {
+            if (null != headerCopy) {
+                ariaLabel = CtaUtils.getAriaLabel(headerCopy, text);
+            } else if (null != headerTitle) {
+                ariaLabel = CtaUtils.getAriaLabel(headerTitle, text);
+            }
+        }
+        return ariaLabel;
+    }
+
+    @Override
     public String getVideoId() {
         return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
     }
@@ -159,6 +175,6 @@ public class GlobalModelImpl implements GlobalModel {
 
     @Override
     public String getIcon() {
-        return icon;
+        return CtaUtils.getIcon(icon, linkType);
     }
 }

@@ -56,8 +56,8 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     @Override
     public List<CTAPojo> getCtaList() {
 		if (null != ctaList && ctaList.hasChildren()) {
-			list = CtaUtils.createCtaList(ctaList, resourceResolver);
-		}
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+        }
 		return list;
 	}
     
@@ -69,6 +69,6 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     @Override
 	public String getEnablePricing() {
 		return enablePricing;
-	}
+    }
 
 }
