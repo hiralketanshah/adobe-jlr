@@ -9,6 +9,8 @@ public class CommonConstants {
     public static final String DOUBLE_BACKSLASHES = "\\";
     public static final String EXTENSION_DOT_HTML = ".html";
     public static final String COLON = ":";
+    public static final String DEFAULT_PRIMARY_ICON = "icon-arrow-right";
+    public static final String DEFAULT_SECONDARY_ICON = "icon-arrow-right";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
@@ -21,6 +23,7 @@ public class CommonConstants {
     public static final String PN_CTA_TEXT = "text";
     public static final String PN_CTA_LINK = "link";
     public static final String PN_CTA_TARGET = "target";
+    public static final String PN_CTA_ARIALABEL = "ariaLabel";
     public static final String PN_DESCRIPTION = "copy";
     public static final String PN_FILE_REFERENCE = "fileReference";
     public static final String PN_IMAGE_ALT = "imageAlt";

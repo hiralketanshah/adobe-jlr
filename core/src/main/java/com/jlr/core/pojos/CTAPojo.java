@@ -5,15 +5,17 @@ public class CTAPojo {
     private String text;
     private String link;
     private String target;
-	private String linkType;
-	private String icon;
+    private String linkType;
+    private String icon;
+    private String ariaLabel;
 
-    public CTAPojo(String text, String link, String target, String linkType, String icon) {
-    	this.text = text;
+    public CTAPojo(String text, String link, String target, String linkType, String icon, String ariaLabel) {
+        this.text = text;
         this.link = link;
         this.target = target;
-    	this.linkType = linkType;
-    	this.icon= icon;
+        this.linkType = linkType;
+        this.icon = icon;
+        this.ariaLabel = ariaLabel;
     }
 
     public String getText() {
@@ -40,19 +42,27 @@ public class CTAPojo {
         this.target = target;
     }
 
-	public String getLinkType() {
-		return linkType;
-	}
+    public String getLinkType() {
+        return linkType;
+    }
 
-	public void setLinkType(String linkType) {
-		this.linkType = linkType;
-	}
-	
-	public String getIcon() {
-		return icon;
-	}
-	
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
+    public void setLinkType(String linkType) {
+        this.linkType = linkType;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public String getAriaLabel() {
+        return ariaLabel;
+    }
+
+    public void setAriaLabel(String ariaLabel) {
+        this.ariaLabel = ariaLabel;
+    }
 }
