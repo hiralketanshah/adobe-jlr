@@ -8,8 +8,6 @@ public class CTAPojo {
     private String linkType;
     private String icon;
     private String ariaLabel;
-    private String copy;
-    private String imageAlt;
 
     public CTAPojo(String text, String link, String target, String linkType, String icon, String ariaLabel) {
         this.text = text;
@@ -18,17 +16,6 @@ public class CTAPojo {
         this.linkType = linkType;
         this.icon = icon;
         this.ariaLabel = ariaLabel;
-    }
-    
-    public CTAPojo(String text, String link, String target, String linkType, String icon, String ariaLabel, String copy, String imageAlt) {
-        this.text = text;
-        this.link = link;
-        this.target = target;
-        this.linkType = linkType;
-        this.icon = icon;
-        this.ariaLabel = ariaLabel;
-        this.copy = copy;
-        this.imageAlt = imageAlt;
     }
 
     public String getText() {
@@ -77,21 +64,5 @@ public class CTAPojo {
 
     public void setAriaLabel(String ariaLabel) {
         this.ariaLabel = ariaLabel;
-    }
-    
-    public String getCopy() {
-        return copy;
-    }
-
-    public void setCopy(String copy) {
-        this.copy = copy;
-    }
-    
-    public String getImageAlt() {
-        return imageAlt;
-    }
-
-    public void setImageAlt(String imageAlt) {
-        this.imageAlt = imageAlt;
     }
 }

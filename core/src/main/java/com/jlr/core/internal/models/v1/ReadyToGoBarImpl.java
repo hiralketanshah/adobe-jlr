@@ -40,7 +40,7 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
 
 
     /** The list. */
-    List<CTAPojo> list = new ArrayList<>();
+    List<ReadyToGoBar> list = new ArrayList<>();
 
     /**
      * Gets the rtgb.
@@ -48,10 +48,23 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
      * @return the rtgb
      */
     @Override
-    public List<CTAPojo> getRtgb() {
-    	if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+    public List<ReadyToGoBar> getRtgb() {
+        if (null != rtgb && rtgb.hasChildren()) {
+            Iterator<Resource> childResources = rtgb.listChildren();
+            while (childResources.hasNext()) {
+                Resource child = childResources.next();
+                ValueMap properties = child.adaptTo(ValueMap.class);
+                if (null != properties) {
+                    list.add(new ReadyToGoBar(LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class), resourceResolver),
+                                    properties.get(CommonConstants.PN_CTA_TARGET, String.class), properties.get(CommonConstants.PN_DESCRIPTION, String.class),
+                                    properties.get(CommonConstants.PN_CTA_TEXT, String.class), properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
+                                    properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
+                                    properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
+                                    LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_IMAGE_LINK, String.class), resourceResolver)));
+                }
+            }
         }
+
         return list;
     }
 
