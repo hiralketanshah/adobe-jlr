@@ -21,13 +21,13 @@ public class ReadyToGoBar {
     private String imageAlt;
 	
 	/** The file reference. */
-	private String fileReference;
+	private String ariaLabel;
 	
 	/** The link type. */
 	private String linkType;
 	
 	/** The image link. */
-	private String imageLink;
+	private String icon;
     
     /**
      * Instantiates a new ready to go bar.
@@ -41,15 +41,14 @@ public class ReadyToGoBar {
      * @param linkType the link type
      * @param imageLink the image link
      */
-    public ReadyToGoBar(String link, String target, String copy, String text, String imageAlt, String fileReference, String linkType, String imageLink) {
+    public ReadyToGoBar(String link, String target, String copy, String text, String linkType, String icon,  String ariaLabel) {
         this.text = text;
         this.link = link;
         this.target = target;
         this.copy = copy;
-        this.imageAlt = imageAlt;
-        this.fileReference = fileReference;
         this.linkType=linkType;
-        this.imageLink = imageLink;
+        this.icon = icon;
+        this.ariaLabel = ariaLabel;
     }
     
 
@@ -87,24 +86,6 @@ public class ReadyToGoBar {
 	 */
 	public void setImageAlt(String imageAlt) {
 		this.imageAlt = imageAlt;
-	}
-
-	/**
-	 * Gets the file reference.
-	 *
-	 * @return the file reference
-	 */
-	public String getFileReference() {
-		return fileReference;
-	}
-
-	/**
-	 * Sets the file reference.
-	 *
-	 * @param fileReference the new file reference
-	 */
-	public void setFileReference(String fileReference) {
-		this.fileReference = fileReference;
 	}
 
     /**
@@ -171,7 +152,6 @@ public class ReadyToGoBar {
 		this.linkType = linkType;
 	}
 
-
 	/**
 	 * Gets the link type.
 	 *
@@ -180,25 +160,22 @@ public class ReadyToGoBar {
 	public String getLinkType() {
 		return linkType;
 	}
-
-
-	/**
-	 * Gets the image link.
-	 *
-	 * @return the image link
-	 */
-	public String getImageLink() {
-		return imageLink;
+	
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 
-
-	/**
-	 * Sets the image link.
-	 *
-	 * @param imageLink the new image link
-	 */
-	public void setImageLink(String imageLink) {
-		this.imageLink = imageLink;
+	public String getIcon() {
+		return icon;
 	}
+	
+	public void setAriaLabel(String ariaLabel) {
+		this.ariaLabel = ariaLabel;
+	}
+
+	public String getAriaLabel() {
+		return ariaLabel;
+	}
+
 }
 
