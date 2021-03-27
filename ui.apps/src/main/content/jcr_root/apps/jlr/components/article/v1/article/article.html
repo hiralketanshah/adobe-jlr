@@ -2,7 +2,7 @@
 
 <template data-sly-template.renderArticle="${ @ article }">
  <div data-sly-test="${!article.headerCopy || !article.copy}" class="cq-placeholder" data-emptytext="Article Section Component"></div>
- <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.article.v1']}"/>
+ <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.article.v1']}"/>
   <div class="section">
    <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'above'}">
    <picture class="Picture Article__Picture Article__Picture--top">
