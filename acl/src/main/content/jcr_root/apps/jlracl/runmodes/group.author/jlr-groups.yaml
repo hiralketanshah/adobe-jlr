@@ -86,13 +86,17 @@
           
         - path: /content/experience-fragments/landrover
           permission: allow
-          privileges: jcr:read, rep:readProperties
-          repGlob: ''
+          actions: read
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
 
         - path: /content/experience-fragments/landrover/language-masters
           permission: allow
           privileges: jcr:read
-          repGlob: ''
+          repGlob: /jcr:title
 
         - path: /home
           permission: allow
