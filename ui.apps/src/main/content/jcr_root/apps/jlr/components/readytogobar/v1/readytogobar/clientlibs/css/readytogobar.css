@@ -1,0 +1,295 @@
+.cmp-readyToGoBar {
+	background: #fff
+}
+
+.cmp-readyToGoBar__list {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.cmp-readyToGoBar__item {
+	flex: 0 0 25%;
+	max-width: 25%;
+	border: 1px solid #4A4F5433; 
+	padding-left:20px;
+	
+}
+.cmp-readyToGoBar__link {
+	display: block;
+	text-decoration: none !important;
+	padding: 57px 20px 51px;
+	height : 223px;
+}
+
+.cmp-readyToGoBar__link:active .cmp-readyToGoBar__icon i,
+.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__icon i {
+	color: #005a2b
+}
+
+.cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading,
+.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading {
+	color: #005a2b
+}
+
+.cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading-inner,
+.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading-inner {
+	text-decoration: underline
+}
+
+.cmp-readyToGoBar__link:focus {
+	outline: 0;
+	position: relative;
+	box-shadow: none !important
+}
+
+.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__icon i {
+	color: #005a2b
+}
+
+.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
+	color: #005a2b
+}
+
+.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading-inner {
+	text-decoration: underline
+}
+
+.cmp-readyToGoBar__link:focus::after {
+	content: "";
+	position: absolute;
+	z-index: 2;
+	right: 0;
+	top: 0;
+	left: -20px;
+	bottom: 0;
+	box-shadow: 0 0 0 1px #fff, 2px 0 2px 3px #4a90e2
+}
+
+.cmp-readyToGoBar__icon {
+	display: block;
+	margin: 0 0 24px 0
+}
+
+.cmp-readyToGoBar__icon i {
+	color: #0c121c
+}
+
+.cmp-readyToGoBar__icon i::before {
+	margin: 0;
+	font-size: 45px;
+	text-align: left;
+	transition: all .4s
+}
+
+.cmp-readyToGoBar__heading {
+	display: flex;
+	align-items: center;
+    text-transform:uppercase
+}
+
+.cmp-readyToGoBar__heading::before {
+	color: #005a2b;
+	transition: all .4s;
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	margin-left: 0;
+	text-align: left
+}
+
+.cmp-readyToGoBar__copy {
+	color: #4a4f54;
+	transition: all .4s;
+	font-size:14px !important;
+}
+
+.cmp-readyToGoBar__heading-inner {
+	transition: all .4s
+}
+
+
+@media screen and  (min-width: 801px) and (max-width: 1290px) {
+	.cmp-readyToGoBar {
+		position: initial !important
+	}
+	.cmp-readyToGoBar__list{
+		padding: 0 70px;
+	}
+	.cmp-readyToGoBar__link{
+		margin-right: 20px;
+	}
+	.cmp-readyToGoBar .cmp-readyToGoBar__link {
+		padding: 48px 14px 40px
+	}
+	.cmp-readyToGoBar__link:focus:after {
+		content: "";
+		position: absolute; 
+		z-index: 2;
+		right: -20px;
+		top: 0;
+		left:0;
+		left: -20px;
+		bottom: 0;
+
+		box-shadow: 0 0 0 1px #fff, 0 0 10px 3px #4a90e2
+	}
+}
+
+
+
+@media screen and (min-width: 1px) and (max-width: 375px) {
+	.cmp-readyToGoBar__list {
+		flex-direction: column
+	}
+	.cmp-readyToGoBar__item {
+		flex: 0 0 100%;
+		max-width: 100%
+	}
+	.cmp-readyToGoBar__link {
+		display: flex;
+		padding: 16px 30px;
+		border-right: 0;
+		align-items: center;
+		border-bottom: 1px solid #4A4F5433;
+		height: 66px;
+		border-top: 1px solid #4A4F5433;
+    font-family: LandRoverWeb-Bold;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+		
+	}
+	.cmp-readyToGoBar__link:active .cmp-readyToGoBar__icon i,
+	.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__icon i {
+		color: #005a2b
+	}
+	.cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading,
+	.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading {
+		color: #005a2b
+	}
+	.cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading-inner,
+	.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading-inner {
+		text-decoration: underline
+	}
+	.cmp-readyToGoBar__link:focus {
+		outline: 0;
+		box-shadow: none
+	}
+	.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__icon i {
+		color: #005a2b
+	}
+	.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
+		color: #005a2b
+	}
+	.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading-inner {
+		text-decoration: underline
+	}
+	.cmp-readyToGoBar__link:focus:after {
+		content: "";
+		position: absolute;
+		z-index: 2;
+		right: 0;
+		top: 0;
+		left: -20px;
+		bottom: 0;
+		box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2
+	}
+	.cmp-readyToGoBar__icon {
+		margin: 0
+	}
+	.cmp-readyToGoBar__icon i:before {
+		font-size: 30px
+	}
+	.cmp-readyToGoBar__heading {
+		margin: 0;
+		padding-left: 24px
+	}
+	.cmp-readyToGoBar__copy {
+		display: none
+	}
+}
+
+@media screen and  (min-width: 375px) and (max-width: 800px) {
+	.cmp-readyToGoBar__list {
+		padding: 0
+	}
+	.cmp-readyToGoBar__item {
+		flex: 0 0 50%;
+		max-width: 50%
+	}
+	.cmp-readyToGoBar__item:nth-of-type(1) .cmp-readyToGoBar__link,
+	.cmp-readyToGoBar__item:nth-of-type(2) .cmp-readyToGoBar__link {
+		border-bottom: 1px solid #4A4F5433
+	}
+	.cmp-readyToGoBar__item:last-child .cmp-readyToGoBar__link {
+		border-right: 1px solid #4A4F5433
+	}
+	.cmp-readyToGoBar__link {
+		padding: 35px 30px;
+		margin: 0;
+		
+	}
+	.cmp-readyToGoBar__link:focus::after {
+		right: 0;
+		top: 0;
+		left: 0;
+		bottom: 0
+	}
+}
+.cmp-readyToGoBar.light .cmp-readyToGoBar__link {
+	border-color: #e9ecec !important
+}
+
+.cmp-readyToGoBar.grey {
+	background: #e9ecec
+}
+
+.cmp-readyToGoBar.dark {
+	background: #4a4f54
+}
+
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link {
+	border-color: #65696e !important
+}
+
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:active .cmp-readyToGoBar__icon i,
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__icon i,
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__icon i {
+	color: #fff
+}
+
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading,
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading,
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
+	color: #fff
+}
+
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__icon i {
+	color: #fff
+}
+
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__heading:before {
+	color: #fff
+}
+
+.cmp-readyToGoBar.dark .cmp-readyToGoBar__copy {
+	color: #fff
+} 
+
+
+
