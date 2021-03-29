@@ -5,13 +5,13 @@
     - global-leads:
 
         - name: 'Global Leads'
-          isMemberOf: internal-group, tag-administrators
+          isMemberOf: internal-group, template-authors, tag-administrators
           path: ${groupPath}
 
     - global-qas:
 
         - name: 'Global QAs'
-          isMemberOf: internal-group
+          isMemberOf: internal-group, template-authors
           path: ${groupPath}
 
     - global-authors:
@@ -29,6 +29,12 @@
     - de-authors:
 
         - name: 'DE Authors'
+          isMemberOf: internal-group
+          path: ${groupPath}
+
+    - read-only:
+
+        - name: 'Read Only'
           isMemberOf: internal-group
           path: ${groupPath}
 
@@ -87,16 +93,6 @@
         - path: /content/experience-fragments/landrover
           permission: allow
           actions: read
-
-        - path: /content/experience-fragments/landrover/language-masters
-          permission: deny
-          privileges: jcr:read
-          repGlob: /*
-
-        - path: /content/experience-fragments/landrover/language-masters
-          permission: allow
-          privileges: jcr:read
-          repGlob: /jcr:title
 
         - path: /home
           permission: allow
@@ -193,19 +189,29 @@
 
         - path: /content/landrover/row/language-masters/australia
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
 
         - path: /content/landrover/row/published-sites/en_au
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
 
         - path: /content/dam/landrover/australia
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: allow
+          privileges: jcr:read
+          repGlob: /jcr:title
 
         - path: /content/experience-fragments/landrover/language-masters/australia
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
 
     - de-authors:
 
@@ -238,16 +244,36 @@
 
         - path: /content/landrover/europe/language-masters/germany
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
 
         - path: /content/landrover/europe/published-sites/de_de
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
 
         - path: /content/dam/landrover/germany
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: allow
+          privileges: jcr:read
+          repGlob: /jcr:title
 
         - path: /content/experience-fragments/landrover/language-masters/germany
           permission: allow
-          actions: read,create,modify,delete
+          actions: read,create,modify,delete,replicate
+
+    - read-only:
+
+        - path: /content/landrover
+          permission: allow
+          actions: read
+ 
+        - path: /content/dam/landrover
+          permission: allow
+          actions: read

@@ -9,9 +9,6 @@
     width: 85%;
     line-height: 20px;
 }
-/* .cmp-Snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
-    margin-top: 28px;
-} */
 .cmp-Snippet .linkContainer .secondaryLinkContainer:empty {
     display: none;
 }
