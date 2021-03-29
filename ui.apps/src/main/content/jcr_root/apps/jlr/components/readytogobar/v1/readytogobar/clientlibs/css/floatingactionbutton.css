@@ -1,17 +1,17 @@
-.FloatingActionButton {
+.cmp-floatingActionButton {
   transition: top 0.4s ease;
   position: fixed;
   right: 0;
   bottom: 0;
   z-index: 101;
 }
-.FloatingActionButton[data-visibility-mobile="false"] {
+.cmp-floatingActionButton[data-visibility-mobile="false"] {
   display: none;
 }
-.FloatingActionButton[data-visibility-mobile="true"] {
+.cmp-floatingActionButton[data-visibility-mobile="true"] {
   display: block;
 }
-.FloatingActionButton__trigger {
+.cmp-floatingActionButton__trigger {
   position: absolute;
   right: 15px;
   top: unset;
@@ -31,48 +31,48 @@
   transform: translateY(20px);
   touch-action: manipulation;
 }
-.FloatingActionButton__trigger:hover,
-.FloatingActionButton__trigger:focus {
+.cmp-floatingActionButton__trigger:hover,
+.cmp-floatingActionButton__trigger:focus {
   background-color: transparent;
 }
 body.focusStylesOn
-  .FloatingActionButton__trigger:focus
-  .FloatingActionButton__trigger-container {
+  .cmp-floatingActionButton__trigger:focus
+  .cmp-floatingActionButton__trigger-container {
   background-color: #0c121c;
 }
-.FloatingActionButton__trigger--touch
-  .FloatingActionButton__trigger-dot:first-child,
+.cmp-floatingActionButton__trigger--touch
+  .cmp-floatingActionButton__trigger-dot:first-child,
 body.focusStylesOn
-  .FloatingActionButton__trigger:focus
-  .FloatingActionButton__trigger-dot:first-child {
+  .cmp-floatingActionButton__trigger:focus
+  .cmp-floatingActionButton__trigger-dot:first-child {
   transform: translateX(-2px);
 }
-.FloatingActionButton__trigger--touch
-  .FloatingActionButton__trigger-dot:last-child,
+.cmp-floatingActionButton__trigger--touch
+  .cmp-floatingActionButton__trigger-dot:last-child,
 body.focusStylesOn
-  .FloatingActionButton__trigger:focus
-  .FloatingActionButton__trigger-dot:last-child {
+  .cmp-floatingActionButton__trigger:focus
+  .cmp-floatingActionButton__trigger-dot:last-child {
   transform: translateX(2px);
 }
-.FloatingActionButton__trigger--touch .FloatingActionButton__trigger-container {
+.cmp-floatingActionButton__trigger--touch .cmp-floatingActionButton__trigger-container {
   background-color: #0c121c;
 }
-body.focusStylesOn .FloatingActionButton:focus {
+body.focusStylesOn .cmp-floatingActionButton:focus {
   box-shadow: 0 0 5px #4a90e2, 0 0 5px #4a90e2 !important;
 }
-.FloatingActionButton__trigger--show-delayed {
+.cmp-floatingActionButton__trigger--show-delayed {
   animation: show-trigger 0.4s;
   animation-delay: 2s;
   animation-fill-mode: forwards;
 }
-.FloatingActionButton__trigger--show-direct {
+.cmp-floatingActionButton__trigger--show-direct {
   animation: show-direct 0.4s;
   animation-delay: 0s;
   opacity: 1 !important;
   visibility: visible !important;
   transform: translateY(0) !important;
 }
-.FloatingActionButton__trigger-container {
+.cmp-floatingActionButton__trigger-container {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
   position: absolute;
   top: 0;
@@ -86,7 +86,7 @@ body.focusStylesOn .FloatingActionButton:focus {
   background-color: #005a2b;
   transition: background-color 0.2s;
 }
-.FloatingActionButton__trigger-close {
+.cmp-floatingActionButton__trigger-close {
   transition: visibility 0.2s, transform 0.2s, opacity 0.2s;
   transform: rotate(45deg);
   visibility: hidden;
@@ -96,10 +96,10 @@ body.focusStylesOn .FloatingActionButton:focus {
   display: flex;
   opacity: 0;
 }
-.FloatingActionButton__trigger-close:before {
+.cmp-floatingActionButton__trigger-close:before {
   margin: 0;
 }
-.FloatingActionButton__trigger-dots {
+.cmp-floatingActionButton__trigger-dots {
   transition: visibility 0.2s, transform 0.2s, opacity 0.2s;
   opacity: 1;
   visibility: visible;
@@ -107,7 +107,7 @@ body.focusStylesOn .FloatingActionButton:focus {
   display: flex;
   justify-content: center;
 }
-.FloatingActionButton__trigger-dot {
+.cmp-floatingActionButton__trigger-dot {
   transition: transform 0.2s;
   border-radius: 50%;
   background-color: #fff;
@@ -115,11 +115,11 @@ body.focusStylesOn .FloatingActionButton:focus {
   height: 4px;
   margin: 0 3px;
 }
-.FloatingActionButton__trigger-dot:first-child,
-.FloatingActionButton__trigger-dot:last-child {
+.cmp-floatingActionButton__trigger-dot:first-child,
+.cmp-floatingActionButton__trigger-dot:last-child {
   transform: translateX(0);
 }
-.FloatingActionButton__items {
+.cmp-floatingActionButton__items {
   visibility: hidden;
   opacity: 0;
   background-color: #fff;
@@ -132,20 +132,20 @@ body.focusStylesOn .FloatingActionButton:focus {
   transform: translateY(20px);
   transition: visibility 0.3s, opacity 0.3s, transform 0.3s;
 }
-.FloatingActionButton__items-hide {
+.cmp-floatingActionButton__items-hide {
   height: 0;
   padding: 0 !important;
   overflow: hidden;
 }
-.FloatingActionButton__item {
+.cmp-floatingActionButton__item {
   display: flex;
   align-items: center;
   height: 50px;
 }
-.FloatingActionButton__item:not(:last-child) {
+.cmp-floatingActionButton__item:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.FloatingActionButton__item-link {
+.cmp-floatingActionButton__item-link {
   display: flex;
   align-items: center;
   width: 100%;
@@ -155,14 +155,14 @@ body.focusStylesOn .FloatingActionButton:focus {
   padding: 0 10px 0 5px;
   transition: background-color 0.4s;
 }
-.FloatingActionButton__item-link:before {
+.cmp-floatingActionButton__item-link:before {
   font-size: 1.8rem;
 }
-.FloatingActionButton__item-link:focus,
-.FloatingActionButton__item-link:hover {
+.cmp-floatingActionButton__item-link:focus,
+.cmp-floatingActionButton__item-link:hover {
   background-color: #f8f9f9;
 }
-.FloatingActionButton__item-text {
+.cmp-floatingActionButton__item-text {
   font-family: "avenir", "arial", "helvetica", sans-serif;
   font-weight: 600;
   font-size: 0.9rem;
@@ -172,14 +172,13 @@ body.focusStylesOn .FloatingActionButton:focus {
   border-bottom: 1px solid transparent;
   transition: color 0.4s, border-bottom 0.4s;
   margin-bottom: -1px;
-  text-transform:uppercase
 }
-.FloatingActionButton__item-link:focus .FloatingActionButton__item-text,
-.FloatingActionButton__item-link:hover .FloatingActionButton__item-text {
+.cmp-floatingActionButton__item-link:focus .cmp-floatingActionButton__item-text,
+.cmp-floatingActionButton__item-link:hover .cmp-floatingActionButton__item-text {
   color: #005a2b;
   border-bottom: 1px solid #005a2b;
 }
-.FloatingActionButton__overlay {
+.cmp-floatingActionButton__overlay {
   transition: visibility 0.3s, opacity 0.3s;
   visibility: hidden;
   opacity: 0;
@@ -191,26 +190,26 @@ body.focusStylesOn .FloatingActionButton:focus {
   right: 0;
   z-index: -1;
 }
-.FloatingActionButton--opened .FloatingActionButton__items {
+.cmp-floatingActionButton--opened .cmp-floatingActionButton__items {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
-.FloatingActionButton--opened .FloatingActionButton__trigger-close {
+.cmp-floatingActionButton--opened .cmp-floatingActionButton__trigger-close {
   visibility: visible;
   transform: rotate(0deg);
   opacity: 1;
 }
-.FloatingActionButton--opened .FloatingActionButton__trigger-dots {
+.cmp-floatingActionButton--opened .cmp-floatingActionButton__trigger-dots {
   visibility: hidden;
   transform: rotate(-45deg);
   opacity: 0;
 }
-.FloatingActionButton--opened .FloatingActionButton__overlay {
+.cmp-floatingActionButton--opened .cmp-floatingActionButton__overlay {
   visibility: visible;
   opacity: 1;
 }
-.FloatingActionButton__notifications {
+.cmp-floatingActionButton__notifications {
   position: absolute;
   top: 0;
   left: 0;
@@ -219,38 +218,38 @@ body.focusStylesOn .FloatingActionButton:focus {
   overflow: hidden;
 }
 @media screen and (min-width: 741px) {
-  .FloatingActionButton {
+  .cmp-floatingActionButton {
     z-index: 3;
   }
-  .FloatingActionButton[data-visibility-tablet="false"] {
+  .cmp-floatingActionButton[data-visibility-tablet="false"] {
     display: none;
   }
-  .FloatingActionButton[data-visibility-tablet="true"] {
+  .cmp-floatingActionButton[data-visibility-tablet="true"] {
     display: block;
   }
-  .FloatingActionButton--opened .FloatingActionButton__overlay {
+  .cmp-floatingActionButton--opened .cmp-floatingActionButton__overlay {
     display: none;
   }
-  .FloatingActionButton__items {
+  .cmp-floatingActionButton__items {
     width: 303px;
     max-height: 312px;
   }
-  .FloatingActionButton__item{
+  .cmp-floatingActionButton__item{
     max-height: 50px;
     width: 210px;
   }
 }
 @media screen and (min-width: 901px) {
-  .FloatingActionButton {
+  .cmp-floatingActionButton {
     bottom: unset;
   }
-  .FloatingActionButton[data-visibility-desktop="false"] {
+  .cmp-floatingActionButton[data-visibility-desktop="false"] {
     display: none;
   }
-  .FloatingActionButton[data-visibility-desktop="true"] {
+  .cmp-floatingActionButton[data-visibility-desktop="true"] {
     display: block;
   }
-  .FloatingActionButton__trigger {
+  .cmp-floatingActionButton__trigger {
     opacity: 0;
     visibility: hidden;
     transition: transform 0.4s, visibility 0.4s, opacity 0.4s;
@@ -259,39 +258,39 @@ body.focusStylesOn .FloatingActionButton:focus {
     bottom: unset;
     transform: translateY(-20px);
   }
-  .FloatingActionButton__trigger-dots--ellipsis-animation
-    .FloatingActionButton__trigger-dot {
+  .cmp-floatingActionButton__trigger-dots--ellipsis-animation
+    .cmp-floatingActionButton__trigger-dot {
     animation-name: ellipsis-animation;
     animation-duration: 0.6s;
     animation-timing-function: ease-in-out;
   }
-  .FloatingActionButton__trigger-dots--ellipsis-animation
-    .FloatingActionButton__trigger-dot:nth-child(2) {
+  .cmp-floatingActionButton__trigger-dots--ellipsis-animation
+    .cmp-floatingActionButton__trigger-dot:nth-child(2) {
     animation-delay: 0.2s;
   }
-  .FloatingActionButton__trigger-dots--ellipsis-animation
-    .FloatingActionButton__trigger-dot:nth-child(3) {
+  .cmp-floatingActionButton__trigger-dots--ellipsis-animation
+    .cmp-floatingActionButton__trigger-dot:nth-child(3) {
     animation-delay: 0.4s;
   }
   html:not(.touchCapability)
-    .FloatingActionButton
-    .FloatingActionButton__trigger:hover
-    .FloatingActionButton__trigger-container {
+    .cmp-floatingActionButton
+    .cmp-floatingActionButton__trigger:hover
+    .cmp-floatingActionButton__trigger-container {
     background-color: #0c121c;
   }
   html:not(.touchCapability)
-    .FloatingActionButton
-    .FloatingActionButton__trigger:hover
-    .FloatingActionButton__trigger-dot:first-child {
+    .cmp-floatingActionButton
+    .cmp-floatingActionButton__trigger:hover
+    .cmp-floatingActionButton__trigger-dot:first-child {
     transform: translateX(-2px);
   }
   html:not(.touchCapability)
-    .FloatingActionButton
-    .FloatingActionButton__trigger:hover
-    .FloatingActionButton__trigger-dot:last-child {
+    .cmp-floatingActionButton
+    .cmp-floatingActionButton__trigger:hover
+    .cmp-floatingActionButton__trigger-dot:last-child {
     transform: translateX(2px);
   }
-  .FloatingActionButton__items {
+  .cmp-floatingActionButton__items {
     margin-bottom: unset;
     padding-top: 91px;
     padding-left: 63px;
@@ -299,7 +298,7 @@ body.focusStylesOn .FloatingActionButton:focus {
     padding-right: 30px;
     transform: translateY(-20px);
   }
-  .FloatingActionButton__item-text {
+  .cmp-floatingActionButton__item-text {
     font-size: 1rem;
     letter-spacing: 0.173rem;
     line-height: 1.1;
@@ -330,33 +329,32 @@ body.focusStylesOn .FloatingActionButton:focus {
   }
 }
 @media screen and (min-width: 360px) and (max-width: 740px){
-    .FloatingActionButton {
+    .cmp-floatingActionButton {
       z-index: 3;
     }
-    .FloatingActionButton[data-visibility-tablet="false"] {
+    .cmp-floatingActionButton[data-visibility-tablet="false"] {
       display: none;
     }
-    .FloatingActionButton[data-visibility-tablet="true"] {
+    .cmp-floatingActionButton[data-visibility-tablet="true"] {
       display: block;
     }
-	.FloatingActionButton[data-visibility-mobile="false"] {
+    .cmp-floatingActionButton[data-visibility-mobile="false"] {
       display: none;
     }
-    .FloatingActionButton[data-visibility-mobile="true"] {
+    .cmp-floatingActionButton[data-visibility-mobile="true"] {
       display: block;
     }
-    .FloatingActionButton--opened .FloatingActionButton__overlay {
+    .cmp-floatingActionButton--opened .cmp-floatingActionButton__overlay {
       display: none;
     }
-    .FloatingActionButton__items {
+    .cmp-floatingActionButton__items {
       width: 258px;
       max-height: 295px;
       padding-top: 30px;
       padding-left: 30px;
-      /* padding-bottom: 30px; */
       padding-right: 30px;
     }
-    .FloatingActionButton__item{
+    .cmp-floatingActionButton__item{
       height: 50px;
       width: 198px;
     }

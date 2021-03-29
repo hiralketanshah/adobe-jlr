@@ -2154,11 +2154,11 @@ var FloatingActionButton = function () {
     (0, _classCallCheck3.default)(this, FloatingActionButton);
 
     this.element = element;
-    this.linksContainer = this.element.querySelector('.FloatingActionButton__items');
-    this.trigger = this.element.querySelector('.FloatingActionButton__trigger');
-    this.triggerContainer = this.element.querySelector('.FloatingActionButton__trigger-container');
-    this.overlay = this.element.querySelector('.FloatingActionButton__overlay');
-    this.dots = this.element.querySelector('.FloatingActionButton__trigger-dots');
+    this.linksContainer = this.element.querySelector('.cmp-floatingActionButton__items');
+    this.trigger = this.element.querySelector('.cmp-floatingActionButton__trigger');
+    this.triggerContainer = this.element.querySelector('.cmp-floatingActionButton__trigger-container');
+    this.overlay = this.element.querySelector('.cmp-floatingActionButton__overlay');
+    this.dots = this.element.querySelector('.cmp-floatingActionButton__trigger-dots');
     this._scrollTop = window.scrollY;
     this.buffer = 200;
     this.timeoutAnimation = null;
@@ -2178,7 +2178,7 @@ var FloatingActionButton = function () {
 
       this.positionPanel();
       window.requestAnimationFrame(this.setYposition.bind(this));
-      this.trigger.classList.add('FloatingActionButton__trigger--show-delayed');
+      this.trigger.classList.add('cmp-floatingActionButton__trigger--show-delayed');
     }
   }, {
     key: 'initEvents',
@@ -2188,8 +2188,8 @@ var FloatingActionButton = function () {
       this.handleBoundDocumentClick = this.handleDocumentClick.bind(this);
 
       this.trigger.addEventListener('click', function () {
-        _this.element.classList.toggle('FloatingActionButton--opened');
-        if (_this.element.classList.contains('FloatingActionButton--opened')) {
+        _this.element.classList.toggle('cmp-floatingActionButton--opened');
+        if (_this.element.classList.contains('cmp-floatingActionButton--opened')) {
           _this.openPanel();
           if (document.body.classList.contains('focusStylesOn') || (0, _browserDetection.getBreakpointSize)() !== 'large') {
             _this.trapFocus();
@@ -2206,16 +2206,16 @@ var FloatingActionButton = function () {
           if ((0, _index.checkDefined)(_this.timeoutAnimation)) {
             clearTimeout(_this.timeoutAnimation);
           }
-          if (!_this.dots.classList.contains('FloatingActionButton__trigger-dots--ellipsis-animation')) {
+          if (!_this.dots.classList.contains('cmp-floatingActionButton__trigger-dots--ellipsis-animation')) {
             _this.timeoutAnimation = setTimeout(function () {
-              _this.dots.classList.add('FloatingActionButton__trigger-dots--ellipsis-animation');
+              _this.dots.classList.add('cmp-floatingActionButton__trigger-dots--ellipsis-animation');
             }, 500);
           }
         }
 
         if (Math.abs(window.scrollY - _this._scrollTop) > _this.buffer && !document.body.classList.contains('focusStylesOn')) {
           _this.closePanel();
-          _this.trigger.classList.add('FloatingActionButton__trigger--show-direct');
+          _this.trigger.classList.add('cmp-floatingActionButton__trigger--show-direct');
         }
       });
 
@@ -2233,15 +2233,15 @@ var FloatingActionButton = function () {
       }, false);
 
       this.trigger.addEventListener('touchstart', function () {
-        _this.trigger.classList.add('FloatingActionButton__trigger--touch');
+        _this.trigger.classList.add('cmp-floatingActionButton__trigger--touch');
       }, true);
       this.trigger.addEventListener('touchend', function () {
-        _this.trigger.classList.remove('FloatingActionButton__trigger--touch');
+        _this.trigger.classList.remove('cmp-floatingActionButton__trigger--touch');
       }, false);
 
       this.linksContainer.addEventListener('transitionend', function (e) {
-        if (!_this.element.classList.contains('FloatingActionButton--opened') && e.target === _this.linksContainer) {
-          _this.linksContainer.classList.add('FloatingActionButton__items-hide');
+        if (!_this.element.classList.contains('cmp-floatingActionButton--opened') && e.target === _this.linksContainer) {
+          _this.linksContainer.classList.add('cmp-floatingActionButton__items-hide');
         }
       });
     }
@@ -2287,13 +2287,13 @@ var FloatingActionButton = function () {
       this.setAriaExpanded(true);
       FloatingActionButton.togglePageWrapperContent(true);
       document.addEventListener('click', this.handleBoundDocumentClick);
-      this.linksContainer.classList.remove('FloatingActionButton__items-hide');
+      this.linksContainer.classList.remove('cmp-floatingActionButton__items-hide');
     }
   }, {
     key: 'closePanel',
     value: function closePanel() {
       this.setAriaExpanded(false);
-      this.element.classList.remove('FloatingActionButton--opened');
+      this.element.classList.remove('cmp-floatingActionButton--opened');
       document.removeEventListener('click', this.handleBoundDocumentClick);
       this.element.removeEventListener('keydown', this.boundKeyDown);
       FloatingActionButton.togglePageWrapperContent(false);
@@ -2301,7 +2301,7 @@ var FloatingActionButton = function () {
   }, {
     key: 'handleDocumentClick',
     value: function handleDocumentClick(e) {
-      if (e.target.classList.value.indexOf('FloatingActionButton') === -1) {
+      if (e.target.classList.value.indexOf('cmp-floatingActionButton') === -1) {
         this.closePanel();
       }
     }
@@ -2328,7 +2328,7 @@ var FloatingActionButton = function () {
     value: function togglePageWrapperContent(toggle) {
       var sharedNavigation = document.querySelector('.sharedNavigation');
       var pageWrapper = document.querySelector('.pageWrapper');
-      var pageWrapperChildren = pageWrapper.querySelectorAll(':not([class*=FloatingActionButton])');
+      var pageWrapperChildren = pageWrapper.querySelectorAll(':not([class*=cmp-floatingActionButton])');
 
       if (toggle) {
         pageWrapperChildren.forEach(function (el) {
@@ -2351,7 +2351,7 @@ var FloatingActionButton = function () {
 exports.default = FloatingActionButton;
 
 
-var FloatingActionButtonElements = document.querySelectorAll('.FloatingActionButton');
+var FloatingActionButtonElements = document.querySelectorAll('.cmp-floatingActionButton');
 if (FloatingActionButtonElements.length) {
   Array.prototype.forEach.call(FloatingActionButtonElements, function (el) {
     return new FloatingActionButton(el);

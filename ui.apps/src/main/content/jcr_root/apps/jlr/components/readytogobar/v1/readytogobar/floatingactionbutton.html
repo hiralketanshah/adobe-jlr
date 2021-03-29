@@ -5,25 +5,25 @@
    <span data-sly-test="${readytogobar.listType == 'listoverride'}">
       <div class="pageWrapper">
          <div id="FloatingActionEnabler">
-            <div class="FloatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideMobile}" data-visibility-tablet="${readytogobar.hideTablet}">
-               <button aria-expanded="false" aria-label="Further Actions" class="FloatingActionButton__trigger">
-                  <div class="FloatingActionButton__trigger-container">
-                     <div class="FloatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
-                     <div class="FloatingActionButton__trigger-dots">
-                        <span class="FloatingActionButton__trigger-dot"></span>
-                        <span class="FloatingActionButton__trigger-dot"></span>
-                        <span class="FloatingActionButton__trigger-dot"></span>
+            <div class="cmp-floatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideMobile}" data-visibility-tablet="${readytogobar.hideTablet}">
+               <button aria-expanded="false" aria-label="Further Actions" class="cmp-floatingActionButton__trigger">
+                  <div class="cmp-floatingActionButton__trigger-container">
+                     <div class="cmp-floatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
+                     <div class="cmp-floatingActionButton__trigger-dots">
+                        <span class="cmp-floatingActionButton__trigger-dot"></span>
+                        <span class="cmp-floatingActionButton__trigger-dot"></span>
+                        <span class="cmp-floatingActionButton__trigger-dot"></span>
                      </div>
                   </div>
                </button>
-               <ul data-sly-test="${readytogobar.faboverride}" class="FloatingActionButton__items FloatingActionButton__items-hide" data-sly-list.item="${readytogobar.faboverride}">
-                  <li class="FloatingActionButton__item">
-                     <a data-sly-test="${item.text}" class=" FloatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" data-link-desktop="https://www.landrover.co.uk/how-to-order-online/index.html" aria-label="${item.ariaLabel}" data-target="overlay" data-trcprs_cta="sf_p_e_l405_a_z_1" data-tracking-id="FloatingActionButton:ORDER YOUR RANGE ROVER ONLINE:https://www.landrover.co.uk/how-to-order-online/index.html" data-aria-title="">
-                     <span class="FloatingActionButton__item-text" aria-hidden="true">"${item.text}"</span>
+               <ul data-sly-test="${readytogobar.faboverride}" class="cmp-floatingActionButton__items cmp-floatingActionButton__items-hide" data-sly-list.item="${readytogobar.faboverride}">
+                  <li class="cmp-floatingActionButton__item">
+                     <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" aria-label="${item.ariaLabel}" data-target="${item.target}" >
+                     <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text}</span>
                      </a>
                   </li>
                </ul>
-               <div class="FloatingActionButton__overlay"></div>
+               <div class="cmp-floatingActionButton__overlay"></div>
             </div>
          </div>
       </div>
@@ -31,25 +31,25 @@
    <span data-sly-test="${readytogobar.listType == 'listdefault'}">
       <div class="pageWrapper">
          <div id="FloatingActionEnabler">
-            <div class="FloatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideMobile}" data-visibility-tablet="${readytogobar.hideTablet}">
-               <button aria-expanded="false" aria-label="Further Actions" class="FloatingActionButton__trigger">
-                  <div class="FloatingActionButton__trigger-container">
-                     <div class="FloatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
-                     <div class="FloatingActionButton__trigger-dots">
-                        <span class="FloatingActionButton__trigger-dot"></span>
-                        <span class="FloatingActionButton__trigger-dot"></span>
-                        <span class="FloatingActionButton__trigger-dot"></span>
+            <div class="cmp-floatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideMobile}" data-visibility-tablet="${readytogobar.hideTablet}">
+               <button aria-expanded="false" aria-label="Further Actions" class="cmp-floatingActionButton__trigger">
+                  <div class="cmp-floatingActionButton__trigger-container">
+                     <div class="cmp-floatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
+                     <div class="cmp-floatingActionButton__trigger-dots">
+                        <span class="cmp-floatingActionButton__trigger-dot"></span>
+                        <span class="cmp-floatingActionButton__trigger-dot"></span>
+                        <span class="cmp-floatingActionButton__trigger-dot"></span>
                      </div>
                   </div>
                </button>
-               <ul data-sly-test="${readytogobar.rtgb}" class="FloatingActionButton__items FloatingActionButton__items-hide" data-sly-list.item="${readytogobar.rtgb}">
-                  <li class="FloatingActionButton__item">
-                     <a data-sly-test="${item.text}" class=" FloatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" data-link-desktop="https://www.landrover.co.uk/how-to-order-online/index.html" aria-label="${item.ariaLabel}" data-target="overlay" data-trcprs_cta="sf_p_e_l405_a_z_1" data-tracking-id="FloatingActionButton:ORDER YOUR RANGE ROVER ONLINE:https://www.landrover.co.uk/how-to-order-online/index.html" data-aria-title="">
-                     <span class="FloatingActionButton__item-text" aria-hidden="true">"${item.text}"</span>
+               <ul data-sly-test="${readytogobar.rtgb}" class="cmp-floatingActionButton__items cmp-floatingActionButton__items-hide" data-sly-list.item="${readytogobar.rtgb}">
+                  <li class="cmp-floatingActionButton__item">
+                     <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" aria-label="${item.ariaLabel}" data-target="${item.target}" >
+                     <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text}</span>
                      </a>
                   </li>
                </ul>
-               <div class="FloatingActionButton__overlay"></div>
+               <div class="cmp-floatingActionButton__overlay"></div>
             </div>
          </div>
       </div>
