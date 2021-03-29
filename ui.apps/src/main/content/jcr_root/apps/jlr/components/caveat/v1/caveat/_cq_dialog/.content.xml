@@ -33,7 +33,6 @@
                                             <text
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-                                                fieldLabel="Body"
                                                 name="./text"
                                                 useFixedInlineToolbar="{Boolean}true">
                                                 <rtePlugins jcr:primaryType="nt:unstructured">
@@ -48,7 +47,7 @@
                                                         features="modifylink,unlink"/>
                                                     <lists
                                                         jcr:primaryType="nt:unstructured"
-                                                        features="ordered,unordered"/>
+                                                        features="*"/>
                                                     <misctools jcr:primaryType="nt:unstructured">
                                                         <specialCharsConfig jcr:primaryType="nt:unstructured">
                                                             <chars jcr:primaryType="nt:unstructured">
@@ -137,7 +136,7 @@
                                                                     ref="justify"/>
                                                                 <lists
                                                                     jcr:primaryType="nt:unstructured"
-                                                                    items="[lists#unordered,lists#ordered]"
+                                                                    items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
                                                                     ref="lists"/>
                                                                 <paraformat
                                                                     jcr:primaryType="nt:unstructured"

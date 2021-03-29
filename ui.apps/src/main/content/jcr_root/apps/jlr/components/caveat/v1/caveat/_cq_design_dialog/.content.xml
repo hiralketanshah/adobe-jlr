@@ -179,10 +179,10 @@
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <lists
                                                                 jcr:primaryType="nt:unstructured"
-                                                                jcr:title="Show list options (bullet, number)"
+                                                                jcr:title="Show list options (bullet, number, indent, unindent)"
                                                                 sling:resourceType="cq/gui/components/authoring/dialog/inplaceediting/configuration/plugin"
                                                                 defaultEnabled="{Boolean}true"
-                                                                features="ordered,unordered"
+                                                                features="*"
                                                                 name="lists"/>
                                                         </items>
                                                         <granite:data

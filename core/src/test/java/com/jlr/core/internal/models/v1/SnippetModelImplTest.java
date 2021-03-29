@@ -14,25 +14,14 @@ import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
-/**
- * The Class SnippetModelImplTest.
- */
 @ExtendWith(AemContextExtension.class)
 class SnippetModelImplTest {
 	
 
-	/** The snippet model. */
 	SnippetModelImpl snippetModel;
 	
-	/** The resource. */
 	private Resource resource;
 	
-	/**
-	 * Sets the up.
-	 *
-	 * @param context the new up
-	 * @throws Exception the exception
-	 */
 	@BeforeEach
     void setUp(AemContext context) throws Exception {
 		context.load().json("/content/jlr/snippet/snippet.json", "/content/jlr/snippet.html");
@@ -41,9 +30,6 @@ class SnippetModelImplTest {
     }
 
 
-	/**
-	 * Test get links.
-	 */
 	@Test
 	void testGetLinks() {
 		List<CTAPojo> ctaList = snippetModel.getCtaList();
@@ -55,13 +41,5 @@ class SnippetModelImplTest {
             assertEquals("primary", item.getLinkType());
         });
 
-	}
-	
-	/**
-	 * Test get enable pricing.
-	 */
-	@Test
-	void testGetEnablePricing() {
-		 assertEquals("true", snippetModel.getEnablePricing());
 	}
 }

@@ -3,7 +3,7 @@
     jcr:primaryType="cq:EditConfig">
     <cq:inplaceEditing
         jcr:primaryType="cq:InplaceEditingConfig"
-        active="{Boolean}false"
+        active="{Boolean}true"
         configPath="inplaceEditingConfig"
         editorType="text">
         <inplaceEditingConfig jcr:primaryType="nt:unstructured">
