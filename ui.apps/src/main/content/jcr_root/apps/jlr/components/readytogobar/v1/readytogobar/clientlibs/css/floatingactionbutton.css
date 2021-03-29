@@ -294,7 +294,6 @@ body.focusStylesOn .cmp-floatingActionButton:focus {
     margin-bottom: unset;
     padding-top: 91px;
     padding-left: 63px;
-    /* padding-bottom: 36px; */
     padding-right: 30px;
     transform: translateY(-20px);
   }

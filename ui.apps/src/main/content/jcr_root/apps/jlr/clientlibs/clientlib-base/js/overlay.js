@@ -28,8 +28,6 @@ function openOverlay(event, url) {
                 $('<button type="button" class="mfp-close alt"></button>').insertBefore('.mfp-iframe');
                 $('.mfp-bg').addClass('mfp-bg--whitened');
                 document.querySelector('.pageWrapper').setAttribute('aria-hidden', 'true');
-                //$('.mfp-iframe').prop('title', titleFrame).removeAttr('frameborder');
-                // $('.mfp-close').attr('aria-label', closeFrame);
             }
         }
     });

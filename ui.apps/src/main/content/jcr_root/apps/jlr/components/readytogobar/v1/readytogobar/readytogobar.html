@@ -2,8 +2,6 @@
 <template data-sly-template.renderReadytogobar="${ @ readytogobar }">
    <div data-sly-test=${!readytogobar.rtgb} class="cq-placeholder"
       data-emptytext="ReadyTo Go Bar Component"></div>
-   <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-      data-sly-call="${clientlib.all @ categories=['jlr.base']}"/>
    <div class="cmp-readyToGoBar container fontSmooth">
       <ul data-sly-test="${readytogobar.rtgb}" class="cmp-readyToGoBar__list" data-sly-list.item="${readytogobar.rtgb}">
          <li class="cmp-readyToGoBar__item">
