@@ -4,6 +4,7 @@
     sling:resourceType="cq/gui/components/authoring/dialog/richtext"
     fieldDescription="The copy to be displayed."
     fieldLabel="Copy"
+    maxlength="1000"
     name="./copy"
     useFixedInlineToolbar="{Boolean}true">
     <rtePlugins jcr:primaryType="nt:unstructured">
@@ -64,16 +65,32 @@
         <table
             jcr:primaryType="nt:unstructured"
             features="*"/>
+        <misctools
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                <chars jcr:primaryType="nt:unstructured">
+                    <non-breaking-space
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;nbsp;"
+                        name="Non-breaking space"/>
+                    <non-breaking-hyphen
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;#8209"
+                        name="Non-breaking hyphen"/>
+                </chars>
+            </specialCharsConfig>
+        </misctools>
     </rtePlugins>
     <uiSettings jcr:primaryType="nt:unstructured">
         <cui jcr:primaryType="nt:unstructured">
             <inline
                 jcr:primaryType="nt:unstructured"
-                toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,table#table]">
+                toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars,table#table]">
                 <popovers jcr:primaryType="nt:unstructured">
                     <lists
                         jcr:primaryType="nt:unstructured"
-                        items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                        items="[lists#unordered,lists#ordered]"
                         ref="lists"/>
                     <paraformat
                         jcr:primaryType="nt:unstructured"
@@ -83,11 +100,11 @@
             </inline>
             <dialogFullScreen
                 jcr:primaryType="nt:unstructured"
-                toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,table#table]">
+                toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars,table#table]">
                 <popovers jcr:primaryType="nt:unstructured">
                     <lists
                         jcr:primaryType="nt:unstructured"
-                        items="[lists#unordered,lists#ordered,lists#outdent,lists#indent]"
+                        items="[lists#unordered,lists#ordered]"
                         ref="lists"/>
                     <paraformat
                         jcr:primaryType="nt:unstructured"
