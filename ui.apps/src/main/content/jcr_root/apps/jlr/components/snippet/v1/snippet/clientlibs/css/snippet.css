@@ -1,0 +1,133 @@
+.cmp-Snippet {
+    text-align: left;
+}
+.cmp-Snippet h2 {
+    margin-bottom: 0;
+}
+.cmp-Snippet p {
+    margin-top: 23px;
+    width: 85%;
+    line-height: 20px;
+}
+/* .cmp-Snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
+    margin-top: 28px;
+} */
+.cmp-Snippet .linkContainer .secondaryLinkContainer:empty {
+    display: none;
+}
+.cmp-Snippet .linkContainer .primaryLinkContainer,
+.cmp-Snippet .linkContainer .secondaryLinkContainer {
+    margin-top: 26px;
+    margin-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.cmp-Snippet .linkContainer .primaryLinkContainer a,
+.cmp-Snippet .linkContainer .secondaryLinkContainer a {
+    margin-top: 0;
+}
+.cmp-Snippet .linkContainer .primaryLinkContainer:first-child,
+.cmp-Snippet .linkContainer .secondaryLinkContainer:first-child {
+    margin-left: 0;
+}
+.cmp-Snippet .linkContainer .primaryLinkContainer.secondaryLinkType,
+.cmp-Snippet .linkContainer .secondaryLinkContainer.secondaryLinkType {
+    display: block;
+    margin-left: 0;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+    .cmp-Snippet p {
+        margin-top: 23px;
+        width: 100%;
+    }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+    .cmp-Snippet p {
+        width: 100%;
+    }
+    .cmp-Snippet.hide-title-mobile {
+        display: none;
+    }
+    .cmp-Snippet .linkContainer .secondaryLinkContainer {
+        margin-top: 0;
+    }
+    .cmp-Snippet .linkContainer .primaryLinkContainer,
+    .cmp-Snippet .linkContainer .secondaryLinkContainer {
+        display: block;
+        margin-left: 0;
+       
+    }
+    .cmp-Snippet .linkContainer .secondaryLinkContainer .primaryLinkWithStyle,
+    .cmp-Snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
+        margin-top: 28px;
+    }
+    .cmp-Snippet .primaryLinkContainer + .secondaryLinkContainer {
+        margin-top: 0;
+    }
+}
+.cmp-Snippet--with-DerivativesOverview {
+    padding-bottom: 8px;
+}
+.cmp-Snippet + .DerivativesOverview .Derivative__range {
+    padding: 0;
+}
+@media screen and (min-width: 741px) {
+    .cmp-Snippet + .DerivativesOverview .Derivative__range + .Derivative__toggle-content {
+        padding-top: 40px;
+    }
+}
+.cmp-Snippet + .DerivativesOverview .Derivative__toggle-content {
+    background: #fff;
+}
+@media screen and (min-width: 901px) {
+    .cmp-Snippet + .DerivativesOverview .Derivative__toggle-content {
+        padding-top: 56px;
+    }
+}
+@media (max-width: 740px) {
+    .cmp-Snippet.Accordion--mobile-hide {
+        display: block;
+        height: 1px;
+        padding: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+    }
+}
+.cmp-Snippet__MarketRegionalPricing {
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+}
+.cmp-Snippet h2 {
+    margin-bottom: 0;
+}
+
+.cmp-Snippet .linkContainer {
+    padding-top: 6px;
+}
+.cmp-Snippet .copy {
+    font-size: 18px;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+    .cmp-Snippet .copy {
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .cmp-Snippet p {
+        margin-top: 23px;
+    }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+    .cmp-Snippet p {
+        margin-top: 18px;
+    }
+    .cmp-Snippet .copy {
+        font-size: 14px;
+    }
+}
+@media screen and (min-width: 1281px) and (max-width: 2000px) {
+    .cmp-Snippet  {
+        padding-left: 190px;
+    }
+}
