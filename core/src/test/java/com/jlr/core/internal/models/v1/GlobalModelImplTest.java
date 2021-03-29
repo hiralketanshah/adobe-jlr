@@ -38,8 +38,6 @@ class GlobalModelImplTest {
         assertEquals("/content/dam/test.png", globalModel.getFileReference());
         assertEquals("test_imageAlt", globalModel.getImageAlt());
         assertEquals("/content/jlr/au", globalModel.getImageLink());
-        assertEquals("/content/jlr/au", globalModel.getImageCaptionLink());
-        assertEquals("Image Caption Text", globalModel.getImageCaptionText());
     }
 
     @Test
