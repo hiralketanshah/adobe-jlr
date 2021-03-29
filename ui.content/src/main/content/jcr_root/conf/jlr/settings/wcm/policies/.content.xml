@@ -34,9 +34,9 @@
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
-                    disableLazyLoading="false"
                     allowUpload="false"
                     altValueFromDAM="true"
+                    disableLazyLoading="false"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -458,7 +458,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     features="*"/>
                             </rtePlugins>
-							<cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleGroupLabel="Theme"
                                     jcr:primaryType="nt:unstructured">
@@ -561,6 +561,33 @@
                     </vehiclesummary>
                 </v1>
             </vehiclesummary>
+            <snippet jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <snippet jcr:primaryType="nt:unstructured">
+                        <policy_1616999139393
+                            jcr:lastModified="{Date}2021-03-29T11:56:06.052+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Snippet policy"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1616999144607"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1616999139393>
+                    </snippet>
+                </v1>
+            </snippet>
         </components>
     </jlr>
 </jcr:root>
