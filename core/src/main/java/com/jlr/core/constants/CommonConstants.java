@@ -11,9 +11,11 @@ public class CommonConstants {
     public static final String COLON = ":";
     public static final String DEFAULT_PRIMARY_ICON = "icon-arrow-right";
     public static final String DEFAULT_SECONDARY_ICON = "icon-arrow-right";
+    public static final String DEFAULT_LOCALE="en";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
+    public static final String JLR_CONTENT_PATH="/content/landrover/";
 
     /** The PROTOCOL Constant. */
     public static final String PROTOCOL_HTTP = "http";
@@ -34,5 +36,10 @@ public class CommonConstants {
     public static final String PN_AEM_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
     public static final String PN_REVISED_DATE_FORMAT = "dd-MM-yyyy";
     public static final String PN_ICON = "icon";
+    public static final String PN_CONFIG_KEY = "key";
+    public static final String PN_CONFIG_VALUE = "value";
+   
+    /** The NODE Name Constants. */
+    public static final String NN_CHILD_NODE = "configList";
 
 }

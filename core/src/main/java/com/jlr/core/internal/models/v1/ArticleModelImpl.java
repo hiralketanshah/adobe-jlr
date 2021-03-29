@@ -41,6 +41,10 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoType;
 
+    /** The caption. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String caption;
+
     /** The cta list. */
     @Inject
     @Optional
@@ -80,5 +84,15 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
             list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
         return list;
+    }
+
+    /**
+     * Gets the caption.
+     *
+     * @return the caption
+     */
+    @Override
+    public String getCaption() {
+        return caption;
     }
 }

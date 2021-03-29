@@ -347,6 +347,7 @@
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Caveat"
+                            cq:styleDefaultClasses="cmp-caveat--white white"
                             sling:resourceType="wcm/core/components/policy/policy">
                             <jcr:content
                                 jcr:mixinTypes="[]"
@@ -444,6 +445,7 @@
                         <policy_1615803880912
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Article Container"
+                            cq:styleDefaultClasses="white"
                             sling:resourceType="wcm/core/components/policy/policy"
                             components="/apps/jlr/components/article/v1/article">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
@@ -485,6 +487,7 @@
                         <policy_1616070143899
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Vehicle Summary"
+                            cq:styleDefaultClasses="white"
                             sling:resourceType="wcm/core/components/policy/policy">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -515,6 +518,7 @@
                         <policy_1616999139393
                             jcr:lastModified="{Date}2021-03-29T11:56:06.052+05:30"
                             jcr:lastModifiedBy="admin"
+                            cq:styleDefaultClasses="white"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Snippet policy"
                             sling:resourceType="wcm/core/components/policy/policy">
