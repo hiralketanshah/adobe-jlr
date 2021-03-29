@@ -1,16 +1,17 @@
 .cmp-vehicleSummary ul {
-    list-style-type: none;
-    padding-left: 1em;
-    line-height: 21px;
+	list-style-type: none;
+	padding-left: 1em;
+	line-height: 21px;
     margin-top: 36px;
     margin-bottom: 24px;
   }
+  
+  .cmp-vehicleSummary ul li:before {
+	content: '\2013';
+	position: absolute;
+	margin-left: -16px;
+  }
 
-.cmp-vehicleSummary ul li:before {
-  content: '\2013';
-  position: absolute;
-  margin-left: -16px;
-}
 
 .cmp-vehicleSummary {
 	position: relative;
@@ -233,7 +234,7 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 500px) {
-	.cmp-vehicleSummary .VehicleSummary__image {
+	.cmp-vehicleSummary .cmp-vehicleSummary__image {
 		height: 182px
 	}
 }
@@ -269,14 +270,15 @@
 	}
 }
 
-#landrover .cmp-vehicleSummary .primaryLinkWithStyle {
+ .cmp-vehicleSummary #landrover .primaryLinkWithStyle {
 	margin-top: 15px
 }
 
-#landrover .cmp-vehicleSummary .secondaryLinkWithStyle {
+ .cmp-vehicleSummary #landrover .secondaryLinkWithStyle {
 	margin-right: 10px
 }
 
-#landrover .cmp-vehicleSummary .secondaryLinkWithStyle:last-child {
+ .cmp-vehicleSummary #landrover .secondaryLinkWithStyle:last-child {
 	margin-bottom: 20px
 }
+

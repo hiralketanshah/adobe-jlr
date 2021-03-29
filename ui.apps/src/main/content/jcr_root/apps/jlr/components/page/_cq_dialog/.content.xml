@@ -186,6 +186,10 @@
                                                 fieldDescription="Select to prevent search engine from indexing this page, and index links in them."
                                                 fieldLabel="No Index"
                                                 name="./noIndex"
+                                                uncheckedValue="false"
+                                                value="true"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
                                                 text="No Index">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
@@ -197,7 +201,11 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                 fieldDescription="Select to prevent search engine from indexing this page, and do not index links in them."
                                                 fieldLabel="No Follow"
-                                                name="./noIndex"
+                                                name="./noFollow"
+                                                uncheckedValue="false"
+                                                value="true"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
                                                 text="No Follow">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
@@ -221,6 +229,31 @@
                             </column>
                         </items>
                     </basic>
+                    <error
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Error Pages"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <errorpagespath
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Browse an Error page which has 404.html and 500.html"
+                                        fieldLabel="Error Page Path"
+                                        name="./errorPages"
+                                        rootPath="/content/landrover">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cq-msm-lockable="category"/>
+                                    </errorpagespath>
+                                </items>
+                            </column>
+                        </items>
+                    </error>
                 </items>
             </tabs>
         </items>

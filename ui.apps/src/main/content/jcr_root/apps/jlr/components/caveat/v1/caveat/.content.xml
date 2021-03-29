@@ -3,5 +3,5 @@
     cq:icon="textLeft"
     jcr:description="Rich Text Section"
     jcr:primaryType="cq:Component"
-    jcr:title="Caveat"
+    jcr:title="Caveat (v1)"
     componentGroup="JLR - Content"/>
