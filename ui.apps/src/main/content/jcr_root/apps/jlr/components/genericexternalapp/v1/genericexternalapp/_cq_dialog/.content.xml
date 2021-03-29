@@ -105,7 +105,7 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="The Body copy to be displayed."
                                 fieldLabel="Unconsented Header"
-                                name="./unconsentedheader"/>
+                                name="./unconsentedHeader"/>
                             <message
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"

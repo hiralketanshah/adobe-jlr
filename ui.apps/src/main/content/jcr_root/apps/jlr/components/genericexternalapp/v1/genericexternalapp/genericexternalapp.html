@@ -1,12 +1,13 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
 data-sly-call="${clientlib.all @ categories=['jaguar.components.genericexternalapp.v1']}"/>
 
-<sly data-sly-use.GEAmodel="com.jlr.core.models.GeneralExternalAppModel"/>
+
+<sly data-sly-use.GEAmodel="com.jlr.core.models.GenericExternalAppModel"/>
 
 ${GEAmodel.containerId}</br>
 ${GEAmodel.scriptURL}</br>
 ${GEAmodel.consentCategory}</br>
-${GEAmodel.unconsentedheader}</br>
+${GEAmodel.unconsentedHeader}</br>
 ${GEAmodel.unconsentedMessage}</br>
 ${GEAmodel.ctaText}</br>
 ${GEAmodel.ctaLink}</br>
@@ -19,40 +20,44 @@ ${GEAmodel.target}</br>
 
 </ul>
 
+<ul data-sly-list.item="${GEAmodel.consentCategory}">
+
+   <li>${item}</li>
+
+</ul>
+
+
 
 
 <div>
-            <div class="GenericExternalApplication" data-consent-categories="[&quot;functional&quot;]" data-script-parameters="{}" data-script-url="/content/dam/landrover/australia/en/tpGEA.js" id="GenericExternalApplicationScript">
+            <div class="GenericExternalApplication" data-consent-categories="[${GEAmodel.consentCategory}]" data-script-parameters="{}" data-script-url="${GEAmodel.scriptURL}" id="GenericExternalApplicationScript">
 
                         <div class="GenericExternalApplication__wrapper">
 
-                                    <span aria-hidden="true" class="GenericExternalApplication__icon"></span>
+                                    <span aria-hidden="true" class="GenericExternalApplication__icon"/>
                                     <h1 class="GenericExternalApplication__heading heading headingH3">
-                                                <span class="GenericExternalApplication__heading-text">INACTIVE COMPONENT</span>
+                                                <span class="GenericExternalApplication__heading-text">${GEAmodel.unconsentedHeader}</span>
                                     </h1>
                                     <div class="GenericExternalApplication__copy">
-                                                <span class="GenericExternalApplication__copy-text">This component is about [description] and uses a third party
-                                                            app. To view this component and other similar components please accept the following required cookies.</span>
+                                                <span class="GenericExternalApplication__copy-text">${GEAmodel.unconsentedMessage}</span>
                                     </div>
 
                                     <div class="GenericExternalApplication__options">
-                                                <ul class="GenericExternalApplication__options-list">
+                                                <ul class="GenericExternalApplication__options-list" data-sly-list.item="${GEAmodel.consentCategory}">
                                                             <li class="GenericExternalApplication__options-list-item">
-                                                                        <span aria-hidden="true" class="GenericExternalApplication__options-icon"></span>
-                                                                        <span class="GenericExternalApplication__options-list-item-text">Marketing & Advertising</span>
-                                                            </li>
-                                                            <li class="GenericExternalApplication__options-list-item">
-                                                                        <span aria-hidden="true" class="GenericExternalApplication__options-icon"></span>
-                                                                        <span class="GenericExternalApplication__options-list-item-text">Analytics</span>
+                                                                        <span aria-hidden="true" class="GenericExternalApplication__options-icon"/>
+                                                                        <span class="GenericExternalApplication__options-list-item-text">${item}</span>
                                                             </li>
                                                 </ul>
                                     </div>
 
                                     <button aria-label="Click here to manage your cookie settings" class="GenericExternalApplication__form-CTA primaryLinkWithStyle" onclick="truste.eu && truste.eu.clickListener()">
-                                                <span aria-hidden="true" class="GenericExternalApplication__form-CTA-text">MANAGE SETTING</span>
+                                                <span aria-hidden="true" class="GenericExternalApplication__form-CTA-text">${GEAmodel.ctaText}</br></span>
                                     </button>
 
                         </div>
             </div>
 
 </div>
+
+

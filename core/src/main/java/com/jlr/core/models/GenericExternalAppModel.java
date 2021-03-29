@@ -7,7 +7,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jlr.core.pojos.ScriptParam;
 
-public interface GeneralExternalAppModel {
+public interface GenericExternalAppModel {
 	
 	default String getContainerId() {
         return StringUtils.EMPTY;

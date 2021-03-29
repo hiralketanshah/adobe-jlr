@@ -15,13 +15,13 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.jlr.core.models.GeneralExternalAppModel;
+import com.jlr.core.models.GenericExternalAppModel;
 import com.jlr.core.pojos.ScriptParam;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, adapters = {
-		GeneralExternalAppModel.class }, resourceType = GeneralExternalAppImpl.RESOURCE_TYPE)
-public class GeneralExternalAppImpl implements GeneralExternalAppModel {
+		GenericExternalAppModel.class }, resourceType = GenericExternalAppImpl.RESOURCE_TYPE)
+public class GenericExternalAppImpl extends GlobalModelImpl implements GenericExternalAppModel {
 	
 	public static final String RESOURCE_TYPE = "jlr/components/genericexternalapp/v1/genericexternalapp";
 	
