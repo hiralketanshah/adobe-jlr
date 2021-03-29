@@ -10,7 +10,7 @@
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
     </a>   
    </picture>
-   <p class="imageCaption bottom"><a href="${article.imageCaptionLink}" target="_blank">${article.imageCaptionText}</a></p>
+   <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
    </sly>
    <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'above'}" class="cmp-article__videoframe">
     <div class="cmp-article__video-container">
@@ -25,7 +25,7 @@
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
     </a>
    </picture>
-   <p class="imageCaption bottom"><a href="${article.imageCaptionLink}" target="_blank">${article.imageCaptionText}</a></p>
+   <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
    </sly>
    <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'below'}" class="cmp-article__videoframe">
     <div class="cmp-article__video-container">

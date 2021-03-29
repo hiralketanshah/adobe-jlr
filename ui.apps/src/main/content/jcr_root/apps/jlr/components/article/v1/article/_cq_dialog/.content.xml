@@ -94,14 +94,6 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                                 path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
-                                            <imageCaptionText
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/image/imageCaptionText"/>
-                                            <imageCaptionLink
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/image/imageCaptionLink"/>
                                         </items>
                                     </well>
                                 </items>
@@ -124,6 +116,34 @@
                                     </well>
                                 </items>
                             </video>
+                            <caption
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                fieldDescription="Caption to be displayed below the image/video"
+                                fieldLabel="Caption"
+                                name="./caption"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <links
+                                        jcr:primaryType="nt:unstructured"
+                                        features="modifylink,unlink"/>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[links#modifylink,links#unlink]"/>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[links#modifylink,links#unlink]"/>
+                                    </cui>
+                                </uiSettings>
+                                <htmlRules jcr:primaryType="nt:unstructured">
+                                    <blockHandling
+                                        jcr:primaryType="nt:unstructured"
+                                        removeSingleParagraphContainer="{Boolean}true"/>
+                                </htmlRules>
+                            </caption>
                         </items>
                     </imagevideo>
                     <cta
