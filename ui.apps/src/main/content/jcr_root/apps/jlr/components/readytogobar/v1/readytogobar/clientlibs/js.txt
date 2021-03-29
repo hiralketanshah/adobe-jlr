@@ -1,4 +1,3 @@
 #base=js
 
-readytogobar.js
 floatingactionbutton.js
