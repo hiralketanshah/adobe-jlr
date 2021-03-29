@@ -1,6 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-call="${renderModel @ model=model}" />
 <template data-sly-template.renderModel="${ @ model }">
- <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.vehiclesummary.v1']}"/>
+ <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.vehiclesummary.v1']}"/>
   <div class="cmp-vehicleSummary fontSmooth clearfix" id="${model.id}">
    <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
@@ -21,13 +21,13 @@
       ${model.copy @context='html'}
      </p>
      <div data-sly-test="${model.text}" class="primaryLinkContainer">
-      <a class="primaryLinkWithStyle plwsTransparentLight TargetLinks ${model.target=='_overlay' ? '' : model.icon}" href="${model.link}" data-link-desktop="${model.link}" aria-label="${model.ariaLabel}" data-target="${model.target}">
+      <a class="primaryLinkWithStyle plwsTransparentLight TargetLinks ${model.target=='_overlay' ? '' : model.icon}" href="${model.link}" data-link-desktop="${model.link}" aria-label="${model.ariaLabel}" target="${model.target}" data-target="${model.target}">
        <span aria-hidden="true">${model.text}</span>
       </a>
      </div>
      <div class="VehicleSummary__secondaryLinks">
 	  <sly data-sly-list.cta="${model.ctaList}">
-	   <a class="secondaryLinkWithStyle slwsLight TargetLinks ${cta.target=='_overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" data-target="${cta.target}">
+	   <a class="secondaryLinkWithStyle slwsLight TargetLinks ${cta.target=='_overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
         <span aria-hidden="true">${cta.text}</span>
        </a>
       </sly>
