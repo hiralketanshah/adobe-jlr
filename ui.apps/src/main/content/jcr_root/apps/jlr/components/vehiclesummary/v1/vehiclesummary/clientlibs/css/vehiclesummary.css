@@ -48,7 +48,8 @@
 }
 
 .cmp-vehicleSummary .VehicleSummary__header {
-	margin-bottom: 6px
+	margin-bottom: 6px;
+	text-transform:uppercase
 }
 
 .cmp-vehicleSummary .VehicleSummary__price {
