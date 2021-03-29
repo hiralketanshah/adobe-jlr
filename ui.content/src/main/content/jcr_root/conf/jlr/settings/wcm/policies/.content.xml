@@ -339,20 +339,22 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>
-            <caveat jcr:primaryType="nt:unstructured">
+             <caveat jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <caveat jcr:primaryType="nt:unstructured">
                         <policy_1615794114228
-                            jcr:lastModified="{Date}2021-03-16T15:09:58.622+05:30"
+                            jcr:lastModified="{Date}2021-03-29T08:43:41.048+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Caveat"
                             sling:resourceType="wcm/core/components/policy/policy">
-                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <jcr:content
+                                jcr:mixinTypes="[]"
+                                jcr:primaryType="nt:unstructured"/>
                             <rtePlugins jcr:primaryType="nt:unstructured">
                                 <paraformat
                                     jcr:primaryType="nt:unstructured"
-                                    features="-">
+                                    features="*">
                                     <formats
                                         jcr:primaryType="nt:unstructured"
                                         override="true">
@@ -360,67 +362,23 @@
                                             jcr:primaryType="nt:unstructured"
                                             description="Paragraph"
                                             tag="p"/>
-                                        <item1
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Heading 1"
-                                            tag="h1"/>
-                                        <item2
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Heading 2"
-                                            tag="h2"/>
-                                        <item3
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Heading 3"
-                                            tag="h3"/>
-                                        <item4
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Heading 4"
-                                            tag="h4"/>
-                                        <item5
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Heading 5"
-                                            tag="h5"/>
-                                        <item6
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Heading 6"
-                                            tag="h6"/>
-                                        <item7
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Quote"
-                                            tag="blockquote"/>
-                                        <item8
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Horizontal Rule (visual line break)"
-                                            tag="hr"/>
-                                        <item9
-                                            jcr:primaryType="nt:unstructured"
-                                            description="Preformatted"
-                                            tag="pre"/>
                                     </formats>
                                 </paraformat>
                                 <misctools
                                     jcr:primaryType="nt:unstructured"
-                                    features="-">
+                                    features="specialchars">
                                     <specialCharsConfig jcr:primaryType="nt:unstructured">
                                         <chars
                                             jcr:primaryType="nt:unstructured"
                                             override="true">
                                             <item0
                                                 jcr:primaryType="nt:unstructured"
-                                                entity="&amp;copy;"
-                                                name="copyright"/>
+                                                entity="&amp;#8209;"
+                                                name="Non breaking hyphen"/>
                                             <item1
                                                 jcr:primaryType="nt:unstructured"
-                                                entity="&amp;euro;"
-                                                name="euro"/>
-                                            <item2
-                                                jcr:primaryType="nt:unstructured"
-                                                entity="&amp;reg;"
-                                                name="registered"/>
-                                            <item3
-                                                jcr:primaryType="nt:unstructured"
-                                                entity="&amp;trade;"
-                                                name="trademark"/>
+                                                entity="&amp;nbsp;"
+                                                name="Non breaking space"/>
                                         </chars>
                                     </specialCharsConfig>
                                 </misctools>
@@ -435,7 +393,7 @@
                                     features="-"/>
                                 <spellcheck
                                     jcr:primaryType="nt:unstructured"
-                                    features="*"/>
+                                    features="-"/>
                                 <image
                                     jcr:primaryType="nt:unstructured"
                                     features="-"/>
@@ -444,7 +402,7 @@
                                     features="-"/>
                                 <lists
                                     jcr:primaryType="nt:unstructured"
-                                    features="*"/>
+                                    features="ordered,unordered"/>
                                 <justify
                                     jcr:primaryType="nt:unstructured"
                                     features="-"/>
@@ -456,9 +414,9 @@
                                     features="modifylink,unlink"/>
                                 <subsuperscript
                                     jcr:primaryType="nt:unstructured"
-                                    features="*"/>
+                                    features="-"/>
                             </rtePlugins>
-							<cq:styleGroups jcr:primaryType="nt:unstructured">
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
                                     cq:styleGroupLabel="Theme"
                                     jcr:primaryType="nt:unstructured">
@@ -472,16 +430,6 @@
                                             cq:styleClasses="cmp-caveat--white white"
                                             cq:styleId="1615794162991"
                                             cq:styleLabel="White"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item2
-                                            cq:styleClasses="cmp-caveat--grey grey"
-                                            cq:styleId="1615794172668"
-                                            cq:styleLabel="Grey"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item3
-                                            cq:styleClasses="cmp-caveat--dark dark"
-                                            cq:styleId="1615794178701"
-                                            cq:styleLabel="Dark"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item0>

@@ -37,12 +37,12 @@
 }
 
 .cmp-caveat--light {
-	background-color: #FFFFFF;
+	background-color: #F8F9F9 !important;
 	color: #000;
 }
 
 .cmp-caveat--white {
-	background-color: #f8f9f9;
+	background-color: #FFFFFF !important;
 	color: #4a4f54;
 }
 
