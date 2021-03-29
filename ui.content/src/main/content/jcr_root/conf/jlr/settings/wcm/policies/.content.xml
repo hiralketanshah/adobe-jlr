@@ -525,8 +525,13 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
-                                            cq:styleClasses="grey"
+                                            cq:styleClasses="white"
                                             cq:styleId="1616999144607"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1617008118607"
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
