@@ -25,6 +25,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </caveat>
+                        <article jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <container
+                                    cq:policy="jlr/components/article/v1/container/policy_1615803880912"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </article>
                         <vehiclesummary jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <vehiclesummary
