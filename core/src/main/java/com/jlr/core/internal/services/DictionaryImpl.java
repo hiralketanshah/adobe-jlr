@@ -21,7 +21,7 @@ public class DictionaryImpl implements Dictionary {
 
 	@Activate
 	public void activate(DictionaryConfig config) {
-		if(config != null) {
+		if(null !=config) {
 			this.config = config;
 		}
 	}
