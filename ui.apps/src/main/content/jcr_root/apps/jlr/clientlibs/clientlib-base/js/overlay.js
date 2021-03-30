@@ -21,13 +21,13 @@ function openOverlay(event, url) {
         },
         callbacks: {
             beforeClose: function beforeClose() {
-                document.querySelector('.pageWrapper').removeAttribute('aria-hidden');
+                //document.querySelector('.pageWrapper').removeAttribute('aria-hidden');
             },
             open: function open() {
                 $('.mfp-iframe').wrap('<div class="mfp-iframe-alt-wrap"></div>');
                 $('<button type="button" class="mfp-close alt"></button>').insertBefore('.mfp-iframe');
                 $('.mfp-bg').addClass('mfp-bg--whitened');
-                document.querySelector('.pageWrapper').setAttribute('aria-hidden', 'true');
+                //document.querySelector('.pageWrapper').setAttribute('aria-hidden', 'true');
             }
         }
     });
