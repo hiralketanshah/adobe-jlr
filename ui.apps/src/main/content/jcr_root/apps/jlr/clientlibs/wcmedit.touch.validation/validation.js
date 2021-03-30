@@ -140,11 +140,10 @@
             let min=el.data("min-items");
             let items=el.children("coral-multifield-item").length;
             let domitems=el.children("coral-multifield-item");
-            console.log("{} : {} :{} ",max,min,items);
             if(items>max){
               /* Use below line if you don't want to add item in multifield more than max limit */
               domitems.last().remove();
-              return "You cannot exceed maximum "+max+" items."
+              return "You cannot exceed maximum of "+max+" items."
             }
             if(items<min){
                 return "Your items count is lesser than the minimum limit of "+min+" items."
