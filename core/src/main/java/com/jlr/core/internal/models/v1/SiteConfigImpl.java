@@ -77,7 +77,7 @@ public class SiteConfigImpl implements SiteConfigModel {
 				String defaultPath = CommonConstants.JLR_CONTENT_PATH + CommonConstants.DEFAULT_LOCALE + dictionary.getPath();
 				Resource defaultConfigRes = resourceResolver.getResource(defaultPath);
 				if(null != defaultConfigRes) {
-					fallbackMap = buildConfigMap(siteConfigRes);
+					fallbackMap = buildConfigMap(defaultConfigRes);
 				}
 			}
 
