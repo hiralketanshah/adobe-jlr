@@ -4,7 +4,9 @@
    <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
      <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
-	  <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+      <a href="${model.imageLink}">
+       <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+      </a>
      </picture>
     </div>
     <div class="summaryItemContent VehicleSummary__content">
