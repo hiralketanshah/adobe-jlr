@@ -64,7 +64,6 @@
 .cmp-article .richText ul li,
 .cmp-article .richText ol li {
 	margin-bottom: 16px;
-	/*font-weight: bold*/
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
@@ -366,7 +365,6 @@
 .cmp-article .richText ul li,
 .cmp-article .richText ol li {
 	margin-bottom: 16px;
-	/*font-weight: bold*/
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
