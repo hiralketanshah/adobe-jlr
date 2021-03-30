@@ -415,7 +415,7 @@
                                     features="modifylink,unlink"/>
                                 <subsuperscript
                                     jcr:primaryType="nt:unstructured"
-                                    features="-"/>
+                                    features="*"/>
                             </rtePlugins>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
