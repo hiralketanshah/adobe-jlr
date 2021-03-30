@@ -32,7 +32,7 @@ color:#ffffff
 	
 }
 .cmp-readyToGoBar__link {
-	display: block;
+	display: inline-block;
 	text-decoration: none !important;
 	padding: 57px 20px 51px;
 	height : 223px;
