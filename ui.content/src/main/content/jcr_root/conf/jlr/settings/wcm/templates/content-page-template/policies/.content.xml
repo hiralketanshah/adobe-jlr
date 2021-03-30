@@ -50,43 +50,13 @@
                             </v1>
                         </snippet>
                         <readytogobar jcr:primaryType="nt:unstructured">
-                <v1 jcr:primaryType="nt:unstructured">
-                    <readytogobar jcr:primaryType="nt:unstructured">
-                        <policy_1617088611211
-                            cq:styleDefaultClasses="cmp-readyToGoBar--light light"
-                            jcr:lastModified="{Date}2021-03-30T12:53:40.308+05:30"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Ready to go bar"
-                            sling:resourceType="wcm/core/components/policy/policy">
-                            <jcr:content jcr:primaryType="nt:unstructured"/>
-                            <cq:styleGroups jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleGroupLabel="Theme"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="cmp-readyToGoBar--grey grey"
-                                            cq:styleId="1617088624973"
-                                            cq:styleLabel="Grey"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="cmp-readyToGoBar--dark"
-                                            cq:styleId="1617088655655"
-                                            cq:styleLabel="Dark"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item2
-                                            cq:styleClasses="cmp-readyToGoBar--light light"
-                                            cq:styleId="1617088666771"
-                                            cq:styleLabel="Light"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item0>
-                            </cq:styleGroups>
-                        </policy_1617088611211>
-                    </readytogobar>
-                </v1>
-            </readytogobar>
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <readytogobar
+                                    cq:policy="jlr/components/readytogobar/v1/readytogobar/policy_1617088611211"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </readytogobar>
                     </components>
                 </jlr>
             </container>
