@@ -144,10 +144,10 @@
             if(items>max){
               /* Use below line if you don't want to add item in multifield more than max limit */
               domitems.last().remove();
-              return "You can add maximum "+max+" items."
+              return "You cannot exceed maximum "+max+" items."
             }
             if(items<min){
-                return "You add minimum "+min+" items."
+                return "Your items count is lesser than the minimum limit of "+min+" items."
             }
         }
     });
