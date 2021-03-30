@@ -96,5 +96,8 @@
                 </items>
             </tabs>
         </items>
+        <granite:data
+           jcr:primaryType="nt:unstructured"
+           name="snippet"/>        
     </content>
 </jcr:root>
