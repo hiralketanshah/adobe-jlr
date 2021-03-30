@@ -565,7 +565,7 @@
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="cmp-readyToGoBar--dark dark"
+                                            cq:styleClasses="cmp-readyToGoBar--dark"
                                             cq:styleId="1617088655655"
                                             cq:styleLabel="Dark"
                                             jcr:primaryType="nt:unstructured"/>
