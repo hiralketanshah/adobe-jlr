@@ -69,15 +69,15 @@ public class SiteConfigImpl implements SiteConfigModel {
 			String configPath = CommonConstants.JLR_CONTENT_PATH + locale + dictionary.getPath();
 
 			Resource siteConfigRes  = resourceResolver.getResource(configPath);
-			if(siteConfigRes!= null) {
+			if(null != siteConfigRes) {
 				configMap = buildConfigMap(siteConfigRes);
 			}
 			// build fallback configuration map if local is not en and fallback is true
 			if(fallback && !locale.equals(CommonConstants.DEFAULT_LOCALE)) {
 				String defaultPath = CommonConstants.JLR_CONTENT_PATH + CommonConstants.DEFAULT_LOCALE + dictionary.getPath();
 				Resource defaultConfigRes = resourceResolver.getResource(defaultPath);
-				if(defaultConfigRes != null) {
-					fallbackMap = buildConfigMap(siteConfigRes);
+				if(null != defaultConfigRes) {
+					fallbackMap = buildConfigMap(defaultConfigRes);
 				}
 			}
 
@@ -95,12 +95,12 @@ public class SiteConfigImpl implements SiteConfigModel {
 
 		Map<String, String> configMap = new HashMap<>();
 		Resource configList = configRes.getChild(CommonConstants.NN_CHILD_NODE);
-		if(configList!= null) {
+		if(null != configList) {
 			Iterator<Resource> childResItr = configList.listChildren();
 			while (childResItr.hasNext()) {
 				Resource childRes = childResItr.next();
 				ValueMap childPropMap = childRes.adaptTo(ValueMap.class);
-				if(childPropMap != null) {
+				if(null != childPropMap) {
 					String key = childPropMap.get(CommonConstants.PN_CONFIG_KEY, String.class);
 					String value = childPropMap.get(CommonConstants.PN_CONFIG_VALUE, String.class);
 					configMap.put(key, value);
@@ -115,7 +115,7 @@ public class SiteConfigImpl implements SiteConfigModel {
 	 */
 	@Override
 	public Map<String, String> getConfigMap() {
-		if(keys != null && keys.size()>0) {
+		if(null != keys && keys.size()>0) {
 			Map<String, String> keyMap = new HashMap<>();
 			for(String key : keys) {
 				keyMap.put(key, configMap.get(key));
@@ -130,7 +130,7 @@ public class SiteConfigImpl implements SiteConfigModel {
 	 */
 	@Override
 	public String getConfigValue() {
-		if(keys!= null && keys.size() == 1) {
+		if(null != keys && keys.size() == 1) {
 			if(null == configMap.get(keys.get(0)) && fallback) {
 				return fallbackMap.get(keys.get(0));
 			} else {
