@@ -1,5 +1,22 @@
-.cmp-readyToGoBar {
-	background: #fff
+.cmp-readyToGoBar--white {
+	background: #ffffff
+}
+.cmp-readyToGoBar--grey {
+	background: #e9ecec;
+}
+.cmp-readyToGoBar--dark {
+	background: #4a4f54;
+}
+.cmp-readyToGoBar--light {
+	background: #f8f9f9;
+}
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__copy {
+	color: #ffffff;
+	transition: all .4s;
+	font-size:14px !important;
+}
+.cmp-readyToGoBar--dark .heading{
+color:#ffffff
 }
 
 .cmp-readyToGoBar__list {
@@ -46,10 +63,12 @@
 	color: #005a2b
 }
 
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
+	color: #ffffff
+}
 .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
 	color: #005a2b
 }
-
 .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading-inner {
 	text-decoration: underline
 }
@@ -86,7 +105,9 @@
 	align-items: center;
     text-transform:uppercase
 }
-
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__heading::before {
+	color: #ffffff !important;
+}
 .cmp-readyToGoBar__heading::before {
 	color: #005a2b;
 	transition: all .4s;
@@ -267,27 +288,27 @@
 	border-color: #65696e !important
 }
 
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:active .cmp-readyToGoBar__icon i,
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__icon i,
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__icon i {
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:active .cmp-readyToGoBar__icon i,
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__icon i,
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__icon i {
 	color: #fff
 }
 
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading,
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading,
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading,
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading,
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading {
 	color: #fff
 }
 
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__icon i {
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__icon i {
 	color: #fff
 }
 
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__heading:before {
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__heading:before {
 	color: #fff
 }
 
-.cmp-readyToGoBar.dark .cmp-readyToGoBar__copy {
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__copy {
 	color: #fff
 } 
 

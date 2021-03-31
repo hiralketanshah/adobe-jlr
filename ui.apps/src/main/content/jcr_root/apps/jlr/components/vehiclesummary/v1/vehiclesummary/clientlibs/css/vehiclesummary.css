@@ -271,15 +271,15 @@
 	}
 }
 
- .cmp-vehicleSummary #landrover .primaryLinkWithStyle {
+ #landrover .cmp-vehicleSummary .primaryLinkWithStyle {
 	margin-top: 15px
 }
 
- .cmp-vehicleSummary #landrover .secondaryLinkWithStyle {
+ #landrover .cmp-vehicleSummary .secondaryLinkWithStyle {
 	margin-right: 10px
 }
 
- .cmp-vehicleSummary #landrover .secondaryLinkWithStyle:last-child {
+ #landrover .cmp-vehicleSummary .secondaryLinkWithStyle:last-child {
 	margin-bottom: 20px
 }
 
