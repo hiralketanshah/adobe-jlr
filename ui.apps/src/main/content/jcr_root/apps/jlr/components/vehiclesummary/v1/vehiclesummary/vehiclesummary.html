@@ -1,5 +1,5 @@
-<sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-call="${renderModel @ model=model}" />
-<template data-sly-template.renderModel="${ @ model }">
+<sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}" data-sly-call="${renderModel @ model=model, config=config}" />
+<template data-sly-template.renderModel="${ @ model, config}">
   <div class="cmp-vehicleSummary fontSmooth clearfix" id="${model.id}">
    <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
@@ -16,7 +16,7 @@
       </span>
      </h2>
      <p data-sly-test="${model.price}" class="heading price headingH5 VehicleSummary__price VehicleSummary__price--top fontFromPriceModel">
-      From: ${model.price}
+      ${config.configValue}: ${model.price}
      </p>
      <p data-sly-test="${model.copy}" class="subheading VehicleSummary__subheading fontH1Copy">
       ${model.copy @context='html'}
