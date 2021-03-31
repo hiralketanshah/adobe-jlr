@@ -11,18 +11,18 @@ import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 
-import com.jlr.core.models.ShowStateModalModel;
+import com.jlr.core.models.MarketRegionPricingModel;
 import com.jlr.core.pojos.StatePojo;
 
 /**
- * The Class ArticleModelImpl.
+ * The Class MarketRegionPricingImpl.
  */
 @Model(adaptables = Resource.class, adapters = {
-        ShowStateModalModel.class }, resourceType = ShowStateModalImpl.RESOURCE_TYPE)
-public class ShowStateModalImpl extends GlobalModelImpl implements ShowStateModalModel {
+        MarketRegionPricingModel.class }, resourceType = MarketRegionPricingImpl.RESOURCE_TYPE)
+public class MarketRegionPricingImpl extends GlobalModelImpl implements MarketRegionPricingModel {
 
     /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/showstatemodal/v1/showstatemodal";
+    public static final String RESOURCE_TYPE = "jlr/components/marketregionpricing/v1/marketregionpricing";
 
     /** The state list. */
     @Inject

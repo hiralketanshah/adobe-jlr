@@ -1,7 +1,7 @@
 <!-- Jaguar Component -->
-Show State Modal (v1)
+Market Region Pricing(v1)
 ====
-Show State Modal component written in HTL.
+Market Region Pricing component written in HTL.
 
 ## Features
 

@@ -8,7 +8,7 @@ import org.osgi.annotation.versioning.ConsumerType;
 import com.jlr.core.pojos.StatePojo;
 
 @ConsumerType
-public interface ShowStateModalModel {
+public interface MarketRegionPricingModel {
 
     default List<StatePojo> getStateList() {
         return new ArrayList<>();
