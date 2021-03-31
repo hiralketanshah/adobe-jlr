@@ -111,7 +111,7 @@ public class SiteConfigImpl implements SiteConfigModel {
 				}
 			}
 		}
-		return configMap;
+		return configurationsMap;
 	}
 
 	/**
@@ -122,7 +122,11 @@ public class SiteConfigImpl implements SiteConfigModel {
 		if(null != keys && keys.isEmpty()) {
 			Map<String, String> keyMap = new HashMap<>();
 			for(String configKey : keys) {
-				keyMap.put(configKey, configMap.get(configKey));
+				if(null == configMap.get(configKey) && fallback) {
+					keyMap.put(configKey, fallbackMap.get(configKey));
+				} else {
+					keyMap.put(configKey, configMap.get(configKey));
+				}
 			}
 			return keyMap;
 		}
@@ -135,7 +139,11 @@ public class SiteConfigImpl implements SiteConfigModel {
 	@Override
 	public String getConfigValue() {
 		if(null != key) {
-			return configMap.get(key);
+			if(null == configMap.get(key) && fallback) {
+				return fallbackMap.get(key);
+			} else {
+				return configMap.get(key);
+			}	
 		}
 		return null;	
 	}
