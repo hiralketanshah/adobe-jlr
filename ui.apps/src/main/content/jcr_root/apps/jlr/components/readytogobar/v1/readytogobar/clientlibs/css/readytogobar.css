@@ -31,8 +31,11 @@ color:#ffffff
 	padding-left:20px;
 	
 }
+.cmp-readyToGoBar--dark .cmp-readyToGoBar__item {
+	border: 1px solid #000000;
+}
 .cmp-readyToGoBar__link {
-	display: block;
+	display: inline-block;
 	text-decoration: none !important;
 	padding: 57px 20px 51px;
 	height : 223px;

@@ -150,7 +150,7 @@ body.focusStylesOn .cmp-floatingActionButton:focus {
   align-items: center;
   width: 100%;
   color: #0c121c;
-  text-decoration: none;
+  text-decoration: none !important;
   height: 100%;
   padding: 0 10px 0 5px;
   transition: background-color 0.4s;
@@ -172,6 +172,7 @@ body.focusStylesOn .cmp-floatingActionButton:focus {
   border-bottom: 1px solid transparent;
   transition: color 0.4s, border-bottom 0.4s;
   margin-bottom: -1px;
+  text-transform: uppercase;
 }
 .cmp-floatingActionButton__item-link:focus .cmp-floatingActionButton__item-text,
 .cmp-floatingActionButton__item-link:hover .cmp-floatingActionButton__item-text {
@@ -230,14 +231,9 @@ body.focusStylesOn .cmp-floatingActionButton:focus {
   .cmp-floatingActionButton--opened .cmp-floatingActionButton__overlay {
     display: none;
   }
-  .cmp-floatingActionButton__items {
-    width: 303px;
-    max-height: 312px;
-  }
-  .cmp-floatingActionButton__item{
-    max-height: 50px;
-    width: 210px;
-  }
+.cmp-floatingActionButton__items {
+      max-width: 360px;
+    }
 }
 @media screen and (min-width: 901px) {
   .cmp-floatingActionButton {
@@ -290,13 +286,11 @@ body.focusStylesOn .cmp-floatingActionButton:focus {
     .cmp-floatingActionButton__trigger-dot:last-child {
     transform: translateX(2px);
   }
-  .cmp-floatingActionButton__items {
-    margin-bottom: unset;
-    padding-top: 91px;
-    padding-left: 63px;
-    padding-right: 30px;
-    transform: translateY(-20px);
-  }
+ .cmp-floatingActionButton__items {
+      margin-bottom: unset;
+      padding: 75px 30px 30px;
+      transform: translateY(-20px);
+    }
   .cmp-floatingActionButton__item-text {
     font-size: 1rem;
     letter-spacing: 0.173rem;
@@ -345,16 +339,5 @@ body.focusStylesOn .cmp-floatingActionButton:focus {
     }
     .cmp-floatingActionButton--opened .cmp-floatingActionButton__overlay {
       display: none;
-    }
-    .cmp-floatingActionButton__items {
-      width: 258px;
-      max-height: 295px;
-      padding-top: 30px;
-      padding-left: 30px;
-      padding-right: 30px;
-    }
-    .cmp-floatingActionButton__item{
-      height: 50px;
-      width: 198px;
     }
   }
