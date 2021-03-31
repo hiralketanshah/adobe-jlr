@@ -38,8 +38,7 @@ public class CtaUtils {
                     LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                             resourceResolver),
                     properties.get(CommonConstants.PN_CTA_TARGET, String.class), linkType, getIcon(icon, linkType),
-                    getComputedAriaLabel(properties, header),properties.get(CommonConstants.PN_DESCRIPTION, String.class),
-                    properties.get(CommonConstants.PN_IMAGE_ALT, String.class)));
+                    getComputedAriaLabel(properties, header),properties.get(CommonConstants.PN_DESCRIPTION, String.class)));
         }
         }
         return list;

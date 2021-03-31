@@ -4,6 +4,4 @@
     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
     fieldDescription="HTML ID attribute to apply to the component."
     fieldLabel="ID"
-    name="./id"
-    regexText="sorry"
-    required="{Boolean}true"/>
+    name="./id"/>

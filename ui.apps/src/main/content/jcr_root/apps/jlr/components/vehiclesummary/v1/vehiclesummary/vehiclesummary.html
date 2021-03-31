@@ -1,11 +1,12 @@
 <sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-call="${renderModel @ model=model}" />
 <template data-sly-template.renderModel="${ @ model }">
- <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.vehiclesummary.v1']}"/>
   <div class="cmp-vehicleSummary fontSmooth clearfix" id="${model.id}">
    <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
      <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
-	  <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+      <a href="${model.imageLink}">
+       <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+      </a>
      </picture>
     </div>
     <div class="summaryItemContent VehicleSummary__content">
@@ -26,10 +27,12 @@
       </a>
      </div>
      <div class="VehicleSummary__secondaryLinks">
-	  <sly data-sly-list.cta="${model.ctaList}">
-	   <a class="secondaryLinkWithStyle slwsLight TargetLinks ${cta.target=='_overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
-        <span aria-hidden="true">${cta.text}</span>
-       </a>
+      <sly data-sly-list.cta="${model.ctaList}">
+       <span class="secondaryLinkContainer secondaryLinkType">
+        <a class="secondaryLinkWithStyle slwsLight TargetLinks ${cta.target=='_overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
+         <span aria-hidden="true">${cta.text}</span>
+        </a>
+       </span>
       </sly>
      </div>
     </div>

@@ -40,4 +40,13 @@ public interface ArticleModel {
     default List<CTAPojo> getCtaList() {
         return new ArrayList<>();
     }
+
+    /**
+     * Gets the caption.
+     *
+     * @return the caption
+     */
+    default String getCaption() {
+        return StringUtils.EMPTY;
+    }
 }

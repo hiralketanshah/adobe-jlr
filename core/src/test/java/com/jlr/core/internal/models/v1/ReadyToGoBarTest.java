@@ -48,7 +48,6 @@ class ReadyToGoBarTest {
             assertEquals("_blank", item.getTarget());
             assertEquals("description", item.getCopy());
             assertEquals("link text", item.getText());
-            assertEquals("alternate text", item.getImageAlt());
             assertEquals("icon", item.getIcon());
             assertEquals("primary", item.getLinkType());
         });

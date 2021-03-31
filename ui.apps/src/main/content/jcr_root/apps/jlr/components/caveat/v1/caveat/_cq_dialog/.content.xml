@@ -124,12 +124,15 @@
                                                     <tracklinks
                                                         jcr:primaryType="nt:unstructured"
                                                         features="*"/>
+                                                    <subsuperscript
+                                                        jcr:primaryType="nt:unstructured"
+                                                        features="*"/>
                                                 </rtePlugins>
                                                 <uiSettings jcr:primaryType="nt:unstructured">
                                                     <cui jcr:primaryType="nt:unstructured">
                                                         <inline
                                                             jcr:primaryType="nt:unstructured"
-                                                            toolbar="[format#bold,format#italic,format#underline,#justify,#lists,links#modifylink,links#unlink,#paraformat]">
+                                                            toolbar="[format#bold,format#italic,format#underline,#justify,#lists,links#modifylink,links#unlink,#paraformat,subsuperscript#subscript,subsuperscript#superscript]">
                                                             <popovers jcr:primaryType="nt:unstructured">
                                                                 <justify
                                                                     jcr:primaryType="nt:unstructured"

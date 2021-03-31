@@ -1,0 +1,8 @@
+<sly data-sly-use.model="com.jlr.core.models.SiteConfigModel" data-sly-call="${renderSiteConfig @ siteconfig=model}" />	
+
+<template data-sly-template.renderSiteConfig="${ @ siteconfig }">
+	<div class="cq-placeholder" data-emptytext="Site Config Component"></div>
+	<div data-sly-list.item="${siteconfig.configMap.keySet.iterator}">
+		<p> ${item} = ${siteconfig.configMap[item]} </p></div> 
+</template>
+
