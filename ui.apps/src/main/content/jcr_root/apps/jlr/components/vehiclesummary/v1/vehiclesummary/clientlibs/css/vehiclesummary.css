@@ -283,3 +283,18 @@
 	margin-bottom: 20px
 }
 
+
+#landrover .cmp-vehicleSummary .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .primaryLinkWithStyle:focus
+{
+background-color: #4a4f54;
+color: #fff;
+box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
+}
+
+#landrover .cmp-vehicleSummary .secondaryLinkWithStyle:focus{box-shadow: 0 0 0 1px #0c121c inset, 0 0 0 1px #fff, 0 0 2px 4px #4a90e2;}
+
+#landrover .cmp-vehicleSummary .secondaryLinkWithStyle:focus {
+    color: #005a2b;
+    text-shadow: none;
+    box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
+}

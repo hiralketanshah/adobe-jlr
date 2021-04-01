@@ -3,7 +3,7 @@
     max-width: 600px;
     margin: 0 auto;
   }
-  .cmp-article__video-container {
+.cmp-article__video-container {
     position: relative;
     padding-bottom: 56.25%;
     padding-top: 30px;
@@ -815,4 +815,18 @@
 
 .cmp-article--light {
 	background-color: #f8f9f9
+}
+
+
+#landrover .cmp-article .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .primaryLinkWithStyle:focus
+{
+ background-color: #4a4f54;
+ color: #fff;
+ box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
+}
+ 
+#landrover .cmp-article .secondaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .secondaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .secondaryLinkWithStyle:focus {
+ color: #005a2b;
+ text-shadow: none;
+ box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
 }
