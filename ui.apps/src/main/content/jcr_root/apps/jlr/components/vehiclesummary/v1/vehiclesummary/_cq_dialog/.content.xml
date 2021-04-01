@@ -188,5 +188,8 @@
                 </items>
             </tabs>
         </items>
+        <granite:data
+           jcr:primaryType="nt:unstructured"
+           name="vehiclesummary"/>
     </content>
 </jcr:root>
