@@ -1,29 +1,26 @@
 <!-- Jaguar Component -->
-Full Width Image (v1)
+Generic External Application (v1)
 ====
-Full Width Image component written in HTL.
+Generic External Application component written in HTL.
 
 ## Features
 
-* Full Width Image are a versatile component used in a variety of ways on DX.
+* Generic External Application are a versatile component used in a variety of ways on DX.
 
 ### Use Object
-The Full Width Image component uses the `com.jlr.core.models.FullWidthImageModel` Sling model as its Use-object.
+The Generic External Application Component uses the `com.jlr.core.models.GenericExternalAppModel` Sling model as its Use-object.
 
 ### Edit Dialog Properties
 The following properties are written to JCR for this Full Width Image component and are expected to be available as `Resource` properties:
 
-1. `./headerCopy` - defines the title for the component.
-2. `./bodyCopy` - defines the body copy for the component.
-3. `./fileReference` - defines an iamge for the component.
-4. `./imageLink` - Make the image a link to another resource.
-5. `./imageAlt` - defines the iamge alt text for the component.
-6. `./text` - defines the CTA text for the component.
-7. `./link` - defines the CTA link for the component.
-8. `./target` - defines the CTA target (new tab or current tab) for the component.
-9. `./linkType` - defines whether the CTA is primary or Secondary.
-10. `./logoImage` - It defines the logo to be used at the top of title.
-11. `./id` - It defines the unique id for the component.
+1. `./containerId` - HTML ID attribute to apply to the component.
+2. `./scriptURL` - Link to a content page, external URL or page anchor.
+3. `./scriptParam` - Specify the Script parameters with key and value.
+4. `./consentCategory` - Enable checkbox to choose the consent categories.
+5. `./unconsentedHeader` - The Header copy to be displayed..
+6. `./unconsentedMessage` - The Body copy or Message to be displayed..
+7. `./ctaText` - The text to be rendered on the CTA.
+
 
 
 The edit dialog allows the page to be refreshed after editing the component
@@ -35,4 +32,4 @@ The edit dialog allows the page to be refreshed after editing the component
 * **Vendor**: Jaguar
 * **Version**: v1
 * **Compatibility**: AEM 6.5
-* **Component Library**: https://wiki.jlrdxhelp.com/967de2bc9/p/20bf47-full-width-image
+* **Component Library**: https://wiki.jlrdxhelp.com/967de2bc9/p/149719-generic-external-application-gea

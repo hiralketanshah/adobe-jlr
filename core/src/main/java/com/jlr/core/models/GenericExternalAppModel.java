@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
-import com.jlr.core.pojos.ScriptParam;
-
 public interface GenericExternalAppModel {
 	
 	default String getContainerId() {
@@ -17,9 +15,7 @@ public interface GenericExternalAppModel {
         return StringUtils.EMPTY;
     }
 	
-	default List<ScriptParam> getScriptParam() {
-        return new ArrayList<>();
-    }
+	public String getScriptParam();
 	
 	public String[] getConsentCategory();
 	
@@ -35,12 +31,7 @@ public interface GenericExternalAppModel {
         return StringUtils.EMPTY;
     }
 	
-	default String getCtaLink() {
-        return StringUtils.EMPTY;
-    }
-	
-	default String getTarget() {
-        return StringUtils.EMPTY;
-    }
-
+	default List<String> getConsentCategoryData(){
+		return new ArrayList<>();
+	}
 }
