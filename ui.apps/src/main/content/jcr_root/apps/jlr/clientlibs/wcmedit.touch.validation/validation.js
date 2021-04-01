@@ -96,7 +96,11 @@
 					validate: function (el) {
 						var $rteField = $(el);
 						var $field = $rteField.closest('.richtext-container').find('input.coral-Form-field');
+						var compName = $(".cq-dialog-content").data("name");
 						var maxLength = $field.data('maxlength');
+						if(compName) {
+							maxLength = $field.data(compName +'-maxlength');
+						}
 						var textLength = $rteField.text().trim().length;
 						if (maxLength && textLength > maxLength) {
 							return Granite.I18n.get(CONST.ERROR_MESSAGE, [textLength, maxLength]);
