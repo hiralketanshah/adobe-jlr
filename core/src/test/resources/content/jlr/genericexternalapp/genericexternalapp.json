@@ -1,0 +1,11 @@
+{
+   "jcr:primaryType": "nt:unstructured",
+   "unconsentedheader": "INACTIVE COMPONENT",
+   "supressCaveat": "yes",
+   "containerId": "GenericExternalApplicationScript",
+   "scriptURL": "tpGEA.js",
+   "ctaText": "MANAGE SETTING",
+   "unconsentedMessage": "message",
+   "sling:resourceType": "jlr/components/genericexternalapp/v1/genericexternalapp",
+   "unconsentedHeader": "INACTIVE COMPONENT"
+}

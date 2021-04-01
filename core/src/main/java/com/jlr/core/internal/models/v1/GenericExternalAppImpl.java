@@ -20,49 +20,73 @@ import org.slf4j.LoggerFactory;
 import com.jlr.core.models.GenericExternalAppModel;
 import com.jlr.core.pojos.ScriptParam;
 
+/**
+ * The Class GenericExternalAppImpl.
+ */
 @Model(adaptables = Resource.class, adapters = {
 		GenericExternalAppModel.class }, resourceType = GenericExternalAppImpl.RESOURCE_TYPE)
 public class GenericExternalAppImpl extends GlobalModelImpl implements GenericExternalAppModel {
 	
+	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/genericexternalapp/v1/genericexternalapp";
 	
+	/** The logger. */
 	private final Logger logger = LoggerFactory.getLogger(this.getClass()); 
 	
+	/** The container id. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String containerId;
 	
+	/** The script URL. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String scriptURL;
 	
+	/** The consent category. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String[] consentCategory;
 	
+	/** The unconsented header. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String unconsentedHeader;
 	
+	/** The unconsented message. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String unconsentedMessage;
 	
+	/** The cta text. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String ctaText;
 	
+	/** The cta link. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String ctaLink;
 	
+	/** The target. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String target;
 	
+	/** The listed. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
 	List<ScriptParam> listed= new ArrayList<>();
 	
+	/** The supress caveat. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String supressCaveat;
+	
+	/** The script param. */
 	@Inject
     @Optional
     private Resource scriptParam;
 	
+	/** The key value param. */
 	public String keyValueParam;
 	
+	/** The category. */
 	public List<String> category=new ArrayList<>();
 	
+	/**
+	 * Inits the.
+	 */
 	@PostConstruct
 	 public void init() {
 		 if (scriptParam != null && scriptParam.hasChildren()) {
@@ -81,21 +105,41 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
 	        }
 	    }
 	
+	/**
+	 * Gets the container id.
+	 *
+	 * @return the container id
+	 */
 	@Override
 	public String getContainerId() {
 		return containerId;
 	}
 
+	/**
+	 * Gets the script URL.
+	 *
+	 * @return the script URL
+	 */
 	@Override
 	public String getScriptURL() {
 		return scriptURL;
 	}
 	
+	/**
+	 * Gets the consent category.
+	 *
+	 * @return the consent category
+	 */
 	@Override
 	public String[] getConsentCategory() {
 		return consentCategory;
 	}
 	
+	/**
+	 * Gets the consent category data.
+	 *
+	 * @return the consent category data
+	 */
 	@Override
 	public List<String> getConsentCategoryData() {
 		for(String consent:consentCategory) {
@@ -104,23 +148,53 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
 		return category;
 	}
 
+	/**
+	 * Gets the unconsented header.
+	 *
+	 * @return the unconsented header
+	 */
 	@Override
 	public String getUnconsentedHeader() {
 		return unconsentedHeader;
 	}
 
+	/**
+	 * Gets the unconsented message.
+	 *
+	 * @return the unconsented message
+	 */
 	@Override
 	public String getUnconsentedMessage() {
 		return unconsentedMessage;
 	}
 
+	/**
+	 * Gets the cta text.
+	 *
+	 * @return the cta text
+	 */
 	@Override
 	public String getCtaText() {
 		return ctaText;
 	}
 
+	/**
+	 * Gets the script param.
+	 *
+	 * @return the script param
+	 */
 	@Override
 	public String getScriptParam() {
 		return keyValueParam;
+	}
+	
+	/**
+	 * Gets the supress caveat.
+	 *
+	 * @return the supress caveat
+	 */
+	@Override
+	public String getSupressCaveat() {
+		return supressCaveat;
 	}
 }
