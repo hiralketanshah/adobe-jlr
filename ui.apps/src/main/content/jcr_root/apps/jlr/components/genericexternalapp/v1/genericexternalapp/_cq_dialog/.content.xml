@@ -81,8 +81,8 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                 checked="true"
                                                 name="./consentCategory"
-                                                text="Analysis"
-                                                value="Analysis"/>
+                                                text="Analytics"
+                                                value="Analytics"/>
                                             <marketing
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
