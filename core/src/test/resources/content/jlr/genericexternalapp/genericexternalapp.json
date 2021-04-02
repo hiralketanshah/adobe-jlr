@@ -7,5 +7,14 @@
    "ctaText": "MANAGE SETTING",
    "unconsentedMessage": "message",
    "sling:resourceType": "jlr/components/genericexternalapp/v1/genericexternalapp",
-   "unconsentedHeader": "INACTIVE COMPONENT"
+   "unconsentedHeader": "INACTIVE COMPONENT",
+   "consentCategory" : "Functional",
+    "scriptParam": {
+      "jcr:primaryType": "nt:unstructured",
+      "item0": {
+         "jcr:primaryType": "nt:unstructured",
+         "keyParam": "key",
+         "valueParam": "value"
+         }    
+     }
 }

@@ -2,13 +2,14 @@ package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
+
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.GenericExternalAppModel;
-
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
@@ -83,6 +84,26 @@ class GenericExternalAppImplTest {
 	@Test
 	void testGetSupressCaveat() {
 		assertEquals("yes",genericExternalAppModel.getSupressCaveat());
+	}
+	
+	/**
+	 * Test get consent category data.
+	 */
+	@Test
+	void testGetConsentCategoryData() {
+		List<String> category=genericExternalAppModel.getConsentCategoryData();
+		assertEquals(1, category.size());
+		category.forEach(item -> {
+            assertEquals("\"functional\"", item);
+        });
+	}
+	
+	/**
+	 * Test get script param.
+	 */
+	@Test
+	void testGetScriptParam() {
+		assertEquals("{\"key\":\"value\"}", genericExternalAppModel.getScriptParam());
 	}
 
 }
