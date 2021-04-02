@@ -1,4 +1,7 @@
-<sly data-sly-use.GEAmodel="com.jlr.core.models.GenericExternalAppModel"/>
+<sly data-sly-use.model="com.jlr.core.models.GenericExternalAppModel" data-sly-call="${renderGEAmodel @ GEAmodel=model}"/>
+    <template data-sly-template.renderGEAmodel="${ @ GEAmodel }">
+<div data-sly-test="${!GEAmodel.unconsentedHeader || !GEAmodel.unconsentedMessage}" class="cq-placeholder"
+	 data-emptytext="Generic External Application Component"></div>
 <div class="GenericExternalApplication" data-consent-categories="[${GEAmodel.consentCategoryData}]" data-script-parameters="${GEAmodel.scriptParam}" data-script-url="${GEAmodel.scriptURL}" id="${GEAmodel.containerId}">
    <div class="GenericExternalApplication__wrapper">
       <span aria-hidden="true" class="GenericExternalApplication__icon"></span>
