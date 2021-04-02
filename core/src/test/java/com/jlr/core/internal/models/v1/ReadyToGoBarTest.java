@@ -11,8 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 
 import com.jlr.core.models.ReadyToGoBarModel;
-import com.jlr.core.pojos.ReadyToGoBar;
-
+import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
@@ -42,15 +41,14 @@ class ReadyToGoBarTest {
 	 */
 	@Test
     void testRtgbProperties() {
-        List<ReadyToGoBar> list = readyToGoBarModel.getRtgb();
+        List<CTAPojo> list = readyToGoBarModel.getRtgb();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("/content/jlr/au", item.getLink());
             assertEquals("_blank", item.getTarget());
             assertEquals("description", item.getCopy());
             assertEquals("link text", item.getText());
-            assertEquals("alternate text", item.getImageAlt());
-            assertEquals("/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg", item.getFileReference());
+            assertEquals("icon", item.getIcon());
             assertEquals("primary", item.getLinkType());
         });
     }

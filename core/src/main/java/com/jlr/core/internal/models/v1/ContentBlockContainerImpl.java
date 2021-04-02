@@ -3,7 +3,6 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -20,16 +19,17 @@ import com.jlr.core.utils.CtaUtils;
 /**
  * The Class ContentBlockContainerImpl.
  */
-@Model(adaptables = Resource.class, adapters = { ContentBlockContainerModel.class }, resourceType = ContentBlockContainerImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = {
+        ContentBlockContainerModel.class }, resourceType = ContentBlockContainerImpl.RESOURCE_TYPE)
 public class ContentBlockContainerImpl extends GlobalModelImpl implements ContentBlockContainerModel {
 
-	/** The Constant RESOURCE_TYPE. */
-	public static final String RESOURCE_TYPE = "jlr/components/contentblockcontainer/v1/contentblockcontainer";
-	
+    /** The Constant RESOURCE_TYPE. */
+    public static final String RESOURCE_TYPE = "jlr/components/contentblockcontainer/v1/contentblockcontainer";
+
     /** The column. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String column;
-    
+
     /** The body copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String bodyCopy;
@@ -45,7 +45,7 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-    
+
     /**
      * Gets the cta list.
      *
@@ -53,11 +53,11 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
      */
     @Override
     public List<CTAPojo> getCtaList() {
-		if (null != ctaList && ctaList.hasChildren()) {
-			list = CtaUtils.createCtaList(ctaList, resourceResolver);
-		}
-		return list;
-	}
+        if (null != ctaList && ctaList.hasChildren()) {
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+        }
+        return list;
+    }
 
     /**
      * Gets the column.
@@ -68,7 +68,7 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
     public String getColumn() {
         return column;
     }
-    
+
     /**
      * Gets the body copy.
      *
@@ -76,7 +76,7 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
      */
     @Override
     public String getBodyCopy() {
-		return bodyCopy;
-	}
-    
+        return bodyCopy;
+    }
+
 }

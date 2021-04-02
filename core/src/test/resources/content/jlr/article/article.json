@@ -1,7 +1,18 @@
 {
     "imagePosition": "above",
     "hideImage": "false",
-    "assestType": "image",
+    "assetType": "image",
     "videoType": "videoId",
+    "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"/content/jlr/au",
+      "text":"test_cta_text",
+      "linkType":"primary",
+      "icon":"test_icon"
+    }
+  },
     "jcr:primaryType": "nt:unstructured"  
 }

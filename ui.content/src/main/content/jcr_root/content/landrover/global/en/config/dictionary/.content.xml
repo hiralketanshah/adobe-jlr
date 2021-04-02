@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2021-03-31T00:47:24.614+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/jlr/settings/wcm/templates/content-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Dictionary"
+        sling:resourceType="jlr/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="jlr/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="jlr/components/container"
+                layout="responsiveGrid">
+                <siteconfig
+                    jcr:created="{Date}2021-03-28T20:42:59.661+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-03-31T00:47:24.609+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="jlr/components/siteconfig/v1/siteconfig">
+                    <configList jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            key="a11y.backToTop.label"
+                            value="Back to top of page"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            key="a11y.gyroscrope.label"
+                            value="Activate your device's gyroscope to explore the vehicle by moving your device."/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            key="bing.dealerlocator.searchresults.distance.format"
+                            value="({0} km)"/>
+                        <item3
+                            jcr:primaryType="nt:unstructured"
+                            key="bing.dealerlocator.searchresults.email.format"
+                            value="Email Retailer"/>
+                        <item4
+                            jcr:primaryType="nt:unstructured"
+                            key="From"
+                            value="From"/>
+                    </configList>
+                </siteconfig>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

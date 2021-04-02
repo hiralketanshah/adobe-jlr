@@ -1,7 +1,12 @@
 package com.jlr.core.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
+
+import com.jlr.core.pojos.CTAPojo;
 
 /**
  * The Interface ArticleModel.
@@ -19,20 +24,29 @@ public interface ArticleModel {
     }
 
     /**
-     * Gets the content type.
+     * Gets the asset type.
      *
-     * @return the content type
+     * @return the asset type
      */
-    default String getAssestType() {
+    default String getAssetType() {
         return StringUtils.EMPTY;
     }
 
     /**
-     * Gets the video type.
+     * Gets the cta list.
      *
-     * @return the video type
+     * @return the cta list
      */
-    default String getVideoType() {
+    default List<CTAPojo> getCtaList() {
+        return new ArrayList<>();
+    }
+
+    /**
+     * Gets the caption.
+     *
+     * @return the caption
+     */
+    default String getCaption() {
         return StringUtils.EMPTY;
     }
 }

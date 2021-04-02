@@ -2742,7 +2742,6 @@ html {
 body {
 	color: #fff;
 	height: 100%;
-	background-color: #4a4f54;
 }
 
 body:not(.isFullscreen) {
@@ -6124,7 +6123,6 @@ h6 {
 	line-height: 1;
 	font-family: "lr_ot4", "arial", "helvetica", sans-serif;
 	font-weight: 700;
-	color: #0c121c
 }
 
 dl dt,
