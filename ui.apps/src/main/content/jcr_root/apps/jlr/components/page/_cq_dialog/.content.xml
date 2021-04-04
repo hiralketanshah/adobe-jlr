@@ -212,19 +212,85 @@
                                                     allowBulkEdit="{Boolean}true"
                                                     cq-msm-lockable="noFollow"/>
                                             </noFollow>
-                                            <googleSiteVerification
+                                        </items>
+                                    </seo>
+                                     <datalayer
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Analytics DataLayer"
+                                        sling:orderBefore="seo"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <namePlateCode
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                fieldDescription="Select the NamePlate Code that needs to appear in datalayer."
+                                                fieldLabel="NamePlate Code"
+                                                multiple="{Boolean}false"
+                                                cq:showOnCreate="{Boolean}true"
+                                                autocreateTag="{Boolean}true"
+                                                name="./namePlateCode"
+                                                rootPath="/content/cq:tags/jlr/landrover/vehicles/nameplate-code">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="namePlateCode"/>
+                                            </namePlateCode>
+                                            <modelYear
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                fieldDescription="Select the Model Year of the Nameplate that needs to be appear in datalayer."
+                                                fieldLabel="Model Year"
+                                                multiple="{Boolean}false"
+                                                cq:showOnCreate="{Boolean}true"
+                                                autocreateTag="{Boolean}true"
+                                                name="./modelYear"
+                                                rootPath="/content/cq:tags/jlr/landrover/vehicles/model-year">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="modelYear"/>
+                                            </modelYear>
+                                        </items>
+                                    </datalayer>
+                                    <nameplateDetails jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    sling:orderBefore="seo"
+                                    jcr:title="NamePlate Details">
+                                    <items jcr:primaryType="nt:unstructured">
+                                            <applicationCode
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="Google Site Verification Key from Google Console."
-                                                fieldLabel="Google Site Verification Key"
-                                                name="./googleSiteVerificationKey">
+                                                fieldDescription="Application value that needs to appear in datalayer. Defaults to website if not entered"
+                                                fieldLabel="Default Application Value"
+                                                cq:showOnCreate="{Boolean}true"
+                                                maxlengthlong="{Long}40"
+                                                name="./applicationCode">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
                                                     allowBulkEdit="{Boolean}false"
-                                                    cq-msm-lockable="googleSiteVerification"/>
-                                            </googleSiteVerification>
-                                        </items>
-                                    </seo>
+                                                    cq-msm-lockable="applicationCode"/>
+                                            </applicationCode>
+                                            <market
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                fieldDescription="Select the Market that needs to appear in the datalayer."
+                                                fieldLabel="Market"
+                                                multiple="{Boolean}false"
+                                                cq:showOnCreate="{Boolean}true"
+                                                autocreateTag="{Boolean}true"
+                                                name="./market"
+                                                rootPath="/content/cq:tags/jlr/global/market">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="market"/>
+                                            </market>
+                                    </items>
+                                    <granite:rendercondition
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="jlr/granite/rendercondition/template"
+                                        templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
+                                    </nameplateDetails>
                                 </items>
                             </column>
                         </items>
