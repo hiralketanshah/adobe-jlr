@@ -4,7 +4,7 @@
           com.adobe.granite.ui.components.rendercondition.RenderCondition,
           com.adobe.granite.ui.components.rendercondition.SimpleRenderCondition,
           org.apache.sling.api.resource.Resource,
-          com.jlr.core.utils.TemplateRenderConditionUtil,
+          com.jlr.core.utils.CommonUtils,
           org.apache.sling.api.resource.ValueMap,
           com.adobe.granite.ui.components.ComponentHelper,
           com.adobe.granite.xss.XSSAPI,
@@ -28,7 +28,7 @@ Template
 final ComponentHelper cmp = new ComponentHelper(pageContext);
 Config cfg = cmp.getConfig();
 String path = cfg.get("templatePath", "");
-boolean show = TemplateRenderConditionUtil.isTemplate(slingRequest, request, path);
+boolean show = CommonUtils.isTemplate(slingRequest, request, path);
 //boolean show = true;
 request.setAttribute(RenderCondition.class.getName(), new SimpleRenderCondition(show));
 %>
