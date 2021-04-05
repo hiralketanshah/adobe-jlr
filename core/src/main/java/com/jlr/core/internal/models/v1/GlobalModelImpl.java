@@ -145,10 +145,6 @@ public class GlobalModelImpl implements GlobalModel {
         return ariaLabel;
     }
 
-    @Override
-    public String getLogoPath() {
-        return logoPath;
-    }
     public String getVideoId() {
         return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
     }
