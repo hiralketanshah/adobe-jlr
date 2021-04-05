@@ -41,6 +41,9 @@ public class GlobalModelImpl implements GlobalModel {
     private String imageLink;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private boolean isDecorative;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String text;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -102,11 +105,17 @@ public class GlobalModelImpl implements GlobalModel {
 
     @Override
     public String getImageAlt() {
+        if (isDecorative) {
+            return null;
+        }
         return imageAlt;
     }
 
     @Override
     public String getImageLink() {
+        if (isDecorative) {
+            return null;
+        }
         return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
     }
 

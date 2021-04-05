@@ -1,0 +1,199 @@
+
+.cmp-accolades_img {
+  max-width: 260px;
+  margin: 0 auto;
+  height: auto;
+  width: auto;
+}
+.cmp-accolades_img .Picture__img {
+  height: auto;
+  width: auto;
+  max-width: 260px;
+  max-height: 250px;
+  margin: 0 auto;
+}
+.cmp-accolades__copy {
+  color: #fff;
+  margin: 32px auto 0;
+  text-align: center;
+}
+.cmp-accolades__copy--primary + a {
+  margin-top: 21px;
+}
+.cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
+  margin-top: 22px;
+}
+.cmp-accolades__copy--secondary,
+.cmp-accolades__copy a {
+  margin-bottom: 30px;
+}
+.cmp-carousel[data-alignment="none"] .cmp-accolades_img {
+  display: none;
+}
+.cmp-accolades__copy--primary,
+.cmp-accolades__copy--secondary {
+  -webkit-font-smoothing: antialiased;
+}
+.cmp-carousel[data-alignment="left"] .cmp-accolades__copy {
+  float: right;
+  text-align: right;
+}
+.cmp-carousel[data-alignment="left"] .cmp-accolades_img {
+  float: left;
+  padding-right: 20px;
+}
+.cmp-carousel[data-alignment="right"] .cmp-accolades__copy {
+  float: left;
+  text-align: left;
+}
+.cmp-carousel[data-alignment="right"] .cmp-accolades_img {
+  float: right;
+  padding-left: 20px;
+  text-align: right;
+}
+.cmp-accolades__copy {
+  max-width: 60%;
+  margin: 0;
+}
+.cmp-accolades_img {
+  max-width: 40%;
+  min-height: 198px;
+}
+.cmp-accolades_img .Picture__img {
+  margin: 0;
+}
+.cmp-accolades__copy {
+  max-width: 580px;
+}
+.cmp-accolades_img {
+  max-width: 380px;
+}
+.cmp-carousel[data-alignment="none"] .cmp-accolades__copy {
+  float: none;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* NEW DEVELOPMENT */
+.specialColor .cmp-accolades__copy{
+  color: #005A2B;
+}
+.cmp-onlyCopy .cmp-accolades__copy{
+  min-width: 325px;
+}
+@media screen and (min-width: 375px) {
+  .cmp-onlyCopy .cmp-accolades__copy {
+    min-width: 325px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .cmp-onlyCopy .cmp-accolades__copy{
+    min-width: 708px;
+  }
+}
+/* TABLET ACCOLADES START*/
+@media screen and (max-width: 768px) {
+  .cmp-carousel__bgImage {
+    display: block;
+  }
+  .cmp-carousel[data-alignment="none"] .cmp-accolades__copy {
+    float: none;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .cmp-carousel{
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 30px;
+  }
+  .cmp-carousel__slide {
+    overflow: hidden;
+    text-align: left;
+    padding: 80px 40px;
+  }
+  .cmp-accolades__copy {
+    max-width: 60%;
+    margin: 0;
+  }
+  .cmp-accolades_img {
+    max-width: 40%;
+    min-height: 198px;
+  }
+  .cmp-accolades_img .Picture__img {
+    margin: 0;
+  }
+}
+/* TABLET ACCOLADES END*/
+/* DESKTOP ACCOLADES WITH LOGO - START*/
+@media screen and (min-width: 1280px) {
+  .cmp-carousel__slide {
+    padding-top: 60px;
+    padding-bottom: 0px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+  .cmp-onlyCopy .cmp-accolades__copy{
+    min-width: 1160px;
+  }
+  .cmp-onlyCopy .cmp-accolades__copy{
+    min-width: 1340px;
+    max-height: 278px;
+    padding-bottom: 71px;
+  }
+  .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
+    margin-top: 24px;
+    margin-bottom: 0px;
+}
+.cmp-accolades__copy--secondary, .cmp-accolades__copy a{
+  margin-top: 24px;
+  margin-bottom: 0px;
+}
+.cmp-accolades__copy--tertiary{
+  margin-top: 24px;
+  margin-bottom: 0px;
+}
+.cmp-carousel__controls{
+  position: initial;
+  justify-content: left;
+  padding-left: 60px;
+  margin-top: 40px;
+}
+}
+/* END  DESKTOP*/
+/* WIDESCREEN ACCOLADES WITH LOGO - START*/
+@media (min-width: 1920px){
+.cmp-carousel__slide {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 290px;
+    padding-right: 290px;
+}
+.cmp-accolades_img{
+  padding-top: 60px;
+}
+.cmp-accolades__copy{
+  padding-top: 60px;
+  min-width: 880px;
+  min-height: 177px;
+}
+.cmp-carousel .fontQuote{
+  min-height: 83px;
+  min-width: 880px;
+}
+.cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.secondaryLinkWithStyle{
+  margin-top: 0px;
+}
+.cmp-accolades__copy--tertiary{
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+.cmp-carousel__controls{
+  position: initial;
+  justify-content: left;
+  padding-left: 290px;
+  margin-top: 16px;
+}

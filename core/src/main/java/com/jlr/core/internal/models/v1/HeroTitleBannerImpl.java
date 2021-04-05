@@ -48,4 +48,5 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
         }
         return list;
     }
+
 }
