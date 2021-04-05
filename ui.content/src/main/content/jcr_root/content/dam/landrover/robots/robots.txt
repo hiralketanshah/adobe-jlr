@@ -1,0 +1,16 @@
+User-agent: *
+
+Disallow: /api/
+Disallow: /apps/
+Disallow: /bin/
+Disallow: /etc/
+Disallow: /home/
+Disallow: /libs/
+Disallow: /tmp/
+Disallow: /var/
+Disallow: /system/
+Allow: /content/dam/
+Disallow: /content/
+
+Sitemap: https://www.landrover.com.au/sitemap.xml
+Sitemap: https://www.landrover.com.de/sitemap.xml

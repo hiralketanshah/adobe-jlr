@@ -1,0 +1,15 @@
+<sly data-sly-use.model="com.jlr.core.models.SnippetModel" data-sly-call="${renderSnippet @ snippet=model}"/>
+<template data-sly-template.renderSnippet="${ @ snippet }">
+   <div class="cq-placeholder"
+      data-sly-test="${!snippet.headerCopy || !snippet.copy || !snippet.ctaList}" data-emptytext="Snippet Component"></div>
+   <div class="cmp-Snippet shelfComponent">
+      <h2 data-sly-test="${snippet.headerCopy}" class="heading headingThick fontH2">
+         <span class="headingWrapper">${snippet.headerCopy @ context="html"}</span>
+      </h2>
+      <span data-sly-test="${snippet.copy}" class="copy fontBodyCopyLarge">${snippet.copy @ context="html"}</span>
+      <div class="linkContainer" data-sly-test="${snippet.ctaList}" data-sly-list.cta=${snippet.ctaList}>
+         <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+         <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+      </div>
+   </div>
+</template>

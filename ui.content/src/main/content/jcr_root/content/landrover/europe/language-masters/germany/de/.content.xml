@@ -8,7 +8,7 @@
         cq:lastModified="{Date}2021-03-04T14:52:04.337+05:30"
         cq:lastModifiedBy="reference-adjustment-service"
         cq:lastTranslationUpdate="{Date}2021-03-04T13:37:42.285+05:30"
-        cq:template="/conf/jlr/settings/wcm/templates/page-content"
+        cq:template="/conf/jlr/settings/wcm/templates/content-page-template"
         cq:translationSourcePath="/content/landrover/europe/language-masters/germany/en"
         jcr:isCheckedOut="{Boolean}true"
         jcr:language="de"

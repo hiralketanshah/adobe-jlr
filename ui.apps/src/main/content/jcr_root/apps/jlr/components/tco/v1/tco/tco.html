@@ -1,0 +1,22 @@
+<sly data-sly-use.model="com.jlr.core.models.TcoModel" data-sly-call="${renderTco @ model=model}" />
+
+<template data-sly-template.renderTco="${ @ model }">
+<div class="cq-placeholder" data-emptytext="Total Cost of Ownership Component"></div>
+Price: ${model.price}</br>
+Price description symbol: ${model.priceDescSymbol}</br>
+Price Suffix: ${model.priceSuffix}</br>
+View type: ${model.viewType}</br>
+<sly data-sly-test="${model.viewType != 'default'}">
+<!--/* Invoke Emission Details template if selected from drop down*/-->
+<sly 
+data-sly-test.showEmissionDetails="${model.viewType == 'emission'}"
+data-sly-use.view="emission-details.html"
+data-sly-call="${view.emissionDetails @ model=model}"/>
+
+<!--/* Invoke Lease Pricing template if selected(or for no selection) */-->
+<sly 
+data-sly-test="${!showEmissionDetails}"
+data-sly-use.view="lease-details.html"
+data-sly-call="${view.leaseDetails @ model=model}"/>
+</sly>
+</template>

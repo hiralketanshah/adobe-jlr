@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+    fieldDescription="The Header copy to be displayed."
+    fieldLabel="Header Copy"
+    name="./headerCopy"
+    useFixedInlineToolbar="{Boolean}true">
+    <rtePlugins jcr:primaryType="nt:unstructured">
+        <subsuperscript
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+        <misctools
+            jcr:primaryType="nt:unstructured"
+            features="*">
+            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                <chars jcr:primaryType="nt:unstructured">
+                    <non-breaking-space
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;nbsp;"
+                        name="Non-breaking space"/>
+                    <non-breaking-hyphen
+                        jcr:primaryType="nt:unstructured"
+                        entity="&amp;#8209"
+                        name="Non-breaking hyphen"/>
+                </chars>
+            </specialCharsConfig>
+        </misctools>
+    </rtePlugins>
+    <uiSettings jcr:primaryType="nt:unstructured">
+        <cui jcr:primaryType="nt:unstructured">
+            <inline
+                jcr:primaryType="nt:unstructured"
+                toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+            <dialogFullScreen
+                jcr:primaryType="nt:unstructured"
+                toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+        </cui>
+    </uiSettings>
+</jcr:root>

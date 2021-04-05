@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Ready to go bar"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <id
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                            <rtgb
+                                granite:class="minmax"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="Click to add a New CTA"
+                                fieldLabel="Ready to go bar List"
+                                validation="minmax">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./rtgb">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <icon
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                        <text
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                        <link
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                        <target
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                        <ariaLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                        <description
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/general/copy"/>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="4"
+                                    min-items="{Long}4"/>
+                            </rtgb>
+                        </items>
+                    </properties>
+                    <fabprop
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Floating Action Button"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <enableFAB
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}true"
+                                fieldDescription="If checked 'Floating Action Bar' will be visible"
+                                name="./enableFAB"
+                                text="Enable Floating Action Button"
+                                value="{Boolean}true"/>
+                            <hideDesktop
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Select to supress FAB for Desktop Viewport"
+                                name="./hideDesktop"
+                                text="Supress desktop view"
+                                uncheckedValue="true"
+                                value="{Boolean}false"/>
+                            <hideTablet
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Select to supress FAB for Tablet  Viewport"
+                                name="./hideTablet"
+                                text="Supress tablet view"
+                                uncheckedValue="true"
+                                value="{Boolean}false"/>
+                            <hideMobile
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                defaultChecked="{Boolean}false"
+                                fieldDescription="Select to supress FAB for Mobile Viewport"
+                                name="./hideMobile"
+                                text="Supress mobile view"
+                                uncheckedValue="true"
+                                value="{Boolean}false"/>
+                            <listType
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/form/select"
+                                class="cq-dialog-dropdown-showhide"
+                                cq-dialog-dropdown-showhide-target=".listdefault-listoverride-hide-show"
+                                fieldDescription="Select whether to use default or new list"
+                                fieldLabel="Choose between RTGB List or Custom List"
+                                name="./listType">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <listdefault
+                                        jcr:primaryType="nt:unstructured"
+                                        text="RTGB List"
+                                        value="listdefault"/>
+                                    <listoverride
+                                        jcr:primaryType="nt:unstructured"
+                                        text="Custom List"
+                                        value="listoverride"/>
+                                </items>
+                            </listType>
+                            <listoverride
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/foundation/container"
+                                class="hide listdefault-listoverride-hide-show"
+                                showhidetargetvalue="listoverride">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <listoverride
+                                        granite:class="minmax"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                        composite="{Boolean}true"
+                                        fieldDescription="Click to add a New CTA"
+                                        fieldLabel="FAB List"
+                                        validation="minmax">
+                                        <field
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            name="./faboverride">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                                <text
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                <link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                <target
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                <ariaLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                            </items>
+                                        </field>
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            maxlimit="5"/>
+                                    </listoverride>
+                                </items>
+                            </listoverride>
+                        </items>
+                    </fabprop>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

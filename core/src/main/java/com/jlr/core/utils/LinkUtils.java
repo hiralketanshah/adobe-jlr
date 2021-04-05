@@ -28,7 +28,7 @@ public class LinkUtils {
      */
     public static String appendLinkExtension(String path, ResourceResolver resolver) {
         String reqUrl = path;
-        if (path != null && resolver.getResource(path) != null) {
+        if (null != path && null != resolver.getResource(path)) {
             PageManager pageManager = resolver.adaptTo(PageManager.class);
             if (null != pageManager) {
                 Page page = pageManager.getPage(path);
@@ -37,7 +37,7 @@ public class LinkUtils {
                 }
             }
         } else {
-            if (path != null && !path.startsWith(CommonConstants.PATH_CONTENT)
+            if (null != path && !path.startsWith(CommonConstants.PATH_CONTENT)
                     && !path.startsWith(CommonConstants.PROTOCOL_HTTP)) {
                 reqUrl = CommonConstants.PREFIX_HTTPS.concat(path);
             }

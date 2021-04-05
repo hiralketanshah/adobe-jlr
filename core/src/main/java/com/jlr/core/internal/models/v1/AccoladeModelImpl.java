@@ -25,7 +25,7 @@ public class AccoladeModelImpl extends GlobalModelImpl implements AccoladeModel 
     @Override
     public String getDate() {
         String formattedDate = StringUtils.EMPTY;
-        if (date != null) {
+        if (null != date) {
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             formattedDate = formatter.format(date.getTime());
         }
