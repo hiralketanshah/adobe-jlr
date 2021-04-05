@@ -2,6 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/apps/jlr/clientlibs"/>
     <filter root="/apps/jlr/components"/>
+    <filter root="/apps/jlr/granite"/>
     <filter root="/apps/jlr/i18n"/>
     <filter root="/apps/sling"/>
     <filter root="/apps/msm/jlr_blueprint" mode="merge"/>

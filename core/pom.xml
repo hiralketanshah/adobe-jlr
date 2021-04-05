@@ -44,7 +44,9 @@
                         <configuration>
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
-                                ]]></bnd>
+Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalayer,com.jlr.core.datalayer.impl,com.jlr.core.models,com.jlr.core.utils,com.jlr.core.services,com.jlr.core.servlets
+                                ]]>      
+                                </bnd>
                         </configuration>
                     </execution>
                 </executions>
