@@ -37,7 +37,7 @@ public class LanguagesModel {
      * @return the language title
      */
     public String getLanguageTitle() {
-        return languageTitle;
+        return languageTitle.toUpperCase();
     }
     
     /**

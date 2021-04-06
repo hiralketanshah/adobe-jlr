@@ -6,14 +6,21 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+
+import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class CountryListModel.
  */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class CountryListModel {
+	
+	/** The resource resolver. */
+	@Inject
+    private ResourceResolver resourceResolver;
 
 	/** The country name. */
 	@Inject
@@ -38,7 +45,7 @@ public class CountryListModel {
 	 * @return the country name
 	 */
 	public String getCountryName() {
-		return countryName;
+		return countryName.toUpperCase();
 	}
 	
 	/**
@@ -47,7 +54,7 @@ public class CountryListModel {
 	 * @return the country link
 	 */
 	public String getCountryLink() {
-		return countryLink;
+		return LinkUtils.appendLinkExtension(countryLink, resourceResolver);
 	}
 
 	/**
@@ -56,7 +63,7 @@ public class CountryListModel {
 	 * @return the country code
 	 */
 	public String getCountryCode() {
-		return countryCode;
+		return countryCode.toUpperCase();
 	}
 
 	/**
