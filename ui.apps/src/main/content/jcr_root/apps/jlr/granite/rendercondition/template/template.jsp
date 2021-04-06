@@ -29,6 +29,5 @@ final ComponentHelper cmp = new ComponentHelper(pageContext);
 Config cfg = cmp.getConfig();
 String path = cfg.get("templatePath", "");
 boolean show = CommonUtils.isTemplate(slingRequest, request, path);
-//boolean show = true;
 request.setAttribute(RenderCondition.class.getName(), new SimpleRenderCondition(show));
 %>
