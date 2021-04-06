@@ -295,6 +295,118 @@
                             </column>
                         </items>
                     </basic>
+                    <sitewideSettings
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Site Wide Settings"
+                        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                 <general
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="General"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <dateFormat
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                disabled="{Boolean}false"
+                                                fieldDescription="Date Format to be used across the site."
+                                                fieldLabel="Date Format"
+                                                maxlengthlong="{Long}160"
+                                                name="./dateFormat">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="dateFormat"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <format1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="DD-MM-YYYY"
+                                                        value="DD-MM-YYYY"/>
+                                                    <format2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="MM DD YYYY"
+                                                        value="MM DD YYYY"/>
+                                                </items>
+                                            </dateFormat>
+                                        </items>
+                                    </general>
+                                    <fab
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="FAB"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <desktopActive
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to enable Floating Action Button for desktop viewport across the site."
+                                                fieldLabel="Activate FAB on desktop?"
+                                                name="./fabDesktopActive"
+                                                text="Activate FAB on desktop?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="fabDesktopActive"/>
+                                            </desktopActive>
+                                            <tabletActive
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to enable Floating Action Button for tablet viewport across the site."
+                                                fieldLabel="Activate FAB on tablet?"
+                                                name="./fabTabletActive"
+                                                text="Activate FAB on tablet?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="fabTabletActive"/>
+                                            </tabletActive>
+                                            <mobileActive
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to enable Floating Action Button for mobile viewport across the site."
+                                                fieldLabel="Activate FAB on mobile?"
+                                                name="./fabMobileActive"
+                                                text="Activate FAB on mobile?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="fabMobileActive"/>
+                                            </mobileActive>
+                                        </items>
+                                    </fab>
+                                </items>
+                            </column>
+                        </items>
+                        <granite:rendercondition
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/renderconditions/and">
+                            <isInGroup
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="jlr/granite/rendercondition/groups"
+                                groups="[administrators,site-admin]"/>
+                            <isTemplate
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="jlr/granite/rendercondition/template"
+                                templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
+                        </granite:rendercondition>
+                    </sitewideSettings>
                     <error
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Error Pages"
