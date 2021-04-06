@@ -5,38 +5,28 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Model;
+
+/**
+ * The Class MarketModel.
+ */
+@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class MarketModel {
 	
-	@Inject
-    @Named("marketCountryList/.")
-    public List<MarketsCountryListModel> marketCountryList;
-	
-	@Inject
-    @Named("regionList/.")
-    public List<RegionListModel> regionList;
-
+	/** The market list. */
 	@Inject
     @Named("marketList/.")
     public List<MarketsListModel> marketList;
 	
-	@Inject
-    @Named("languageList/.")
-    public List<LanguageListModel> languageList;
-	
-	public List<MarketsCountryListModel> getMarketCountryList() {
-		return marketCountryList;
-	}
-
-	public List<RegionListModel> getRegionList() {
-		return regionList;
-	}
-
+	/**
+	 * Gets the market list.
+	 *
+	 * @return the market list
+	 */
 	public List<MarketsListModel> getMarketList() {
 		return marketList;
-	}
-
-	public List<LanguageListModel> getLanguageList() {
-		return languageList;
 	}
 
 }

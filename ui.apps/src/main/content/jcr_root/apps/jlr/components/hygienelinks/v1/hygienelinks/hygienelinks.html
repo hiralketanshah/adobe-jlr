@@ -2,7 +2,13 @@
 <template data-sly-template.renderHygieneLinks="${ @ hygienelink }">
 	<div data-sly-test="${!hygienelink.hygienelinksList}" class="cq-placeholder" data-emptytext="Hygiene Links Component"></div>
 	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}" />
-	<ul class="cmp_footerNav__hygieneLinks lightTheme">
+	<ul class="cmp_footerNav__hygieneLinks">
+    <li class="cmp_footerNav__selectMarket">
+        <a class="toggleHandle cmp_footerNav__selectMarketLink" target="_blank" href="http://www.landrover.com/market-selector/index.html">
+          <img alt="flag" class="flag" height="12" src="../images/flags/UK.png" width="19" />
+          <span class="countryCode">UK</span><span class="countryName">AUSTRALIA</span></a>
+        <div class="cmp_footerNav__marketSelectorContainer toggleContent"></div>
+      </li>
 		<li class="cmp_footerNav__key-links"> <a class="toggleHandle" href="#" role="button"><span class="toggleHandle__inner">LEGAL</span></a>
 			<ul class="toggleContent cmp_footerNav__key-links-list">
 				<sly data-sly-list.item="${hygienelink.hygienelinksList}">

@@ -1,18 +1,120 @@
-<sly data-sly-use.market="${'com.jlr.core.models.MarketListModel'}"></sly>
+<sly data-sly-use.market="${'com.jlr.core.models.MarketModel'}"></sly>
 <sly data-sly-test="${wcmmode.edit}">
 	<div data-emptytext="${component.title}" class="cq-placeholder"></div>
 </sly>
-<div>
-	<div data-sly-list.marketList="${market.marketList}">
-		<ul>
-			<li>MarketName: ${marketList.marketName}</li>
-			<li>MarketFlag: ${marketList.marketFlag}</li>
-			<li>Region: ${marketList.region}</li>
-		</ul>
-		<ul data-sly-list="${marketList.languages}">
-			<li>Language Title: ${item.languageTitle}</li>
-			<li>Link: ${item.link}</li>
-			<li>Target: ${item.target}</li>
-		</ul>
-	</div>
+
+<div class="pageWrapper withLogo marketSelectorTemplate">
+
+		<div id="logo">
+
+			<span data-alt="Land Rover - Above and Beyond" data-picture="">
+	 			<span data-dimensions="650x277" data-src="/resources/public/images/landrover/logo-small-2x.png"></span>
+	 			<span data-dimensions="1600x900" data-media="(min-width: 901px)" data-src="/resources/public/images/landrover/logo-large-2x.png"></span>
+
+				<noscript>
+					<img alt="Land Rover" class="image" src="/resources/public/images/landrover/logo-large-2x.png" />
+				</noscript>
+	  	 </span>
+
+			
+		</div>
+
+		<main id="content">
+			<!-- Market Selector -->
+			
+			<div class="MarketSelector lightWhenNoJS fontSmooth dark" data-disable-redirect="false">
+
+  <picture class="MarketSelector__bgImage Picture Picture--background MarketSelector__bgImage--desktop">
+    <source media="(min-width: 1650px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016-Desktop-1800x1013_296-323354_1800x1013.jpg?v=6" />
+    <source media="(min-width: 1280px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016_Device-Desktop_1366x900_296-317246_1366x900.jpg?v=5" />
+    <source media="(min-width: 1024px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016_Device-Desktop_1024x1024_296-317249_1024x1024.jpg?v=5" />
+    <source media="(min-width: 0px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_Device-Desktop_768x1024_296-317250_768x1024.jpg?v=7" />
+    <img alt="The Land Rover range of vehicles" class="Picture__img" data-object-fit="" src="/resources/public/images/transparent-1x1.png" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016_Device-Desktop_1366x900_296-317246_1366x900.jpg?v=5" />
+  </picture>
+  
+  <div class="headerBlock headerBlockWithForm MarketSelector__heading-wrapper">
+    <h1 class="heading headingLinear headingThick headingCentre headingH2 fontH1 MarketSelector__heading">
+      <span class="MarketSelector__heading-inner"><!-- Start Component Field: {"XPath":"tcm:Content/custom:marketSelector/custom:title"} -->VIEW LAND ROVER IN YOUR MARKET</span>
+    </h1>
+
+    <p class="subHeading MarketSelector__sub-heading headingCentre"></p>
+  </div>
+  
+  <div class="MarketSelector__country-list">
+    <ul class="MarketSelector__list" data-sly-list.regions="${market.marketList}">
+      <li class="MarketSelector__list-item">
+        <h2 class="MarketSelector__region-title">${regions.regionName}</h2>
+
+        <ul class="MarketSelector__inner-list" data-sly-list.countries="${regions.countryList}">
+          <li class="MarketSelector__inner-list-item"><a class="MarketSelector__inner-list-link" href="${countries.countryLink}"><div class="MarketSelector__inner-list-link-flag spriteFlag-${countries.countryCode}"></div><span class="MarketSelector__inner-list-link-inner">${countries.countryName}</span></a></li>
+		  </ul>
+	  </li>
+	</ul>
 </div>
+
+<div class="MarketSelector__dropdowns-container">
+    <div class="MarketSelector__dropdowns">
+      <div class="dxDropdown dxDropdown-region">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-region">SELECT A REGION
+</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="SELECT A REGION
+" class="dxDropdown__button-region dxDropdown__button icon-chevron-down fontEmissionsDetails">SELECT A REGION
+</button>
+
+    <ul aria-label="Select a region" class="dxDropdown__list dxDropdown__list-region" role="listbox" tabindex="-1" data-sly-list.regions="${market.marketList}">
+          <li class="dxDropdown__list-item" role="option">
+            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${model2.link}" data-region="${regions.region}">${regions.regionName}</a>
+          </li>
+    </ul>
+</div>
+
+<div class="dxDropdown dxDropdown-country dxDropdown--disabled">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-country">SELECT A MARKET
+</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="SELECT A MARKET
+" class="dxDropdown__button-country dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">SELECT A MARKET
+</button>
+<div class="dxDropdown__country-list-wrapper" data-sly-list.regions="${market.marketList}">
+          <ul aria-label="SELECT A MARKET
+" class="dxDropdown__list dxDropdown__list-country" role="listbox" tabindex="-1" data-region="${regions.region}">
+            <li class="dxDropdown__list-item" role="option" data-sly-list.countries="${regions.countryList}">
+              <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-country="country-${countries.countryCode}">
+                <span class="dxDropdown__list-item-link-inner">${countries.countryName}</span>
+                <div class="MarketSelector__flag spriteFlag-${countries.countryCode}"></div>
+              </a>
+            </li>
+			</ul>
+			</div>
+</div>
+
+<div class="dxDropdown dxDropdown-language dxDropdown--disabled">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-language">SELECT A LANGUAGE</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="SELECT A LANGUAGE" class="dxDropdown__button-language dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">SELECT A LANGUAGE</button>
+        <div class="dxDropdown__language-list-wrapper" data-sly-list.regions="${market.marketList}">
+        <sly data-sly-list.countries="${regions.countryList}">
+          <ul aria-label="SELECT A LANGUAGE" class="dxDropdown__list dxDropdown__list-language" role="listbox" tabindex="-1" data-country="country-${countries.countryCode}">
+          <sly data-sly-list.languages="${countries.languageList}">
+            <li class="dxDropdown__list-item" role="option">
+            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${languages.link}" data-target="${languages.target}">${languages.languageTitle}</a>
+            </li>
+            </sly>
+          </ul>
+          </sly>
+		  </div>
+      </div>
+	 </div>
+	 
+	 <div class="MarketSelector__submit-wrapper">
+      <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="">CONTINUE</button>
+    </div>
+
+    <div class="MarketSelector__secondary-link-wrapper">
+      <a class=" MarketSelector__secondary-link secondaryLinkWithStyle slwsWhite visitInternational  icon-arrow-right TargetLinks" href="https://www.landrover.com/index.html" data-link-desktop="https://www.landrover.com/index.html" data-target="current" data-tracking-id="MarketSelector:INTERNATIONAL SITE:https://www.landrover.com/index.html" data-aria-title="">
+        <span class="MarketSelector__secondary-link-inner">INTERNATIONAL SITE</span>
+      </a>
+    </div>
+  </div>
+</div>
+</main>
+
+  </div>
