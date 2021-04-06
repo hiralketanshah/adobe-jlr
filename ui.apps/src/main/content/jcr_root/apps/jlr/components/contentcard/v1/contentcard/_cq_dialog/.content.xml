@@ -25,13 +25,11 @@
                             <title
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
                             <bodyCopy
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                fieldDescription="The Body copy to be displayed."
-                                fieldLabel="Body Copy"
-                                name="./bodyCopy"/>
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
                             <date
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
@@ -144,10 +142,6 @@
                                                         path="/mnt/overlay/jlr/components/globalfields/video/videoPath"/>
                                                 </items>
                                             </videoPath>
-                                            <videoTitle
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/video/videoTitle"/>
                                         </items>
                                     </well>
                                 </items>
@@ -200,7 +194,7 @@
                                 </field>
                                 <granite:data
                                     jcr:primaryType="nt:unstructured"
-                                    maxlimit="3"/>
+                                    maxlimit="4"/>
                             </ctaList>
                         </items>
                     </cta>

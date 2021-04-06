@@ -6,8 +6,8 @@
 
      <div style="background-image: url(${contentCard.fileReference @ context='styleString'});">
 
-     Title: ${contentCard.headerTitle @ context="html"}<br>
-     Copy: ${contentCard.bodyCopy}<br>
+     Title: ${contentCard.headerCopy @ context="html"}<br>
+     Copy: ${contentCard.copy @ context="html"}<br>
      ID: ${contentCard.id}<br>
      Alt Text: ${contentCard.imageAlt}<br>
      Date: ${contentCard.date}<br>
@@ -17,6 +17,135 @@
      Video Type: ${contentCard.videoType}<br>
      Image/ Video: ${contentCard.assestType}
 
+
+
+      <div class="DxTabs__panels" data-dxtabs-panels-id="123456789">
+        <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentBlockContainer.column}">
+            <div class="cmp-contentCardsCarousel">
+                <ul class="cmp-contentCardsInner">
+                    <li class="el gridEl">
+                        <div class="cmp-ContentCard">
+                            <div class="imageContainer mediaOverlay__wrapper">
+                                <a class="imageLink TargetLinks"
+                                    href="${contentCard.imageLink}"
+                                    data-target="current" data-type="${contentCard.assestType}"
+                                    data-aria-title="">
+                                    <div class="mediaOverlay mediaOverlayVideo">
+                                        <div class="mediaOverlayBg"></div>
+                                        <div class="mediaOverlayIcon"></div>
+                                    </div>
+                                    <picture class="Picture">
+                                        <source data-dimensions="680x450" media="(min-width: 0px)"
+                                            srcset="${contentCard.fileReference}" />
+                                        <img alt="" class="Picture__img" data-dimensions="680x450"
+                                            srcset="${contentCard.fileReference}" />
+                                    </picture>
+                                </a>
+                            </div>
+                            <div class="textContainer">
+                                <div class="textContainerTop">
+                                    <p class="date .cmp-ContentCard__date">
+                                        Posted: ${contentCard.date}.
+                                    </p>
+                                    <h2
+                                        class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
+                                        ${contentCard.headerCopy @ context="html"}
+                                    </h2>
+                                    <p class="price .cmp-ContentCard__price">
+                                        From: £76,795
+                                    </p>
+                                    <p class="body .cmp-ContentCard__body fontBodyCopy">
+                                        ${contentCard.copy @ context="html"}
+                                    </p>
+                                </div>
+                                <div class="tableSwap">
+                                    <div class="linkBlock orderNow">
+                                        <div class="containerKeyLine"></div>
+                                    </div>
+                                    <div class="linkBlock links">
+                                        <div class="containerKeyLine">
+                                            <div class="linkContainer secondaryLinkContainer">
+                                                <a class="secondaryLinkWithStyle icon-arrow-right TargetLinks"
+                                                    data-link-desktop="/components/index.html"
+                                                    data-target="current"
+                                                    href="https://gb.landrover.preview.dev.jlr-dev.com/components/index.html"
+                                                    aria-label="RANGE RANGE ROVER: FIND OUT MORE"
+                                                    data-tracking-id="ContentCard:FIND OUT MORE:/components/index.html"
+                                                    data-aria-title="">
+                                                    <span aria-hidden="true">
+                                                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:contentCard/custom:ctas[1]/custom:linkText"} -->FIND
+                                                        OUT MORE
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="linkContainer secondaryLinkContainer">
+                                                <a class="secondaryLinkWithStyle icon-arrow-right TargetLinks"
+                                                    data-link-desktop="/components/index.html"
+                                                    data-target="current"
+                                                    href="https://gb.landrover.preview.dev.jlr-dev.com/components/index.html"
+                                                    aria-label="RANGE RANGE ROVER: WATCH VIDEO"
+                                                    data-tracking-id="ContentCard:WATCH VIDEO:/components/index.html"
+                                                    data-aria-title="">
+                                                    <span aria-hidden="true">
+                                                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:contentCard/custom:ctas[2]/custom:linkText"} -->WATCH
+                                                        VIDEO
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="linkContainer secondaryLinkContainer">
+                                                <a class="secondaryLinkWithStyle icon-arrow-right TargetLinks"
+                                                    data-link-desktop="/components/index.html"
+                                                    data-target="current"
+                                                    href="https://gb.landrover.preview.dev.jlr-dev.com/components/index.html"
+                                                    aria-label="RANGE RANGE ROVER: DISCOVER MORE"
+                                                    data-tracking-id="ContentCard:DISCOVER MORE:/components/index.html"
+                                                    data-aria-title="">
+                                                    <span aria-hidden="true">
+                                                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:contentCard/custom:ctas[3]/custom:linkText"} -->DISCOVER
+                                                        MORE
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="linkContainer secondaryLinkContainer">
+                                                <a class="secondaryLinkWithStyle icon-arrow-right TargetLinks"
+                                                    data-link-desktop="/components/index.html"
+                                                    data-target="current"
+                                                    href="https://gb.landrover.preview.dev.jlr-dev.com/components/index.html"
+                                                    aria-label="RANGE RANGE ROVER: DISCOVER EVEN MORE"
+                                                    data-tracking-id="ContentCard:DISCOVER EVEN MORE:/components/index.html"
+                                                    data-aria-title="">
+                                                    <span aria-hidden="true">
+                                                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:contentCard/custom:ctas[4]/custom:linkText"} -->DISCOVER
+                                                        EVEN MORE
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div class="linkContainer secondaryLinkContainer">
+                                                <a class="secondaryLinkWithStyle icon-arrow-right TargetLinks"
+                                                    data-link-desktop="/components/index.html"
+                                                    data-target="current"
+                                                    href="https://gb.landrover.preview.dev.jlr-dev.com/components/index.html"
+                                                    aria-label="RANGE RANGE ROVER: FIND OUT EVEN MORE"
+                                                    data-tracking-id="ContentCard:FIND OUT EVEN MORE:/components/index.html"
+                                                    data-aria-title="">
+                                                    <span aria-hidden="true">
+                                                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:contentCard/custom:ctas[5]/custom:linkText"} -->FIND
+                                                        OUT EVEN MORE
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    </li>
+                </ul>
+            </div>
+        </div>
+			</div>
 <div data-sly-list.item="${contentCard.ctaList}">
 
    <div><a target="${item.target}" href="${item.link}"><button><img height="20px" src="${item.icon}">${item.text}</button></a></div>

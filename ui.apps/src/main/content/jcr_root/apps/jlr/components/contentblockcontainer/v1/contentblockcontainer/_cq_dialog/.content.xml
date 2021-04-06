@@ -48,16 +48,14 @@
                                         value="4"/>
                                 </items>
                             </columnLayout>
-                            <title
+                            <header
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
                             <bodyCopy
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                fieldDescription="The Body copy to be displayed."
-                                fieldLabel="Body Copy"
-                                name="./bodyCopy"/>
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
                         </items>
                     </properties>
                     <cta
@@ -106,7 +104,7 @@
                                 </field>
                                 <granite:data
                                     jcr:primaryType="nt:unstructured"
-                                    maxlimit="1"/>
+                                    maxlimit="2"/>
                             </ctaList>
                         </items>
                     </cta>

@@ -4,17 +4,59 @@
 
 <div class="cq-placeholder" data-emptytext="Content Block Container Component"></div>
 
-     Title: ${contentBlockContainer.headerTitle @ context="html"}<br>
-     Copy: ${contentBlockContainer.bodyCopy}<br>
-     ID: ${contentBlockContainer.id}<br>
-     Column: ${contentBlockContainer.column}<br>
+     <div class="pageWrapper">
+	<div id="${contentBlockContainer.id}">
+		<!-- COMPONENT START -->
 
+		<div>
+
+            <!-- data-template="content-blocks" for swiping it is data-template="content-blocks" or "swiping" -->
+<div class="cmp-ContentBlocksContainer light fontSmooth" data-filter-tags="" data-template="swiping">
+		<div class="GridListWrapper" data-wrapper="float">
+			<div class="headerBlock">
+				<h2 class="heading headingLinear headingThick">
+					<span class="headingWrapper fontH2">
+						${contentBlockContainer.headerCopy @ context="html"}
+					</span>
+				</h2>
+
+				<p class="subHeading copy fontBodyCopyLarge">${contentBlockContainer.copy @ context="html"}</p>
+
+				<!-- <div class="cmp-ContentBlocksContainer__MarketRegionalPricing">
+					<button class="MarketRegionalPricing-triggerer button-tertiary">
+						<span>SHOW PRICES</span>
+					</button>
+				</div> -->
+			</div>
+
+      <div class="DxTabs DxTabs--flat" data-dxtabs-id="123456789">
+        <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
+          <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
+          <!-- <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 2</span></span></button>
+          <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 3</span></span></button> -->
+        </div>
+      </div>
      <div data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
 
-     <div data-sly-list.item="${contentBlockContainer.ctaList}">
+     <div class="ctaContainer" data-sly-list.cta="${contentBlockContainer.ctaList}">
+				<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+         <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
 
-     <div><a target="${item.target}" href="${item.link}"><button><img height="20px" src="${item.icon}">${item.text}</button></a></div>
+			</div>
+		</div>
+    </div>
 
+
+
+		<!-- COMPONENT END -->
+	</div>
+
+
+	<!-- WRAPPER FOOTER START -->
+	<!-- FooterNav -->
+
+	<!-- WRAPPER FOOTER END -->
+</div>
 </div>
 
 </template>
