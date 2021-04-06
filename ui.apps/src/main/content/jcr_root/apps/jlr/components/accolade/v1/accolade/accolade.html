@@ -3,8 +3,8 @@
 <template data-sly-template.renderAccolade="${ @ model }">
 <div data-sly-test="${!model.id}" class="cq-placeholder"
 	 data-emptytext="Accolade Component"></div>
-<div id="${model.id}">
-<div class="cmp-accolades_img">
+<div class="cmp-accolades"  data-alignment="right" id="${model.id}">
+<div class="cmp-accolades__img">
     <picture data-sly-test="${model.logoImage}" class="Picture">
         <img alt="carouselContainer" class="Picture__img" alt="${model.imageAlt}" data-dimensions="350x198" srcset="${model.logoImage}" />
     </picture>

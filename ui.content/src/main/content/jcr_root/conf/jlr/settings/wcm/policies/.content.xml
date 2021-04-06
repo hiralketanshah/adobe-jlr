@@ -596,6 +596,24 @@
                     </genericexternalapp>
                 </v1>
             </genericexternalapp>
+            <carousel jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <carousel jcr:primaryType="nt:unstructured">
+                        <policy_1617711636936
+                            jcr:lastModified="{Date}2021-04-06T17:55:34.728+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Carousel"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            autopauseDisabled="false"
+                            autoplay="true"
+                            components="/apps/jlr/components/accolade/v1/accolade"
+                            delay="6000">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1617711636936>
+                    </carousel>
+                </v1>
+            </carousel>
         </components>
     </jlr>
 </jcr:root>

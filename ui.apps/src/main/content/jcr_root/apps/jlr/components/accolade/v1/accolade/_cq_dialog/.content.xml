@@ -75,14 +75,6 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
-                            <icon
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
-                            <linkType
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
                             <ariaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
