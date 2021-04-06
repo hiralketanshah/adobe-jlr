@@ -400,7 +400,7 @@
                             <isInGroup
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="jlr/granite/rendercondition/groups"
-                                groups="[administrators,site-admin]"/>
+                                groups="[administrators,global-leads]"/>
                             <isTemplate
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="jlr/granite/rendercondition/template"
