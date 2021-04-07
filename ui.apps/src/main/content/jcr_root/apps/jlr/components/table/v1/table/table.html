@@ -1,0 +1,40 @@
+<div data-sly-use.table="com.jlr.core.models.TableModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+   data-sly-test.hasContent="${table.tableHtml}" id="${component.id}" class="cmp-table">
+   <div data-sly-test="${table.headerCopy || table.copy || table.ctaList || table.tableHTML}">
+      <div class="EngineSpecifications shelfComponent GridListWrapper white fontSmooth" id="295-420701">
+         <div class="headerBlock">
+            <h1 class="heading fontH2 headingLinear headingThick">
+               <span class="headingWrapper">${table.headerCopy @ context='html'}</span>
+            </h1>
+            <p class="EngineSpecifications__summary">${table.copy @ context='html'}</p>
+            <div class="ctaContainer" data-sly-test="${table.ctaList}" data-sly-list.cta=${table.ctaList}>
+               <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a
+                     class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                     href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+               <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a
+                     class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
+                     data-target="${cta.target}" href="${cta.link}"
+                     aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+            </div>
+         </div>
+         <div class="clearfix" />
+         <div class="table">
+            <table data-sly-test="${table.tableHtml}">
+               <caption data-sly-test="${table.copy}">${table.copy @context = 'html'}</caption>
+               ${table.tableHtml @context = 'unsafe'}
+            </table>
+         </div>
+         <div class="ctaContainer" data-sly-test="${table.ctaList}" data-sly-list.cta=${table.ctaList}>
+            <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a
+                  class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                  href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+            <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a
+                  class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                  href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+         </div>
+      </div>
+   </div>
+</div>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

@@ -596,6 +596,60 @@
                     </genericexternalapp>
                 </v1>
             </genericexternalapp>
+            <table jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <table jcr:primaryType="nt:unstructured">
+                        <policy_1617608375376
+                            cq:styleDefaultClasses="cmp-table--white white"
+                            jcr:lastModified="{Date}2021-04-05T13:12:52.493+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Table"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Component Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-table--white white"
+                                            cq:styleId="1617608476084"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-table--light light"
+                                            cq:styleId="1617608478895"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="cmp-table--grey grey"
+                                            cq:styleId="1617608481555"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Table Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-table--table-white"
+                                            cq:styleId="1617608501713"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-table--table-light"
+                                            cq:styleId="1617608513488"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1617608375376>
+                    </table>
+                </v1>
+            </table>
         </components>
     </jlr>
 </jcr:root>

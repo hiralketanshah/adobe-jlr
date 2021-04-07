@@ -57,6 +57,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </genericexternalapp>
+                        <table jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <table
+                                    cq:policy="jlr/components/table/v1/table/policy_1617608375376"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </table>
                     </components>
                 </jlr>
             </container>
