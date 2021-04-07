@@ -2,7 +2,7 @@
 <sly data-sly-test="${wcmmode.edit}">
 	<div data-emptytext="${component.title}" class="cq-placeholder"></div>
 </sly>
-
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.marketselector.v1']}" />
 <div class="pageWrapper withLogo marketSelectorTemplate">
 
 		<div id="logo">
@@ -16,7 +16,7 @@
 				</noscript>
 	  	 </span>
 
-			
+
 		</div>
 
 		<main id="content">
@@ -39,7 +39,7 @@
 
     <p class="subHeading MarketSelector__sub-heading headingCentre"></p>
   </div>
-  
+
   <div class="MarketSelector__country-list">
     <ul class="MarketSelector__list" data-sly-list.regions="${market.marketList}">
       <li class="MarketSelector__list-item">

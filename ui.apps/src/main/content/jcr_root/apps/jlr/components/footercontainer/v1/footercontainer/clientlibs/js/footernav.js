@@ -3104,8 +3104,12 @@
                 }
             };
 
-            jQuery.createComponent('FooterNav', FooterNav);
-            $('.cmp_footerNav').FooterNav();
+            setTimeout(function(){
+
+jQuery.createComponent('FooterNav', FooterNav);
+$('.cmp_footerNav').FooterNav();
+
+}, 2000);
         })(jQuery, window, document);
 
     })();
