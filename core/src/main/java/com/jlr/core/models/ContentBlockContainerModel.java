@@ -40,9 +40,5 @@ public interface ContentBlockContainerModel {
 	default String getBodyCopy() {
         return StringUtils.EMPTY;
     }
-	
-	default String getPrice() {
-        return StringUtils.EMPTY;
-    }
 
 }

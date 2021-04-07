@@ -61,4 +61,8 @@ public interface ContentCardModel {
         return StringUtils.EMPTY;
     }
 	
+	default String getPrice() {
+        return StringUtils.EMPTY;
+    }
+	
 }
