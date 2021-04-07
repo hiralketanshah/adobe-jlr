@@ -630,7 +630,7 @@
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item3
-                                            cq:styleClasses="slate-blue"
+                                            cq:styleClasses="slateblue"
                                             cq:styleId="1617788116763"
                                             cq:styleLabel="Slate Blue"
                                             jcr:primaryType="nt:unstructured"/>

@@ -131,11 +131,36 @@
 }
 
 /* NEW DEVELOPMENT */
+.grey .fontQuote{
+  color: black;
+}
+.specialColor{
+  color: #005A2B;
+}
 .specialColor .fontQuote{
   color: #005A2B;
 }
+.slateblue .fontQuote{
+  color: white;
+}
+
 .cmp-onlyCopy{
   min-width: 325px;
+}
+.cmp-accolades__copy--tertiary{
+  color:black
+}
+.grey .cmp-accolades__copy--secondary{
+  color: #4A4F54;
+}
+.light .cmp-accolades__copy--secondary{
+  color: #4A4F54;
+}
+#landrover .slateblue .secondaryLinkWithStyle {
+	color: white
+}
+#landrover .slateblue .secondaryLinkWithStyle:before {
+  color: white;
 }
 @media screen and (min-width: 326px) {
   .cmp-onlyCopy {
@@ -159,6 +184,7 @@
 .cmp-accolades {
   padding-top: 30px;
   padding-left: 25px;
+  min-height:406px;
 }
 .cmp-accolades__copy {
   margin-top:16px;
@@ -176,7 +202,7 @@
   margin-bottom: 0px;
 }
 .cmp-carousel__controls {
-  position: relative;
+  position: fixed;
   padding-bottom: 40px;
   justify-content: left;
   padding-left: 25px;
@@ -239,6 +265,9 @@
 /* TABLET ACCOLADES WITH LOGO - END*/
 /* DESKTOP ACCOLADES WITH LOGO - START*/
 @media screen and (min-width: 1280px) {
+  .cmp-carousel__slider{
+    height: 358px;
+  }
   .cmp-accolades {
     padding-top: 60px;
     padding-bottom: 0px;
@@ -275,11 +304,10 @@
   padding-top: 24px;
 }
 .cmp-carousel__controls{
-  position: initial;
+  position: absolute;
   justify-content: left;
   padding-left: 60px;
   margin-top: 0px;
-  padding-top: 40px;
 }
 }
 /* WIDESCREEN ACCOLADES WITH LOGO - START*/
@@ -319,11 +347,13 @@
 .secondaryLinkWithStyle{
   margin-top: 0px;
 } 
+.swiper-button {
+  position:fixed;
+}
 .cmp-carousel__controls{
-  position: initial;
+  position: absolute;
   justify-content: left;
   padding-left: 290px;
-  margin-top: 16px;
 }
 }
 
