@@ -1,0 +1,121 @@
+.GenericExternalApplication {
+	background-color: #fff
+}
+
+.GenericExternalApplication__wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: #fff;
+	padding: 80px;
+	max-width: 1000px;
+	margin: 0 auto
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.GenericExternalApplication__wrapper {
+		padding: 40px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.GenericExternalApplication__wrapper {
+		padding: 30px
+	}
+}
+
+.GenericExternalApplication__icon:after {
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	font-size: 30px;
+	color: #000
+}
+
+.GenericExternalApplication__heading {
+	padding: 24px 20px 16px;
+	text-align: center
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.GenericExternalApplication__heading {
+		padding-bottom: 10px
+	}
+}
+
+.GenericExternalApplication__copy {
+	text-align: center
+}
+
+.GenericExternalApplication__options {
+	padding-top: 32px;
+	padding-bottom: 10px
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.GenericExternalApplication__options {
+		padding-top: 24px
+	}
+}
+
+.GenericExternalApplication__options-list {
+	text-align: center
+}
+
+.GenericExternalApplication__options-list-item {
+	display: inline-block;
+	margin-right: 8px
+}
+
+.GenericExternalApplication__options-list-item:last-child {
+	margin-right: 0
+}
+
+.GenericExternalApplication__heading {
+	color: #0c121c
+}
+
+.GenericExternalApplication__options-icon:after {
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	font-size: 14px;
+	margin-top: -4px;
+	color: #0c121c
+}
+
+.GenericExternalApplication__options-list-item {
+	color: #0c121c;
+	font-weight: 600
+}

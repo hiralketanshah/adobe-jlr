@@ -49,6 +49,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </readytogobar>
+                        <genericexternalapp jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <genericexternalapp
+                                    cq:policy="jlr/components/genericexternalapp/v1/genericexternalapp/policy_1617607905780"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </genericexternalapp>
                     </components>
                 </jlr>
             </container>

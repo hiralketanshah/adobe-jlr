@@ -1,0 +1,145 @@
+- DEF groupPath="/home/groups/jlr"
+
+- group_config:
+
+    - au-authors:
+
+        - name: 'AU Authors'
+          isMemberOf: internal-group, internal-tools-nav-group
+          path: ${groupPath}
+
+    - de-authors:
+
+        - name: 'DE Authors'
+          isMemberOf: internal-group, internal-tools-nav-group
+          path: ${groupPath}
+
+- ace_config:
+
+    - au-authors:
+
+        - path: /content/landrover/global
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/row
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/row/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/row/language-masters
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/row/language-masters/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/row/published-sites
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/row/published-sites/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/row/language-masters/aus
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/landrover/global/row/published-sites/en
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/dam/landrover/australia
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: allow
+          privileges: jcr:read
+          repGlob: /jcr:title
+
+        - path: /content/experience-fragments/landrover/language-masters/australia
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+    - de-authors:
+
+        - path: /content/landrover/global
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/europe
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/europe/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/europe/language-masters
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/europe/language-masters/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/europe/published-sites
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/global/europe/published-sites/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/landrover/global/europe/language-masters/deu
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/landrover/europe/published-sites/de_de
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/dam/landrover/germany
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+
+        - path: /content/experience-fragments/landrover/language-masters
+          permission: allow
+          privileges: jcr:read
+          repGlob: /jcr:title
+
+        - path: /content/experience-fragments/landrover/language-masters/germany
+          permission: allow
+          actions: read,create,modify,delete,replicate
