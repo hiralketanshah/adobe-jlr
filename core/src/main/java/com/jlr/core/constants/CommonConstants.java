@@ -15,10 +15,10 @@ public class CommonConstants {
     public static final String DEFAULT_LOCALE = "en";
     public static final String BLANK_SPACE = " ";
 
-
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
+    public static final String PATH_HOME_PAGE = "/content/landrover/global/global-master/en/index";
 
     /** The PROTOCOL Constant. */
     public static final String PROTOCOL_HTTP = "http";
@@ -43,6 +43,7 @@ public class CommonConstants {
     public static final String PN_CONFIG_VALUE = "value";
     public static final String PN_NAMEPLATE_CODE = "namePlateCode";
     public static final String PN_MODELYEAR = "modelYear";
+    public static final String PN_DATE_FORMAT = "dateFormat";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
