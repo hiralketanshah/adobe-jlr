@@ -4,7 +4,7 @@
 	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}" />
 	<ul class="cmp_footerNav__hygieneLinks">
     <li class="cmp_footerNav__selectMarket">
-        <a class="toggleHandle cmp_footerNav__selectMarketLink" target="_blank" href="http://www.landrover.com/market-selector/index.html">
+        <a class="toggleHandle cmp_footerNav__selectMarketLink" target="_blank" href="/content/landrover/en/sample.html">
           <img alt="flag" class="flag" height="12" src="../images/flags/UK.png" width="19" />
           <span class="countryCode">UK</span><span class="countryName">AUSTRALIA</span></a>
         <div class="cmp_footerNav__marketSelectorContainer toggleContent"></div>
@@ -19,4 +19,20 @@
 			</ul>
 		</li>
 	</ul>
+    <div class="cmp_footerNav__mobile-links" id="mobileKeyLinks">
+    <ul class="cmp_footerNav__primary-link-list">
+        <sly data-sly-list.item="${hygienelink.hygienelinksList}">
+      <li><a href="${item.link}" aria-label="${item.ariaLabel}" data-target="${item.target}" class=" TargetLinks">${item.text}</a></li>
+   </ul>
+   <button class="button-tertiary cmp_footerNav__show-more-btn">
+   <span data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='footer.label.showMore'}">
+   ${config.configValue}
+   </span>
+   </button>
+   <button class="button-tertiary cmp_footerNav__show-less-btn cmp_footerNav__show-less-btn--hide">
+   <span data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='footer.label.showLess'}">
+   ${config.configValue}
+   </span>
+   </button>
+  </div>
 </template>

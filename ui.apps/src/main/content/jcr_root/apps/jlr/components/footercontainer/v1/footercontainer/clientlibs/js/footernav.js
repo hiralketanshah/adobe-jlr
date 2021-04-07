@@ -3033,17 +3033,17 @@
 
                     // HTML Builder
                     const container = $('#mobileKeyLinks');
-                    const primaryLinkHTML = $('<ul class="FooterNav__primary-link-list"></ul>');
-                    const secondaryLinkHTML = $('<ul class="FooterNav__secondary-link-list"></ul>');
+                    const primaryLinkHTML = $('<ul class="cmp_footerNav__primary-link-list"></ul>');
+                    const secondaryLinkHTML = $('<ul class="cmp_footerNav__secondary-link-list"></ul>');
                     const showMoreBtnHTML = $(`
-            <button class="button-tertiary FooterNav__show-more-btn">
+            <button class="button-tertiary cmp_footerNav__show-more-btn">
               <span>
                 ${FooterNavElem.data('show-more')}
               </span>
             </button>
           `);
                     const showLessBtnHTML = $(`
-            <button class="button-tertiary FooterNav__show-less-btn FooterNav__show-less-btn--hide">
+            <button class="button-tertiary cmp_footerNav__show-less-btn cmp_footerNav__show-less-btn--hide">
               <span>
                 ${FooterNavElem.data('show-less')}
               </span>
@@ -3066,8 +3066,8 @@
                         showMoreBtnHTML.on('click keypress', (e) => {
                             e.preventDefault();
                             secondaryLinkHTML.slideToggle(300);
-                            showMoreBtnHTML.addClass('FooterNav__show-more-btn--hide');
-                            showLessBtnHTML.removeClass('FooterNav__show-less-btn--hide');
+                            showMoreBtnHTML.addClass('cmp_footerNav__show-more-btn--hide');
+                            showLessBtnHTML.removeClass('cmp_footerNav__show-less-btn--hide');
                             if (e.keyCode === 13) {
                                 $('.cmp_footerNav__secondary-link-list').find('li').first().find('a')
                                     .focus();
@@ -3076,8 +3076,8 @@
                         showLessBtnHTML.on('click', (e) => {
                             e.preventDefault();
                             secondaryLinkHTML.slideToggle(300);
-                            showMoreBtnHTML.removeClass('FooterNav__show-more-btn--hide');
-                            showLessBtnHTML.addClass('FooterNav__show-less-btn--hide');
+                            showMoreBtnHTML.removeClass('cmp_footerNav__show-more-btn--hide');
+                            showLessBtnHTML.addClass('cmp_footerNav__show-less-btn--hide');
                         });
                     } else {
                         const linksPrimary = listItemElems;
