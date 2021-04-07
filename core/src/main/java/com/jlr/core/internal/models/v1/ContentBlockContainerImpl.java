@@ -34,6 +34,9 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String bodyCopy;
 
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String price;
+    
     /** The cta list. */
     @Inject
     @Optional
@@ -77,6 +80,11 @@ public class ContentBlockContainerImpl extends GlobalModelImpl implements Conten
     @Override
     public String getBodyCopy() {
         return bodyCopy;
+    }
+    
+    @Override
+    public String getPrice() {
+        return price;
     }
 
 }

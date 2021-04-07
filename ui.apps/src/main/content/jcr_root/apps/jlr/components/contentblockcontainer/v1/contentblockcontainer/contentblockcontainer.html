@@ -1,62 +1,46 @@
 <sly data-sly-use.model="com.jlr.core.models.ContentBlockContainerModel" data-sly-call="${renderContentBlockContainer @ contentBlockContainer=model}" />
-
 <template data-sly-template.renderContentBlockContainer="${ @ contentBlockContainer }">
+   <div class="cq-placeholder" data-emptytext="Content Block Container Component"></div>
+   <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.contentblockcontainer.v1']}" />
+   <div class="pageWrapper">
+      <div id="${contentBlockContainer.id}">
+         <div>
+            <div class="cmp-ContentBlocksContainer light fontSmooth" data-filter-tags="" data-template="swiping">
+               <div class="GridListWrapper" data-wrapper="float">
+                  <div class="headerBlock">
+                     <h2 class="heading headingLinear headingThick">
+                        <span class="headingWrapper fontH2">
+                        ${contentBlockContainer.headerCopy @ context="html"}
+                        </span>
+                     </h2>
+                     <p class="subHeading copy fontBodyCopyLarge">${contentBlockContainer.copy @ context="html"}</p>
+                  </div>
+                  <div class="DxTabs DxTabs--flat" data-dxtabs-id="123456789">
+                     <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
+                        <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
+                     </div>
+                  </div>
 
-<div class="cq-placeholder" data-emptytext="Content Block Container Component"></div>
+                  <div class="DxTabs__panels" data-dxtabs-panels-id="123456789">
+                  <div data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}"></div>
 
-     <div class="pageWrapper">
-	<div id="${contentBlockContainer.id}">
-		<!-- COMPONENT START -->
+                     <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentBlockContainer.column}">
 
-		<div>
+                        <div class="cmp-contentCardsCarousel">
 
-            <!-- data-template="content-blocks" for swiping it is data-template="content-blocks" or "swiping" -->
-<div class="cmp-ContentBlocksContainer light fontSmooth" data-filter-tags="" data-template="swiping">
-		<div class="GridListWrapper" data-wrapper="float">
-			<div class="headerBlock">
-				<h2 class="heading headingLinear headingThick">
-					<span class="headingWrapper fontH2">
-						${contentBlockContainer.headerCopy @ context="html"}
-					</span>
-				</h2>
+                           <ul class="cmp-contentCardsInner">
 
-				<p class="subHeading copy fontBodyCopyLarge">${contentBlockContainer.copy @ context="html"}</p>
-
-				<!-- <div class="cmp-ContentBlocksContainer__MarketRegionalPricing">
-					<button class="MarketRegionalPricing-triggerer button-tertiary">
-						<span>SHOW PRICES</span>
-					</button>
-				</div> -->
-			</div>
-
-      <div class="DxTabs DxTabs--flat" data-dxtabs-id="123456789">
-        <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
-          <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
-          <!-- <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 2</span></span></button>
-          <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 3</span></span></button> -->
-        </div>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="ctaContainer" data-sly-list.cta="${contentBlockContainer.ctaList}">
+                     <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+                     <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-     <div data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}" ></div>
-
-     <div class="ctaContainer" data-sly-list.cta="${contentBlockContainer.ctaList}">
-				<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
-         <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
-
-			</div>
-		</div>
-    </div>
-
-
-
-		<!-- COMPONENT END -->
-	</div>
-
-
-	<!-- WRAPPER FOOTER START -->
-	<!-- FooterNav -->
-
-	<!-- WRAPPER FOOTER END -->
-</div>
-</div>
-
+   </div>
 </template>
