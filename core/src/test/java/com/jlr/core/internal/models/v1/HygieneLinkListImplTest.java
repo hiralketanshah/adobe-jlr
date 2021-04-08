@@ -13,13 +13,24 @@ import com.jlr.core.pojos.HygieneLinks;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class HygieneLinkListImplTest.
+ */
 @ExtendWith(AemContextExtension.class)
 class HygieneLinkListImplTest {
 
+	/** The hygienelinks model. */
 	HygieneLinkListImpl hygienelinksModel;
 	
+	/** The resource. */
 	private Resource resource;
 	
+	/**
+	 * Sets the up.
+	 *
+	 * @param context the new up
+	 * @throws Exception the exception
+	 */
 	@BeforeEach
     void setUp(AemContext context) throws Exception {
 		context.load().json("/content/jlr/hygienelinks/hygienelinks.json", "/content/jlr/hygienelinks.html");
@@ -28,6 +39,9 @@ class HygieneLinkListImplTest {
     }
 
 
+	/**
+	 * Test get links.
+	 */
 	@Test
 	void testGetLinks() {
 		List<HygieneLinks> hygienelinksList = hygienelinksModel.getHygienelinksList();

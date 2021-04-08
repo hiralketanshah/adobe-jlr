@@ -1,9 +1,8 @@
-<sly data-sly-use.model="com.jlr.core.models.FooterContainerModel" data-sly-call="${renderFooterContainer @ footercontainer=model}" />
-<template data-sly-template.renderFooterContainer="${ @ footercontainer }">
-	<div data-sly-test="${!empty}" class="cq-placeholder" data-emptytext="Footer Container Component"></div>
+<sly data-sly-use.footercontainer="com.jlr.core.models.FooterContainerModel"/>
+	<div data-sly-test="${empty}" class="cq-placeholder" data-emptytext="Footer Container Component"></div>
 	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.footercontainer.v1']}" />
 	<footer>
-		<div class="cmp_footerNav fontSmooth col-four" data-show-less="Less" data-show-more="More">
+		<div class="cmp_footerNav col-four" data-show-less="SHOW LESS" data-show-more="SHOW MORE">
 			<div class="cmp_footerNav__footerWrapper">
 				<div class="cmp_footerNav__navWrapper el">
 					<div data-sly-resource="${'footerlinks_col_one' @ resourceType='/apps/jlr/components/footerlinks/v1/footerlinks'}" data-sly-unwrap="${!wcmmode.edit}"></div>
@@ -25,4 +24,3 @@
 			<div data-sly-resource="${ 'sub_footer' @ resourceType='/apps/jlr/components/subfooter/v1/subfooter'}" data-sly-unwrap="${!wcmmode.edit}"></div>
 		</div>
 	</footer>
-</template>

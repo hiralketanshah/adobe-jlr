@@ -2875,7 +2875,6 @@
 
 
         (($, window, document) => {
-         console.log("toggle1");
             const FooterNav = {
                 _defaults: {},
                 marketSelector: null,
@@ -2883,7 +2882,6 @@
 
                 init() {
                     $('.toggle', this.$element).unbind('click').click(() => {
-                console.log("toggle2");
                         const element = $(this.currentTarget);
                         const $nextUL = element.next('ul');
                         const $icon = element.children('i');
@@ -2913,7 +2911,6 @@
                     const $toggleHandle = $('.toggleHandle', this.$element);
 
                     $toggleHandle.on('click', (event) => {
-                                     console.log("toggle");
                         event.preventDefault();
                         event.stopPropagation();
 
@@ -2966,8 +2963,8 @@
                     const hygieneLinksHeight = $('.cmp_footerNav__hygieneLinks').height();
                     const $marketSelectorElement = $('.cmp_footerNav__marketSelectorContainer', this.$element);
 
-                    $('.cmp_footerNav').css('padding-bottom', hygieneLinksHeight);
-                    $marketSelectorElement.css('bottom', hygieneLinksHeight);
+                    //$('.cmp_footerNav').css('padding-bottom', hygieneLinksHeight);
+                    //$marketSelectorElement.css('bottom', hygieneLinksHeight);
                 },
 
                 _initMobileLinks() {
@@ -3110,6 +3107,7 @@ jQuery.createComponent('FooterNav', FooterNav);
 $('.cmp_footerNav').FooterNav();
 
 }, 2000);
+
         })(jQuery, window, document);
 
     })();

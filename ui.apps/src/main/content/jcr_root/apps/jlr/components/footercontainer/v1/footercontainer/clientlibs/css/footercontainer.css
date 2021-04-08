@@ -13,7 +13,7 @@
 
 .cmp_footerNav__footerWrapper {
 	overflow: hidden;
-	padding: 0 70px
+	/* padding: 0 70px */
 }
 
 .cmp_footerNav__heading {
@@ -219,6 +219,10 @@
 }
 
 @media screen and (min-width: 901px) {
+	.cmp_footerNav__footerWrapper {
+        overflow: hidden;
+         padding: 0 70px;
+    }
 	.cmp_footerNav__evidon-link a,
 	.cmp_footerNav__trustarc-link a {
 		margin: 0 19px 16px;
@@ -360,7 +364,7 @@
 
 .cmp_footerNav .cmp_footerNav__marketSelectorContainer {
 	display: none;
-	position: absolute;
+	position: absolute !important;
 	bottom: 40px;
 	width: 320px;
 	padding: 20px
@@ -447,7 +451,8 @@
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
 	.cmp_footerNav__footerWrapper {
-		overflow: hidden
+		overflow: hidden;
+		padding: 0 40px
 	}
 	.cmp_footerNav__marketSelectorContainer {
 		width: 100%

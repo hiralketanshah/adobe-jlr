@@ -1,10 +1,9 @@
-<sly data-sly-use.model="com.jlr.core.models.HygieneLinksModel" data-sly-call="${renderHygieneLinks @ hygienelink=model}" />
-<template data-sly-template.renderHygieneLinks="${ @ hygienelink }">
+<sly data-sly-use.hygienelink="com.jlr.core.models.HygieneLinksModel" />
 	<div data-sly-test="${!hygienelink.hygienelinksList}" class="cq-placeholder" data-emptytext="Hygiene Links Component"></div>
 	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}" />
 	<ul class="cmp_footerNav__hygieneLinks">
     <li class="cmp_footerNav__selectMarket">
-        <a class="toggleHandle cmp_footerNav__selectMarketLink" target="_blank" href="/content/landrover/en/sample.html">
+        <a class="toggleHandle cmp_footerNav__selectMarketLink" href="/content/landrover/en/sample.html">
           <img alt="flag" class="flag" height="12" src="../images/flags/UK.png" width="19" />
           <span class="countryCode">UK</span><span class="countryName">AUSTRALIA</span></a>
         <div class="cmp_footerNav__marketSelectorContainer toggleContent"></div>
@@ -35,4 +34,3 @@
    </span>
    </button>
   </div>
-</template>

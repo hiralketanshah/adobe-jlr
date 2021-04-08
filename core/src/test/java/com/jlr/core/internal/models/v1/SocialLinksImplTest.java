@@ -14,13 +14,24 @@ import com.jlr.core.pojos.SocialLinks;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class SocialLinksImplTest.
+ */
 @ExtendWith(AemContextExtension.class)
 class SocialLinksImplTest {
 
+	/** The sociallinks model. */
 	SocialLinksImpl sociallinksModel;
 	
+	/** The resource. */
 	private Resource resource;
 	
+	/**
+	 * Sets the up.
+	 *
+	 * @param context the new up
+	 * @throws Exception the exception
+	 */
 	@BeforeEach
     void setUp(AemContext context) throws Exception {
 		context.load().json("/content/jlr/sociallinks/sociallinks.json", "/content/jlr/sociallinks.html");
@@ -29,6 +40,9 @@ class SocialLinksImplTest {
     }
 
 
+	/**
+	 * Test get links.
+	 */
 	@Test
 	void testGetLinks() {
 		List<SocialLinks> sociallinks = sociallinksModel.getSocialLinks();
