@@ -8,19 +8,15 @@
 <div class="MarketSelector lightWhenNoJS fontSmooth dark" data-disable-redirect="false">
 
   <picture class="MarketSelector__bgImage Picture Picture--background MarketSelector__bgImage--desktop">
-    <source media="(min-width: 1650px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016-Desktop-1800x1013_296-323354_1800x1013.jpg?v=6" />
-    <source media="(min-width: 1280px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016_Device-Desktop_1366x900_296-317246_1366x900.jpg?v=5" />
-    <source media="(min-width: 1024px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016_Device-Desktop_1024x1024_296-317249_1024x1024.jpg?v=5" />
-    <source media="(min-width: 0px)" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_Device-Desktop_768x1024_296-317250_768x1024.jpg?v=7" />
-    <img alt="The Land Rover range of vehicles" class="Picture__img" data-object-fit="" src="/resources/public/images/transparent-1x1.png" srcset="/Images/GWS_RANGE_17_EXT_LOC10_HOT6_INT_211016_Device-Desktop_1366x900_296-317246_1366x900.jpg?v=5" />
+    <img alt="${market.imageAlt}" class="Picture__img" data-object-fit="" src="${market.fileReference}"/>
   </picture>
-  
+
   <div class="headerBlock headerBlockWithForm MarketSelector__heading-wrapper">
     <h1 class="heading headingLinear headingThick headingCentre headingH2 fontH1 MarketSelector__heading">
-      <span class="MarketSelector__heading-inner">
+      <span class="MarketSelector__heading-inner">${market.headerTitle}</span>
     </h1>
 
-    <p class="subHeading MarketSelector__sub-heading headingCentre"></p>
+    <span class="subHeading MarketSelector__sub-heading headingCentre">${market.copy @context="html"}</span>
   </div>
 
   <div class="MarketSelector__country-list">
@@ -37,28 +33,28 @@
 
 <div class="MarketSelector__dropdowns-container">
     <div class="MarketSelector__dropdowns">
-      <div class="dxDropdown dxDropdown-region">
-        <span class="dxDropdown__heading fontH5 dxDropdown__heading-region">SELECT A REGION
+      <div class="dxDropdown dxDropdown-region" data-sly-use.regionconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.region'}">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-region" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.region'}">${regionconfig.configValue}
 </span>
-        <button aria-expanded="false" aria-haspopup="listbox" aria-label="SELECT A REGION
-" class="dxDropdown__button-region dxDropdown__button icon-chevron-down fontEmissionsDetails">SELECT A REGION
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="${regionconfig.configValue}
+" class="dxDropdown__button-region dxDropdown__button icon-chevron-down fontEmissionsDetails">${regionconfig.configValue}
 </button>
 
     <ul aria-label="Select a region" class="dxDropdown__list dxDropdown__list-region" role="listbox" tabindex="-1" data-sly-list.regions="${market.marketList}">
           <li class="dxDropdown__list-item" role="option">
-            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${model2.link}" data-region="${regions.region}">${regions.regionName}</a>
+            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-region="${regions.region}">${regions.regionName}</a>
           </li>
     </ul>
 </div>
 
-<div class="dxDropdown dxDropdown-country dxDropdown--disabled">
-        <span class="dxDropdown__heading fontH5 dxDropdown__heading-country">SELECT A MARKET
+<div class="dxDropdown dxDropdown-country dxDropdown--disabled" data-sly-use.marketconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.market'}">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-country">${marketconfig.configValue}
 </span>
-        <button aria-expanded="false" aria-haspopup="listbox" aria-label="SELECT A MARKET
-" class="dxDropdown__button-country dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">SELECT A MARKET
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="${marketconfig.configValue}
+" class="dxDropdown__button-country dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">${marketconfig.configValue}
 </button>
 <div class="dxDropdown__country-list-wrapper" data-sly-list.regions="${market.marketList}">
-          <ul aria-label="SELECT A MARKET
+          <ul aria-label="${marketconfig.configValue}
 " class="dxDropdown__list dxDropdown__list-country" role="listbox" tabindex="-1" data-region="${regions.region}">
             <li class="dxDropdown__list-item" role="option" data-sly-list.countries="${regions.countryList}">
               <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-country="country-${countries.countryCode}">
@@ -70,12 +66,12 @@
 			</div>
 </div>
 
-<div class="dxDropdown dxDropdown-language dxDropdown--disabled">
-        <span class="dxDropdown__heading fontH5 dxDropdown__heading-language">SELECT A LANGUAGE</span>
-        <button aria-expanded="false" aria-haspopup="listbox" aria-label="SELECT A LANGUAGE" class="dxDropdown__button-language dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">SELECT A LANGUAGE</button>
+<div class="dxDropdown dxDropdown-language dxDropdown--disabled" data-sly-use.languageconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.language'}">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-language">${languageconfig.configValue}</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="${languageconfig.configValue}" class="dxDropdown__button-language dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">${languageconfig.configValue}</button>
         <div class="dxDropdown__language-list-wrapper" data-sly-list.regions="${market.marketList}">
         <sly data-sly-list.countries="${regions.countryList}">
-          <ul aria-label="SELECT A LANGUAGE" class="dxDropdown__list dxDropdown__list-language" role="listbox" tabindex="-1" data-country="country-${countries.countryCode}">
+          <ul aria-label="${languageconfig.configValue}" class="dxDropdown__list dxDropdown__list-language" role="listbox" tabindex="-1" data-country="country-${countries.countryCode}">
           <sly data-sly-list.languages="${countries.languageList}">
             <li class="dxDropdown__list-item" role="option">
             <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${languages.link}" data-target="${languages.target}">${languages.languageTitle}</a>
@@ -88,7 +84,7 @@
 	 </div>
 	 
 	 <div class="MarketSelector__submit-wrapper">
-      <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="">CONTINUE</button>
+      <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="" data-sly-use.continueConfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.continue'}">${continueConfig.configValue}</button>
     </div>
 
     <div class="MarketSelector__secondary-link-wrapper">

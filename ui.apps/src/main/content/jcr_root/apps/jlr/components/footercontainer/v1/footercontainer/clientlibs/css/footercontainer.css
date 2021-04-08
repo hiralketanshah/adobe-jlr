@@ -394,11 +394,13 @@
 
 .cmp_footerNav .cmp_footerNav__marketSelectorContainer .dxDropdown__list-item-link {
 	display: flex !important;
-	align-items: center
+	align-items: center;
+	text-transform: uppercase
 }
 
 .cmp_footerNav .cmp_footerNav__marketSelectorContainer .dxDropdown__list-item-link-inner {
-	flex-grow: 1
+	flex-grow: 1;
+	text-transform: uppercase
 }
 
 .cmp_footerNav .cmp_footerNav__marketSelectorContainer .dxDropdown__button .MarketSelector__flag {

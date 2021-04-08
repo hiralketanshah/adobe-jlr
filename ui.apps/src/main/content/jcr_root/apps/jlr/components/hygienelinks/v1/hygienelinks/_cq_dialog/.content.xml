@@ -11,6 +11,29 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/container">
                 <items jcr:primaryType="nt:unstructured">
+                    <countryName
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldDescription="Specify the Country Name belongs to the region."
+                        fieldLabel="Country Name"
+                        name="./countryName"/>
+                    <countryCode
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldDescription="Specify the Country code corresponding to the Country Name."
+                        fieldLabel="Country Code"
+                        name="./countryCode"/>
+                    <marketLink
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                        fieldDescription="Specify the Country specific market selector page link."
+                        fieldLabel="Market Selector Page Link"
+                        name="./marketLink"
+                        rootPath="/content"/>
+                    <flagIcon
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                        path="/mnt/overlay/jlr/components/globalfields/image/logoImage"/>
                     <hygienelinkList
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
@@ -37,6 +60,10 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                        <ariaLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
                                     </items>
                                 </column>
                             </items>

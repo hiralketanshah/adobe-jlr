@@ -5,11 +5,13 @@ public class HygieneLinks {
     private String text;
     private String link;
     private String target;
+    private String ariaLabel;
 
-    public HygieneLinks(String text, String link, String target) {
+    public HygieneLinks(String text, String link, String target, String ariaLabel) {
     	this.text = text;
         this.link = link;
         this.target = target;
+        this.ariaLabel = ariaLabel;
     }
 
     public String getText() {
@@ -35,5 +37,13 @@ public class HygieneLinks {
     public void setTarget(String target) {
         this.target = target;
     }
+
+	public String getAriaLabel() {
+		return ariaLabel;
+	}
+
+	public void setAriaLabel(String ariaLabel) {
+		this.ariaLabel = ariaLabel;
+	}
 
 }

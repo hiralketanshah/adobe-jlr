@@ -50,6 +50,7 @@ class HygieneLinkListImplTest {
             assertEquals("Facebook", item.getText());
             assertEquals("https://www.google.com", item.getLink());
             assertEquals("_self", item.getTarget());
+            assertEquals("aria", item.getAriaLabel());
         });
 
 	}

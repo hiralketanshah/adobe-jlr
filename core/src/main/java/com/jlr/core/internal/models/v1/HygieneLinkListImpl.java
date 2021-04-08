@@ -32,6 +32,9 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
 	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/hygienelinks/v1/hygienelinks";
 	
+	/** The logger. */
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	
 	/** The hygienelinks list. */
 	@Inject
     @Optional
@@ -40,6 +43,22 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
 	/** The resource resolver. */
 	@Inject
     private ResourceResolver resourceResolver;
+	
+	/** The market link. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String marketLink;
+	
+	/** The country name. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String countryName;
+	
+	/** The country code. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String countryCode;
+	
+	/** The logo image. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String logoImage;
 	
 	/** The list. */
 	List<HygieneLinks> list = new ArrayList<>();
@@ -57,7 +76,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
 	                list.add(new HygieneLinks(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
 	                		LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                                   resourceResolver),
-	                        properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+	                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class)));
 	            }
 	        }
 	    }
@@ -70,5 +89,46 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
 	@Override
     public List<HygieneLinks> getHygienelinksList() {
 		return list;
+	}
+
+	/**
+	 * Gets the market link.
+	 *
+	 * @return the market link
+	 */
+	@Override
+	public String getMarketLink() {
+		String link=LinkUtils.appendLinkExtension(marketLink, resourceResolver);
+		return link;
+	}
+
+	/**
+	 * Gets the country name.
+	 *
+	 * @return the country name
+	 */
+	@Override
+	public String getCountryName() {
+		return countryName.toUpperCase();
+	}
+
+	/**
+	 * Gets the country code.
+	 *
+	 * @return the country code
+	 */
+	@Override
+	public String getCountryCode() {
+		return countryCode.toUpperCase();
+	}
+
+	/**
+	 * Gets the logo image.
+	 *
+	 * @return the logo image
+	 */
+	@Override
+	public String getLogoImage() {
+		return logoImage;
 	}
 }
