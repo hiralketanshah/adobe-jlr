@@ -1,4 +1,6 @@
-<sly data-sly-use.hygienelink="com.jlr.core.models.HygieneLinksModel" />
+<sly data-sly-use.hygienelink="com.jlr.core.models.HygieneLinksModel"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 	<div data-sly-test="${!hygienelink.hygienelinksList}" class="cq-placeholder" data-emptytext="Hygiene Links Component"></div>
 	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jaguar.components.footercontainer.v1', 'jlr.base']}" />
 	<ul class="cmp_footerNav__hygieneLinks">

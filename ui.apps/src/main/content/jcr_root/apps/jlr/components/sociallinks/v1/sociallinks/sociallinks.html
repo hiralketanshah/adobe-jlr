@@ -1,9 +1,9 @@
-<sly data-sly-use.model="com.jlr.core.models.SocialLinksModel" data-sly-call="${renderSocialLinks @ sociallinks=model}" />
-<template data-sly-template.renderSocialLinks="${ @ sociallinks }">
+<sly data-sly-use.sociallinks="com.jlr.core.models.SocialLinksModel"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 	<div data-sly-test="${!sociallinks.headerTitle || !sociallinks.socialLinks}" class="cq-placeholder" data-emptytext="Social Links Component"></div>
 	<div aria-level="2" class="cmp_footerNav__heading" role="heading">${sociallinks.headerTitle}</div>
 	<ul data-sly-list.item="${sociallinks.socialLinks}">
 		<li><a class="${item.socialicon} TargetLinks" data-link-desktop="#" target="${item.target}" href="${item.link}"><span class="icon-${item.socialicon}"></span><strong>${item.text}</strong></a>
 		</li>
 	</ul>
-</template>
