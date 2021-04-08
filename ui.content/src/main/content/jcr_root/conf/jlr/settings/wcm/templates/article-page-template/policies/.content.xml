@@ -55,6 +55,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </genericexternalapp>
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <footerlinks
+                                    cq:policy="jlr/components/footerlinks/v1/footerlinks/policy_1617861364323"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </footerlinks>
                     </components>
                 </jlr>
             </container>
@@ -133,6 +141,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </genericexternalapp>
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <footerlinks
+                                    cq:policy="jlr/components/footerlinks/v1/footerlinks/policy_1617861364323"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </footerlinks>
                     </components>
                 </jlr>
             </container_1992655900>
