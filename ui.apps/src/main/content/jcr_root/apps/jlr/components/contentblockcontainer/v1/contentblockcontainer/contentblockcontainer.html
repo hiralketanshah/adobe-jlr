@@ -13,23 +13,19 @@
                         ${contentBlockContainer.headerCopy @ context="html"}
                         </span>
                      </h2>
-                     <p class="subHeading copy fontBodyCopyLarge">${contentBlockContainer.copy @ context="html"}</p>
+                     <span class="subHeading copy fontBodyCopyLarge">${contentBlockContainer.copy @ context="html"}</span>
                   </div>
-                  <div class="DxTabs DxTabs--flat" data-dxtabs-id="123456789">
+                  <!--<div class="DxTabs DxTabs--flat" data-dxtabs-id="123456789">
                      <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
                         <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                      </div>
-                  </div>
+                  </div>-->
 
                   <div class="DxTabs__panels" data-dxtabs-panels-id="123456789">
-                  <div data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}"></div>
-
-                     <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentBlockContainer.column}">
-
+                     <div class="cmp-contentCards items DxTabs__panels" role="tabpanel" data-total="${contentBlockContainer.column}">
                         <div class="cmp-contentCardsCarousel">
-
                            <ul class="cmp-contentCardsInner">
-
+                           <div data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.disabled}"/>
                            </ul>
                         </div>
                      </div>

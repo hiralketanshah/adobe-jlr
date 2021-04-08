@@ -1,6 +1,5 @@
-<sly data-sly-use.model="com.jlr.core.models.ContentCardModel" data-sly-call="${renderContentCard @ contentCard=model}" />
-<template data-sly-template.renderContentCard="${ @ contentCard }">
-   <div class="cq-placeholder"
+<sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"/>
+   <div data-sly-test="${contentCard.headerCopy||contentCard.copy||contentCard.ctaList}" class="cq-placeholder"
       data-emptytext="Content Card Component"></div>
    <li class="el gridEl">
       <div class="cmp-ContentCard">
@@ -69,4 +68,3 @@
          </div>
       </div>
    </li>
-</template>
