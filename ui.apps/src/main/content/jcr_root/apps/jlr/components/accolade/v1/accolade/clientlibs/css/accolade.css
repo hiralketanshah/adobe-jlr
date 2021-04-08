@@ -130,6 +130,10 @@
 }
 
 /* NEW DEVELOPMENT */
+
+.grey .st0--swiper-pagination,.white .st0--swiper-pagination{
+  fill: black;
+}
 .grey .fontQuote{
   color: black;
 }
