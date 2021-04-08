@@ -1,79 +1,79 @@
-.FAQModal__toggle,
-.FAQModal__accordion__fixed-header,
-.FAQModal__accordion__header__text,
-.FAQModal__accordion__content {
+.cmp-faqmodel__toggle,
+.cmp-faqmodel__accordion__fixed-header,
+.cmp-faqmodel__accordion__header__text,
+.cmp-faqmodel__accordion__content {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.FAQModal {
+.cmp-faqmodel {
     padding: 38px 90px 80px;
 }
-.FAQModal .open {
+.cmp-faqmodel .open {
     height: auto; 
     visibility: visible;
  }
-.FAQModal__list__content{
+.cmp-faqmodel__list__content{
     color: #4A4F54;
     font-family: "AvenirLTPro-Book";
     font-size: 14px;
     letter-spacing: 0.2px;
 	line-height: 18px;
 }
-.FAQModal__list__content__caveat {
+.cmp-faqmodel__list__content__caveat {
     font-size: 0.6em;
     line-height: 4;
 }
-.FAQModal__list__content__caveat sup {
+.cmp-faqmodel__list__content__caveat sup {
     vertical-align: text-top;
  }
-.FAQModal__toggle {
+.cmp-faqmodel__toggle {
     color: #005a2b;
     float: right;
     position: relative;
     margin: 10px 0 8px 20px;
 }
-.FAQModal__toggle__open,
-.FAQModal__toggle__close {
+.cmp-faqmodel__toggle__open,
+.cmp-faqmodel__toggle__close {
     float: right;
     text-transform: uppercase;
 }
-#landrover .FAQModal__toggle.button-tertiary {
+#landrover .cmp-faqmodel__toggle.button-tertiary {
     background-color: #f9f9f9;
     color: #005a2b;
 }
-#landrover .FAQModal__toggle.button-tertiary:hover,
-#landrover .FAQModal__toggle.button-tertiary:active {
+#landrover .cmp-faqmodel__toggle.button-tertiary:hover,
+#landrover .cmp-faqmodel__toggle.button-tertiary:active {
     background-color: #fff;
     color: #0c121c;
     box-shadow: 0 0 0 1px #0c121c;
 }
-#landrover .FAQModal__toggle.button-tertiary.disabled {
+#landrover .cmp-faqmodel__toggle.button-tertiary.disabled {
     background-color: rgba(255, 255, 255, 0.4);
     color: #d8d8d8;
 }
-#landrover.focusStylesOn .FAQModal__toggle.button-tertiary:focus {
+#landrover.focusStylesOn .cmp-faqmodel__toggle.button-tertiary:focus {
     background-color: #fff;
     color: #0c121c;
     box-shadow: 0 0 0 1px #0c121c, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
 }
 
-.FAQModal__accordion {
+.cmp-faqmodel__accordion {
     position: relative;
     max-width: 100%;
     margin: 0 auto;
 }
-.FAQModal__accordion__section {
+.cmp-faqmodel__accordion__section {
     position: relative;
     list-style: none;
     width: 100%;
 }
-.FAQModal__accordion__section__title {
+.cmp-faqmodel__accordion__section__title {
     margin: 0;
 }
-.FAQModal__accordion__section:last-child .FAQModal__accordion__header {
+.cmp-faqmodel__accordion__section:last-child .cmp-faqmodel__accordion__header {
     border-bottom: 0;
 }
-.FAQModal__accordion__section.active .FAQModal__accordion__header__text:after {
+.cmp-faqmodel__accordion__section.active .cmp-faqmodel__accordion__header__text:after {
     content: "";
     font-family: "icons";
     font-style: normal;
@@ -93,17 +93,17 @@
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 0;
 }
-.FAQModal__accordion__section.showContent .FAQModal__accordion__content {
+.cmp-faqmodel__accordion__section.showContent .cmp-faqmodel__accordion__content {
     opacity: 1;
 }
-.FAQModal__accordion__header,
-.FAQModal__accordion__fixed-header {
+.cmp-faqmodel__accordion__header,
+.cmp-faqmodel__accordion__fixed-header {
     color: #fff;
     padding: 15px 50px 15px 30px;
     width: 100%;
     margin: 0;
 }
-.FAQModal__accordion__header {
+.cmp-faqmodel__accordion__header {
     background-color: #4a4f54;
     border: 0;
     border-bottom: 1px solid #555;
@@ -114,13 +114,13 @@
     text-decoration: none;
     z-index: 2;
 }
-.FAQModal__accordion__header:active,
-.FAQModal__accordion__header:visited,
-.FAQModal__accordion__header:hover {
+.cmp-faqmodel__accordion__header:active,
+.cmp-faqmodel__accordion__header:visited,
+.cmp-faqmodel__accordion__header:hover {
     color: #fff;
 }
-.FAQModal__accordion__fixed-header,
-.FAQModal__accordion__header__text {
+.cmp-faqmodel__accordion__fixed-header,
+.cmp-faqmodel__accordion__header__text {
     font-size: 1.6rem;
     font-weight: 400;
     letter-spacing: 0;
@@ -129,7 +129,7 @@
     white-space: nowrap;
 }
 
-.FAQModal__accordion__fixed-header {
+.cmp-faqmodel__accordion__fixed-header {
     background: rgba(74, 79, 84, 0.8);
     display: none;
     height: 0;
@@ -140,12 +140,12 @@
     transition: opacity 0.5s ease-out;
     z-index: 1;
 }
-.FAQModal__accordion__fixed-header.visible {
+.cmp-faqmodel__accordion__fixed-header.visible {
     height: auto;
     opacity: 1;
 }
 
-.FAQModal__accordion__header__text:after {
+.cmp-faqmodel__accordion__header__text:after {
     content: "";
     font-family: "icons";
     font-style: normal;
@@ -173,7 +173,7 @@
     top: 20px;
     z-index: 2;
 }
-.FAQModal__accordion__content {
+.cmp-faqmodel__accordion__content {
     background: #fff;
     height: 0;
     overflow: hidden;
@@ -181,52 +181,52 @@
     position: relative;
 }
 
-.FAQModal__list {
+.cmp-faqmodel__list {
     padding: 40px;
 }
 
-.FAQModal__list__item {
+.cmp-faqmodel__list__item {
     padding: 24px 20% 24px 0px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.FAQModal__list__item:first-child {
+.cmp-faqmodel__list__item:first-child {
     padding-top: 0px;
 }
-.FAQModal__list__item:last-child {
+.cmp-faqmodel__list__item:last-child {
     border: 0;
     padding-bottom: 0px;
 }
-.FAQModal__list__title {
+.cmp-faqmodel__list__title {
     font-family: "lr_ot4" !important;
     margin-bottom: 8px;
     line-height: 1;
 }
-.FAQModal__list a {
+.cmp-faqmodel__list a {
     color: #000;
     text-decoration: underline;
 }
-.FAQModal__list a:hover {
+.cmp-faqmodel__list a:hover {
     color: #005a2b;
 }
-.FAQModal {
+.cmp-faqmodel {
     background-color: #e4e8e8;
 }
 
-.FAQModal__accordion__header {
+.cmp-faqmodel__accordion__header {
     font-family: "AvenirNext", "arial", "helvetica", sans-serif;
 }
-.FAQModal__accordion__header:active,
-.FAQModal__accordion__header:focus,
-.FAQModal__accordion__header:visited,
-.FAQModal__accordion__header:hover {
+.cmp-faqmodel__accordion__header:active,
+.cmp-faqmodel__accordion__header:focus,
+.cmp-faqmodel__accordion__header:visited,
+.cmp-faqmodel__accordion__header:hover {
     background-color: rgba(74, 79, 84, 0.8);
     color: #fff;
 }
-.FAQModal__accordion__header:hover {
+.cmp-faqmodel__accordion__header:hover {
     text-decoration: underline;
 }
-.FAQModal__list__title {
+.cmp-faqmodel__list__title {
     font-size: 14px;
     line-height: 15px;
     letter-spacing: 0.02rem;
@@ -234,7 +234,7 @@
     color: #000;
     text-transform: uppercase;
 }
-.FAQModal__accordion__header__text {
+.cmp-faqmodel__accordion__header__text {
     font-size: 14px;
     line-height: 1.9rem;
     letter-spacing: 0.02rem;
@@ -248,16 +248,16 @@
 /* media query  */
 /* dektop view  */
 @media screen and (min-width: 1px) and (max-width: 900px) {
-    .FAQModal__list__item {
+    .cmp-faqmodel__list__item {
         padding-right: 0px;
     }
-    .FAQModal__list {
+    .cmp-faqmodel__list {
         padding: 40px 30px;
     }
-    .FAQModal {
+    .cmp-faqmodel {
         padding: 40px;
     }
-    .FAQModal {
+    .cmp-faqmodel {
         padding-top: 30px;
     }
 }
@@ -265,56 +265,56 @@
 
 /* tablet view  */
 @media screen and (min-width: 401px) and (max-width: 740px) {
-    .FAQModal__list__item {
+    .cmp-faqmodel__list__item {
         padding-right: 0px;
     }
-    .FAQModal__list {
+    .cmp-faqmodel__list {
         padding: 40px 30px;
     }
-    .FAQModal__accordion__header__text:after,
-    .FAQModal__accordion__section.active .FAQModal__accordion__header__text:after {
+    .cmp-faqmodel__accordion__header__text:after,
+    .cmp-faqmodel__accordion__section.active .cmp-faqmodel__accordion__header__text:after {
         top: 14px;
     }
-    .FAQModal__accordion__fixed-header {
+    .cmp-faqmodel__accordion__fixed-header {
         display: none;
     }
-    .FAQModal__accordion__fixed-header,
-    .FAQModal__accordion__header__text {
+    .cmp-faqmodel__accordion__fixed-header,
+    .cmp-faqmodel__accordion__header__text {
         font-size: 1.3rem;
         line-height: 1;
     }
-    .FAQModal__toggle.button-tertiary {
+    .cmp-faqmodel__toggle.button-tertiary {
         display: none;
     }
-    .FAQModal {
+    .cmp-faqmodel {
         padding: 30px 0 30px;
     }
 }
 
 /* mobile view  */
 @media screen and (min-width: 1px) and (max-width: 400px) {
-    .FAQModal__list {
+    .cmp-faqmodel__list {
         padding: 30px;
     }
-    .FAQModal__list__item {
+    .cmp-faqmodel__list__item {
         padding-right: 0px;
     }
-    .FAQModal__accordion__header__text:after,
-    .FAQModal__accordion__section.active .FAQModal__accordion__header__text:after {
+    .cmp-faqmodel__accordion__header__text:after,
+    .cmp-faqmodel__accordion__section.active .cmp-faqmodel__accordion__header__text:after {
         top: 14px;
     }
-    .FAQModal__accordion__fixed-header {
+    .cmp-faqmodel__accordion__fixed-header {
         display: none;
     }
-    .FAQModal__accordion__fixed-header,
-    .FAQModal__accordion__header__text {
+    .cmp-faqmodel__accordion__fixed-header,
+    .cmp-faqmodel__accordion__header__text {
         font-size: 1.3rem;
         line-height: 1;
     }
-    .FAQModal__toggle.button-tertiary {
+    .cmp-faqmodel__toggle.button-tertiary {
         display: none;
     }
-    .FAQModal {
+    .cmp-faqmodel {
         padding: 30px 0 30px;
     }
 }

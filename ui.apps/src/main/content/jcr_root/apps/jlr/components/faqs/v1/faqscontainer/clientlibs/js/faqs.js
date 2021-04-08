@@ -2240,17 +2240,17 @@ JDV Evo port by:
         */
         init: function init() {
             this.ui = {
-                $headers: this.$element.find('.FAQModal__accordion__header'),
-                $sections: this.$element.find('.FAQModal__accordion__section'),
-                $links: this.$element.find('.FAQModal__list__link'),
-                $modal: this.$element.find('.FAQModal__modal'),
-                $modalBackdrop: this.$element.find('.FAQModal__modal-backdrop'),
-                $modalContent: this.$element.find('.FAQModal__modal__content'),
-                $modalClose: this.$element.find('.FAQModal__modal__icon-close'),
-                $modalTitle: this.$element.find('.FAQModal__modal__title'),
-                $toggle: this.$element.find('.FAQModal__toggle'),
-                $toggleClose: this.$element.find('.FAQModal__toggle__close'),
-                $toggleOpen: this.$element.find('.FAQModal__toggle__open')
+                $headers: this.$element.find('.cmp-faqmodel__accordion__header'),
+                $sections: this.$element.find('.cmp-faqmodel__accordion__section'),
+                $links: this.$element.find('.cmp-faqmodel__list__link'),
+                $modal: this.$element.find('.cmp-faqmodel__modal'),
+                $modalBackdrop: this.$element.find('.cmp-faqmodel__modal-backdrop'),
+                $modalContent: this.$element.find('.cmp-faqmodel__modal__content'),
+                $modalClose: this.$element.find('.cmp-faqmodel__modal__icon-close'),
+                $modalTitle: this.$element.find('.cmp-faqmodel__modal__title'),
+                $toggle: this.$element.find('.cmp-faqmodel__toggle'),
+                $toggleClose: this.$element.find('.cmp-faqmodel__toggle__close'),
+                $toggleOpen: this.$element.find('.cmp-faqmodel__toggle__open')
             };
 
             this._updateOpenAllText();
@@ -2275,8 +2275,8 @@ JDV Evo port by:
             }
 
             // A11y set first accordion as open
-            var firstAccordion = $('.active .FAQModal__accordion__header');
-            var firstAccordionContent = $('.active .FAQModal__accordion__content');
+            var firstAccordion = $('.active .cmp-faqmodel__accordion__header');
+            var firstAccordionContent = $('.active .cmp-faqmodel__accordion__content');
             firstAccordion.attr('aria-expanded', 'true');
             firstAccordionContent.attr('aria-hidden', 'false');
 
@@ -2284,10 +2284,10 @@ JDV Evo port by:
             var accordionID = this.$element.attr('id');
 
             this.ui.$sections.each(function (index, section) {
-                var title = $(section).find('.FAQModal__accordion__header');
-                var content = $(section).find('.FAQModal__accordion__content');
-                var ariaBtnId = 'FAQModal__accordion-button-' + accordionID + '-' + index;
-                var ariaControl = 'FAQModal__accordion-content-' + accordionID + '-' + index;
+                var title = $(section).find('.cmp-faqmodel__accordion__header');
+                var content = $(section).find('.cmp-faqmodel__accordion__content');
+                var ariaBtnId = 'cmp-faqmodel__accordion-button-' + accordionID + '-' + index;
+                var ariaControl = 'cmp-faqmodel__accordion-content-' + accordionID + '-' + index;
 
                 title.attr('id', ariaBtnId);
                 title.attr('aria-controls', ariaControl);
@@ -2319,7 +2319,7 @@ JDV Evo port by:
             event.preventDefault();
 
             var $header = $(event.currentTarget);
-            var $section = $header.closest('.FAQModal__accordion__section');
+            var $section = $header.closest('.cmp-faqmodel__accordion__section');
             var promise;
 
             if ($section.hasClass('animating')) {
@@ -2363,7 +2363,7 @@ JDV Evo port by:
             this._toggleTranslated3dIos(false);
 
             var $link = $(event.currentTarget);
-            var content = $link.parent().find('.FAQModal__list__modal-content').html();
+            var content = $link.parent().find('.cmp-faqmodel__list__modal-content').html();
 
             // Populate modal
             this.ui.$modalTitle.html($link.html());
@@ -2417,11 +2417,11 @@ JDV Evo port by:
         _onOrientationChange: function _onOrientationChange() {
             // close all sections on orientation change
             this.ui.$sections.removeClass('active');
-            this.ui.$sections.find('.FAQModal__accordion__content').css('height', '0px');
+            this.ui.$sections.find('.cmp-faqmodel__accordion__content').css('height', '0px');
 
             // reopen last clicked section
             this.$lastActiveSection.addClass('active');
-            this.$lastActiveSection.find('.FAQModal__accordion__content').css('height', 'auto');
+            this.$lastActiveSection.find('.cmp-faqmodel__accordion__content').css('height', 'auto');
         },
 
         /**
@@ -2485,8 +2485,8 @@ JDV Evo port by:
         * @method _closeAccordion
         */
         _closeAccordion: function _closeAccordion($accordionSection) {
-            var $content = $('.FAQModal__accordion__content', $accordionSection);
-            var $accordionBtn = $('.FAQModal__accordion__header', $accordionSection);
+            var $content = $('.cmp-faqmodel__accordion__content', $accordionSection);
+            var $accordionBtn = $('.cmp-faqmodel__accordion__header', $accordionSection);
 
             // If not active, this accordion is already closed
             if (!$accordionSection.hasClass('active')) {
@@ -2522,8 +2522,8 @@ JDV Evo port by:
             // Run through all active sections and show/hide fixed header where required
             this.ui.$sections.filter('.active').each(function (index, el) {
                 var $section = $(el);
-                var $sectionFixedHeader = $section.find('.FAQModal__accordion__fixed-header');
-                var $sectionHeader = $section.find('.FAQModal__accordion__header');
+                var $sectionFixedHeader = $section.find('.cmp-faqmodel__accordion__fixed-header');
+                var $sectionHeader = $section.find('.cmp-faqmodel__accordion__header');
 
                 // lower threshold the start of where the fixed header should be visible -
                 // we're using the bottom of the section header (fixed header shows when section header goes offscreen)
@@ -2579,9 +2579,9 @@ JDV Evo port by:
             }
 
             return new _promise2.default(function (resolve, reject) {
-                var $content = $('.FAQModal__accordion__content', $accordionSection);
+                var $content = $('.cmp-faqmodel__accordion__content', $accordionSection);
                 var height = _this4._getContentHeight($content);
-                var $accordionBtn = $('.FAQModal__accordion__header', $accordionSection);
+                var $accordionBtn = $('.cmp-faqmodel__accordion__header', $accordionSection);
 
                 $content.css({ 'visibility': 'visible' });
                 $content.attr('aria-hidden', 'false');
@@ -2661,7 +2661,7 @@ JDV Evo port by:
     };
 
     jQuery.createComponent('FAQModal', FAQModal);
-    $('.FAQModal').FAQModal();
+    $('.cmp-faqmodel').FAQModal();
 })(jQuery, window, document);
 
 /***/ })

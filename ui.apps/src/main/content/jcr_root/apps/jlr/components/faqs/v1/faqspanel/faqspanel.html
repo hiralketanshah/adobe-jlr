@@ -1,12 +1,9 @@
 <sly data-sly-use.faqspanel="com.jlr.core.models.FaqsPanelModel" />
 <div class="cq-placeholder" data-emptytext="FAQ Panel Component"></div>
-<ul class="FAQModal__list" data-sly-list.item="${faqspanel.faqs}">
-    <li class="FAQModal__list__item">
-        <h3  data-sly-test="${item.question}" class="FAQModal__list__title">${item.question @ context='html'}</h3>
-		<div data-sly-test="${item.answer}" class="FAQModal__list__content">${item.answer  @ context='html'}</div>
-        <div data-sly-test="${item.answerCaveat}" class="FAQModal__list__content__caveat">${item.answerCaveat @ context='html'}</div>
+<ul class="cmp-faqmodel__list" data-sly-list.item="${faqspanel.faqs}">
+    <li class="cmp-faqmodel__list__item">
+        <h3  data-sly-test="${item.question}" class="cmp-faqmodel__list__title">${item.question @ context='html'}</h3>
+		<div data-sly-test="${item.answer}" class="cmp-faqmodel__list__content">${item.answer  @ context='html'}</div>
+        <div data-sly-test="${item.answerCaveat}" class="cmp-faqmodel__list__content__caveat">${item.answerCaveat @ context='html'}</div>
     </li>
 </ul>
-
-
-
