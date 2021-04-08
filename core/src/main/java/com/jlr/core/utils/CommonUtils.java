@@ -9,17 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.aem.formsndocuments.util.FMUtils;
-import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 
 /**
@@ -93,28 +88,5 @@ public final class CommonUtils {
                     .map(path -> StringUtils.contains(path, templatePath)).orElse(false);
         }
         return false;
-    }
-
-    /**
-     * Gets the date format.
-     *
-     * @param resolver
-     *            the resolver
-     * @return the date format
-     */
-    public static String getDateFormat(ResourceResolver resolver) {
-        String dateFormat = CommonConstants.PN_REVISED_DATE_FORMAT;
-        Resource homePage = resolver.getResource(CommonConstants.PATH_HOME_PAGE);
-        if (null != homePage) {
-            Resource jcrResource = homePage.getChild(JcrConstants.JCR_CONTENT);
-            if (null != jcrResource) {
-                ValueMap properties = jcrResource.adaptTo(ValueMap.class);
-                if (properties.containsKey(CommonConstants.PN_DATE_FORMAT)) {
-                    dateFormat = properties.get(CommonConstants.PN_DATE_FORMAT, String.class);
-                }
-
-            }
-        }
-        return dateFormat;
     }
 }
