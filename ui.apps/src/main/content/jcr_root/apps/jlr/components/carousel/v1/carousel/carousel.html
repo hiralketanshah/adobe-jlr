@@ -8,7 +8,7 @@
      aria-roledescription="carousel"
      data-cmp-is="carousel"
      data-cmp-delay="${carousel.delay}"
-     data-cmp-data-layer="${carousel.data.json}" data-autoplay="${carousel.autoplay @ context='text'}" data-duration="${carousel.delay}" data-speed="600" data-label-next="Go to next slide" data-label-pause="Pause carousel" data-label-paused="Carousel paused" data-label-pip="Go to slide []" data-label-play="Play carousel" data-label-playing="Carousel playing" data-label-previous="Go to previous slide" data-label-slideChanged="Now showing slide []" data-pagination="dots" data-randomized="false" data-total="${carousel.items.size}">
+data-cmp-data-layer="${carousel.data.json}" data-autoplay="${carousel.autoplay @ context='text'}" data-duration="${carousel.delay}" data-speed="600" data-label-next="Go to next slide" data-label-pause="Pause carousel" data-label-paused="Carousel paused" data-label-pip="Go to slide []" data-label-play="Play carousel" data-label-playing="Carousel playing" data-label-previous="Go to previous slide" data-label-slideChanged="Now showing slide []" data-pagination="dots" data-randomized="false" data-total="${carousel.items.size}">
     <div data-sly-test="${carousel.items && carousel.items.size > 0}"
          class="cmp-carousel__slider swiper-container"
          aria-atomic="false"

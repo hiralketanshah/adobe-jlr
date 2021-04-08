@@ -29,7 +29,6 @@
   margin: 0 auto;
 }
 .cmp-accolades__copy {
-  color: #fff;
   margin: 32px auto 0;
   text-align: left;
 }
@@ -134,9 +133,6 @@
 .grey .fontQuote{
   color: black;
 }
-.specialColor{
-  color: #005A2B;
-}
 .specialColor .fontQuote{
   color: #005A2B;
 }
@@ -153,9 +149,7 @@
 .grey .cmp-accolades__copy--secondary{
   color: #4A4F54;
 }
-.light .cmp-accolades__copy--secondary{
-  color: #4A4F54;
-}
+
 #landrover .slateblue .secondaryLinkWithStyle {
 	color: white
 }
@@ -169,6 +163,14 @@
 }
 /* MOBILE ACCOLADES START*/
 @media screen and (min-width: 200px) and (max-width: 768px) {
+  .cmp-accolades__img .Picture__img{
+    width: 148px;
+    height: 83px;
+  }
+  .cmp-accolades__copy--secondary{
+    min-width: 325px;
+    max-width:524px
+  }
   .cmp-onlyCopy {
     min-width: 325px;
   }
@@ -184,28 +186,27 @@
 .cmp-accolades {
   padding-top: 30px;
   padding-left: 25px;
-  min-height:406px;
 }
 .cmp-accolades__copy {
   margin-top:16px;
 }
 .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
-  margin-top: 24px;
+  margin-top: 17px;
   margin-bottom: 0px;
 }
 .cmp-accolades__copy--secondary, .cmp-accolades__copy a {
   margin-bottom: 0px;
-  margin-top: 24px;
+  margin-top: 17px;
 }
 .cmp-accolades__copy--tertiary{
-  margin-top:24px;
+  margin-top:17px;
   margin-bottom: 0px;
 }
 .cmp-carousel__controls {
   position: fixed;
-  padding-bottom: 40px;
+  padding-bottom: 0px;
   justify-content: left;
-  padding-left: 25px;
+  padding-left: 30px;
 }
 .Pagination__controls{
   padding-top: 10px;
@@ -240,15 +241,15 @@
   margin-top:16px;
 }
 .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
-  margin-top: 24px;
+  margin-top: 17px;
   margin-bottom: 0px;
 }
 .cmp-accolades__copy--secondary, .cmp-accolades__copy a {
   margin-bottom: 0px;
-  margin-top: 24px;
+  margin-top: 17px;
 }
 .cmp-accolades__copy--tertiary{
-  margin-top:24px;
+  margin-top:17px;
   margin-bottom: 0px;
 }
 .cmp-carousel__controls {
@@ -261,13 +262,14 @@
   padding-top: 10px;
   padding-bottom: 20px;
 }
+.cmp-onlyCopy .fontQuote,.cmp-onlyCopy .secondaryLinkWithStyle{
+  padding-top: 0px;
+  width: 708px;
+}
 }
 /* TABLET ACCOLADES WITH LOGO - END*/
 /* DESKTOP ACCOLADES WITH LOGO - START*/
 @media screen and (min-width: 1280px) {
-  .cmp-carousel__slider{
-    height: 358px;
-  }
   .cmp-accolades {
     padding-top: 60px;
     padding-bottom: 0px;
@@ -280,28 +282,36 @@
     max-height: 278px;
     padding-bottom: 0px;
   }
-  .cmp-onlyCopy .cmp-accolades__copy{
+  /* .cmp-onlyCopy .cmp-accolades__copy{
     padding-top: 0px;
     min-width: 708px;
     max-width: 100%;
     min-height: 177px;
-  }
+  } */
+
   .cmp-accolades .fontQuote{
-    min-height: 83px;
+    /* min-height: 83px; */
     width: 100%;
   }
   .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
-    margin-top: 24px;
+    margin-top: 17px;
     margin-bottom: 0px;
 }
 .cmp-accolades__copy--secondary, .cmp-accolades__copy a{
-  margin-top: 24px;
+  margin-top: 17px;
   margin-bottom: 0px;
 }
 .cmp-accolades__copy--tertiary{
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-top: 24px;
+  padding-top: 17px;
+}
+.cmp-accolades__copy--secondary{
+  width: 560px;
+}
+.cmp-onlyCopy .fontQuote,.cmp-onlyCopy .cmp-accolades__copy--secondary{
+  padding-top: 0px;
+  width: 1160px;
 }
 .cmp-carousel__controls{
   position: absolute;
@@ -328,20 +338,21 @@
   min-width: 760px;
   min-height: 177px;
 }
-.cmp-onlyCopy .cmp-accolades__copy{
-  padding-top: 60px;
+.cmp-accolades .fontQuote{
+  /* min-height: 83px; */
+  width: 100%;
+}
+.cmp-accolades__copy--secondary{
+  width: 767px;
+}
+.cmp-onlyCopy .fontQuote,.cmp-onlyCopy .cmp-accolades__copy--secondary{
   min-width: 1160px;
   max-width: 1340px;
-  min-height: 177px;
-}
-.cmp-accolades .fontQuote{
-  min-height: 83px;
-  width: 100%;
 }
 .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
   margin-top: 0px;
   margin-bottom: 0px;
-  padding-top: 24px;
+  padding-top: 17px;
 
 }
 .secondaryLinkWithStyle{
@@ -356,5 +367,40 @@
   padding-left: 290px;
 }
 }
+.cmp-carousel__controls {
+  position: fixed;
+}
 
 /* END WIDESCREEN */
+
+/* CAROUSEL CONTROL ISSUES START*/
+@media screen and (max-width: 767px) and (max-height: 850px)   {
+
+  .cmp-carousel__controls {
+    position: relative;
+  }
+  .cmp-accolades {
+    height: 480px;
+  }
+}
+@media screen and (min-width: 768px)   {
+  .cmp-carousel__controls {
+    position: absolute;
+
+  }
+  .cmp-accolades {
+    height: 406px;
+  }
+  .cmp-accolades__img .Picture__img {
+    width: 156px;
+    height: 88px;
+  }
+}
+@media screen and (min-width: 1280px)   {
+  .cmp-accolades__img .Picture__img {
+    width: 260px;
+    height: 146px;
+  }
+
+}
+/* CAROUSEL CONTROL ISSUES END*/

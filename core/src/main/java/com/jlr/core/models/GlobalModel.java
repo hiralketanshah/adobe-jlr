@@ -10,6 +10,10 @@ public interface GlobalModel {
         return StringUtils.EMPTY;
     }
 
+    default String getDate() {
+        return StringUtils.EMPTY;
+    }
+
     default String getHeaderCopy() {
         return StringUtils.EMPTY;
     }
