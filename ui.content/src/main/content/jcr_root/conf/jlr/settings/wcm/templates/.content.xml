@@ -11,4 +11,5 @@
     <gallery-page-template/>
     <article-page-template/>
     <content-page-template/>
+	<redirect-page-template/>
 </jcr:root>

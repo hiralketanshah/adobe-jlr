@@ -9,7 +9,7 @@
         jcr:isCheckedOut="{Boolean}true"
         jcr:mixinTypes="[mix:versionable]"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Land Rover"
+        jcr:title="Land Rover DX"
         jcr:uuid="e4ee3898-6817-46d5-96ac-ee7055533abc"
         sling:configRef="/conf/jlr"
         sling:redirect="{Boolean}true"

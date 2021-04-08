@@ -7,15 +7,18 @@ public class CommonConstants {
 
     /** The common constants. */
     public static final String DOUBLE_BACKSLASHES = "\\";
+    public static final String FORWARD_SLASH = "/";
     public static final String EXTENSION_DOT_HTML = ".html";
     public static final String COLON = ":";
     public static final String DEFAULT_PRIMARY_ICON = "icon-arrow-right";
     public static final String DEFAULT_SECONDARY_ICON = "icon-arrow-right";
-    public static final String DEFAULT_LOCALE="en";
+    public static final String DEFAULT_LOCALE = "en";
+    public static final String BLANK_SPACE = " ";
+
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
-    public static final String JLR_CONTENT_PATH="/content/landrover/";
+    public static final String JLR_CONTENT_PATH = "/content/landrover/";
 
     /** The PROTOCOL Constant. */
     public static final String PROTOCOL_HTTP = "http";
@@ -38,8 +41,19 @@ public class CommonConstants {
     public static final String PN_ICON = "icon";
     public static final String PN_CONFIG_KEY = "key";
     public static final String PN_CONFIG_VALUE = "value";
-   
+    public static final String PN_NAMEPLATE_CODE = "namePlateCode";
+    public static final String PN_MODELYEAR = "modelYear";
+
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
+
+    /** The Data Layer Constants. */
+    public static final String DL_APPLICATION = "Application";
+    public static final String DL_MARKET = "Market";
+    public static final String DL_LANGUAGE = "Language";
+    public static final String DL_NAMEPLATE_CODE = "NameplateCode";
+    public static final String DL_MODELYEAR = "ModelYear";
+
+    public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
 
 }
