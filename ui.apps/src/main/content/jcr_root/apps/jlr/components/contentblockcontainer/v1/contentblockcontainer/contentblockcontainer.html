@@ -1,5 +1,6 @@
-<sly data-sly-use.model="com.jlr.core.models.ContentBlockContainerModel" data-sly-call="${renderContentBlockContainer @ contentBlockContainer=model}" />
-<template data-sly-template.renderContentBlockContainer="${ @ contentBlockContainer }">
+<sly data-sly-use.contentBlockContainer="com.jlr.core.models.ContentBlockContainerModel"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
    <div class="cq-placeholder" data-emptytext="Content Block Container Component"></div>
    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.contentblockcontainer.v1']}" />
    <div class="pageWrapper">
@@ -7,7 +8,7 @@
          <div>
             <div class="cmp-ContentBlocksContainer light fontSmooth" data-filter-tags="" data-template="swiping">
                <div class="GridListWrapper" data-wrapper="float">
-                  <div class="headerBlock">
+                  <div data-sly-test="${contentBlockContainer.headerCopy || contentBlockContainer.copy}" class="headerBlock">
                      <h2 class="heading headingLinear headingThick">
                         <span class="headingWrapper fontH2">
                         ${contentBlockContainer.headerCopy @ context="html"}
@@ -15,13 +16,13 @@
                      </h2>
                      <span class="subHeading copy fontBodyCopyLarge">${contentBlockContainer.copy @ context="html"}</span>
                   </div>
-                  <!--<div class="DxTabs DxTabs--flat" data-dxtabs-id="123456789">
+                  <!--<div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentBlockContainer.id}">
                      <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
                         <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                      </div>
                   </div>-->
 
-                  <div class="DxTabs__panels" data-dxtabs-panels-id="123456789">
+<div class="DxTabs__panels" data-dxtabs-panels-id="${contentBlockContainer.id}">
                      <div class="cmp-contentCards items DxTabs__panels" role="tabpanel" data-total="${contentBlockContainer.column}">
                         <div class="cmp-contentCardsCarousel">
                            <ul class="cmp-contentCardsInner">
@@ -39,4 +40,3 @@
          </div>
       </div>
    </div>
-</template>

@@ -1384,7 +1384,129 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 .GridListWrapper .items .el .heading {
     margin-bottom: 16px;
 }
+/* MOBILE START */
+/* TABLET START */
+@media screen and (min-width: 375px) and (max-width: 765px){
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(100% - 45px);
+}
+  /* .swiper-slide-visible{
+    width: 325px;
+  }
+  .swiper-slide-next .cmp-ContentCard{
+    padding-left: 325px;
+    width: 325px;
+  } */
+  /* .swiper-slide-prev .cmp-ContentCard{ */
+    /* margin-right: 325px; */
+    /* width: 325px;
+    visibility: hidden; */
+  /* } */
+  /* .swiper-slide-active{
+    width: 325px;
+  }
+  .swiper-slide-active .cmp-ContentCard{
+    width: 325px;
+  } */
+  /* .swiper-slide-next .cmp-ContentCard{
+    width: 325px;
+    padding-right: 100px;
+    padding-left: 50px;
+  } */
+  /* .GridListWrapper {
+      padding-top:40px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 60px;
+  }
+  .GridListWrapper .headerBlock{
+    padding-left: 0px;
+  }
+  .GridListWrapper .items .el{
+    padding-left: 0px;
+    padding-right: 28px;
+  } */
+}
+/* MOBILE END */
+/* TABLET START */
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .GridListWrapper {
+      padding-top:40px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 60px;
+  }
+  .GridListWrapper .headerBlock{
+    padding-left: 0px;
+  }
+  .GridListWrapper .items .el{
+    padding-left: 0px;
+    padding-right: 28px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(60% - 120px);
+    padding-right: 28px;
+  }
+}
+/* TABLET END */
+/* DESKTOP START */
 @media screen and (min-width: 1280px) and (max-width: 1389px) {
+    .GridListWrapper .items .el{
+        padding-left: 0px;
+        padding-right: 40px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock{
+        padding-left: 0px;
+        margin-bottom: 61px;
+    }
+    .cmp-ContentBlocksContainer .GridListWrapper{
+        padding-top: 60px;
+        padding-left: 60px;
+        padding-right: 0px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock .headingWrapper{
+        max-width:760px;
+        max-height: 51px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock .subHeading{
+        margin-top: 0px;
+        padding-top: 23px;
+        width: 63.3%;
+    }
+   .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
+        width: 300px; 
+    }
+    .GridListWrapper .items[data-total="2"] .el img{
+        width: 100%;
+        height: 314px;
+        margin-bottom: 28px;
+    }
+    .GridListWrapper .items[data-total="2"] .el {
+      width: 600px;
+      height: 100%;
+      margin-bottom: 28px;
+  }
+    .GridListWrapper .items[data-total="3"] .cmp-ContentCard {
+        clear: left;
+        width: 360px;
+    }
+    .GridListWrapper .items[data-total="3"] .el{
+      width:32.80%
+    }
+    .GridListWrapper .items[data-total="3"] .el img{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 28px;
+    }
+    .GridListWrapper .items[data-total="4"] .el img{
+        width: 260px;
+        height: 146px;
+        margin-bottom: 28px;
+    }
+  }
+  /* DESKTOP END */
+  /* Widescreen start */
+  @media screen and (min-width: 1390px){
     .GridListWrapper .items .el{
         padding-left: 0px;
         padding-right: 40px;
@@ -1429,3 +1551,4 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         margin-bottom: 28px;
     }
   }
+  /* Widescreen end */

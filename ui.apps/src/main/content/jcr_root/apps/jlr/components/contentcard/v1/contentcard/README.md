@@ -28,6 +28,8 @@ The following properties are written to JCR for this Content Card component and 
 13. `./videoPath` - Defines the Video URL from DAM.
 14. `./contentType` -  Select Content Type as Video or Image.
 15. `./videoType` - specify whether video will be from youtube or dam.
+16. `./price` - Specify the price value.
+17. `./date` - specify posted date for the content.
 
 The edit dialog allows the page to be refreshed after editing the component
 

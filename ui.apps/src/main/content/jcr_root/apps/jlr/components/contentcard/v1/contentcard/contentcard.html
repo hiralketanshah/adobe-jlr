@@ -1,4 +1,6 @@
-<sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"/>
+<sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
    <div data-sly-test="${contentCard.headerCopy||contentCard.copy||contentCard.ctaList}" class="cq-placeholder"
       data-emptytext="Content Card Component"></div>
    <li class="el gridEl">
@@ -22,17 +24,17 @@
          </div>
          <div class="textContainer">
             <div class="textContainerTop">
-               <p class="date .cmp-ContentCard__date">
-                  Posted: ${contentCard.date}.
+               <p data-sly-test="${contentCard.date}" class="date .cmp-ContentCard__date" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='Posted'}">
+                  ${config.configValue}: ${contentCard.date}.
                </p>
-               <h2
+               <h2 data-sly-test="${contentCard.headerCopy}"
                   class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
                   ${contentCard.headerCopy @ context="html"}
                </h2>
-               <p class="price .cmp-ContentCard__price">
-                  From: ${contentCard.price}
+               <p data-sly-test="${contentCard.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}">
+                  ${config.configValue}: ${contentCard.price}
                </p>
-               <p class="body .cmp-ContentCard__body fontBodyCopy">
+               <p data-sly-test="${contentCard.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
                   ${contentCard.copy @ context="html"}
                </p>
             </div>
