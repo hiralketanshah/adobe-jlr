@@ -479,17 +479,35 @@
                     </container>
                 </v1>
             </article>
-            <vehiclesummary jcr:primaryType="nt:unstructured">
+            <signpostvehiclesummary jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
-                    <vehiclesummary jcr:primaryType="nt:unstructured">
+                    <signpostvehiclesummary jcr:primaryType="nt:unstructured">
                         <policy_1616070143899
-                            cq:styleDefaultClasses="white"
+                            cq:styleDefaultClasses="white left"
+                            jcr:lastModified="{Date}2021-04-08T23:33:15.902+05:30"
+                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Vehicle Summary"
+                            jcr:title="Signpost / Vehicle Summary"
                             sling:resourceType="wcm/core/components/policy/policy">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
+                                    cq:styleGroupLabel="Component"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="signpost"
+                                            cq:styleId="1617904926367"
+                                            cq:styleLabel="Signpost"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="vehiclesummary"
+                                            cq:styleId="1617904958476"
+                                            cq:styleLabel="Vehicle Summary"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
                                     cq:styleGroupLabel="Theme"
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
@@ -499,17 +517,43 @@
                                             cq:styleLabel="White"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1617904006880"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
                                             cq:styleClasses="grey"
                                             cq:styleId="1616413752178"
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1617904017667"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
-                                </item0>
+                                </item1>
+                                <item2
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1617903992536"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1617903998828"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item2>
                             </cq:styleGroups>
                         </policy_1616070143899>
-                    </vehiclesummary>
+                    </signpostvehiclesummary>
                 </v1>
-            </vehiclesummary>
+            </signpostvehiclesummary>
             <snippet jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <snippet jcr:primaryType="nt:unstructured">

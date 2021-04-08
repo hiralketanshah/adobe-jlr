@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
-    jcr:title="Vehicle Summary"
+    jcr:title="Signpost / Vehicle Summary"
     sling:resourceType="cq/gui/components/authoring/dialog">
     <content
         jcr:primaryType="nt:unstructured"
@@ -104,48 +104,12 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <heading
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}5"
-                                text="Primary CTA"/>
-                            <layout
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/well"
-                                fieldLabel="Secondary CTA List">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <text
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
-                                    <link
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
-                                    <icon
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
-                                    <ariaLabel
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
-                                    <target
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
-                                    <linkType
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/cta/hiddenPrimaryLinkType"/>
-                                </items>
-                            </layout>
-                            <secondaryctalist
+                            <ctalist
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                 composite="{Boolean}true"
-                                fieldDescription="Maximum 2 secondary CTAs are allowed"
-                                fieldLabel="Secondary CTA List">
+                                fieldDescription="For Signpost component, only the first CTA will be displayed. For Vehicle Summary component, configure 1 primary and 2 secondary CTAs"
+                                fieldLabel="CTA List">
                                 <field
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
@@ -163,6 +127,10 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
                                                     path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
                                                 <ariaLabel
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -174,22 +142,22 @@
                                                 <linkType
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/hiddenSecondaryLinkType"/>
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
                                             </items>
                                         </column>
                                     </items>
                                 </field>
                                 <granite:data
                                     jcr:primaryType="nt:unstructured"
-                                    maxlimit="2"/>
-                            </secondaryctalist>
+                                    maxlimit="3"/>
+                            </ctalist>
                         </items>
                     </cta>
                 </items>
             </tabs>
         </items>
         <granite:data
-           jcr:primaryType="nt:unstructured"
-           name="vehiclesummary"/>
+            jcr:primaryType="nt:unstructured"
+            name="vehiclesummary"/>
     </content>
 </jcr:root>
