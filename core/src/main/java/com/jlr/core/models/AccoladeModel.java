@@ -10,15 +10,6 @@ import org.osgi.annotation.versioning.ConsumerType;
 public interface AccoladeModel {
 
     /**
-     * Gets the date.
-     *
-     * @return the date
-     */
-    default String getDate() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
      * Gets the background image.
      *
      * @return the background image

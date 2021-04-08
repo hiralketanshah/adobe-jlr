@@ -18,7 +18,6 @@ public class CommonConstants {
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
-    public static final String PATH_HOME_PAGE = "/content/landrover/global/global-master/en/index";
 
     /** The PROTOCOL Constant. */
     public static final String PROTOCOL_HTTP = "http";
