@@ -43,6 +43,14 @@ public class TableModelImpl extends GlobalModelImpl implements TableModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String tableHtml;
 
+    /** The enable pricing. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String ctaPosition;
+
+    /** The enable pricing. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String caption;
+
     /**
      * Gets the cta list.
      *
@@ -57,13 +65,33 @@ public class TableModelImpl extends GlobalModelImpl implements TableModel {
     }
 
     /**
-     * Gets the enable pricing.
+     * Gets the table HTML.
      *
-     * @return the enable pricing
+     * @return the table HTML
      */
     @Override
     public String getTableHtml() {
         return tableHtml;
+    }
+
+    /**
+     * Gets the table HTML.
+     *
+     * @return the table HTML
+     */
+    @Override
+    public String getCaption() {
+        return caption;
+    }
+
+    /**
+     * Gets the CTA position.
+     *
+     * @return the CTA position.
+     */
+    @Override
+    public String getCtaPosition() {
+        return ctaPosition;
     }
 
 }
