@@ -4,6 +4,6 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
 	<div data-sly-test="${!sociallinks.headerTitle || !sociallinks.socialLinks}" class="cq-placeholder" data-emptytext="Social Links Component"></div>
 	<div aria-level="2" class="cmp_footerNav__heading" role="heading">${sociallinks.headerTitle}</div>
 	<ul data-sly-list.item="${sociallinks.socialLinks}">
-		<li><a class="${item.socialicon} TargetLinks" data-link-desktop="#" target="${item.target}" href="${item.link}"><span class="icon-${item.socialicon}"></span><strong>${item.text}</strong></a>
+		<li><a class="${item.socialicon} TargetLinks" aria-label="${item.ariaLabel}" data-link-desktop="#" target="${item.target}" href="${item.link}"><span class="icon-${item.socialicon}"></span><strong>${item.text}</strong></a>
 		</li>
 	</ul>

@@ -131,11 +131,11 @@
 .MarketSelector .dxDropdown__list-item-link {
 	display: flex;
 	align-items: center;
-    text-transform: uppercase
 }
 
 .MarketSelector .dxDropdown__list-item-link-inner {
-	flex-grow: 1
+	flex-grow: 1;
+	text-transform: uppercase
 }
 
 .MarketSelector .dxDropdown--disabled {

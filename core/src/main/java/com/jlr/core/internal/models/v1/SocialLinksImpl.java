@@ -64,7 +64,8 @@ public class SocialLinksImpl extends GlobalModelImpl implements SocialLinksModel
 	                		LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                                    resourceResolver),
 	                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
-	                        properties.get(CommonConstants.PN_SOCIAL_ICONS, String.class)));
+	                        properties.get(CommonConstants.PN_SOCIAL_ICONS, String.class),
+	                        properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class)));
 	            }
 	        }
 	    }

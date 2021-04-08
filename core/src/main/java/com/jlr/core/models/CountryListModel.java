@@ -9,6 +9,8 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jlr.core.utils.LinkUtils;
 
@@ -17,6 +19,8 @@ import com.jlr.core.utils.LinkUtils;
  */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class CountryListModel {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/** The resource resolver. */
 	@Inject
@@ -45,9 +49,10 @@ public class CountryListModel {
 	 * @return the country name
 	 */
 	public String getCountryName() {
-		return countryName.toUpperCase();
+		return countryName;
 	}
 	
+
 	/**
 	 * Gets the country link.
 	 *
@@ -63,7 +68,7 @@ public class CountryListModel {
 	 * @return the country code
 	 */
 	public String getCountryCode() {
-		return countryCode.toUpperCase();
+		return countryCode;
 	}
 
 	/**

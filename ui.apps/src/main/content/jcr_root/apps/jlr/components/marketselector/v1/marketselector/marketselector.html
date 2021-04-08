@@ -8,7 +8,11 @@
 <div class="MarketSelector lightWhenNoJS fontSmooth dark" data-disable-redirect="false">
 
   <picture class="MarketSelector__bgImage Picture Picture--background MarketSelector__bgImage--desktop">
-    <img alt="${market.imageAlt}" class="Picture__img" data-object-fit="" src="${market.fileReference}"/>
+    <source media="(min-width: 1650px)" srcset="${market.fileReference}" />
+    <source media="(min-width: 1280px)" srcset="${market.fileReference}" />
+    <source media="(min-width: 1024px)" srcset="${market.fileReference}" />
+    <source media="(min-width: 0px)" srcset="${market.fileReference}" />
+    <img alt="${market.imageAlt}" class="Picture__img" data-object-fit="" src="${market.fileReference}" srcset="${market.fileReference}"/>
   </picture>
 
   <div class="headerBlock headerBlockWithForm MarketSelector__heading-wrapper">
@@ -40,7 +44,7 @@
 " class="dxDropdown__button-region dxDropdown__button icon-chevron-down fontEmissionsDetails">${regionconfig.configValue}
 </button>
 
-    <ul aria-label="Select a region" class="dxDropdown__list dxDropdown__list-region" role="listbox" tabindex="-1" data-sly-list.regions="${market.marketList}">
+    <ul aria-label="${regionconfig.configValue}" class="dxDropdown__list dxDropdown__list-region" role="listbox" tabindex="-1" data-sly-list.regions="${market.marketList}">
           <li class="dxDropdown__list-item" role="option">
             <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-region="${regions.region}">${regions.regionName}</a>
           </li>
@@ -85,12 +89,6 @@
 	 
 	 <div class="MarketSelector__submit-wrapper">
       <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="" data-sly-use.continueConfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.continue'}">${continueConfig.configValue}</button>
-    </div>
-
-    <div class="MarketSelector__secondary-link-wrapper">
-      <a class=" MarketSelector__secondary-link secondaryLinkWithStyle slwsWhite visitInternational  icon-arrow-right TargetLinks" href="https://www.landrover.com/index.html" data-link-desktop="https://www.landrover.com/index.html" data-target="current" data-tracking-id="MarketSelector:INTERNATIONAL SITE:https://www.landrover.com/index.html" data-aria-title="">
-        <span class="MarketSelector__secondary-link-inner">INTERNATIONAL SITE</span>
-      </a>
     </div>
   </div>
 </div>

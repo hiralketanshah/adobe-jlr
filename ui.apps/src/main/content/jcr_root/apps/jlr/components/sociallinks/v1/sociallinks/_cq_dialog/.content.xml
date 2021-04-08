@@ -106,6 +106,10 @@
                                                     value="social_renren"/>
                                             </items>
                                         </socialIcon>
+                                        <ariaLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
                                     </items>
                                 </column>
                             </items>

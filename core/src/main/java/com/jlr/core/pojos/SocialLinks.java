@@ -6,12 +6,14 @@ public class SocialLinks {
     private String link;
     private String target;
 	private String socialicon;
+	private String ariaLabel;
 
-    public SocialLinks(String text, String link, String target, String socialicon) {
+    public SocialLinks(String text, String link, String target, String socialicon, String ariaLabel) {
     	this.text = text;
         this.link = link;
         this.target = target;
     	this.socialicon = socialicon;
+    	this.ariaLabel = ariaLabel;
     }
 
     public String getText() {
@@ -44,5 +46,13 @@ public class SocialLinks {
 
 	public void setSocialicon(String socialicon) {
 		this.socialicon = socialicon;
+	}
+
+	public String getAriaLabel() {
+		return ariaLabel;
+	}
+
+	public void setAriaLabel(String ariaLabel) {
+		this.ariaLabel = ariaLabel;
 	}
 }
