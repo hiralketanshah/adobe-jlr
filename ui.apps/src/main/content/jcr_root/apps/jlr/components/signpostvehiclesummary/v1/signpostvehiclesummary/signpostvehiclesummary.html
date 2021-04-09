@@ -1,7 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}" data-sly-call="${renderModel @ model=model, config=config}" />
 <template data-sly-template.renderModel="${ @ model, config}">
   <div class="cmp-vehicleSummaryGridContext fontSmooth clearfix" id="${model.id}">
-   <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
      <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
       <a href="${model.imageLink}">
@@ -9,34 +8,28 @@
       </a>
      </picture>
     </div>
-    <div class="summaryItemContent VehicleSummary__content">
+    <div class="summaryItemContent cmp-vehicleSummary__content">
      <h2 data-sly-test="${model.headerCopy}" class="summaryItemHeader heading headingH4 VehicleSummary__header fontQuote">
       <span class="headingWrapper">
        ${model.headerCopy @context='html'}
       </span>
      </h2>
-     <p data-sly-test="${model.price}" class="heading price headingH5 VehicleSummary__price VehicleSummary__price--top fontFromPriceModel">
+     <p data-sly-test="${model.price}" class="heading price headingH5 cmp-vehicleSummary__price cmp-vehicleSummary__price--top fontFromPriceModel">
       ${config.configValue}: ${model.price}
      </p>
-     <p data-sly-test="${model.copy}" class="subheading VehicleSummary__subheading fontH1Copy">
+     <p data-sly-test="${model.copy}" class="subheading cmp-vehicleSummary__subheading fontH1Copy">
       ${model.copy @context='html'}
      </p>
-     <div data-sly-test="${model.text}" class="primaryLinkContainer">
-      <a class="primaryLinkWithStyle plwsTransparentLight TargetLinks ${model.target=='overlay' ? '' : model.icon}" href="${model.link}" data-link-desktop="${model.link}" aria-label="${model.ariaLabel}" target="${model.target}" data-target="${model.target}">
-       <span aria-hidden="true">${model.text}</span>
-      </a>
-     </div>
-     <div class="VehicleSummary__secondaryLinks">
+     <div class="cmp-vehicleSummary__secondaryLinks">
       <sly data-sly-list.cta="${model.ctaList}">
-       <span class="secondaryLinkContainer secondaryLinkType">
-        <a class="secondaryLinkWithStyle slwsLight TargetLinks ${cta.target=='overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
+       <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}">
+        <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle plwsTransparentLight' : 'secondaryLinkWithStyle slwsLight'} TargetLinks ${cta.target=='overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
          <span aria-hidden="true">${cta.text}</span>
         </a>
        </span>
       </sly>
-     </div>
+      </div>
     </div>
-   </div>
   </div>
   <div class="cmp-signpostGridContext">
 
