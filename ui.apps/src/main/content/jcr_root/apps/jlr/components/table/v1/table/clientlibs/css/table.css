@@ -1,11 +1,14 @@
-
 .cmp-engineSpecifications {
-	font-size: 14px
+	font-size: 14px;
 }
 
 .cmp-engineSpecifications .headerBlock {
 	padding-left: 0;
 	padding-right: 0
+}
+
+.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+	width:276px;
 }
 
 .cmp-engineSpecifications .responsiveTableArrow {
@@ -52,14 +55,6 @@
 	font-size: 14px
 }
 
-.cmp-engineSpecifications th:first-child .engineName {
-	font-family: lr_ot4, arial, helvetica, sans-serif;
-	color: #0c121c;
-	font-size: 25px;
-	font-weight: 400;
-	margin-bottom: 11px
-}
-
 .cmp-engineSpecifications th:first-child span {
 	display: block;
 	font-weight: 400;
@@ -80,7 +75,6 @@
 }
 
 .cmp-engineSpecifications .ctaContainer {
-	/* margin-top: 80px; */
 	margin-bottom: 0;
     text-align: left;
 }
@@ -88,59 +82,6 @@
 
 .cmp-engineSpecifications {
 	overflow-x: scroll
-}
-
-.cmp-engineSpecifications th:first-child a {
-	margin-top: 10px;
-	font-size: 10px;
-	letter-spacing: .25em;
-	color: #000;
-	font-weight: 700;
-	text-decoration: none;
-	position: relative;
-	padding-left: 18px;
-	margin-top: 25px;
-	display: inline-block;
-	overflow: hidden;
-	line-height: 1.25
-}
-
-.cmp-engineSpecifications th:first-child a:before {
-	content: "";
-	font-family: icons;
-	font-style: normal;
-	font-weight: 400;
-	speak: none;
-	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1em;
-	margin-left: .2em;
-	vertical-align: middle;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	letter-spacing: 0;
-	color: #4a4f54;
-	position: absolute;
-	top: 0;
-	left: -4px;
-	font-size: 10px
-}
-
-.cmp-engineSpecifications th:first-child a:focus,
-.cmp-engineSpecifications th:first-child a:hover {
-	text-decoration: underline;
-	color: #005a2b!important
-}
-
-.cmp-engineSpecifications th:first-child a:focus:before,
-.cmp-engineSpecifications th:first-child a:hover:before {
-	text-decoration: none;
-	color: #005a2b!important
 }
 
 .cmp-engineSpecifications .ResponsiveTable {
@@ -152,8 +93,8 @@
 	border-bottom-color: transparent!important
 }
 
-.cmp-engineSpecifications .headingWrapper:after,
-.cmp-engineSpecifications .headingWrapper:before {
+.cmp-engineSpecifications .tableHeadingWrapper:after,
+.cmp-engineSpecifications .tableHeadingWrapper:before {
 	width: 0
 }
 
@@ -165,7 +106,7 @@
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
-	padding: 28px;
+	
 	vertical-align: middle;
 	text-align: left;
 	background-clip: padding-box
@@ -182,149 +123,128 @@
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr:last-child {
 	border-bottom: 0
 }
+.ResponsiveTable {	
+	width: 100%;	
+	overflow: hidden	
+}	
+.ResponsiveTable table:not(.nonResponsive) {	
+	border-top: 0;	
+	border-bottom: 0	
+}	
 
-.ResponsiveTable {
-	width: 100%;
-	overflow: hidden
+.ResponsiveTable table:not(.nonResponsive) tr td:last-child,	
+.ResponsiveTable table:not(.nonResponsive) tr th:last-child {	
+	padding-right: 0	
+}	
+.ResponsiveTable .tableWrapper {	
+	position: relative	
+}	
+.ResponsiveTable .tableWrapper .pinned {	
+	position: absolute;	
+	top: 0;	
+	width: 35%	
+}	
+.ResponsiveTable .tableWrapper .pinned:after {	
+	content: "";	
+	display: block;	
+	width: 4px;	
+	height: 100%;	
+	position: absolute;	
+	top: 0;	
+	right: -3px	
+}	
+.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) {	
+	border-right-width: 0	
+}	
+.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) tbody tr th:first-child {	
+	word-break: break-all;	
+	word-break: break-word	
+}	
+.ResponsiveTable .tableWrapper .scrollable {	
+	margin-left: 35%;	
+	overflow: scroll;	
+	overflow-y: hidden	
+}	
+.ResponsiveTable .tableWrapper .scrollable table:not(.nonResponsive) {	
+	position: relative;	
+	border-left-width: 0	
+}	
+.ResponsiveTable .tableWrapper .scrollable table:not(.nonResponsive) tbody tr th:first-child {	
+	display: none	
+}	
+.responsiveTableArrow {	
+	width: 65%;	
+	height: 20px;	
+	position: relative;	
+	margin-bottom: 5px;	
+	margin-left: 35%	
+}	
+.responsiveTableArrow .leftArrow,	
+.responsiveTableArrow .rightArrow {	
+	width: 20px;	
+	height: 20px;	
+	line-height: 0;	
+	text-align: center;	
+	position: absolute;	
+	top: 0;	
+	font-size: 20px	
+}	
+.responsiveTableArrow .leftArrow:before,	
+.responsiveTableArrow .rightArrow:before {	
+	margin: 0	
+}	
+.responsiveTableArrow .leftArrow {	
+	left: 0	
+}	
+.responsiveTableArrow .leftArrow:before {	
+	content: "";	
+	font-family: icons;	
+	font-style: normal;	
+	font-weight: 400;	
+	speak: none;	
+	display: inline-block;	
+	text-decoration: inherit;	
+	width: 1em;	
+	margin-right: .2em;	
+	text-align: center;	
+	font-variant: normal;	
+	text-transform: none;	
+	line-height: 1em;	
+	margin-left: .2em;	
+	vertical-align: middle;	
+	-webkit-font-smoothing: antialiased;	
+	-moz-osx-font-smoothing: grayscale;	
+	letter-spacing: 0	
+}	
+.responsiveTableArrow .rightArrow {	
+	right: 0	
+}	
+.responsiveTableArrow .rightArrow:before {	
+	content: "";	
+	font-family: icons;	
+	font-style: normal;	
+	font-weight: 400;	
+	speak: none;	
+	display: inline-block;	
+	text-decoration: inherit;	
+	width: 1em;	
+	margin-right: .2em;	
+	text-align: center;	
+	font-variant: normal;	
+	text-transform: none;	
+	line-height: 1em;	
+	margin-left: .2em;	
+	vertical-align: middle;	
+	-webkit-font-smoothing: antialiased;	
+	-moz-osx-font-smoothing: grayscale;	
+	letter-spacing: 0	
+}	
+.responsiveTableArrow .bar {	
+	height: 2px;	
+	margin: 9px 8px	
 }
 
-.ResponsiveTable table:not(.nonResponsive) {
-	border-top: 0;
-	border-bottom: 0
-}
 
-.ResponsiveTable table:not(.nonResponsive) tr td:first-child,
-.ResponsiveTable table:not(.nonResponsive) tr th:first-child {
-	padding-left: 28px;
-}
-
-.ResponsiveTable table:not(.nonResponsive) tr td:last-child,
-.ResponsiveTable table:not(.nonResponsive) tr th:last-child {
-	padding-right: 0
-}
-
-.ResponsiveTable .tableWrapper {
-	position: relative
-}
-
-.ResponsiveTable .tableWrapper .pinned {
-	position: absolute;
-	top: 0;
-	width: 35%
-}
-
-.ResponsiveTable .tableWrapper .pinned:after {
-	content: "";
-	display: block;
-	width: 4px;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	right: -3px
-}
-
-.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) {
-	border-right-width: 0
-}
-
-.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) tbody tr th:first-child {
-	word-break: break-all;
-	word-break: break-word
-}
-
-.ResponsiveTable .tableWrapper .scrollable {
-	margin-left: 35%;
-	overflow: scroll;
-	overflow-y: hidden
-}
-
-.ResponsiveTable .tableWrapper .scrollable table:not(.nonResponsive) {
-	position: relative;
-	border-left-width: 0
-}
-
-.ResponsiveTable .tableWrapper .scrollable table:not(.nonResponsive) tbody tr th:first-child {
-	display: none
-}
-
-.responsiveTableArrow {
-	width: 65%;
-	height: 20px;
-	position: relative;
-	margin-bottom: 5px;
-	margin-left: 35%
-}
-
-.responsiveTableArrow .leftArrow,
-.responsiveTableArrow .rightArrow {
-	width: 20px;
-	height: 20px;
-	line-height: 0;
-	text-align: center;
-	position: absolute;
-	top: 0;
-	font-size: 20px
-}
-
-.responsiveTableArrow .leftArrow:before,
-.responsiveTableArrow .rightArrow:before {
-	margin: 0
-}
-
-.responsiveTableArrow .leftArrow {
-	left: 0
-}
-
-.responsiveTableArrow .leftArrow:before {
-	content: "";
-	font-family: icons;
-	font-style: normal;
-	font-weight: 400;
-	speak: none;
-	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1em;
-	margin-left: .2em;
-	vertical-align: middle;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	letter-spacing: 0
-}
-
-.responsiveTableArrow .rightArrow {
-	right: 0
-}
-
-.responsiveTableArrow .rightArrow:before {
-	content: "";
-	font-family: icons;
-	font-style: normal;
-	font-weight: 400;
-	speak: none;
-	display: inline-block;
-	text-decoration: inherit;
-	width: 1em;
-	margin-right: .2em;
-	text-align: center;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1em;
-	margin-left: .2em;
-	vertical-align: middle;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	letter-spacing: 0
-}
-
-.responsiveTableArrow .bar {
-	height: 2px;
-	margin: 9px 8px
-}
 /* add for table bg color */
 .cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive) {
 	background-color: #fff;
@@ -338,7 +258,7 @@
 
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr {
-	border-bottom: 1px solid #a4a7a9
+	border-bottom: 1px solid #4A4F544D;
 }
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
@@ -384,51 +304,198 @@
 	background-color: #e4e8e8
 }
 
-.cmp-engineSpecifications .headingWrapper{
+.cmp-engineSpecifications .tableHeadingWrapper{
     text-transform: uppercase;
+    font-family:AvenirNext;
 }
 .cmp-engineSpecifications__summary{
-    padding:10px;
-    text-align: justify;
+    text-align: left;
+	max-width: 760px;
 
 }
-caption{
+.cmp-engineSpecifications table caption{
 	display:none;
 }
+.ResponsiveTable table:not(.nonResponsive) tr td:first-child,	
+.ResponsiveTable table:not(.nonResponsive) tr th:first-child {	
+	padding-left: 18px;	
+}
 
-@media screen and (min-width:1px) and (max-width:900px) {
-	.ResponsiveTable.stickToRight {
-		position: relative
+@media screen and (min-width:769px) {
+
+    .cmp-engineSpecifications .table {
+		padding-left:60px;
+        padding-right:60px;
+	}
+    .ResponsiveTable table:not(.nonResponsive) tr td:first-child,	
+	.ResponsiveTable table:not(.nonResponsive) tr th:first-child {	
+		padding-left: 20px;	
+	}	
+	.cmp-engineSpecifications .stickToRight {
+		position: relative;
+        padding-right: 0px !important;
+	}
+
+	.cmp-engineSpecifications .tableHeadingWrapper{
+		font-size: 38px;
+	}
+	.cmp-engineSpecifications .headerBlock .heading {
+		padding-top: 60px;
+		padding-bottom:23px;
+		padding-left: 60px;
+	}
+	.cmp-engineSpecifications__summary{
+		padding-left: 60px;
+    	padding-bottom: 25px;
+		max-width: 760px;
+	}
+	
+    .cmp-engineSpecifications .ctaContainer {
+	
+		padding-left: 60px;
+		padding-bottom : 80px;
+	}
+	.cmp-engineSpecifications .ResponsiveTable {
+		padding-left:60px;
+    	padding-right:60px;
+		
+	}
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+		padding-left: 48px;
+		padding-top: 15px;
+		padding-bottom: 16px;
 	}
 	.cmp-engineSpecifications .headerBlock {
-		margin: 0 auto 40px
+		margin: 0 auto 
 	}
-	.cmp-engineSpecifications th:first-child {
-		font-size: 14px
-	}
-	.cmp-engineSpecifications th:first-child .engineName {
-		font-size: 20px;
-		color: #0c121c
-	}
-	.cmp-engineSpecifications th:first-child span {
-		font-size: 14px
-	}
-	.cmp-engineSpecifications th:first-child a {
-		font-size: 10px;
-		padding-left: 10px
-	}
-	.cmp-engineSpecifications th:first-child a:before {
-		font-size: 10px
-	}
+	
+	.cmp-engineSpecifications tbody tr td,
+	.cmp-engineSpecifications tbody tr th
+	 {
+		font-size: 14px;
+		padding:28px 28px;
+	}	
+
 	.cmp-engineSpecifications .ctaContainer {
 		margin-top: 40px;
 		margin-bottom: 0
 	}
+	.cmp-engineSpecifications .responsiveTableArrow {
+		margin-top: -25px
+	}
+
 }
 
-@media screen and (min-width:1px) and (max-width:740px) {
+@media screen and (min-width:376px) and (max-width:768px) {
+
+	.cmp-engineSpecifications .tableHeadingWrapper{		
+		font-size: 33px;
+	}
+	.cmp-engineSpecifications .headerBlock {
+		margin: 0 auto 40px
+	}
+	
+	.cmp-engineSpecifications .headerBlock .heading {
+		padding-top: 60px;
+		padding-bottom:17px;
+		padding-left: 30px;
+	}
+	.cmp-engineSpecifications__summary{
+		padding-left: 30px;
+		padding-bottom: 24px;
+		max-width: 524px;
+	}
+	
+	.cmp-engineSpecifications .ctaContainer {
+	
+		padding-left: 30px;
+		padding-bottom : 80px;
+	}
+	
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+		padding-left: 48px;
+		padding-top: 15px;
+		padding-bottom: 16px;
+	}
+	.cmp-engineSpecifications tbody tr td,
+	.cmp-engineSpecifications tbody tr th
+	 {
+		font-size: 14px;
+		padding:18px 18px;
+	}	
+	.cmp-engineSpecifications .ResponsiveTable {
+		padding-left: 30px;
+		
+	}
+	.cmp-engineSpecifications .responsiveTableArrow {
+		margin-top: -25px
+	}
+	
+	.cmp-engineSpecifications th:first-child span {
+		font-size: 11px
+	}
+	
+	.cmp-engineSpecifications .ctaContainer {
+		margin-top: 30px;
+		margin-bottom: 0
+	}
+	
+	.cmp-engineSpecifications table:not(.nonResponsive) {
+		font-size: 12px
+	}
+	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
+	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
+		padding: 18px 18px;
+	}
+	.ResponsiveTable table:not(.nonResponsive) {
+		border-right-width: 15px;
+		border-left-width: 15px
+	}
+}
+
+@media screen and  (max-width:375px) {
+	.cmp-engineSpecifications .tableHeadingWrapper{		
+		font-size: 26px;	
+	}
+	
+	.cmp-engineSpecifications .headerBlock .heading {
+		padding: 40px 25px;
+	}
+	.cmp-engineSpecifications__summary{
+		padding-left: 25px;
+   		padding-right: 25px;
+    	padding-bottom: 24px;
+	}
+	
+    .cmp-engineSpecifications .ctaContainer {
+	
+		padding-left: 25px;
+   		padding-right: 74px;
+		padding-bottom : 40px;
+		/* padding-right: 2px; */
+	}
+
+	.cmp-engineSpecifications .responsiveTableArrow{
+		padding-bottom:40px;
+	}
+
+	.cmp-engineSpecifications .ResponsiveTable {
+		padding-left:25px;
+	}
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+		padding-left: 38px;
+		padding-top: 15px;
+		padding-bottom: 16px;
+	}
+	.cmp-engineSpecifications .ctaContainer .icon-arrow-right{
+		padding-left:-2px;
+	}
+
 	.cmp-engineSpecifications .headerBlock {
 		margin: 0 auto 30px
+	}
+	.ResponsiveTable.stickToRight {
+		position: relative
 	}
 	.cmp-engineSpecifications .responsiveTableArrow {
 		margin-top: -25px
@@ -436,10 +503,7 @@ caption{
 	.cmp-engineSpecifications th:first-child {
 		font-size: 14px
 	}
-	.cmp-engineSpecifications th:first-child .engineName {
-		color: #0c121c;
-		font-size: 18px
-	}
+	
 	.cmp-engineSpecifications th:first-child span {
 		font-size: 11px
 	}
