@@ -445,7 +445,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Article Container"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="/apps/jlr/components/article/v1/article">
+                            components="[/apps/jlr/components/article/v1/article,/apps/jlr/components/table/v1/table]">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0

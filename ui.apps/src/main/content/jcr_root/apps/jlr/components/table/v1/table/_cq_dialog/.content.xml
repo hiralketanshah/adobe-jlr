@@ -42,6 +42,7 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
                                 fieldDescription="Add the table HTML Markup without the &lt;table> tag. "
                                 fieldLabel="HTML"
+                                required="{Boolean}true"
                                 name="./tableHtml"/>
                         </items>
                     </properties>
