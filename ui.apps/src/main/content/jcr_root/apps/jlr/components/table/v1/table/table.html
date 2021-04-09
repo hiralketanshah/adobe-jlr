@@ -2,7 +2,7 @@
 	data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
 	data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
 	data-sly-test.hasContent="${table.tableHtml}" id="${component.id}" class="cmp-table">
-	<div data-sly-test="${table.headerCopy || table.copy || table.ctaList || table.tableHTML}">
+	<div data-sly-test="${table.headerCopy || table.copy || table.ctaList || table.tableHtml}">
 
 			<div class="cmp-engineSpecifications fontSmooth">
 				<div class="headerBlock">
@@ -10,7 +10,7 @@
 						<span class="tableHeadingWrapper">${table.headerCopy @ context='html'}</span>
 					</h1>
 					<div class="cmp-engineSpecifications__summary">${table.copy @ context='html'}</div>
-					<div class="ctaContainer" data-sly-test="${table.ctaList && table.ctaPosition == 'above'}"
+					<div class="ctaContainer" data-sly-test="${table.text && table.ctaPosition == 'above'}"
 						data-sly-list.cta=${table.ctaList}>
 						<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
 							<a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
@@ -35,7 +35,7 @@
 						${table.tableHtml @context = 'unsafe'}
 					</table>
 				</div>
-				<div class="bottomCta" data-sly-test="${table.ctaList && table.ctaPosition == 'below'}"
+				<div class="bottomCta" data-sly-test="${table.text && table.ctaPosition == 'below'}"
 					data-sly-list.cta=${table.ctaList}>
 					<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
 						<a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
