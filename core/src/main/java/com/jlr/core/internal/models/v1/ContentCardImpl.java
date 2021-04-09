@@ -1,9 +1,6 @@
 package com.jlr.core.internal.models.v1;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,7 +12,6 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
@@ -78,23 +74,6 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Override
     public String getBodyCopy() {
         return bodyCopy;
-    }
-
-    /**
-     * Gets the date.
-     *
-     * @return the date
-     * @throws ParseException
-     *             the parse exception
-     */
-    @Override
-    public String getDate() throws ParseException {
-        if (date != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat(CommonConstants.PN_AEM_DATE_FORMAT);
-            Date posteddate = sdf.parse(date);
-            return new SimpleDateFormat(CommonConstants.PN_REVISED_DATE_FORMAT).format(posteddate);
-        }
-        return null;
     }
 
     /**

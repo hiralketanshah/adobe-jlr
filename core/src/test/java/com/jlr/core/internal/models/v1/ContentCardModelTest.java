@@ -1,6 +1,6 @@
 package com.jlr.core.internal.models.v1;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
@@ -19,60 +19,61 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * The Class ContentCardModelTest.
  */
 @ExtendWith(AemContextExtension.class)
-class ContentCardModelTest {
+class ContentCardModelTest extends GlobalModelImplTest {
 
-/** The content card model. */
-private ContentCardModel contentCardModel;
+    /** The content card model. */
+    private ContentCardModel contentCardModel;
 
-/**
-	 * Sets the up.
-	 *
-	 * @param context the new up
-	 */
-	@BeforeEach
+    /**
+     * Sets the up.
+     *
+     * @param context
+     *            the new up
+     */
+    @BeforeEach
     public void setup(AemContext context) {
         context.load().json("/content/jlr/contentcard/contentcard.json", "/content/jlr/contentcard.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/contentcard.html");
         contentCardModel = resource.adaptTo(ContentCardImpl.class);
     }
-	
-	/**
-	 * Test properties.
-	 */
-	@Test
+
+    /**
+     * Test properties.
+     */
+    @Test
     void testProperties() {
-		List<CTAPojo> list = contentCardModel.getCtaList();
+        List<CTAPojo> list = contentCardModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_text", item.getText());
             assertEquals("http://www.google.com", item.getLink());
             assertEquals("_self", item.getTarget());
-            assertEquals("primary",item.getLinkType());
+            assertEquals("primary", item.getLinkType());
         });
     }
-	
-	/**
-	 * Test body copy.
-	 */
-	@Test
-	void testBodyCopy() {
-		assertEquals("body_copy", contentCardModel.getBodyCopy());
-	}
-	
-	/**
-	 * Test content type.
-	 */
-	@Test
-	void testContentType() {
-		assertEquals("image", contentCardModel.getAssestType());
-	}
-	
-	/**
-	 * Test video type.
-	 */
-	@Test
-	void testVideoType() {
-		assertEquals("videoId", contentCardModel.getVideoType());
-	}
+
+    /**
+     * Test body copy.
+     */
+    @Test
+    void testBodyCopy() {
+        assertEquals("body_copy", contentCardModel.getBodyCopy());
+    }
+
+    /**
+     * Test content type.
+     */
+    @Test
+    void testContentType() {
+        assertEquals("image", contentCardModel.getAssestType());
+    }
+
+    /**
+     * Test video type.
+     */
+    @Test
+    void testVideoType() {
+        assertEquals("videoId", contentCardModel.getVideoType());
+    }
 
 }
