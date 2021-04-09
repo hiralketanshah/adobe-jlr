@@ -7,7 +7,8 @@
 	padding-right: 0
 }
 
-.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
+.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{
 	width:276px;
 }
 
@@ -74,7 +75,9 @@
 	display: block
 }
 
-.cmp-engineSpecifications .ctaContainer {
+.cmp-engineSpecifications .ctaContainer,
+.cmp-engineSpecifications .bottomCta
+ {
 	margin-bottom: 0;
     text-align: left;
 }
@@ -251,8 +254,9 @@
 	border: 1px solid #a4a7a9
 }
 .cmp-table--table-light .cmp-engineSpecifications table:not(.nonResponsive) {
-	background-color: #E9ECEC;
-	border: 1px solid #a4a7a9
+	background-color: #F8F9F9;
+	border: 1px solid #a4a7a9;
+
 }
 /* add for table bg color */
 
@@ -320,20 +324,19 @@
 .ResponsiveTable table:not(.nonResponsive) tr th:first-child {	
 	padding-left: 18px;	
 }
-
-@media screen and (min-width:769px) {
-
-    .cmp-engineSpecifications .table {
-		padding-left:60px;
-        padding-right:60px;
+.cmp-engineSpecifications .ctaContainer {
+		margin-bottom: 0
 	}
+
+@media screen and (min-width:768px) {
+
+
     .ResponsiveTable table:not(.nonResponsive) tr td:first-child,	
 	.ResponsiveTable table:not(.nonResponsive) tr th:first-child {	
 		padding-left: 20px;	
 	}	
 	.cmp-engineSpecifications .stickToRight {
 		position: relative;
-        padding-right: 0px !important;
 	}
 
 	.cmp-engineSpecifications .tableHeadingWrapper{
@@ -346,21 +349,26 @@
 	}
 	.cmp-engineSpecifications__summary{
 		padding-left: 60px;
-    	padding-bottom: 25px;
+    	padding-bottom: 60px;
 		max-width: 760px;
 	}
-	
-    .cmp-engineSpecifications .ctaContainer {
-	
+	.cmp-engineSpecifications .bottomCta {
+		padding-top: 63px;
+	}
+
+    .cmp-engineSpecifications .ctaContainer,
+	.cmp-engineSpecifications .bottomCta	{
 		padding-left: 60px;
 		padding-bottom : 80px;
 	}
 	.cmp-engineSpecifications .ResponsiveTable {
 		padding-left:60px;
     	padding-right:60px;
-		
+
 	}
-	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
+	.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle
+	{
 		padding-left: 48px;
 		padding-top: 15px;
 		padding-bottom: 16px;
@@ -377,7 +385,7 @@
 	}	
 
 	.cmp-engineSpecifications .ctaContainer {
-		margin-top: 40px;
+		margin-top: 0;
 		margin-bottom: 0
 	}
 	.cmp-engineSpecifications .responsiveTableArrow {
@@ -386,33 +394,39 @@
 
 }
 
-@media screen and (min-width:376px) and (max-width:768px) {
+@media screen and (min-width:376px) and (max-width:767px) {
 
+	.cmp-engineSpecifications .stickToRight {
+		position: relative;
+	}
 	.cmp-engineSpecifications .tableHeadingWrapper{		
 		font-size: 33px;
 	}
 	.cmp-engineSpecifications .headerBlock {
-		margin: 0 auto 40px
+		margin: 0 auto 40px;
 	}
 	
 	.cmp-engineSpecifications .headerBlock .heading {
 		padding-top: 60px;
 		padding-bottom:17px;
 		padding-left: 30px;
-	}
+    	padding-right: 30px;
+		}
 	.cmp-engineSpecifications__summary{
 		padding-left: 30px;
 		padding-bottom: 24px;
 		max-width: 524px;
 	}
 	
-	.cmp-engineSpecifications .ctaContainer {
-	
+	.cmp-engineSpecifications .ctaContainer,
+	.cmp-engineSpecifications .bottomCta	{
 		padding-left: 30px;
-		padding-bottom : 80px;
+		padding-bottom : 40px;
 	}
 	
-	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
+	.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle
+	{
 		padding-left: 48px;
 		padding-top: 15px;
 		padding-bottom: 16px;
@@ -425,7 +439,7 @@
 	}	
 	.cmp-engineSpecifications .ResponsiveTable {
 		padding-left: 30px;
-		
+
 	}
 	.cmp-engineSpecifications .responsiveTableArrow {
 		margin-top: -25px
@@ -434,40 +448,40 @@
 	.cmp-engineSpecifications th:first-child span {
 		font-size: 11px
 	}
-	
+
 	.cmp-engineSpecifications .ctaContainer {
 		margin-top: 30px;
 		margin-bottom: 0
 	}
-	
-	.cmp-engineSpecifications table:not(.nonResponsive) {
-		font-size: 12px
+    .cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{
+		margin-top: 60px;
+		margin-bottom: 0
 	}
-	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
-	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
-		padding: 18px 18px;
-	}
-	.ResponsiveTable table:not(.nonResponsive) {
-		border-right-width: 15px;
-		border-left-width: 15px
-	}
+
+
+
+
 }
 
 @media screen and  (max-width:375px) {
+
+
 	.cmp-engineSpecifications .tableHeadingWrapper{		
-		font-size: 26px;	
+		font-size: 26px;
+
 	}
 	
-	.cmp-engineSpecifications .headerBlock .heading {
+	.cmp-engineSpecifications .headerBlock  {
 		padding: 40px 25px;
 	}
 	.cmp-engineSpecifications__summary{
-		padding-left: 25px;
+    	padding-top : 16px;
    		padding-right: 25px;
     	padding-bottom: 24px;
 	}
 	
-    .cmp-engineSpecifications .ctaContainer {
+    .cmp-engineSpecifications .ctaContainer,
+	.cmp-engineSpecifications .bottomCta{
 	
 		padding-left: 25px;
    		padding-right: 74px;
@@ -482,7 +496,9 @@
 	.cmp-engineSpecifications .ResponsiveTable {
 		padding-left:25px;
 	}
-	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle{
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
+	.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle
+	{
 		padding-left: 38px;
 		padding-top: 15px;
 		padding-bottom: 16px;
@@ -503,7 +519,7 @@
 	.cmp-engineSpecifications th:first-child {
 		font-size: 14px
 	}
-	
+
 	.cmp-engineSpecifications th:first-child span {
 		font-size: 11px
 	}
@@ -518,12 +534,14 @@
 		font-size: 9px;
 		top: 3px
 	}
-	.cmp-engineSpecifications .ctaContainer {
+	.cmp-engineSpecifications .ctaContainer,
+	.cmp-engineSpecifications .bottomCta{
 		margin-top: 30px;
 		margin-bottom: 0
 	}
-	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle {
-		width: 100%
+	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
+	.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{
+		width: 276px;
 	}
 	.cmp-engineSpecifications table:not(.nonResponsive) {
 		font-size: 12px
@@ -532,8 +550,5 @@
 	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
 		padding: 18px 18px;
 	}
-	.ResponsiveTable table:not(.nonResponsive) {
-		border-right-width: 15px;
-		border-left-width: 15px
-	}
+
 }
