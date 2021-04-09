@@ -496,12 +496,12 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
-                                            cq:styleClasses="signpost"
+                                            cq:styleClasses="cmp-signPost"
                                             cq:styleId="1617904926367"
                                             cq:styleLabel="Signpost"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="vehiclesummary"
+                                            cq:styleClasses="cmp-vehicleSummary"
                                             cq:styleId="1617904958476"
                                             cq:styleLabel="Vehicle Summary"
                                             jcr:primaryType="nt:unstructured"/>
