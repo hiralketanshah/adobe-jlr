@@ -13053,7 +13053,7 @@ function(a, b) {
         init: function() {
             var c = this;
             if (this.$element.parent().find("> br").remove(), this.$element.wrap('<div class="ResponsiveTableContainer"><div class="ResponsiveTable"></div></div>'), this._$container = this.$element.parents(".ResponsiveTable"), !this.$element.hasClass("alternativeRussianLayout")) {
-                var d = this.$element.parents(".EngineSpecifications, .VehicleSpecifications, .EmissionsTable").length;
+                var d = this.$element.parents(".cmp-engineSpecifications, .VehicleSpecifications, .EmissionsTable").length;
                 this._containerType = d ? "spectable" : "article";
                 var e = function() {
                     c._checkWidths(), c._stickToRight(), c._callMatchRowHeights()
@@ -13085,7 +13085,7 @@ function(a, b) {
             }
         },
         _divide: function() {
-            this.$element.wrap('<div class="tableWrapper" />'), this._$container.before('<div class="responsiveTableArrow clearfix"><div class="leftArrow"></div><div class="bar"></div><div class="rightArrow"></div></div>').after('<div class="responsiveTableArrow bottom clearfix"><div class="leftArrow"></div><div class="bar"></div><div class="rightArrow"></div></div>');
+            this.$element.wrap('<div class="tableWrapper" />'), this._$container.before('<div class="responsiveTableArrow clearfix"><div class="bar"></div></div>');
             var a = this.$element.clone();
             a.find("td:not(:first-child), th:not(:first-child)").css("display", "none"), this.$element.closest(".tableWrapper").append(a), a.wrap('<div class="pinned" />'), this.$element.wrap('<div class="scrollable" />'), this.$element.attr("tabindex", "0"), this._divided = !0
         },
@@ -18665,7 +18665,7 @@ var site = {
         }), g === !0 && 0 === $(".ModelSelector:not(.inPageModelSelector)").length && $(".MainNavigation .vehicles a").VehicleSelector({
             overlay: !0
         }), e = null, $(".QuickQuote").QuickQuote(), $(".ScrollDown").ScrollDown(), $(".SidebarImage").SidebarImage(), $(".DualFrameCarousel").DualFrameCarousel(), $(".DualFrameCarousel2").DualFrameCarousel2();
-        var h = $(".Article table:not(.nonResponsive), .EngineSpecifications table:not(.nonResponsive), .VehicleSpecifications table:not(.nonResponsive)");
+        var h = $(".Article table:not(.nonResponsive), .cmp-engineSpecifications table:not(.nonResponsive), .VehicleSpecifications table:not(.nonResponsive)");
         h.ResponsiveTable(), $(".TabFilter", this.$element).TabFilter(), $(".ApprovedUsedVehicle").ApprovedUsedVehicle(), $(".MapLocation2").MapLocation2(), $(".VehicleSpecificationsV2").VehicleSpecificationsV2(), $(".AtAGlance").AtAGlance(), $(".FrameSlider").FrameSlider(), $(".Quote").Quote(), $(".QuotePlayer").QuotePlayer(), $(".YouTubePlayer").filter(function() {
             return 0 === $(this).parent(".galleryItem").length
         }).YouTubePlayer(), site.utils.assignYouTubeIframeAPIReady(), $(".VideoPlayer").filter(function() {
