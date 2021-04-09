@@ -326,11 +326,11 @@
                                                     <format1
                                                         jcr:primaryType="nt:unstructured"
                                                         text="DD-MM-YYYY"
-                                                        value="DD-MM-YYYY"/>
+                                                        value="dd-MM-yyyy"/>
                                                     <format2
                                                         jcr:primaryType="nt:unstructured"
                                                         text="MM DD YYYY"
-                                                        value="MM DD YYYY"/>
+                                                        value="MM dd yyyy"/>
                                                 </items>
                                             </dateFormat>
                                         </items>

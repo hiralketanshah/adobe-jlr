@@ -19,39 +19,40 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * The Class HeroCarouselModelImplTest.
  */
 @ExtendWith(AemContextExtension.class)
-class HeroCarouselModelImplTest {
-	
-	/** The hero carousel model. */
-	private HeroCarouselModel heroCarouselModel;
-	
-	/**
-	 * Sets the up.
-	 *
-	 * @param context the new up
-	 */
-	@BeforeEach
+class HeroCarouselModelImplTest extends GlobalModelImplTest {
+
+    /** The hero carousel model. */
+    private HeroCarouselModel heroCarouselModel;
+
+    /**
+     * Sets the up.
+     *
+     * @param context
+     *            the new up
+     */
+    @BeforeEach
     public void setup(AemContext context) {
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
         heroCarouselModel = resource.adaptTo(HeroCarouselModelImpl.class);
     }
-	
-	/**
-	 * Test properties.
-	 */
-	@Test
+
+    /**
+     * Test properties.
+     */
+    @Test
     void testProperties() {
-		assertEquals("description_test", heroCarouselModel.getDescription());
-		assertEquals(true, heroCarouselModel.getEnableTco());
-		List<CTAPojo> list = heroCarouselModel.getCtaList();
+        assertEquals("description_test", heroCarouselModel.getDescription());
+        assertEquals(true, heroCarouselModel.getEnableTco());
+        List<CTAPojo> list = heroCarouselModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_text", item.getText());
             assertEquals("http://www.google.com", item.getLink());
             assertEquals("_self", item.getTarget());
-            assertEquals("primary",item.getLinkType());
+            assertEquals("primary", item.getLinkType());
         });
-        
+
     }
 
 }

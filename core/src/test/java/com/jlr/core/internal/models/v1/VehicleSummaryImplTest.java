@@ -19,7 +19,7 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * The Class VehicleSummaryImplTest.
  */
 @ExtendWith(AemContextExtension.class)
-class VehicleSummaryImplTest {
+class VehicleSummaryImplTest extends GlobalModelImplTest {
 
     /** The vehicle summary model. */
     private VehicleSummaryModel vehicleSummaryModel;
@@ -42,6 +42,7 @@ class VehicleSummaryImplTest {
     /**
      * Test cta properties.
      */
+    @Override
     @Test
     void testCtaProperties() {
         List<CTAPojo> list = vehicleSummaryModel.getCtaList();
