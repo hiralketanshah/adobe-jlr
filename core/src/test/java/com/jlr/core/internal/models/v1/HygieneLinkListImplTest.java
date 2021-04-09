@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.jlr.core.models.HygieneLinksModel;
 import com.jlr.core.pojos.HygieneLinks;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -17,10 +18,10 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * The Class HygieneLinkListImplTest.
  */
 @ExtendWith(AemContextExtension.class)
-class HygieneLinkListImplTest {
+class HygieneLinkListImplTest extends GlobalModelImplTest {
 
 	/** The hygienelinks model. */
-	HygieneLinkListImpl hygienelinksModel;
+	HygieneLinksModel hygienelinksModel;
 	
 	/** The resource. */
 	private Resource resource;
@@ -35,7 +36,7 @@ class HygieneLinkListImplTest {
     void setUp(AemContext context) throws Exception {
 		context.load().json("/content/jlr/hygienelinks/hygienelinks.json", "/content/jlr/hygienelinks.html");
         resource = context.resourceResolver().getResource("/content/jlr/hygienelinks.html");
-        hygienelinksModel = resource.adaptTo(HygieneLinkListImpl.class);
+        hygienelinksModel = resource.adaptTo(HygieneLinksModel.class);
     }
 
 

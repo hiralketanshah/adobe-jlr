@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.jlr.core.models.SocialLinksModel;
 import com.jlr.core.pojos.SocialLinks;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -18,10 +19,10 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * The Class SocialLinksImplTest.
  */
 @ExtendWith(AemContextExtension.class)
-class SocialLinksImplTest {
+class SocialLinksImplTest extends GlobalModelImplTest {
 
 	/** The sociallinks model. */
-	SocialLinksImpl sociallinksModel;
+	SocialLinksModel sociallinksModel;
 	
 	/** The resource. */
 	private Resource resource;
@@ -36,15 +37,15 @@ class SocialLinksImplTest {
     void setUp(AemContext context) throws Exception {
 		context.load().json("/content/jlr/sociallinks/sociallinks.json", "/content/jlr/sociallinks.html");
         resource = context.resourceResolver().getResource("/content/jlr/sociallinks.html");
-        sociallinksModel = resource.adaptTo(SocialLinksImpl.class);
+        sociallinksModel = resource.adaptTo(SocialLinksModel.class);
     }
 
-
+	
 	/**
-	 * Test get links.
+	 * Test get social links.
 	 */
 	@Test
-	void testGetLinks() {
+	void testGetSocialLinks() {
 		List<SocialLinks> sociallinks = sociallinksModel.getSocialLinks();
         assertEquals(1, sociallinks.size());
         sociallinks.forEach(item -> {
