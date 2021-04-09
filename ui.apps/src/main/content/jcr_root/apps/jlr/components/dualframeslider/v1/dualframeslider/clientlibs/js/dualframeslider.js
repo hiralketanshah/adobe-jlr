@@ -1765,7 +1765,7 @@
             _loadImageFrames: function _loadImageFrames() {
 
               this.loadedFrames = { desktop: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [0, this.$element.attr('data-length')], digits: 1 }, ), desktopSmall: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [0, this.$element.attr('data-length')], digits: 1 }) };
-              console.log(this.loadedFrames);
+              //console.log(this.loadedFrames);
             },
             _setBreakpointState: function _setBreakpointState(e) {
               var breakpoints = this.breakpoints;
@@ -1789,7 +1789,7 @@
             _setImageDimensions: function _setImageDimensions() {
               if (this.currentState === 'desktop' || this.currentState === 'tablet') {
                 this.imgHeight = 946;
-                this.imgWidth = 1350;
+                this.imgWidth = 1700;
               } else {
                 this.imgHeight = 960;
                 this.imgWidth = 1110;
@@ -1895,6 +1895,7 @@
               this.spriteSpinApi = this.$spriteSpinElement.spritespin('api'); // Set API object
             },
             _multiFrame_HeightWidthRatio: function _multiFrame_HeightWidthRatio() {
+              console.log(this.imgHeight, this.imgWidth)
               return this.imgHeight / this.imgWidth;
             },
             _bindTransitionEndEvent: function _bindTransitionEndEvent() {

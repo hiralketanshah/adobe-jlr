@@ -248,15 +248,18 @@
         padding-right: 0px;
     }
 }
-@media screen and (min-width: 1281px) and (max-width: 1920px)  {
+@media screen and (min-width: 1280px) and (max-width: 1919px)  {
     .dualframeslider.right .cmp-dualFrameSlider, 
     .dualframeslider.left .cmp-dualFrameSlider {
         padding: 60px 150px;
-    }
-    
-    
+    }    
 }
-
+@media screen and (min-width: 1920px) and (max-width: 2560px)  {
+    .dualframeslider.right .cmp-dualFrameSlider, 
+    .dualframeslider.left .cmp-dualFrameSlider {
+        padding: 60px 295px;
+    }    
+}
 .cmp-dualFrameSlider__slider .DxRangeSlider .noUi-touch-area {
     left: -9px !important;
     top: -7px !important;
