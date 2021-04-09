@@ -596,6 +596,21 @@
                     </genericexternalapp>
                 </v1>
             </genericexternalapp>
+            <footerlinks jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <footerlinks jcr:primaryType="nt:unstructured">
+                        <policy_1617861364323
+                            jcr:lastModified="{Date}2021-04-08T11:26:29.227+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Links"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            iconDisabled="true">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1617861364323>
+                    </footerlinks>
+                </v1>
+            </footerlinks>
             <carousel jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <carousel jcr:primaryType="nt:unstructured">

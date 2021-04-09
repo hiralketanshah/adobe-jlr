@@ -1,0 +1,30 @@
+<sly data-sly-use.footercontainer="com.jlr.core.models.FooterContainerModel"
+data-sly-use.showmore="${'com.jlr.core.models.SiteConfigModel' @ key='footer.label.showMore'}"
+data-sly-use.showless="${'com.jlr.core.models.SiteConfigModel' @ key='footer.label.showLess'}"
+ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+	<div data-sly-test="${empty}" class="cq-placeholder" data-emptytext="Footer Container Component"></div>
+	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.footercontainer.v1']}" />
+	<footer>
+		<div class="cmp_footerNav col-four" data-show-less="${showless.configValue}" data-show-more="${showmore.configValue}">
+			<div class="cmp_footerNav__footerWrapper">
+				<div class="cmp_footerNav__navWrapper el">
+					<div data-sly-resource="${'footerlinks_col_one' @ resourceType='jlr/components/footerlinks/v1/footerlinks'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+					<div data-sly-resource="${'col_one' @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+				</div>
+				<div class="cmp_footerNav__navWrapper el">
+					<div data-sly-resource="${'footerlinks_col_two' @ resourceType='jlr/components/footerlinks/v1/footerlinks'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+					<div data-sly-resource="${'col_two' @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+				</div>
+				<div class="cmp_footerNav__navWrapper el">
+					<div data-sly-resource="${'footerlinks_col_three' @ resourceType='jlr/components/footerlinks/v1/footerlinks'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+					<div data-sly-resource="${'col_three' @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+				</div>
+				<div class="cmp_footerNav__navWrapper cmp_footerNav__socialLinks socialLinks el" id="social">
+					<div data-sly-resource="${'col_four' @ resourceType='jlr/components/sociallinks/v1/sociallinks'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+				</div>
+			</div>
+			<div data-sly-resource="${'hygiene_link' @ resourceType='jlr/components/hygienelinks/v1/hygienelinks'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+			<div data-sly-resource="${ 'sub_footer' @ resourceType='jlr/components/subfooter/v1/subfooter'}" data-sly-unwrap="${!wcmmode.edit}"></div>
+		</div>
+	</footer>
