@@ -14,6 +14,7 @@ public class CommonConstants {
     public static final String DEFAULT_SECONDARY_ICON = "icon-arrow-right";
     public static final String DEFAULT_LOCALE = "en";
     public static final String BLANK_SPACE = " ";
+    public static final String COMMA = ",";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
