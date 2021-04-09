@@ -2964,7 +2964,7 @@
                     const $marketSelectorElement = $('.cmp_footerNav__marketSelectorContainer', this.$element);
 
                     //$('.cmp_footerNav').css('padding-bottom', hygieneLinksHeight);
-                    //$marketSelectorElement.css('bottom', hygieneLinksHeight);
+                    $marketSelectorElement.css('bottom', hygieneLinksHeight);
                 },
 
                 _initMobileLinks() {
