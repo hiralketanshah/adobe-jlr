@@ -512,7 +512,7 @@
 		position: absolute;
 		width: 100%;
 		left: 0;
-		bottom: 40px
+		bottom: 248px !important
 	}
 	.cmp_footerNav__hygieneLinks li.open .toggleContent li {
 		float: none;
@@ -580,7 +580,7 @@
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
 	.cmp_footerNav {
-		padding-bottom: 82px;
+		padding-bottom: 0px;
 		padding-left: 0
 	}
 	.cmp_footerNav__footerWrapper {
