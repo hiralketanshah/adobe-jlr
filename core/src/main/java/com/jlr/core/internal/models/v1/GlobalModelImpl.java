@@ -70,6 +70,9 @@ public class GlobalModelImpl implements GlobalModel {
     private String ariaLabel;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String logoPath;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoId;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -173,7 +176,6 @@ public class GlobalModelImpl implements GlobalModel {
         return ariaLabel;
     }
 
-    @Override
     public String getVideoId() {
         return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
     }
