@@ -15,7 +15,6 @@ public class CommonConstants {
     public static final String DEFAULT_LOCALE = "en";
     public static final String BLANK_SPACE = " ";
 
-
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
@@ -35,6 +34,8 @@ public class CommonConstants {
     public static final String PN_IMAGE_ALT = "imageAlt";
     public static final String PN_CTA_LINK_TYPE = "linkType";
     public static final String PN_IMAGE_LINK = "imageLink";
+    public static final String PN_LOGO_PATH = "logoPath";
+    public static final String PN_SOCIAL_ICONS = "socialicon";
     public static final String YOUTUBE_EMBED_URL = "https://youtube.com/embed/";
     public static final String PN_PRIMARY_LOGO = "iconPrimary";
     public static final String PN_AEM_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
@@ -45,6 +46,7 @@ public class CommonConstants {
     public static final String PN_FAQ_ANSWER_CAVEAT = "answerCaveat";
     public static final String PN_NAMEPLATE_CODE = "namePlateCode";
     public static final String PN_MODELYEAR = "modelYear";
+    public static final String PN_DATE_FORMAT = "dateFormat";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";

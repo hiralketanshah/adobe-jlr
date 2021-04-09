@@ -640,6 +640,91 @@
                     </genericexternalapp>
                 </v1>
             </genericexternalapp>
+            <footerlinks jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <footerlinks jcr:primaryType="nt:unstructured">
+                        <policy_1617861364323
+                            jcr:lastModified="{Date}2021-04-08T11:26:29.227+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Links"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            iconDisabled="true">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1617861364323>
+                    </footerlinks>
+                </v1>
+            </footerlinks>
+            <carousel jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <carousel jcr:primaryType="nt:unstructured">
+                        <policy_1617711636936
+                            cq:styleDefaultClasses="white"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Carousel"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            autopauseDisabled="false"
+                            autoplay="true"
+                            components="/apps/jlr/components/accolade/v1/accolade"
+                            delay="6000">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1617788095061"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1617788099464"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1617788109684"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1617788116763"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1617711636936>
+                    </carousel>
+                </v1>
+            </carousel>
+            <accolade jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <accolade jcr:primaryType="nt:unstructured">
+                        <policy_1617788181626
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Accolade"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Special Color"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="specialColor"
+                                            cq:styleId="1617788194443"
+                                            cq:styleLabel="Green"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1617788181626>
+                    </accolade>
+                </v1>
+            </accolade>
         </components>
     </jlr>
 </jcr:root>

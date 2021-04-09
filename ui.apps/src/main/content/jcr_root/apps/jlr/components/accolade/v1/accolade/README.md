@@ -17,16 +17,17 @@ The following properties are written to JCR for this Accolade component and are 
 2. `./headerCopy` - defines the header copy for the component
 3. `./copy` - defines the body copy for the component
 4. `./date` - defines the date (optional)
-5. `./backgroundImage` - defines background image for the component
 6. `./logoImage` - defines the image for the logo for the component
-7. `./text` - defines the CTA text for the component
-8. `./link` - defines the CTA link for the component
-9. `./target` - defines the CTA target (new tab or current tab) for the component
+7. `./imageAlt` - defines the alternative text for the image
+8. `./text` - defines the CTA text for the component
+9. `./link` - defines the CTA link for the component
+10. `./ariaLabel` - defines the aria label for the CTA
+11. `./target` - defines the CTA target (new tab or current tab) for the component
 
 The edit dialog allows the page to be refreshed after editing the component
 
 ## Client Libraries
-The component provides a `jaguar.components.accolade.v1` client library category that contains a recommended base
+The component provides a `jlr.components.accolade.v1` client library category that contains a recommended base
 CSS styling and JavaScript component. It should be added to a relevant site client library using the `embed` property.
 
 ## Information

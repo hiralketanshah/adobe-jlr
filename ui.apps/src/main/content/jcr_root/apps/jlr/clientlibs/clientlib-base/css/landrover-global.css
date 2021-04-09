@@ -312,6 +312,7 @@ table {
 	from {
 		-webkit-transform: rotate(0deg)
 	}
+
 	to {
 		-webkit-transform: rotate(360deg)
 	}
@@ -321,6 +322,7 @@ table {
 	from {
 		transform: rotate(0deg)
 	}
+
 	to {
 		transform: rotate(360deg)
 	}
@@ -330,6 +332,7 @@ table {
 	0% {
 		transform: rotate(0deg)
 	}
+
 	100% {
 		transform: rotate(360deg)
 	}
@@ -946,6 +949,7 @@ table {
 	0% {
 		transform: rotate(0deg)
 	}
+
 	100% {
 		transform: rotate(359deg)
 	}
@@ -1149,6 +1153,7 @@ body.focusStylesOn .DxTabs__tab:focus {
 }
 
 @media screen and (min-width: 901px) {
+
 	.rtl .DxTabs__tab[class^="icon-"],
 	.rtl .DxTabs__tab[class*=" icon-"] {
 		padding-left: 18px
@@ -1196,9 +1201,11 @@ body.focusStylesOn .DxTabs__tab:focus {
 		padding: 5px;
 		width: auto
 	}
+
 	.DxTabs__tablist:before {
 		display: none
 	}
+
 	.DxTabs__mask {
 		position: absolute;
 		top: 5px;
@@ -1208,12 +1215,14 @@ body.focusStylesOn .DxTabs__tab:focus {
 		box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.5);
 		pointer-events: none
 	}
+
 	.DxTabs__tab {
 		font-size: 1.1rem;
 		line-height: 1.4rem;
 		padding: 10px 18px 9px;
 		min-height: 35px
 	}
+
 	.DxTabs__tab:last-of-type:after {
 		display: none
 	}
@@ -1296,10 +1305,12 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 	.DxTabs__tab {
 		padding: 8px 18px 11px
 	}
+
 	.DxTabs__tab,
 	.DxTabs__tab:not(.DxTabs__tab--active) {
 		background-color: rgba(12, 18, 28, 0.9)
 	}
+
 	.DxTabs__tab--active {
 		background: #fff
 	}
@@ -2742,6 +2753,7 @@ html {
 body {
 	color: #fff;
 	height: 100%;
+	background-color: #4a4f54
 }
 
 body:not(.isFullscreen) {
@@ -2846,6 +2858,7 @@ html.noScroll.forceScrollBar.no-touch .pageWrapper {
 		text-align: center;
 		padding: 80px 0
 	}
+
 	#jaguar .marketSelectorTemplate #logo img {
 		position: static
 	}
@@ -2863,6 +2876,7 @@ html.noScroll.forceScrollBar.no-touch .pageWrapper {
 	#jaguar .marketSelectorTemplate #logo {
 		padding: 32px 0
 	}
+
 	#jaguar .marketSelectorTemplate #logo img {
 		margin-top: 32px
 	}
@@ -2904,6 +2918,7 @@ body.isFullscreen .container {
 	.section {
 		width: 96%
 	}
+
 	.el .section {
 		width: 100%
 	}
@@ -2914,9 +2929,11 @@ body.isFullscreen .container {
 		width: 100%;
 		min-width: 320px
 	}
+
 	.el .section {
 		width: 100%
 	}
+
 	body .el .el {
 		left: 0;
 		width: 100%
@@ -2927,6 +2944,7 @@ body.isFullscreen .container {
 	.section {
 		width: 100%
 	}
+
 	.el .section {
 		width: 100%
 	}
@@ -3115,6 +3133,7 @@ body.isFullscreen .container {
 	.GridListWrapper {
 		padding: 40px 20px
 	}
+
 	.GridListWrapper .items .el,
 	.GridListWrapper .items[data-total="4"] .el,
 	.GridListWrapper .items[data-total="5"] .el,
@@ -3123,6 +3142,7 @@ body.isFullscreen .container {
 	.GridListWrapper .items[data-total="8"] .el {
 		width: 50%
 	}
+
 	.GridListWrapper[data-wrapper="float"] .items .el:nth-child(3n+1),
 	.GridListWrapper[data-wrapper="float"] .items .el:nth-child(4n+1),
 	.GridListWrapper[data-wrapper="float"] .items[data-total="4"] .el:nth-child(3n+1),
@@ -3137,6 +3157,7 @@ body.isFullscreen .container {
 	.GridListWrapper[data-wrapper="float"] .items[data-total="8"] .el:nth-child(4n+1) {
 		clear: none
 	}
+
 	.GridListWrapper[data-wrapper="float"] .items .el:nth-child(2n+1),
 	.GridListWrapper[data-wrapper="float"] .items[data-total="4"] .el:nth-child(2n+1),
 	.GridListWrapper[data-wrapper="float"] .items[data-total="5"] .el:nth-child(2n+1),
@@ -3145,6 +3166,7 @@ body.isFullscreen .container {
 	.GridListWrapper[data-wrapper="float"] .items[data-total="8"] .el:nth-child(2n+1) {
 		clear: left
 	}
+
 	.GridListWrapper .ctaContainer {
 		margin-top: 0;
 		margin-bottom: 0
@@ -3155,6 +3177,7 @@ body.isFullscreen .container {
 	.GridListWrapper {
 		padding: 30px 10px 0
 	}
+
 	.GridListWrapper .items .el,
 	.GridListWrapper .items[data-total="1"] .el,
 	.GridListWrapper .items[data-total="2"] .el,
@@ -3165,6 +3188,7 @@ body.isFullscreen .container {
 	.GridListWrapper .items[data-total="8"] .el {
 		width: 100%
 	}
+
 	.GridListWrapper .items .el img,
 	.GridListWrapper .items[data-total="1"] .el img,
 	.GridListWrapper .items[data-total="2"] .el img,
@@ -3175,6 +3199,7 @@ body.isFullscreen .container {
 	.GridListWrapper .items[data-total="8"] .el img {
 		margin-bottom: 22px
 	}
+
 	.GridListWrapper .items .el .carouselImageLink,
 	.GridListWrapper .items[data-total="1"] .el .carouselImageLink,
 	.GridListWrapper .items[data-total="2"] .el .carouselImageLink,
@@ -3185,10 +3210,12 @@ body.isFullscreen .container {
 	.GridListWrapper .items[data-total="8"] .el .carouselImageLink {
 		margin-bottom: 22px
 	}
+
 	.GridListWrapper[data-wrapper="float"] .items .el {
 		float: none;
 		clear: both
 	}
+
 	.GridListWrapper .ctaContainer {
 		margin-bottom: 30px
 	}
@@ -3243,10 +3270,23 @@ body.isFullscreen .container {
 [data-theme="grey"] .heading a,
 .grey .heading,
 .grey .heading a,
+
+
+.white .heading,
+.white .heading a,
+
+
 .no-js .lightWhenNoJS .heading,
 .no-js .lightWhenNoJS .heading a {
 	color: #0c121c
 }
+
+
+
+.slateblue .heading {
+	color: #FFFFFF;
+}
+
 
 .light .heading .headingWrapper:before,
 .light .heading .headingWrapper:after,
@@ -3264,6 +3304,13 @@ body.isFullscreen .container {
 .grey .heading .headingWrapper:after,
 .grey .heading a .headingWrapper:before,
 .grey .heading a .headingWrapper:after,
+
+
+.white .heading .headingWrapper:before,
+.white .heading .headingWrapper:after,
+.white .heading a .headingWrapper:before,
+.white .heading a .headingWrapper:after,
+
 .no-js .lightWhenNoJS .heading .headingWrapper:before,
 .no-js .lightWhenNoJS .heading .headingWrapper:after,
 .no-js .lightWhenNoJS .heading a .headingWrapper:before,
@@ -3333,6 +3380,7 @@ body.isFullscreen .container {
 	.headerBlock {
 		margin-bottom: 40px
 	}
+
 	.headerBlock .subHeading {
 		font-size: 1.4rem;
 		line-height: 1.9rem;
@@ -3345,14 +3393,17 @@ body.isFullscreen .container {
 	.headerBlock {
 		margin-bottom: 30px
 	}
+
 	.headerBlock .subHeading {
 		max-width: none;
 		font-size: 14px
 	}
+
 	.headerBlock.headerBlockH3:not(.headerBlockH3CentreSmall),
 	.headerBlock.headerBlockH3:not(.headerBlockH3CentreSmall) .heading {
 		text-align: left
 	}
+
 	.headerBlock.headerBlockWithForm {
 		margin-bottom: 30px
 	}
@@ -3440,6 +3491,7 @@ body.isFullscreen .container {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.heading.headingLinear .headingWrapper .headingTextSub,
 	.heading.headingFocus .headingWrapper .headingTextSub {
 		margin-top: 5px
@@ -3577,26 +3629,32 @@ h6.heading,
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	h1.heading,
 	.heading.headingH1 {
 		font-size: 42px
 	}
+
 	h2.heading,
 	.heading.headingH2 {
 		font-size: 33px
 	}
+
 	h3.heading,
 	.heading.headingH3 {
 		font-size: 21px
 	}
+
 	h4.heading,
 	.heading.headingH4 {
 		font-size: 18px
 	}
+
 	h5.heading,
 	.heading.headingH5 {
 		font-size: 16px
 	}
+
 	h6.heading,
 	.heading.headingH6 {
 		font-size: 14px
@@ -3604,26 +3662,32 @@ h6.heading,
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	h1.heading,
 	.heading.headingH1 {
 		font-size: 30px
 	}
+
 	h2.heading,
 	.heading.headingH2 {
 		font-size: 26px
 	}
+
 	h3.heading,
 	.heading.headingH3 {
 		font-size: 18px
 	}
+
 	h4.heading,
 	.heading.headingH4 {
 		font-size: 16px
 	}
+
 	h5.heading,
 	.heading.headingH5 {
 		font-size: 15px
 	}
+
 	h6.heading,
 	.heading.headingH6 {
 		font-size: 14px
@@ -3631,10 +3695,12 @@ h6.heading,
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.heading.headingLinear .headingWrapper,
 	.heading.headingFocus .headingWrapper {
 		padding: 0
 	}
+
 	.heading.headingLinear .headingWrapper:before,
 	.heading.headingLinear .headingWrapper:after,
 	.heading.headingFocus .headingWrapper:before,
@@ -3663,6 +3729,7 @@ h6.heading,
 	.shelfComponent {
 		padding: 40px 40px
 	}
+
 	.shelfComponent .ctaContainer {
 		margin-top: 40px
 	}
@@ -3672,6 +3739,7 @@ h6.heading,
 	.shelfComponent {
 		padding: 30px 30px
 	}
+
 	.shelfComponent .ctaContainer {
 		margin-top: 30px
 	}
@@ -4859,6 +4927,7 @@ h6.heading,
 	.onlyOnMobile {
 		display: none !important
 	}
+
 	.hideOnTablet {
 		display: none !important
 	}
@@ -5233,6 +5302,25 @@ p>a {
 	text-decoration: none
 }
 
+
+/* add for slateblue  */
+#landrover .slateblue .plwsLight,
+#landrover .slateblue .plwsTransparentLight {
+	background-color: #FFFFFF;
+	color: #000;
+	text-decoration: none
+}
+
+#landrover .slateblue .secondaryLinkWithStyle {
+	color: #FFFFFF;
+}
+
+#landrover .slateblue .secondaryLinkWithStyle:before {
+	color: #FFFFFF;
+}
+
+/* add for slateblueend */
+
 #landrover .light .plwsLight:hover,
 #landrover .light .plwsLight:active,
 #landrover .light .plwsTransparentLight:hover,
@@ -5260,6 +5348,17 @@ p>a {
 	background-color: #fff;
 	color: #0c121c;
 	box-shadow: 0 0 0 1px #0c121c inset
+}
+
+
+#landrover .slateblue .plwsLight:hover,
+#landrover .slateblue .plwsLight:active,
+#landrover .slateblue .plwsTransparentLight:hover,
+#landrover .slateblue .plwsTransparentLight:active {
+	background-color: #F8F9F9;
+	;
+	color: #fff;
+	box-shadow: 0 0 0 1px #fff inset
 }
 
 #landrover .light .plwsLight:focus,
@@ -5292,6 +5391,16 @@ p>a {
 	background-color: #e4e4e4;
 	color: #fff
 }
+
+/* add for slate blue disable */
+#landrover .slateblue .plwsLight.disabled,
+#landrover .slateblue .plwsTransparentLight.disabled {
+	background-color: #FFFF;
+	color: #000;
+	outline: 2px solid #FFF;
+}
+
+/*add for slate blue disable end  */
 
 #landrover .light .plwsLight.disabled:hover,
 #landrover .light .plwsTransparentLight.disabled:hover,
@@ -5642,10 +5751,7 @@ p>a {
 
 #landrover .dark .secondaryLinkWithStyle:hover span,
 #landrover .dark .secondaryLinkWithStyle:active span,
-#landrover .dark .secondaryLinkWithStyle:focus span,
-#landrover [data-theme="dark"] .secondaryLinkWithStyle:hover span,
-#landrover [data-theme="dark"] .secondaryLinkWithStyle:active span,
-#landrover [data-theme="dark"] .secondaryLinkWithStyle:focus span {
+#landrover .dark .secondaryLinkWithStyle:focus span {
 	border-bottom: 1px solid #C9C9C9
 }
 
@@ -6123,6 +6229,7 @@ h6 {
 	line-height: 1;
 	font-family: "lr_ot4", "arial", "helvetica", sans-serif;
 	font-weight: 700;
+	color: #0c121c
 }
 
 dl dt,
@@ -6222,9 +6329,14 @@ body {
 	color: #e4e8e8
 }
 
-.grey {
+/* .grey {
 	background-color: #e9ecec;
 	color: #4a4f54
+} */
+
+.grey {
+	background-color: #F8F9F9;
+	color: #4a4f54;
 }
 
 #jaguar .grey h1,
@@ -6256,8 +6368,17 @@ body {
 	color: #4a4f54
 }
 
-.light,
-.white,
+.light {
+	background-color: #E9ECEC;
+	color: #4a4f54
+}
+
+.white {
+	background-color: #FFFFFF;
+	color: #4a4f54
+}
+
+
 .no-js .lightWhenNoJS {
 	background-color: #f8f9f9;
 	color: #4a4f54
@@ -6407,9 +6528,11 @@ input[type=checkbox] {
 	.infoCardLayout {
 		padding-bottom: 30px
 	}
+
 	.infoCardLayout .list {
 		margin: 0
 	}
+
 	.infoCardLayout .list>li {
 		width: 100%
 	}
@@ -6697,6 +6820,7 @@ input[type=checkbox] {
 	.infoCard .cardDetails .cardData .itemDesktop {
 		display: none !important
 	}
+
 	.infoCard .cardDetails .cardData .itemTablet {
 		display: inline-flex !important
 	}
@@ -6706,21 +6830,27 @@ input[type=checkbox] {
 	.infoCard {
 		margin: 0 0 30px
 	}
+
 	.infoCard .cardDetails .cardTitle {
 		margin-bottom: 0
 	}
+
 	.touchCapability .infoCard .cardDetails .cardData tr.tel td a {
 		cursor: pointer
 	}
+
 	.infoCard .cardDetails .itemTablet {
 		display: none !important
 	}
+
 	.infoCard .cardDetails .itemMobile {
 		display: inline-flex !important
 	}
+
 	.infoCard .mobileStateBtn {
 		display: block
 	}
+
 	.infoCard.openInfoCard .mobileStateBtn:before {
 		content: "";
 		font-family: "icons";
@@ -6741,18 +6871,23 @@ input[type=checkbox] {
 		-moz-osx-font-smoothing: grayscale;
 		letter-spacing: 0
 	}
+
 	.infoCard.openInfoCard .mobileStateBtn .less {
 		display: block
 	}
+
 	.infoCard.openInfoCard .mobileStateBtn .more {
 		display: none
 	}
+
 	.no-js .infoCard .cardHeader img {
 		min-width: 100%
 	}
+
 	.no-js .infoCard .mobile {
 		display: block
 	}
+
 	.no-js .infoCard .mobileStateBtn {
 		display: none
 	}
@@ -6947,20 +7082,25 @@ ol .infoCardDealer .services {
 		background: none !important;
 		min-height: 0
 	}
+
 	.infoCardDealer .cardDetails .ctas {
 		display: none
 	}
+
 	.infoCardDealer .cardDetails .ctas.mobileCtas {
 		display: block
 	}
+
 	.infoCardDealer .vehicleLinks {
 		border: 0;
 		display: block
 	}
+
 	.infoCardDealer .vehicleLinks li {
 		display: block;
 		border-right: 0
 	}
+
 	.no-js .infoCardDealer .cardDetails .ctas.mobileCtas {
 		display: none
 	}
@@ -7024,6 +7164,7 @@ ol .infoCardDealer .services {
 	.TwoColumnContainer .sidebarItem {
 		padding: 22px 0 22px
 	}
+
 	.TwoColumnContainer .sidebarItem:first-child {
 		margin-top: -22px
 	}
@@ -7800,6 +7941,7 @@ img.rsImg {
 		width: 59px;
 		height: 44px
 	}
+
 	.rsDefault .rsThumbsVer {
 		width: 59px
 	}
@@ -8076,13 +8218,16 @@ html[dir="rtl"] .carouselNavigation>div {
 	.carouselNavigation>div {
 		font-size: 21px
 	}
+
 	.carouselNavigation>div .number {
 		width: 17px
 	}
+
 	.carouselNavigation>div>div {
 		margin-left: 26px;
 		margin-right: 26px
 	}
+
 	.carouselNavigation>div a.prev:before,
 	.carouselNavigation>div a.next:before {
 		width: 13px
@@ -8365,15 +8510,19 @@ html[dir="rtl"] .carouselNavigation>div {
 	.dealerLocatorHeader .searchForms {
 		width: 100%
 	}
+
 	.dealerLocatorHeader .searchForms.multipleForms .searchSelectContainer {
 		padding-left: 0
 	}
+
 	.dealerLocatorHeader .searchForms form .colLast {
 		padding-right: 0
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="4"] .searchForms.multipleForms .searchSelectContainer {
 		padding-left: 10px
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="4"] .searchForms.multipleForms .searchSelectContainer .DropdownSelect .selected {
 		padding-left: 15px
 	}
@@ -8383,19 +8532,24 @@ html[dir="rtl"] .carouselNavigation>div {
 	.dealerLocatorHeader .imageWrap {
 		display: none
 	}
+
 	.dealerLocatorHeader .selectHeader {
 		text-align: center
 	}
+
 	.dealerLocatorHeader .dealerLocatorSearch {
 		min-height: 0
 	}
+
 	.dealerLocatorHeader .searchForms {
 		width: 100%;
 		max-width: auto
 	}
+
 	.dealerLocatorHeader .searchForms.multipleForms .searchSelectContainer {
 		padding-right: 0
 	}
+
 	.dealerLocatorHeader .searchForms form .col {
 		width: 100%;
 		max-width: 350px;
@@ -8404,15 +8558,18 @@ html[dir="rtl"] .carouselNavigation>div {
 		margin: 0 auto;
 		float: none
 	}
+
 	.dealerLocatorHeader .searchForms form .formButton {
 		width: 100%;
 		max-width: 350px;
 		margin: 0 auto;
 		padding: 0
 	}
+
 	.dealerLocatorHeader .searchForms form .formButton .continueButton {
 		margin: 0
 	}
+
 	.dealerLocatorHeader .searchForms.multipleForms .searchSelectContainer {
 		float: none;
 		width: 100%;
@@ -8420,36 +8577,44 @@ html[dir="rtl"] .carouselNavigation>div {
 		margin: 0 auto;
 		padding-bottom: 20px
 	}
+
 	.dealerLocatorHeader .searchForms.multipleForms form .col {
 		width: 100%
 	}
+
 	.dealerLocatorHeader .searchForms.multipleForms form .formButton {
 		width: 100%
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="3"] .searchForms form .col,
 	.dealerLocatorHeader[data-total-form-fields="3"] .searchForms form .formButton,
 	.dealerLocatorHeader[data-total-form-fields="2"] .searchForms form .col,
 	.dealerLocatorHeader[data-total-form-fields="2"] .searchForms form .formButton {
 		width: inherit
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="3"] .searchForms form .formButton,
 	.dealerLocatorHeader[data-total-form-fields="2"] .searchForms form .formButton {
 		float: none
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="4"] .searchForms.multipleForms form .mainInput {
 		top: 20px;
 		float: none
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="4"] .searchForms.multipleForms form .retailerType {
 		float: none;
 		top: 20px;
 		min-height: 0
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="4"] .searchForms.multipleForms form .country {
 		top: 0;
 		right: 0;
 		left: 0
 	}
+
 	.dealerLocatorHeader[data-total-form-fields="4"] .searchForms.multipleForms .searchSelectContainer {
 		padding: 0;
 		position: relative;
@@ -8633,9 +8798,11 @@ select.DropdownSelectA11y {
 	.sliderControls {
 		margin-top: 15px
 	}
+
 	.sliderControls .sliderTrack {
 		height: 3px
 	}
+
 	.sliderControls .sliderHandle,
 	.sliderControls .sliderProgress {
 		-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -8643,13 +8810,16 @@ select.DropdownSelectA11y {
 		-o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1)
 	}
+
 	.sliderControls .sliderHandle {
 		font-size: 32px
 	}
+
 	.sliderControls .sliderHandle .handleInner {
 		left: -16px;
 		font-size: 32px
 	}
+
 	.sliderControls .sliderHandle .handleInner:before,
 	.sliderControls .sliderHandle .handleInner:after {
 		position: absolute;
@@ -8685,6 +8855,7 @@ select.DropdownSelectA11y {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.sliderControls .handleInner:before,
 	.sliderControls .handleInner:after {
 		font-size: 8px
@@ -8703,10 +8874,12 @@ select.DropdownSelectA11y {
 	.sliderControls .handleInner {
 		left: -16px
 	}
+
 	.sliderControls .handleInner:before {
 		left: -0.5em;
 		padding-left: 0.75em
 	}
+
 	.sliderControls .handleInner:after {
 		right: -0.5em;
 		padding-right: 0.75em
@@ -8749,8 +8922,9 @@ select.DropdownSelectA11y {
 
 @media screen and (min-width: 901px) {
 	.gallery .directionArrow {
-		height: calc( 100% - 80px)
+		height: calc(100% - 80px)
 	}
+
 	.gallery .directionArrow span {
 		margin-top: 80px
 	}
@@ -8831,6 +9005,7 @@ select.DropdownSelectA11y {
 		margin-top: -25px;
 		top: 50%
 	}
+
 	.directionArrow span {
 		width: 60px
 	}
@@ -8925,6 +9100,7 @@ select.DropdownSelectA11y {
 		margin-top: -25px;
 		top: 50%
 	}
+
 	.directionArrow span {
 		width: 60px
 	}
@@ -10092,30 +10268,36 @@ button.swiper-pagination-bullet {
 }
 
 @media screen and (min-width: 1px) and (max-width: 1100px) {
+
 	.itemsAtAGlance .items .el,
 	.itemsAtAGlance .items[data-total="4"] .el {
 		width: 50%
 	}
+
 	.itemsAtAGlance .items .el .feature,
 	.itemsAtAGlance .items[data-total="4"] .el .feature {
 		margin-bottom: 10.667px
 	}
+
 	.itemsAtAGlance .items .el .dividerBlock,
 	.itemsAtAGlance .items[data-total="4"] .el .dividerBlock {
 		margin-bottom: 10.667px;
 		padding-top: 9px;
 		padding-bottom: 11px
 	}
+
 	.itemsAtAGlance .reviewTitle {
 		font-size: 30px
 	}
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.itemsAtAGlance .items .el,
 	.itemsAtAGlance .items[data-total="4"] .el {
 		width: 100%
 	}
+
 	.itemsAtAGlance .reviewTitle {
 		font-size: 24px
 	}
@@ -10878,13 +11060,16 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 		top: 0;
 		z-index: 8
 	}
+
 	#header.minimal .headerWrapper {
 		height: 50px
 	}
+
 	#header.minimal #logo,
 	#header.minimal .SearchButton {
 		display: none
 	}
+
 	#header.minimal .MainNavigation {
 		left: 0;
 		top: 0
@@ -11034,26 +11219,32 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 	#landrover #logo {
 		left: 0
 	}
+
 	#landrover #logo img {
 		width: 57px;
 		height: 30px;
 		top: 10px;
 		left: 16px
 	}
+
 	#landrover #header {
 		top: 0;
 		position: fixed
 	}
+
 	#landrover #header.scrollingDown {
 		position: absolute
 	}
+
 	#landrover #header.not-fixed {
 		position: static
 	}
+
 	#landrover #header #logo {
 		height: 50px;
 		width: 91px
 	}
+
 	#landrover #header #logo img {
 		position: absolute;
 		top: 50%;
@@ -11061,6 +11252,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
 		margin-left: -29px;
 		margin-top: -15px
 	}
+
 	#landrover .headerWrapper {
 		height: 50px
 	}
@@ -11202,25 +11394,30 @@ html.no-js #landrover #header {
 	.NotificationBar .notificationContainer {
 		display: block
 	}
+
 	.NotificationBar .notificationContainer .top {
 		display: flex;
 		border-bottom: 1px solid #5c6165
 	}
+
 	.NotificationBar .notificationContainer .top .notificationHeader {
 		flex: 1;
 		margin-bottom: 0 !important;
 		padding: 10px 40px
 	}
+
 	.NotificationBar .notificationContainer .bottom {
 		padding: 20px 40px 0 40px;
 		visibility: visible
 	}
+
 	.NotificationBar .notificationContainer p {
 		padding: 0 0 20px
 	}
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.NotificationBar .notificationContainer .top .notificationHeader,
 	.NotificationBar .notificationContainer .bottom {
 		padding-left: 30px;
@@ -11270,15 +11467,19 @@ html.no-js #landrover #header {
 		border: 0;
 		padding: 0
 	}
+
 	.sharedNavigation .NotificationBar .notificationContainer .top .notificationHeader {
 		padding: 30px 0 24px 40px
 	}
+
 	.sharedNavigation .NotificationBar .notificationContainer .bottom {
 		padding: 0 40px 30px 40px
 	}
+
 	.sharedNavigation .NotificationBar.browserUpgradeNotification .notificationContainer .bottom {
 		padding-bottom: 40px
 	}
+
 	.sharedNavigation .NotificationBar.browserUpgradeNotification .notificationContainer .primaryLinkWithStyle {
 		margin-left: 0;
 		margin-top: 30px
@@ -11289,12 +11490,15 @@ html.no-js #landrover #header {
 	.sharedNavigation .NotificationBar .notificationContainer .top .notificationHeader {
 		padding: 24px 0 20px 24px
 	}
+
 	.sharedNavigation .NotificationBar .notificationContainer .bottom {
 		padding: 0 24px 24px 24px
 	}
+
 	.sharedNavigation .NotificationBar.browserUpgradeNotification .notificationContainer .bottom {
 		padding-bottom: 24px
 	}
+
 	.sharedNavigation .NotificationBar.browserUpgradeNotification .notificationContainer .primaryLinkWithStyle {
 		margin-top: 24px
 	}
@@ -11570,50 +11774,62 @@ html.no-js #landrover #header {
 }
 
 @media screen and (min-width: 901px) {
+
 	.ModelSelector--divider [data-total="1"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3) .modelWrapper,
 	.ModelSelector--divider [data-total="1"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="2"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3) .modelWrapper,
 	.ModelSelector--divider [data-total="2"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="3"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3) .modelWrapper,
 	.ModelSelector--divider [data-total="3"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="5"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3) .modelWrapper,
 	.ModelSelector--divider [data-total="5"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="6"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3) .modelWrapper,
 	.ModelSelector--divider [data-total="6"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="9"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3) .modelWrapper,
 	.ModelSelector--divider [data-total="9"] .modelList .el:nth-child(3n+1):nth-last-child(-n+3)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="4"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4) .modelWrapper,
 	.ModelSelector--divider [data-total="4"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="7"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4) .modelWrapper,
 	.ModelSelector--divider [data-total="7"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="8"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4) .modelWrapper,
 	.ModelSelector--divider [data-total="8"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="10"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4) .modelWrapper,
 	.ModelSelector--divider [data-total="10"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="11"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4) .modelWrapper,
 	.ModelSelector--divider [data-total="11"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector--divider [data-total="12"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4) .modelWrapper,
 	.ModelSelector--divider [data-total="12"] .modelList .el:nth-child(4n+1):nth-last-child(-n+4)~.el .modelWrapper {
 		border-bottom: 0
@@ -11624,24 +11840,30 @@ html.no-js #landrover #header {
 	.ModelSelector {
 		padding: 0 20px -15px
 	}
+
 	.ModelSelector.inPageModelSelector {
 		padding: 40px 20px 0
 	}
+
 	.ModelSelector--divider>.dark:after {
 		left: -30px;
 		right: -30px
 	}
+
 	.ModelSelector--divider.inPageModelSelector {
 		padding-bottom: 25px
 	}
+
 	.ModelSelector--divider.inPageModelSelector>.dark:after {
 		left: 20px;
 		right: 20px
 	}
+
 	.ModelSelector--divider .modelList .el:nth-child(2n+1):nth-last-child(-n+2) .modelWrapper,
 	.ModelSelector--divider .modelList .el:nth-child(2n+1):nth-last-child(-n+2)~.el .modelWrapper {
 		border-bottom: 0
 	}
+
 	.ModelSelector .tabContent .el,
 	.ModelSelector .tabContent[data-total="4"] .el,
 	.ModelSelector .tabContent[data-total="7"] .el,
@@ -11651,6 +11873,7 @@ html.no-js #landrover #header {
 	.ModelSelector .tabContent[data-total="12"] .el {
 		width: 50%
 	}
+
 	.ModelSelector .tabContent .el:nth-of-type(3n+1),
 	.ModelSelector .tabContent[data-total="4"] .el:nth-of-type(3n+1),
 	.ModelSelector .tabContent[data-total="7"] .el:nth-of-type(3n+1),
@@ -11660,6 +11883,7 @@ html.no-js #landrover #header {
 	.ModelSelector .tabContent[data-total="12"] .el:nth-of-type(3n+1) {
 		clear: none
 	}
+
 	.ModelSelector .tabContent .el:nth-of-type(2n+1),
 	.ModelSelector .tabContent[data-total="4"] .el:nth-of-type(2n+1),
 	.ModelSelector .tabContent[data-total="7"] .el:nth-of-type(2n+1),
@@ -11669,6 +11893,7 @@ html.no-js #landrover #header {
 	.ModelSelector .tabContent[data-total="12"] .el:nth-of-type(2n+1) {
 		clear: left
 	}
+
 	.ModelSelector .tabContent[data-total="2"] .el.firstModel,
 	.ModelSelector .tabContent[data-total="4"][data-total="2"] .el.firstModel,
 	.ModelSelector .tabContent[data-total="7"][data-total="2"] .el.firstModel,
@@ -11678,15 +11903,19 @@ html.no-js #landrover #header {
 	.ModelSelector .tabContent[data-total="12"][data-total="2"] .el.firstModel {
 		margin-left: 0
 	}
+
 	.ModelSelector.inPageModelSelector .modelSelectorHeader {
 		padding-top: 0
 	}
+
 	.ModelSelector.inPageModelSelector .inPageModelSelectorHeader {
 		margin-bottom: 40px
 	}
+
 	.ModelSelector.inPageModelSelector.withTabs .inPageModelSelectorHeader {
 		margin-bottom: 23px
 	}
+
 	.ModelSelector.inPageModelSelector.withTabs .vehicleSummary {
 		padding-bottom: 40px
 	}
@@ -11696,32 +11925,41 @@ html.no-js #landrover #header {
 	.ModelSelector {
 		padding: 30px 10px
 	}
+
 	.ModelSelector--divider>.dark:after {
 		display: none
 	}
+
 	.ModelSelector.hide-title-mobile .modelSelectorHeader .heading {
 		display: none
 	}
+
 	.ModelSelector.inPageModelSelector {
 		padding: 30px 10px
 	}
+
 	.ModelSelector.inPageModelSelector .inPageModelSelectorHeader {
 		margin-bottom: 30px
 	}
+
 	.ModelSelector.inPageModelSelector.withTabs .inPageModelSelectorHeader {
 		margin-bottom: 18px
 	}
+
 	.ModelSelector.inPageModelSelector.withTabs .vehicleSummary {
 		padding-bottom: 20px
 	}
+
 	.ModelSelector .vehicleNameHeader {
 		margin-bottom: 12px
 	}
+
 	.ModelSelector .vehicleTagline {
 		margin-bottom: 30px;
 		max-width: 300px;
 		font-size: 13px
 	}
+
 	.ModelSelector .tabContent[data-total="1"] .el,
 	.ModelSelector .tabContent[data-total="2"] .el,
 	.ModelSelector .tabContent[data-total="3"] .el,
@@ -11737,17 +11975,21 @@ html.no-js #landrover #header {
 		float: none;
 		margin-bottom: 22px
 	}
+
 	.ModelSelector .el ul,
 	.ModelSelector .el .modelSelectorButtons {
 		display: none
 	}
+
 	.ModelSelector .el .modelName {
 		margin-top: 11px
 	}
+
 	.ModelSelector .el .selectorContent .modelName+.ModelSelector__body,
 	.ModelSelector .el .selectorContent .price+.ModelSelector__body {
 		margin: 8.667px 0 0
 	}
+
 	.ModelSelector .modelWrapper {
 		border-bottom: 0
 	}
@@ -11771,6 +12013,7 @@ html.no-js .ModelSelector .tabContent .modelWrapper {
 	.AccordionContainer .ModelSelector .modelList .el:last-child {
 		margin-bottom: 0 !important
 	}
+
 	.AccordionContainer .ModelSelector .featureText {
 		padding-bottom: 0 !important
 	}
@@ -12072,9 +12315,11 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 		overflow-y: hidden;
 		height: auto !important
 	}
+
 	html.withVehicleSelector[style] #header {
 		position: fixed
 	}
+
 	html.withVehicleSelector[style] .pageWrapper {
 		padding-top: 0 !important
 	}
@@ -12264,6 +12509,7 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 	.VehicleSelectorWrapper .el {
 		width: 50%
 	}
+
 	.VehicleSelectorWrapper[data-total="4"] .el,
 	.VehicleSelectorWrapper[data-total="7"] .el,
 	.VehicleSelectorWrapper[data-total="8"] .el {
@@ -12276,14 +12522,17 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 		width: 100%;
 		text-align: left
 	}
+
 	.VehicleSelectorWrapper .el .vehicleWrapper,
 	.VehicleSelectorWrapper .el .modelWrapper {
 		display: table
 	}
+
 	.VehicleSelectorWrapper .el img {
 		float: left;
 		width: 91px
 	}
+
 	.VehicleSelectorWrapper .el .selectorContent {
 		display: table-cell;
 		vertical-align: middle;
@@ -12291,6 +12540,7 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 		width: 100%;
 		border-bottom: 1px solid
 	}
+
 	.VehicleSelectorWrapper .el .vehicleName,
 	.VehicleSelectorWrapper .el .modelName {
 		margin: 0;
@@ -12298,20 +12548,24 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 		text-align: left;
 		letter-spacing: 0.1em
 	}
+
 	.VehicleSelectorWrapper .el .price {
 		margin-top: 3px;
 		text-align: left;
 		letter-spacing: 1.5px
 	}
+
 	.VehicleSelectorWrapper .el p {
 		margin-top: 6px;
 		font-size: 11px;
 		line-height: 15px;
 		margin-bottom: 0
 	}
+
 	.VehicleSelectorWrapper .el .vehicleSelectorButtons {
 		display: none
 	}
+
 	.VehicleSelectorWrapper[data-total="4"] .el,
 	.VehicleSelectorWrapper[data-total="7"] .el,
 	.VehicleSelectorWrapper[data-total="8"] .el {
@@ -12336,6 +12590,7 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 		position: static;
 		padding-bottom: 0
 	}
+
 	.VehicleSelector.hasRatings .el .vehicleWrapper .BazaarVoiceRating {
 		display: none
 	}
@@ -12367,6 +12622,7 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.vehicles span:afte
 }
 
 @media screen and (min-width: 2001px) {
+
 	html.withVehicleSelector[style] #header,
 	html.withVehicleSelector[style] #vehicleSelectorOverlay {
 		left: 50%;
@@ -12755,6 +13011,7 @@ html.withVehicleSelector[style] #header .MainNavigation ul li.activeOverlay a {
 }
 
 @media screen and (min-width: 1px) and (max-width: 1024px) {
+
 	.headerBox .totalCost,
 	.headerBox .totalCostUnderlay {
 		padding: 0 20px 19px
@@ -12797,6 +13054,7 @@ html[lang=de-DE] .headerBox__infoColumn {
 }
 
 @media screen and (min-width: 900px) and (max-width: 1023px) {
+
 	html[lang=de-DE] .headerBox__number,
 	html[lang=de-DE] .headerBox__currency {
 		font-size: 18px
@@ -12857,20 +13115,24 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 901px) {
+
 	.headerBox .totalCost.stacked .totalCostRow,
 	.headerBox .totalCostUnderlay.stacked .totalCostRow {
 		display: block
 	}
+
 	.headerBox .totalCost.stacked .totalCostRow .priceColumn,
 	.headerBox .totalCostUnderlay.stacked .totalCostRow .priceColumn {
 		display: block;
 		margin: 0;
 		width: 100%
 	}
+
 	.headerBox .totalCost.stacked .totalCostRow .priceColumn+.infoColumn,
 	.headerBox .totalCostUnderlay.stacked .totalCostRow .priceColumn+.infoColumn {
 		margin-top: 12px
 	}
+
 	.headerBox .totalCost.stacked .totalCostRow .infoColumn,
 	.headerBox .totalCostUnderlay.stacked .totalCostRow .infoColumn {
 		display: block;
@@ -12880,15 +13142,18 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 1024px) {
+
 	.headerBox .totalCost,
 	.headerBox .totalCostUnderlay {
 		padding: 17px
 	}
+
 	.headerBox .totalCost .priceColumn,
 	.headerBox .totalCostUnderlay .priceColumn {
 		padding-right: 5%;
 		width: 40%
 	}
+
 	.headerBox .totalCost .infoColumn,
 	.headerBox .totalCostUnderlay .infoColumn {
 		width: 45%
@@ -12896,10 +13161,12 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 960px) {
+
 	.headerBox .totalCost,
 	.headerBox .totalCostUnderlay {
 		display: block
 	}
+
 	.headerBox .totalCost .priceColumn,
 	.headerBox .totalCostUnderlay .priceColumn {
 		display: block;
@@ -12907,16 +13174,19 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		width: 100%;
 		padding: 0
 	}
+
 	.headerBox .totalCost .infoColumn,
 	.headerBox .totalCostUnderlay .infoColumn {
 		display: block;
 		margin: 12px 0 0;
 		width: 100%
 	}
+
 	.headerBox .totalCost .infoColumn:first-child,
 	.headerBox .totalCostUnderlay .infoColumn:first-child {
 		margin-top: 0
 	}
+
 	.headerBox .totalCost .totalCostRow,
 	.headerBox .totalCostUnderlay .totalCostRow {
 		display: block
@@ -12924,6 +13194,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1025px) {
+
 	.headerBox .totalCost .priceColumn .price,
 	.headerBox .totalCostUnderlay .priceColumn .price {
 		font-size: 28px
@@ -12961,16 +13232,20 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		max-width: 100%;
 		box-sizing: content-box
 	}
+
 	.headerBox .totalCost .priceColumn,
 	.headerBox .totalCost .infoColumn {
 		margin: 0 auto
 	}
+
 	.headerBox .totalCost .infoColumn {
 		margin-top: 12px
 	}
+
 	.headerBox .totalCost .infoColumn:first-child {
 		margin-top: 0
 	}
+
 	.headerBox .totalCostUnderlay {
 		display: none
 	}
@@ -13202,6 +13477,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.headerBox .primaryHeading {
 		font-size: 34px
 	}
+
 	.headerBox .headingTextSub {
 		font-size: 14.5px
 	}
@@ -13211,25 +13487,32 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.headerBox.withImage {
 		max-width: 340px
 	}
+
 	.headerBox.withImage .headerBoxContent {
 		padding: 13px 17px 17px
 	}
+
 	.headerBox.onlyHasPrimaryHeading.withImage .headerBoxContent {
 		padding-bottom: 14px
 	}
+
 	.headerBox .primaryHeading {
 		font-size: 26px
 	}
+
 	.headerBox .headingTextSub {
 		font-size: 14px;
 		padding-top: 1px
 	}
+
 	.headerBox .caveat {
 		margin-top: 15px
 	}
+
 	.headerBox .primaryLinkWithStyle {
 		margin-top: 14px
 	}
+
 	.headerBox .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
 		margin-top: 17px
 	}
@@ -13239,6 +13522,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.headerBox.withImage {
 		max-width: 230px
 	}
+
 	.HeroTitleBanner .headerBox.withImage {
 		max-width: none
 	}
@@ -13249,30 +13533,38 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		margin: 0;
 		padding: 0
 	}
+
 	.headerBox .headerBoxContent {
 		padding: 0
 	}
+
 	.headerBox.withImage .headerBoxContent,
 	.headerBox.withImage.onlyHasPrimaryHeading .headerBoxContent {
 		padding: 30px 30px
 	}
+
 	.headerBox .primaryHeading {
 		font-size: 26px
 	}
+
 	.headerBox .headingTextSub {
 		max-width: none
 	}
+
 	.headerBox.withImage {
 		display: block;
 		max-width: none
 	}
+
 	.StoryHero .headerBox.withImage {
 		display: inline-block
 	}
+
 	.StoryHero .headerBox.withImage .headerBoxContent {
 		padding: 13px 17px 17px;
 		background: rgba(255, 255, 255, 0.9)
 	}
+
 	.StoryHero .headerBox.withImage.onlyHasPrimaryHeading.withImage .headerBoxContent {
 		padding-bottom: 14px
 	}
@@ -13339,6 +13631,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.Exterior360 .textWrapper,
 	.HeroCarousel .textWrapper,
 	.HeroSlide .textWrapper,
@@ -13886,6 +14179,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 1024px) {
+
 	.Exterior360 .headerBox,
 	.HeroCarousel .headerBox,
 	.HeroSlide .headerBox,
@@ -13896,6 +14190,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.FullWidthImage .headerBox {
 		max-width: 340px
 	}
+
 	.Exterior360 .headerBox__heroTitle,
 	.HeroCarousel .headerBox__heroTitle,
 	.HeroSlide .headerBox__heroTitle,
@@ -13906,6 +14201,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.FullWidthImage .headerBox__heroTitle {
 		font-size: 26px
 	}
+
 	.Exterior360 .headerBox__heroCopy,
 	.HeroCarousel .headerBox__heroCopy,
 	.HeroSlide .headerBox__heroCopy,
@@ -13921,6 +14217,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.Exterior360 .headerBox,
 	.HeroCarousel .headerBox,
 	.HeroSlide .headerBox,
@@ -13935,6 +14232,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.Exterior360 .headerBox,
 	.HeroCarousel .headerBox,
 	.HeroSlide .headerBox,
@@ -13951,6 +14249,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		bottom: 0;
 		max-width: none
 	}
+
 	.Exterior360 .headerBox__content,
 	.HeroCarousel .headerBox__content,
 	.HeroSlide .headerBox__content,
@@ -13961,6 +14260,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.FullWidthImage .headerBox__content {
 		padding: 30px
 	}
+
 	.Exterior360 .headerBox .primaryLinkWithStyle,
 	.HeroCarousel .headerBox .primaryLinkWithStyle,
 	.HeroSlide .headerBox .primaryLinkWithStyle,
@@ -13992,6 +14292,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.Exterior360 .headerBox[data-theme="light"] .headerBox__content,
 	.Exterior360 .headerBox[data-theme="dark"] .headerBox__content,
 	.HeroCarousel .headerBox[data-theme="light"] .headerBox__content,
@@ -14011,6 +14312,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.heroItem .headerBox[data-theme="light"],
 	.heroItem .headerBox[data-theme="dark"] {
 		background-color: #fff
@@ -14018,6 +14320,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.HeroTitleBanner .headerBox,
 	.HeroCarousel .headerBox,
 	.HeroSlide .headerBox {
@@ -14032,6 +14335,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.HeroSlide .headerBox .primaryLinkWithStyle,
 	.HeroCarousel .headerBox .primaryLinkWithStyle {
 		margin-top: 14px
@@ -14047,6 +14351,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.HeroSlide.left .headerBox,
 	.HeroSlide .heroItem.left .headerBox,
 	.HeroCarousel.left .headerBox,
@@ -14056,6 +14361,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.HeroSlide.left .headerBox,
 	.HeroSlide .heroItem.left .headerBox,
 	.HeroCarousel.left .headerBox,
@@ -14097,6 +14403,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	[data-brand-id="landrover"] .FullWidthImage.withHeaderBox .headerBox[data-theme="dark"] .headerBox__caveat,
 	.FullWidthImage.withHeaderBox .headerBox[data-theme="dark"] .headerBox__logo {
 		color: #e4e8e8
@@ -14135,6 +14442,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.HeroTitleBanner.withImage.left .headerBox,
 	.HeroTitleBanner.withImage.centre .headerBox {
 		margin: 0 auto
@@ -14142,19 +14450,23 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.HeroTitleBanner.withImage.left .headerBox,
 	.HeroTitleBanner.withImage.centre .headerBox {
 		background: #fff;
 		margin: 0 auto
 	}
+
 	.HeroTitleBanner.withImage.left .headerBox__logo,
 	.HeroTitleBanner.withImage.centre .headerBox__logo {
 		margin-bottom: 8px
 	}
+
 	.HeroTitleBanner.withImage.left .headerBox__content,
 	.HeroTitleBanner.withImage.centre .headerBox__content {
 		padding: 13px 17px 14px
 	}
+
 	[data-brand-id="landrover"] .HeroTitleBanner.withImage.left .headerBox .primaryLinkWithStyle,
 	[data-brand-id="landrover"] .HeroTitleBanner.withImage.centre .headerBox .primaryLinkWithStyle {
 		margin-top: 14px
@@ -14162,6 +14474,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.HeroTitleBanner.withImage.left.tall .headerBox__content,
 	.HeroTitleBanner.withImage.centre.tall .headerBox__content {
 		padding: 30px
@@ -14196,9 +14509,11 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.HeroTitleBanner.noImage .headerBox {
 		padding: 30px
 	}
+
 	.HeroTitleBanner.noImage .headerBox__heroCopy {
 		max-width: none
 	}
+
 	[data-brand-id="landrover"] .HeroTitleBanner.noImage .headerBox .primaryLinkWithStyle {
 		margin-top: 14px
 	}
@@ -14370,10 +14685,12 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.RetailerPageContactDetailsItem .headerBox,
 	.FullFrameCarousel .headerBox {
 		min-height: 25px
 	}
+
 	.RetailerPageContactDetailsItem .headerBox[data-theme="dark"] .headerBox__content,
 	.RetailerPageContactDetailsItem .headerBox[data-theme="light"] .headerBox__content,
 	.RetailerPageContactDetailsItem .headerBox[data-theme="grey"] .headerBox__content,
@@ -14387,6 +14704,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.RetailerPageContactDetailsItem .centre .headerBox,
 	.FullFrameCarousel .centre .headerBox {
 		text-align: left
@@ -14394,6 +14712,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.FullFrameCarousel .headerBox,
 	.RetailerPageContactDetailsItem .headerBox,
 	.FullWidthImage.withImage .headerBox {
@@ -14402,6 +14721,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.FullFrameCarousel .headerBox,
 	.RetailerPageContactDetailsItem .headerBox,
 	.FullWidthImage.withImage .headerBox {
@@ -14410,12 +14730,14 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 1024px) {
+
 	.HeroSlide.left .headerBox,
 	.HeroSlide .heroItem.left .headerBox,
 	.HeroCarousel.left .headerBox,
 	.HeroCarousel .heroItem.left .headerBox {
 		left: 73px
 	}
+
 	.HeroSlide.left .headerBox__content,
 	.HeroSlide .heroItem.left .headerBox__content,
 	.HeroCarousel.left .headerBox__content,
@@ -14425,6 +14747,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.HeroSlide.left .headerBox,
 	.HeroSlide .heroItem.left .headerBox,
 	.HeroCarousel.left .headerBox,
@@ -14434,12 +14757,14 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.HeroSlide.left .headerBox,
 	.HeroSlide .heroItem.left .headerBox,
 	.HeroCarousel.left .headerBox,
 	.HeroCarousel .heroItem.left .headerBox {
 		left: 0
 	}
+
 	.HeroSlide.left .headerBox__content,
 	.HeroSlide .heroItem.left .headerBox__content,
 	.HeroCarousel.left .headerBox__content,
@@ -14479,12 +14804,15 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.FullWidthImage.withImage .headerBox__content {
 		padding: 13px 17px 25px
 	}
+
 	.FullWidthImage.withImage .headerBox__heroTitle {
 		padding: 7px 0 8px
 	}
+
 	.FullWidthImage.withImage .headerBox__title {
 		font-size: 26px
 	}
+
 	.FullWidthImage.withImage .headerBox__heroCopy {
 		margin-top: 16px
 	}
@@ -14495,9 +14823,11 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		max-width: 340px;
 		left: 65px
 	}
+
 	.FullWidthImage.withImage .headerBox__content {
 		padding: 17px 18px 18px
 	}
+
 	.FullWidthImage.withImage .headerBox__heroCopy {
 		margin-top: 9px
 	}
@@ -14514,24 +14844,31 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		text-align: center;
 		left: 0px
 	}
+
 	.FullWidthImage.withImage .headerBox__content {
 		padding: 12px 30px 25px
 	}
+
 	.FullWidthImage.withImage .headerBox__logo {
 		margin-bottom: 9px
 	}
+
 	.FullWidthImage.withImage .headerBox__heroTitle {
 		padding: 0
 	}
+
 	.FullWidthImage.withImage .headerBox__heroCopy {
 		padding: 0
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] {
 		color: #fff
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] .headerBox__content {
 		background-color: #4a4f54
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] h1,
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] h2,
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] h3,
@@ -14540,104 +14877,130 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] .headerBox__copy {
 		color: #fff
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="dark"] .headerBox__caveat {
 		color: #e4e8e8;
 		margin-top: 23px
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle {
 		text-decoration: none;
 		background-color: #0c121c;
 		color: #fff;
 		border-bottom: 0 none
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle:hover,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle:active {
 		background-color: #4a4f54;
 		color: #fff;
 		box-shadow: 0 0 0 1px #fff inset
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle:focus {
 		outline: 0
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle.disabled {
 		background-color: rgba(228, 228, 228, 0.2);
 		color: rgba(255, 255, 255, 0.3)
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle.disabled:hover {
 		background-color: rgba(228, 228, 228, 0.2);
 		color: rgba(255, 255, 255, 0.3)
 	}
+
 	#landrover.focusStylesOn .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle:focus {
 		background-color: #4a4f54;
 		color: #fff;
 		box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2
 	}
+
 	#landrover.focusStylesOn .FullWidthImage.withImage .headerBox[data-theme="dark"] .primaryLinkWithStyle.disabled:focus {
 		background-color: rgba(228, 228, 228, 0.2);
 		color: rgba(255, 255, 255, 0.3)
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle {
 		color: #fff
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:before {
 		color: #fff
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:hover,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:active,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus {
 		color: #C9C9C9
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:hover span,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:active span,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus span {
 		border-bottom: 1px solid #C9C9C9
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:hover:before,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:active:before,
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus:before {
 		color: #C9C9C9
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus {
 		outline: 0
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle.disabled {
 		color: rgba(228, 228, 228, 0.3)
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle.disabled:before {
 		color: rgba(228, 228, 228, 0.3)
 	}
+
 	#landrover .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle.disabled:hover {
 		color: rgba(228, 228, 228, 0.3)
 	}
+
 	#landrover.focusStylesOn .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus {
 		color: #C9C9C9;
 		text-shadow: none;
 		box-shadow: 0 0 2px 3px #4a90e2
 	}
+
 	#landrover.focusStylesOn .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus:before {
 		color: #C9C9C9
 	}
+
 	#landrover.focusStylesOn .FullWidthImage.withImage .headerBox[data-theme="dark"] .secondaryLinkWithStyle:focus span {
 		border-bottom: 1px solid #C9C9C9
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="light"] {
 		color: #0c121c
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="light"] .headerBox__content {
 		background-color: #f8f9f9
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="light"] .headerBox__heroTitle,
 	.FullWidthImage.withImage .headerBox[data-theme="light"] .headerBox__title,
 	.FullWidthImage.withImage .headerBox[data-theme="light"] .headerBox__heroCopy,
 	.FullWidthImage.withImage .headerBox[data-theme="light"] .headerBox__caveat {
 		color: #0c121c
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="grey"] {
 		color: #0c121c
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="grey"] .headerBox__content {
 		background-color: #e9ecec
 	}
+
 	.FullWidthImage.withImage .headerBox[data-theme="grey"] h1,
 	.FullWidthImage.withImage .headerBox[data-theme="grey"] h2,
 	.FullWidthImage.withImage .headerBox[data-theme="grey"] h3,
@@ -14708,15 +15071,18 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.FullWidthImage.withImage.short .textWrapper:before {
 		display: none
 	}
+
 	.FullWidthImage.withImage.short .headerBox__slug {
 		margin-bottom: 8px
 	}
+
 	.FullWidthImage.withImage.short .headerBox__title {
 		margin-bottom: 16px
 	}
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.FullFrameCarousel .headerBox__slug,
 	.HeroSlide--full-frame-template .headerBox__slug,
 	.RetailerPageContactDetailsItem .headerBox__slug,
@@ -14726,6 +15092,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		letter-spacing: .7px;
 		margin-bottom: 18px
 	}
+
 	.FullFrameCarousel .headerBox__title,
 	.HeroSlide--full-frame-template .headerBox__title,
 	.RetailerPageContactDetailsItem .headerBox__title,
@@ -14746,6 +15113,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 741px) {
+
 	.headerBox .smallTitleText.headerBox__heroTitle,
 	.headerBox .smallTitleText.headerBox__title {
 		font-size: 2.4rem
@@ -14753,6 +15121,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 @media screen and (min-width: 1025px) {
+
 	.headerBox .smallTitleText.headerBox__heroTitle,
 	.headerBox .smallTitleText.headerBox__title {
 		font-size: 2.6rem
@@ -14856,52 +15225,64 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		padding-left: 0;
 		padding-right: 0
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__tco-lease-from,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__precedingFrom,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__tcoPrice,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__tco-lease-price {
 		width: 100%
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__tco-lease-from,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__precedingFrom {
 		margin-bottom: 2px
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__content,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost {
 		padding-top: 19px;
 		flex: 0 0 50%
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__content .headerBox__precedingFrom,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost .headerBox__precedingFrom {
 		float: none;
 		display: block
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost {
 		padding-left: 24px;
 		padding-right: 24px
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost .headerBox__lease-column {
 		margin-top: 0
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCostRow {
 		flex-direction: row;
 		margin-bottom: 20px
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .totalCost .headerBox__priceColumn,
 	.HeroSlide--has-lease-layout .headerBox .totalCost .headerBox__lease-column {
 		flex: 0 0 50%;
 		display: block
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost .headerBox__priceColumn,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost .headerBox__priceColumn.landscape {
 		padding-right: 24px
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__lease-column {
 		padding-left: 0
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__infoColumn {
 		flex: 0 0 100%
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__lease-caveat-full {
 		font-size: 1.1rem
 	}
@@ -14912,37 +15293,47 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		display: flex;
 		flex-direction: column
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__content,
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost {
 		flex: 1 0 auto;
 		max-width: 100%
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__content {
 		padding-bottom: 21px
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__tco-lease-caveat {
 		margin-top: 0
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .totalCost .headerBox__totalCostRow {
 		display: block
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__lease-caveat-full {
 		margin-top: 14px
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost {
 		text-align: left
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__totalCost .headerBox__priceColumn {
 		display: block
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .headerBox__lease-column {
 		padding-left: 0
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .totalCost .priceColumn,
 	.HeroSlide--has-lease-layout .headerBox .totalCost .infoColumn {
 		margin: 0;
 		max-width: 100%
 	}
+
 	.HeroSlide--has-lease-layout .headerBox .totalCost .priceColumn {
 		margin-bottom: 15px
 	}
@@ -15435,6 +15826,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.Accordion--hideInAccordion {
 		display: none !important
 	}
+
 	.Accordion--mobile-only {
 		position: relative;
 		z-index: 1;
@@ -15443,11 +15835,13 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		-o-transition: height .5s;
 		transition: height .5s
 	}
+
 	.Accordion--mobile-only .accordion-group {
 		clear: both;
 		width: 100%;
 		height: 100%
 	}
+
 	.Accordion--mobile-only .accordion-group-title {
 		color: #0c121c;
 		font-size: 15px;
@@ -15462,10 +15856,12 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		position: relative;
 		cursor: pointer
 	}
+
 	.Accordion--mobile-only .accordion-group-title.fixed {
 		position: fixed;
 		top: 0
 	}
+
 	.Accordion--mobile-only .accordion-fixed-header {
 		width: 100%;
 		position: fixed;
@@ -15474,15 +15870,18 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		transform: translate3d(0, 0, 0);
 		transition: opacity .35s ease-in-out
 	}
+
 	.Accordion--mobile-only .accordion-fixed-header .accordion-group-title {
 		box-shadow: 0px 0px 4px rgba(1, 1, 1, 0.2);
 		border-top: 0 none;
 		border-bottom: 1px solid #dbdcdd
 	}
+
 	.Accordion--mobile-only .accordion-fixed-header.transitioning .accordion-group-title {
 		border-bottom: 0;
 		box-shadow: none
 	}
+
 	.Accordion--mobile-only .accordion-group-title-inner {
 		display: table-cell;
 		vertical-align: middle;
@@ -15491,6 +15890,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		padding-top: 1px;
 		padding-right: 15px
 	}
+
 	.Accordion--mobile-only .accordion-group-content {
 		background-color: #e9ecec;
 		display: block;
@@ -15502,9 +15902,11 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		-o-transition: height .5s;
 		transition: height .5s
 	}
+
 	.Accordion--mobile-only .closed .accordion-group-content {
 		height: 0
 	}
+
 	.Accordion--mobile-only .accordion-toggle-icon {
 		width: 14px;
 		height: 14px;
@@ -15514,6 +15916,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		margin-top: -8px;
 		background: url(../../images/accordion/accordion-icon--closed.svg) no-repeat center top
 	}
+
 	.Accordion--mobile-only .accordion-toggle-icon.open {
 		background: url(../../images/accordion/accordion-icon--open.svg) no-repeat center top
 	}
@@ -16014,10 +16417,12 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		-ms-flex-pack: center;
 		justify-content: center
 	}
+
 	.GridListWrapper .ToggleLinks {
 		margin-left: -42px;
 		margin-right: -42px
 	}
+
 	.ToggleLinks .toggleLinksItem {
 		width: 25%;
 		-ms-flex-preferred-size: 25%;
@@ -16033,6 +16438,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		padding: 0 1px;
 		max-width: none
 	}
+
 	.ToggleLinks .toggleLinksLink {
 		width: 100%;
 		display: -webkit-box;
@@ -16047,6 +16453,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		padding-top: 17px;
 		padding-bottom: 16px
 	}
+
 	.ToggleLinks .toggleLinksLink span {
 		display: block
 	}
@@ -16060,13 +16467,16 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		padding-left: 34px;
 		padding-right: 30px
 	}
+
 	.GridListWrapper .ToggleLinks {
 		margin-left: -32px;
 		margin-right: -32px
 	}
+
 	.headerBlock .ToggleLinks {
 		margin-top: 30px
 	}
+
 	.ToggleLinks .toggleLinksItem {
 		min-width: calc(50% - 15px);
 		width: auto;
@@ -16076,21 +16486,26 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 		margin-left: -3px;
 		padding: 0 2px
 	}
+
 	.ToggleLinks .toggleLinksItem:last-child {
 		padding-right: 30px;
 		min-width: calc(50% + 15px)
 	}
+
 	.ToggleLinks .toggleLinksLink {
 		padding-left: 15px;
 		padding-right: 15px
 	}
+
 	.ToggleLinks[data-total="1"] {
 		display: none
 	}
+
 	.ToggleLinks[data-total="2"] .toggleLinksItem {
 		width: calc(50% + 3px);
 		flex-basis: calc(50% + 3px)
 	}
+
 	.ToggleLinks[data-total="2"] .toggleLinksItem:last-child {
 		padding-right: 0;
 		min-width: calc(50% - 15px)
@@ -16445,6 +16860,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.swiper-button {
 		display: block
 	}
+
 	.swiper-button[aria-disabled="true"] {
 		display: none
 	}
@@ -16560,6 +16976,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.DxProgressBar {
 		margin-bottom: 40px
 	}
+
 	.DxProgressBar__breadcrumb-item {
 		margin: 0 12px
 	}
@@ -16620,6 +17037,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.DxTwoColumnContainer__column--content-column {
 		padding: 0 40px
 	}
+
 	.DxTwoColumnContainer__content {
 		padding-top: 0
 	}
@@ -16629,55 +17047,72 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	.DxTwoColumnContainer__columns {
 		flex-direction: row
 	}
+
 	.DxTwoColumnContainer__columns--reverse {
 		flex-direction: row-reverse
 	}
+
 	.DxTwoColumnContainer__column--content-column {
 		padding-left: 70px;
 		padding-right: 0
 	}
+
 	.DxTwoColumnContainer__column--left {
 		width: 45%
 	}
+
 	.DxTwoColumnContainer__column--right {
 		width: 55%
 	}
+
 	.DxTwoColumnContainer--ratio-fiftyFifty .DxTwoColumnContainer__column--left {
 		width: 50%
 	}
+
 	.DxTwoColumnContainer--ratio-fiftyFifty .DxTwoColumnContainer__column--right {
 		width: 50%
 	}
+
 	.DxTwoColumnContainer--ratio-fiftyFiveFortyFive .DxTwoColumnContainer__column--left {
 		width: 55%
 	}
+
 	.DxTwoColumnContainer--ratio-fiftyFiveFortyFive .DxTwoColumnContainer__column--right {
 		width: 45%
 	}
+
 	.DxTwoColumnContainer--ratio-fortySixty .DxTwoColumnContainer__column--left {
 		width: 40%
 	}
+
 	.DxTwoColumnContainer--ratio-fortySixty .DxTwoColumnContainer__column--right {
 		width: 60%
 	}
+
 	.DxTwoColumnContainer--ratio-sixtyForty .DxTwoColumnContainer__column--left {
 		width: 60%
 	}
+
 	.DxTwoColumnContainer--ratio-sixtyForty .DxTwoColumnContainer__column--right {
 		width: 40%
 	}
+
 	.DxTwoColumnContainer--ratio-thirtySeventy .DxTwoColumnContainer__column--left {
 		width: 30%
 	}
+
 	.DxTwoColumnContainer--ratio-thirtySeventy .DxTwoColumnContainer__column--right {
 		width: 70%
 	}
+
 	.DxTwoColumnContainer--ratio-seventyThirty .DxTwoColumnContainer__column--left {
 		width: 70%
 	}
+
 	.DxTwoColumnContainer--ratio-seventyThirty .DxTwoColumnContainer__column--right {
 		width: 30%
 	}
+
 	.DxTwoColumnContainer__content {
 		padding: 60px 20px
 	}
@@ -16885,6 +17320,7 @@ body.withSubNavigation .IgniteBarV1 {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.IgniteBarV1,
 	.IgniteBarV1.visible {
 		display: none
@@ -17288,21 +17724,26 @@ body.withSubNavigation .IgniteBarV1 {
 		top: auto !important;
 		bottom: 50px
 	}
+
 	.IgniteBarV2 .barContainer {
 		padding-bottom: 50px
 	}
+
 	.IgniteBarV2 .toggle {
 		position: absolute;
 		bottom: 0;
 		top: auto;
 		margin-top: 0
 	}
+
 	.IgniteBarV2.open .toggle {
 		top: auto
 	}
+
 	.IgniteBarV2.open .toggle .cross {
 		transform: rotate(-45deg)
 	}
+
 	.IgniteBarV2 .actions .actionItem {
 		margin-top: 0;
 		margin-bottom: 1px
@@ -17313,6 +17754,7 @@ body.withSubNavigation .IgniteBarV1 {
 	.IgniteBarV2 {
 		display: none
 	}
+
 	.IgniteBarV2.visible {
 		display: none
 	}
@@ -17391,6 +17833,7 @@ body.withSubNavigation .IgniteBarV1 {
 		transform: scale(1) rotate(0deg);
 		animation-timing-function: ease-in
 	}
+
 	100% {
 		transform: scale(1.2) rotate(90deg);
 		animation-timing-function: ease-in
@@ -17402,6 +17845,7 @@ body.withSubNavigation .IgniteBarV1 {
 		transform: scale(1.2) rotate(90deg);
 		animation-timing-function: ease-out
 	}
+
 	100% {
 		transform: scale(1) rotate(180deg);
 		animation-timing-function: ease-out
@@ -17896,6 +18340,7 @@ select.DropdownSelect {
 	.DropdownSelect {
 		position: relative
 	}
+
 	.DropdownSelect select {
 		width: 100%;
 		height: 45px;
@@ -17908,6 +18353,7 @@ select.DropdownSelect {
 		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
 		opacity: 0
 	}
+
 	.DropdownSelect ul {
 		display: none
 	}
@@ -18304,14 +18750,17 @@ button::-moz-focus-inner {
 	.mfp-iframe-holder {
 		padding: 50px 0
 	}
+
 	.mfp-iframe-holder .mfp-close {
 		width: 50px;
 		height: 50px
 	}
+
 	.mfp-iframe-holder .mfp-close:before {
 		width: 50px;
 		line-height: 50px
 	}
+
 	.mfp-iframe-scaler {
 		padding: 50px 0 0
 	}
@@ -18391,17 +18840,21 @@ screen and (max-height: 300px) {
 		padding-left: 0;
 		padding-right: 0
 	}
+
 	.mfp-img-mobile img.mfp-img {
 		padding: 0
 	}
+
 	.mfp-img-mobile .mfp-figure:after {
 		top: 0;
 		bottom: 0
 	}
+
 	.mfp-img-mobile .mfp-figure small {
 		display: inline;
 		margin-left: 5px
 	}
+
 	.mfp-img-mobile .mfp-bottom-bar {
 		background: rgba(0, 0, 0, 0.6);
 		bottom: 0;
@@ -18413,13 +18866,16 @@ screen and (max-height: 300px) {
 		-moz-box-sizing: border-box;
 		box-sizing: border-box
 	}
+
 	.mfp-img-mobile .mfp-bottom-bar:empty {
 		padding: 0
 	}
+
 	.mfp-img-mobile .mfp-counter {
 		right: 5px;
 		top: 3px
 	}
+
 	.mfp-img-mobile .mfp-close {
 		width: 35px;
 		height: 35px;
@@ -18435,14 +18891,17 @@ screen and (max-height: 300px) {
 		-webkit-transform: scale(0.75);
 		transform: scale(0.75)
 	}
+
 	.mfp-arrow-left {
 		-webkit-transform-origin: 0;
 		transform-origin: 0
 	}
+
 	.mfp-arrow-right {
 		-webkit-transform-origin: 100%;
 		transform-origin: 100%
 	}
+
 	.mfp-container {
 		padding-left: 0;
 		padding-right: 0
@@ -18990,12 +19449,15 @@ a.mfp-close:hover {
 		height: 95px;
 		padding: 20px 30px
 	}
+
 	.Fullscreen__footer-heading {
 		margin-bottom: .5em
 	}
+
 	.Fullscreen__footer-heading+.Fullscreen__footer-heading__footer-text {
 		margin-top: 5px
 	}
+
 	.Fullscreen__footer-text {
 		margin: 0 20px
 	}
@@ -19120,15 +19582,18 @@ a.mfp-close:hover {
 	#landrover .Fullscreen--hasGalleryCategories .Fullscreen__information-wrapper {
 		display: flex !important
 	}
+
 	#landrover .Fullscreen--hasGalleryCategories .Fullscreen__information-heading,
 	#landrover .Fullscreen--hasGalleryCategories .Fullscreen__information-text {
 		height: 50px
 	}
+
 	#landrover .Fullscreen--hasGalleryCategories .Fullscreen__footer {
 		display: none;
 		height: 0;
 		padding-bottom: 0
 	}
+
 	#landrover .Fullscreen.shared .Fullscreen__header .mfp-close {
 		position: fixed;
 		bottom: 0;
@@ -19138,43 +19603,54 @@ a.mfp-close:hover {
 		background: none;
 		width: auto
 	}
+
 	#landrover .Fullscreen.shared .Fullscreen__header .mfp-close:before {
 		width: auto;
 		line-height: 50px
 	}
+
 	#landrover .Fullscreen.shared.Fullscreen--hasGalleryCategories .Fullscreen__footer {
 		height: 50px;
 		display: block
 	}
+
 	#landrover .Fullscreen.shared.Fullscreen--hasGalleryCategories .Fullscreen__information-heading,
 	#landrover .Fullscreen.shared.Fullscreen--hasGalleryCategories .Fullscreen__information-text {
 		display: none
 	}
+
 	#landrover .Fullscreen.shared .Fullscreen__footer {
 		padding-bottom: 40px
 	}
+
 	#landrover .Fullscreen .Fullscreen__header {
 		height: 50px
 	}
+
 	#landrover .Fullscreen .Fullscreen__header .mfp-close {
 		height: 50px;
 		width: 50px
 	}
+
 	#landrover .Fullscreen .Fullscreen__header .mfp-close:before {
 		width: 50px;
 		line-height: 50px
 	}
+
 	#landrover .Fullscreen .Fullscreen__logo {
 		height: 30px;
 		margin: 10px
 	}
+
 	#landrover .Fullscreen .Fullscreen__information-wrapper {
 		display: none;
 		height: 50px
 	}
+
 	#landrover .Fullscreen .Fullscreen__information-heading {
 		height: 50px
 	}
+
 	#landrover .Fullscreen .Fullscreen__information-text {
 		max-height: 50px
 	}
@@ -19281,6 +19757,7 @@ a.mfp-close:hover {
 	.Fullscreen .Fullscreen__footer-heading+.Fullscreen____footer-text {
 		margin-top: 3px
 	}
+
 	.Fullscreen .Fullscreen____footer-text {
 		line-height: 1.3;
 		margin: 0 20px
@@ -19294,21 +19771,26 @@ a.mfp-close:hover {
 		max-height: 100%;
 		top: 0
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__header {
 		position: absolute;
 		transition: transform ease-out 300ms, opacity ease-out 300ms;
 		transform: translate(0, 0);
 		opacity: 1
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__information-wrapper {
 		display: block
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__information-heading {
 		padding: 9px 16px 11px
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__information-text {
 		display: none
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__content-wrapper {
 		flex: 1;
 		height: auto;
@@ -19316,6 +19798,7 @@ a.mfp-close:hover {
 		transition: padding ease-out 300ms;
 		position: relative
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__footer {
 		align-items: center;
 		box-sizing: content-box;
@@ -19327,34 +19810,42 @@ a.mfp-close:hover {
 		transition: height ease-out 300ms, padding ease-out 300ms;
 		width: calc(100% - 24px)
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__footer-heading {
 		display: none
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__footer-text {
 		align-self: center;
 		flex: 1;
 		margin: 0 20px 0 0;
 		text-align: left
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__link-container {
 		padding: 0
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery .Fullscreen__toggle {
 		display: block
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery--maximised .Fullscreen__header {
 		transform: translate(0, -100%);
 		opacity: 0;
 		pointer-events: none
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery--maximised .Fullscreen__content-wrapper {
 		padding-top: 0
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery--maximised .Fullscreen__footer {
 		height: 0;
 		padding-bottom: 0;
 		padding-top: 0
 	}
+
 	#landrover .Fullscreen.Fullscreen--hasGallery--maximised .Fullscreen__toggle {
 		top: 16px
 	}
@@ -19378,6 +19869,7 @@ a.mfp-close:hover {
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
+
 	.Gallery__item,
 	.Gallery__slider,
 	.Gallery__wrapper {
@@ -19414,13 +19906,13 @@ a.mfp-close:hover {
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
 	.Gallery__background-image {
-		height: calc( 100vh - 300px)
+		height: calc(100vh - 300px)
 	}
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) and (orientation: landscape) {
 	.Gallery__background-image {
-		height: calc( 100vh - 185px)
+		height: calc(100vh - 185px)
 	}
 }
 
@@ -19444,6 +19936,7 @@ a.mfp-close:hover {
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+
 	.Gallery__next:not(.swiper-button-disabled),
 	.Gallery__previous:not(.swiper-button-disabled) {
 		display: block;
@@ -19611,6 +20104,7 @@ a.mfp-close:hover {
 }
 
 @media only screen and (min-width: 0) and (max-width: 900px) and (orientation: landscape) {
+
 	.Fullscreen.Fullscreen--hasGallery .Gallery,
 	.Fullscreen.Fullscreen--hasGallery .Gallery__item,
 	.Fullscreen.Fullscreen--hasGallery .Gallery__slider,
@@ -19618,9 +20112,11 @@ a.mfp-close:hover {
 	.Fullscreen.Fullscreen--hasGallery .Gallery__background-image {
 		height: 100%
 	}
+
 	.Fullscreen.Fullscreen--hasGallery .Fullscreen__footer .Gallery__cta {
 		margin-top: 0
 	}
+
 	.Fullscreen.Fullscreen--hasGallery--maximised .Gallery__background-image .Picture__img {
 		object-fit: cover
 	}
@@ -19776,14 +20272,17 @@ a.mfp-close:hover {
 		height: 50%;
 		width: 100%
 	}
+
 	.GalleryCategories.portrait[data-total="4"] li {
 		height: 50%;
 		width: 50%
 	}
+
 	.GalleryCategories.portrait[data-total="3"] li {
 		height: 33.333%;
 		width: 100%
 	}
+
 	.GalleryCategories.portrait[data-total="2"] li {
 		height: 50%;
 		width: 100%
@@ -20316,6 +20815,7 @@ a.mfp-close:hover {
 }
 
 @media only screen and (max-width: 700px) {
+
 	.VideoPlayer .mejs-container-fullscreen .mejs-inner,
 	.VideoPlayer .mejs-container-fullscreen .mejs-mediaelement,
 	.VideoPlayer .mejs-container-fullscreen video {
@@ -20393,28 +20893,35 @@ a.mfp-close:hover {
 		width: 40px;
 		height: 40px
 	}
+
 	.VideoPlayer .mejs-captions-layer .mejs-captions-position.mejs-captions-position-hover {
 		bottom: 55px
 	}
+
 	.VideoPlayer .mejs-volume-slider {
 		width: 40px
 	}
+
 	.VideoPlayer .mejs-volume-slider .mejs-volume-total,
 	.VideoPlayer .mejs-volume-slider .mejs-volume-current {
 		left: 18px
 	}
+
 	.VideoPlayer .mejs-volume-slider .mejs-volume-handle {
 		left: 15px
 	}
+
 	.VideoPlayer .mejs-time-rail {
 		height: 40px;
 		padding-left: 10px;
 		padding-right: 10px
 	}
+
 	.VideoPlayer .mejs-time-rail .mejs-time-total {
 		border-top-width: 18px;
 		border-bottom-width: 18px
 	}
+
 	.VideoPlayer .mejs-time {
 		line-height: 40px;
 		padding-right: 10px
@@ -20668,6 +21175,7 @@ a.mfp-close:hover {
 		margin-left: -40px;
 		margin-top: -40px
 	}
+
 	.YouTubePlayer .playButton:before {
 		line-height: 80px;
 		font-size: 40px;
@@ -20682,10 +21190,29 @@ a.mfp-close:hover {
 		margin-left: -20px;
 		margin-top: -20px
 	}
+
 	.YouTubePlayer .playButton:before {
 		line-height: 40px;
 		font-size: 19px;
 		margin-left: 10px;
 		margin-top: 2px
 	}
+}
+
+
+.slateblue {
+	background-color: #0C121C;
+	color: #FFFFFF;
+
+}
+
+
+.grey p,
+.light p,
+.white p {
+	color: #4A4F54;
+}
+
+.slateblue p {
+	color: #FFFFFF;
 }
