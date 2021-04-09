@@ -1,24 +1,21 @@
-<sly data-sly-use.model="com.jlr.core.models.AccoladeModel" data-sly-call="${renderAccolade @ accolade=model}" />
+<sly data-sly-use.model="com.jlr.core.models.AccoladeModel" data-sly-call="${renderAccolade @ model=model}" />
 
-<template data-sly-template.renderAccolade="${ @ accolade }">
-<div data-sly-test="${!accolade.id}" class="cq-placeholder"
+<template data-sly-template.renderAccolade="${ @ model }">
+<div data-sly-test="${!model.id}" class="cq-placeholder"
 	 data-emptytext="Accolade Component"></div>
+<div class="cmp-accolades"  data-alignment="right" id="${model.id}">
+<div class="cmp-accolades__img">
+    <picture data-sly-test="${model.logoImage}" class="Picture">
 
-
-     <div style="background-image: url(${accolade.backgroundImage @ context='styleString'});">
-
-ID : ${accolade.id}<br/>
-Header : ${accolade.headerCopy @context='html'}<br/>
-Body : ${accolade.copy @context='html'}<br/>
-Date : ${accolade.date }<br/><br/>
-
-Background Image : ${accolade.backgroundImage}<br/>
-Logo Image : ${accolade.logoImage}<br/>
-
-CTA text : ${accolade.text}<br/>
-CTA link : ${accolade.link}<br/>
-CTA linkType : ${accolade.linkType}<br/>
-CTA target : ${accolade.target}<br/>
-    </div>
+        <img alt="carouselContainer" class="Picture__img" alt="${model.imageAlt}" data-dimensions="350x198" srcset="${model.logoImage}" />
+    </picture>
+</div>
+<div class="cmp-accolades__copy ${model.logoImage ? '' : 'cmp-onlyCopy'}">
+    <div data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</div>
+    <div  class="cmp-accolades__copy--secondary">${model.copy @context='html'}</div>
+    <a data-sly-test="${model.text}" class="cmp-accolades__copy--link secondaryLinkWithStyle ${model.target=='overlay' ? '' : model.icon}" aria-label="${model.ariaLabel}" target="${model.target}" data-target="${model.target}" href="${model.link}">${model.text}</a>
+    <p data-sly-test="${model.date}" class="cmp-accolades__copy--tertiary">${model.date}</p>
+</div>
+</div>
 </template>
 

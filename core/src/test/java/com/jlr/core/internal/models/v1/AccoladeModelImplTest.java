@@ -13,7 +13,7 @@ import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 @ExtendWith(AemContextExtension.class)
-class AccoladeModelImplTest {
+class AccoladeModelImplTest extends GlobalModelImplTest {
 
     private AccoladeModel accoladeModel;
 
@@ -24,11 +24,7 @@ class AccoladeModelImplTest {
         accoladeModel = resource.adaptTo(AccoladeModelImpl.class);
     }
 
-    @Test
-    void testGeneralProperties() {
-        assertEquals("25/02/2021", accoladeModel.getDate());
-    }
-
+    @Override
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", accoladeModel.getBackgroundImage());

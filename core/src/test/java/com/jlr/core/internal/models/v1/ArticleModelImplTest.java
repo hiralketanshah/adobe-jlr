@@ -19,7 +19,7 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * Simple JUnit test verifying the ArticleModelImpl.
  */
 @ExtendWith(AemContextExtension.class)
-class ArticleModelImplTest {
+class ArticleModelImplTest extends GlobalModelImplTest {
 
     /** The article model. */
     private ArticleModel articleModel;
@@ -49,6 +49,7 @@ class ArticleModelImplTest {
     /**
      * Test cta properties.
      */
+    @Override
     @Test
     void testCtaProperties() {
         List<CTAPojo> list = articleModel.getCtaList();
