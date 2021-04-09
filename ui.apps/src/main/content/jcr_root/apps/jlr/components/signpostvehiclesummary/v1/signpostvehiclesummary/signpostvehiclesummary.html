@@ -1,6 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}" data-sly-call="${renderModel @ model=model, config=config}" />
 <template data-sly-template.renderModel="${ @ model, config}">
-  <div class="cmp-vehicleSummary fontSmooth clearfix" id="${model.id}">
+  <div class="cmp-vehicleSummaryGridContext fontSmooth clearfix" id="${model.id}">
    <div class="gridContext clearfix">
     <div class="summaryItemImage cmp-vehicleSummary__image">
      <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
@@ -38,7 +38,7 @@
     </div>
    </div>
   </div>
-  <div class="cmp-signPost">
+  <div class="cmp-signpostGridContext">
 
       <div class="cmp-signPost__image">
         <picture data-sly-test="${model.fileReference}" class="cmp-signPost__image Picture Picture--background cmp-signPost__picture" data-align="center" data-lazy="unless-first-component">
