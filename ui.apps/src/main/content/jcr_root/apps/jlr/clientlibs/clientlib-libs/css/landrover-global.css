@@ -6304,15 +6304,9 @@ body {
 	color: #4a4f54
 }
 
-/* .light,
-.white,
-.no-js .lightWhenNoJS {
-	background-color: #f8f9f9;
-	color: #4a4f54
-} */
 
 .light {
-	background-color:#E9ECEC;
+	background-color:#f8f9f9;
 	color: #4a4f54
 }
 .white{
@@ -20771,6 +20765,4 @@ color:#4A4F54;
 .slateblue p{
 color:#FFFFFF;
 }
-
-
 
