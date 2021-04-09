@@ -30,6 +30,7 @@ public class CommonConstants {
     public static final String PN_CTA_TARGET = "target";
     public static final String PN_CTA_ARIALABEL = "ariaLabel";
     public static final String PN_DESCRIPTION = "copy";
+    public static final String PN_TITLE = "headerCopy";
     public static final String PN_FILE_REFERENCE = "fileReference";
     public static final String PN_IMAGE_ALT = "imageAlt";
     public static final String PN_CTA_LINK_TYPE = "linkType";
@@ -41,6 +42,7 @@ public class CommonConstants {
     public static final String PN_ICON = "icon";
     public static final String PN_CONFIG_KEY = "key";
     public static final String PN_CONFIG_VALUE = "value";
+    public static final String PN_FAQ_ANSWER_CAVEAT = "answerCaveat";
     public static final String PN_NAMEPLATE_CODE = "namePlateCode";
     public static final String PN_MODELYEAR = "modelYear";
 

@@ -1,0 +1,41 @@
+<sly data-sly-use.faqscontainer="com.adobe.cq.wcm.core.components.models.Accordion" />	
+<div class="cmp-faqmodal">
+    <section class="cmp-faqmodel" id="cmp-faqmodel">
+       <!-- Toggle all button -->
+       <button class="cmp-faqmodel__toggle button-tertiary">
+       <span class="cmp-faqmodel__toggle__open" data-sly-use.openall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.openall.copy'}">
+         ${openall.configValue}
+       </span>
+       <span class="cmp-faqmodel__toggle__close hide" data-sly-use.closeall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.closeall.copy'}">
+         ${closeall.configValue}
+       </span>
+       </button>
+       <div class="clearfix"></div>
+       <!-- Accordion -->
+       <div class="cmp-faqmodel__accordion">
+       </div>
+       <div 
+        data-sly-repeat.item="${faqscontainer.items}"
+        data-cmp-hook-accordion="item"
+		data-sly-test="${faqscontainer.items.size > 0}"
+        class="cmp-faqmodel__accordion__section  ${item.name in faqscontainer.expandedItems ? 'showContent active' : ''}">
+
+          <!-- Accordion section headers -->
+          <div class="cmp-faqmodel__accordion__fixed-header">${item.title}</div>
+          <h2 class="cmp-faqmodel__accordion__section__title">
+             <button aria-controls="${item.id}-panel" aria-expanded="true" class="cmp-faqmodel__accordion__header" id="${item.id}-button">
+             <span class="cmp-faqmodel__accordion__header__icon"></span>
+             <span class="cmp-faqmodel__accordion__header__text">${item.title}</span>
+             </button>
+          </h2>
+            <div data-sly-resource="${item.name @ decorationTagName='div'}"
+                 id="${item.id}-panel"
+                 class="cmp-faqmodel__accordion__content ${item.name in faqscontainer.expandedItems ? 'open' : ''}"
+                 role="region"
+                 aria-labelledby="${item.id}-button"></div>
+        </div>
+          <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
+             data-sly-test="${(wcmmode.edit || wcmmode.preview) && faqscontainer.items.size < 1}"></sly>
+       </div>
+    </section>
+</div>
