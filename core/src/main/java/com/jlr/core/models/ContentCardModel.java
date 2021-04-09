@@ -24,15 +24,6 @@ public interface ContentCardModel {
     }
 
     /**
-     * Gets the body copy.
-     *
-     * @return the body copy
-     */
-    default String getBodyCopy() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
      * Gets the content type.
      *
      * @return the content type
@@ -49,9 +40,5 @@ public interface ContentCardModel {
     default String getVideoType() {
         return StringUtils.EMPTY;
     }
-	
-	default String getPrice() {
-        return StringUtils.EMPTY;
-    }
-	
+
 }

@@ -53,14 +53,6 @@ class ContentCardModelTest extends GlobalModelImplTest {
     }
 
     /**
-     * Test body copy.
-     */
-    @Test
-    void testBodyCopy() {
-        assertEquals("body_copy", contentCardModel.getBodyCopy());
-    }
-
-    /**
      * Test content type.
      */
     @Test

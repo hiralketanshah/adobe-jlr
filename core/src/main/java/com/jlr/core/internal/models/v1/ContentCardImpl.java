@@ -25,14 +25,6 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/contentcard/v1/contentcard";
 
-    /** The body copy. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String bodyCopy;
-
-    /** The date. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String date;
-
     /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String assestType;
@@ -41,9 +33,6 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoType;
     
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String price;
-
     /** The cta list. */
     @Inject
     @Optional
@@ -70,16 +59,6 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     }
 
     /**
-     * Gets the body copy.
-     *
-     * @return the body copy
-     */
-    @Override
-    public String getBodyCopy() {
-        return bodyCopy;
-    }
-
-    /**
      * Gets the content type.
      *
      * @return the content type
@@ -99,8 +78,4 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
         return videoType;
     }
     
-    @Override
-    public String getPrice() {
-        return price;
-    }
 }

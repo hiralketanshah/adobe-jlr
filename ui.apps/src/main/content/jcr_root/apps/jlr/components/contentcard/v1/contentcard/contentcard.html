@@ -1,7 +1,7 @@
 <sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"
 data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
-   <div data-sly-test="${contentCard.headerCopy||contentCard.copy||contentCard.ctaList}" class="cq-placeholder"
+   <div data-sly-test="${!contentCard.headerCopy||!contentCard.copy||!contentCard.ctaList}" class="cq-placeholder"
       data-emptytext="Content Card Component"></div>
    <li class="el gridEl">
       <div class="cmp-ContentCard">

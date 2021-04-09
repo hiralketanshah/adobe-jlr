@@ -14,7 +14,6 @@
   "videoPath":"/bin",
   "videoType":"videoId",
   "date" : "03-03-2021",
-  "bodyCopy":"body_copy",
   "ctaList":{
     "jcr:primaryType":"nt:unstructured",
     "item0":{

@@ -33,9 +33,11 @@
                             <date
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                fieldDescription="add to display the date for content posted"
+                                displayedFormat="DD/MM/YYYY"
+                                fieldDescription="The optional date to be displayed"
                                 fieldLabel="Date"
-                                name="./date"/>
+                                name="./date"
+                                type="datetime"/>
                             <pricing
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
