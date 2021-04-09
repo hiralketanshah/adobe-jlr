@@ -40,5 +40,14 @@ public interface ContentCardModel {
     default String getVideoType() {
         return StringUtils.EMPTY;
     }
+    
+    /**
+     * Gets the price.
+     *
+     * @return the price
+     */
+    default String getPrice() {
+        return StringUtils.EMPTY;
+    }
 
 }

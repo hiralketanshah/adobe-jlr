@@ -33,6 +33,10 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoType;
     
+    /** The price. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String price;
+    
     /** The cta list. */
     @Inject
     @Optional
@@ -76,6 +80,16 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Override
     public String getVideoType() {
         return videoType;
+    }
+    
+    /**
+     * Gets the price.
+     *
+     * @return the price
+     */
+    @Override
+    public String getPrice() {
+        return price;
     }
     
 }
