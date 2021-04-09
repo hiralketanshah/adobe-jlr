@@ -1,72 +1,110 @@
 <sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"
-data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
-   <div data-sly-test="${!contentCard.headerCopy||!contentCard.copy||!contentCard.ctaList}" class="cq-placeholder"
-      data-emptytext="Content Card Component"></div>
-   <li class="el gridEl">
-      <div class="cmp-ContentCard">
-         <div class="imageContainer mediaOverlay__wrapper">
-            <a class="imageLink TargetLinks"
-               href="${contentCard.imageLink}"
-               data-target="current" data-type="${contentCard.assestType}"
-               data-aria-title="">
-               <div class="mediaOverlay mediaOverlayVideo">
-                  <div class="mediaOverlayBg"></div>
-                  <div class="mediaOverlayIcon"></div>
-               </div>
-               <picture class="Picture">
-                  <source data-dimensions="680x450" media="(min-width: 0px)"
-                     srcset="${contentCard.fileReference}" />
-                  <img alt="" class="Picture__img" data-dimensions="680x450"
-                     srcset="${contentCard.fileReference}" />
-               </picture>
-            </a>
-         </div>
-         <div class="textContainer">
-            <div class="textContainerTop">
-               <p data-sly-test="${contentCard.date}" class="date .cmp-ContentCard__date" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='Posted'}">
-                  ${config.configValue}: ${contentCard.date}.
-               </p>
-               <h2 data-sly-test="${contentCard.headerCopy}"
-                  class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
-                  ${contentCard.headerCopy @ context="html"}
-               </h2>
-               <p data-sly-test="${contentCard.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}">
-                  ${config.configValue}: ${contentCard.price}
-               </p>
-               <p data-sly-test="${contentCard.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
-                  ${contentCard.copy @ context="html"}
-               </p>
-            </div>
-            <div class="tableSwap">
-               <div class="linkBlock orderNow">
-                  <div class="containerKeyLine"></div>
-               </div>
-               <div class="linkBlock links">
-                  <div class="containerKeyLine" data-sly-list.cta="${contentCard.ctaList}">
-                     <span data-sly-test="${cta.linkType=='primary'}">
-                        <div class="linkContainer primaryLinkContainer">
-                           <a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
-                              href="${cta.link}"
-                              aria-label="${cta.ariaLabel}">
-                           <span aria-hidden="true">${cta.text}
-                           </span>
-                           </a>
-                        </div>
+<div class="cq-placeholder" data-emptytext="Content Card Component"></div>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.contentcard.v1']}" />
+<div class="pageWrapper">
+   <div id="${contentCard.id}">
+      <div>
+         <div class="cmp-ContentBlocksContainer light fontSmooth" data-filter-tags="" data-template="swiping">
+            <div class="GridListWrapper" data-wrapper="float">
+               <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
+                  <h2 class="heading headingLinear headingThick">
+                     <span class="headingWrapper fontH2">
+                     ${contentCard.headerCopy @ context="html"}
                      </span>
-                     <span data-sly-test="${cta.linkType=='secondary'}">
-                        <div class="linkContainer secondaryLinkContainer">
-                           <a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
-                              href="${cta.link}"
-                              aria-label="${cta.ariaLabel}">
-                           <span aria-hidden="true">${cta.text}
-                           </span>
-                           </a>
-                        </div>
-                     </span>
+                  </h2>
+                  <span class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</span>
+               </div>
+               <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentBlockContainer.id}">
+                  <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
+                     <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
+                     <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
+                     <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                   </div>
+                  </div>
+               <div class="DxTabs__panels" data-dxtabs-panels-id="${contentCard.id}">
+                  <div class="cmp-contentCards items DxTabs__panels" role="tabpanel" data-total="${contentCard.column}">
+                     <div class="cmp-contentCardsCarousel">
+                        <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
+                           <li class="el gridEl">
+                              <div class="cmp-ContentCard">
+                                 <div class="imageContainer mediaOverlay__wrapper">
+                                    <a class="imageLink TargetLinks"
+                                       href="${content.imageLink}"
+                                       data-target="current" data-type="${content.assestType}"
+                                       data-aria-title="">
+									   <sly data-sly-test="${content.assestType=='video'}">
+                                       <div class="mediaOverlay mediaOverlayVideo">
+                                          <div class="mediaOverlayBg"></div>
+                                          <div class="mediaOverlayIcon"></div>
+                                       </div></sly>
+                                       <picture class="Picture">
+                                          <source data-dimensions="680x450" media="(min-width: 0px)"
+                                             srcset="${content.fileReference}" />
+                                          <img alt="" class="Picture__img" data-dimensions="680x450"
+                                             srcset="${content.fileReference}" />
+                                       </picture>
+                                    </a>
+                                 </div>
+                                 <div class="textContainer">
+                                    <div class="textContainerTop">
+                                       <p data-sly-test="${content.date}" class="date .cmp-ContentCard__date" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='Posted'}">
+                                          ${config.configValue}: ${content.date}.
+                                       </p>
+                                       <h2 data-sly-test="${content.headerCopy}"
+                                          class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
+                                          ${content.headerCopy @ context="html"}
+                                       </h2>
+                                       <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}">
+                                          ${config.configValue}: ${content.price}
+                                       </p>
+                                       <p data-sly-test="${contentCard.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
+                                          ${content.copy @ context="html"}
+                                       </p>
+                                    </div>
+                                    <div class="tableSwap">
+                                       <div class="linkBlock orderNow">
+                                          <div class="containerKeyLine"></div>
+                                       </div>
+                                       <div class="linkBlock links">
+                                          <div class="containerKeyLine" data-sly-list.cta="${content.ctaList}">
+                                             <span data-sly-test="${cta.linkType=='primary'}">
+                                                <div class="linkContainer primaryLinkContainer">
+                                                   <a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                                                      href="${cta.link}"
+                                                      aria-label="${cta.ariaLabel}">
+                                                   <span aria-hidden="true">${cta.text}
+                                                   </span>
+                                                   </a>
+                                                </div>
+                                             </span>
+                                             <span data-sly-test="${cta.linkType=='secondary'}">
+                                                <div class="linkContainer secondaryLinkContainer">
+                                                   <a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                                                      href="${cta.link}"
+                                                      aria-label="${cta.ariaLabel}">
+                                                   <span aria-hidden="true">${cta.text}
+                                                   </span>
+                                                   </a>
+                                                </div>
+                                             </span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="ctaContainer" data-sly-list.cta="${contentBlockContainer.ctaList}">
+                  <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+                  <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
                </div>
             </div>
          </div>
       </div>
-   </li>
+   </div>
+</div>

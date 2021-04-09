@@ -22,200 +22,239 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/id"/>
-                            <title
+                            <columnLayout
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                fieldDescription="Select how many column needs to be added"
+                                fieldLabel="Column Layout"
+                                name="./column">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <fullwidth
+                                        jcr:primaryType="nt:unstructured"
+                                        selected="{Boolean}true"
+                                        text="Full Width Column"
+                                        value="1"/>
+                                    <_x0032_column
+                                        jcr:primaryType="nt:unstructured"
+                                        text="2 Column Layout"
+                                        value="2"/>
+                                    <_x0033_column
+                                        jcr:primaryType="nt:unstructured"
+                                        text="3 Column Layout"
+                                        value="3"/>
+                                    <_x0034_column
+                                        jcr:primaryType="nt:unstructured"
+                                        text="4 Column Layout"
+                                        value="4"/>
+                                </items>
+                            </columnLayout>
+                            <header
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
-                            <bodyCopy
+                            <descriptionCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
-                            <date
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
-                                displayedFormat="DD/MM/YYYY"
-                                fieldDescription="The optional date to be displayed"
-                                fieldLabel="Date"
-                                name="./date"
-                                type="datetime"/>
-                            <pricing
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/price"/>
                         </items>
                     </properties>
-                    <imagevideo
+                    <contentCard
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Image / Video"
+                        jcr:title="Content Card"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <assestType
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/form/select"
-                                class="cq-dialog-dropdown-showhide"
-                                cq-dialog-dropdown-showhide-target=".image-video-hide-show"
-                                fieldDescription="Select Content Type as Video or Image"
-                                fieldLabel="Choose Image or Video assest"
-                                name="./assestType">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <image
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Image"
-                                        value="image"/>
-                                    <video
-                                        jcr:primaryType="nt:unstructured"
-                                        text="Video"
-                                        value="video"/>
-                                </items>
-                            </assestType>
-                            <image
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/container"
-                                class="hide image-video-hide-show"
-                                showhidetargetvalue="image">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <well
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/well">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <imagePath
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
-                                            <imageLink
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
-                                            <imgAlt
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
-                                            <ariaLabel
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
-                                        </items>
-                                    </well>
-                                </items>
-                            </image>
-                            <video
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/container"
-                                class="hide image-video-hide-show"
-                                showhidetargetvalue="video">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <well
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/well">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <videoType
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/foundation/form/select"
-                                                class="cq-dialog-dropdown-showhide"
-                                                cq-dialog-dropdown-showhide-target=".videoId-videoPath-hide-show"
-                                                fieldDescription="specify whether video will be from youtube or dam"
-                                                fieldLabel="Choose Youtube Video ID or Dam Video Assest"
-                                                name="./videoType">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <videoId
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Youtube Video ID"
-                                                        value="videoId"/>
-                                                    <videoPath
-                                                        jcr:primaryType="nt:unstructured"
-                                                        text="Video Path"
-                                                        value="videoPath"/>
-                                                </items>
-                                            </videoType>
-                                            <videoId
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/foundation/container"
-                                                class="hide videoId-videoPath-hide-show"
-                                                showhidetargetvalue="videoId">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <videoId
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                        path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
-                                                </items>
-                                            </videoId>
-                                            <videoPath
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/foundation/container"
-                                                class="hide videoId-videoPath-hide-show"
-                                                showhidetargetvalue="videoPath">
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <videoPath
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                        path="/mnt/overlay/jlr/components/globalfields/video/videoPath"/>
-                                                </items>
-                                            </videoPath>
-                                            <ariaLabel
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
-                                        </items>
-                                    </well>
-                                </items>
-                            </video>
-                        </items>
-                    </imagevideo>
-                    <cta
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="CTA"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <ctaList
+                            <contentcard
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                 composite="{Boolean}true"
-                                fieldLabel="CTA List">
+                                fieldLabel="Content Card List">
                                 <field
                                     jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                    name="./ctaList">
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./contentCardList">
                                     <items jcr:primaryType="nt:unstructured">
-                                        <column
+                                        <title
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                        <bodyCopy
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                                        <date
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                            displayedFormat="DD/MM/YYYY"
+                                            fieldDescription="The optional date to be displayed"
+                                            fieldLabel="Date"
+                                            name="./date"
+                                            type="datetime"/>
+                                        <pricing
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/general/price"/>
+                                        <assestType
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/select"
+                                            class="cq-dialog-dropdown-showhide"
+                                            cq-dialog-dropdown-showhide-target=".image-video-hide-show"
+                                            fieldDescription="Select Content Type as Video or Image"
+                                            fieldLabel="Choose Image or Video assest"
+                                            name="./assestType">
                                             <items jcr:primaryType="nt:unstructured">
-                                                <linkText
+                                                <image
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
-                                                <link
+                                                    text="Image"
+                                                    value="image"/>
+                                                <video
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
-                                                <target
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
-                                                <linkType
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
-                                                <icon
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
-                                                <ariaLabel
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                                    text="Video"
+                                                    value="video"/>
                                             </items>
-                                        </column>
+                                        </assestType>
+                                        <image
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            class="hide image-video-hide-show"
+                                            showhidetargetvalue="image">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <well
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <imagePath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                                                        <imageLink
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
+                                                        <imgAlt
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                                        <ariaLabel
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </image>
+                                        <video
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            class="hide image-video-hide-show"
+                                            showhidetargetvalue="video">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <well
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <videoType
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/select"
+                                                            class="cq-dialog-dropdown-showhide"
+                                                            cq-dialog-dropdown-showhide-target=".videoId-videoPath-hide-show"
+                                                            fieldDescription="specify whether video will be from youtube or dam"
+                                                            fieldLabel="Choose Youtube Video ID or Dam Video Assest"
+                                                            name="./videoType">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <videoId
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Youtube Video ID"
+                                                                    value="videoId"/>
+                                                                <videoPath
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="Video Path"
+                                                                    value="videoPath"/>
+                                                            </items>
+                                                        </videoType>
+                                                        <videoId
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container"
+                                                            class="hide videoId-videoPath-hide-show"
+                                                            showhidetargetvalue="videoId">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <videoId
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                                            </items>
+                                                        </videoId>
+                                                        <videoPath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container"
+                                                            class="hide videoId-videoPath-hide-show"
+                                                            showhidetargetvalue="videoPath">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <videoPath
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/video/videoPath"/>
+                                                            </items>
+                                                        </videoPath>
+                                                        <ariaLabel
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </video>
+                                        <ctaList
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                            composite="{Boolean}true"
+                                            fieldLabel="CTA List">
+                                            <field
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                name="./ctaList">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <column
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/container">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <linkText
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                            <link
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                            <target
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                            <linkType
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                                            <icon
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                                            <ariaLabel
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                                        </items>
+                                                    </column>
+                                                </items>
+                                            </field>
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                maxlimit="4"/>
+                                        </ctaList>
                                     </items>
                                 </field>
-                                <granite:data
-                                    jcr:primaryType="nt:unstructured"
-                                    maxlimit="4"/>
-                            </ctaList>
+                            </contentcard>
                         </items>
-                    </cta>
+                    </contentCard>
                 </items>
             </tabs>
         </items>

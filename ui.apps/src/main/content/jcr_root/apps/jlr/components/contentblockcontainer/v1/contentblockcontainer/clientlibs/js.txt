@@ -1,3 +1,0 @@
-#base=js
-
-contentblockcontainer.js

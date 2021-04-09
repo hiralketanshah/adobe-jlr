@@ -6,8 +6,6 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
-import com.jlr.core.pojos.CTAPojo;
-
 /**
  * The Interface ContentCardModel.
  */
@@ -19,34 +17,11 @@ public interface ContentCardModel {
      *
      * @return the cta list
      */
-    default List<CTAPojo> getCtaList() {
+    default List<ContentCardListModel> getContentCardList() {
         return new ArrayList<>();
     }
 
-    /**
-     * Gets the content type.
-     *
-     * @return the content type
-     */
-    default String getAssestType() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the video type.
-     *
-     * @return the video type
-     */
-    default String getVideoType() {
-        return StringUtils.EMPTY;
-    }
-    
-    /**
-     * Gets the price.
-     *
-     * @return the price
-     */
-    default String getPrice() {
+    default String getColumn() {
         return StringUtils.EMPTY;
     }
 
