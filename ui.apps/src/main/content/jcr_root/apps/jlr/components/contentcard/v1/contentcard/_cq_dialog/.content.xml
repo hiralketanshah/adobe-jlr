@@ -56,6 +56,52 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                            <ctaList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="CTA List">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./ctaList">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                <link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                <target
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                <linkType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                                <ariaLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="2"/>
+                            </ctaList>
                         </items>
                     </properties>
                     <contentCard

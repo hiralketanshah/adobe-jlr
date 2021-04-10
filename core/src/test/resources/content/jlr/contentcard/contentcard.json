@@ -28,5 +28,15 @@
         }
       }
     }
-  }
+  },
+ "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "target":"_blank",
+          "link":"google.com",
+          "text":"text",
+          "linkType":"primary"
+        }
+	}
 }

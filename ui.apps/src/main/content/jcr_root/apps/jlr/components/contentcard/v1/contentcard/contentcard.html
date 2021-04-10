@@ -60,7 +60,7 @@
                                        <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}">
                                           ${config.configValue}: ${content.price}
                                        </p>
-                                       <p data-sly-test="${contentCard.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
+                                       <p data-sly-test="${content.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
                                           ${content.copy @ context="html"}
                                        </p>
                                     </div>
@@ -100,7 +100,7 @@
                      </div>
                   </div>
                </div>
-               <div class="ctaContainer" data-sly-list.cta="${contentBlockContainer.ctaList}">
+               <div class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
                   <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
                   <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
                </div>
