@@ -133,14 +133,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </article>
-                        <vehiclesummary jcr:primaryType="nt:unstructured">
+                        <signpostvehiclesummary jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
-                                <vehiclesummary
-                                    cq:policy="jlr/components/vehiclesummary/v1/vehiclesummary/policy_1616070143899"
+                                <signpostvehiclesummary
+                                    cq:policy="jlr/components/signpostvehiclesummary/v1/signpostvehiclesummary/policy_1616070143899"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </vehiclesummary>
+                        </signpostvehiclesummary>
                         <snippet jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <snippet

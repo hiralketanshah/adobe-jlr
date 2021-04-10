@@ -14,6 +14,10 @@ public class CommonConstants {
     public static final String DEFAULT_SECONDARY_ICON = "icon-arrow-right";
     public static final String DEFAULT_LOCALE = "en";
     public static final String BLANK_SPACE = " ";
+    public static final String DOT = ".";
+    public static final String UNDERSCORE = "_";
+    public static final String JCR_CONTENT = "jcr:content";
+    public static final String COMMA = ",";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
@@ -47,6 +51,8 @@ public class CommonConstants {
     public static final String PN_NAMEPLATE_CODE = "namePlateCode";
     public static final String PN_MODELYEAR = "modelYear";
     public static final String PN_DATE_FORMAT = "dateFormat";
+    public static final String PN_IMAGE_FOLDER_PATH = "folderPath";
+
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";

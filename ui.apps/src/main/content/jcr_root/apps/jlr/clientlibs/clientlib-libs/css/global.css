@@ -1,0 +1,24 @@
+/* theme colors  */
+.light {
+	background-color: #FFFFFF;
+    color : #000;
+}
+.white {
+	background-color: #f8f9f9;
+    color: #4a4f54;
+}
+
+.grey {
+    background-color: #e9ecec;
+    color: #4a4f54;
+
+}
+.dark {
+	background: #4a4f54;
+    color: #e4e8e8;
+}
+
+.fontSmooth {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale
+}
