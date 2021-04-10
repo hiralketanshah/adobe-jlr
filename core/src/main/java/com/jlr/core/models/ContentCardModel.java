@@ -13,14 +13,19 @@ import org.osgi.annotation.versioning.ConsumerType;
 public interface ContentCardModel {
 
     /**
-     * Gets the cta list.
+     * Gets the content card list.
      *
-     * @return the cta list
+     * @return the content card list
      */
     default List<ContentCardListModel> getContentCardList() {
         return new ArrayList<>();
     }
 
+    /**
+     * Gets the column.
+     *
+     * @return the column
+     */
     default String getColumn() {
         return StringUtils.EMPTY;
     }

@@ -24,15 +24,26 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Inject
     private String column;
     
+    /** The content card list. */
     @Inject
     @Named("contentCardList/.")
     public List<ContentCardListModel> contentCardList;
 
+    /**
+     * Gets the column.
+     *
+     * @return the column
+     */
     @Override
 	public String getColumn() {
 		return column;
 	}
 
+	/**
+	 * Gets the content card list.
+	 *
+	 * @return the content card list
+	 */
 	@Override
 	public List<ContentCardListModel> getContentCardList() {
 		return contentCardList;
