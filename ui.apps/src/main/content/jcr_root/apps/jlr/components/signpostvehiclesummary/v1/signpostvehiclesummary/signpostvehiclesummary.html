@@ -1,0 +1,69 @@
+<sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}" data-sly-call="${renderModel @ model=model, config=config}" />
+<template data-sly-template.renderModel="${ @ model, config}">
+  <div class="cmp-vehicleSummaryGridContext clearfix" id="${model.id}">
+    <div class="summaryItemImage cmp-vehicleSummary__image">
+     <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
+      <a href="${model.imageLink}">
+       <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+      </a>
+     </picture>
+    </div>
+    <div class="summaryItemContent cmp-vehicleSummary__content">
+     <h2 data-sly-test="${model.headerCopy}" class="summaryItemHeader heading headingH4 cmp-vehicleSummary__header fontQuote">
+      <span class="headingWrapper">
+       ${model.headerCopy @context='html'}
+      </span>
+     </h2>
+     <p data-sly-test="${model.price}" class="heading price headingH5 cmp-vehicleSummary__price cmp-vehicleSummary__price--top fontFromPriceModel">
+      ${config.configValue}: ${model.price}
+     </p>
+     <p data-sly-test="${model.copy}" class="subheading cmp-vehicleSummary__subheading fontH1Copy">
+      ${model.copy @context='html'}
+     </p>
+     <div class="cmp-vehicleSummary__secondaryLinks">
+      <sly data-sly-list.cta="${model.ctaList}">
+       <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}">
+        <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle plwsTransparentLight' : 'secondaryLinkWithStyle slwsLight'} TargetLinks ${cta.target=='overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
+         <span aria-hidden="true">${cta.text}</span>
+        </a>
+       </span>
+      </sly>
+      </div>
+    </div>
+  </div>
+  <div class="cmp-signpostGridContext">
+
+      <div class="cmp-signPost__image">
+        <picture data-sly-test="${model.fileReference}" class="cmp-signPost__image Picture Picture--background cmp-signPost__picture" data-align="center" data-lazy="unless-first-component">
+		 <a href="${model.imageLink}">
+          <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1290x357" srcset="${model.fileReference}"/>
+		  </a>
+        </picture>
+      </div>
+      <div class="cmp-signPost__content">
+		<div class="cmp-signPost__center">
+        <div class="cmp-signPost__content-headers">
+          <h2 data-sly-test="${model.headerCopy}" class="heading headingH3 fontH3 cmp-signPost__content-title">
+            <span class="headingWrapper">${model.headerCopy @context='html'}</span>
+          </h2>
+        </div>
+        <div class="cmp-signPost__content-copy-wrapper">
+          <p data-sly-test="${model.copy}" class="fontBodyCopy">${model.copy @context='html'}</p>
+        </div>
+        <div class="cmp-signPost__content-footer">
+          <div class="linkContainer">
+			<sly data-sly-list="${model.ctaList}">
+				<sly data-sly-test="${itemList.first}">
+				<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
+					<a class="${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+						<span aria-hidden="true">${item.text}</span>
+					</a>
+				</div>
+				</sly>
+			</sly>
+          </div>
+        </div>
+      </div>
+	</div>
+    </div>
+</template>
