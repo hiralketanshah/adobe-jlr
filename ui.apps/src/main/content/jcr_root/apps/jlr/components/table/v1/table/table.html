@@ -5,11 +5,11 @@
 	<div data-sly-test="${table.headerCopy || table.copy || table.ctaList || table.tableHtml}">
 
 			<div class="cmp-engineSpecifications fontSmooth">
-				<div class="headerBlock">
-					<h1 class="heading fontH2 headingLinear headingThick">
+				<div data-sly-test="${table.headerCopy || cta.text}" class="headerBlock">
+					<h1 data-sly-test="${table.headerCopy}" class="heading fontH2 headingLinear headingThick">
 						<span class="tableHeadingWrapper">${table.headerCopy @ context='html'}</span>
 					</h1>
-					<div class="cmp-engineSpecifications__summary">${table.copy @ context='html'}</div>
+					<div  data-sly-test="${table.copy}" class="cmp-engineSpecifications__summary">${table.copy @ context='html'}</div>
 					<div class="ctaContainer" data-sly-test="${table.text && table.ctaPosition == 'above'}"
 						data-sly-list.cta=${table.ctaList}>
 						<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">

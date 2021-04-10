@@ -95,7 +95,7 @@
                     <item0
                         jcr:primaryType="nt:unstructured"
                         text="AU"
-                        value="/content/landrover/row/published-sites/en_au/"/>
+                        value="/content/landrover/global/row/published-sites/en_au"/>
                     <item1
                         jcr:primaryType="nt:unstructured"
                         text="DE"
