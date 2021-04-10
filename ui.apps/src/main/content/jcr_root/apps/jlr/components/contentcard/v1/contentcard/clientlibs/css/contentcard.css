@@ -646,12 +646,6 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     padding-top: 40px;
   }
 }
-.cmp-ContentBlocksContainer .headerBlock {
-  background-color: #f8f9f9;
-}
-.cmp-ContentBlocksContainer.white {
-  background-color: #f8f9f9;
-}
 .cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle {
   padding-top: 17px;
   padding-bottom: 16px;
@@ -1499,7 +1493,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         margin-bottom: 28px;
     }
     .GridListWrapper .items[data-total="4"] .el img{
-        width: 260px;
+        width: 100%;
         height: 146px;
         margin-bottom: 28px;
     }
@@ -1532,7 +1526,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         width: 280px; 
     }
     .GridListWrapper .items[data-total="2"] .el img{
-        width: 560px;
+        width: 100%;
         height: 314px;
         margin-bottom: 28px;
     }
@@ -1541,12 +1535,12 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         width: 400px;
     }
     .GridListWrapper .items[data-total="3"] .el img{
-        width: 360px;
+        width: 100%;
         height: 202px;
         margin-bottom: 28px;
     }
     .GridListWrapper .items[data-total="4"] .el img{
-        width: 260px;
+        width: 100%;
         height: 146px;
         margin-bottom: 28px;
     }

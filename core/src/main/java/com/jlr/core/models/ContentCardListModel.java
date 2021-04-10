@@ -24,9 +24,6 @@ public class ContentCardListModel extends GlobalModelImpl{
     private String assestType;
 	
 	@Inject
-    private String videoType;
-	
-	@Inject
     private String price;
 	
 	@Inject
@@ -44,10 +41,6 @@ public class ContentCardListModel extends GlobalModelImpl{
 
 	public String getAssestType() {
 		return assestType;
-	}
-
-	public String getVideoType() {
-		return videoType;
 	}
 
 	public String getPrice() {

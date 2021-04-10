@@ -2,29 +2,23 @@
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.contentcard.v1']}" />
-<div class="pageWrapper">
-   <div id="${contentCard.id}">
-      <div>
-         <div class="cmp-ContentBlocksContainer light fontSmooth" data-filter-tags="" data-template="swiping">
+         <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="swiping">
             <div class="GridListWrapper" data-wrapper="float">
                <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
-                  <h2 class="heading headingLinear headingThick">
-                     <span class="headingWrapper fontH2">
+                  <h2 class="heading headingThick">
+                     <span data-sly-test="${contentCard.copy}" class="headingWrapper fontH2">
                      ${contentCard.headerCopy @ context="html"}
                      </span>
                   </h2>
-                  <span class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</span>
+                  <div class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
                </div>
-               <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentBlockContainer.id}">
+               <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentCard.id}">
                   <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
-                     <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
-                     <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                      <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                   </div>
                   </div>
                <div class="DxTabs__panels" data-dxtabs-panels-id="${contentCard.id}">
-                  <div class="cmp-contentCards items DxTabs__panels" role="tabpanel" data-total="${contentCard.column}">
+                  <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentCard.column}">
                      <div class="cmp-contentCardsCarousel">
                         <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
                            <li class="el gridEl">
@@ -32,19 +26,26 @@
                                  <div class="imageContainer mediaOverlay__wrapper">
                                     <a class="imageLink TargetLinks"
                                        href="${content.imageLink}"
-                                       data-target="current" data-type="${content.assestType}"
-                                       data-aria-title="">
+                                       data-target="current" data-type="${content.assestType}">
 									   <sly data-sly-test="${content.assestType=='video'}">
                                        <div class="mediaOverlay mediaOverlayVideo">
                                           <div class="mediaOverlayBg"></div>
                                           <div class="mediaOverlayIcon"></div>
-                                       </div></sly>
+                                       </div>
+									   </sly>
+									   <sly data-sly-test="${content.assestType=='image'}">
+                                       <div class="mediaOverlay mediaOverlayImage">
+                                          <div class="mediaOverlayBg"></div>
+                                          <div class="mediaOverlayIcon"></div>
+                                       </div>
+									   </sly>
+                                       <sly data-sly-test=${content.fileReference}>
                                        <picture class="Picture">
                                           <source data-dimensions="680x450" media="(min-width: 0px)"
                                              srcset="${content.fileReference}" />
                                           <img alt="" class="Picture__img" data-dimensions="680x450"
                                              srcset="${content.fileReference}" />
-                                       </picture>
+                                       </picture></sly>
                                     </a>
                                  </div>
                                  <div class="textContainer">
@@ -105,6 +106,4 @@
                </div>
             </div>
          </div>
-      </div>
-   </div>
-</div>
+      
