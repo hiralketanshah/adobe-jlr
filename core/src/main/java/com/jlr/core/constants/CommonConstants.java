@@ -17,6 +17,7 @@ public class CommonConstants {
     public static final String DOT = ".";
     public static final String UNDERSCORE = "_";
     public static final String JCR_CONTENT = "jcr:content";
+    public static final String COMMA = ",";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
