@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
 
@@ -42,38 +43,48 @@ class ContentCardModelTest extends GlobalModelImplTest {
      */
     @Test
     void testProperties() {
+        List<ContentCardListModel> list = contentCardModel.getContentCardList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("https://google.com", item.getImageLink());
+            assertEquals("imageAlt", item.getImageAlt());
+            assertEquals("04-04-2021", item.getDate());
+            assertEquals("$98.05", item.getPrice());
+            assertEquals("headerCopy", item.getHeaderCopy());
+            assertEquals("copy", item.getCopy());
+            assertEquals("video", item.getAssestType());
+            List<CTAPojo> cta = item.getCtaList();
+            assertEquals(1, list.size());
+            cta.forEach(item1 -> {
+            	assertEquals("text", item1.getText());
+            	assertEquals("https://google.com", item1.getLink());
+            	assertEquals("_blank", item1.getTarget());
+            	assertEquals("primary", item1.getLinkType());
+            });
+        });
+    }
+    
+    /**
+     * Test contentcontainer CTA.
+     */
+    @Test
+    void testContentcontainerCTA() {
         List<CTAPojo> list = contentCardModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
-            assertEquals("test_text", item.getText());
-            assertEquals("http://www.google.com", item.getLink());
-            assertEquals("_self", item.getTarget());
-            assertEquals("primary", item.getLinkType());
+        	assertEquals("text", item.getText());
+        	assertEquals("https://google.com", item.getLink());
+        	assertEquals("_blank", item.getTarget());
+        	assertEquals("primary", item.getLinkType());
         });
-    }
+        }
 
     /**
-     * Test body copy.
+     * Test column.
      */
     @Test
-    void testBodyCopy() {
-        assertEquals("body_copy", contentCardModel.getBodyCopy());
-    }
-
-    /**
-     * Test content type.
-     */
-    @Test
-    void testContentType() {
-        assertEquals("image", contentCardModel.getAssestType());
-    }
-
-    /**
-     * Test video type.
-     */
-    @Test
-    void testVideoType() {
-        assertEquals("videoId", contentCardModel.getVideoType());
+    void testColumn() {
+        assertEquals("2", contentCardModel.getColumn());
     }
 
 }

@@ -87,6 +87,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </accolade>
+                        <contentcard jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <contentcard
+                                    cq:policy="jlr/components/contentcard/v1/contentcard/policy_1618048049608"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </contentcard>
                     </components>
                 </jlr>
             </container>
@@ -197,6 +205,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </accolade>
+                        <contentcard jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <contentcard
+                                    cq:policy="jlr/components/contentcard/v1/contentcard/policy_1618048049608"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </contentcard>
                     </components>
                 </jlr>
             </container_1992655900>

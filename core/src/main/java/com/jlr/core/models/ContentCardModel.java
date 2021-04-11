@@ -15,39 +15,29 @@ import com.jlr.core.pojos.CTAPojo;
 public interface ContentCardModel {
 
     /**
+     * Gets the content card list.
+     *
+     * @return the content card list
+     */
+    default List<ContentCardListModel> getContentCardList() {
+        return new ArrayList<>();
+    }
+
+    /**
+     * Gets the column.
+     *
+     * @return the column
+     */
+    default String getColumn() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
     default List<CTAPojo> getCtaList() {
-        return new ArrayList<>();
+   	 return new ArrayList<>();
     }
-
-    /**
-     * Gets the body copy.
-     *
-     * @return the body copy
-     */
-    default String getBodyCopy() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the content type.
-     *
-     * @return the content type
-     */
-    default String getAssestType() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the video type.
-     *
-     * @return the video type
-     */
-    default String getVideoType() {
-        return StringUtils.EMPTY;
-    }
-
 }

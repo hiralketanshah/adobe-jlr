@@ -1,28 +1,42 @@
 {
   "jcr:primaryType":"nt:unstructured",
-  "videoTitle":"title",
-  "fileReference":"/content/dam/core-components-examples/library/sample-assets/lava-into-ocean.jpg",
-  "imageLink":"/content/landrover/en",
-  "imageAlt":"image",
-  "assestType":"image",
-  "id":"CBC",
-  "type":"video",
-  "videoId":"dq_BZrXr00g",
-  "videoAlt":"fsgf",
-  "headerTitle":"DESIGN",
+  "jcr:createdBy":"admin",
+  "column":"2",
+  "id":"contentcard",
+  "copy":"copy",
   "sling:resourceType":"jlr/components/contentcard/v1/contentcard",
-  "videoPath":"/bin",
-  "videoType":"videoId",
-  "date" : "03-03-2021",
-  "bodyCopy":"body_copy",
-  "ctaList":{
+  "headerCopy":"headerCopy",
+  "contentCardList":{
     "jcr:primaryType":"nt:unstructured",
     "item0":{
       "jcr:primaryType":"nt:unstructured",
-      "target":"_self",
-      "link":"http://www.google.com",
-      "text":"test_text",
-      "linkType":"primary"
+      "imageLink":"google.com",
+      "imageAlt":"imageAlt",
+      "copy":"copy",
+      "date":"Sun Apr 04 2021 00:38:00 GMT+0530",
+      "price":"$98.05",
+      "headerCopy":"headerCopy",
+      "assestType":"video",
+      "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "target":"_blank",
+          "link":"google.com",
+          "text":"text",
+          "linkType":"primary"
+        }
+      }
     }
-  }
+  },
+ "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "target":"_blank",
+          "link":"google.com",
+          "text":"text",
+          "linkType":"primary"
+        }
+	}
 }

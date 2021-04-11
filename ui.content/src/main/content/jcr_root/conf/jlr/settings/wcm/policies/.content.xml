@@ -827,6 +827,44 @@
                     </dualframeslider>
                 </v1>
             </dualframeslider>
+            <contentcard jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <contentcard jcr:primaryType="nt:unstructured">
+                        <policy_1618048049608
+                            cq:styleDefaultClasses="light"
+                            jcr:lastModified="{Date}2021-04-10T16:54:29.402+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Content Card"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="light"
+                                            cq:styleId="1618048058791"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1618048065522"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="white"
+                                            cq:styleId="1618048069660"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1618048049608>
+                    </contentcard>
+                </v1>
+            </contentcard>
         </components>
     </jlr>
     <rep:policy/>
