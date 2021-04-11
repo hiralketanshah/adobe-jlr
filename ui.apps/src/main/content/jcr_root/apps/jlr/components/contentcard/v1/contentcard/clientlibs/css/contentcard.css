@@ -34,6 +34,9 @@
     margin-right: -10px;
   }
 }
+.cmp-ContentBlocksContainer .headerBlock .headingWrapper{
+  text-transform: uppercase;
+}
 .cmp-ContentBlocksContainer .cmp-contentCards {
   position: relative;
 }
@@ -1377,6 +1380,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 }
 .GridListWrapper .items .el .heading {
     margin-bottom: 16px;
+    text-transform: uppercase;
 }
 /* MOBILE START */
 /* TABLET START */
@@ -1500,7 +1504,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   }
   /* DESKTOP END */
   /* Widescreen start */
-  @media screen and (min-width: 1390px){
+  @media screen and (min-width: 1340px){
     .GridListWrapper .items .el{
         padding-left: 0px;
         padding-right: 40px;
@@ -1522,9 +1526,9 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         margin-top: 0px;
         padding-top: 23px;
     }
-   .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
-        width: 280px; 
-    }
+   /* .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
+        min-width: 345px; 
+    } */
     .GridListWrapper .items[data-total="2"] .el img{
         width: 100%;
         height: 314px;
@@ -1536,13 +1540,25 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     }
     .GridListWrapper .items[data-total="3"] .el img{
         width: 100%;
-        height: 202px;
+        height: auto;
         margin-bottom: 28px;
     }
     .GridListWrapper .items[data-total="4"] .el img{
         width: 100%;
-        height: 146px;
+        height: auto;
         margin-bottom: 28px;
     }
   }
   /* Widescreen end */
+
+  /* FIXES */
+  #landrover .ctaContainer a{
+    margin-top: 0px !important;
+  }
+  .ctaContainer .primaryLinkContainer{
+    margin-top: 15px !important;
+  }
+  .ctaContainer .secondaryLinkContainer{
+    margin-top: 15px !important;
+  }
+  /* FIXES END */

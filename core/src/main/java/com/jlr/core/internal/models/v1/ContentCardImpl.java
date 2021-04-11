@@ -11,6 +11,8 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.models.ContentCardModel;
@@ -25,6 +27,8 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/contentcard/v1/contentcard";
+    
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
     /** The resource resolver. */
     @Inject
@@ -43,8 +47,8 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
 	@Inject
     private Resource ctaList;
 	
-	/** The list. */
-	List<CTAPojo> list = new ArrayList<>();
+	/** The lists. */
+	List<CTAPojo> lists = new ArrayList<>();
     
     /**
      * Gets the cta list.
@@ -54,9 +58,9 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Override
     public List<CTAPojo> getCtaList() {
 		if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+            lists = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
-		return list;
+		return lists;
 	}
 
     /**
@@ -77,8 +81,5 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
 	@Override
 	public List<ContentCardListModel> getContentCardList() {
 		return contentCardList;
-	}
-
-  
-   
+	}  
 }

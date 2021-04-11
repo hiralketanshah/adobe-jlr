@@ -4,6 +4,7 @@
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
          <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="swiping">
             <div class="GridListWrapper" data-wrapper="float">
+			<sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
                <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
                   <h2 class="heading headingThick">
                      <span data-sly-test="${contentCard.copy}" class="headingWrapper fontH2">
@@ -11,14 +12,15 @@
                      </span>
                   </h2>
                   <div class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
-               </div>
+               </div></sly>
+			   <sly data-sly-test="${contentCard.contentCardList}">
                <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentCard.id}">
                   <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
                      <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                   </div>
                   </div>
                <div class="DxTabs__panels" data-dxtabs-panels-id="${contentCard.id}">
-                  <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentCard.column}">
+                  <div class="cmp-contentCards items DxTabs__panels" role="tabpanel" data-total="${contentCard.column}">
                      <div class="cmp-contentCardsCarousel">
                         <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
                            <li class="el gridEl">
@@ -50,21 +52,21 @@
                                  </div>
                                  <div class="textContainer">
                                     <div class="textContainerTop">
-                                       <p data-sly-test="${content.date}" class="date .cmp-ContentCard__date" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='Posted'}">
+                                       <p data-sly-test="${content.date}" class="date .cmp-ContentCard__date" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='content.blocks.date.text'}">
                                           ${config.configValue}: ${content.date}.
                                        </p>
                                        <h2 data-sly-test="${content.headerCopy}"
                                           class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
                                           ${content.headerCopy @ context="html"}
                                        </h2>
-                                       <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}">
+                                       <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='content.blocks.from.text'}">
                                           ${config.configValue}: ${content.price}
                                        </p>
                                        <p data-sly-test="${content.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
                                           ${content.copy @ context="html"}
                                        </p>
                                     </div>
-                                    <div class="tableSwap">
+                                    <div data-sly-test="${content.ctaList}" class="tableSwap">
                                        <div class="linkBlock orderNow">
                                           <div class="containerKeyLine"></div>
                                        </div>
@@ -100,10 +102,11 @@
                      </div>
                   </div>
                </div>
+			   </sly>
                <div class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
-                  <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
-                  <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+                  <div data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="linkContainer primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></div>
+                  <div data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="linkContainer secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></div>
                </div>
+
             </div>
          </div>
-      
