@@ -7,18 +7,18 @@
 			<sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
                <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
                   <h2 class="heading headingThick">
-                     <span data-sly-test="${contentCard.copy}" class="headingWrapper fontH2">
+                     <span data-sly-test="${contentCard.headerCopy}" class="headingWrapper fontH2">
                      ${contentCard.headerCopy @ context="html"}
                      </span>
                   </h2>
                   <div class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
                </div></sly>
 			   <sly data-sly-test="${contentCard.contentCardList}">
-               <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentCard.id}">
+                   <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentCard.id}" style="display:none">
                   <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
                      <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
                   </div>
-                  </div>
+               </div>
                <div class="DxTabs__panels" data-dxtabs-panels-id="${contentCard.id}">
                   <div class="cmp-contentCards items DxTabs__panels" role="tabpanel" data-total="${contentCard.column}">
                      <div class="cmp-contentCardsCarousel">
@@ -66,7 +66,7 @@
                                           ${content.copy @ context="html"}
                                        </p>
                                     </div>
-                                    <div data-sly-test="${content.ctaList}" class="tableSwap">
+                                    <div data-sly-test="${content.ctaList} || ${cta.text}" class="tableSwap">
                                        <div class="linkBlock orderNow">
                                           <div class="containerKeyLine"></div>
                                        </div>
