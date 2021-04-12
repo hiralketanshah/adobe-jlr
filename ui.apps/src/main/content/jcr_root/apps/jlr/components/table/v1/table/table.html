@@ -31,7 +31,7 @@
 
 				<div class="table">
 					<table data-sly-test="${table.tableHtml}">
-						<caption data-sly-test="${table.caption}">${table.copy @context = 'html'}</caption>
+						<caption data-sly-test="${table.caption}">${table.caption @context = 'html'}</caption>
 						${table.tableHtml @context = 'unsafe'}
 					</table>
 				</div>
