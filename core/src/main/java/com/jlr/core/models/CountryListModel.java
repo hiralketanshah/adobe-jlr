@@ -34,10 +34,6 @@ public class CountryListModel {
 	@Inject
 	public String countryCode;
 	
-	/** The country link. */
-	@Inject
-	public String countryLink;
-	
 	/** The language list. */
 	@Inject
     @Named("languageList/.")
@@ -52,16 +48,6 @@ public class CountryListModel {
 		return countryName;
 	}
 	
-
-	/**
-	 * Gets the country link.
-	 *
-	 * @return the country link
-	 */
-	public String getCountryLink() {
-		return LinkUtils.appendLinkExtension(countryLink, resourceResolver);
-	}
-
 	/**
 	 * Gets the country code.
 	 *
