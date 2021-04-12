@@ -101,6 +101,9 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
                         </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            signpost-component="true"/>
                     </image>
                     <cta
                         jcr:primaryType="nt:unstructured"
