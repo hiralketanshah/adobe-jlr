@@ -25,7 +25,7 @@
 }
 
 .cmp_footerNav__heading:first-child {
-	padding: 46px 0 14px
+	padding: 0px 0 14px
 }
 
 .cmp_footerNav__navWrapper {
@@ -140,7 +140,6 @@
 	display: table-cell;
 	vertical-align: middle;
 	padding-left: 11px;
-	font-weight: 500;
 }
 
 .cmp_footerNav__socialLinks ul .icon-social_facebook:before {
@@ -221,7 +220,7 @@
 @media screen and (min-width: 901px) {
 	.cmp_footerNav__footerWrapper {
         overflow: hidden;
-         padding: 0 70px;
+         padding: 46px 70px 0px;
     }
 	.cmp_footerNav__evidon-link a,
 	.cmp_footerNav__trustarc-link a {
@@ -454,7 +453,7 @@
 @media screen and (min-width: 1px) and (max-width: 900px) {
 	.cmp_footerNav__footerWrapper {
 		overflow: hidden;
-		padding: 0 40px
+		padding: 46px 40px 0px;
 	}
 	.cmp_footerNav__marketSelectorContainer {
 		width: 100%
@@ -698,7 +697,7 @@
 .cmp_footerNav__navWrapper li a {
 	font-size: .9rem;
 	letter-spacing: .18rem;
-	line-height: 1.4px;
+	line-height: 1.1px;
 }
 
 .cmp_footerNav__navWrapper li a:hover,
@@ -740,9 +739,7 @@
 }
 
 .cmp_footerNav__navWrapper li a {
-	/* color: #e4e8e8 */
 	color :#ffffff;
-	font-weight: 500;
 	text-transform: uppercase;
 }
 
@@ -754,7 +751,7 @@
 
 .cmp_footerNav__heading {
 	color: #ffffff;
-	font-weight:700;
+	font-weight:bold;
 }
 
 .cmp_footerNav__socialLinks ul li a>span {
