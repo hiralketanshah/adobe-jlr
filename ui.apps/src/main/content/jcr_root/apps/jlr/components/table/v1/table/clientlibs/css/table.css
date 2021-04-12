@@ -1,7 +1,9 @@
 .cmp-engineSpecifications {
 	font-size: 14px;
 }
-
+.cmp-engineSpecifications .cmp-engineSpecifications__summary p{
+	text-transform: capitalize;
+}
 .cmp-engineSpecifications .headerBlock {
 	padding-left: 0;
 	padding-right: 0
