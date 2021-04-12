@@ -9,7 +9,6 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import com.jlr.core.internal.models.v1.GlobalModelImpl;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
@@ -34,7 +33,6 @@ public class ContentCardListModel extends GlobalModelImpl{
 	
 	/** The cta list. */
 	@Inject
-    @Optional
     private Resource ctaList;
 	
 	/** The list. */

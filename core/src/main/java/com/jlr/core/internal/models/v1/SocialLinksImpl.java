@@ -13,7 +13,6 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,7 +39,6 @@ public class SocialLinksImpl extends GlobalModelImpl implements SocialLinksModel
 	
 	/** The social links. */
 	@Inject
-    @Optional
     private Resource socialLinks;
 
     /** The resource resolver. */
