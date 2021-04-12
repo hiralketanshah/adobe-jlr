@@ -1,0 +1,15 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "headerTitle":"JOIN THE CONVERSATION",
+  "sling:resourceType":"jlr/components/sociallinks/v1/sociallinks",
+  "socialLinks":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "socialicon":"social_facebook",
+      "target":"_self",
+      "text":"Facebook",
+      "link":"www.google.com"
+    }
+  }
+ }
