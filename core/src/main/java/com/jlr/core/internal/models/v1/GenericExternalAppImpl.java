@@ -81,10 +81,10 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
     private Resource scriptParam;
 	
 	/** The key value param. */
-	public String keyValueParam;
+	String keyValueParam;
 	
 	/** The category. */
-	public List<String> category=new ArrayList<>();
+	List<String> category=new ArrayList<>();
 	
 	/**
 	 * Inits the.
@@ -135,7 +135,7 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
 	 */
 	@Override
 	public String[] getConsentCategory() {
-		return consentCategory;
+		return consentCategory.clone();
 	}
 	
 	/**
