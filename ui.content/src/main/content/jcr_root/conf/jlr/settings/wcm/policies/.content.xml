@@ -782,7 +782,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <dualframeslider jcr:primaryType="nt:unstructured">
                         <policy_1617975684354
-                            cq:styleDefaultClasses="grey left"
+                            cq:styleDefaultClasses="light right"
                             jcr:lastModified="{Date}2021-04-09T19:13:05.886+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
@@ -800,9 +800,9 @@
                                             cq:styleLabel="White"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="grey"
+                                            cq:styleClasses="light"
                                             cq:styleId="1617975700233"
-                                            cq:styleLabel="Grey"
+                                            cq:styleLabel="Light"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item0>
