@@ -4,7 +4,7 @@
 	data-sly-use.ariainc="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.increase.slider.label'}"/>
 
 <div data-sly-test="${!dfslider.id}" class="cq-placeholder" data-emptytext="Dual Frame Slider Component"></div>
-<div class="cmp-dualFrameSlider fontSmooth" data-frames="${dfslider.framePath}" data-imgformat="jpg"
+<div class="cmp-dualFrameSlider fontSmooth" id= "${dfslider.id}" data-frames="${dfslider.framePath}" data-imgformat="jpg"
   data-length="${dfslider.imageCount}"  data-label-increase-slider="${ariainc.configValue}" data-label-decrease-slider="${ariadec.configValue}" data-aria-alert="${ariaalert.configValue}">
 
   <div aria-live="assertive" class="cmp-dualFrameSlider__notifications visuallyHidden"></div>
