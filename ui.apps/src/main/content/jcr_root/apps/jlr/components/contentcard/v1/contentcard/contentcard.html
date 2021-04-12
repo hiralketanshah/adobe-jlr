@@ -66,13 +66,13 @@
                                           ${content.copy @ context="html"}
                                        </p>
                                     </div>
-                                    <div data-sly-test="${content.ctaList} || ${cta.text}" class="tableSwap">
+                                    <div data-sly-test="${content.ctaList}" class="tableSwap">
                                        <div class="linkBlock orderNow">
                                           <div class="containerKeyLine"></div>
                                        </div>
                                        <div class="linkBlock links">
                                           <div class="containerKeyLine" data-sly-list.cta="${content.ctaList}">
-                                             <span data-sly-test="${cta.linkType=='primary'}">
+                                             <span data-sly-test="${cta.text}" data-sly-test="${cta.linkType=='primary'}">
                                                 <div class="linkContainer primaryLinkContainer">
                                                    <a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
                                                       href="${cta.link}"
@@ -82,7 +82,7 @@
                                                    </a>
                                                 </div>
                                              </span>
-                                             <span data-sly-test="${cta.linkType=='secondary'}">
+                                             <span data-sly-test="${cta.text}" data-sly-test="${cta.linkType=='secondary'}">
                                                 <div class="linkContainer secondaryLinkContainer">
                                                    <a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
                                                       href="${cta.link}"

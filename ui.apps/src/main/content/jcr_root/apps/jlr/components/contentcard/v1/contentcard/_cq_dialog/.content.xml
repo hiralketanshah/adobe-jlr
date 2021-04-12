@@ -34,11 +34,6 @@
                                         fieldLabel="Column Layout"
                                         name="./column">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <fullwidth
-                                                jcr:primaryType="nt:unstructured"
-                                                selected="{Boolean}true"
-                                                text="1 content card per row"
-                                                value="1"/>
                                             <_x0032_column
                                                 jcr:primaryType="nt:unstructured"
                                                 text="2 content card per row"
