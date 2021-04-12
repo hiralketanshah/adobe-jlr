@@ -73,7 +73,7 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
         			buildFramePath(imageName);
     			}
 			}
-    		imageCount= imageList.size()-1;
+    		imageCount= imageList.size();
     	}
     }
 
