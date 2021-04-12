@@ -37,7 +37,7 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String folderPath;
     
-    private StringBuilder framePath;
+    private StringBuilder framePath = new StringBuilder();
  
     private String type;
     

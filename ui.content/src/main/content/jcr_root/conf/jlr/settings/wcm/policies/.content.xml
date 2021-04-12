@@ -865,6 +865,23 @@
                     </contentcard>
                 </v1>
             </contentcard>
+            <faqs jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <faqscontainer jcr:primaryType="nt:unstructured">
+                        <policy_1618206816390
+                            jcr:lastModified="{Date}2021-04-12T11:24:00.424+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="FAQ Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            allowedHeadingElements="[h2,h3,h4,h5,h6]"
+                            components="/apps/jlr/components/faqs/v1/faqspanel"
+                            headingElement="h3">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1618206816390>
+                    </faqscontainer>
+                </v1>
+            </faqs>
         </components>
     </jlr>
     <rep:policy/>

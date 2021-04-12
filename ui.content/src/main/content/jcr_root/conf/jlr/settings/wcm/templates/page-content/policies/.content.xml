@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2019-12-02T17:37:24.544+01:00"
+        cq:lastModified="{Date}2021-04-12T11:57:27.743+05:30"
         cq:lastModifiedBy="admin"
         cq:policy="jlr/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -55,6 +55,22 @@
                                 cq:policy="jlr/components/download/policy_1575032193319"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="wcm/core/components/policies/mapping"/>
+                            <faqs jcr:primaryType="nt:unstructured">
+                                <v1 jcr:primaryType="nt:unstructured">
+                                    <faqscontainer
+                                        cq:policy="jlr/components/faqs/v1/faqscontainer/policy_1618206816390"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                                </v1>
+                            </faqs>
+                            <dualframeslider jcr:primaryType="nt:unstructured">
+                                <v1 jcr:primaryType="nt:unstructured">
+                                    <dualframeslider
+                                        cq:policy="jlr/components/dualframeslider/v1/dualframeslider/policy_1617975684354"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                                </v1>
+                            </dualframeslider>
                         </components>
                     </jlr>
                 </container>
