@@ -45,7 +45,7 @@
                                        <picture class="Picture">
                                           <source data-dimensions="680x450" media="(min-width: 0px)"
                                              srcset="${content.fileReference}" />
-                                          <img alt="" class="Picture__img" data-dimensions="680x450"
+                                          <img alt="${content.isDecorative=='true' ? '': content.imageAlt}" class="Picture__img" data-dimensions="680x450"
                                              srcset="${content.fileReference}" />
                                        </picture></sly>
                                     </a>
