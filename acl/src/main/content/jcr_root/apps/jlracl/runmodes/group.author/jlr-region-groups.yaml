@@ -58,7 +58,7 @@
           permission: allow
           actions: read,create,modify,delete,replicate
 
-        - path: /content/landrover/global/row/published-sites/en
+        - path: /content/landrover/global/row/published-sites/en_au
           permission: allow
           actions: read,create,modify,delete,replicate
 
@@ -122,7 +122,7 @@
           permission: allow
           actions: read,create,modify,delete,replicate
 
-        - path: /content/landrover/europe/published-sites/de_de
+        - path: /content/landrover/global/europe/published-sites/de_de
           permission: allow
           actions: read,create,modify,delete,replicate
 
