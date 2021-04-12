@@ -3,10 +3,10 @@
     <section class="cmp-faqmodel" id="cmp-faqmodel">
        <!-- Toggle all button -->
        <button class="cmp-faqmodel__toggle button-tertiary">
-       <span class="cmp-faqmodel__toggle__open" data-sly-use.openall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.openall.copy'}">
+       <span class="cmp-faqmodel__toggle__open" data-sly-use.openall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.openall.copy'}" aria-label="${openall.configValue}" >
          ${openall.configValue}
        </span>
-       <span class="cmp-faqmodel__toggle__close hide" data-sly-use.closeall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.closeall.copy'}">
+       <span class="cmp-faqmodel__toggle__close hide" data-sly-use.closeall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.closeall.copy'}" aria-label="${closeall.configValue}" >
          ${closeall.configValue}
        </span>
        </button>
