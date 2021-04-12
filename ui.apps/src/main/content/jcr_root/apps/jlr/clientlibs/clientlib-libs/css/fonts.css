@@ -17,6 +17,14 @@
 }
 
 @font-face {
+  font-family: "AvenirNext-DemiBold";
+  src: url("../resources/fonts/AvenirNext/AvenirNextW01-Demi.eot"), url("../resources/fonts/AvenirNext/AvenirNextW01-Demi.woff") format("woff"), url("../resources/fonts/AvenirNext/AvenirNextW01-Demi.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
 	font-family: 'AvenirNext';
 	src: url("../resources/fonts/AvenirNext/AvenirNextW01-Regular.eot"), url("../resources/fonts/AvenirNext/AvenirNextW01-Regular.woff") format("woff"), url("../resources/fonts/AvenirNext/AvenirNextW01-Regular.ttf") format("truetype");
 	font-style: normal;
