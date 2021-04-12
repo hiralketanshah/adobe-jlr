@@ -87,12 +87,6 @@
                                                                         fieldDescription="Specify the Country code corresponding to the Country Name."
                                                                         fieldLabel="Country Code"
                                                                         name="./countryCode"/>
-                                                                    <countryLink
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                                                        fieldDescription="Link to a Specific market page."
-                                                                        fieldLabel="Country Link"
-                                                                        name="./countryLink"/>
                                                                     <languages
                                                                         jcr:primaryType="nt:unstructured"
                                                                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"

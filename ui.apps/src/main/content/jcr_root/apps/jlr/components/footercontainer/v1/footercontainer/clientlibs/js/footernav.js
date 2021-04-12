@@ -1,6 +1,5 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-          console.log("hello");
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */

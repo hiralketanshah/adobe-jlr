@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -65,10 +66,39 @@ public class SocialLinksImpl extends GlobalModelImpl implements SocialLinksModel
                                    resourceResolver),
 	                        properties.get(CommonConstants.PN_CTA_TARGET, String.class),
 	                        properties.get(CommonConstants.PN_SOCIAL_ICONS, String.class),
-	                        properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class)));
+	                        getComputedAriaLabel(properties, super.getHeaderTitle())));
 	            }
 	        }
 	    }
+	
+	/**
+	 * Gets the computed aria label.
+	 *
+	 * @param properties the properties
+	 * @param header the header
+	 * @return the computed aria label
+	 */
+	private static String getComputedAriaLabel(ValueMap properties, String header) {
+        if (null != properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class)) {
+            return properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class);
+        }
+        return getAriaLabel(header, properties.get(CommonConstants.PN_CTA_TEXT, String.class));
+    }
+
+    /**
+     * Gets the aria label.
+     *
+     * @param header the header
+     * @param text the text
+     * @return the aria label
+     */
+    public static String getAriaLabel(String header, String text) {
+        if (null != header) {
+            return header.concat(CommonConstants.COLON).concat(text);
+        }
+
+        return StringUtils.EMPTY;
+    }
 	
 	/**
 	 * Gets the social links.
