@@ -134,7 +134,7 @@
 .grey .fontQuote{
   color: black;
 }
-.specialColor .fontQuote{
+.specialColor .fontQuote p{
   color: #005A2B !important;
 }
 .slateblue .fontQuote{
