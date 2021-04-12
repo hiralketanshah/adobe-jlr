@@ -37,7 +37,7 @@
 
 <div class="MarketSelector__dropdowns-container">
     <div class="MarketSelector__dropdowns">
-      <div class="dxDropdown dxDropdown-region" data-sly-use.regionconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.region'}">
+      <div class="dxDropdown dxDropdown-region" data-sly-use.regionconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.continent.select'}">
         <span class="dxDropdown__heading fontH5 dxDropdown__heading-region" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.region'}">${regionconfig.configValue}
 </span>
         <button aria-expanded="false" aria-haspopup="listbox" aria-label="${regionconfig.configValue}
@@ -51,7 +51,7 @@
     </ul>
 </div>
 
-<div class="dxDropdown dxDropdown-country dxDropdown--disabled" data-sly-use.marketconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.market'}">
+<div class="dxDropdown dxDropdown-country dxDropdown--disabled" data-sly-use.marketconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.country.select'}">
         <span class="dxDropdown__heading fontH5 dxDropdown__heading-country">${marketconfig.configValue}
 </span>
         <button aria-expanded="false" aria-haspopup="listbox" aria-label="${marketconfig.configValue}
@@ -70,7 +70,7 @@
 			</div>
 </div>
 
-<div class="dxDropdown dxDropdown-language dxDropdown--disabled" data-sly-use.languageconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.language'}">
+<div class="dxDropdown dxDropdown-language dxDropdown--disabled" data-sly-use.languageconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.language.select'}">
         <span class="dxDropdown__heading fontH5 dxDropdown__heading-language">${languageconfig.configValue}</span>
         <button aria-expanded="false" aria-haspopup="listbox" aria-label="${languageconfig.configValue}" class="dxDropdown__button-language dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">${languageconfig.configValue}</button>
         <div class="dxDropdown__language-list-wrapper" data-sly-list.regions="${market.marketList}">
@@ -88,7 +88,7 @@
 	 </div>
 	 
 	 <div class="MarketSelector__submit-wrapper">
-      <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="" data-sly-use.continueConfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.continue'}">${continueConfig.configValue}</button>
+      <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="" data-sly-use.continueConfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.confirmation.visit'}">${continueConfig.configValue}</button>
     </div>
   </div>
 </div>
