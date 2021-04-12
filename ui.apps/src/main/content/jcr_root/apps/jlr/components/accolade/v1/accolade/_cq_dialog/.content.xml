@@ -40,6 +40,9 @@
                                 name="./date"
                                 type="datetime"/>
                         </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            accolades-component="true"/>
                     </general>
                     <image
                         jcr:primaryType="nt:unstructured"

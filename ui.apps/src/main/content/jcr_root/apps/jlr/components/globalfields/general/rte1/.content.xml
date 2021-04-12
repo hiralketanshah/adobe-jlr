@@ -37,4 +37,7 @@
                 toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
         </cui>
     </uiSettings>
+    <granite:data
+        jcr:primaryType="nt:unstructured"
+        accolades-header="true"/>
 </jcr:root>

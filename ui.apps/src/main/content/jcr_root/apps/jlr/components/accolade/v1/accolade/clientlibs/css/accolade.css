@@ -131,17 +131,14 @@
 
 /* NEW DEVELOPMENT */
 
-.grey .st0--swiper-pagination,.white .st0--swiper-pagination{
-  fill: black;
-}
 .grey .fontQuote{
   color: black;
 }
 .specialColor .fontQuote{
-  color: #005A2B;
+  color: #005A2B !important;
 }
 .slateblue .fontQuote{
-  color: white;
+  color: white !important;
 }
 
 .cmp-onlyCopy{
@@ -276,13 +273,13 @@
 @media screen and (min-width: 1280px) {
   .cmp-accolades {
     padding-top: 60px;
-    padding-bottom: 0px;
+    padding-bottom: 30px;
     padding-left: 60px;
     padding-right: 60px;
 }
   .cmp-accolades__copy {
     min-width: 708px;
-    max-width: 60%;
+    max-width: 65.5%;
     max-height: 278px;
     padding-bottom: 0px;
   }
@@ -322,6 +319,11 @@
   justify-content: left;
   padding-left: 60px;
   margin-top: 0px;
+}
+.cmp-accolades__img{
+  width: 260px;
+  padding-top: 6px;
+  height: 146px;
 }
 }
 /* WIDESCREEN ACCOLADES WITH LOGO - START*/
@@ -408,3 +410,24 @@
 
 }
 /* CAROUSEL CONTROL ISSUES END*/
+
+
+/* FIXES */
+a {
+  font-family:"AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
+}
+#landrover .secondaryLinkWithStyle:before {
+  color: black;
+}
+#landrover .secondaryLinkWithStyle:hover {
+  color: #C9C9C9 !important;
+}
+.secondaryLinkWithStyle:hover
+ {
+  text-decoration: underline !important;
+  color: #C9C9C9 !important;
+}
+.cmp-accolades__copy--primary p, .cmp-accolades__copy--secondary p {
+  text-transform: capitalize;
+}
+/* FIXES END */
