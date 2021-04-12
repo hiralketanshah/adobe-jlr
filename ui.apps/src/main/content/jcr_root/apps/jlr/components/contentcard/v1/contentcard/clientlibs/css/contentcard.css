@@ -22,6 +22,9 @@
 .cmp-ContentBlocksContainer .ctaListLink:focus:hover {
   border-bottom: 0 none;
 }
+.headerBlock .heading p{
+  color: #0C121C;
+}
 @media screen and (min-width: 1px) and (max-width: 900px) {
   .cmp-ContentBlocksContainer[data-tabs="true"] .DxTabs {
     margin-left: -20px;
