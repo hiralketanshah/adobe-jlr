@@ -16,7 +16,6 @@ public class CommonConstants {
     public static final String BLANK_SPACE = " ";
     public static final String DOT = ".";
     public static final String UNDERSCORE = "_";
-    public static final String JCR_CONTENT = "jcr:content";
     public static final String COMMA = ",";
 
     /** The PATH Constants. */
@@ -24,7 +23,6 @@ public class CommonConstants {
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
 
     /** The PROTOCOL Constant. */
-    public static final String PROTOCOL_HTTP = "http";
     public static final String PREFIX_HTTPS = "https://";
 
     /** The Property Name Constants. */
