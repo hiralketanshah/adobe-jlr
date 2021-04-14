@@ -17163,11 +17163,8 @@ function(a, b, c) {
                     src: g
                 },
                 callbacks: {
-                    beforeClose: function() {
-                        c.querySelector(".pageWrapper").removeAttribute("aria-hidden"), c.querySelector(".sharedNavigation").removeAttribute("aria-hidden")
-                    },
                     open: function() {
-                        a(".mfp-iframe").wrap('<div class="mfp-iframe-alt-wrap"></div>'), a('<button type="button" class="mfp-close alt"></button>').insertBefore(".mfp-iframe"), a(".mfp-bg").addClass("mfp-bg--whitened"), c.querySelector(".pageWrapper").setAttribute("aria-hidden", "true"), c.querySelector(".sharedNavigation").setAttribute("aria-hidden", "true"), a(".mfp-iframe").prop("title", e).removeAttr("frameborder"), a(".mfp-close").attr("aria-label", f)
+                        a(".mfp-iframe").wrap('<div class="mfp-iframe-alt-wrap"></div>'), a('<button type="button" class="mfp-close alt"></button>').insertBefore(".mfp-iframe"), a(".mfp-bg").addClass("mfp-bg--whitened"), a(".mfp-iframe").prop("title", e).removeAttr("frameborder"), a(".mfp-close").attr("aria-label", f)
                     }
                 }
             })
