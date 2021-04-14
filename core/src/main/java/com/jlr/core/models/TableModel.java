@@ -26,4 +26,22 @@ public interface TableModel {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the caption.
+     *
+     * @return the caption
+     */
+    default String getCaption() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the cta position.
+     *
+     * @return the cta position
+     */
+    default String getCtaPosition() {
+        return StringUtils.EMPTY;
+    }
+
 }

@@ -2,6 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
+        cq:lastModified="{Date}2021-04-12T11:52:40.592+05:30"
+        cq:lastModifiedBy="admin"
         cq:policy="jlr/components/page/policy"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/policies/mappings">
@@ -23,14 +25,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </caveat>
-                        <vehiclesummary jcr:primaryType="nt:unstructured">
+                        <signpostvehiclesummary jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
-                                <vehiclesummary
-                                    cq:policy="jlr/components/vehiclesummary/v1/vehiclesummary/policy_1616070143899"
+                                <signpostvehiclesummary
+                                    cq:policy="jlr/components/signpostvehiclesummary/v1/signpostvehiclesummary/policy_1616070143899"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </vehiclesummary>
+                        </signpostvehiclesummary>
                         <snippet jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <snippet
@@ -63,6 +65,54 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </table>
+                        <footerlinks jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <footerlinks
+                                    cq:policy="jlr/components/footerlinks/v1/footerlinks/policy_1617861364323"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </footerlinks>
+                        <carousel jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <carousel
+                                    cq:policy="jlr/components/carousel/v1/carousel/policy_1617711636936"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </carousel>
+                        <accolade jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <accolade
+                                    cq:policy="jlr/components/accolade/v1/accolade/policy_1617788181626"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </accolade>
+                        <contentcard jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <contentcard
+                                    cq:policy="jlr/components/contentcard/v1/contentcard/policy_1618048049608"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </contentcard>
+                        <faqs jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <faqscontainer
+                                    cq:policy="jlr/components/faqs/v1/faqscontainer/policy_1618206816390"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </faqs>
+                        <dualframeslider jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <dualframeslider
+                                    cq:policy="jlr/components/dualframeslider/v1/dualframeslider/policy_1617975684354"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </dualframeslider>
                     </components>
                 </jlr>
             </container>

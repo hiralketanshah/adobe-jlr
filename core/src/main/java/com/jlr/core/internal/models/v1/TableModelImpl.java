@@ -9,8 +9,6 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.jlr.core.models.TableModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
@@ -22,8 +20,6 @@ import com.jlr.core.utils.CtaUtils;
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class TableModelImpl extends GlobalModelImpl implements TableModel {
 
-    /** The logger. */
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/table/v1/table";
@@ -43,6 +39,14 @@ public class TableModelImpl extends GlobalModelImpl implements TableModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String tableHtml;
 
+    /** The enable pricing. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String ctaPosition;
+
+    /** The enable pricing. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String caption;
+
     /**
      * Gets the cta list.
      *
@@ -57,13 +61,34 @@ public class TableModelImpl extends GlobalModelImpl implements TableModel {
     }
 
     /**
-     * Gets the enable pricing.
+     * Gets the table HTML.
      *
-     * @return the enable pricing
+     * @return the table HTML
      */
     @Override
     public String getTableHtml() {
         return tableHtml;
+    }
+
+    /**
+     * Gets the table HTML.
+     *
+     * @return the table HTML
+     * 
+     */
+    @Override
+    public String getCaption() {
+        return caption;
+    }
+
+    /**
+     * Gets the CTA position.
+     *
+     * @return the CTA position.
+     */
+    @Override
+    public String getCtaPosition() {
+        return ctaPosition;
     }
 
 }

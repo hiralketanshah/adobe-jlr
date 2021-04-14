@@ -1,6 +1,5 @@
 package com.jlr.core.models;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,50 +14,30 @@ import com.jlr.core.pojos.CTAPojo;
 @ConsumerType
 public interface ContentCardModel {
 
-	/**
-	 * Gets the cta list.
-	 *
-	 * @return the cta list
-	 */
-	default List<CTAPojo> getCtaList() {
+    /**
+     * Gets the content card list.
+     *
+     * @return the content card list
+     */
+    default List<ContentCardListModel> getContentCardList() {
         return new ArrayList<>();
     }
-	
-	/**
-	 * Gets the body copy.
-	 *
-	 * @return the body copy
-	 */
-	default String getBodyCopy() {
+
+    /**
+     * Gets the column.
+     *
+     * @return the column
+     */
+    default String getColumn() {
         return StringUtils.EMPTY;
     }
-	
-	/**
-	 * Gets the date.
-	 *
-	 * @return the date
-	 * @throws ParseException the parse exception
-	 */
-	default String getDate() throws ParseException {
-        return StringUtils.EMPTY;
+
+    /**
+     * Gets the cta list.
+     *
+     * @return the cta list
+     */
+    default List<CTAPojo> getCtaList() {
+   	 return new ArrayList<>();
     }
-	
-	/**
-	 * Gets the content type.
-	 *
-	 * @return the content type
-	 */
-	default String getAssestType() {
-        return StringUtils.EMPTY;
-    }
-	
-	/**
-	 * Gets the video type.
-	 *
-	 * @return the video type
-	 */
-	default String getVideoType() {
-        return StringUtils.EMPTY;
-    }
-	
 }

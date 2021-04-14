@@ -19,6 +19,8 @@ import org.slf4j.LoggerFactory;
 
 import com.jlr.core.models.GenericExternalAppModel;
 import com.jlr.core.pojos.ScriptParam;
+import com.jlr.core.utils.ErrorUtils;
+import com.jlr.core.constants.ErrorUtilsConstants;
 
 /**
  * The Class GenericExternalAppImpl.
@@ -31,7 +33,7 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
 	public static final String RESOURCE_TYPE = "jlr/components/genericexternalapp/v1/genericexternalapp";
 	
 	/** The logger. */
-	private final Logger logger = LoggerFactory.getLogger(this.getClass()); 
+	private final Logger LOGGER = LoggerFactory.getLogger(this.getClass()); 
 	
 	/** The container id. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -79,10 +81,10 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
     private Resource scriptParam;
 	
 	/** The key value param. */
-	public String keyValueParam;
+	String keyValueParam;
 	
 	/** The category. */
-	public List<String> category=new ArrayList<>();
+	List<String> category=new ArrayList<>();
 	
 	/**
 	 * Inits the.
@@ -98,7 +100,8 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
 	                try {
 	                	keyValueJSON.put(properties.get("keyParam", String.class),properties.get("valueParam", String.class));
 					} catch (JSONException e) {
-						e.printStackTrace();
+						LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                            ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
 					}
 	                keyValueParam = keyValueJSON.toString();
 	            }
@@ -132,7 +135,7 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
 	 */
 	@Override
 	public String[] getConsentCategory() {
-		return consentCategory;
+		return consentCategory.clone();
 	}
 	
 	/**

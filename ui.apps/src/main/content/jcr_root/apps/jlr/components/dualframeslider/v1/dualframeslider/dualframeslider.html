@@ -1,0 +1,49 @@
+<sly data-sly-use.dfslider="com.jlr.core.models.DualFrameSliderModel"
+	data-sly-use.ariaalert="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.aria.alert'}"
+	data-sly-use.ariadec="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.decrease.slider.label'}"
+	data-sly-use.ariainc="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.increase.slider.label'}"/>
+
+<div data-sly-test="${!dfslider.id}" class="cq-placeholder" data-emptytext="Dual Frame Slider Component"></div>
+<div class="cmp-dualFrameSlider fontSmooth" id= "${dfslider.id}" data-frames="${dfslider.framePath}" data-imgformat="jpg"
+  data-length="${dfslider.imageCount}"  data-label-increase-slider="${ariainc.configValue}" data-label-decrease-slider="${ariadec.configValue}" data-aria-alert="${ariaalert.configValue}">
+
+  <div aria-live="assertive" class="cmp-dualFrameSlider__notifications visuallyHidden"></div>
+  <div class="Slider__left">
+    <div class="headerBox">
+      <div class="headerBox__content">
+        <h2 class="fontH3 cmp-dualFrameSlider__Heading heading headingH3">${dfslider.headerCopy  @context='html'}</h2>
+        <div class="headerBox__copy fontBodyCopy">${dfslider.copy  @context='html'}</div>
+         <sly data-sly-list.cta="${dfslider.ctaList}">
+             <div data-sly-test="${cta.text}" class="links">
+                <div class="${cta.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
+                     <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='_overlay' ? '' : cta.icon} TargetLinks" aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
+                         <span aria-hidden="true">${cta.text}</span>
+                    </a>
+                </div>
+            </div>
+		</sly>
+      </div>
+    </div>
+  </div>
+
+  <div class="Slider__right">
+    <aside class="overlay">
+      <div class="overlay-container">
+        <span class="spinner"></span>
+      </div>
+    </aside>
+
+    <div class="MultiFrameSlider">
+      <div class="spriteContainer">
+        <div class="spriteContainerContext">
+          <div class="sliderFrame mobileSliderFrame"></div>
+          <div class="sliderFrame desktopSliderFrame"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cmp-dualFrameSlider__slider">
+      <div class="DxRangeSlider"></div>
+    </div>
+  </div>
+</div>

@@ -26,8 +26,8 @@
             data-page-data-layer="${page.data.json @ context='scriptString'}">
           <div id="landrover">
           <script data-sly-test.dataLayerEnabled="${page.data}">
-            window.adobeDataLayer = window.adobeDataLayer || [];
-            adobeDataLayer.push({
+            window.jlrDataLayer = window.jlrDataLayer || [];
+            jlrDataLayer.push({
                 page: {
                 	  basic:JSON.parse("${page.data.json @ context='scriptString'}"),
                     advanced: JSON.parse("${datalayer.PageData @ context='scriptString'}")

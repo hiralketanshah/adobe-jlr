@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/jlr/settings/wcm/templates/redirect-page-template,/conf/jlr/settings/wcm/templates/empty-page-template]"
+        cq:lastModified="{Date}2021-04-10T12:53:40.030+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/jlr/settings/wcm/templates/redirect-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Config"
+        sling:resourceType="jlr/components/page"/>
+    <navigation/>
+    <dictionary/>
+</jcr:root>

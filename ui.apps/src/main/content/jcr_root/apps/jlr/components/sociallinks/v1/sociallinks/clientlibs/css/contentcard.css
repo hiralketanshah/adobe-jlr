@@ -1,0 +1,10 @@
+.cmp-ContentCard .OrderNow__submit.primaryLinkWithStyle,
+.cmp-ContentCard .OrderNow__submit.secondaryLinkWithStyle {
+  margin-top: 15px !important;
+}
+.cmp-ContentCard
+  .secondaryLinkContainer
+  + .secondaryLinkContainer
+  .secondaryLinkWithStyle {
+  margin-top: 9px;
+}
