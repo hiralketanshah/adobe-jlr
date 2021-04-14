@@ -1,6 +1,7 @@
 package com.jlr.core.utils;
 
 import org.apache.sling.api.resource.ResourceResolver;
+
 import com.adobe.aemds.guide.utils.GuideConstants;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
@@ -14,13 +15,16 @@ public class LinkUtils {
     /**
      * Instantiates a new link utils.
      */
-    private LinkUtils() {}
+    private LinkUtils() {
+    }
 
     /**
      * Append link extension.
      *
-     * @param path the path
-     * @param resolver the resolver
+     * @param path
+     *            the path
+     * @param resolver
+     *            the resolver
      * @return the string
      */
     public static String appendLinkExtension(String path, ResourceResolver resolver) {
@@ -34,7 +38,9 @@ public class LinkUtils {
                 }
             }
         } else {
-            if (null != path && !path.startsWith(CommonConstants.PATH_CONTENT) && !path.startsWith(GuideConstants.PROTOCOL_HTTP)) {
+            if (null != path && !path.startsWith(CommonConstants.PATH_CONTENT)
+                    && !path.startsWith(GuideConstants.PROTOCOL_HTTP)
+                    && !path.startsWith(GuideConstants.PROTOCOL_HTTPS)) {
                 reqUrl = CommonConstants.PREFIX_HTTPS.concat(path);
             }
         }
