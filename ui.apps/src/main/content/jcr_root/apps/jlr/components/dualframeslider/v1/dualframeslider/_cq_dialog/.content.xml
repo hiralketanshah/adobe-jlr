@@ -105,5 +105,8 @@
                 </items>
             </tabs>
         </items>
+        <granite:data
+            jcr:primaryType="nt:unstructured"
+            name="dfs"/>
     </content>
 </jcr:root>
