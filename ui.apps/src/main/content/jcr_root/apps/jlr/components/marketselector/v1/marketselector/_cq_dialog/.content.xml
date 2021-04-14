@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Market Selector"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <marketproperties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Market Selector"
+                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                                        margin="{Boolean}true">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <marketList
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Market List">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./marketList">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <region
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                            fieldDescription="select the region for adding the corresponding countries and languages."
+                                                            fieldLabel="Select the Region"
+                                                            name="./region">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <asiaPacific
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="ASIA PACIFIC"
+                                                                    value="region-1"/>
+                                                                <europe
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="EUROPE"
+                                                                    value="region-2"/>
+                                                                <middleeast
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="MIDDLE EAST / AFRICA"
+                                                                    value="region-3"/>
+                                                                <centralamerica
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="NORTH / CENTRAL AMERICA"
+                                                                    value="region-4"/>
+                                                                <southamerica
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    text="SOUTH AMERICA"
+                                                                    value="region-5"/>
+                                                            </items>
+                                                        </region>
+                                                        <country
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                            composite="{Boolean}true"
+                                                            fieldLabel="Country">
+                                                            <field
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                name="./countryList">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <countryName
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="Specify the Country Name belongs to the region."
+                                                                        fieldLabel="Country Name"
+                                                                        name="./countryName"/>
+                                                                    <countryCode
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="Specify the Country code corresponding to the Country Name."
+                                                                        fieldLabel="Country Code"
+                                                                        name="./countryCode"/>
+                                                                    <languages
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                                        composite="{Boolean}true"
+                                                                        fieldLabel="Language">
+                                                                        <field
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                                            name="./languageList">
+                                                                            <items jcr:primaryType="nt:unstructured">
+                                                                                <languageTitle
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                                    fieldDescription="The text to be rendered on the CTA"
+                                                                                    fieldLabel="Language Title"
+                                                                                    name="./languageTitle"/>
+                                                                                <link
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                                                <target
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                                            </items>
+                                                                        </field>
+                                                                    </languages>
+                                                                </items>
+                                                            </field>
+                                                        </country>
+                                                    </items>
+                                                </field>
+                                            </marketList>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </marketproperties>
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <title
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
+                            <subheader
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/copy"/>
+                            <backgroundImage
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                            <imageAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

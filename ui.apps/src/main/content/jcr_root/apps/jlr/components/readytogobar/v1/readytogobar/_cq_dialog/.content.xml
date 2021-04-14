@@ -64,7 +64,8 @@
                                 <granite:data
                                     jcr:primaryType="nt:unstructured"
                                     maxlimit="4"
-                                    min-items="{Long}4"/>
+                                    min-items="{Long}4"
+                                    rtgb-component="true"/>
                             </rtgb>
                         </items>
                     </properties>

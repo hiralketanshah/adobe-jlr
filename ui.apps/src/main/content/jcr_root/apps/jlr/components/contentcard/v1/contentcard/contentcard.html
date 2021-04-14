@@ -1,27 +1,112 @@
-<sly data-sly-use.model="com.jlr.core.models.ContentCardModel" data-sly-call="${renderContentCard @ contentCard=model}" />
+<sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+<div class="cq-placeholder" data-emptytext="Content Card Component"></div>
+         <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="swiping">
+            <div class="GridListWrapper" data-wrapper="float">
+			<sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
+               <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
+                  <h2 class="heading headingThick">
+                     <span data-sly-test="${contentCard.headerCopy}" class="headingWrapper fontH2">
+                     ${contentCard.headerCopy @ context="html"}
+                     </span>
+                  </h2>
+                  <div class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
+               </div></sly>
+			   <sly data-sly-test="${contentCard.contentCardList}">
+                   <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentCard.id}" style="display:none">
+                  <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
+                     <button class="DxTabs__tab" role="tab"><span class="DxTabs__tab-text"><span class="DxTabs__tab-inner">TAB 1</span></span></button>
+                  </div>
+               </div>
+               <div class="DxTabs__panels" data-dxtabs-panels-id="${contentCard.id}">
+                  <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentCard.column}">
+                     <div class="cmp-contentCardsCarousel">
+                        <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
+                           <li class="el gridEl">
+                              <div class="cmp-ContentCard">
+                                 <div class="imageContainer mediaOverlay__wrapper">
+                                    <a class="imageLink TargetLinks"
+                                       href="${content.link}"
+                                       data-target="${content.target}" data-type="${content.assestType}">
+									   <sly data-sly-test="${content.assestType=='video'}">
+                                       <div class="mediaOverlay mediaOverlayVideo">
+                                          <div class="mediaOverlayBg"></div>
+                                          <div class="mediaOverlayIcon"></div>
+                                       </div>
+									   </sly>
+									   <sly data-sly-test="${content.assestType=='image'}">
+                                       <div class="mediaOverlay mediaOverlayImage">
+                                          <div class="mediaOverlayBg"></div>
+                                          <div class="mediaOverlayIcon"></div>
+                                       </div>
+									   </sly>
+                                       <sly data-sly-test=${content.fileReference}>
+                                       <picture class="Picture">
+                                          <source data-dimensions="680x450" media="(min-width: 0px)"
+                                             srcset="${content.fileReference}" />
+                                          <img alt="${content.isDecorative=='true' ? '': content.imageAlt}" class="Picture__img" data-dimensions="680x450"
+                                             srcset="${content.fileReference}" />
+                                       </picture></sly>
+                                    </a>
+                                 </div>
+                                 <div class="textContainer">
+                                    <div class="textContainerTop">
+                                       <p data-sly-test="${content.date}" class="date .cmp-ContentCard__date" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='content.blocks.date.text'}">
+                                          ${config.configValue}: ${content.date}.
+                                       </p>
+                                       <h2 data-sly-test="${content.headerCopy}"
+                                          class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
+                                          ${content.headerCopy @ context="html"}
+                                       </h2>
+                                       <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='content.blocks.from.text'}">
+                                          ${config.configValue}: ${content.price}
+                                       </p>
+                                       <p data-sly-test="${content.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
+                                          ${content.copy @ context="html"}
+                                       </p>
+                                    </div>
+                                    <div data-sly-test="${content.ctaList}" class="tableSwap">
+                                       <div class="linkBlock orderNow">
+                                          <div class="containerKeyLine"></div>
+                                       </div>
+                                       <div class="linkBlock links">
+                                          <div class="containerKeyLine" data-sly-list.cta="${content.ctaList}">
+                                             <span data-sly-test="${cta.text}" data-sly-test="${cta.linkType=='primary'}">
+                                                <div class="linkContainer primaryLinkContainer">
+                                                   <a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                                                      href="${cta.link}"
+                                                      aria-label="${cta.ariaLabel}">
+                                                   <span aria-hidden="true">${cta.text}
+                                                   </span>
+                                                   </a>
+                                                </div>
+                                             </span>
+                                             <span data-sly-test="${cta.text}" data-sly-test="${cta.linkType=='secondary'}">
+                                                <div class="linkContainer secondaryLinkContainer">
+                                                   <a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}"
+                                                      href="${cta.link}"
+                                                      aria-label="${cta.ariaLabel}">
+                                                   <span aria-hidden="true">${cta.text}
+                                                   </span>
+                                                   </a>
+                                                </div>
+                                             </span>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+			   </sly>
+               <div class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
+                  <div data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="linkContainer primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></div>
+                  <div data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="linkContainer secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></div>
+               </div>
 
-<template data-sly-template.renderContentCard="${ @ contentCard }">
-<div class="cq-placeholder"
-	 data-emptytext="Content Card Component"></div>
-
-     <div style="background-image: url(${contentCard.fileReference @ context='styleString'});">
-
-     Title: ${contentCard.headerTitle @ context="html"}<br>
-     Copy: ${contentCard.bodyCopy}<br>
-     ID: ${contentCard.id}<br>
-     Alt Text: ${contentCard.imageAlt}<br>
-     Date: ${contentCard.date}<br>
-     Video ID: ${contentCard.videoId}<br>
-     Video Path: ${contentCard.videoPath}<br>
-     Video Title: ${contentCard.videoTitle}<br>
-     Video Type: ${contentCard.videoType}<br>
-     Image/ Video: ${contentCard.contentType}
-
-<div data-sly-list.item="${contentCard.ctaList}">
-
-   <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
-
-</div>
-</div>
-
-</template>
+            </div>
+         </div>

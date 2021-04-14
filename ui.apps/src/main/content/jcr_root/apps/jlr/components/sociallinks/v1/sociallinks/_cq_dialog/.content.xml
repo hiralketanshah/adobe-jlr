@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Social Links"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <column
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/foundation/container">
+                <items jcr:primaryType="nt:unstructured">
+                    <title
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                        path="/mnt/overlay/jlr/components/globalfields/general/headerTitle"/>
+                    <socialLinks
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                        composite="{Boolean}true"
+                        fieldLabel="Social Links">
+                        <field
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                            name="./socialLinks">
+                            <items jcr:primaryType="nt:unstructured">
+                                <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/foundation/container">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <linkText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                        <link
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                        <target
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                        <socialIcon
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                            fieldDescription="select the icon related to the link"
+                                            fieldLabel="Select the icon"
+                                            name="./socialicon">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <facebook
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Facebook"
+                                                    value="social_facebook"/>
+                                                <google
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Google+"
+                                                    value="social_google"/>
+                                                <twitter
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Twitter"
+                                                    value="social_twitter"/>
+                                                <linkedin
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Linkedin"
+                                                    value="social_linkedin"/>
+                                                <youtube
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Youtube"
+                                                    value="social_youtube"/>
+                                                <pinterest
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Pinterest"
+                                                    value="social_pinterest"/>
+                                                <instagram
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Instagram"
+                                                    value="social_instagram"/>
+                                                <wechat
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="WeChat"
+                                                    value="social_wechat"/>
+                                                <blogger
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Blogger"
+                                                    value="social_blogger"/>
+                                                <tumblr
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Tumblr"
+                                                    value="social_tumblr"/>
+                                                <douban
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Douban"
+                                                    value="social_douban"/>
+                                                <sinaweibo
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Sinaweibo"
+                                                    value="social_sinaweibo"/>
+                                                <vkontakt
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Vkontakt"
+                                                    value="social_renren"/>
+                                                <renren
+                                                    jcr:primaryType="nt:unstructured"
+                                                    text="Renren"
+                                                    value="social_renren"/>
+                                            </items>
+                                        </socialIcon>
+                                        <ariaLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                    </items>
+                                </column>
+                            </items>
+                        </field>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            maxlimit="5"/>
+                    </socialLinks>
+                </items>
+            </column>
+        </items>
+    </content>
+</jcr:root>
