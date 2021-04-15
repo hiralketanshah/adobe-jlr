@@ -5,13 +5,13 @@
     - au-authors:
 
         - name: 'AU Authors'
-          isMemberOf: internal-group, internal-tools-nav-group
+          isMemberOf: internal-group, internal-tools-nav-group, projects-administrators
           path: ${groupPath}
 
     - de-authors:
 
         - name: 'DE Authors'
-          isMemberOf: internal-group, internal-tools-nav-group
+          isMemberOf: internal-group, internal-tools-nav-group, projects-administrators
           path: ${groupPath}
 
 - ace_config:
