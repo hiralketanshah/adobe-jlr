@@ -47,7 +47,7 @@
                                         <granite:data
                                         jcr:primaryType="nt:unstructured"
                                         table-html-required="true"/>
-                                </table>
+							</html>
                         </items>
                     </properties>
                     <cta

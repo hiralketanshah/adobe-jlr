@@ -10,8 +10,8 @@
         <list jcr:primaryType="nt:unstructured">
             <item0
                 jcr:primaryType="nt:unstructured"
-                jcr:title="DEFAULT"
-                value=""/>
+                jcr:title="Default"
+                value="icon-arrow-right"/>
             <item1
                 jcr:primaryType="nt:unstructured"
                 jcr:title="360"
@@ -60,6 +60,54 @@
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Fax"
                 value="icon-fax"/>
+            <item13
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Video Guide"
+                value="icon-videoguides-evo-jaguar"/>
+            <item14
+                jcr:primaryType="nt:unstructured"
+                jcr:title="View Vehicles"
+                value="icon-view-vehicle"/>
+            <item15
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Shop"
+                value="icon-shop"/>
+            <item16
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Stay Informed"
+                value="icon-ignite-inform"/>
+            <item17
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Service"
+                value="icon-service"/>
+            <item18
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Close"
+                value="icon-close"/>
+            <item19
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Gallery"
+                value="icon-gallery-evo-jaguar"/>
+            <item20
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Guides and Manuals"
+                value="icon-guides-evo-jaguar"/>
+            <item21
+                jcr:primaryType="nt:unstructured"
+                jcr:title="InControl"
+                value="icon-incontrol"/>
+            <item23
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Information"
+                value="icon-information-landrover"/>
+            <item24
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Insurance"
+                value="icon-insurance"/>
+            <item25
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Land Rover to you"
+                value="icon-land-rover-to-you"/>
         </list>
     </jcr:content>
 </jcr:root>
