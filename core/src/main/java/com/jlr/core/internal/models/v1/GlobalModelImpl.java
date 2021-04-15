@@ -1,13 +1,18 @@
 package com.jlr.core.internal.models.v1;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import javax.inject.Inject;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
 import com.jlr.core.utils.CtaUtils;
@@ -18,6 +23,12 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String id;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private Calendar date;
+
+    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String dateFormat;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String headerTitle;
@@ -41,6 +52,9 @@ public class GlobalModelImpl implements GlobalModel {
     private String imageLink;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private boolean isDecorative;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String text;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -54,6 +68,9 @@ public class GlobalModelImpl implements GlobalModel {
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String ariaLabel;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String logoPath;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoId;
@@ -73,6 +90,17 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getId() {
         return id;
+    }
+
+    @Override
+    public String getDate() {
+        String formattedDate = StringUtils.EMPTY;
+        dateFormat = (null == dateFormat) ? CommonConstants.PN_REVISED_DATE_FORMAT : dateFormat;
+        if (null != date) {
+            SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+            formattedDate = formatter.format(date.getTime());
+        }
+        return formattedDate;
     }
 
     @Override
@@ -102,11 +130,17 @@ public class GlobalModelImpl implements GlobalModel {
 
     @Override
     public String getImageAlt() {
+        if (isDecorative) {
+            return null;
+        }
         return imageAlt;
     }
 
     @Override
     public String getImageLink() {
+        if (isDecorative) {
+            return null;
+        }
         return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
     }
 
@@ -142,7 +176,6 @@ public class GlobalModelImpl implements GlobalModel {
         return ariaLabel;
     }
 
-    @Override
     public String getVideoId() {
         return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
     }

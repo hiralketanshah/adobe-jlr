@@ -51,7 +51,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                 composite="{Boolean}true"
-                                fieldDescription="Click 'add' to add a new accessibility Label and Link"
+                                fieldDescription="Click to add a New CTA"
                                 fieldLabel="CTA List">
                                 <field
                                     jcr:primaryType="nt:unstructured"
@@ -100,5 +100,8 @@
                 </items>
             </tabs>
         </items>
+        <granite:data
+           jcr:primaryType="nt:unstructured"
+           name="snippet"/>        
     </content>
 </jcr:root>

@@ -1,0 +1,95 @@
+<sly data-sly-use.market="${'com.jlr.core.models.MarketModel'}"></sly>
+<sly data-sly-test="${wcmmode.edit}">
+	<div data-emptytext="${component.title}" class="cq-placeholder"></div>
+</sly>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.marketselector.v1']}" />
+<div class="pageWrapper withLogo marketSelectorTemplate">
+
+<div class="MarketSelector lightWhenNoJS fontSmooth dark" data-disable-redirect="false">
+
+  <picture class="MarketSelector__bgImage Picture Picture--background MarketSelector__bgImage--desktop">
+    <source media="(min-width: 1650px)" srcset="${market.fileReference}" />
+    <source media="(min-width: 1280px)" srcset="${market.fileReference}" />
+    <source media="(min-width: 1024px)" srcset="${market.fileReference}" />
+    <source media="(min-width: 0px)" srcset="${market.fileReference}" />
+    <img alt="${market.imageAlt}" class="Picture__img" data-object-fit="" src="${market.fileReference}" srcset="${market.fileReference}"/>
+  </picture>
+
+  <div class="headerBlock headerBlockWithForm MarketSelector__heading-wrapper">
+    <h1 class="heading headingLinear headingThick headingCentre headingH2 fontH1 MarketSelector__heading">
+      <span class="MarketSelector__heading-inner">${market.headerTitle}</span>
+    </h1>
+
+    <span class="subHeading MarketSelector__sub-heading headingCentre">${market.copy @context="html"}</span>
+  </div>
+
+  <div class="MarketSelector__country-list">
+    <ul class="MarketSelector__list" data-sly-list.regions="${market.marketList}">
+      <li class="MarketSelector__list-item">
+        <h2 class="MarketSelector__region-title">${regions.regionName}</h2>
+
+        <ul class="MarketSelector__inner-list" data-sly-list.countries="${regions.countryList}">
+          <li class="MarketSelector__inner-list-item"><a class="MarketSelector__inner-list-link" href="#"><div class="MarketSelector__inner-list-link-flag spriteFlag-${countries.countryCode}"></div><span class="MarketSelector__inner-list-link-inner">${countries.countryName}</span></a></li>
+		  </ul>
+	  </li>
+	</ul>
+</div>
+
+<div class="MarketSelector__dropdowns-container">
+    <div class="MarketSelector__dropdowns">
+      <div class="dxDropdown dxDropdown-region" data-sly-use.regionconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.continent.select'}">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-region" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketselector.label.region'}">${regionconfig.configValue}
+</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="${regionconfig.configValue}
+" class="dxDropdown__button-region dxDropdown__button icon-chevron-down fontEmissionsDetails">${regionconfig.configValue}
+</button>
+
+    <ul aria-label="${regionconfig.configValue}" class="dxDropdown__list dxDropdown__list-region" role="listbox" tabindex="-1" data-sly-list.regions="${market.marketList}">
+          <li class="dxDropdown__list-item" role="option">
+            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-region="${regions.region}">${regions.regionName}</a>
+          </li>
+    </ul>
+</div>
+
+<div class="dxDropdown dxDropdown-country dxDropdown--disabled" data-sly-use.marketconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.country.select'}">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-country">${marketconfig.configValue}
+</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="${marketconfig.configValue}
+" class="dxDropdown__button-country dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">${marketconfig.configValue}
+</button>
+<div class="dxDropdown__country-list-wrapper" data-sly-list.regions="${market.marketList}">
+          <ul aria-label="${marketconfig.configValue}
+" class="dxDropdown__list dxDropdown__list-country" role="listbox" tabindex="-1" data-region="${regions.region}">
+            <li class="dxDropdown__list-item" role="option" data-sly-list.countries="${regions.countryList}">
+              <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-country="country-${countries.countryCode}">
+                <span class="dxDropdown__list-item-link-inner">${countries.countryName}</span>
+                <div class="MarketSelector__flag spriteFlag-${countries.countryCode}"></div>
+              </a>
+            </li>
+			</ul>
+			</div>
+</div>
+
+<div class="dxDropdown dxDropdown-language dxDropdown--disabled" data-sly-use.languageconfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.language.select'}">
+        <span class="dxDropdown__heading fontH5 dxDropdown__heading-language">${languageconfig.configValue}</span>
+        <button aria-expanded="false" aria-haspopup="listbox" aria-label="${languageconfig.configValue}" class="dxDropdown__button-language dxDropdown__button icon-chevron-down fontEmissionsDetails" disabled="" tabindex="-1">${languageconfig.configValue}</button>
+        <div class="dxDropdown__language-list-wrapper" data-sly-list.regions="${market.marketList}">
+        <sly data-sly-list.countries="${regions.countryList}">
+          <ul aria-label="${languageconfig.configValue}" class="dxDropdown__list dxDropdown__list-language" role="listbox" tabindex="-1" data-country="country-${countries.countryCode}">
+          <sly data-sly-list.languages="${countries.languageList}">
+            <li class="dxDropdown__list-item" role="option">
+            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${languages.link}" target="${languages.target}" data-target="${languages.target}">${languages.languageTitle}</a>
+            </li>
+            </sly>
+          </ul>
+          </sly>
+		  </div>
+      </div>
+	 </div>
+	 
+	 <div class="MarketSelector__submit-wrapper">
+      <button class="MarketSelector__continue-button disabled primaryLinkWithStyle plwsLight" disabled="" data-sly-use.continueConfig="${'com.jlr.core.models.SiteConfigModel' @ key='marketSelector.confirmation.visit'}">${continueConfig.configValue}</button>
+    </div>
+  </div>
+</div>
+  </div>

@@ -1,0 +1,30 @@
+{
+	"jcr: primaryType": "nt:unstructured",
+	"jcr: createdBy": "admin",
+	"tableHtml": "<tr> <th scope=' col '></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> <th scope=' col '>Bold Header<span>Sub-heading</span></th> </tr> <tr> <th scope=' row '>Bold Header<span>Sub-heading</span></th> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> </tr> <tr> <th scope=' row '>Bold Header<span>Sub-heading</span></th> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> </tr> <tr> <th scope=' row '>Bold Header<span>Sub-heading</span></th> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> </tr> <tr> <th scope='row'>Bold Header<span>Sub-heading</span></th> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> </tr> <tr> <th scope=' row '>Bold Header<span>Sub-heading</span></th> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> <td>7 hours</td> </tr> ",
+	"ctaPosition": "above",
+	"jcr: lastModifiedBy": "admin",
+	"jcr: created": "Thu Apr 08 2021 15:36:43 GMT+0530",
+	"copy": "<p>loreum simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> ",
+	"caption": "engine specifications table",
+	"jcr: lastModified": "Mon Apr 12 2021 09:09:19 GMT+0530",
+	"sling: resourceType": "jlr/components/table/v1/table",
+	"textIsRich": [
+		"true",
+		"true"
+	],
+	"headerCopy": "<p>loreum Ipsum Helo</p> ",
+	"cq: styleIds": [
+		"1617608501713"
+	],
+	"ctaList": {
+		"jcr: primaryType": "nt:unstructured",
+		"item0": {
+			"jcr: primaryType": "nt:unstructured",
+			"target": "_self",
+			"link": "/content/jlr/au",
+			"text": "VIEW FULL SPECIFICATON",
+			"linkType": "primary"
+		}
+	}
+}

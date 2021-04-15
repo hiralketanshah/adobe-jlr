@@ -1,0 +1,38 @@
+<sly data-sly-use.hygienelink="com.jlr.core.models.HygieneLinksModel"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+	<div data-sly-test="${!hygienelink.hygienelinksList|| !hygienelink.countryName }" class="cq-placeholder" data-emptytext="Hygiene Links Component"></div>
+	<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.footercontainer.v1']}" />
+	<ul class="cmp_footerNav__hygieneLinks">
+    <li class="cmp_footerNav__selectMarket">
+        <a data-sly-test="${hygienelink.countryName}" class="toggleHandle cmp_footerNav__selectMarketLink" href="${hygienelink.marketLink}">
+          <img alt="flag" class="flag" height="12" src="${hygienelink.logoImage}" width="19" />
+          <span class="countryCode">${hygienelink.countryCode}</span><span class="countryName">${hygienelink.countryName}</span></a>
+        <div class="cmp_footerNav__marketSelectorContainer toggleContent"></div>
+      </li>
+		<li data-sly-test="${hygienelink.hygienelinksList}" class="cmp_footerNav__key-links"> <a class="toggleHandle" href="#" role="button"><span class="toggleHandle__inner"></span></a>
+			<ul class="toggleContent cmp_footerNav__key-links-list">
+				<sly data-sly-list.item="${hygienelink.hygienelinksList}">
+					<li><a data-target="${item.target}" target="${item.target}" href="${item.link}" aria-label="${item.ariaLabel}" class="TargetLinks">${item.text}</a>
+					</li>
+				</sly>
+				<li class="evidon-notice-link cmp_footerNav__evidon-link"></li>
+			</ul>
+		</li>
+	</ul>
+    <div data-sly-test="${hygienelink.hygienelinksList}" class="cmp_footerNav__mobile-links" id="mobileKeyLinks">
+    <ul class="cmp_footerNav__primary-link-list">
+        <sly data-sly-list.item="${hygienelink.hygienelinksList}">
+      <li><a href="${item.link}" aria-label="${item.ariaLabel}" data-target="${item.target}" target="${item.target}" class=" TargetLinks">${item.text}</a></li>
+   </ul>
+   <button class="button-tertiary cmp_footerNav__show-more-btn">
+   <span data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='footer.label.showMore'}">
+   ${config.configValue}
+   </span>
+   </button>
+   <button class="button-tertiary cmp_footerNav__show-less-btn cmp_footerNav__show-less-btn--hide">
+   <span data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='footer.label.showLess'}">
+   ${config.configValue}
+   </span>
+   </button>
+  </div>

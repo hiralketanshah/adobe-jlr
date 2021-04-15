@@ -44,7 +44,9 @@
                         <configuration>
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
-                                ]]></bnd>
+Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalayer,com.jlr.core.datalayer.impl,com.jlr.core.models,com.jlr.core.utils.*,com.jlr.core.services,com.jlr.core.pojos.*,com.jlr.core.internal.models.v1.*,com.jlr.core.servlets
+                                ]]>      
+                                </bnd>
                         </configuration>
                     </execution>
                 </executions>
@@ -77,6 +79,14 @@ Import-Package: javax.annotation;version=0.0.0,*
                     </archive>
                 </configuration>
             </plugin>
+            <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+					<version>4.2.0</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
         </plugins>
     </build>
 
