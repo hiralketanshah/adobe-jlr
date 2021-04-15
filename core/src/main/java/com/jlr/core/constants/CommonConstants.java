@@ -1,5 +1,9 @@
 package com.jlr.core.constants;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * The Class CommonConstants.
  */
@@ -63,5 +67,12 @@ public class CommonConstants {
     public static final String DL_MODELYEAR = "ModelYear";
 
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
+
+    public static final List<String> homePageList = new ArrayList<>(Arrays.asList("/content/landrover/global/global-master/en",
+                    "/content/landrover/global/published-sites/en_ix", "/content/landrover/global/europe/region-master/en",
+                    "/content/landrover/global/europe/language-masters/deu/en", "/content/landrover/global/europe/language-masters/deu/de",
+                    "/content/landrover/global/europe/published-sites/de_de", "/content/landrover/global/row/region-master/en",
+                    "/content/landrover/global/row/language-masters/aus/en", "/content/landrover/global/row/published-sites/en_au"));
+
 
 }

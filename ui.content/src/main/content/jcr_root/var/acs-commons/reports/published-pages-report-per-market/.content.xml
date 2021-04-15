@@ -99,7 +99,7 @@
                     <item1
                         jcr:primaryType="nt:unstructured"
                         text="DE"
-                        value="/content/landrover/europe/published-sites/de_de/"/>
+                        value="/content/landrover/global/europe/published-sites/de_de/"/>
                 </items>
             </select_8036160>
         </parameters>
