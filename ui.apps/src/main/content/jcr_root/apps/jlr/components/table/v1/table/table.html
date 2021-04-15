@@ -14,14 +14,14 @@
 						data-sly-list.cta=${table.ctaList}>
 						<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
 							<a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
-								data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
+								data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
 								<span>${cta.text}</span>
 							</a>
 						</span>
 						<span data-sly-test="${cta.linkType=='secondary'}"
 							class="secondaryLinkContainer secondaryLinkType">
 							<a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
-								data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
+								data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
 								<span>${cta.text}</span>
 							</a>
 						</span>
@@ -39,13 +39,13 @@
 					data-sly-list.cta=${table.ctaList}>
 					<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
 						<a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
-							data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
+							data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
 							<span>${cta.text}</span>
 						</a>
 					</span>
 					<span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType">
 						<a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
-							data-target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
+							data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}">
 							<span>${cta.text}</span>
 						</a>
 					</span>
