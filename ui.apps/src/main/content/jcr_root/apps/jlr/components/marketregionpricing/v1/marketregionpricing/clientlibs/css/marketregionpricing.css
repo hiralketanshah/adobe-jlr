@@ -1,0 +1,52 @@
+.MarketRegionalPricing {
+    display: none
+}
+
+.MarketRegionalPricing__form {
+    display: flex;
+    margin-top: 16px
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+    .MarketRegionalPricing__form {
+        flex-direction: column;
+        margin-top: 24px
+    }
+}
+
+.MarketRegionalPricing__dxDropdown {
+    display: flex;
+    flex: 1;
+    margin-right: 10px
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+    .MarketRegionalPricing__dxDropdown {
+        margin-right: 0;
+        margin-bottom: 8px
+    }
+}
+
+.MarketRegionalPricing__cta {
+    margin-top: 0
+}
+
+@media only screen and (min-width: 740px) and (max-width: 1080px) and (orientation: landscape) {
+    .Modal--MarketRegionalPricing .Modal__content-wrapper {
+        top: 120px;
+        transform: translate(-50%, 0)
+    }
+}
+
+.Modal--MarketRegionalPricing .Modal__content {
+    overflow: visible
+}
+.cmp-marketregionalpricing{
+    opacity: 1;
+}
+.cmp-showmarket{
+    display: block;
+}
+.cmp-hidemarket{
+    display:none;
+}

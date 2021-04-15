@@ -1,44 +1,36 @@
-<sly data-sly-use.model="com.jlr.core.models.MarketRegionPricingModel" data-sly-call="${renderModel @ model=model}" />
+<sly data-sly-use.model="com.jlr.core.models.MarketRegionPricingModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.modal.header,marketregionpricing.dxnav.modal.copy,marketregionpricing.dxnav.modal.dropdown.default,marketregionpricing.dxnav.modal.submitbutton.copy'}" data-sly-call="${renderModel @ model=model, config=config}" />
 
-<template data-sly-template.renderModel="${ @ model }">
+<template data-sly-template.renderModel="${ @ model, config }">
  <div data-sly-test="${wcmmode.edit}" class="cq-placeholder" data-emptytext="Market Region Pricing Component"></div>
-
-
-<section  data-modal="" role="dialog" tabindex="-1" class="Modal Modal--MarketRegionalPricing" style="display: block; opacity: 1;">
-            <div class="Modal__content-wrapper" data-gtm-vis-recent-on-screen-8326285_1031="20017" data-gtm-vis-first-on-screen-8326285_1031="20017" data-gtm-vis-total-visible-time-8326285_1031="100" data-gtm-vis-has-fired-8326285_1031="1">
-                        <div class="Modal__header">
-                                    <button data-modal-close="" class="Modal__close"/>
+ <section data-modal="" role="dialog" tabindex="-1" id="marketSelector" class="Modal Modal--MarketRegionalPricing cmp-marketregionalpricing cmp-hidemarket">
+    <div class="Modal__content-wrapper">
+        <div class="Modal__header">
+            <button data-modal-close="" class="Modal__close" ></button>
+        </div>
+        <div data-modal-content="" class="Modal__content">
+		    <div class="MarketRegionalPricing__body" style="display: block;opacity: 1;">
+            <h2 class="Modal__title MarketRegionalPricing__title" id="MarketRegionalPricing_title">${config.configMap['marketregionpricing.dxnav.modal.header']}</h2>
+                <div class="Modal__text">
+                    <p class="MarketRegionalPricing__copy">${config.configMap['marketregionpricing.dxnav.modal.copy']}</p>
+                    <form aria-labelledby="MarketRegionalPricing_title" class="MarketRegionalPricing__form" method="get">
+                        <div class="dxDropdown MarketRegionalPricing__dxDropdown">
+                            <button aria-expanded="false" aria-haspopup="listbox" aria-labelledby="dxDropdown__heading dxDropdown__button" class="dxDropdown__button fontEmissionsDetails MarketRegionalPricing__dxDropdownButton icon-chevron-down" type="button">${config.configMap['marketregionpricing.dxnav.modal.dropdown.default']}</button>
+                            <ul aria-labelledby="MarketRegionalPricing_title" class="dxDropdown__list" id="dxDropdown__list" role="listbox" tabindex="-1">
+                                <sly data-sly-list.state="${model.stateList}" >
+									<li class="dxDropdown__list-item" role="option">
+                                        <a class="dxDropdown__list-item-link fontEmissionsDetails MarketRegionalPricing__option dxDropdown__list-item-link--active" data-value="${state.stateValue}" href="#">${state.stateName}</a>
+                                    </li>
+								</sly>
+                            </ul>
                         </div>
-                        <div data-modal-content="" class="Modal__content">
-                                    <div class="MarketRegionalPricing__body">
-                                                <h2 class="Modal__title MarketRegionalPricing__title" id="MarketRegionalPricing_title">${model.headerCopy @context='html'}</h2>
-
-                                                <div class="Modal__text">
-                                                            <p class="MarketRegionalPricing__copy">${model.copy @context='html'}</p>
-
-                                                            <form aria-labelledby="MarketRegionalPricing_title" class="MarketRegionalPricing__form" method="get">
-
-                                                                        <div class="dxDropdown MarketRegionalPricing__dxDropdown">
-                                                                                    <button aria-expanded="false" aria-haspopup="listbox" aria-labelledby="dxDropdown__heading dxDropdown__button" class="dxDropdown__button fontEmissionsDetails MarketRegionalPricing__dxDropdownButton icon-chevron-down" type="button">CHOOSE YOUR STATE</button>
-                                                                                    <ul aria-labelledby="MarketRegionalPricing_title" class="dxDropdown__list" id="dxDropdown__list" role="listbox" tabindex="-1">
-																					<sly data-sly-list.state="${model.stateList}" >
-																						<li class="dxDropdown__list-item" role="option">
-                                                                                                            <a class="dxDropdown__list-item-link fontEmissionsDetails MarketRegionalPricing__option dxDropdown__list-item-link--active" data-value="${state.stateValue}" href="#">${state.stateName}</a>
-                                                                                                </li>
-																					</sly>
-                                                                                    </ul>
-                                                                        </div>
-
-                                                                        <button class="primaryLinkWithStyle MarketRegionalPricing__cta disabled" disabled="disabled" type="submit">${model.text}</button>
-
-                                                            </form>
-                                                </div>
-                                    </div>
-                        </div>
-                        <div data-modal-footer="" class="Modal__footer" style="display: none;"/>
+                        <button class="primaryLinkWithStyle MarketRegionalPricing__cta disabled cmp-marketsubmit" disabled="disabled" type="submit">${config.configMap['marketregionpricing.dxnav.modal.submitbutton.copy']}</button>
+					</form>
+                </div>
             </div>
-            <div class="Modal__background" data-modal-close=""/>
-</section>
-
+		</div>
+        <div data-modal-footer="" class="Modal__footer" style="display: none;"></div>
+    </div>
+    <div class="Modal__background" data-modal-close="">
+	</div>
+  </section>
 </template>
-</sly>

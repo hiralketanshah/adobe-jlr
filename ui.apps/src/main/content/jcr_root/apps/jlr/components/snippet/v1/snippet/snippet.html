@@ -10,6 +10,10 @@
       <div class="linkContainer" data-sly-test="${snippet.ctaList}" data-sly-list.cta=${snippet.ctaList}>
          <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
          <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
-      </div>
+         <span data-sly-test="${cta.linkType=='tertiary'}" class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><a class="dxnav-button-tertiary MarketRegionalPricing-triggerer ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+
+	  </div>
    </div>
 </template>
+
+<sly data-sly-resource="${'marketregionpricing' @ path='/content/experience-fragments/landrover/language-masters/australia/en/modals/experience-fragment/master'}"></sly>
