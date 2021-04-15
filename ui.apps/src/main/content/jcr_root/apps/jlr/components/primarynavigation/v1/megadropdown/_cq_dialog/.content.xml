@@ -466,7 +466,7 @@
                                                 allowUpload="{Boolean}false"
                                                 fieldDescription="Select an Image to be displayed"
                                                 fieldLabel="Image"
-                                                fileReferenceParameter="./fileReference"
+                                                fileReferenceParameter="./fileReferenceImage"
                                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                 multiple="{Boolean}false"
                                                 name="./rightPaneImage"/>
@@ -510,7 +510,7 @@
                                                             allowUpload="{Boolean}false"
                                                             fieldDescription="Select an Image to be displayed"
                                                             fieldLabel="Image"
-                                                            fileReferenceParameter="./fileReference"
+                                                            fileReferenceParameter="./fileReferenceImageTxt"
                                                             mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                             multiple="{Boolean}false"
                                                             name="./rightPaneImage"/>
@@ -519,7 +519,7 @@
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                             fieldDescription="Textual alternative of the meaning or function of the image, for visually impaired readers."
                                                             fieldLabel="Alternative Text"
-                                                            name="./rightPaneImageAlt"/>
+                                                            name="./rightPaneImageTextAlt"/>
                                                         <headerCopy
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="cq/gui/components/authoring/dialog/richtext"

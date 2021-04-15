@@ -1,18 +1,10 @@
 package com.jlr.core.models;
 
-import java.util.List;
-
 import javax.inject.Inject;
-import javax.inject.Named;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
-
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavImageTxtModel {
@@ -21,10 +13,10 @@ public class PrimaryNavImageTxtModel {
     private ResourceResolver resourceResolver;
 	
 	@Inject
-    private String fileReference;
+    private String fileReferenceImageTxt;
 	
 	@Inject
-    private String rightPaneImageAlt;
+    private String rightPaneImageTextAlt;
 	
 	@Inject
     private String rightPaneHeaderCopy;
@@ -53,16 +45,12 @@ public class PrimaryNavImageTxtModel {
 	@Inject
     private Resource quicklinks;
 	
-	@Inject
-    @Named("quickLinks/.")
-	public List<CTAPojo> list;
-	
-	public String getFileReference() {
-		return fileReference;
+	public String getFileReferenceImageTxt() {
+		return fileReferenceImageTxt;
 	}
 
-	public String getRightPaneImageAlt() {
-		return rightPaneImageAlt;
+	public String getRightPaneImageTextAlt() {
+		return rightPaneImageTextAlt;
 	}
 
 	public String getRightPaneHeaderCopy() {
@@ -96,13 +84,4 @@ public class PrimaryNavImageTxtModel {
 	public String getRightPaneCopyCtaTarget() {
 		return rightPaneCopyCtaTarget;
 	}
-
-	public List<CTAPojo> getQuicklinks() {
-		if (null != quicklinks && quicklinks.hasChildren()) {
-            list = CtaUtils.createCtaList(quicklinks, rightPaneHeaderCopy, resourceResolver);
-        }
-        return list;
-	}
-
-
 }
