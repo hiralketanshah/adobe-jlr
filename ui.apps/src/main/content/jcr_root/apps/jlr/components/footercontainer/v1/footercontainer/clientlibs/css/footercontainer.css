@@ -1137,6 +1137,9 @@
 .cmp-subFooter .cmp-subFooter__container {
     line-height: 1.4rem;
 }
+.cmp-subFooter .cmp-subFooter__container p::first-letter{
+    text-transform: capitalize;
+}
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
 	.cmp-subFooter {
