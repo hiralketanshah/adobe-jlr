@@ -78,7 +78,7 @@
           <ul aria-label="${languageconfig.configValue}" class="dxDropdown__list dxDropdown__list-language" role="listbox" tabindex="-1" data-country="country-${countries.countryCode}">
           <sly data-sly-list.languages="${countries.languageList}">
             <li class="dxDropdown__list-item" role="option">
-            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${languages.link}" data-target="${languages.target}">${languages.languageTitle}</a>
+            <a class="dxDropdown__list-item-link fontEmissionsDetails" href="${languages.link}" target="${languages.target}" data-target="${languages.target}">${languages.languageTitle}</a>
             </li>
             </sly>
           </ul>

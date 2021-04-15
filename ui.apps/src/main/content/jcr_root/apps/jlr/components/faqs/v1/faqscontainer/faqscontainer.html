@@ -1,6 +1,4 @@
-<sly data-sly-use.faqscontainer="com.adobe.cq.wcm.core.components.models.Accordion" />	
-<div class="cmp-faqmodal">
-    <section class="cmp-faqmodel" id="cmp-faqmodel">
+    <section class="cmp-faqmodel" data-sly-use.faqscontainer="com.adobe.cq.wcm.core.components.models.Accordion" id="${faqscontainer.id}">
        <!-- Toggle all button -->
        <button class="cmp-faqmodel__toggle button-tertiary">
        <span class="cmp-faqmodel__toggle__open" data-sly-use.openall="${'com.jlr.core.models.SiteConfigModel' @ key='faq.openall.copy'}" aria-label="${openall.configValue}" >
@@ -36,6 +34,4 @@
         </div>
           <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
              data-sly-test="${(wcmmode.edit || wcmmode.preview) && faqscontainer.items.size < 1}"></sly>
-       </div>
     </section>
-</div>
