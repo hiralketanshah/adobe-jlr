@@ -20,7 +20,7 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="acs-commons/components/utilities/report-builder/configs/queryconfig"
                 pageSize="50"
-                query="SELECT * FROM [cq:Page] AS s WHERE (ISDESCENDANTNODE([/content/landrover/global/row/published-sites/en_au]) or  ISDESCENDANTNODE([/content/landrover/europe/published-sites/de_de]))  AND [jcr:content/cq:lastReplicationAction] LIKE '{{{status}}}' ORDER BY {{order}}"
+                query="SELECT * FROM [cq:Page] AS s WHERE (ISDESCENDANTNODE([/content/landrover/global/row/published-sites/en_au]) or  ISDESCENDANTNODE([/content/landrover/global/europe/published-sites/de_de]))  AND [jcr:content/cq:lastReplicationAction] LIKE '{{{status}}}' ORDER BY {{order}}"
                 queryLanguage="JCR-SQL2"
                 reportExecutor="com.adobe.acs.commons.reports.models.QueryReportExecutor"/>
         </config>

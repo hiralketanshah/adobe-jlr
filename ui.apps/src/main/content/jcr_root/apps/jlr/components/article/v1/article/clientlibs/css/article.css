@@ -218,11 +218,12 @@
 	}
 }
 
-.Article__heading:first-child {
-	margin-top: 0
+.cmp-article .Article__heading:first-child {
+	margin-top: 0;
+	text-transform: uppercase;
 }
 
-.Article__heading+.richText {
+.cmp-article .Article__heading+.richText {
 	margin-top: 31px
 }
 
