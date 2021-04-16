@@ -4,6 +4,7 @@
 
 .cmp-Snippet .headingWrapper p {
 	line-height: 38px;
+    text-transform: uppercase;
 }
 
 .cmp-Snippet h2 {

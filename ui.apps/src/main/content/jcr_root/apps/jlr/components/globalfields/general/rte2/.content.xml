@@ -112,6 +112,5 @@
     </uiSettings>
     <granite:data
        jcr:primaryType="nt:unstructured"
-       snippet-maxlength="{Long}500"
        vehiclesummary-maxlength="{Long}500"/>
 </jcr:root>
