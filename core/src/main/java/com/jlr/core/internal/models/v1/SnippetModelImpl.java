@@ -9,7 +9,6 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.slf4j.Logger;
@@ -42,10 +41,14 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     /** The cta list. */
     @Inject
     private Resource ctaList;
-    
+
     /** The enable pricing. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String enablePricing;
+
+    /** The market region link. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String marketRegionPath;
 
     /**
      * Gets the cta list.
@@ -54,20 +57,30 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
      */
     @Override
     public List<CTAPojo> getCtaList() {
-		if (null != ctaList && ctaList.hasChildren()) {
+        if (null != ctaList && ctaList.hasChildren()) {
             list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
-		return list;
-	}
-    
+        return list;
+    }
+
     /**
      * Gets the enable pricing.
      *
      * @return the enable pricing
      */
     @Override
-	public String getEnablePricing() {
-		return enablePricing;
+    public String getEnablePricing() {
+        return enablePricing;
+    }
+
+    /**
+     * Gets the market region link.
+     *
+     * @return the market region link
+     */
+    @Override
+    public String getMarketRegionPath() {
+        return marketRegionPath;
     }
 
 }

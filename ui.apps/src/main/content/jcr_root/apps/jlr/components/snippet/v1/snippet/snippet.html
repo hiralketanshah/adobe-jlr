@@ -1,5 +1,5 @@
-<sly data-sly-use.model="com.jlr.core.models.SnippetModel" data-sly-call="${renderSnippet @ snippet=model}"/>
-<template data-sly-template.renderSnippet="${ @ snippet }">
+<sly data-sly-use.model="com.jlr.core.models.SnippetModel" data-sly-call="${renderSnippet @ snippet=model, config=config}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"/>
+<template data-sly-template.renderSnippet="${ @ snippet, config }">
    <div class="cq-placeholder"
       data-sly-test="${!snippet.headerCopy || !snippet.copy || !snippet.ctaList}" data-emptytext="Snippet Component"></div>
    <div class="cmp-Snippet shelfComponent">
@@ -13,7 +13,10 @@
          <span data-sly-test="${cta.linkType=='tertiary'}" class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><a class="dxnav-button-tertiary MarketRegionalPricing-triggerer ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
 
 	  </div>
+      <div data-sly-test="${snippet.enablePricing}">
+		 <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><a class="dxnav-button-tertiary MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></a></span>
+
+         <sly data-sly-test="${snippet.marketRegionPath}" data-sly-resource="${'marketregionpricing' @ path=snippet.marketRegionPath}"></sly>
+      </div>
    </div>
 </template>
-
-<sly data-sly-resource="${'marketregionpricing' @ path='/content/experience-fragments/landrover/language-masters/australia/en/modals/experience-fragment/master'}"></sly>
