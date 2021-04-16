@@ -25,7 +25,7 @@
 }
 
 .cmp_footerNav__heading:first-child {
-	padding: 0px 0 14px
+	padding: 0px 0 11px
 }
 
 .cmp_footerNav__navWrapper {
@@ -220,7 +220,7 @@
 @media screen and (min-width: 901px) {
 	.cmp_footerNav__footerWrapper {
         overflow: hidden;
-         padding: 46px 70px 0px;
+         padding: 43px 70px 0px;
     }
 	.cmp_footerNav__evidon-link a,
 	.cmp_footerNav__trustarc-link a {
@@ -1137,9 +1137,6 @@
 .cmp-subFooter .cmp-subFooter__container {
     line-height: 1.4rem;
 }
-.cmp-subFooter .cmp-subFooter__container p::first-letter{
-    text-transform: capitalize;
-}
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
 	.cmp-subFooter {
@@ -1161,6 +1158,10 @@
 	color: #a4a7a9
 }
 
+.cmp-subFooter .cmp-subFooter__container p::first-letter{
+    text-transform: capitalize;
+}
+
 .cmp-subFooter a {
 	color: #a4a7a9
 }
@@ -1178,3 +1179,17 @@
 .cmp-subFooter  a:hover {
 	color: #a4a7a9
 }
+
+/* FIXES */
+.cmp_footerNav__socialLinks a strong {
+	font-weight: 400;
+}
+
+.cmp_footerNav__heading{
+	font-size: 10px;
+}
+.cmp_footerNav__navWrapper li a:focus{
+	outline:none  !important;
+}
+
+/* FIXES END */
