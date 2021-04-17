@@ -17,6 +17,9 @@ public class PrimaryNavigationModel {
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
+    
+    @Inject
+    private String id;
 
     @Inject
     private String mmTemplate;
@@ -48,6 +51,10 @@ public class PrimaryNavigationModel {
     @Inject
     @Named("quickLinks/.")
 	public List<PrimaryNavQuickLinks> quickLinks;
+    
+    public String getId() {
+        return id;
+    }
 
 	public String getMmTemplate() {
 		return mmTemplate;
