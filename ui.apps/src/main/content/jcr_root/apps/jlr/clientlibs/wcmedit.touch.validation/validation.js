@@ -102,6 +102,7 @@
         var CONST = {
             TARGET_GRANITE_UI: '.coral-RichText-editable',
             ERROR_MESSAGE: 'Your character limit {0} exceeds the allowed limit of {1}!',
+            REQUIRED_MESSAGE: 'Please fill the value',
         };
         /**
          * Initializes the RichTextMaxLengthValidation
@@ -115,12 +116,18 @@
                     var $field = $rteField.closest('.richtext-container').find('input.coral-Form-field');
                     var compName = $(".cq-dialog-content").data("name");
                     var maxLength = $field.data('maxlength');
+                    var required;
                     if (compName) {
                         maxLength = $field.data(compName + '-maxlength');
+                        required = $field.data(compName + '-required');
                     }
                     var textLength = $rteField.text().trim().length;
                     if (maxLength && textLength > maxLength) {
                         return Granite.I18n.get(CONST.ERROR_MESSAGE, [textLength, maxLength]);
+                    }
+					console.log(textLength);
+                    if (required && textLength < 1) {
+                        return Granite.I18n.get(CONST.REQUIRED_MESSAGE);
                     }
                     return null;
                 }
@@ -146,7 +153,6 @@
     }();
     RichTextMaxLengthValidation.init();
 })(window, Granite.$);
-
 (function($, Coral) {
     "use strict";
 

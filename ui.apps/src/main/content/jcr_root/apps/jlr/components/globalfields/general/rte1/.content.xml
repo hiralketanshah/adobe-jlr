@@ -5,6 +5,7 @@
     fieldDescription="The Header copy to be displayed."
     fieldLabel="Header Copy"
     name="./headerCopy"
+    dfs-required="true"
     useFixedInlineToolbar="{Boolean}true">
     <rtePlugins jcr:primaryType="nt:unstructured">
         <subsuperscript
