@@ -230,7 +230,9 @@
 .cmp-article .article .richText p:first-letter {
 	text-transform: capitalize;
 }
-
+.cmp-article .sectionWrapper .imageCaption:first-letter{
+	text-transform: capitalize;
+}
 .cmp-article .sectionWrapper h1,
 .cmp-article .sectionWrapper h2,
 .cmp-article .sectionWrapper h3,
@@ -445,7 +447,7 @@
 	margin: 40px 0
 }
 
-.cmp-article .sectionWrapper .imageCaption  p:first-letter{
+.cmp-article .sectionWrapper .imageCaption:first-letter{
 	text-transform: capitalize;
 }	
 
