@@ -1,462 +1,173 @@
 <sly data-sly-use.model="com.jlr.core.models.PrimaryNavigationModel"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-    id="${component.id}" class="cmp-table">
+   id="${component.id}"></sly>
+<sly data-sly-test="${model.mmTemplate=='templateA'}">
+   <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
+      <div class="dxnav-primary-tab-columns">
+         <div class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+            </ul>
+         </div>
+         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
+            <div class="dxnav-promo-panel dxnav-promo-panel--image">
+               <a class="dxnav-promo-panel__link" href="https://www.landrover.com.au/offers-and-finance/offers/index.html" target="_self">
+                  <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${model.fileReferenceImage}"> </div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+         <div class="dxnav-quick-links__item">
+         <a href="${cta1.quickLinksCopyCtaLink}">
+            <div class="dxnav-quick-links__icon">
+               <svg class="dxnav-icon">
+                  <use xlink:href="#Compare"></use>
+               </svg>
+            </div>
+            <h3 class="dxnav-quick-links__title">${cta1.quickLinksCtaText}</h3>
+         </a>
+      </div>
+   </div>
+   </div>
 </sly>
-<div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="826484">
-                           <div class="dxnav-primary-tab-columns">
-                              <div class="dxnav-primary-tab-columns__content">
-                                 <ul class="dxnav-primary-tab-columns__links-list">
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/offers-and-finance/index.html" target="_self">OVERVIEW</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/offers-and-finance/offers/index.html" target="_self">LATEST OFFERS</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://quote.landrover.com.au/?_gl=1*gpfs2k*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.264795336.65380763.1610317297-1151723180.1607556270&amp;_gac=1.191377880.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self">FIND AND PRICE</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/offers-and-finance/finance-explained/index.html" target="_self">FINANCE EXPLAINED</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/offers-and-finance/guaranteed-future-value/index.html" target="_self">GUARANTEED FUTURE VALUE</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--image">
-                                    <a class="dxnav-promo-panel__link" href="https://www.landrover.com.au/offers-and-finance/offers/index.html" target="_self">
-                                       <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637473553491022078YQ.jpg?v=1#desktop__476x258"> </div>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5">
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://quote.landrover.com.au/?_gl=1*1fgq42h*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.232169304.65380763.1610317297-1151723180.1607556270&amp;_gac=1.79666534.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Compare"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND AND PRICE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Vehicle_Add"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BUILD YOUR OWN</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://cxp-forms.landrover.com/au/en/form/01224000000TXPb/?formCode=lr-testdrive-au-en&amp;_gl=1*pdq6w6*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.261193034.65380763.1610317297-1151723180.1607556270&amp;_gac=1.128480638.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_blank" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Drive_On_Road"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BOOK A TEST DRIVE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Approved_Used"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">APPROVED USED</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/national-dealer-locator.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Map_Pin"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND A RETAILER</h3>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="835715">
-                           <div class="dxnav-primary-tab-columns">
-                              <div class="dxnav-external-link">
-                                 <h2 class="dxnav-external-link__heading">BUILD YOUR OWN LAND ROVER</h2>
-                                 <p class="dxnav-external-link__copy">Use the configurator to design your perfect Land Rover.</p>
-                                 <a class="dxnav-cta-primary dxnav-external-link__primary-link" href="https://www.landrover.com.au/build-your-own/index.html" target="_self">
-                                    <svg class="dxnav-icon">
-                                       <use xlink:href="#Arrow_Right"></use>
-                                    </svg>
-                                    <span class="dxnav-link">BUILD YOUR OWN</span> 
-                                 </a>
-                                 <ul class="dxnav-external-link__secondary-link-list"> </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--image">
-                                    <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637492006477161950ON.jpg?v=1#desktop__720x400"> </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5">
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://quote.landrover.com.au/?_gl=1*1fgq42h*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.232169304.65380763.1610317297-1151723180.1607556270&amp;_gac=1.79666534.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Compare"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND AND PRICE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Vehicle_Add"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BUILD YOUR OWN</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://cxp-forms.landrover.com/au/en/form/01224000000TXPb/?formCode=lr-testdrive-au-en&amp;_gl=1*pdq6w6*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.261193034.65380763.1610317297-1151723180.1607556270&amp;_gac=1.128480638.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_blank" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Drive_On_Road"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BOOK A TEST DRIVE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Approved_Used"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">APPROVED USED</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/national-dealer-locator.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Map_Pin"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND A RETAILER</h3>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="826486">
-                           <div class="dxnav-primary-tab-columns">
-                              <div class="dxnav-external-link">
-                                 <h2 class="dxnav-external-link__heading">APPROVED USED</h2>
-                                 <p class="dxnav-external-link__copy">Find the drive-away price of Approved Used vehicle stock from the Australian Retailer Network.</p>
-                                 <a class="dxnav-cta-primary dxnav-external-link__primary-link" href="https://www.landrover.com.au/approved-pre-owned/index.html" target="_self">
-                                    <svg class="dxnav-icon">
-                                       <use xlink:href="#Arrow_Right"></use>
-                                    </svg>
-                                    <span class="dxnav-link">EXPLORE APPROVED USED</span> 
-                                 </a>
-                                 <ul class="dxnav-external-link__secondary-link-list"> </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--image">
-                                    <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637463198193492454IC.jpg?v=1#desktop__720x400"> </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5">
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://quote.landrover.com.au/?_gl=1*1fgq42h*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.232169304.65380763.1610317297-1151723180.1607556270&amp;_gac=1.79666534.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Compare"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND AND PRICE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Vehicle_Add"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BUILD YOUR OWN</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://cxp-forms.landrover.com/au/en/form/01224000000TXPb/?formCode=lr-testdrive-au-en&amp;_gl=1*pdq6w6*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.261193034.65380763.1610317297-1151723180.1607556270&amp;_gac=1.128480638.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_blank" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Drive_On_Road"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BOOK A TEST DRIVE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Approved_Used"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">APPROVED USED</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/national-dealer-locator.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Map_Pin"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND A RETAILER</h3>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="826493">
-                           <div class="dxnav-primary-tab-columns">
-                              <div class="dxnav-primary-tab-columns__content">
-                                 <ul class="dxnav-primary-tab-columns__links-list">
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/families/range-rover.html" target="_self">RANGE ROVER FAMILY</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/families/discovery.html" target="_self">DISCOVERY FAMILY</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/families/defender.html" target="_self">DEFENDER FAMILY</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/build-your-own/index.html" target="_self">BUILD YOUR OWN</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/download-a-brochure/index.html" target="_self">BROCHURE AND SPECIFICATION GUIDE</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/explore-our-vehicles/index.html" target="_self">EXPLORE OUR VEHICLES</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/experiences/news/index.html" target="_self">NEWS</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/experiences/reviews/index.html" target="_blank">REVIEWS</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-panel">
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--panel">
-                                    <a class="dxnav-promo-panel__link" href="https://www.landrover.com.au/build-your-own/index.html" target="_self">
-                                       <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637473553487462075VU.jpg?v=1#desktop__476x258" alt="Build Your Own Land Rover"> </div>
-                                       <div class="dxnav-promo-panel__content-wrapper">
-                                          <h2 class="dxnav-promo-panel__header">BUILD YOUR OWN LAND ROVER</h2>
-                                          <p class="dxnav-promo-panel__copy">Simply choose a model to start creating a Land Rover that&#39;s right for you.</p>
-                                          <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">BUILD YOUR OWN</span> </div>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5">
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://quote.landrover.com.au/?_gl=1*1fgq42h*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.232169304.65380763.1610317297-1151723180.1607556270&amp;_gac=1.79666534.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Compare"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND AND PRICE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Vehicle_Add"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BUILD YOUR OWN</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://cxp-forms.landrover.com/au/en/form/01224000000TXPb/?formCode=lr-testdrive-au-en&amp;_gl=1*pdq6w6*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.261193034.65380763.1610317297-1151723180.1607556270&amp;_gac=1.128480638.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_blank" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Drive_On_Road"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BOOK A TEST DRIVE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Approved_Used"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">APPROVED USED</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/national-dealer-locator.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Map_Pin"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND A RETAILER</h3>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="826505">
-                           <div class="dxnav-primary-tab-columns">
-                              <div class="dxnav-primary-tab-columns__content">
-                                 <ul class="dxnav-primary-tab-columns__links-list">
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/index.html" target="_self">OVERVIEW</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/jaguar-land-rover-vehicle-range/index.html" target="_self">OUR VEHICLES</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/our-responsible-future.html" target="_self">OUR RESPONSIBLE FUTURE</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/fleet-after-sales.html" target="_self">FLEET &amp; BUSINESS AFTERSALES</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__content">
-                                 <ul class="dxnav-primary-tab-columns__links-list">
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/corporate-programme/index.html" target="_self">CORPORATE PROGRAMME</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/vehicle-for-diplomats.html" target="_self">DIPLOMATIC SALES</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/land-rover-embassy-sales.html" target="_self">EMBASSY SALES</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/fleet-and-business/international-and-national-sales.html" target="_self">CONTACT US</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__promo-panel">
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--image">
-                                    <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637477965522395115YE.jpg?v=1#desktop__430x400"> </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5">
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://quote.landrover.com.au/?_gl=1*1fgq42h*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.232169304.65380763.1610317297-1151723180.1607556270&amp;_gac=1.79666534.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Compare"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND AND PRICE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Vehicle_Add"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BUILD YOUR OWN</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://cxp-forms.landrover.com/au/en/form/01224000000TXPb/?formCode=lr-testdrive-au-en&amp;_gl=1*pdq6w6*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.261193034.65380763.1610317297-1151723180.1607556270&amp;_gac=1.128480638.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_blank" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Drive_On_Road"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BOOK A TEST DRIVE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Approved_Used"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">APPROVED USED</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/national-dealer-locator.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Map_Pin"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND A RETAILER</h3>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
-                        <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="826516">
-                           <div class="dxnav-primary-tab-columns">
-                              <div class="dxnav-primary-tab-columns__content">
-                                 <ul class="dxnav-primary-tab-columns__links-list">
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/ownership/branded-goods.html" target="_self">BRANDED GOODS</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://www.landrover.com.au/experiences/lr-experience-drives/index.html" target="_self">EXPERIENCE DRIVES</a> </li>
-                                    <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="https://accessories.landrover.com/au/en/range-rover/exterior/exterior-styling/?_gl=1*1fextfq*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.202993750.65380763.1610317297-1151723180.1607556270&amp;_gac=1.49256532.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self">FIND ACCESSORIES</a> </li>
-                                 </ul>
-                              </div>
-                              <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--dual">
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--panel">
-                                    <a class="dxnav-promo-panel__link" href="https://www.landrover.com.au/ownership/accessories/index.html" target="_blank">
-                                       <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637463198188032450MO.jpg?v=1#desktop__376x190" alt="Land Rover Accessories"> </div>
-                                       <div class="dxnav-promo-panel__content-wrapper">
-                                          <h2 class="dxnav-promo-panel__header">LAND ROVER ACCESSORIES</h2>
-                                          <p class="dxnav-promo-panel__copy">Personalise your Land Rover with a wide range of accessories specifically designed for your model, and manufactured to the same standards as your vehicle.</p>
-                                          <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">FIND OUT MORE</span> </div>
-                                       </div>
-                                    </a>
-                                 </div>
-                                 <div class="dxnav-promo-panel dxnav-promo-panel--panel">
-                                    <a class="dxnav-promo-panel__link" href="https://www.landrover.com.au/experiences/lr-experience-drives/index.html" target="_self">
-                                       <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="https://www.landrover.com.au/sdlmedia/637463198198392488GM.jpg?v=1#desktop__376x190" alt="Land Rover Experiences"> </div>
-                                       <div class="dxnav-promo-panel__content-wrapper">
-                                          <h2 class="dxnav-promo-panel__header">LAND ROVER EXPERIENCES</h2>
-                                          <p class="dxnav-promo-panel__copy">Discover a range of exhilarating driving experiences, guided tours and adventure travel with some of the world’s most capable vehicles.</p>
-                                          <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">FIND OUT MORE</span> </div>
-                                       </div>
-                                    </a>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5">
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://quote.landrover.com.au/?_gl=1*1fgq42h*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.232169304.65380763.1610317297-1151723180.1607556270&amp;_gac=1.79666534.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Compare"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND AND PRICE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Vehicle_Add"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BUILD YOUR OWN</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://cxp-forms.landrover.com/au/en/form/01224000000TXPb/?formCode=lr-testdrive-au-en&amp;_gl=1*pdq6w6*_gcl_aw*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.*_gcl_dc*R0NMLjE2MDc0ODQyMzguQ2owS0NRaUE1YnotQlJELUFSSXNBQmpUNG5ncnhoNHRsQUhsMmFQaDRVZ3Zfd3hIWk43XzRQQWVqeXl2QkdwNTNGOTBvVmVsSHdMVUp5Z2FBc1VDRUFMd193Y0I.&amp;_ga=2.261193034.65380763.1610317297-1151723180.1607556270&amp;_gac=1.128480638.1607484274.Cj0KCQiA5bz-BRD-ARIsABjT4ngrxh4tlAHl2aPh4Ugv_wxHZN7_4PAejyyvBGp53F90oVelHwLUJygaAsUCEALw_wcB" target="_blank" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Drive_On_Road"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">BOOK A TEST DRIVE</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/build-your-own/index.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Approved_Used"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">APPROVED USED</h3>
-                                 </a>
-                              </div>
-                              <div class="dxnav-quick-links__item">
-                                 <a href="https://www.landrover.com.au/national-dealer-locator.html" target="_self" class="dxnav-quick-links__link">
-                                    <div class="dxnav-quick-links__icon">
-                                       <svg class="dxnav-icon">
-                                          <use xlink:href="#Map_Pin"></use>
-                                       </svg>
-                                    </div>
-                                    <h3 class="dxnav-quick-links__title">FIND A RETAILER</h3>
-                                 </a>
-                              </div>
-                           </div>
-                        </div>
+<sly data-sly-test="${model.mmTemplate=='templateE'}">
+   <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
+      <div class="dxnav-primary-tab-columns">
+         <div class="dxnav-external-link">
+            <h2 class="dxnav-external-link__heading">${model.leftPaneHeaderCopy}</h2>
+            <p class="dxnav-external-link__copy">${model.leftPaneBodyCopy}</p>
+            <sly data-sly-list.cta="${model.leftTextCta}">
+               <a class="dxnav-cta-primary dxnav-external-link__primary-link" href="${cta.leftPaneCopyCtaLink}" target="${cta.leftPaneCopyCtaTarget}">
+                  <svg class="dxnav-icon">
+                     <use xlink:href="#Arrow_Right"></use>
+                  </svg>
+                  <span class="dxnav-link">${cta.leftPaneCopyCtaText}</span> 
+               </a>
+            </sly>
+            <ul class="dxnav-external-link__secondary-link-list"> </ul>
+         </div>
+         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
+            <div class="dxnav-promo-panel dxnav-promo-panel--image">
+               <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${model.fileReferenceImage}"> </div>
+            </div>
+         </div>
+      </div>
+      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+         <div class="dxnav-quick-links__item">
+         <a href="${cta1.quickLinksCopyCtaLink}">
+            <div class="dxnav-quick-links__icon">
+               <svg class="dxnav-icon">
+                  <use xlink:href="#Compare"></use>
+               </svg>
+            </div>
+            <h3 class="dxnav-quick-links__title">${cta1.quickLinksCtaText}</h3>
+         </a>
+      </div>
+   </div>
+   </div>
+</sly>
+<sly data-sly-test="${model.mmTemplate=='templateC'}">
+   <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
+      <div class="dxnav-primary-tab-columns">
+         <div class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+            </ul>
+         </div>
+         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-panel" data-sly-list.cta="${model.rightCta}">
+            <div class="dxnav-promo-panel dxnav-promo-panel--panel">
+               <a class="dxnav-promo-panel__link" href="${cta.rightPaneCopyCtaLink}" target="${cta.rightPaneCopyCtaTarget}">
+                  <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.rightPaneImageTextAlt}"> </div>
+                  <div class="dxnav-promo-panel__content-wrapper">
+                     <h2 class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
+                     <p class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
+                     <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+         <div class="dxnav-quick-links__item">
+         <a href="${cta1.quickLinksCopyCtaLink}">
+            <div class="dxnav-quick-links__icon">
+               <svg class="dxnav-icon">
+                  <use xlink:href="#Compare"></use>
+               </svg>
+            </div>
+            <h3 class="dxnav-quick-links__title">${cta1.quickLinksCtaText}</h3>
+         </a>
+      </div>
+   </div>
+   </div>
+</sly>
+<sly data-sly-test="${model.mmTemplate=='templateB'}">
+   <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
+      <div class="dxnav-primary-tab-columns">
+         <div class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+            </ul>
+         </div>
+         <div class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+            </ul>
+         </div>
+         <div class="dxnav-primary-tab-columns__promo-panel">
+            <div class="dxnav-promo-panel dxnav-promo-panel--image">
+               <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${model.fileReferenceImage}"> </div>
+            </div>
+         </div>
+      </div>
+      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+         <div class="dxnav-quick-links__item">
+         <a href="${cta1.quickLinksCopyCtaLink}">
+            <div class="dxnav-quick-links__icon">
+               <svg class="dxnav-icon">
+                  <use xlink:href="#Compare"></use>
+               </svg>
+            </div>
+            <h3 class="dxnav-quick-links__title">${cta1.quickLinksCtaText}</h3>
+         </a>
+      </div>
+   </div>
+   </div>
+</sly>
+<sly data-sly-test="${model.mmTemplate=='templateD'}">
+   <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
+      <div class="dxnav-primary-tab-columns">
+         <div class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+            </ul>
+         </div>
+         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--dual" data-sly-list.cta="${model.rightCta}">
+            <div class="dxnav-promo-panel dxnav-promo-panel--panel">
+               <a class="dxnav-promo-panel__link" href="${cta.rightPaneCopyCtaLink}" target="${cta.rightPaneCopyCtaTarget}">
+                  <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.rightPaneImageTextAlt}"> </div>
+                  <div class="dxnav-promo-panel__content-wrapper">
+                     <h2 class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
+                     <p class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
+                     <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+         <div class="dxnav-quick-links__item">
+         <a href="${cta1.quickLinksCopyCtaLink}">
+            <div class="dxnav-quick-links__icon">
+               <svg class="dxnav-icon">
+                  <use xlink:href="#Compare"></use>
+               </svg>
+            </div>
+            <h3 class="dxnav-quick-links__title">${cta1.quickLinksCtaText}</h3>
+         </a>
+      </div>
+   </div>
+   </div>
+</sly>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
