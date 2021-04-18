@@ -40,5 +40,6 @@
     </uiSettings>
     <granite:data
         jcr:primaryType="nt:unstructured"
-        accolades-header="true"/>
+        accolades-header="true"
+        vertical-slider-header="true"/>
 </jcr:root>

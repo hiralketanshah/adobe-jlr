@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/jlr/clientlibs"/>
+    <filter root="/apps/jlr/clientlibs" mode="replace"/>
     <filter root="/apps/jlr/components"/>
     <filter root="/apps/jlr/granite"/>
     <filter root="/apps/jlr/i18n"/>
