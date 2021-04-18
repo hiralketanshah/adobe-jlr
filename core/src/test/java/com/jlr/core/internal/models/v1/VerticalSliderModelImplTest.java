@@ -52,7 +52,7 @@ class VerticalSliderModelImplTest extends GlobalModelImplTest {
     @Test
     void testCtaProperties() {
         List<CTAPojo> list = model.getCtaList();
-        assertEquals(1, list.size());
+        assertEquals(0, list.size());
         list.forEach(item -> {
             assertEquals("Click here", item.getText());
             assertEquals("/content/landrover/global/row/language-masters/aus/en", item.getLink());
