@@ -882,6 +882,55 @@
                     </faqscontainer>
                 </v1>
             </faqs>
+            <verticalslider jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <verticalslider jcr:primaryType="nt:unstructured">
+                        <policy_1618718710382
+                            cq:styleDefaultClasses="white cmp-vertical-slider--white"
+                            jcr:lastModified="{Date}2021-04-18T09:37:51.207+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vertical Slider"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white cmp-vertical-slider--white"
+                                            cq:styleId="1618718760379"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light cmp-vertical-slider--light"
+                                            cq:styleId="1618718764066"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Layout"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-vertical-slider--left"
+                                            cq:styleId="1618718833405"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-vertical-slider--right"
+                                            cq:styleId="1618718836451"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1618718710382>
+                    </verticalslider>
+                </v1>
+            </verticalslider>
         </components>
     </jlr>
     <rep:policy/>

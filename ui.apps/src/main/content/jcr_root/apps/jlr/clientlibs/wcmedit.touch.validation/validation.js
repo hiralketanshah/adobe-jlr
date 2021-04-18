@@ -1,4 +1,4 @@
-(function(window, $) {
+(function (window, $) {
     'use strict';
 
     /*
@@ -16,7 +16,7 @@
      */
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "[data-foundation-validation~='regex'],[data-validation~='regex']",
-        validate: function(el) {
+        validate: function (el) {
             var $el = $(el);
             var v = $el.val();
             var regexStr = $el.data('regex');
@@ -41,36 +41,22 @@
             }
         }
     });
-	
-	
-    $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-        selector: "div[data-accolades-component='true'] div[data-accolades-header='true']",
-        validate: function(el) {
-            if ($(el).closest('.richtext-container').find('[data-accolades-header]').val().length <1) {
-                    return "Error: Please fill out this field.";
-            }
-        }
-    });
-    $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-        selector: "div[data-signpost-component='true'] coral-fileupload[data-signpost-image='true']",
-        validate: function(el) {
-            if(!$(el).find('.cq-FileUpload-thumbnail-img').is(':parent')){
-                return "Error: Please fill out this field.";
-            }
-        }
-    });
+
+
+
+
 
 })(window, Granite.$);
 
 
-(function(window, $) {
+(function (window, $) {
     'use strict';
     $(document).on(
         "dialog-ready",
-        function() {
+        function () {
 
             $(".coral3-Button").click(
-                function() {
+                function () {
                     var field = $(this).parent();
                     var size = field.attr("data-maxlimit");
                     if (size) {
@@ -80,7 +66,7 @@
                             'coral-multifield-item').length;
                         if (totalLinkCount >= size) {
                             ui.alert("Warning", "Maximum " + size +
-                                " items are allowed!", "notice");
+                                " item(s) are allowed!", "notice");
                             return false;
                         }
                     }
@@ -98,7 +84,7 @@
      *
      * Usage: the attribute maxlength to the richtext component, example: maxlength="100"
      */
-    var RichTextMaxLengthValidation = function() {
+    var RichTextMaxLengthValidation = function () {
         var CONST = {
             TARGET_GRANITE_UI: '.coral-RichText-editable',
             ERROR_MESSAGE: 'Your character limit {0} exceeds the allowed limit of {1}!',
@@ -111,7 +97,7 @@
             // register the validator which includes the validate algorithm
             $(window).adaptTo('foundation-registry').register('foundation.validation.validator', {
                 selector: CONST.TARGET_GRANITE_UI,
-                validate: function(el) {
+                validate: function (el) {
                     var $rteField = $(el);
                     var $field = $rteField.closest('.richtext-container').find('input.coral-Form-field');
                     var compName = $(".cq-dialog-content").data("name");
@@ -125,7 +111,6 @@
                     if (maxLength && textLength > maxLength) {
                         return Granite.I18n.get(CONST.ERROR_MESSAGE, [textLength, maxLength]);
                     }
-					console.log(textLength);
                     if (required && textLength < 1) {
                         return Granite.I18n.get(CONST.REQUIRED_MESSAGE);
                     }
@@ -133,7 +118,7 @@
                 }
             });
             // execute Jquery Validation onKeyUp
-            $(document).on('keyup', CONST.TARGET_GRANITE_UI, function(e) {
+            $(document).on('keyup', CONST.TARGET_GRANITE_UI, function (e) {
                 executeJqueryValidation($(this));
             });
         }
@@ -153,7 +138,8 @@
     }();
     RichTextMaxLengthValidation.init();
 })(window, Granite.$);
-(function($, Coral) {
+
+(function ($, Coral) {
     "use strict";
 
     var registry = $(window).adaptTo("foundation-registry");
@@ -161,7 +147,7 @@
     // Validator for required for multifield max and min items
     registry.register("foundation.validation.validator", {
         selector: "[data-validation=minmax]",
-        validate: function(element) {
+        validate: function (element) {
             var el = $(element);
             let max = el.data("max-items");
             let min = el.data("min-items");
@@ -180,64 +166,16 @@
 
 })(jQuery, Coral);
 
+
+// Validator for to hide/show alt text field
 $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-	selector: "coral-multifield[data-rtgb-component='true'] input[data-rtgb-text]",
-	validate: function (el) {
-		if ($(el).parent().parent().parent().parent().parent(["data-rtgb-component"]).length) {
-			var input = el.value;
-			if (input.length <= 0) {
-				return "Error: Please fill out this field.";
-			}
-		}
-	}
-});
-
-  $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-	selector: "coral-multifield[data-rtgb-component='true'] div[data-rtgb-copy='true']",
-	validate: function (el) {
-		if ($(el).closest('.richtext-container').find('[data-rtgb-copy]').val().length < 1) {
-			return "Error: Please fill out this field.";
-		}
-	}
-});
-
-
-$(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-    selector: "[data-validation='schema-json']",
-    validate: function(el) {
-        var input = el.value;
-        if (input == "" || IsValidJSONString(input) || input == null) {
-            // Valid JSON Format
+    selector: ".img-decorative",
+    validate: function (el) {
+        var status = $(el).prop("checked");
+        if (status) {
+            $(el).parent().parent().find(".img-alt").parent().hide();
         } else {
-            return el.getAttribute("data-error-message");
+            $(el).parent().parent().find(".img-alt").parent().show();
         }
     }
-
 });
-
-
-
-$(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-    selector: "form [data-table-html-required='true']",
-    validate: function(el) {
-        var input = el.value;
-        var ui = $(window).adaptTo("foundation-ui");
-        if (input !== "" || input !== null) {
-            var lowercaseText = input.toLowerCase()
-            if (input.indexOf('<table>') !== -1) {
-                ui.alert("Warning", "Enter HTML without table tag!");
-                return false;
-            }
-        }
-    }
-
-});
-
-function IsValidJSONString(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
-}

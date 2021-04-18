@@ -1,0 +1,7 @@
+<div data-sly-use.verticalslider="com.jlr.core.models.VerticalSliderModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+   data-sly-test.hasContent="${verticalslider.ctaList}" id="${component.id}" class="cmp-vertical-slider">
+
+</div>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

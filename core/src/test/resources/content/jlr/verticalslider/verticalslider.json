@@ -1,0 +1,39 @@
+{
+	"jcr: primaryType": "nt:unstructured",
+	"jcr: createdBy": "admin",
+	"fileReference": "/content/dam/wknd/en/activities/skiing/freeride-steep.jpg",
+	"jcr:lastModifiedBy": "admin",
+	"imageAlt": "Alternative text",
+	"pipIcon": "true",
+	"jcr:created": "Sun Apr 18 2021 09:10:06 GMT+0530",
+	"autopauseDisabled": "true",
+	"delay": "5000",
+	"jcr:lastModified": "Sun Apr 18 2021 13:06:55 GMT+0530",
+	"sling:resourceType": "jlr/components/verticalslider/v1/verticalslider",
+	"isDecorative": "false",
+	"textIsRich": [
+		"true",
+		"true"
+	],
+	"verticalSliderList": {
+		"jcr:primaryType": "nt:unstructured",
+		"item0": {
+			"jcr:primaryType": "nt:unstructured",
+			"fileReference": "/content/dam/wknd/en/activities/skiing/skitouring.jpg",
+			"copy": "<p>Hello copy2</p> ",
+			"isDecorative": "false",
+			"headerCopy": "<p>hello</p> ",
+			"ctaList": {
+				"jcr:primaryType": "nt:unstructured",
+				"item0": {
+					"jcr:primaryType": "nt:unstructured",
+					"target": "_blank",
+					"icon": "icon-download",
+					"link": "/content/landrover/global/row/language-masters/aus/en",
+					"text": "Click here",
+					"linkType": "primary"
+				}
+			}
+		}
+	}
+}

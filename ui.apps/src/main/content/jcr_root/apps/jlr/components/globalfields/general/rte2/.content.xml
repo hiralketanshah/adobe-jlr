@@ -113,5 +113,6 @@
     </uiSettings>
     <granite:data
        jcr:primaryType="nt:unstructured"
-       vehiclesummary-maxlength="{Long}500"/>
+       vehiclesummary-maxlength="{Long}500"
+       vertical-slider-header="true"/>
 </jcr:root>
