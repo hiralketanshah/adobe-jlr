@@ -73,7 +73,7 @@ public class PageModelImpl implements PageModel {
     private String getBluePrintPropertyValue() {
         if (StringUtils.isBlank(getApplicationCode())) {
             LOGGER.debug("not null");
-            ListIterator<String> listIterator = CommonConstants.homePageList.listIterator();
+            ListIterator<String> listIterator = CommonConstants.HOMEPAGE_LIST.listIterator();
             while (listIterator.hasNext()) {
                 String homepagePath = listIterator.next();
                 LOGGER.debug("Homepage is {}", homepagePath);
