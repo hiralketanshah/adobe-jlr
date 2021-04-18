@@ -72,7 +72,7 @@ public class CommonConstants {
 
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
 
-    public static final List<String> homePageList = new ArrayList<>(Arrays.asList("/content/landrover/global/global-master/en",
+    public static final List<String> HOMEPAGE_LIST = new ArrayList<>(Arrays.asList("/content/landrover/global/global-master/en",
                     "/content/landrover/global/published-sites/en_ix", "/content/landrover/global/europe/region-master/en",
                     "/content/landrover/global/europe/language-masters/deu/en", "/content/landrover/global/europe/language-masters/deu/de",
                     "/content/landrover/global/europe/published-sites/de_de", "/content/landrover/global/row/region-master/en",
