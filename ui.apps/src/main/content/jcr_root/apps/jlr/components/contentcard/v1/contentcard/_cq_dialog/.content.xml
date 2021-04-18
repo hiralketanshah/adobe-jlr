@@ -183,6 +183,7 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                             composite="{Boolean}true"
+                                            granite:class="horizontal-line"
                                             fieldLabel="CTA List">
                                             <field
                                                 jcr:primaryType="nt:unstructured"
@@ -191,6 +192,7 @@
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <column
                                                         jcr:primaryType="nt:unstructured"
+                                                        granite:class="horizontal-line-dotted"
                                                         sling:resourceType="granite/ui/components/foundation/container">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <linkText
