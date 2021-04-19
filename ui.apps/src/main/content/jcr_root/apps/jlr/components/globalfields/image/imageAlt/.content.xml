@@ -4,4 +4,5 @@
     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
     fieldDescription="Textual alternative of the meaning or function of the image, for visually impaired readers."
     fieldLabel="Alternative Text"
+    granite:class="img-alt"
     name="./imageAlt"/>

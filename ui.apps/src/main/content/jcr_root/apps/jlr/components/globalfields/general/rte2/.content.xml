@@ -5,6 +5,7 @@
     fieldDescription="The copy to be displayed."
     fieldLabel="Copy"
     name="./copy"
+    dfs-required="true"
     useFixedInlineToolbar="{Boolean}true">
     <rtePlugins jcr:primaryType="nt:unstructured">
         <format
@@ -112,5 +113,6 @@
     </uiSettings>
     <granite:data
        jcr:primaryType="nt:unstructured"
-       vehiclesummary-maxlength="{Long}500"/>
+       vehiclesummary-maxlength="{Long}500"
+       vertical-slider-header="true"/>
 </jcr:root>

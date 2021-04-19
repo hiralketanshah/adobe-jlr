@@ -1,28 +1,32 @@
-.cmp-Snippet {
+.cmp-snippet {
 	text-align: left;
 }
 
-.cmp-Snippet .headingWrapper p {
+.cmp-snippet .headingWrapper p {
 	line-height: 38px;
     text-transform: uppercase;
 }
 
-.cmp-Snippet h2 {
+.cmp-snippet .copy p:first-letter {
+    text-transform: capitalize;
+}
+
+.cmp-snippet h2 {
 	margin-bottom: 0;
 }
 
-.cmp-Snippet p {
+.cmp-snippet p {
 	margin-top: 23px;
 	width: 85%;
 	line-height: 20px;
 }
 
-.cmp-Snippet .linkContainer .secondaryLinkContainer:empty {
+.cmp-snippet .linkContainer .secondaryLinkContainer:empty {
 	display: none;
 }
 
-.cmp-Snippet .linkContainer .primaryLinkContainer,
-.cmp-Snippet .linkContainer .secondaryLinkContainer {
+.cmp-snippet .linkContainer .primaryLinkContainer,
+.cmp-snippet .linkContainer .secondaryLinkContainer {
 	margin-top: 26px;
 	margin-right: 20px;
 	display: inline-block;
@@ -30,79 +34,79 @@
 	text-transform: uppercase;
 }
 
-.cmp-Snippet .linkContainer .primaryLinkContainer a,
-.cmp-Snippet .linkContainer .secondaryLinkContainer a {
+.cmp-snippet .linkContainer .primaryLinkContainer a,
+.cmp-snippet .linkContainer .secondaryLinkContainer a {
 	margin-top: 0;
 }
 
-.cmp-Snippet .linkContainer .primaryLinkContainer:first-child,
-.cmp-Snippet .linkContainer .secondaryLinkContainer:first-child {
+.cmp-snippet .linkContainer .primaryLinkContainer:first-child,
+.cmp-snippet .linkContainer .secondaryLinkContainer:first-child {
 	margin-left: 0;
 }
 
-.cmp-Snippet .linkContainer .primaryLinkContainer.secondaryLinkType,
-.cmp-Snippet .linkContainer .secondaryLinkContainer.secondaryLinkType {
+.cmp-snippet .linkContainer .primaryLinkContainer.secondaryLinkType,
+.cmp-snippet .linkContainer .secondaryLinkContainer.secondaryLinkType {
 	display: block;
 	margin-left: 0;
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
-	.cmp-Snippet p {
+	.cmp-snippet p {
 		margin-top: 23px;
 		width: 100%;
 	}
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
-	.cmp-Snippet p {
+	.cmp-snippet p {
 		width: 100%;
 	}
-	.cmp-Snippet.hide-title-mobile {
+	.cmp-snippet.hide-title-mobile {
 		display: none;
 	}
-	.cmp-Snippet .linkContainer .secondaryLinkContainer {
+	.cmp-snippet .linkContainer .secondaryLinkContainer {
 		margin-top: 0;
 	}
-	.cmp-Snippet .linkContainer .primaryLinkContainer,
-	.cmp-Snippet .linkContainer .secondaryLinkContainer {
+	.cmp-snippet .linkContainer .primaryLinkContainer,
+	.cmp-snippet .linkContainer .secondaryLinkContainer {
 		display: block;
 		margin-left: 0;
 	}
-	.cmp-Snippet .linkContainer .secondaryLinkContainer .primaryLinkWithStyle,
-	.cmp-Snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
+	.cmp-snippet .linkContainer .secondaryLinkContainer .primaryLinkWithStyle,
+	.cmp-snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
 		margin-top: 28px;
 	}
-	.cmp-Snippet .primaryLinkContainer+.secondaryLinkContainer {
+	.cmp-snippet .primaryLinkContainer+.secondaryLinkContainer {
 		margin-top: 0;
 	}
 }
 
-.cmp-Snippet--with-DerivativesOverview {
+.cmp-snippet--with-DerivativesOverview {
 	padding-bottom: 8px;
 }
 
-.cmp-Snippet+.DerivativesOverview .Derivative__range {
+.cmp-snippet+.DerivativesOverview .Derivative__range {
 	padding: 0;
 }
 
 @media screen and (min-width: 741px) {
-	.cmp-Snippet+.DerivativesOverview .Derivative__range+.Derivative__toggle-content {
+	.cmp-snippet+.DerivativesOverview .Derivative__range+.Derivative__toggle-content {
 		padding-top: 40px;
 	}
 }
 
-.cmp-Snippet+.DerivativesOverview .Derivative__toggle-content {
+.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
 	background: #fff;
 }
 
 @media screen and (min-width: 901px) {
-	.cmp-Snippet+.DerivativesOverview .Derivative__toggle-content {
+	.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
 		padding-top: 56px;
 	}
 }
 
 @media (max-width: 740px) {
-	.cmp-Snippet.Accordion--mobile-hide {
+	.cmp-snippet.Accordion--mobile-hide {
 		display: block;
 		height: 1px;
 		padding: 0;
@@ -112,72 +116,72 @@
 	}
 }
 
-.cmp-Snippet__MarketRegionalPricing {
+.cmp-snippet__MarketRegionalPricing {
 	display: flex;
 	justify-content: center;
 	padding-top: 24px;
 }
 
-.cmp-Snippet h2 {
+.cmp-snippet h2 {
 	margin-bottom: 0;
 }
 
-.cmp-Snippet .linkContainer {
+.cmp-snippet .linkContainer {
 	padding-top: 6px;
 }
 
-.cmp-Snippet .copy {
+.cmp-snippet .copy {
 	font-size: 18px;
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
-	.cmp-Snippet .copy {
+	.cmp-snippet .copy {
 		font-size: 16px;
 		line-height: 18px;
 	}
-	.cmp-Snippet p {
+	.cmp-snippet p {
 		margin-top: 23px;
 	}
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
-	.cmp-Snippet p {
+	.cmp-snippet p {
 		margin-top: 18px;
 	}
-	.cmp-Snippet .copy {
+	.cmp-snippet .copy {
 		font-size: 14px;
 	}
 }
 
 @media screen and (min-width: 1281px) and (max-width: 2000px) {
-	.cmp-Snippet {
+	.cmp-snippet {
 		padding-left: 190px;
 	}
 }
 
 @media screen and (max-width: 375px) {
-	.cmp-Snippet .headingWrapper p {
+	.cmp-snippet .headingWrapper p {
 		line-height: 26px;
 	}
-	.cmp-Snippet .copy p {
+	.cmp-snippet .copy p {
 		line-height: 19px;
 	}
 }
 
 @media screen and (min-width: 376px) and (max-width: 768px) {
-	.cmp-Snippet .headingWrapper p {
+	.cmp-snippet .headingWrapper p {
 		line-height: 30px;
 	}
-	.cmp-Snippet .copy p {
+	.cmp-snippet .copy p {
 		line-height: 19px;
 	}
 }
 
 @media screen and (min-width: 769px) and (max-width: 1280px) {
-	.cmp-Snippet .headingWrapper p {
+	.cmp-snippet .headingWrapper p {
 		line-height: 38px;
 	}
-	.cmp-Snippet .copy p {
+	.cmp-snippet .copy p {
 		line-height: 24px;
 	}
 }

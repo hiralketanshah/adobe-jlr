@@ -216,7 +216,7 @@
                                     </seo>
                                      <datalayer
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Analytics DataLayer"
+                                        jcr:title="Nameplate Details"
                                         sling:orderBefore="seo"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
@@ -245,14 +245,15 @@
                                     <nameplateDetails jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
                                     sling:orderBefore="seo"
-                                    jcr:title="NamePlate Details">
+                                    jcr:title="Datalayer Details">
                                     <items jcr:primaryType="nt:unstructured">
                                             <applicationCode
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="Application value that needs to appear in datalayer. Defaults to website if not entered"
                                                 fieldLabel="Default Application Value"
-                                                cq:showOnCreate="{Boolean}true"
+                                                cq:showOnCreate="{Boolean}false"
+                                                disabled="{Boolean}true"
                                                 maxlengthlong="{Long}40"
                                                 name="./applicationCode"/>
                                             <market
