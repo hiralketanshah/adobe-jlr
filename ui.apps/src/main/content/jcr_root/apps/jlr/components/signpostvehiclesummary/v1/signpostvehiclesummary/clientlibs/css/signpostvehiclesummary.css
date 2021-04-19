@@ -80,10 +80,10 @@
     flex-grow: 0;
     flex-shrink: 0;
     position: relative;
-    max-height: 360px;
+    max-height: 366px;
 }
 .cmp-signPost__picture {
-    width: 100%;
+    width: 650px;
     height: 100%;
     position: absolute;
 }
@@ -157,6 +157,7 @@
 .cmp-signPost.cmp-signPost-auto {
     max-height: none;
 }
+
 .cmp-signPost.cmp-signPost-auto .cmp-signPost__content .fontBodyCopy {
     margin-top: 10px;
 }
@@ -198,6 +199,15 @@
     }
     .cmp-signPost__content{
         padding-left: 28px;
+        width: 50%;
+    }
+    .cmp-signPost__image {       
+        width: 50%;       
+    }
+    .cmp-signPost__picture {
+        width: 100%;
+        height: 100%;
+        position: absolute;
     }
 }
 @media screen and (min-width: 1px) and (max-width: 767px) {
@@ -339,14 +349,14 @@
     padding: 60px;
 }
 
-.cmp-vehicleSummary .cmp-vehicleSummary__image {    
-    height: 100%;
+.cmp-vehicleSummary .cmp-vehicleSummary__image {        
     order: 2;
-    width: 75%;
     flex-grow: 0;
 flex-shrink: 0;
 position: relative;
 min-height: 428px;
+height: 493px;
+    width: 875px;
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
@@ -469,7 +479,11 @@ padding-right: 40px;
     color: #4a4f54;
     border-color: #a4a7a9;
 }
-
+#landrover .cmp-vehicleSummary .cmp-vehicleSummary__secondaryLinks .secondaryLinkWithStyle:hover,
+#landrover .cmp-signPost .secondaryLinkWithStyle:hover{
+    color: #005a2b !important;
+    text-decoration: none !important;
+}
 
 
 @media screen and (min-width: 1px) and (max-width: 1240px) {
@@ -525,6 +539,7 @@ padding-right: 40px;
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px) {
+  
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: inherit
     }
@@ -639,7 +654,7 @@ padding-right: 40px;
     }
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
     .cmp-vehicleSummary {      
-        padding: 0px 150px;
+        padding: 0px 90px 80px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
