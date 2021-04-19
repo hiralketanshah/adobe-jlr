@@ -1,6 +1,8 @@
 (function (window, $) {
     'use strict';
-
+    $(window).on("dialog-ready", function() {
+    setTimeout(function(){ $(".rte-toolbar").css("visibility","visible") }, 800);
+    });
     /*
      * Generic regular expression validation for text fields.
      *
