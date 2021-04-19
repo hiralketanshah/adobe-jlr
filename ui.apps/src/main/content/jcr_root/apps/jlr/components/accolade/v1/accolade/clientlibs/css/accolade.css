@@ -79,7 +79,7 @@
   }
   .cmp-accolades[data-alignment="right"] .cmp-accolades__img {
     float: right;
-    padding-left: 20px;
+    /*padding-left: 20px;*/
     text-align: right;
   }
   .cmp-accolades {
@@ -152,7 +152,7 @@
 }
 
 #landrover .slateblue .secondaryLinkWithStyle {
-	color: white
+    color: white
 }
 #landrover .slateblue .secondaryLinkWithStyle:before {
   color: white;
@@ -417,9 +417,12 @@ a {
   font-family:"AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
 }
 #landrover .secondaryLinkWithStyle:before {
-  color: black;
+  color: #0c121c;
 }
 #landrover .secondaryLinkWithStyle:hover {
+  color: #C9C9C9 !important;
+}
+#landrover .secondaryLinkWithStyle:hover::before {
   color: #C9C9C9 !important;
 }
 .secondaryLinkWithStyle:hover
@@ -429,5 +432,11 @@ a {
 }
 .cmp-accolades__copy--primary p, .cmp-accolades__copy--secondary p {
   text-transform: capitalize;
+}
+.fontQuote p{
+    font-family:"ascender-serif"
+    }
+.grey .cmp-accolades__copy--primary p,.light .cmp-accolades__copy--primary p,.white .cmp-accolades__copy--primary p{
+    color:#0C121C
 }
 /* FIXES END */
