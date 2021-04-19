@@ -885,15 +885,15 @@
             <footercontainer jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <footercontainer jcr:primaryType="nt:unstructured">
-                        <policy_1618579638591
-                            jcr:lastModified="{Date}2021-04-16T18:57:57.898+05:30"
+                        <policy_137759432013899
+                            jcr:lastModified="{Date}2021-04-19T13:51:11.754+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Footer Container"
+                            jcr:title="Footer"
                             sling:resourceType="wcm/core/components/policy/policy"
                             components="/apps/jlr/components/footerlinks/v1/footerlinks">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
-                        </policy_1618579638591>
+                        </policy_137759432013899>
                     </footercontainer>
                 </v1>
             </footercontainer>
