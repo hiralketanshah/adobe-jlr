@@ -121,6 +121,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </dualframeslider>
+                        <footercontainer jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <footercontainer
+                                    cq:policy="jlr/components/footercontainer/v1/footercontainer/policy_137759432013899"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </footercontainer>
                         <verticalslider jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <verticalslider
