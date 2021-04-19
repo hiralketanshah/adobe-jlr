@@ -1,0 +1,19 @@
+<sly data-sly-use.model="com.jlr.core.models.DualFrameCarouselModel" data-sly-call="${renderDualFullFrame @ model=model}" />
+
+<template data-sly-template.renderDualFullFrame="${ @ model }">
+<div data-sly-test="${!model.id}" class="cq-placeholder"
+	 data-emptytext="Dual/Full Frame Item Component"></div>
+
+ID : ${model.id}<br/>
+Header : ${model.headerCopy @context='html'}<br/>
+Body : ${model.copy @context='html'}<br/>
+
+Image : ${model.fileReference}<br/>
+Alt Text : ${model.imageAlt}<br/>
+
+CTAs: 
+<ul data-sly-list.cta="${model.ctaList}">
+  <li>${cta.text} - ${cta.link} - - ${cta.linkType} - ${cta.target} </li>
+  <a href="${cta.link}">link</a>
+</ul>
+</template>
