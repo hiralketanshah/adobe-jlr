@@ -1,6 +1,7 @@
 package com.jlr.core.internal.models.v1;
 
 import java.util.HashMap;
+import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -68,6 +69,26 @@ public class PageModelImpl implements PageModel {
      */
     @SlingObject
     protected Resource resource;
+
+    private String getBluePrintPropertyValue() {
+        if (StringUtils.isBlank(getApplicationCode())) {
+            LOGGER.debug("not null");
+            ListIterator<String> listIterator = CommonConstants.HOMEPAGE_LIST.listIterator();
+            while (listIterator.hasNext()) {
+                String homepagePath = listIterator.next();
+                LOGGER.debug("Homepage is {}", homepagePath);
+                if (StringUtils.contains(homepagePath, currentPage.getPath())) {
+                    LOGGER.debug("Match found: {}", homepagePath);
+                    return homepagePath;
+                }
+            }
+        } else {
+            LOGGER.debug("getApplicationCode is NOT blank");
+            return getApplicationCode();
+        }
+        LOGGER.debug("Match NOT found");
+        return getApplicationCode();
+    }
 
 
     /**

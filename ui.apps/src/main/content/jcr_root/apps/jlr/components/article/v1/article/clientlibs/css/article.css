@@ -218,14 +218,21 @@
 	}
 }
 
-.Article__heading:first-child {
-	margin-top: 0
+.cmp-article .Article__heading:first-child {
+	margin-top: 0;
+	text-transform: uppercase;
 }
 
-.Article__heading+.richText {
+.cmp-article .Article__heading+.richText {
 	margin-top: 31px
 }
 
+.cmp-article .article .richText p:first-letter {
+	text-transform: capitalize;
+}
+.cmp-article .sectionWrapper .imageCaption:first-letter{
+	text-transform: capitalize;
+}
 .cmp-article .sectionWrapper h1,
 .cmp-article .sectionWrapper h2,
 .cmp-article .sectionWrapper h3,
@@ -439,6 +446,10 @@
 .cmp-article .sectionWrapper .Article__Picture--bottom {
 	margin: 40px 0
 }
+
+.cmp-article .sectionWrapper .imageCaption:first-letter{
+	text-transform: capitalize;
+}	
 
 .cmp-article .sectionWrapper .imageCaption {
 	font-family: "avenir", "arial", "helvetica", sans-serif;

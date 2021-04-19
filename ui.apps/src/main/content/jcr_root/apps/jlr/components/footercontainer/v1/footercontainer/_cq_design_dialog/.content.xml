@@ -16,6 +16,18 @@
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/include"
                         path="/mnt/overlay/cq/gui/components/authoring/dialog/style/tab_design/styletab"/>
+                    <allowedcomponents
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Allowed Components"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <components
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/allowedcomponents"
+                                name="./components"/>
+                        </items>
+                    </allowedcomponents>
                 </items>
             </tabs>
         </items>
