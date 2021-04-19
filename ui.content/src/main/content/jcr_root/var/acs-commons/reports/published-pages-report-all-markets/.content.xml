@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:designPath="/etc/designs/acs-commons"
+        jcr:created="{Date}2021-03-24T21:24:24.806+05:30"
+        jcr:createdBy="admin"
+        jcr:description="A report showing all the published pages of all markets"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Published Pages Report All Market"
+        sling:resourceType="acs-commons/components/utilities/report-builder/report-page">
+        <config
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+            <queryconfig
+                jcr:created="{Date}2021-03-24T21:25:45.337+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:25:52.784+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/configs/queryconfig"
+                pageSize="50"
+                query="SELECT * FROM [cq:Page] AS s WHERE (ISDESCENDANTNODE([/content/landrover/global/row/published-sites/en_au]) or  ISDESCENDANTNODE([/content/landrover/global/europe/published-sites/de_de]))  AND [jcr:content/cq:lastReplicationAction] LIKE '{{{status}}}' ORDER BY {{order}}"
+                queryLanguage="JCR-SQL2"
+                reportExecutor="com.adobe.acs.commons.reports.models.QueryReportExecutor"/>
+        </config>
+        <parameters
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+            <select
+                jcr:created="{Date}2021-03-24T21:26:04.500+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:27:08.478+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/parameters/select"
+                fieldLabel="Status"
+                name="status"
+                resourceType="granite/ui/components/coral/foundation/form/select">
+                <items jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        text="Published"
+                        value="Activate"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        text="UnPublished"
+                        value="Deactivate"/>
+                </items>
+            </select>
+            <select_8966820
+                jcr:created="{Date}2021-03-24T21:27:22.737+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:28:17.570+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/parameters/select"
+                fieldLabel="Order"
+                name="order"
+                resourceType="granite/ui/components/coral/foundation/form/select">
+                <items jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        text="Default"
+                        value="SCORE()"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        text="Title (A-Z)"
+                        value="\[jcr:content/jcr:title] ASC"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        text="Title (Z-A)"
+                        value="\[jcr:content/jcr:title] DESC"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        text="Last Modified"
+                        value="\[jcr:content/cq:lastModified] DESC"/>
+                    <item4
+                        jcr:primaryType="nt:unstructured"
+                        text="Oldest First"
+                        value="\[jcr:content/cq:lastModified] ASC"/>
+                </items>
+            </select_8966820>
+        </parameters>
+        <columns
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/parsys">
+            <path
+                jcr:created="{Date}2021-03-24T21:30:15.513+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:30:23.117+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/columns/path"
+                exporter="com.adobe.acs.commons.reports.models.PathReportCellCSVExporter"
+                heading="Path"
+                link="true"/>
+            <date
+                jcr:created="{Date}2021-03-24T21:33:20.034+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:35:34.977+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/columns/date"
+                exporter="com.adobe.acs.commons.reports.models.DateReportCellCSVExporter"
+                format="EEE, d MMM yyyy HH:mm:ss Z"
+                heading="Last Modified"
+                property="jcr:content/cq:lastModified"/>
+            <text_copy
+                jcr:created="{Date}2021-03-24T21:36:08.497+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:37:13.296+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/columns/text"
+                exporter="com.adobe.acs.commons.reports.models.StringReportCellCSVExporter"
+                heading="Modified By"
+                property="jcr:content/cq:lastModifiedBy"/>
+            <date_copy
+                jcr:created="{Date}2021-03-24T21:33:20.034+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:38:21.927+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/columns/date"
+                exporter="com.adobe.acs.commons.reports.models.DateReportCellCSVExporter"
+                format="EEE, d MMM yyyy HH:mm:ss Z"
+                heading="Replicated on"
+                property="jcr:content/cq:lastReplicated"/>
+            <text
+                jcr:created="{Date}2021-03-24T21:36:08.497+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2021-03-24T21:37:13.296+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="acs-commons/components/utilities/report-builder/columns/text"
+                exporter="com.adobe.acs.commons.reports.models.StringReportCellCSVExporter"
+                heading="Replicated By"
+                property="jcr:content/cq:lastReplicatedBy"/>
+        </columns>
+    </jcr:content>
+</jcr:root>

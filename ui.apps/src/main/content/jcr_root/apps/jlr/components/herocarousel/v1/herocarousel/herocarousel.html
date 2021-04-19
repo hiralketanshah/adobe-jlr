@@ -1,0 +1,20 @@
+<sly data-sly-use.model="com.jlr.core.models.HeroCarouselModel"
+	data-sly-call="${renderHeroCarousel @ heroCarousel=model}" />
+
+<template data-sly-template.renderHeroCarousel="${ @ heroCarousel }">
+	<div class="cq-placeholder" data-emptytext="Hero Carousel Component"></div>
+   <img alt="${heroCarousel.imageAlt}"	src="${heroTitleBanner.fileReference}"> 
+   Title: ${heroCarousel.headerTitle @ context="html"} </br>
+   Copy:	${heroCarousel.description @ context="html"} </br>
+   ImageLink:${heroCarousel.imageLink} </br>
+   Show TCO : ${heroCarousel.enableTco}</br>
+	<div data-sly-test="${heroCarousel.enableTco}"
+		data-sly-resource="${ 'tco' @ resourceType = '/apps/jlr/components/tco/v1/tco' }"
+      data-sly-unwrap="${!wcmmode.edit}">
+   </div>
+	<div data-sly-list.item="${heroCarousel.ctaList}">
+		<div>
+			<a target="${item.target}" href="${item.link}"><button>${item.text} - ${item.linkType}</button></a>
+		</div>
+	</div>
+</template>

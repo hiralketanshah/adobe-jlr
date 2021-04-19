@@ -1,0 +1,14 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "sling:resourceType":"jlr/components/hygienelinks/v1/hygienelinks",
+  "hygienelinksList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "text":"Facebook",
+      "link":"www.google.com",
+      "ariaLabel":"aria"
+    }
+  }
+}

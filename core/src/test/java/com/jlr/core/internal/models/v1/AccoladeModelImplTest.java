@@ -7,13 +7,15 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.jlr.core.models.AccoladeModel;
+
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 @ExtendWith(AemContextExtension.class)
-class AccoladeModelImplTest {
+class AccoladeModelImplTest extends GlobalModelImplTest {
 
-    private AccoladeModelImpl accoladeModel;
+    private AccoladeModel accoladeModel;
 
     @BeforeEach
     void setUp(AemContext context) throws Exception {
@@ -22,25 +24,9 @@ class AccoladeModelImplTest {
         accoladeModel = resource.adaptTo(AccoladeModelImpl.class);
     }
 
-    @Test
-    void testGeneralProperties() {
-        assertEquals("12345", accoladeModel.getId());
-        assertEquals("test_header_Copy", accoladeModel.getHeaderCopy());
-        assertEquals("test_body_copy", accoladeModel.getCopy());
-        assertEquals("25/02/2021", accoladeModel.getDate());
-    }
-
+    @Override
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", accoladeModel.getBackgroundImage());
-        assertEquals("/content/dam/test.png", accoladeModel.getLogoImage());
     }
-
-    @Test
-    void testCtaProperties() {
-        assertEquals("test_cta_text", accoladeModel.getText());
-        assertEquals("/content/jlr/au", accoladeModel.getLink());
-        assertEquals("_self", accoladeModel.getTarget());
-    }
-
 }

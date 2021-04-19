@@ -1,17 +1,18 @@
 {
-    "title": "test_title",
-    "subtitle": "test_subtitle",
-    "copy": "test_copy",
-    "fileReference": "/content/dam/test.png",
-    "imageAlt": "test_imageAlt",
-    "imageLink": "/content/jlr/au",
+    "imagePosition": "above",
     "hideImage": "false",
-    "jcr:primaryType": "nt:unstructured",
-    "ctaList": {
-    	"item0": {
-    	"text": "test_text",
-    	"link": "http://www.google.com",
-    	"target": "_self"
-    	} 
+    "assetType": "image",
+    "videoType": "videoId",
+    "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"/content/jlr/au",
+      "text":"test_cta_text",
+      "linkType":"primary",
+      "icon":"test_icon"
     }
+  },
+    "jcr:primaryType": "nt:unstructured"  
 }

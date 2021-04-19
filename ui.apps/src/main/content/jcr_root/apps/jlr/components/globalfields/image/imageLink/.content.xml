@@ -5,4 +5,4 @@
     fieldDescription="Make the image a link to another resource."
     fieldLabel="Link"
     name="./imageLink"
-    rootPath="/content"/>
+    rootPath="/content/dam/landrover"/>

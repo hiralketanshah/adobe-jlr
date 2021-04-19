@@ -6,14 +6,18 @@
     fieldLabel="Target"
     name="./target">
     <items jcr:primaryType="nt:unstructured">
-        <current
+        <sameWindow
             jcr:primaryType="nt:unstructured"
             selected="{Boolean}true"
-            text="Current tab"
+            text="Same Window"
             value="_self"/>
-        <new
+        <newWindow
             jcr:primaryType="nt:unstructured"
-            text="New tab"
+            text="New Window"
             value="_blank"/>
+        <overlay
+            jcr:primaryType="nt:unstructured"
+            text="Overlay"
+            value="overlay"/>
     </items>
 </jcr:root>

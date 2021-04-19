@@ -9,51 +9,37 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.GlobalModel;
+import com.jlr.core.models.DualFrameCarouselModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 @ExtendWith(AemContextExtension.class)
-class DualFrameCarouselTest {
+class DualFrameCarouselTest extends GlobalModelImplTest {
 
-    private GlobalModel dualFrameModel;
-    private DualFrameCarouselImpl dualFrameImpl;
+    private DualFrameCarouselModel dualFrameModel;
 
     @BeforeEach
     void setUp(AemContext context) throws Exception {
-        context.load().json("/content/jlr/dualframecarousel/dualframecarousel.json", "/content/jlr/duelframecarousel.html");
+        context.load().json("/content/jlr/dualframecarousel/dualframecarousel.json",
+                "/content/jlr/duelframecarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/duelframecarousel.html");
         dualFrameModel = resource.adaptTo(DualFrameCarouselImpl.class);
-        dualFrameImpl = resource.adaptTo(DualFrameCarouselImpl.class);
     }
 
-    @Test
-    void testGeneralProperties() {
-        assertEquals("12345", dualFrameModel.getId());
-        assertEquals("test_header_Title", dualFrameModel.getHeaderTitle());
-        assertEquals("test_body_copy", dualFrameModel.getCopy());
-    }
-
-    @Test
-    void testImageProperties() {
-        assertEquals("/content/dam/test.png", dualFrameModel.getFileReference());
-        assertEquals("test_imageAlt", dualFrameModel.getImageAlt());
-        assertEquals("/content/jlr/au", dualFrameModel.getImageLink());
-    }
-
+    @Override
     @Test
     void testCtaProperties() {
-		List<CTAPojo> list = dualFrameImpl.getCtaList();
+        List<CTAPojo> list = dualFrameModel.getCtaList();
         assertEquals(1, list.size());
-        list.forEach(item -> { 
-        assertEquals("test_cta_text", item.getText());
-        assertEquals("/content/jlr/au", item.getLink());
-        assertEquals("_self", item.getTarget());
-        assertEquals("primary", item.getLinkType());
+        list.forEach(item -> {
+            assertEquals("test_cta_text", item.getText());
+            assertEquals("/content/jlr/au", item.getLink());
+            assertEquals("_self", item.getTarget());
+            assertEquals("primary", item.getLinkType());
         });
-    
+
     }
 
 }
