@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2021-04-12T11:24:00.427+05:30"
+        cq:lastModified="{Date}2021-04-19T13:51:11.759+05:30"
         cq:lastModifiedBy="admin"
         cq:policy="jlr/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -121,6 +121,22 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </faqs>
+                        <footercontainer jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <footercontainer
+                                    cq:policy="jlr/components/footercontainer/v1/footercontainer/policy_137759432013899"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </footercontainer>
+                        <verticalslider jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <verticalslider
+                                    cq:policy="jlr/components/verticalslider/v1/verticalslider/policy_1618718710382"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </verticalslider>
                     </components>
                 </jlr>
             </container>

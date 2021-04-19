@@ -5,6 +5,7 @@
     fieldDescription="The Header copy to be displayed."
     fieldLabel="Header Copy"
     name="./headerCopy"
+    dfs-required="true"
     useFixedInlineToolbar="{Boolean}true">
     <rtePlugins jcr:primaryType="nt:unstructured">
         <subsuperscript
@@ -39,5 +40,6 @@
     </uiSettings>
     <granite:data
         jcr:primaryType="nt:unstructured"
-        accolades-header="true"/>
+        accolades-header="true"
+        vertical-slider-header="true"/>
 </jcr:root>

@@ -2127,8 +2127,8 @@ var MapFilters = function() {
                             i = function(b) {
                                 var c = a(".TabbedContainer", b),
                                     d = c.length && a(".DxTabs__tab", b).length > 1,
-                                    e = a(".Snippet", b);
-                                return d && !e.hasClass("Snippet--force-mobile") ? parseFloat(c.css("margin-top")) : 0
+                                    e = a(".snippet", b);
+                                return d && !e.hasClass("snippet--force-mobile") ? parseFloat(c.css("margin-top")) : 0
                             },
                             j = h.outerHeight() + i(h);
                         f.height(j), b += j
@@ -2269,7 +2269,7 @@ function(a, b, c, d) {
                     return d = b.attr(c._attributes.title), d ? !1 : void 0
                 }), g; g < this._componentsData.length; g++) {
                 var h = this._componentsData[g];
-                f.hasClass("Snippet") && !f.hasClass("Snippet--force-mobile") && (f.addClass(c._classes.hideMobile), e = f.find("." + h.titleContent).text()), f.hasClass(h.componentTitle) && !f.hasClass(h.componentTitle + "--force-mobile") && (f.find("." + h.headerContainer).addClass(c._classes.hideMobile), e = f.find("." + h.titleContent).text())
+                f.hasClass("snippet") && !f.hasClass("snippet--force-mobile") && (f.addClass(c._classes.hideMobile), e = f.find("." + h.titleContent).text()), f.hasClass(h.componentTitle) && !f.hasClass(h.componentTitle + "--force-mobile") && (f.find("." + h.headerContainer).addClass(c._classes.hideMobile), e = f.find("." + h.titleContent).text())
             }
             return d = d ? d : e
         },

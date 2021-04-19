@@ -10,7 +10,7 @@
                 <a data-target="${item.target}" target="${item.target}" aria-label="${item.ariaLabel}" href="${item.link}"></sly>
                 <span class="cmp-readyToGoBar__link keepOriginalClasses">
                <span data-sly-test="${item.icon}" class="cmp-readyToGoBar__icon">
-               <i class="${item.icon}"></i>
+               <i class="${item.target=='overlay' ? '' : item.icon}"></i>
                </span>
                <h2 data-sly-test="${item.text}" class="cmp-readyToGoBar__heading heading fontH5 headingH5">
                   <span class="cmp-readyToGoBar__heading-inner">${item.text}</span>
