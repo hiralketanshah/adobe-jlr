@@ -7,3 +7,4 @@ page-properties-validation.js
 table-validation.js
 accolades-validation.js
 vehiclesummary-validation.js
+dual-full-frame-validation.js

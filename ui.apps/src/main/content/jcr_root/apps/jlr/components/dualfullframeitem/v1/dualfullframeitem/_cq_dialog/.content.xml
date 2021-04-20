@@ -34,7 +34,7 @@
                         </items>
                         <granite:data
                             jcr:primaryType="nt:unstructured"
-                            accolades-component="true"/>
+                            dual-full-frame-component-component="true"/>
                     </general>
                     <imagevideo
                         jcr:primaryType="nt:unstructured"
@@ -101,11 +101,18 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                                 path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                            <posterImage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                path="/mnt/overlay/jlr/components/globalfields/video/posterImage"/>
                                         </items>
                                     </well>
                                 </items>
                             </video>
                         </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            dual-full-frame-component-component="true"/>
                     </imagevideo>
                     <cta
                         jcr:primaryType="nt:unstructured"
