@@ -35,6 +35,18 @@ public class PrimaryModel {
 	private String navPagePathThree;
 	
 	@Inject
+	private String primaryNavTitleOne;
+	
+	@Inject
+	private String primaryNavTitleTwo;
+	
+	@Inject
+	private String primaryNavTitleThree;
+	
+	@Inject
+	private String primaryNavTitleFour;
+	
+	@Inject
 	private String primaryNavSecTabOne;
 	
 	@Inject
@@ -63,6 +75,23 @@ public class PrimaryModel {
 		return navPagePathThree;
 	}
 	
+	public String getPrimaryNavTitleOne() {
+		logger.info("primaryNavTitleTwo {}",primaryNavTitleTwo);
+		return primaryNavTitleOne;
+	}
+
+	public String getPrimaryNavTitleTwo() {
+		return primaryNavTitleTwo;
+	}
+
+	public String getPrimaryNavTitleThree() {
+		return primaryNavTitleThree;
+	}
+
+	public String getPrimaryNavTitleFour() {
+		return primaryNavTitleFour;
+	}
+
 	public List<String> getPrimaryNavSecTabOne() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
