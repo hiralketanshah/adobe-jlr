@@ -3,6 +3,4 @@
     jcr:primaryType="nt:unstructured">
     <megadropdown/>
     <primaryNavigation/>
-    <primaryNavigation1/>
-    <primaryNavigation2/>
 </jcr:root>

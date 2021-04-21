@@ -41,6 +41,30 @@
                                 fieldLabel="Link"
                                 name="./navPagePathThree"
                                 rootPath="/content/landrover"/>
+                            <primaryNavTitleOne
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The text to be rendered on the CTA"
+                                fieldLabel="Primary Nav Title One"
+                                name="./primaryNavTitleOne"/>
+                            <primaryNavTitleTwo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The text to be rendered on the CTA"
+                                fieldLabel="Primary Nav Title Two"
+                                name="./primaryNavTitleTwo"/>
+                            <primaryNavTitleThree
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The text to be rendered on the CTA"
+                                fieldLabel="Primary Nav Title Three"
+                                name="./primaryNavTitleThree"/>
+                            <primaryNavTitleFour
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The text to be rendered on the CTA"
+                                fieldLabel="Primary Nav Title Four"
+                                name="./primaryNavTitleFour"/>
                         </items>
                     </properties>
                 </items>
