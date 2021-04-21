@@ -1,7 +1,7 @@
-<sly data-sly-use.model="com.jlr.core.models.ReadyToGoBarModel" data-sly-call="${renderReadytogobar @ readytogobar=model}" />
-<template data-sly-template.renderReadytogobar="${ @ readytogobar }">
-   <div data-sly-test=${!readytogobar.rtgb} class="cq-placeholder"
-      data-emptytext="ReadyTo Go Bar Component"></div>
+<sly data-sly-use.readytogobar="com.jlr.core.models.ReadyToGoBarModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+   <div data-sly-test=${!readytogobar.rtgb}></div>
    <div class="cmp-readyToGoBar container fontSmooth">
       <ul data-sly-test="${readytogobar.rtgb}" class="cmp-readyToGoBar__list" data-sly-list.item="${readytogobar.rtgb}">
          <li class="cmp-readyToGoBar__item">
@@ -26,4 +26,4 @@
    <span data-sly-test="${readytogobar.enableFAB}">
       <div data-sly-include="floatingactionbutton.html"></div>
    </span>
-</template>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

@@ -12,7 +12,7 @@
 	flex: 0 0 25%;
 	max-width: 25%;
 	border: 1px solid #4A4F5433; 
-	
+
 }
 .cmp-readyToGoBar__link {
 	display: block;
@@ -112,10 +112,27 @@
 
 
 /* theme start  */
+
+.default .cmp-readyToGoBar{
+	background-color: #FFFFFF !important;
+	color:#0C121C;
+}
+
+.grey .cmp-readyToGoBar{
+	background-color: #e9ecec !important;
+    color: #4a4f54;
+}
+
+.light .cmp-readyToGoBar{
+	background-color: #F8F9F9 !important;
+	color: #4a4f54;
+}
+
 .light .cmp-readyToGoBar .cmp-readyToGoBar__link ,
 .grey .cmp-readyToGoBar .cmp-readyToGoBar__link{
 	border-color:#4A4F5433;
 }
+
 
 .grey .cmp-readyToGoBar__link:focus,
 .light .cmp-readyToGoBar__link:focus,
