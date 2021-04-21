@@ -118,11 +118,11 @@ public final class CommonUtils {
     			level = 5;    	
 
     		}
-			rootPath = currentPage.getAbsoluteParent(level);
-			if(null == rootPath) {
-				return null;
+    		rootPath = currentPage.getAbsoluteParent(level);
+    		if(null == rootPath) {
+    			return null;
     		}
-			return rootPath.getPath();
+    		return rootPath.getPath();
     	}
     	return null;
     }
