@@ -1,0 +1,18 @@
+<sly data-sly-use.model="com.jlr.core.models.HeroTitleBannerModel" data-sly-call="${renderHeroTitleBanner @ model=model}" />
+
+<template data-sly-template.renderHeroTitleBanner="${ @ model }">
+<div class="cq-placeholder"
+	 data-emptytext="Hero Item / Hero Title Banner Component"></div>
+
+     <img alt="${model.imageAlt}" src="${model.fileReference}">
+     Title: ${model.headerTitle @ context="html"}
+     Copy: ${model.copy @ context="html"}
+     ImageLink: ${model.imageLink}
+
+<div data-sly-list.item="${model.ctaList}">
+
+   <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
+
+</div>
+
+</template>
