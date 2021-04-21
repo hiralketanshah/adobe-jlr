@@ -3,4 +3,4 @@
     jcr:description="Full Frame Carousel"
     jcr:primaryType="cq:Component"
     jcr:title="Full Frame Carousel(v1)"
-    componentGroup="JLR - Content"/>
+    componentGroup=".hidden"/>

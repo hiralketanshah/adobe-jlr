@@ -3,7 +3,6 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -21,12 +20,12 @@ import com.jlr.core.utils.CtaUtils;
  * The Class HeroCarouselModelImpl.
  */
 @Model(adaptables = Resource.class, adapters = {
-		HeroCarouselModel.class }, resourceType = HeroCarouselModelImpl.RESOURCE_TYPE)
+        HeroCarouselModel.class }, resourceType = HeroCarouselModelImpl.RESOURCE_TYPE)
 public class HeroCarouselModelImpl extends GlobalModelImpl implements HeroCarouselModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/herocarousel/v1/herocarousel";
-    
+
     /** The cta list. */
     @Inject
     @Optional
@@ -35,11 +34,11 @@ public class HeroCarouselModelImpl extends GlobalModelImpl implements HeroCarous
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
-    
+
     /** The enable TCO. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private boolean enableTco;
-    
+
     /** The description. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String description;
@@ -48,32 +47,36 @@ public class HeroCarouselModelImpl extends GlobalModelImpl implements HeroCarous
     List<CTAPojo> list = new ArrayList<>();
 
     /**
-     * Inits the.
-     */
-    @PostConstruct
-    public void init() {
-        if (null != ctaList && ctaList.hasChildren()) {
-           list =  CtaUtils.createCtaList(ctaList, resourceResolver);
-        }
-    }
-
-    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
     @Override
     public List<CTAPojo> getCtaList() {
+        if (null != ctaList && ctaList.hasChildren()) {
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+        }
         return list;
     }
+
+    /**
+     * Gets the enable tco.
+     *
+     * @return the enable tco
+     */
     @Override
-	public boolean getEnableTco() {
-		return enableTco;
-	}
+    public boolean getEnableTco() {
+        return enableTco;
+    }
+
+    /**
+     * Gets the description.
+     *
+     * @return the description
+     */
     @Override
-	public String getDescription() {
-		return description;
-	}
-  
-  
+    public String getDescription() {
+        return description;
+    }
+
 }

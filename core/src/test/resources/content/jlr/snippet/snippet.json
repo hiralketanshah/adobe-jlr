@@ -1,8 +1,9 @@
 {
    "jcr:primaryType":"nt:unstructured",
    "copy":"description_test",
-   "headerTitle":"title_test",
+   "headerCopy":"title_test",
    "sling:resourceType":"jlr/components/Snippet/v1/snippet",
+   "enablePricing":"true",
    "cq:styleIds":[
       "1614597950157"
    ],

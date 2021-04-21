@@ -14,25 +14,39 @@ import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class SnippetModelImplTest.
+ */
 @ExtendWith(AemContextExtension.class)
-class SnippetModelImplTest {
-	
+class SnippetModelImplTest extends GlobalModelImplTest {
 
-	SnippetModelImpl snippetModel;
-	
-	private Resource resource;
-	
-	@BeforeEach
+    /** The snippet model. */
+    SnippetModelImpl snippetModel;
+
+    /** The resource. */
+    private Resource resource;
+
+    /**
+     * Sets the up.
+     *
+     * @param context
+     *            the new up
+     * @throws Exception
+     *             the exception
+     */
+    @BeforeEach
     void setUp(AemContext context) throws Exception {
-		context.load().json("/content/jlr/snippet/snippet.json", "/content/jlr/snippet.html");
+        context.load().json("/content/jlr/snippet/snippet.json", "/content/jlr/snippet.html");
         resource = context.resourceResolver().getResource("/content/jlr/snippet.html");
         snippetModel = resource.adaptTo(SnippetModelImpl.class);
     }
 
-
-	@Test
-	void testGetLinks() {
-		List<CTAPojo> ctaList = snippetModel.getCtaList();
+    /**
+     * Test get links.
+     */
+    @Test
+    void testGetLinks() {
+        List<CTAPojo> ctaList = snippetModel.getCtaList();
         assertEquals(1, ctaList.size());
         ctaList.forEach(item -> {
             assertEquals("Find out more", item.getText());
@@ -41,5 +55,13 @@ class SnippetModelImplTest {
             assertEquals("primary", item.getLinkType());
         });
 
-	}
+    }
+
+    /**
+     * Test get enable pricing.
+     */
+    @Test
+    void testGetEnablePricing() {
+        assertEquals("true", snippetModel.getEnablePricing());
+    }
 }

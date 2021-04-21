@@ -1,0 +1,187 @@
+.cmp-snippet {
+	text-align: left;
+}
+
+.cmp-snippet .headingWrapper p {
+	line-height: 38px;
+    text-transform: uppercase;
+}
+
+.cmp-snippet .copy p:first-letter {
+    text-transform: capitalize;
+}
+
+.cmp-snippet h2 {
+	margin-bottom: 0;
+}
+
+.cmp-snippet p {
+	margin-top: 23px;
+	width: 85%;
+	line-height: 20px;
+}
+
+.cmp-snippet .linkContainer .secondaryLinkContainer:empty {
+	display: none;
+}
+
+.cmp-snippet .linkContainer .primaryLinkContainer,
+.cmp-snippet .linkContainer .secondaryLinkContainer {
+	margin-top: 26px;
+	margin-right: 20px;
+	display: inline-block;
+	vertical-align: middle;
+	text-transform: uppercase;
+}
+
+.cmp-snippet .linkContainer .primaryLinkContainer a,
+.cmp-snippet .linkContainer .secondaryLinkContainer a {
+	margin-top: 0;
+}
+
+.cmp-snippet .linkContainer .primaryLinkContainer:first-child,
+.cmp-snippet .linkContainer .secondaryLinkContainer:first-child {
+	margin-left: 0;
+}
+
+.cmp-snippet .linkContainer .primaryLinkContainer.secondaryLinkType,
+.cmp-snippet .linkContainer .secondaryLinkContainer.secondaryLinkType {
+	display: block;
+	margin-left: 0;
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.cmp-snippet p {
+		margin-top: 23px;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-snippet p {
+		width: 100%;
+	}
+	.cmp-snippet.hide-title-mobile {
+		display: none;
+	}
+	.cmp-snippet .linkContainer .secondaryLinkContainer {
+		margin-top: 0;
+	}
+	.cmp-snippet .linkContainer .primaryLinkContainer,
+	.cmp-snippet .linkContainer .secondaryLinkContainer {
+		display: block;
+		margin-left: 0;
+	}
+	.cmp-snippet .linkContainer .secondaryLinkContainer .primaryLinkWithStyle,
+	.cmp-snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
+		margin-top: 28px;
+	}
+	.cmp-snippet .primaryLinkContainer+.secondaryLinkContainer {
+		margin-top: 0;
+	}
+}
+
+.cmp-snippet--with-DerivativesOverview {
+	padding-bottom: 8px;
+}
+
+.cmp-snippet+.DerivativesOverview .Derivative__range {
+	padding: 0;
+}
+
+@media screen and (min-width: 741px) {
+	.cmp-snippet+.DerivativesOverview .Derivative__range+.Derivative__toggle-content {
+		padding-top: 40px;
+	}
+}
+
+.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
+	background: #fff;
+}
+
+@media screen and (min-width: 901px) {
+	.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
+		padding-top: 56px;
+	}
+}
+
+@media (max-width: 740px) {
+	.cmp-snippet.Accordion--mobile-hide {
+		display: block;
+		height: 1px;
+		padding: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+	}
+}
+
+.cmp-snippet__MarketRegionalPricing {
+	display: flex;
+	justify-content: center;
+	padding-top: 24px;
+}
+
+.cmp-snippet h2 {
+	margin-bottom: 0;
+}
+
+.cmp-snippet .linkContainer {
+	padding-top: 6px;
+}
+
+.cmp-snippet .copy {
+	font-size: 18px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.cmp-snippet .copy {
+		font-size: 16px;
+		line-height: 18px;
+	}
+	.cmp-snippet p {
+		margin-top: 23px;
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-snippet p {
+		margin-top: 18px;
+	}
+	.cmp-snippet .copy {
+		font-size: 14px;
+	}
+}
+
+@media screen and (min-width: 1281px) and (max-width: 2000px) {
+	.cmp-snippet {
+		padding-left: 190px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.cmp-snippet .headingWrapper p {
+		line-height: 26px;
+	}
+	.cmp-snippet .copy p {
+		line-height: 19px;
+	}
+}
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+	.cmp-snippet .headingWrapper p {
+		line-height: 30px;
+	}
+	.cmp-snippet .copy p {
+		line-height: 19px;
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+	.cmp-snippet .headingWrapper p {
+		line-height: 38px;
+	}
+	.cmp-snippet .copy p {
+		line-height: 24px;
+	}
+}

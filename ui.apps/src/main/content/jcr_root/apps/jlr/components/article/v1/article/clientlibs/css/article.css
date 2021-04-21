@@ -1,0 +1,843 @@
+.cmp-article__videoframe {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+.cmp-article__video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  .cmp-article__video-container iframe,
+  .cmp-article__video-container object,
+  .cmp-article__video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+.cmp-article .richText ul {
+	padding-left: 1em;
+	margin-left: 0
+}
+
+.cmp-article .richText ul li {
+	list-style: none;
+	position: relative;
+	line-height: 1.286em;
+	margin-bottom: 1.286em
+}
+
+.cmp-article .richText ul li:before {
+	content: "\2013";
+	position: absolute;
+	left: -1em
+}
+
+.cmp-article .richText ol {
+	padding-left: 1.5em;
+	margin-left: 0
+}
+
+.cmp-article .richText ol li {
+	line-height: 1.286em;
+	margin-bottom: 1.286em;
+	list-style-type: decimal
+}
+
+.cmp-article .richText ul,
+.cmp-article .richText ol {
+	margin: 32px 0;
+	font-size: 16px
+}
+
+.cmp-article .richText ul:first-child,
+.cmp-article .richText ol:first-child {
+	margin-top: 0
+}
+
+.cmp-article .richText ul li,
+.cmp-article .richText ol li {
+	margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .richText ul,
+	.cmp-article .richText ol {
+		font-size: 14px
+	}
+}
+
+.cmp-article .richText .tickList li {
+	position: relative;
+	list-style-type: none
+}
+
+.cmp-article .richText .tickList li:before {
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	position: absolute;
+	left: -22px;
+	font-size: 13px;
+	top: 4px
+}
+
+.cmp-article .responsiveTableArrow {
+	top: 30px
+}
+
+.cmp-article .responsiveTableArrow.bottom {
+	top: auto;
+	bottom: 30px
+}
+
+.cmp-article .ResponsiveTable {
+	margin: 40px 0;
+	border: none
+}
+
+.cmp-article .sectionWrapper img {
+	width: 100%;
+	max-width: 760px;
+	margin: 0 auto;
+	height: auto;
+	display: block
+}
+
+.ArticleQuote+.cmp-article {
+	margin-top: -80px
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.ArticleQuote+.cmp-article {
+		margin-top: -60px
+	}
+}
+
+.TwoColumnContainer .cmp-article .sectionWrapper .richText img {
+	min-width: 0;
+	max-width: none;
+	margin-left: 0;
+	margin-right: 0
+}
+
+.Article__Picture {
+	display: block
+}
+
+.no-js .cmp-article .section {
+	overflow-x: scroll
+}
+
+@media screen and (min-width: 741px) {
+	blockquote {
+		margin: 30px 40px 30px
+	}
+}
+
+.cmp-article {
+	width: 100%
+}
+
+.cmp-article .sectionWrapper {
+	padding: 80px 90px;
+	overflow: hidden;
+	*zoom: 1
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.cmp-article .sectionWrapper {
+		padding: 40px 40px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .sectionWrapper {
+		padding: 30px 30px
+	}
+}
+
+.cmp-article .sectionWrapper .section {
+	width: 100%;
+	margin: 0 auto;
+	overflow: visible
+}
+
+.cmp-article .sectionWrapper .section:first-child {
+	margin-top: 0
+}
+
+.cmp-article .articleHeader {
+	display: none
+}
+
+.cmp-article .richText,
+.cmp-article .links,
+.cmp-article .section>h1,
+.cmp-article .section>h2 {
+	max-width: 600px;
+	margin: 0 auto
+}
+
+@media screen and (min-width: 1px) and (max-width: 1080px) {
+	.cmp-article .richText,
+	.cmp-article .links,
+	.cmp-article .section>h1,
+	.cmp-article .section>h2 {
+		max-width: 500px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .richText,
+	.cmp-article .links,
+	.cmp-article .section>h1,
+	.cmp-article .section>h2 {
+		max-width: none
+	}
+}
+
+.cmp-article .Article__heading:first-child {
+	margin-top: 0;
+	text-transform: uppercase;
+}
+
+.cmp-article .Article__heading+.richText {
+	margin-top: 31px
+}
+
+.cmp-article .article .richText p:first-letter {
+	text-transform: capitalize;
+}
+.cmp-article .sectionWrapper .imageCaption:first-letter{
+	text-transform: capitalize;
+}
+.cmp-article .sectionWrapper h1,
+.cmp-article .sectionWrapper h2,
+.cmp-article .sectionWrapper h3,
+.cmp-article .richText .intro {
+	font-family: "avenir", "arial", "helvetica", sans-serif;
+	letter-spacing: 0.5px
+}
+
+.cmp-article .sectionWrapper h1,
+.cmp-article .sectionWrapper h2,
+.cmp-article .richText .intro {
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 1.3em;
+	margin-top: 29px;
+	display: block
+}
+
+@media screen and (min-width: 1px) and (max-width: 1080px) {
+	.cmp-article .sectionWrapper h1,
+	.cmp-article .sectionWrapper h2,
+	.cmp-article .richText .intro {
+		font-size: 22.5px;
+		margin-bottom: 40px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .sectionWrapper h1,
+	.cmp-article .sectionWrapper h2,
+	.cmp-article .richText .intro {
+		margin-bottom: 30px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .sectionWrapper h1,
+	.cmp-article .sectionWrapper h2,
+	.cmp-article .richText .intro {
+		font-size: 18px
+	}
+}
+
+.cmp-article .richText>.intro {
+	margin-left: -80px;
+	margin-right: -110px
+}
+
+@media screen and (min-width: 1px) and (max-width: 1080px) {
+	.cmp-article .richText>.intro {
+		margin-left: -80px;
+		margin-right: -95px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .richText>.intro {
+		margin-left: -30px;
+		margin-right: -45px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .richText>.intro {
+		margin-left: auto;
+		margin-right: auto
+	}
+}
+
+.cmp-article .sectionWrapper h3 {
+	font-weight: bold;
+	margin: 20px 0 0;
+	font-size: 18px;
+	line-height: 1.4;
+	margin: 36px 0 6px
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .sectionWrapper h3 {
+		font-size: 16px;
+		margin: 33px 0 5.5px
+	}
+}
+
+.cmp-article .richText h1,
+.cmp-article .richText h2 {
+	margin-top: 40px
+}
+
+.cmp-article .richText h1:first-child,
+.cmp-article .richText h2:first-child,
+.cmp-article .richText h3:first-child,
+.cmp-article .richText h4:first-child {
+	margin-top: 0
+}
+
+.cmp-article .richText ul {
+	padding-left: 1em;
+	margin-left: 0
+}
+
+.cmp-article .richText ul li {
+	list-style: none;
+	position: relative;
+	line-height: 1.286em;
+	margin-bottom: 1.286em
+}
+
+.cmp-article .richText ul li:before {
+	content: "\2013";
+	position: absolute;
+	left: -1em
+}
+
+.cmp-article .richText ol {
+	padding-left: 1.5em;
+	margin-left: 0
+}
+
+.cmp-article .richText ol li {
+	line-height: 1.286em;
+	margin-bottom: 1.286em;
+	list-style-type: decimal
+}
+
+.cmp-article .richText ul,
+.cmp-article .richText ol {
+	margin: 32px 0;
+	font-size: 16px
+}
+
+.cmp-article .richText ul:first-child,
+.cmp-article .richText ol:first-child {
+	margin-top: 0
+}
+
+.cmp-article .richText ul li,
+.cmp-article .richText ol li {
+	margin-bottom: 16px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .richText ul,
+	.cmp-article .richText ol {
+		font-size: 14px
+	}
+}
+
+.cmp-article .richText .tickList li {
+	position: relative;
+	list-style-type: none
+}
+
+.cmp-article .richText .tickList li:before {
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0;
+	position: absolute;
+	left: -22px;
+	font-size: 13px;
+	top: 4px
+}
+
+.cmp-article .richText p,
+.cmp-article .richText blockquote {
+	font-size: 14px;
+	line-height: 1.5em
+}
+
+.cmp-article .richText p {
+	margin-bottom: 1.5em
+}
+
+.cmp-article .richText p strong {
+	font-weight: 600
+}
+
+.cmp-article .richText p:last-child {
+	margin-bottom: 0
+}
+
+.cmp-article .richText blockquote {
+	margin-bottom: 2em
+}
+
+.cmp-article .sectionWrapper .richText img {
+	min-width: 760px;
+	margin-left: -80px;
+	margin-right: -80px
+}
+
+.cmp-article .sectionWrapper .Article__Picture--top {
+	margin: 0 0 40px
+}
+
+.cmp-article .sectionWrapper .Article__Picture--bottom {
+	margin: 40px 0
+}
+
+.cmp-article .sectionWrapper .imageCaption:first-letter{
+	text-transform: capitalize;
+}	
+
+.cmp-article .sectionWrapper .imageCaption {
+	font-family: "avenir", "arial", "helvetica", sans-serif;
+	font-size: 12px;
+	width: 100%;
+	max-width: 760px;
+	margin: -32px auto 40px
+}
+
+.cmp-article .sectionWrapper .links+span img {
+	margin-top: 40px
+}
+
+@media screen and (min-width: 1px) and (max-width: 1080px) {
+	.cmp-article .sectionWrapper img,
+	.cmp-article .sectionWrapper .imageCaption {
+		max-width: 660px
+	}
+	.cmp-article .sectionWrapper .richText img {
+		min-width: 660px;
+		margin-left: -80px
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article .sectionWrapper img,
+	.cmp-article .sectionWrapper .imageCaption {
+		max-width: none
+	}
+	.cmp-article .sectionWrapper .richText img {
+		min-width: 0;
+		margin-left: 0;
+		margin-right: 0
+	}
+	.cmp-article .sectionWrapper .Article__Picture--top {
+		margin-bottom: 30px
+	}
+	.cmp-article .sectionWrapper .Article__Picture--bottom {
+		margin-top: 30px;
+		margin-bottom: 30px
+	}
+	.cmp-article .sectionWrapper .imageCaption {
+		margin: -22px 0 30px;
+		padding-right: 0
+	}
+}
+
+.cmp-article a {
+	color: #4a4f54
+}
+
+.cmp-article a:hover,
+.cmp-article a:focus {
+	color: #0c121c
+}
+
+.cmp-article .links+.richText {
+	margin-top: 31px
+}
+
+.cmp-article .responsiveTableArrow {
+	top: 30px
+}
+
+.cmp-article .responsiveTableArrow.bottom {
+	top: auto;
+	bottom: 30px
+}
+
+.cmp-article .ResponsiveTable {
+	margin: 40px 0;
+	border: none
+}
+
+
+.TwoColumnContainer .cmp-article .sectionWrapper {
+	padding: 0
+}
+
+.TwoColumnContainer .cmp-article .sectionWrapper h1,
+.TwoColumnContainer .cmp-article .sectionWrapper h2,
+.TwoColumnContainer .cmp-article .richText .intro {
+	margin-bottom: 20px
+}
+
+.TwoColumnContainer .cmp-article .richText,
+.TwoColumnContainer .cmp-article .links,
+.TwoColumnContainer .cmp-article .section>h1,
+.TwoColumnContainer .cmp-article .section>h2 {
+	max-width: none
+}
+
+.cmp-article table:not(.nonResponsive)
+{
+	width: 100%;
+	font-size: 14px
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr th,
+.cmp-article table:not(.nonResponsive) tbody tr td
+{
+	padding: 20px;
+	vertical-align: middle;
+	text-align: left;
+	background-clip: padding-box
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr th
+ {
+	font-weight: bold
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr:first-child th
+ {
+	vertical-align: top
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr:last-child
+ {
+	border-bottom: 0
+}
+
+.ResponsiveTable {
+	width: 100%;
+	overflow: hidden
+}
+
+.ResponsiveTable table:not(.nonResponsive) {
+	border-top: 0;
+	border-bottom: 0
+}
+
+.ResponsiveTable table:not(.nonResponsive) tr th:first-child,
+.ResponsiveTable table:not(.nonResponsive) tr td:first-child {
+	padding-left: 0
+}
+
+.ResponsiveTable table:not(.nonResponsive) tr th:last-child,
+.ResponsiveTable table:not(.nonResponsive) tr td:last-child {
+	padding-right: 0
+}
+
+.ResponsiveTable .tableWrapper {
+	position: relative
+}
+
+.ResponsiveTable .tableWrapper .pinned {
+	position: absolute;
+	top: 0;
+	width: 35%
+}
+
+.ResponsiveTable .tableWrapper .pinned:after {
+	content: "";
+	display: block;
+	width: 4px;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: -3px
+}
+
+.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) {
+	border-right-width: 0
+}
+
+.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) tbody tr th:first-child {
+	word-break: break-all;
+	word-break: break-word
+}
+
+.ResponsiveTable .tableWrapper .scrollable {
+	margin-left: 35%;
+	overflow: scroll;
+	overflow-y: hidden
+}
+
+.ResponsiveTable .tableWrapper .scrollable table:not(.nonResponsive) {
+	position: relative;
+	border-left-width: 0
+}
+
+.ResponsiveTable .tableWrapper .scrollable table:not(.nonResponsive) tbody tr th:first-child {
+	display: none
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.ResponsiveTable.stickToRight {
+		position: relative
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.ResponsiveTable table:not(.nonResponsive) {
+		border-right-width: 15px;
+		border-left-width: 15px
+	}
+}
+
+.responsiveTableArrow {
+	width: 65%;
+	height: 20px;
+	position: relative;
+	margin-bottom: 5px;
+	margin-left: 35%
+}
+
+.responsiveTableArrow .leftArrow,
+.responsiveTableArrow .rightArrow {
+	width: 20px;
+	height: 20px;
+	line-height: 0;
+	text-align: center;
+	position: absolute;
+	top: 0;
+	font-size: 20px
+}
+
+.responsiveTableArrow .leftArrow:before,
+.responsiveTableArrow .rightArrow:before {
+	margin: 0
+}
+
+.responsiveTableArrow .leftArrow {
+	left: 0
+}
+
+.responsiveTableArrow .leftArrow:before {
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0
+}
+
+.responsiveTableArrow .rightArrow {
+	right: 0
+}
+
+.responsiveTableArrow .rightArrow:before {
+	content: "";
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	margin-left: .2em;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	letter-spacing: 0
+}
+
+.responsiveTableArrow .bar {
+	height: 2px;
+	margin: 9px 8px
+}
+
+.cmp-article table:not(.nonResponsive)
+ {
+	background-color: #fff;
+	border: 1px solid #a4a7a9
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr {
+	border-bottom: 1px solid #a4a7a9
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr th,
+.cmp-article table:not(.nonResponsive) tbody tr td {
+	color: #4a4f54
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr td a {
+	color: #4a4f54
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr th:first-child {
+	background-color: #e4e8e8
+}
+
+.cmp-article table:not(.nonResponsive) tbody tr th:first-child h5 {
+	color: #000
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-article table:not(.nonResponsive)
+	 {
+		font-size: 12px
+	}
+	.cmp-article table:not(.nonResponsive) tbody tr th,
+	.cmp-article table:not(.nonResponsive) tbody tr td{
+		padding: 10px 5px
+	}
+}
+
+.ResponsiveTable {
+	border: 1px solid #a4a7a9
+}
+
+.ResponsiveTable table:not(.nonResponsive) {
+	border-left: 20px solid #e4e8e8;
+	border-right: 20px solid #fff
+}
+
+.ResponsiveTable .tableWrapper .pinned:after {
+	background: linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%)
+}
+
+.ResponsiveTable .tableWrapper .pinned table:not(.nonResponsive) {
+	border-right-width: 0
+}
+
+.responsiveTableArrow .leftArrow,
+.responsiveTableArrow .rightArrow {
+	color: #e4e8e8
+}
+
+.responsiveTableArrow .bar {
+	background-color: #e4e8e8
+}
+
+.grey .responsiveTableArrow .leftArrow,
+.grey .responsiveTableArrow .rightArrow {
+	color: #a4a7a9
+}
+
+.grey .responsiveTableArrow .bar {
+	background-color: #a4a7a9
+}
+.cmp-article--dark,
+.cmp-article[data-theme="dark"] {
+	background-color: #4a4f54
+}
+
+.cmp-article--dark,
+.cmp-article--dark a,
+.cmp-article--dark .richText p,
+.cmp-article--dark .richText blockquote,
+.cmp-article--dark .smallPrint {
+	color: #e4e8e8
+}
+
+.cmp-article--dark .sectionWrapper h1,
+.cmp-article--dark .sectionWrapper h2,
+.cmp-article--dark .sectionWrapper h3,
+.cmp-article--dark .sectionWrapper h4 {
+	color: #fff
+}
+
+.cmp-article--grey {
+	background-color: #e9ecec
+}
+
+.cmp-article--light {
+	background-color: #f8f9f9
+}
+
+
+#landrover .cmp-article .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .primaryLinkWithStyle:focus
+{
+ background-color: #4a4f54;
+ color: #fff;
+ box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
+}
+ 
+#landrover .cmp-article .secondaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .secondaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .secondaryLinkWithStyle:focus {
+ color: #005a2b;
+ text-shadow: none;
+ box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
+}
