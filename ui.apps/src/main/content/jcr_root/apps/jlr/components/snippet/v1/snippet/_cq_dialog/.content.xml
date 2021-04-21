@@ -34,11 +34,21 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                 checked="true"
+                                granite:class="cq-dialog-checkbox-showhide"
                                 fieldDescription="A check box that enables the market regional pricing button"
                                 name="./enablePricing"
                                 text="Enable Market Regional Pricing"
                                 uncheckedValue="false"
                                 value="true"/>
+                            <marketRegionLink
+                                jcr:primaryType="nt:unstructured"
+                                fieldLabel="Market Region Path"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                rootPath="/content/experience-fragments/landrover"
+                                granite:class="fields-hide-show"
+                                fieldDescription="Select the Market Region Config path"
+                                name="./marketRegionPath"
+                                text="Enable Market Regional Pricing"/>
                         </items>
                     </properties>
                     <cta

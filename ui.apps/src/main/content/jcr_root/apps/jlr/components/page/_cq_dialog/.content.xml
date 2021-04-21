@@ -315,8 +315,18 @@
                                                         value="MM dd yyyy"/>
                                                 </items>
                                             </dateFormat>
+                                            <gtmTags
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Add GTM tags specific to the website separated by commas."
+                                                fieldLabel="GTM Tags"
+                                                multiple="{Boolean}false"
+                                                cq:showOnCreate="{Boolean}false"
+                                                name="./gtmTags">
+                                            </gtmTags>
                                         </items>
                                     </general>
+                                    
                                     <fab
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="FAB"
