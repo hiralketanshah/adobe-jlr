@@ -52,6 +52,9 @@ public class PrimaryNavigationModel {
     @Named("quickLinks/.")
 	public List<PrimaryNavQuickLinks> quickLinks;
     
+    @Inject
+    public String tabName;
+    
     public String getId() {
         return id;
     }
@@ -90,6 +93,10 @@ public class PrimaryNavigationModel {
 
 	public List<PrimaryNavQuickLinks> getQuickLinks() {
 		return quickLinks;
+	}
+	
+	public String getTabName() {
+		return tabName;
 	}
 
 }
