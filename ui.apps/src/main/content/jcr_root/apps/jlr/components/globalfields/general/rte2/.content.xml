@@ -114,5 +114,6 @@
     <granite:data
        jcr:primaryType="nt:unstructured"
        vehiclesummary-maxlength="{Long}500"
+       faq-text="true"
        vertical-slider-header="true"/>
 </jcr:root>
