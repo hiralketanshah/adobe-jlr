@@ -2,13 +2,15 @@
 
 <template data-sly-template.renderDualFullFrame="${ @ model }">
  <div data-sly-test="${!model.id}" class="cq-placeholder"
-	 data-emptytext="Dual/Full Frame Item Component"></div>
-	<div class="cmp-fullframeItem__element-poster">${model.assetType}
-      <picture data-sly-test="${properties.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
+	 data-emptytext="Dual Frame Item / Full Frame Item Component"></div>
+
+<div class="cmp-fullframe">
+    <div class="cmp-genericItem__element-poster">
+      <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
         <img alt="${model.imageAlt}" class="Picture__img" srcset="${model.fileReference}" />
       </picture>
 	  
-	  <div data-sly-test="${properties.assetType == 'video'}" class="YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth" data-id="45368" data-only-item="false" data-swiper-thumbnail="/content/dam/jlr/car1.JPG">
+	  <div data-sly-test="${model.assetType == 'video'}" class="YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth" data-id="45368" data-only-item="false" data-swiper-thumbnail="/content/dam/jlr/car1.JPG">
         <div class="YouTubePlayer">
           <div class="playerWrapper">
             <div class="placeholderVideo" data-video-id="6KujWG4VKrs" id="6KujWG4VKrs"></div>
@@ -41,7 +43,7 @@
       <div class="headerClass">  
 	    <h2 class="heading headingThick fontH2">
           <span class="headingWrapper">
-            ${model.headerCopy @context='html'} -- ${properties.assetType}
+            ${model.headerCopy @context='html'}
           </span>
         </h2>
       </div>
@@ -59,5 +61,6 @@
 	      </sly>
         </div>
       </div>
+    </div>
     </div>
 </template>
