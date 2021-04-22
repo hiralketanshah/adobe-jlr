@@ -20,51 +20,27 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <navPath1
+                            <purchasePagePath
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldDescription="Link to a content page, external URL or page anchor."
-                                fieldLabel="Link"
-                                name="./navPagePathOne"
+                                fieldLabel="Purchase Page Path"
+                                name="./purchasePagePath"
                                 rootPath="/content/landrover"/>
-                            <navPath2
+                            <ownershipPagePath
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldDescription="Link to a content page, external URL or page anchor."
-                                fieldLabel="Link"
-                                name="./navPagePathTwo"
+                                fieldLabel="Ownership Page Path"
+                                name="./ownershipPagePath"
                                 rootPath="/content/landrover"/>
-                            <navPath3
+                            <explorePagePath
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldDescription="Link to a content page, external URL or page anchor."
-                                fieldLabel="Link"
-                                name="./navPagePathThree"
+                                fieldLabel="Explore Page Path"
+                                name="./explorePagePath"
                                 rootPath="/content/landrover"/>
-                            <primaryNavTitleOne
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The text to be rendered on the CTA"
-                                fieldLabel="Primary Nav Title One"
-                                name="./primaryNavTitleOne"/>
-                            <primaryNavTitleTwo
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The text to be rendered on the CTA"
-                                fieldLabel="Primary Nav Title Two"
-                                name="./primaryNavTitleTwo"/>
-                            <primaryNavTitleThree
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The text to be rendered on the CTA"
-                                fieldLabel="Primary Nav Title Three"
-                                name="./primaryNavTitleThree"/>
-                            <primaryNavTitleFour
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The text to be rendered on the CTA"
-                                fieldLabel="Primary Nav Title Four"
-                                name="./primaryNavTitleFour"/>
                         </items>
                     </properties>
                 </items>

@@ -37,6 +37,9 @@ public class PrimaryNavigationModel {
     private String rightPaneImageAlt;
     
     @Inject
+    private String primarNavTitle;
+
+	@Inject
     @Named("leftCta/.")
     List<PrimaryNavLeftCTA> leftCta;
     
@@ -97,6 +100,10 @@ public class PrimaryNavigationModel {
 	
 	public String getTabName() {
 		return tabName;
+	}
+	
+	public String getPrimarNavTitle() {
+		return primarNavTitle;
 	}
 
 }

@@ -60,12 +60,18 @@
                                     jcr:primaryType="nt:unstructured"
                                     cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"/>
                             </style>
-                            <text
+                            <tabName
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="The text to be rendered on the CTA"
                                 fieldLabel="Tab Name"
                                 name="./tabName"/>
+                            <primarNavTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The text to be rendered on the CTA"
+                                fieldLabel="Primary Nav Title"
+                                name="./primarNavTitle"/>
                         </items>
                     </properties>
                     <leftpane
