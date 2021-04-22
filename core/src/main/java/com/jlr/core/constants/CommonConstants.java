@@ -57,6 +57,10 @@ public class CommonConstants {
     public static final String PN_DATE_FORMAT = "dateFormat";
     public static final String PN_IMAGE_FOLDER_PATH = "folderPath";
 
+    public static final String PN_PATHS_TO_EXCLUDE = "pathsToExclude";
+    public static final String PN_INCLUDE_CHILD_PAGES = "includeChildPages";
+    public static final String PN_PRIORITY_PATHS = "priorityPaths";
+    public static final String PN_PRIORITY = "priority";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
