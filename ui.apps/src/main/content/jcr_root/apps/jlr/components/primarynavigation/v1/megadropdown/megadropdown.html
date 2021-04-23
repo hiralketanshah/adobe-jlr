@@ -35,8 +35,8 @@
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
          <div class="dxnav-external-link">
-            <h2 data-sly-test="${model.leftPaneHeaderCopy}" class="dxnav-external-link__heading">${model.leftPaneHeaderCopy}</h2>
-            <p data-sly-test="${model.leftPaneBodyCopy}" class="dxnav-external-link__copy">${model.leftPaneBodyCopy}</p>
+            <h2 data-sly-test="${model.leftPaneHeaderCopy}" class="dxnav-external-link__heading">${model.leftPaneHeaderCopy @ context="html"}</h2>
+            <span data-sly-test="${model.leftPaneBodyCopy}" class="dxnav-external-link__copy">${model.leftPaneBodyCopy @ context="html"}</span>
             <sly data-sly-test="${model.leftTextCta}" data-sly-list.cta="${model.leftTextCta}">
                <a class="dxnav-cta-primary dxnav-external-link__primary-link" href="${cta.leftPaneCopyCtaLink}" target="${cta.leftPaneCopyCtaTarget}">
                   <svg class="dxnav-icon">
@@ -80,8 +80,8 @@
                <a class="dxnav-promo-panel__link" href="${cta.rightPaneCopyCtaLink}" target="${cta.rightPaneCopyCtaTarget}">
                   <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.rightPaneImageTextAlt}"> </div>
                   <div class="dxnav-promo-panel__content-wrapper">
-                     <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
-                     <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
+                     <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy @ context="html"}</h2>
+                     <span data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy @ context="html"}</span>
                      <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>
@@ -148,8 +148,8 @@
                <a class="dxnav-promo-panel__link" href="${cta.rightPaneCopyCtaLink}" target="${cta.rightPaneCopyCtaTarget}">
                   <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.rightPaneImageTextAlt}"> </div>
                   <div class="dxnav-promo-panel__content-wrapper">
-                     <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
-                     <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
+                     <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy @ context="html"}</h2>
+                     <span data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy @ context="html"}</span>
                      <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>

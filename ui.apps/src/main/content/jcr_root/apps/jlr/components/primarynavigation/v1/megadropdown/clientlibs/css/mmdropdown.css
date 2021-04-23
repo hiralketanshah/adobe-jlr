@@ -470,6 +470,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	cursor: pointer;
 	text-align: center;
 	line-height: 1.4;
+	text-transform: uppercase;
 	transition: background-color .25s ease-in-out, transform .35s ease-in-out
 }
 
@@ -1058,15 +1059,28 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	margin-bottom: 24px;
 	letter-spacing: .8px;
 	color: #0c121c;
+	text-transform: uppercase;
 	font-family: lr_ot4, arial, helvetica, sans-serif
 }
 
 .dxnav-unique-nav .dxnav-promo-panel__copy {
 	font-size: 14px;
 	font-weight: 300;
-	margin-bottom: 21px;
+	margin-bottom: 21px !important;
 	letter-spacing: .2px;
 	color: #4a4f54
+}
+
+.dxnav-unique-nav .dxnav-promo-panel__copy::first-letter{
+	text-transform: capitalize;
+}
+
+.dxnav-unique-nav .dxnav-promo-panel__copy p{
+	margin-bottom: 21px !important;
+}
+
+.dxnav-unique-nav .dxnav-promo-panel__copy p::first-letter{
+	text-transform: capitalize;
 }
 
 .dxnav-unique-nav .dxnav-external-link__heading {
@@ -1076,15 +1090,24 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	margin-bottom: 18px;
 	letter-spacing: .8px;
 	color: #0c121c;
+	text-transform: uppercase;
 	font-family: lr_ot4, arial, helvetica, sans-serif
 }
 
 .dxnav-unique-nav .dxnav-external-link__copy {
 	font-size: 14px;
 	font-weight: 300;
-	margin-bottom: 21px;
+	margin-bottom: 21px !important;
 	letter-spacing: .2px;
 	color: #4a4f54
+}
+
+.dxnav-unique-nav .dxnav-external-link__copy::first-letter{
+	text-transform: capitalize;
+}
+
+.dxnav-unique-nav .dxnav-external-link__copy p::first-letter{
+	text-transform: capitalize;
 }
 
 .dxnav-unique-nav .dxnav-vehicle-dropdown-shortcuts {
@@ -1943,6 +1966,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	margin: 0 16px;
 	line-height: 1.4;
 	background-color: unset;
+	text-transform: uppercase;
 	text-underline-offset: 2px
 }
 
