@@ -941,54 +941,6 @@
                     </verticalslider>
                 </v1>
             </verticalslider>
-            <dualfullframeitem jcr:primaryType="nt:unstructured">
-                <v1 jcr:primaryType="nt:unstructured">
-                    <dualfullframeitem jcr:primaryType="nt:unstructured">
-                        <policy_1618997250988
-                            jcr:lastModified="{Date}2021-04-21T14:58:22.948+05:30"
-                            jcr:lastModifiedBy="admin"
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Dual Frame Item/ Full Frame Item"
-                            sling:resourceType="wcm/core/components/policy/policy">
-                            <jcr:content jcr:primaryType="nt:unstructured"/>
-                            <cq:styleGroups jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleGroupLabel="Component"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="fullframe"
-                                            cq:styleId="1618997272950"
-                                            cq:styleLabel="Full Frame Item"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="dualframe"
-                                            cq:styleId="1618997279405"
-                                            cq:styleLabel="Dual Frame Item"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item0>
-                                <item1
-                                    cq:styleGroupLabel="Alignment"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="left"
-                                            cq:styleId="1618997293889"
-                                            cq:styleLabel="Left"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="right"
-                                            cq:styleId="1618997295925"
-                                            cq:styleLabel="Right"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item1>
-                            </cq:styleGroups>
-                        </policy_1618997250988>
-                    </dualfullframeitem>
-                </v1>
-            </dualfullframeitem>
         </components>
     </jlr>
     <rep:policy/>
