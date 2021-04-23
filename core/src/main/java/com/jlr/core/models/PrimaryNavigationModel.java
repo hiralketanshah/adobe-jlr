@@ -9,6 +9,8 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+
+import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavigationModel {
 	
@@ -34,7 +36,13 @@ public class PrimaryNavigationModel {
     private String fileReferenceImage;
     
     @Inject
+    private String rightPaneImageLink;
+    
+    @Inject
     private String rightPaneImageAlt;
+    
+    @Inject
+    private String rightPaneImageTarget;
     
     @Inject
     private String primarNavTitle;
@@ -80,6 +88,14 @@ public class PrimaryNavigationModel {
 
 	public String getRightPaneImageAlt() {
 		return rightPaneImageAlt;
+	}
+
+	public String getRightPaneImageLink() {
+		return LinkUtils.appendLinkExtension(rightPaneImageLink, resourceResolver);
+	}
+
+	public String getRightPaneImageTarget() {
+		return rightPaneImageTarget;
 	}
 
 	public List<PrimaryNavLeftCTA> getLeftCta() {

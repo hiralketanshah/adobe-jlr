@@ -7,6 +7,8 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
+import com.jlr.core.utils.LinkUtils;
+
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavQuickLinks {
 	
@@ -36,7 +38,7 @@ public class PrimaryNavQuickLinks {
 	}
 
 	public String getQuickLinksCopyCtaLink() {
-		return quickLinksCopyCtaLink;
+		return LinkUtils.appendLinkExtension(quickLinksCopyCtaLink, resourceResolver);
 	}
 
 	public String getQuickLinksCopyCtaIcon() {

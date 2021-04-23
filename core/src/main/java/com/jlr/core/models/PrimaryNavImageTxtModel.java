@@ -6,6 +6,8 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
+import com.jlr.core.utils.LinkUtils;
+
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavImageTxtModel {
 	
@@ -66,7 +68,7 @@ public class PrimaryNavImageTxtModel {
 	}
 
 	public String getRightPaneCopyCtaLink() {
-		return rightPaneCopyCtaLink;
+		return LinkUtils.appendLinkExtension(rightPaneCopyCtaLink, resourceResolver);
 	}
 
 	public String getRightPaneCopyCtaIcon() {

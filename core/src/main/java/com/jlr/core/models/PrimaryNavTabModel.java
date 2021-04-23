@@ -18,9 +18,12 @@ import org.slf4j.LoggerFactory;
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.pojos.QuickLinks;
+import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class PrimaryModel {
+public class PrimaryNavTabModel {
 	
 	@Inject
 	private Resource resource;
@@ -33,19 +36,7 @@ public class PrimaryModel {
 	
 	@Inject
 	private String navPagePathThree;
-	
-	@Inject
-	private String primaryNavTitleOne;
-	
-	@Inject
-	private String primaryNavTitleTwo;
-	
-	@Inject
-	private String primaryNavTitleThree;
-	
-	@Inject
-	private String primaryNavTitleFour;
-	
+
 	@Inject
 	private String primaryNavSecTabOne;
 	
@@ -56,22 +47,22 @@ public class PrimaryModel {
 	private String primaryNavSecTabThree;
 	
 	@Inject
-	private String purchaseQuickLink;
+	private String pageOneQuickLink;
 	
 	@Inject
-	private String ownershipQuickLink;
+	private String pageTwoQuickLink;
 	
 	@Inject
-	private String exploreQuickLink;
+	private String pageThreeQuickLink;
 	
 	@Inject
-	private String purchaseTitle;
+	private String navPageTitleOne;
 	
 	@Inject
-	private String ownershipTitle;
+	private String navPageTitleTwo;
 	
 	@Inject
-	private String exploreTitle;
+	private String navPageTitleThree;
 	
 	@Inject
     private ResourceResolver resourceResolver;
@@ -91,22 +82,6 @@ public class PrimaryModel {
 	
 	public String getNavPagePathThree() {
 		return navPagePathThree;
-	}
-	
-	public String getPrimaryNavTitleOne() {
-		return primaryNavTitleOne;
-	}
-
-	public String getPrimaryNavTitleTwo() {
-		return primaryNavTitleTwo;
-	}
-
-	public String getPrimaryNavTitleThree() {
-		return primaryNavTitleThree;
-	}
-
-	public String getPrimaryNavTitleFour() {
-		return primaryNavTitleFour;
 	}
 
 	public List<String> getPrimaryNavSecTabOne() {
@@ -157,13 +132,13 @@ public class PrimaryModel {
         return list;
         }
 	
-	public List<String> getPurchaseQuickLink() {
+	public List<QuickLinks> getPageOneQuickLink() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        List<String> list = new ArrayList<>();
+        List<QuickLinks> list = new ArrayList<>();
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild("quickLinks");
@@ -171,19 +146,23 @@ public class PrimaryModel {
             while(quickLinkchildResources.hasNext()) {
             	Resource quickLinkchild = quickLinkchildResources.next();
                 ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(quickLinkproperties.get("quickLinksCtaText",String.class));
+                list.add(new QuickLinks(quickLinkproperties.get("quickLinksCtaText",String.class),
+                		LinkUtils.appendLinkExtension(properties.get("quickLinksCopyCtaLink", String.class),
+                                resourceResolver),
+                		quickLinkproperties.get("quickLinksCopyCtaIcon",String.class),
+                		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
             }
         }
         return list;
         }
 	
-	public List<String> getOwnershipQuickLink() {
+	public List<QuickLinks> getPageTwoQuickLink() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        List<String> list = new ArrayList<>();
+        List<QuickLinks> list = new ArrayList<>();
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild("quickLinks");
@@ -191,19 +170,24 @@ public class PrimaryModel {
             while(quickLinkchildResources.hasNext()) {
             	Resource quickLinkchild = quickLinkchildResources.next();
                 ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(quickLinkproperties.get("quickLinksCtaText",String.class));
+                list.add(new QuickLinks(quickLinkproperties.get("quickLinksCtaText",String.class),
+                		LinkUtils.appendLinkExtension(properties.get("quickLinksCopyCtaLink", String.class),
+                                resourceResolver),
+                		quickLinkproperties.get("quickLinksCopyCtaIcon",String.class),
+                		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
             }
         }
+        logger.info("listssss {}",list);
         return list;
         }
 	
-	public List<String> getExploreQuickLink() {
+	public List<QuickLinks> getPageThreeQuickLink() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        List<String> list = new ArrayList<>();
+        List<QuickLinks> list = new ArrayList<>();
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild("quickLinks");
@@ -211,13 +195,17 @@ public class PrimaryModel {
             while(quickLinkchildResources.hasNext()) {
             	Resource quickLinkchild = quickLinkchildResources.next();
                 ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(quickLinkproperties.get("quickLinksCtaText",String.class));
+                list.add(new QuickLinks(quickLinkproperties.get("quickLinksCtaText",String.class),
+                		LinkUtils.appendLinkExtension(properties.get("quickLinksCopyCtaLink", String.class),
+                                resourceResolver),
+                		quickLinkproperties.get("quickLinksCopyCtaIcon",String.class),
+                		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
             }
         }
         return list;
         }
 	
-	public List<String> getPurchaseTitle() {
+	public List<String> getNavPageTitleOne() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
 		List<String> list = new ArrayList<>();
@@ -226,12 +214,12 @@ public class PrimaryModel {
         ValueMap properties = child.adaptTo(ValueMap.class);
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primarNavTitle", String.class));
+            	list.add(properties.get("primaryNavTitle", String.class));
           }
         return list;
         }
 	
-	public List<String> getOwnershipTitle() {
+	public List<String> getNavPageTitleTwo() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
 		List<String> list = new ArrayList<>();
@@ -240,12 +228,12 @@ public class PrimaryModel {
         ValueMap properties = child.adaptTo(ValueMap.class);
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primarNavTitle", String.class));
+            	list.add(properties.get("primaryNavTitle", String.class));
           }
         return list;
         }
 	
-	public List<String> getExploreTitle() {
+	public List<String> getNavPageTitleThree() {
 		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
 		List<String> list = new ArrayList<>();
@@ -254,7 +242,7 @@ public class PrimaryModel {
         ValueMap properties = child.adaptTo(ValueMap.class);
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primarNavTitle", String.class));
+            	list.add(properties.get("primaryNavTitle", String.class));
           }
         return list;
         }

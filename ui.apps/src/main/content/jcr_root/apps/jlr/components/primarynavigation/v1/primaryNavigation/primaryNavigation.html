@@ -1,7 +1,7 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
    data-sly-call="${clientlib.all @ categories=['jlr.components.megadropdown.v1']}"/>
 
- <sly data-sly-use.model="com.jlr.core.models.PrimaryModel"
+ <sly data-sly-use.model="com.jlr.core.models.PrimaryNavTabModel"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
    id="${component.id}"></sly>
 
@@ -33,7 +33,7 @@
                      </li>
                      <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-1" data-dropdown="dxnav-build-dropdown-1" >
                         <a href="" target="_self" aria-label="EXPLORE: PURCHASE" aria-expanded="false" aria-haspopup="dialog" role="button" >
-                           <span>${model.purchaseTitle}</span> 
+                           <span>${model.navPageTitleOne}</span> 
                            <svg class="dxnav-icon">
                               <use xlink:href="#Directional_Right"></use>
                            </svg>
@@ -41,7 +41,7 @@
                      </li>
                      <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-2" data-dropdown="dxnav-build-dropdown-2" >
                         <a href="" target="_self" aria-label="EXPLORE: OWNERSHIP" aria-expanded="false" aria-haspopup="dialog" role="button" >
-                           <span>${model.ownershipTitle}</span> 
+                           <span>${model.navPageTitleTwo}</span> 
                            <svg class="dxnav-icon">
                               <use xlink:href="#Directional_Right"></use>
                            </svg>
@@ -49,7 +49,7 @@
                      </li>
                      <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-3" data-dropdown="dxnav-build-dropdown-3" >
                         <a href="" target="_self" aria-label="EXPLORE" aria-expanded="false" aria-haspopup="dialog" role="button" >
-                           <span>${model.exploreTitle}</span> 
+                           <span>${model.navPageTitleThree}</span> 
                            <svg class="dxnav-icon">
                               <use xlink:href="#Directional_Right"></use>
                            </svg>
@@ -593,20 +593,22 @@
                                  <svg class="dxnav-icon">
                                     <use xlink:href="#Arrow_Left"></use>
                                  </svg>
-                                 <span class="dxnav-dropdown__close-text">${model.purchaseTitle}</span> 
+                                 <span class="dxnav-dropdown__close-text">${model.navPageTitleOne}</span> 
                               </button>
 							  <sly data-sly-resource="${'/content/landrover/en/purchase/jcr:content/root/container' @ selectors='megadropdownmobile'}"/>
-                              <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5" data-sly-list.item="${model.purchaseQuickLink}">
+                              <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
+							  <sly data-sly-list.item="${model.pageOneQuickLink}">
                                  <div class="dxnav-quick-links__item">
-                                    <a href="" target="_self" class="dxnav-quick-links__link">
+                                    <a href="${item.quickLinksCopyCtaLink}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="#Compare"></use>
+                                             <use xlink:href="${item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
-                                       <h3 class="dxnav-quick-links__title">${item}</h3>
+                                       <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
                                     </a>
                                  </div>
+								 </sly>
                               </div>
                            </div>
                         </div>
@@ -637,20 +639,22 @@
                                  <svg class="dxnav-icon">
                                     <use xlink:href="#Arrow_Left"></use>
                                  </svg>
-                                 <span class="dxnav-dropdown__close-text">${model.ownershipTitle}</span> 
+                                 <span class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
                               </button>
 							  <sly data-sly-resource="${'/content/landrover/en/ownership/jcr:content/root/container' @ selectors='megadropdownmobile'}"/>
-                            <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5" data-sly-list.item="${model.ownershipQuickLink}">
-                            <div class="dxnav-quick-links__item">
-                                    <a href="" target="_self" class="dxnav-quick-links__link">
+                            <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
+                            <sly data-sly-list.item="${model.pageTwoQuickLink}">
+                                 <div class="dxnav-quick-links__item">
+                                    <a href="${item.quickLinksCopyCtaLink}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="#Compare"></use>
+                                             <use xlink:href="${item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
-                                       <h3 class="dxnav-quick-links__title">${item}</h3>
+                                       <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
                                     </a>
                                  </div>
+								 </sly>
                               </div>
                            </div>
                         </div>
@@ -681,20 +685,22 @@
                                  <svg class="dxnav-icon">
                                     <use xlink:href="#Arrow_Left"></use>
                                  </svg>
-                                 <span class="dxnav-dropdown__close-text">${model.exploreTitle}</span> 
+                                 <span class="dxnav-dropdown__close-text">${model.navPageTitleThree}</span> 
                               </button>
 							  <sly data-sly-resource="${'/content/landrover/en/explore/jcr:content/root/container' @ selectors='megadropdownmobile'}"/>
-                              <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5" data-sly-list.item="${model.exploreQuickLink}">
+                              <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
+                                 <sly data-sly-list.item="${model.pageThreeQuickLink}">
                                  <div class="dxnav-quick-links__item">
-                                    <a href="" target="_self" class="dxnav-quick-links__link">
+                                    <a href="${item.quickLinksCopyCtaLink}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="#Compare"></use>
+                                             <use xlink:href="${item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
-                                       <h3 class="dxnav-quick-links__title">${item}</h3>
+                                       <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
                                     </a>
                                  </div>
+								 </sly>
                               </div>
                            </div>
                         </div>

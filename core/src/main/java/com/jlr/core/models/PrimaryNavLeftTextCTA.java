@@ -7,8 +7,12 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.utils.CtaUtils;
+import com.jlr.core.utils.LinkUtils;
+
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class PrimaryNavLeftTextCTA {
+public class PrimaryNavLeftTextCTA extends PrimaryNavigationModel{
 
 	@Inject
     private ResourceResolver resourceResolver;
@@ -36,7 +40,7 @@ public class PrimaryNavLeftTextCTA {
 	}
 
 	public String getLeftPaneCopyCtaLink() {
-		return leftPaneCopyCtaLink;
+		return LinkUtils.appendLinkExtension(leftPaneCopyCtaLink, resourceResolver);
 	}
 
 	public String getLeftPaneCopyCtaIcon() {
@@ -48,6 +52,11 @@ public class PrimaryNavLeftTextCTA {
 	}
 
 	public String getLeftPaneCopyCtaAriaLabel() {
+		if (null == leftPaneCopyCtaAriaLabel) {
+            if (null != super.getLeftPaneHeaderCopy()) {
+            	return super.getLeftPaneHeaderCopy().concat(CommonConstants.COLON).concat(leftPaneCopyCtaText);
+            }
+        }
 		return leftPaneCopyCtaAriaLabel;
 	}
 

@@ -7,6 +7,8 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
+import com.jlr.core.utils.LinkUtils;
+
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavLeftCTA {
 	
@@ -36,7 +38,7 @@ public class PrimaryNavLeftCTA {
 	}
 
 	public String getLeftPaneCtaLink() {
-		return leftPaneCtaLink;
+		return LinkUtils.appendLinkExtension(leftPaneCtaLink, resourceResolver);
 	}
 
 	public String getLeftPaneCtaIcon() {
