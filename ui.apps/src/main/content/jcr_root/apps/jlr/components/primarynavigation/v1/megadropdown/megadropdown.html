@@ -4,12 +4,12 @@
 <sly data-sly-test="${model.mmTemplate=='templateA'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div class="dxnav-primary-tab-columns__content">
+         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
             </ul>
          </div>
-         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
+         <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
             <div class="dxnav-promo-panel dxnav-promo-panel--image">
                <a class="dxnav-promo-panel__link" href="${model.rightPaneImageLink}" target="${model.rightPaneImageTarget}">
                   <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${model.fileReferenceImage}"> </div>
@@ -17,9 +17,9 @@
             </div>
          </div>
       </div>
-      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+      <div data-sly-test="${model.quickLinks}" class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
          <div class="dxnav-quick-links__item">
-         <a href="${cta1.quickLinksCopyCtaLink}" target="_self" class="dxnav-quick-links__link">
+         <a href="${cta1.quickLinksCopyCtaLink}" target="${cta1.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
             <div class="dxnav-quick-links__icon">
                <svg class="dxnav-icon">
                   <use xlink:href="${cta1.quickLinksCopyCtaIcon}"></use>
@@ -35,9 +35,9 @@
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
          <div class="dxnav-external-link">
-            <h2 class="dxnav-external-link__heading">${model.leftPaneHeaderCopy}</h2>
-            <p class="dxnav-external-link__copy">${model.leftPaneBodyCopy}</p>
-            <sly data-sly-list.cta="${model.leftTextCta}">
+            <h2 data-sly-test="${model.leftPaneHeaderCopy}" class="dxnav-external-link__heading">${model.leftPaneHeaderCopy}</h2>
+            <p data-sly-test="${model.leftPaneBodyCopy}" class="dxnav-external-link__copy">${model.leftPaneBodyCopy}</p>
+            <sly data-sly-test="${model.leftTextCta}" data-sly-list.cta="${model.leftTextCta}">
                <a class="dxnav-cta-primary dxnav-external-link__primary-link" href="${cta.leftPaneCopyCtaLink}" target="${cta.leftPaneCopyCtaTarget}">
                   <svg class="dxnav-icon">
                      <use xlink:href="#Arrow_Right"></use>
@@ -48,14 +48,14 @@
             <ul class="dxnav-external-link__secondary-link-list"> </ul>
          </div>
          <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
-            <div class="dxnav-promo-panel dxnav-promo-panel--image">
+            <div data-sly-test="${model.fileReferenceImage}" class="dxnav-promo-panel dxnav-promo-panel--image">
                <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${model.fileReferenceImage}"> </div>
             </div>
          </div>
       </div>
-      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+      <div data-sly-test="${model.quickLinks}" class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
          <div class="dxnav-quick-links__item">
-         <a href="${cta1.quickLinksCopyCtaLink}" target="_self" class="dxnav-quick-links__link">
+         <a href="${cta1.quickLinksCopyCtaLink}" target="${cta1.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
             <div class="dxnav-quick-links__icon">
                <svg class="dxnav-icon">
                   <use xlink:href="${cta1.quickLinksCopyCtaIcon}"></use>
@@ -70,27 +70,27 @@
 <sly data-sly-test="${model.mmTemplate=='templateC'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div class="dxnav-primary-tab-columns__content">
+         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
             </ul>
          </div>
-         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-panel" data-sly-list.cta="${model.rightCta}">
+         <div data-sly-test="${model.rightCta}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-panel" data-sly-list.cta="${model.rightCta}">
             <div class="dxnav-promo-panel dxnav-promo-panel--panel">
                <a class="dxnav-promo-panel__link" href="${cta.rightPaneCopyCtaLink}" target="${cta.rightPaneCopyCtaTarget}">
                   <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.rightPaneImageTextAlt}"> </div>
                   <div class="dxnav-promo-panel__content-wrapper">
-                     <h2 class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
-                     <p class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
-                     <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
+                     <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
+                     <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
+                     <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>
             </div>
          </div>
       </div>
-      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+      <div data-sly-test="${model.quickLinks}" class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
          <div class="dxnav-quick-links__item">
-         <a href="${cta1.quickLinksCopyCtaLink}" target="_self" class="dxnav-quick-links__link">
+         <a href="${cta1.quickLinksCopyCtaLink}" target="${cta1.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
             <div class="dxnav-quick-links__icon">
                <svg class="dxnav-icon">
                   <use xlink:href="${cta1.quickLinksCopyCtaIcon}"></use>
@@ -105,25 +105,25 @@
 <sly data-sly-test="${model.mmTemplate=='templateB'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div class="dxnav-primary-tab-columns__content">
+         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
             </ul>
          </div>
-         <div class="dxnav-primary-tab-columns__content">
+         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
             </ul>
          </div>
-         <div class="dxnav-primary-tab-columns__promo-panel">
+         <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel">
             <div class="dxnav-promo-panel dxnav-promo-panel--image">
                <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${model.fileReferenceImage}"> </div>
             </div>
          </div>
       </div>
-      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+      <div data-sly-test="${model.quickLinks}" class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
          <div class="dxnav-quick-links__item">
-         <a href="${cta1.quickLinksCopyCtaLink}" target="_self" class="dxnav-quick-links__link">
+         <a href="${cta1.quickLinksCopyCtaLink}" target="${cta1.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
             <div class="dxnav-quick-links__icon">
                <svg class="dxnav-icon">
                   <use xlink:href="${cta1.quickLinksCopyCtaIcon}"></use>
@@ -138,27 +138,27 @@
 <sly data-sly-test="${model.mmTemplate=='templateD'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div class="dxnav-primary-tab-columns__content">
+         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
             </ul>
          </div>
-         <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--dual" data-sly-list.cta="${model.rightCta}">
+         <div data-sly-test="${model.rightCta}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--dual" data-sly-list.cta="${model.rightCta}">
             <div class="dxnav-promo-panel dxnav-promo-panel--panel">
                <a class="dxnav-promo-panel__link" href="${cta.rightPaneCopyCtaLink}" target="${cta.rightPaneCopyCtaTarget}">
                   <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.rightPaneImageTextAlt}"> </div>
                   <div class="dxnav-promo-panel__content-wrapper">
-                     <h2 class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
-                     <p class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
-                     <div class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
+                     <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy}</h2>
+                     <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy}</p>
+                     <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>
             </div>
          </div>
       </div>
-      <div class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
+      <div data-sly-test="${model.quickLinks}" class="dxnav-quick-links dxnav-quick-links--desktop" data-links-total="5" data-sly-list.cta1="${model.quickLinks}">
          <div class="dxnav-quick-links__item">
-         <a href="${cta1.quickLinksCopyCtaLink}" target="_self" class="dxnav-quick-links__link">
+         <a href="${cta1.quickLinksCopyCtaLink}" target="${cta1.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
             <div class="dxnav-quick-links__icon">
                <svg class="dxnav-icon">
                   <use xlink:href="${cta1.quickLinksCopyCtaIcon}"></use>

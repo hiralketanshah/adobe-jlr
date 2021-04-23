@@ -10,6 +10,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavigationModel {
@@ -45,7 +46,10 @@ public class PrimaryNavigationModel {
     private String rightPaneImageTarget;
     
     @Inject
-    private String primarNavTitle;
+    private String primaryNavAriaLabel;
+
+	@Inject
+    private String primaryNavTitle;
 
 	@Inject
     @Named("leftCta/.")
@@ -89,6 +93,13 @@ public class PrimaryNavigationModel {
 	public String getRightPaneImageAlt() {
 		return rightPaneImageAlt;
 	}
+	
+	public String getPrimaryNavAriaLabel() {
+		if(null==primaryNavAriaLabel) {
+			primaryNavAriaLabel=CommonConstants.EXPLORE.concat(CommonConstants.COLON).concat(primaryNavTitle);
+		}
+		return primaryNavAriaLabel;
+	}
 
 	public String getRightPaneImageLink() {
 		return LinkUtils.appendLinkExtension(rightPaneImageLink, resourceResolver);
@@ -119,7 +130,7 @@ public class PrimaryNavigationModel {
 	}
 	
 	public String getPrimarNavTitle() {
-		return primarNavTitle;
+		return primaryNavTitle;
 	}
 
 }

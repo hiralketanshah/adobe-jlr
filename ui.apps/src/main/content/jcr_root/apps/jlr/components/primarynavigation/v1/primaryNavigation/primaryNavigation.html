@@ -23,32 +23,24 @@
                <div class="dxnav__background"></div>
                <div class="dxnav dxnav__primary-items">
                   <ul>
-                     <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-0" data-dropdown="dxnav-vehicle-dropdown-0" >
-                        <a href="" target="_self" aria-label="EXPLORE VEHICLES" aria-expanded="false" aria-haspopup="dialog" role="button" >
-                           <span>VEHICLES</span> 
-                           <svg class="dxnav-icon">
-                              <use xlink:href="#Directional_Right"></use>
-                           </svg>
-                        </a>
-                     </li>
-                     <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-1" data-dropdown="dxnav-build-dropdown-1" >
-                        <a href="" target="_self" aria-label="EXPLORE: PURCHASE" aria-expanded="false" aria-haspopup="dialog" role="button" >
+                     <li data-sly-test="${model.navPageTitleOne}" class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-1" data-dropdown="dxnav-build-dropdown-1" >
+                        <a href="" target="_self" aria-label="${model.navPageAriaLabelOne}" aria-expanded="false" aria-haspopup="dialog" role="button" >
                            <span>${model.navPageTitleOne}</span> 
                            <svg class="dxnav-icon">
                               <use xlink:href="#Directional_Right"></use>
                            </svg>
                         </a>
                      </li>
-                     <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-2" data-dropdown="dxnav-build-dropdown-2" >
-                        <a href="" target="_self" aria-label="EXPLORE: OWNERSHIP" aria-expanded="false" aria-haspopup="dialog" role="button" >
+                     <li data-sly-test="${model.navPageTitleTwo}" class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-2" data-dropdown="dxnav-build-dropdown-2" >
+                        <a href="" target="_self" aria-label="${model.navPageAriaLabelTwo}" aria-expanded="false" aria-haspopup="dialog" role="button" >
                            <span>${model.navPageTitleTwo}</span> 
                            <svg class="dxnav-icon">
                               <use xlink:href="#Directional_Right"></use>
                            </svg>
                         </a>
                      </li>
-                     <li class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-3" data-dropdown="dxnav-build-dropdown-3" >
-                        <a href="" target="_self" aria-label="EXPLORE" aria-expanded="false" aria-haspopup="dialog" role="button" >
+                     <li data-sly-test="${model.navPageTitleThree}" class="dxnav__item dxnav-has-dropdown-js " id="dxnav-build-dropdown-label-3" data-dropdown="dxnav-build-dropdown-3" >
+                        <a href="" target="_self" aria-label="${model.navPageAriaLabelThree}" aria-expanded="false" aria-haspopup="dialog" role="button" >
                            <span>${model.navPageTitleThree}</span> 
                            <svg class="dxnav-icon">
                               <use xlink:href="#Directional_Right"></use>
@@ -588,15 +580,15 @@
                      <div class="dxnav-links-dropdown__container" role="document">
                         <!-- Mobile Section --> 
                         <div class="dxnav-links-dropdown">
-                           <div class="dxnav-links-dropdown__section-container">
+                           <div data-sly-test="${model.navPagePathOne}" class="dxnav-links-dropdown__section-container">
                               <button class="dxnav-dropdown__close-button dxnav-close-dropdown-js" aria-label="??navigation.shared.menu.back_en_AU??">
                                  <svg class="dxnav-icon">
                                     <use xlink:href="#Arrow_Left"></use>
                                  </svg>
-                                 <span class="dxnav-dropdown__close-text">${model.navPageTitleOne}</span> 
+                                 <span data-sly-test="${model.navPageTitleOne}" class="dxnav-dropdown__close-text">${model.navPageTitleOne}</span> 
                               </button>
 							  <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
-                              <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
+                              <div data-sly-test="${model.pageOneQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
 							  <sly data-sly-list.item="${model.pageOneQuickLink}">
                                  <div class="dxnav-quick-links__item">
                                     <a href="${item.quickLinksCopyCtaLink}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
@@ -614,7 +606,7 @@
                         </div>
                         <!-- Desktop Section --> 
                         <div class="dxnav-dropdown-primary-tabs" data-naastabs-id="primary-dropdown-1">
-                           <div role="tablist" class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible" aria-orientation="horizontal"data-sly-list.nav="${model.primaryNavSecTabOne}"> 
+                           <div data-sly-test="${model.primaryNavSecTabOne}" role="tablist" class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible" aria-orientation="horizontal"data-sly-list.nav="${model.primaryNavSecTabOne}"> 
                      <button role="tab" class="dxnav-dropdown-primary-tabs__tab"> <span class="dxnav-dropdown-primary-tabs__tab-text">${nav}</span> </button> 
                      </div>
                            <div class="dxnav-dropdown-primary-tabs__close-menu">
@@ -625,7 +617,7 @@
                               </button>
                            </div>
                         </div>
-                        <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-1">
+                        <div data-sly-test="${model.navPagePathOne}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-1">
                            <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
@@ -634,15 +626,15 @@
                      <div class="dxnav-links-dropdown__container" role="document">
                         <!-- Mobile Section --> 
                         <div class="dxnav-links-dropdown">
-                           <div class="dxnav-links-dropdown__section-container">
+                           <div data-sly-test="${model.navPagePathTwo}" class="dxnav-links-dropdown__section-container">
                               <button class="dxnav-dropdown__close-button dxnav-close-dropdown-js" aria-label="??navigation.shared.menu.back_en_AU??">
                                  <svg class="dxnav-icon">
                                     <use xlink:href="#Arrow_Left"></use>
                                  </svg>
-                                 <span class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
+                                 <span data-sly-test="${model.navPageTitleTwo}" class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
                               </button>
 							  <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
-                            <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
+                            <div data-sly-test="${model.pageTwoQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                             <sly data-sly-list.item="${model.pageTwoQuickLink}">
                                  <div class="dxnav-quick-links__item">
                                     <a href="${item.quickLinksCopyCtaLink}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
@@ -660,7 +652,7 @@
                         </div>
                         <!-- Desktop Section --> 
                         <div class="dxnav-dropdown-primary-tabs" data-naastabs-id="primary-dropdown-2">
-                           <div role="tablist" class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible" aria-orientation="horizontal" data-sly-list.nav="${model.primaryNavSecTabTwo}"> 
+                           <div data-sly-test="${model.primaryNavSecTabTwo}"role="tablist" class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible" aria-orientation="horizontal" data-sly-list.nav="${model.primaryNavSecTabTwo}"> 
                      <button role="tab" class="dxnav-dropdown-primary-tabs__tab"> <span class="dxnav-dropdown-primary-tabs__tab-text">${nav}</span> </button>
                      </div>
                            <div class="dxnav-dropdown-primary-tabs__close-menu">
@@ -671,7 +663,7 @@
                               </button>
                            </div>
                         </div>
-                        <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-2">
+                        <div data-sly-test="${model.navPagePathTwo}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-2">
                            <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
@@ -680,7 +672,7 @@
                      <div class="dxnav-links-dropdown__container" role="document">
                         <!-- Mobile Section --> 
                         <div class="dxnav-links-dropdown">
-                           <div class="dxnav-links-dropdown__section-container">
+                           <div data-sly-test="${model.navPagePathThree}" class="dxnav-links-dropdown__section-container">
                               <button class="dxnav-dropdown__close-button dxnav-close-dropdown-js" aria-label="??navigation.shared.menu.back_en_AU??">
                                  <svg class="dxnav-icon">
                                     <use xlink:href="#Arrow_Left"></use>
@@ -688,7 +680,7 @@
                                  <span class="dxnav-dropdown__close-text">${model.navPageTitleThree}</span> 
                               </button>
 							  <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
-                              <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
+                              <div data-sly-test="${model.pageThreeQuickLink}"class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                                  <sly data-sly-list.item="${model.pageThreeQuickLink}">
                                  <div class="dxnav-quick-links__item">
                                     <a href="${item.quickLinksCopyCtaLink}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
@@ -717,7 +709,7 @@
                               </button>
                            </div>
                         </div>
-                        <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-3">
+                        <div data-sly-test="${model.navPagePathThree}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-3">
                            <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>

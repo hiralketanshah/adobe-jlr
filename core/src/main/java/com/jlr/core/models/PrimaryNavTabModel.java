@@ -65,6 +65,15 @@ public class PrimaryNavTabModel {
 	private String navPageTitleThree;
 	
 	@Inject
+	private String navPageAriaLabelOne;
+	
+	@Inject
+	private String navPageAriaLabelTwo;
+	
+	@Inject
+	private String navPageAriaLabelThree;
+	
+	@Inject
     private ResourceResolver resourceResolver;
 	
 	@Inject
@@ -177,7 +186,6 @@ public class PrimaryNavTabModel {
                 		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
             }
         }
-        logger.info("listssss {}",list);
         return list;
         }
 	
@@ -243,6 +251,48 @@ public class PrimaryNavTabModel {
         String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavTitle", String.class));
+          }
+        return list;
+        }
+	
+	public List<String> getNavPageAriaLabelOne() {
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
+        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get("primaryNavAriaLabel", String.class));
+          }
+        return list;
+        }
+	
+	public List<String> getNavPageAriaLabelTwo() {
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
+        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get("primaryNavAriaLabel", String.class));
+          }
+        return list;
+        }
+	
+	public List<String> getNavPageAriaLabelThree() {
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
+        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get("primaryNavAriaLabel", String.class));
           }
         return list;
         }

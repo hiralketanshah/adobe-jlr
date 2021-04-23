@@ -63,15 +63,21 @@
                             <tabName
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The text to be rendered on the CTA"
+                                fieldDescription="The Primary Navigation tab name to be specified."
                                 fieldLabel="Tab Name"
                                 name="./tabName"/>
                             <primaryNavTitle
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The text to be rendered on the CTA"
+                                fieldDescription="The Primary Navigation title to be specified."
                                 fieldLabel="Primary Nav Title"
                                 name="./primaryNavTitle"/>
+                            <primaryNavAriaLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The aria label for the primary navigation title is specified."
+                                fieldLabel="Primary Navigation Title Aria Label"
+                                name="./primaryNavAriaLabel"/>
                         </items>
                     </properties>
                     <leftpane

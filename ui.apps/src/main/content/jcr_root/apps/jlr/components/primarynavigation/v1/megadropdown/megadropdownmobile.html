@@ -3,7 +3,7 @@
    id="${component.id}"></sly>
 <sly data-sly-test="${model.mmTemplate=='templateA'}">
    <div class="dxnav-links-dropdown__section">
-      <button class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
+      <button data-sly-test="${model.tabName}" class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
          <span class="dxnav-dropdown__button-text">${model.tabName}</span> 
          <span class="dxnav-dropdown__button-icon">
             <svg class="dxnav-icon">
@@ -12,7 +12,7 @@
          </span>
       </button>
       <ul class="dxnav-links-dropdown__links">
-         <li>
+         <li data-sly-test="${model.tabName}">
             <button class="dxnav-dropdown__close-button dxnav-close-dropdown-level-2-js" aria-label="??navigation.shared.menu.back_en_AU??">
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
@@ -20,7 +20,7 @@
                ${model.tabName}
             </button>
          </li>
-         <sly data-sly-list.cta="${model.leftCta}">
+         <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
             <li> <a href="${cta.leftPaneCtaLink}" class="dxnav-dropdown__button" target="${cta.leftPaneCtaTarget}"> <span class="dxnav-dropdown__button-text">${cta.leftPaneCtaText}</span> </a> </li>
          </sly>
       </ul>
@@ -28,7 +28,7 @@
 </sly>
 <sly data-sly-test="${model.mmTemplate=='templateE'}">
    <div class="dxnav-links-dropdown__section">
-      <button class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
+      <button data-sly-test="${model.tabName}" class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
          <span class="dxnav-dropdown__button-text">${model.tabName}</span> 
          <span class="dxnav-dropdown__button-icon">
             <svg class="dxnav-icon">
@@ -37,7 +37,7 @@
          </span>
       </button>
       <ul class="dxnav-links-dropdown__links">
-         <li>
+         <li data-sly-test="${model.tabName}">
             <button class="dxnav-dropdown__close-button dxnav-close-dropdown-level-2-js" aria-label="??navigation.shared.menu.back_en_AU??">
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
@@ -45,7 +45,7 @@
                ${model.tabName}
             </button>
          </li>
-         <sly data-sly-list.cta="${model.leftTextCta}">
+         <sly data-sly-test="${model.leftTextCta}" data-sly-list.cta="${model.leftTextCta}">
             <li><a href="${cta.leftPaneCopyCtaLink}" class="dxnav-dropdown__button" target="${cta.leftPaneCopyCtaTarget}" aria-label="${cta.leftPaneCopyCtaAriaLabel}"><span class="dxnav-dropdown__button-text">${cta.leftPaneCopyCtaText}</span> </a> </li>
          </sly>
       </ul>
@@ -53,7 +53,7 @@
 </sly>
 <sly data-sly-test="${model.mmTemplate=='templateC'}">
    <div class="dxnav-links-dropdown__section">
-      <button class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
+      <button data-sly-test="${model.tabName}" class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
          <span class="dxnav-dropdown__button-text">${model.tabName}</span> 
          <span class="dxnav-dropdown__button-icon">
             <svg class="dxnav-icon">
@@ -62,7 +62,7 @@
          </span>
       </button>
       <ul class="dxnav-links-dropdown__links">
-         <li>
+         <li data-sly-test="${model.tabName}">
             <button class="dxnav-dropdown__close-button dxnav-close-dropdown-level-2-js" aria-label="??navigation.shared.menu.back_en_AU??">
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
@@ -70,7 +70,7 @@
                ${model.tabName}
             </button>
          </li>
-         <sly data-sly-list.cta="${model.leftCta}">
+         <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
             <li> <a href="${cta.leftPaneCtaLink}" class="dxnav-dropdown__button" target="${cta.leftPaneCtaTarget}"> <span class="dxnav-dropdown__button-text">${cta.leftPaneCtaText}</span> </a> </li>
          </sly>
       </ul>
@@ -78,7 +78,7 @@
 </sly>
 <sly data-sly-test="${model.mmTemplate=='templateB'}">
    <div class="dxnav-links-dropdown__section">
-      <button class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
+      <button data-sly-test="${model.tabName}" class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
          <span class="dxnav-dropdown__button-text">${model.tabName}</span> 
          <span class="dxnav-dropdown__button-icon">
             <svg class="dxnav-icon">
@@ -87,7 +87,7 @@
          </span>
       </button>
       <ul class="dxnav-links-dropdown__links">
-         <li>
+         <li data-sly-test="${model.tabName}">
             <button class="dxnav-dropdown__close-button dxnav-close-dropdown-level-2-js" aria-label="??navigation.shared.menu.back_en_AU??">
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
@@ -95,7 +95,7 @@
                ${model.tabName}
             </button>
          </li>
-         <sly data-sly-list.cta="${model.leftCta}">
+         <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
             <li> <a href="${cta.leftPaneCtaLink}" class="dxnav-dropdown__button" target="${cta.leftPaneCtaTarget}"> <span class="dxnav-dropdown__button-text">${cta.leftPaneCtaText}</span> </a> </li>
          </sly>
       </ul>
@@ -103,7 +103,7 @@
 </sly>
 <sly data-sly-test="${model.mmTemplate=='templateD'}">
    <div class="dxnav-links-dropdown__section">
-      <button class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
+      <button data-sly-test="${model.tabName}" class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
          <span class="dxnav-dropdown__button-text">${model.tabName}</span> 
          <span class="dxnav-dropdown__button-icon">
             <svg class="dxnav-icon">
@@ -112,7 +112,7 @@
          </span>
       </button>
       <ul class="dxnav-links-dropdown__links">
-         <li>
+         <li data-sly-test="${model.tabName}">
             <button class="dxnav-dropdown__close-button dxnav-close-dropdown-level-2-js" aria-label="??navigation.shared.menu.back_en_AU??">
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
@@ -120,7 +120,7 @@
                ${model.tabName}
             </button>
          </li>
-         <sly data-sly-list.cta="${model.leftCta}">
+         <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
             <li> <a href="${cta.leftPaneCtaLink}" class="dxnav-dropdown__button" target="${cta.leftPaneCtaTarget}"> <span class="dxnav-dropdown__button-text">${cta.leftPaneCtaText}</span> </a> </li>
          </sly>
       </ul>

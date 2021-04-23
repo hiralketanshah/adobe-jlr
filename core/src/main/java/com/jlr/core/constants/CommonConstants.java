@@ -21,6 +21,7 @@ public class CommonConstants {
     public static final String DOT = ".";
     public static final String UNDERSCORE = "_";
     public static final String COMMA = ",";
+    public static final String EXPLORE = "EXPLORE";
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
     public static final String JLR_GLOBAL_MASTER = "/global/global-master";
     public static final String JLR_GLOBAL_PUBLISHED = "/global/published-sites";
