@@ -595,7 +595,7 @@
                                  </svg>
                                  <span class="dxnav-dropdown__close-text">${model.navPageTitleOne}</span> 
                               </button>
-							  <sly data-sly-resource="${'/content/landrover/en/purchase/jcr:content/root/container' @ selectors='megadropdownmobile'}"/>
+							  <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
                               <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
 							  <sly data-sly-list.item="${model.pageOneQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -626,7 +626,7 @@
                            </div>
                         </div>
                         <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-1">
-                           <sly data-sly-resource="${@path='/content/landrover/en/purchase/jcr:content/root/container'}"/>
+                           <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
@@ -641,7 +641,7 @@
                                  </svg>
                                  <span class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
                               </button>
-							  <sly data-sly-resource="${'/content/landrover/en/ownership/jcr:content/root/container' @ selectors='megadropdownmobile'}"/>
+							  <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
                             <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                             <sly data-sly-list.item="${model.pageTwoQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -672,7 +672,7 @@
                            </div>
                         </div>
                         <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-2">
-                           <sly data-sly-resource="${@path='/content/landrover/en/ownership/jcr:content/root/container'}"/>
+                           <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
@@ -687,7 +687,7 @@
                                  </svg>
                                  <span class="dxnav-dropdown__close-text">${model.navPageTitleThree}</span> 
                               </button>
-							  <sly data-sly-resource="${'/content/landrover/en/explore/jcr:content/root/container' @ selectors='megadropdownmobile'}"/>
+							  <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
                               <div class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                                  <sly data-sly-list.item="${model.pageThreeQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -718,7 +718,7 @@
                            </div>
                         </div>
                         <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-3">
-                           <sly data-sly-resource="${@path='/content/landrover/en/explore/jcr:content/root/container'}"/>
+                           <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
