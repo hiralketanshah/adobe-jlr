@@ -98,6 +98,10 @@
     font-family: "AvenirNext-Regular,Regular";
 }
 
+.cmp-readyToGoBar__copy p::first-letter {
+    text-transform:capitalize;
+}
+
 .cmp-readyToGoBar__heading-inner {
 	transition: all .4s;
 	text-transform: uppercase;
