@@ -185,6 +185,11 @@ public class GlobalModelImpl implements GlobalModel {
     }
 
     @Override
+    public String getRawVideoId() {
+        return videoId;
+    }
+
+    @Override
     public String getVideoPath() {
         return videoPath;
     }

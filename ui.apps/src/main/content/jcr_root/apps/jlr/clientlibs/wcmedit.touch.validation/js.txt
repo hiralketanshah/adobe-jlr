@@ -9,4 +9,4 @@ accolades-validation.js
 faq-validation.js
 vehiclesummary-validation.js
 showhide.js
-dual-full-frame-validation.js
+full-frame-validation.js
