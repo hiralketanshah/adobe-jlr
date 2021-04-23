@@ -42,6 +42,11 @@ public class CommonConstants {
     public static final String PN_IMAGE_ALT = "imageAlt";
     public static final String PN_CTA_LINK_TYPE = "linkType";
     public static final String PN_IMAGE_LINK = "imageLink";
+    public static final String PN_IS_DECORATIVE = "isDecorative";
+    public static final String PN_OPTION_IMAGE = "optionImage";
+    public static final String PN_THUMBNAIL_IMAGE = "thumbnailImage";
+    public static final String PN_OPTION_LABEL = "optionLabel";
+    public static final String PN_IS_CTA_OVERRIDEN = "isCtaOverriden";
     public static final String PN_LOGO_PATH = "logoPath";
     public static final String PN_SOCIAL_ICONS = "socialicon";
     public static final String YOUTUBE_EMBED_URL = "https://youtube.com/embed/";

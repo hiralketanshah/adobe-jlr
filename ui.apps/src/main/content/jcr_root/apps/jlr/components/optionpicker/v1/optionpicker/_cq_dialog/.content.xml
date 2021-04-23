@@ -295,10 +295,10 @@
                                                     sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
                                                     allowUpload="{Boolean}false"
                                                     fieldDescription="Select an Main Image to be displayed"
-                                                    fileReferenceParameter="./fileReference"
+                                                    fileReferenceParameter="./optionImage"
                                                     mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                     multiple="{Boolean}false"
-                                                    name="./optionImage"
+                                                    name="./optionImg"
                                                     required="{Boolean}true"/>
                                                 <imgAlt
                                                     jcr:primaryType="nt:unstructured"
@@ -333,7 +333,7 @@
                                                             fileReferenceParameter="./fileReference"
                                                             mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                             multiple="{Boolean}false"
-                                                            name="./thumbnailImage"
+                                                            name="./thumbnailImg"
                                                             required="{Boolean}true"/>
                                                     </items>
                                                 </column>

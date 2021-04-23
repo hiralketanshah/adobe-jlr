@@ -9,7 +9,7 @@ public class InteractiveOptionPickerItemPojo extends CTAPojo {
 
 
     public InteractiveOptionPickerItemPojo(String text, String link, String target, String linkType, String icon, String ariaLabel, String optionImage,
-                    String imgAlt, Boolean isDecorative, String thumbnailImage, String optionLabel, String isCtaOverriden) {
+                    String imgAlt, String isDecorative, String thumbnailImage, String optionLabel, String isCtaOverriden) {
         super(text, link, target, linkType, icon, ariaLabel);
         this.optionImage = optionImage;
         this.imgAlt = imgAlt;
@@ -52,14 +52,14 @@ public class InteractiveOptionPickerItemPojo extends CTAPojo {
     /**
      * @return the isDecorative
      */
-    public Boolean getIsDecorative() {
+    public String getIsDecorative() {
         return isDecorative;
     }
 
     /**
      * @param isDecorative the isDecorative to set
      */
-    public void setIsDecorative(Boolean isDecorative) {
+    public void setIsDecorative(String isDecorative) {
         this.isDecorative = isDecorative;
     }
 
@@ -107,7 +107,7 @@ public class InteractiveOptionPickerItemPojo extends CTAPojo {
 
     private String optionImage;
     private String imgAlt;
-    private Boolean isDecorative;
+    private String isDecorative;
     private String thumbnailImage;
     private String optionLabel;
     private String isCtaOverriden;

@@ -111,6 +111,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </verticalslider>
+                        <optionpicker jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <optionpicker
+                                    cq:policy="jlr/components/optionpicker/v1/optionpicker/policy_1619190895761"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </optionpicker>
                     </components>
                 </jlr>
             </container>
@@ -245,6 +253,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </verticalslider>
+                        <optionpicker jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <optionpicker
+                                    cq:policy="jlr/components/optionpicker/v1/optionpicker/policy_1619190895761"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </optionpicker>
                     </components>
                 </jlr>
             </container_1992655900>
