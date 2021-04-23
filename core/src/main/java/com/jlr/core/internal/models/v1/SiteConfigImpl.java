@@ -9,21 +9,21 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.SiteConfigModel;
 import com.jlr.core.services.Dictionary;
+import com.jlr.core.utils.CommonUtils;
 
 /**
  * Model for locale based configurations for website
@@ -33,11 +33,8 @@ import com.jlr.core.services.Dictionary;
  */
 @Model(adaptables = { SlingHttpServletRequest.class, Resource.class }, adapters = { SiteConfigModel.class })
 public class SiteConfigImpl implements SiteConfigModel {
-
-    /** Request Parameter - locale */
-    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Default(values = CommonConstants.DEFAULT_LOCALE)
-    String locale;
+	
+	private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
 
     /** Request Parameter - List of Keys */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -47,50 +44,41 @@ public class SiteConfigImpl implements SiteConfigModel {
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     String key;
 
-    /** Request Parameter - if fallback en locale to be used? */
-    @Default(booleanValues = true)
-    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
-    boolean fallback;
-
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
 
     @OSGiService
     private Dictionary dictionary;
+    
+    @ScriptVariable
+    protected com.day.cq.wcm.api.Page currentPage;
 
     @Inject
     @Optional
     Resource resource;
 
     Map<String, String> configMap = new HashMap<>();
-    Map<String, String> fallbackMap = new HashMap<>();
 
     @PostConstruct
     public void init() {
-        if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
-            if (StringUtils.isEmpty(locale)) {
-                locale = CommonConstants.DEFAULT_LOCALE;
-            }
-            String configPath = dictionary.getPath();
+    	if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
+    		String siteRootPath = CommonUtils.getSiteRootPath(currentPage);
 
-            Resource siteConfigRes = resourceResolver.getResource(configPath);
-            if (null != siteConfigRes) {
-                configMap = buildConfigMap(siteConfigRes);
-            }
-            // build fallback configuration map if local is not en and fallback
-            // is true
-            if (fallback && !locale.equals(CommonConstants.DEFAULT_LOCALE)) {
-                String defaultPath = dictionary.getPath();
-                Resource defaultConfigRes = resourceResolver.getResource(defaultPath);
-                if (null != defaultConfigRes) {
-                    fallbackMap = buildConfigMap(defaultConfigRes);
-                }
-            }
-
-        } else {
-            configMap = buildConfigMap(resource);
-        }
+    		String dictPath = dictionary.getPath();
+    		if(null != siteRootPath) {
+    			dictPath = siteRootPath + CommonConstants.JLR_DICTIONARY;
+    			if(null == resourceResolver.getResource(dictPath)) {
+    				dictPath = dictionary.getPath();
+    			}
+    		}
+    		Resource siteConfigRes = getConfigResource(dictPath);
+    		if (null != siteConfigRes) {
+    			configMap = buildConfigMap(siteConfigRes);
+    		}
+    	} else {
+    		configMap = buildConfigMap(resource);
+    	}
     }
 
     /**
@@ -140,9 +128,7 @@ public class SiteConfigImpl implements SiteConfigModel {
     private Map<String, String> getMap(List<String> listOfKeys) {
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
-            if (null == configMap.get(configKey) && fallback) {
-                keyMap.put(configKey, fallbackMap.get(configKey));
-            } else {
+            if (null != configMap.get(configKey)) {
                 keyMap.put(configKey, configMap.get(configKey));
             }
         }
@@ -155,12 +141,25 @@ public class SiteConfigImpl implements SiteConfigModel {
     @Override
     public String getConfigValue() {
         if (null != key) {
-            if (null == configMap.get(key) && fallback) {
-                return fallbackMap.get(key);
-            } else {
+            if (null != configMap.get(key)) {
                 return configMap.get(key);
             }
         }
         return null;
+    }
+    
+    private Resource getConfigResource(String dictPath) {
+    	String rootNodePath = dictPath + CommonConstants.CONTAINER_NODE;
+    	Resource rootRes = resourceResolver.getResource(rootNodePath);
+    	if(null != rootRes) {
+    		Iterator<Resource> childItems = rootRes.getChildren().iterator();
+    		while(childItems.hasNext()) {
+    			Resource childItem = childItems.next();
+    			if(childItem.getResourceType().equals(RESOURCE_TYPE)) {
+    				return childItem;
+    			}
+    		}
+    	}
+    	return null;
     }
 }

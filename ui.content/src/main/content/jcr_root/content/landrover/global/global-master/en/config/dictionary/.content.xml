@@ -126,6 +126,26 @@
                             jcr:primaryType="nt:unstructured"
                             key="content.blocks.from.text"
                             value="From"/>
+                        <item24
+                            jcr:primaryType="nt:unstructured"
+                            key="marketregionpricing.dxnav.modal.dropdown.default"
+                            value="CHOOSE YOUR STATE"/>
+                        <item25
+                            jcr:primaryType="nt:unstructured"
+                            key="marketregionpricing.dxnav.modal.header"
+                            value="SELECT YOUR STATE"/>
+                        <item26
+                            jcr:primaryType="nt:unstructured"
+                            key="marketregionpricing.dxnav.modal.copy"
+                            value="To enable us to show drive away prices, please select your state."/>
+                        <item27
+                            jcr:primaryType="nt:unstructured"
+                            key="marketregionpricing.dxnav.modal.submitbutton.copy"
+                            value="SUBMIT"/>
+                        <item28
+                            jcr:primaryType="nt:unstructured"
+                            key="marketregionpricing.dxnav.selectregion"
+                            value="SHOW PRICES"/>
                     </configList>
                 </siteconfig>
             </container>

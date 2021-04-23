@@ -6,5 +6,7 @@ rtgb-validation.js
 page-properties-validation.js
 table-validation.js
 accolades-validation.js
+faq-validation.js
 vehiclesummary-validation.js
+showhide.js
 dual-full-frame-validation.js

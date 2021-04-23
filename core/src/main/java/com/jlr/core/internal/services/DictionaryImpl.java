@@ -27,7 +27,7 @@ public class DictionaryImpl implements Dictionary {
 	}
 
 	/**
-	 * Return the path for dictionary node
+	 * Return the path for default dictionary node
 	 */
 	@Override
 	public String getPath() {

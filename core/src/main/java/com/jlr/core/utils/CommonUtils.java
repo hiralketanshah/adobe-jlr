@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
 import com.adobe.aem.formsndocuments.util.FMUtils;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 
 /**
@@ -94,5 +95,35 @@ public final class CommonUtils {
     public static ResourceResolver getServiceResolver(final ResourceResolverFactory resolverFactory, final String subServiceName) throws LoginException {
         Map<String, Object> subServiceAuthInfo = Collections.singletonMap(ResourceResolverFactory.SUBSERVICE, (Object) subServiceName);
         return resolverFactory.getServiceResourceResolver(subServiceAuthInfo);
+    }
+    
+    /**
+     * Retrieves the root page path based on current page.
+     * @param currentPage
+     * @return
+     */
+    public static String getSiteRootPath(Page currentPage) {
+    	if(null == currentPage) {
+    		return null;
+    	}
+    	String path = currentPage.getPath();
+    	int level = 0;
+    	Page rootPath = null;
+    	if(path.startsWith(CommonConstants.JLR_CONTENT_PATH)) {
+    		if(path.contains(CommonConstants.JLR_LANGUAGE_MASTER)) {
+    			level = 6;
+    		} else if(path.contains(CommonConstants.JLR_GLOBAL_MASTER)|| path.contains(CommonConstants.JLR_GLOBAL_PUBLISHED)) {
+    			level = 4;
+    		} else {
+    			level = 5;    	
+
+    		}
+    		rootPath = currentPage.getAbsoluteParent(level);
+    		if(null == rootPath) {
+    			return null;
+    		}
+    		return rootPath.getPath();
+    	}
+    	return null;
     }
 }
