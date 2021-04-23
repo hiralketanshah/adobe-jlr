@@ -1,2 +1,0 @@
-#base=css
-dualfullframeitem.css

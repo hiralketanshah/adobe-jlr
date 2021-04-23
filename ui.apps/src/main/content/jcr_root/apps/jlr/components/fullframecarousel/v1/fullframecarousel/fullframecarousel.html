@@ -1,21 +1,50 @@
-<sly data-sly-use.model="com.jlr.core.models.FullFrameCarouselModel" data-sly-call="${renderFFC @ model=model}" />
+ <div class="cmp-fullframe">
+      <div class="cmp-genericItem__element-poster">
+      <div class="YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth" data-id="45368" data-only-item="false" data-swiper-thumbnail="../_bin/Gallery/03_thumb.jpg">
+<div class="YouTubePlayer">
+<div class="playerWrapper">
+<div class="placeholderVideo" data-video-id="6E07fzHqcmw" id="YouTubeVideo_123"></div>
 
-<template data-sly-template.renderFFC="${ @ model }">
-<div data-sly-test="${!model.id}" class="cq-placeholder"
-	 data-emptytext="Full Frame Carousel Component"></div>
+<div class="coverImgWrapper">
 
+  <button class="coverImgBtn" type="button"></button>
 
-     <div style="background-image: url(${model.backgroundImage @ context='styleString'});">
+  <div class="mediaOverlay mediaOverlayVideo">
+      <div class="mediaOverlayBg"></div>
+      <div class="mediaOverlayIcon"></div>
+  </div>
 
-ID : ${model.id}<br/>
-Header : ${model.headerTitle @context='html'}<br/>
-Body : ${model.copy @context='html'}<br/>
+  <span class="playerCover" data-alt="Default alt text." data-background-image="" data-picture="">
+      <span data-dimensions="355x200" data-src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"></span>
+      <span data-dimensions="700x394" data-media="(min-width: 355px)" data-src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"></span>
+      <span data-default="true" data-dimensions="1066x600" data-media="(min-width: 700px)" data-src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"></span>
+      <span data-dimensions="1820x1023" data-media="(min-width: 1000px)" data-src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png"></span>
 
-Background Image : ${model.backgroundImage}<br/>
+      <noscript>
+          <img data-dimensions="1820x1023" src="https://homepages.cae.wisc.edu/~ece533/images/airplane.png" />
+      </noscript>
+  </span>
+</div>
+</div>
 
-CTA text : ${model.text}<br/>
-CTA link : ${model.link}<br/>
-CTA link type : ${model.linkType}<br/>
-CTA target : ${model.target}<br/>
-    </div>
-</template>
+</div>
+</div>
+</div>
+<div class=" shelfComponent" >
+<div class="headerClass">  <h2 class="heading headingThick fontH2">
+<span class="headingWrapper">
+  SHORT TEXT
+</span>
+</h2>
+</div>
+<div class="contentClass">
+<p class="copy fontBodyCopyLarge">Das Design zeichnet sich durch stilvolle Elemente und das für Range Rover typische legendäre Erscheinungsbild aus. Der neue Kühlergrill, der vordere Stoßfänger und die Motorhaube sorgen im Zusammenspiel mit den markanten neuen LED Scheinwerfern für einen noch moderneren Auftritt.</p>
+
+<div class="linkContainer">
+<span class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle icon-arrow-right" data-target="_self" aria-label="SHORT TEXT:Find out more"><span>Find out more</span></a></span>
+<span class="primaryLinkContainer"><a class="primaryLinkWithStyle icon-arrow-right" data-target="_self" aria-label="SHORT TEXT:ACCESSORIES CATALogue"><span>ACCESSORIES CATALogue</span></a></span>
+</div>
+</div>
+
+</div>
+</div>
