@@ -8,35 +8,11 @@
       <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
         <img alt="${model.imageAlt}" class="Picture__img" srcset="${model.fileReference}" />
       </picture>
-	  
-	  <div data-sly-test="${model.assetType == 'video'}" class="YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth" data-only-item="false">
-        <div class="YouTubePlayer">
-          <div class="playerWrapper">
-              <div class="placeholderVideo" data-video-id="${model.rawVideoId}" id="${model.rawVideoId}"></div>
-
-              <div class="coverImgWrapper">
-
-                <button class="coverImgBtn" type="button"></button>
-
-                <div class="mediaOverlay mediaOverlayVideo">
-                <div class="mediaOverlayBg"></div>
-                <div class="mediaOverlayIcon"></div>
-              </div>
-
-              <span class="playerCover" data-alt="Default alt text." data-background-image="" data-picture="">
-                <span data-dimensions="355x200" data-src="${model.posterImage}"></span>
-                <span data-dimensions="700x394" data-media="(min-width: 355px)" data-src="${model.posterImage}"></span>
-                <span data-default="true" data-dimensions="1066x600" data-media="(min-width: 700px)" data-src="${model.posterImage}"></span>
-                <span data-dimensions="1820x1023" data-media="(min-width: 1000px)" data-src="${model.posterImage}"></span>
-                <noscript>
-                  <img data-dimensions="1820x1023" src="${model.posterImage}" />
-                </noscript>
-              </span>
-           </div>
+        <div data-sly-test="${model.assetType == 'video'}" class="videoCustom">
+           <img src="${model.posterImage}">
+           <!-- <iframe width="100%" height="100%" src="${model.videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe> -->
         </div>
-
-       </div>
-     </div>
+   
     </div>
     <div class=" shelfComponent" >
       <div class="headerClass">  
