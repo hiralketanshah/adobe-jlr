@@ -20,7 +20,7 @@ import com.jlr.core.utils.CtaUtils;
         DualFrameCarouselModel.class }, resourceType = DualFrameCarouselImpl.RESOURCE_TYPE)
 public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameCarouselModel {
 
-    public static final String RESOURCE_TYPE = "jlr/components/dualfullframeitem/v1/dualfullframeitem";
+    public static final String RESOURCE_TYPE = "jlr/components/dualframecarousel/v1/dualframecarousel";
 
     @Inject
     private ResourceResolver resourceResolver;

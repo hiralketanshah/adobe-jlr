@@ -1,33 +1,28 @@
 <!-- Jaguar Component -->
-Accolade (v1)
+Dual Frame Carousel (v1)
 ====
-Accolade component written in HTL.
+Dual Frame Carousel component written in HTL.
 
 ## Features
 
-* Accolade are a versatile component used in a variety of ways on DX.
+* Dual Frame Carousel are a versatile component used in a variety of ways on DX.
 
 ### Use Object
-The Accolade component uses the `com.jlr.core.models.AccoladeModel` Sling model as its Use-object.
+The Dual Frame Carousel component uses the `com.jlr.core.models.DualFrameCarouselModel` Sling model as its Use-object.
 
 ### Edit Dialog Properties
-The following properties are written to JCR for this Accolade component and are expected to be available as `Resource` properties:
+The following properties are written to JCR for this Dual Frame Carousel component and are expected to be available as `Resource` properties:
 
-1. `./id` - defines the id for the component
-2. `./headerCopy` - defines the header copy for the component
-3. `./copy` - defines the body copy for the component
-4. `./date` - defines the date (optional)
-6. `./logoImage` - defines the image for the logo for the component
-7. `./imageAlt` - defines the alternative text for the image
-8. `./text` - defines the CTA text for the component
-9. `./link` - defines the CTA link for the component
-10. `./ariaLabel` - defines the aria label for the CTA
-11. `./target` - defines the CTA target (new tab or current tab) for the component
+1. `./id` - defines the id for the component.
+2. `./headerTitle` - defines the header title for the component.
+3. `./copy` - defines the body copy for the component.
+4. `./assetType` - defines the assetType - image or video, accordingly show and hide teh fields.
+5. `./ctaList` - defines the list of CTA for the component where max number of CTAs is 2.
 
 The edit dialog allows the page to be refreshed after editing the component
 
 ## Client Libraries
-The component provides a `jlr.components.accolade.v1` client library category that contains a recommended base
+The component provides a `` client library category that contains a recommended base
 CSS styling and JavaScript component. It should be added to a relevant site client library using the `embed` property.
 
 ## Information

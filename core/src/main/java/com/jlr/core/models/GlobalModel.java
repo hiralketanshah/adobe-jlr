@@ -66,10 +66,6 @@ public interface GlobalModel {
         return StringUtils.EMPTY;
     }
 
-    default String getRawVideoId() {
-        return StringUtils.EMPTY;
-    }
-
     default String getVideoPath() {
         return StringUtils.EMPTY;
     }

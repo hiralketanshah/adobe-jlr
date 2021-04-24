@@ -15,9 +15,9 @@ import com.jlr.core.pojos.CTAPojo;
 public interface FullFrameCarouselModel {
 
     /**
-     * Gets the hero cta.
+     * Gets the cta list.
      *
-     * @return the hero cta
+     * @return the cta list
      */
     default List<CTAPojo> getCtaList() {
         return new ArrayList<>();

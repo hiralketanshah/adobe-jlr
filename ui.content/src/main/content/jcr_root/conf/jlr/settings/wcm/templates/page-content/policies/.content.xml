@@ -57,6 +57,14 @@
                                         sling:resourceType="wcm/core/components/policies/mapping"/>
                                 </v1>
                             </faqs>
+                            <dualframeslider jcr:primaryType="nt:unstructured">
+                                <v1 jcr:primaryType="nt:unstructured">
+                                    <dualframeslider
+                                        cq:policy="jlr/components/dualframeslider/v1/dualframeslider/policy_1617975684354"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="wcm/core/components/policies/mapping"/>
+                                </v1>
+                            </dualframeslider>
                         </components>
                     </jlr>
                 </container>
