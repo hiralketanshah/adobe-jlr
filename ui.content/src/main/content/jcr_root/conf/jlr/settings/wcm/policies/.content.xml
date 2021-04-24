@@ -208,29 +208,13 @@
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
+                    layout="simple"
+                    layoutDisabled="true"
                     sling:resourceType="wcm/core/components/policy/policy"
                     components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Structure]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575024218483
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="jlr/components/image"/>
-                            <mapping_1575030843388
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="jlr/components/experiencefragment"/>
-                            <mapping_1575030853128
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="jlr/components/contentfragment"/>
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1574694950110>
@@ -239,28 +223,12 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    layout="simple"
+                    layoutDisabled="true"
                     components="[group:JLR - Content,/apps/jlr/components/form/container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575030255082
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="jlr/components/image"/>
-                            <mapping_1575030260142
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="jlr/components/experiencefragment"/>
-                            <mapping_1575030269139
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="jlr/components/contentfragment"/>
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1574695586800>
@@ -941,6 +909,59 @@
                     </verticalslider>
                 </v1>
             </verticalslider>
+             <optionpicker jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <optionpicker jcr:primaryType="nt:unstructured">
+                        <policy_1619190895761
+                            cq:styleDefaultClasses="light "
+                            jcr:lastModified="{Date}2021-04-23T21:04:54.197+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Option Picker"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1619190909813"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1619190914120"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1619190917109"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Style"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="wheel"
+                                            cq:styleId="1619190932718"
+                                            cq:styleLabel="Option"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleId="1619192090295"
+                                            cq:styleLabel="Color"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1619190895761>
+                    </optionpicker>
+                </v1>
+            </optionpicker>
         </components>
     </jlr>
     <rep:policy/>
