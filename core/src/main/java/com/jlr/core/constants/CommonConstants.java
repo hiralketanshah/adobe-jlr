@@ -1,9 +1,5 @@
 package com.jlr.core.constants;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 /**
  * The Class CommonConstants.
  */
@@ -20,20 +16,25 @@ public class CommonConstants {
     public static final String BLANK_SPACE = " ";
     public static final String DOT = ".";
     public static final String UNDERSCORE = "_";
+    public static final String TRUE = "true";
     public static final String COMMA = ",";
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
     public static final String JLR_GLOBAL_MASTER = "/global/global-master";
     public static final String JLR_GLOBAL_PUBLISHED = "/global/published-sites";
     public static final String JLR_DICTIONARY = "/config/dictionary";
     public static final String CONTAINER_NODE = "/jcr:content/root/container";
-    
+
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
     public static final String JLR_DAM_PATH = "/content/dam/landrover/";
     public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
 
-    
+
+    /** The DAM ASSET Constant. */
+    public static final String THUMB_1280_1280_PNG = ".thumb.1280.1280.png";
+    public static final String THUMB_319_319_PNG = ".thumb.319.319.png";
+    public static final String THUMB_140_100_PNG = ".thumb.140.100.png";
 
     /** The PROTOCOL Constant. */
     public static final String PREFIX_HTTPS = "https://";
@@ -49,6 +50,11 @@ public class CommonConstants {
     public static final String PN_IMAGE_ALT = "imageAlt";
     public static final String PN_CTA_LINK_TYPE = "linkType";
     public static final String PN_IMAGE_LINK = "imageLink";
+    public static final String PN_IS_DECORATIVE = "isDecorative";
+    public static final String PN_OPTION_IMAGE = "optionImage";
+    public static final String PN_THUMBNAIL_IMAGE = "thumbnailImage";
+    public static final String PN_OPTION_LABEL = "optionLabel";
+    public static final String PN_IS_CTA_OVERRIDEN = "isCtaOverriden";
     public static final String PN_LOGO_PATH = "logoPath";
     public static final String PN_SOCIAL_ICONS = "socialicon";
     public static final String YOUTUBE_EMBED_URL = "https://youtube.com/embed/";
@@ -79,11 +85,6 @@ public class CommonConstants {
 
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
 
-    public static final List<String> HOMEPAGE_LIST = new ArrayList<>(Arrays.asList("/content/landrover/global/global-master/en",
-                    "/content/landrover/global/published-sites/en_ix", "/content/landrover/global/europe/region-master/en",
-                    "/content/landrover/global/europe/language-masters/deu/en", "/content/landrover/global/europe/language-masters/deu/de",
-                    "/content/landrover/global/europe/published-sites/de_de", "/content/landrover/global/row/region-master/en",
-                    "/content/landrover/global/row/language-masters/aus/en", "/content/landrover/global/row/published-sites/en_au"));
 
 
 }
