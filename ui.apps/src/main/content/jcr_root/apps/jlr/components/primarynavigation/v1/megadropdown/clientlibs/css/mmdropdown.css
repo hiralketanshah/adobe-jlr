@@ -1106,6 +1106,10 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	text-transform: capitalize;
 }
 
+.dxnav-unique-nav .dxnav-external-link__copy p{
+	margin-bottom: 21px;
+}
+
 .dxnav-unique-nav .dxnav-external-link__copy p::first-letter{
 	text-transform: capitalize;
 }

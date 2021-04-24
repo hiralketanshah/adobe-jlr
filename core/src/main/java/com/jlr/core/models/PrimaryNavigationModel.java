@@ -46,6 +46,9 @@ public class PrimaryNavigationModel {
     private String rightPaneImageTarget;
     
     @Inject
+    private String isImageDecorative;
+    
+    @Inject
     private String primaryNavAriaLabel;
 
 	@Inject
@@ -94,6 +97,10 @@ public class PrimaryNavigationModel {
 		return rightPaneImageAlt;
 	}
 	
+	public String getIsImageDecorative() {
+		return isImageDecorative;
+	}
+
 	public String getPrimaryNavAriaLabel() {
 		if(null==primaryNavAriaLabel) {
 			primaryNavAriaLabel=CommonConstants.EXPLORE.concat(CommonConstants.COLON).concat(primaryNavTitle);

@@ -20,26 +20,26 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <purchasePagePath
+                            <navPagePathOne
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a content page, external URL or page anchor."
-                                fieldLabel="Purchase Page Path"
-                                name="./purchasePagePath"
+                                fieldDescription="Link to a content page of the Primary navigation."
+                                fieldLabel="Page Path One"
+                                name="./navPagePathOne"
                                 rootPath="/content/landrover"/>
-                            <ownershipPagePath
+                            <navPagePathTwo
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a content page, external URL or page anchor."
-                                fieldLabel="Ownership Page Path"
-                                name="./ownershipPagePath"
+                                fieldDescription="Link to a content page of the Primary navigation."
+                                fieldLabel="Page Path Two"
+                                name="./navPagePathTwo"
                                 rootPath="/content/landrover"/>
-                            <explorePagePath
+                            <navPagePathThree
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a content page, external URL or page anchor."
-                                fieldLabel="Explore Page Path"
-                                name="./explorePagePath"
+                                fieldDescription="Link to a content page of the Primary navigation."
+                                fieldLabel="Page Path Three"
+                                name="./navPagePathThree"
                                 rootPath="/content/landrover"/>
                         </items>
                     </properties>
