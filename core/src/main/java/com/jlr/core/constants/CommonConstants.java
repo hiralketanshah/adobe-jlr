@@ -20,20 +20,25 @@ public class CommonConstants {
     public static final String BLANK_SPACE = " ";
     public static final String DOT = ".";
     public static final String UNDERSCORE = "_";
+    public static final String TRUE = "true";
     public static final String COMMA = ",";
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
     public static final String JLR_GLOBAL_MASTER = "/global/global-master";
     public static final String JLR_GLOBAL_PUBLISHED = "/global/published-sites";
     public static final String JLR_DICTIONARY = "/config/dictionary";
     public static final String CONTAINER_NODE = "/jcr:content/root/container";
-    
+
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
     public static final String JLR_DAM_PATH = "/content/dam/landrover/";
     public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
 
-    
+
+    /** The DAM ASSET Constant. */
+    public static final String THUMB_1280_1280_PNG = ".thumb.1280.1280.png";
+    public static final String THUMB_319_319_PNG = ".thumb.319.319.png";
+    public static final String THUMB_140_100_PNG = ".thumb.140.100.png";
 
     /** The PROTOCOL Constant. */
     public static final String PREFIX_HTTPS = "https://";

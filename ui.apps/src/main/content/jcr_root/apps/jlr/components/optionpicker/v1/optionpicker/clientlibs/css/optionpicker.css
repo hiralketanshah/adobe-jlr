@@ -435,8 +435,10 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
     padding-top: 15px;
 }
 
-.cmp_interactiveOptionPicker__bottom-title p{
+.cmp_interactiveOptionPicker__bottom-title {
     width: 35%;
+}
+.cmp_interactiveOptionPicker__bottom-title p{
     float: left;
     font-size: 24px;
     letter-spacing: 1.2px;
@@ -481,7 +483,8 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 }
 .slateblue.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr,
 .slateblue .cmp_interactiveOptionPicker__header__box h2,
-.slateblue .cmp_interactiveOptionPicker__bottom-title{
+.slateblue .cmp_interactiveOptionPicker__bottom-title,
+.slateblue .cmp_interactiveOptionPicker__bottom-title h2 p{
     color:#FFFFFF;
     font-family: "AvenirNext"
 }
