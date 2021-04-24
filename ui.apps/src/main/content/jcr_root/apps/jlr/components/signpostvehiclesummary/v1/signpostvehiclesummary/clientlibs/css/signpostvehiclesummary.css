@@ -83,7 +83,7 @@
     max-height: 366px;
 }
 .cmp-signPost__picture {
-    width: 650px;
+    width: 100%;
     height: 100%;
     position: absolute;
 }
@@ -195,14 +195,16 @@
 @media screen and (min-width: 768px) and (max-width: 900px) {
     .cmp-signPost {      
         padding: 30px;
-        min-height: 340px;
+        min-height: 250px;
     }
     .cmp-signPost__content{
-        padding-left: 28px;
-        width: 50%;
+        width: 52%;
+        height: 100%;
     }
     .cmp-signPost__image {       
-        width: 50%;       
+        width: 340px;
+    height: 191px;
+    min-height: 191px;       
     }
     .cmp-signPost__picture {
         width: 100%;
@@ -301,12 +303,7 @@
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-    .cmp-signPost {      
-        padding: 60px 150px;
-        min-height: 530px;
-    }
-}
+
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
 }
@@ -379,8 +376,8 @@ height: 493px;
     order:1;
     width: 25%;
     flex-grow: 0;
-flex-shrink: 0;
-padding-right: 40px;
+    flex-shrink: 0;
+    padding-left: 0px;
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
@@ -622,7 +619,7 @@ padding-right: 40px;
     position: absolute;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture {
-        width: calc(100% - 40px);
+        width: 100%;
     }
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image{
     order:2;
@@ -635,10 +632,11 @@ padding-right: 40px;
         }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__content{
         order:2;
+        padding-right:0px;
+        padding-left: 40px;
     }
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image .Picture {
-        left: 40px;
-        width: calc(100% - 40px);
+        width: 100% ;
     }
     #landrover .cmp-vehicleSummary .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .primaryLinkWithStyle:focus
     {
@@ -652,27 +650,65 @@ padding-right: 40px;
      text-shadow: none;
      box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
     }
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-    .cmp-vehicleSummary {      
-        padding: 0px 90px 80px;
-    }
-    .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
-        min-height: 490px
-    }
-    .cmp-vehicleSummary .cmp-vehicleSummary__image{      
-        padding: 60px 0px 80px;
-    }
-    .cmp-vehicleSummary .cmp-vehicleSummary__content{      
-        padding: 51px 0px 80px;
-        padding-right: 40px;
-    }
-}
-@media screen and (min-width: 1921px) and (max-width: 2560px) {
+
+@media screen and (min-width: 1920px) and (max-width: 2560px) {
     .cmp-vehicleSummary {      
         padding: 60px 295px 80px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
+    }
+    .cmp-signPost{
+        max-height: 525px;
+        min-height: 525px;
+        padding: 80px 290px;
+    }
+    .cmp-signPost__content{
+        width: 50%;
+    }
+    .cmp-signPost__image{
+        max-height: 366px;
+        min-height: 366px;
+        width: 650px;
+    }
+    .cmp-signpostGridContext{
+        height: 100%;
+    }
+    .cmp-vehicleSummary .cmp-vehicleSummary__content{
+        width: 34%;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    .cmp-vehicleSummary {
+        padding: 60px 60px 80px;
+        min-height: 570px;
+    }
+    .cmp-signPost {
+        min-height: 436px;
+      }
+    .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
+        min-height: 428px;
+    }
+    
+    .cmp-vehicleSummary .cmp-vehicleSummary__image{      
+        height: 428px;
+        width: 760px;
+    }
+    .cmp-vehicleSummary .cmp-vehicleSummary__content{    
+        padding-right: 40px;
+        width: 34%;
+    }
+    .cmp-signPost__image{
+        width: 560px;
+        height: 315px;
+        min-height: 315px;
+    }
+    .cmp-signPost__picture{
+        width: 100%;
+        height: 100%;
+    }
+    .cmp-signPost__content{
+        width: 50%;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 768px) {
@@ -691,12 +727,12 @@ padding-right: 40px;
         right: auto;
         overflow: hidden;
         padding-left: 0;
-        min-height: 150px;
+        min-height: 399px;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture,
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image .Picture {
         width: 100%;
-        height: auto;
+        height: 100%;
         left:0;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {

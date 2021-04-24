@@ -4,6 +4,8 @@ import java.security.Principal;
 import java.util.Collections;
 import java.util.Map;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
@@ -96,34 +98,71 @@ public final class CommonUtils {
         Map<String, Object> subServiceAuthInfo = Collections.singletonMap(ResourceResolverFactory.SUBSERVICE, (Object) subServiceName);
         return resolverFactory.getServiceResourceResolver(subServiceAuthInfo);
     }
-    
+
     /**
      * Retrieves the root page path based on current page.
+     * 
      * @param currentPage
      * @return
      */
     public static String getSiteRootPath(Page currentPage) {
-    	if(null == currentPage) {
-    		return null;
-    	}
-    	String path = currentPage.getPath();
-    	int level = 0;
-    	Page rootPath = null;
-    	if(path.startsWith(CommonConstants.JLR_CONTENT_PATH)) {
-    		if(path.contains(CommonConstants.JLR_LANGUAGE_MASTER)) {
-    			level = 6;
-    		} else if(path.contains(CommonConstants.JLR_GLOBAL_MASTER)|| path.contains(CommonConstants.JLR_GLOBAL_PUBLISHED)) {
-    			level = 4;
-    		} else {
-    			level = 5;    	
+        if (null == currentPage) {
+            return null;
+        }
+        String path = currentPage.getPath();
+        int level = 0;
+        Page rootPath = null;
+        if (path.startsWith(CommonConstants.JLR_CONTENT_PATH)) {
+            if (path.contains(CommonConstants.JLR_LANGUAGE_MASTER)) {
+                level = 6;
+            } else if (path.contains(CommonConstants.JLR_GLOBAL_MASTER) || path.contains(CommonConstants.JLR_GLOBAL_PUBLISHED)) {
+                level = 4;
+            } else {
+                level = 5;
 
-    		}
-    		rootPath = currentPage.getAbsoluteParent(level);
-    		if(null == rootPath) {
-    			return null;
-    		}
-    		return rootPath.getPath();
-    	}
-    	return null;
+            }
+            rootPath = currentPage.getAbsoluteParent(level);
+            if (null == rootPath) {
+                return null;
+            }
+            return rootPath.getPath();
+        }
+        return null;
     }
+
+    public static String getWebImagePath(String path) {
+        if (path != null) {
+            return path + CommonConstants.THUMB_1280_1280_PNG;
+        }
+        return null;
+    }
+
+    public static String getSmallImagePath(String path) {
+        if (path != null) {
+            return path + CommonConstants.THUMB_319_319_PNG;
+        }
+        return null;
+    }
+
+
+    public static String getTinyImagePath(String path) {
+        if (path != null) {
+            return path + CommonConstants.THUMB_140_100_PNG;
+        }
+        return null;
+    }
+
+    public static String getOnlyTextFromHTML(String text) {
+        if (!StringUtils.isEmpty(text)) {
+            Pattern removeTags = Pattern.compile("<.+?>");
+
+            Matcher m = removeTags.matcher(text);
+            String onlyText = m.replaceAll("");
+            return onlyText.replaceAll("(\\n|\\r)", "");
+        } else {
+            return StringUtils.EMPTY;
+        }
+    }
+
+
 }
