@@ -4,152 +4,188 @@
 
 .cmp-snippet {
 	text-align: left;
-	margin-top: 60px;
-	margin-left: 290px;
 }
 
 .cmp-snippet .headingWrapper p {
 	line-height: 38px;
-	text-transform: uppercase;
-	font-family: 'lr_ot4';
-	letter-spacing: 1.9px;
-	color: #0C121C;
-	opacity: 1;
-	font-style: normal;
-	font-weight: bold;
-}
-
-.cmp-snippet .copy {
-	font-family: AvenirNext;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 18px;
-	letter-spacing: 0.2px;
-	color: #4A4F54;
-	opacity: 1;
-	line-height: 24px;
-	margin-top: 23px;
-	margin-bottom: 12px;
-	margin-right:750px;
-
+    text-transform: uppercase;
 }
 
 .cmp-snippet .copy p:first-letter {
-	text-transform: capitalize;
+    text-transform: capitalize;
 }
 
+.cmp-snippet h2 {
+	margin-bottom: 0;
+}
 
+.cmp-snippet p {
+	margin-top: 23px;
+	width: 85%;
+	line-height: 20px;
+}
+
+.cmp-snippet .linkContainer .secondaryLinkContainer:empty {
+	display: none;
+}
 
 .cmp-snippet .linkContainer .primaryLinkContainer,
 .cmp-snippet .linkContainer .secondaryLinkContainer {
-	margin-top: 12px;
+	margin-top: 26px;
 	margin-right: 20px;
 	display: inline-block;
 	vertical-align: middle;
 	text-transform: uppercase;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-	.cmp-snippet .headingWrapper p {
-		max-width: 765px;
-	}
+.cmp-snippet .linkContainer .primaryLinkContainer a,
+.cmp-snippet .linkContainer .secondaryLinkContainer a {
+	margin-top: 0;
+}
 
-	.cmp-snippet {
-		margin-right: 750px;
-		margin-left: 260px;
-		margin-top: 60px;
-	}
+.cmp-snippet .linkContainer .primaryLinkContainer:first-child,
+.cmp-snippet .linkContainer .secondaryLinkContainer:first-child {
+	margin-left: 0;
+}
 
-	.cmp-snippet .copy {
-		line-height: 24px;
-		max-width: 760px;
+.cmp-snippet .linkContainer .primaryLinkContainer.secondaryLinkType,
+.cmp-snippet .linkContainer .secondaryLinkContainer.secondaryLinkType {
+	display: block;
+	margin-left: 0;
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+	.cmp-snippet p {
 		margin-top: 23px;
+		width: 100%;
 	}
 }
 
-@media screen and (min-width: 769px) and (max-width: 1280px) {
-	.cmp-snippet .headingWrapper p {
-		max-width: 760px;
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-snippet p {
+		width: 100%;
 	}
-
-	.cmp-snippet {
-		margin-right: 214px;
-		margin-left: 30px;
-		margin-top: 40px;
+	.cmp-snippet.hide-title-mobile {
+		display: none;
 	}
-
-	.cmp-snippet .copy {
-		line-height: 24px;
-		max-width: 880px;
-		margin-top: 23px;
-		margin-right:460px;
+	.cmp-snippet .linkContainer .secondaryLinkContainer {
+		margin-top: 0;
 	}
-
 	.cmp-snippet .linkContainer .primaryLinkContainer,
 	.cmp-snippet .linkContainer .secondaryLinkContainer {
-		margin-top: 12px;
-		margin-right: 26px;
+		display: block;
+		margin-left: 0;
+	}
+	.cmp-snippet .linkContainer .secondaryLinkContainer .primaryLinkWithStyle,
+	.cmp-snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
+		margin-top: 28px;
+	}
+	.cmp-snippet .primaryLinkContainer+.secondaryLinkContainer {
+		margin-top: 0;
 	}
 }
 
-@media screen and (min-width: 376px) and (max-width: 768px) {
-	.cmp-snippet .headingWrapper p {
-		letter-spacing: 1.5px;
-		line-height: 30px;
-		font-size: 30px;
-		max-width: 524px;
+.cmp-snippet--with-DerivativesOverview {
+	padding-bottom: 8px;
+}
 
+.cmp-snippet+.DerivativesOverview .Derivative__range {
+	padding: 0;
+}
+
+@media screen and (min-width: 741px) {
+	.cmp-snippet+.DerivativesOverview .Derivative__range+.Derivative__toggle-content {
+		padding-top: 40px;
 	}
+}
 
-	.cmp-snippet {
-		margin-right: 61px;
-		margin-left: 25px;
-		margin-top: 25px;
+.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
+	background: #fff;
+}
+
+@media screen and (min-width: 901px) {
+	.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
+		padding-top: 56px;
 	}
+}
 
+@media (max-width: 740px) {
+	.cmp-snippet.Accordion--mobile-hide {
+		display: block;
+		height: 1px;
+		padding: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 0;
+	}
+}
+
+.cmp-snippet__MarketRegionalPricing {
+	display: flex;
+	justify-content: center;
+	padding-top: 24px;
+}
+
+.cmp-snippet h2 {
+	margin-bottom: 0;
+}
+
+.cmp-snippet .linkContainer {
+	padding-top: 6px;
+}
+
+.cmp-snippet .copy {
+	font-size: 18px;
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
 	.cmp-snippet .copy {
-		line-height: 19px;
-		max-width: 519px;
-		margin-top: 17px;
+		font-size: 16px;
+		line-height: 18px;
+	}
+	.cmp-snippet p {
+		margin-top: 23px;
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+	.cmp-snippet p {
+		margin-top: 18px;
+	}
+	.cmp-snippet .copy {
 		font-size: 14px;
-		letter-spacing: 0.2px;
-		margin-bottom: 11px;
-		margin-right:219px;
 	}
+}
 
-	.cmp-snippet .linkContainer .primaryLinkContainer,
-	.cmp-snippet .linkContainer .secondaryLinkContainer {
-		margin-top: 13px;
-		margin-right: 20px;
+@media screen and (min-width: 1281px) and (max-width: 2000px) {
+	.cmp-snippet {
+		padding-left: 190px;
 	}
 }
 
 @media screen and (max-width: 375px) {
 	.cmp-snippet .headingWrapper p {
-		letter-spacing: 1.3px;
-		line-height: 36px;
-		font-size: 26px;
+		line-height: 26px;
 	}
-
-	.cmp-snippet {
-		margin-right: 61px;
-		margin-left: 25px;
-		margin-top: 25px;
+	.cmp-snippet .copy p {
+		line-height: 19px;
 	}
+}
 
-	.cmp-snippet .copy {
-		line-height: 14px;
-		margin-top: 16px;
-		font-size: 14px;
-		letter-spacing: 0.2px;
-		margin-bottom: 11px;
-		margin-right:25px;
+@media screen and (min-width: 376px) and (max-width: 768px) {
+	.cmp-snippet .headingWrapper p {
+		line-height: 30px;
 	}
-
-	.cmp-snippet .linkContainer .primaryLinkContainer,
-	.cmp-snippet .linkContainer .secondaryLinkContainer {
-		margin-top: 13px;
-		margin-right: 26px;
+	.cmp-snippet .copy p {
+		line-height: 19px;
 	}
+}
 
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+	.cmp-snippet .headingWrapper p {
+		line-height: 38px;
+	}
+	.cmp-snippet .copy p {
+		line-height: 24px;
+	}
 }
