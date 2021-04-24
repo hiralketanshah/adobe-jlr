@@ -467,9 +467,9 @@
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item3
-                                            cq:styleClasses="cmp-article--dark dark"
+                                            cq:styleClasses="cmp-article--slateblue slateblue"
                                             cq:styleId="1615873470542"
-                                            cq:styleLabel="Dark"
+                                            cq:styleLabel="Slate Blue"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item0>
