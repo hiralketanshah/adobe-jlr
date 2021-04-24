@@ -1014,7 +1014,8 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 .dxnav-unique-nav .dxnav-quick-links__title {
 	font-weight: 600;
 	color: #0c121c;
-	letter-spacing: 1.9px
+	letter-spacing: 1.9px;
+	text-transform: uppercase;
 }
 
 .dxnav-unique-nav .dxnav-quick-links__link:active,
@@ -1037,6 +1038,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	font-weight: 600;
 	letter-spacing: 1.73px;
 	color: #0c121c;
+	text-transform: uppercase;
 	border-bottom: 1px solid #e8eced
 }
 
@@ -3467,7 +3469,8 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	text-align: center;
 	font-size: 1.3em;
 	letter-spacing: 3px;
-	border-bottom: 1px solid #d8d8d8
+	border-bottom: 1px solid #d8d8d8;
+	text-transform: uppercase;
 }
 
 .dxnav-unique-nav .dxnav-dropdown__close-button--with-border {
