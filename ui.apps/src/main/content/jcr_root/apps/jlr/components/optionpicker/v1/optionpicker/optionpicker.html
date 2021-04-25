@@ -7,12 +7,7 @@
    <div class="cmp_interactiveOptionPicker cmp_interactiveOptionPicker__theme fontSmooth "
       data-json="${optionpicker.OptionListAsJson @ context='text'}" data-option-type="" data-tab-theme="">
 
-      <div class="cmp_interactiveOptionPicker__header__box">
-         <h2 class="cmp_interactiveOptionPicker__header fontH2">PAINT FINISHES</h2>
-         <p class="bodyCopy cmp_interactiveOptionPicker__bodyCopy">lorem ipsum dolor sit amet, consectetur adipiscing
-            elit.
-         </p>
-      </div>
+
       <div class="cmp_interactiveOptionPicker__image-wrapper">
 
          <span aria-label="" class="cmp_interactiveOptionPicker__image" role="img"></span>
@@ -57,7 +52,7 @@
             class="cmp_interactiveOptionPicker__bottom-container">
             <hr>
             <div data-sly-test="${optionpicker.globalHeaderCopy}" class="cmp_interactiveOptionPicker__bottom-title">
-               <h2>${optionpicker.globalHeaderCopy @ context='html'}</h2>
+               <h2 class="cmp_interactiveOptionPicker__header">${optionpicker.globalHeaderCopy @ context='html'}</h2>
             </div>
             <div data-sly-test="${optionpicker.globalSummary}" class="cmp_interactiveOptionPicker__bottom-content">
                <p>${optionpicker.globalSummary @ context='html'}</p>
