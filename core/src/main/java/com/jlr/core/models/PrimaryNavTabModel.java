@@ -78,6 +78,8 @@ public class PrimaryNavTabModel {
 	
 	@Inject
     private Page currentPage;
+
+    static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -101,7 +103,6 @@ public class PrimaryNavTabModel {
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
-            String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
             if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("tabName", String.class));
             	}
@@ -117,7 +118,6 @@ public class PrimaryNavTabModel {
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
-            String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
             if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("tabName", String.class));
             	}
@@ -133,7 +133,6 @@ public class PrimaryNavTabModel {
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
-            String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
             if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("tabName", String.class));
             	}
@@ -148,7 +147,6 @@ public class PrimaryNavTabModel {
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
         List<QuickLinks> list = new ArrayList<>();
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild("quickLinks");
             Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
@@ -172,7 +170,6 @@ public class PrimaryNavTabModel {
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
         List<QuickLinks> list = new ArrayList<>();
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild("quickLinks");
             Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
@@ -196,7 +193,6 @@ public class PrimaryNavTabModel {
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
         List<QuickLinks> list = new ArrayList<>();
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild("quickLinks");
             Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
@@ -220,7 +216,6 @@ public class PrimaryNavTabModel {
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavTitle", String.class));
           }
@@ -234,7 +229,6 @@ public class PrimaryNavTabModel {
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavTitle", String.class));
           }
@@ -248,7 +242,6 @@ public class PrimaryNavTabModel {
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavTitle", String.class));
           }
@@ -262,7 +255,6 @@ public class PrimaryNavTabModel {
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavAriaLabel", String.class));
           }
@@ -276,7 +268,6 @@ public class PrimaryNavTabModel {
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavAriaLabel", String.class));
           }
@@ -290,7 +281,6 @@ public class PrimaryNavTabModel {
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("primaryNavAriaLabel", String.class));
           }
