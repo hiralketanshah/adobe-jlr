@@ -42,5 +42,6 @@
         jcr:primaryType="nt:unstructured"
         accolades-header="true"
         faq-header="true"
-        vertical-slider-header="true"/>
+        vertical-slider-header="true"
+        full-frame-header="true"/>
 </jcr:root>
