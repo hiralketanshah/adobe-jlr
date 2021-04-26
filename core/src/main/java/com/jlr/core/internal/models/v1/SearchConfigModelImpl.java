@@ -37,7 +37,7 @@ public class SearchConfigModelImpl implements SearchConfigModel {
 
     @Override
     public Map<String, String> getExclusion() {
-        return getResourceMap(exclusion, CommonConstants.PN_PATHS_TO_EXCLUDE, CommonConstants.PN_INCLUDE_CHILD_PAGES);
+        return getResourceMap(exclusion, CommonConstants.PN_PATHS_TO_EXCLUDE, CommonConstants.PN_EXCLUDE_CHILD_PAGES);
     }
 
     @Override

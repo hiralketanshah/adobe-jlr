@@ -12,9 +12,9 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <general
+                    <exclusions
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="General"
+                        jcr:title="Exclusions"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -38,14 +38,14 @@
                                                     fieldDescription="Add paths to be excluded from search"
                                                     fieldLabel="Paths to exclude"
                                                     name="./pathsToExclude"/>
-                                                <includeChildPages
+                                                <excludeChildPages
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                    fieldDescription="If checked, child pages will be included in search exclusion list."
-                                                    name="./includeChildPages"
+                                                    fieldDescription="If checked, child pages will be excluded from search."
+                                                    name="./excludeChildPages"
                                                     value="true"
                                                     uncheckedValue="false"
-                                                    text="Include child pages"/>
+                                                    text="Exclude child pages"/>
                                             </items>
                                         </column>
                                     </items>
@@ -54,6 +54,14 @@
                                     jcr:primaryType="nt:unstructured"
                                     maxlimit="5"/>
                             </Exclusion>
+                        </items>
+                    </exclusions>
+                    <priorities
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Priorities"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
                             <priority
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
@@ -74,11 +82,11 @@
                                                         fieldDescription="Add priority paths to populate on the top of the search"
                                                         fieldLabel="Priority Paths"
                                                         name="./priorityPaths"/>
-                                                <priorityList
+                                                <priority
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                         fieldDescription="Select the priority"
-                                                        fieldLabel="Priority List"
+                                                        fieldLabel="Priority"
                                                         name="./priority">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <_x0032_priority
@@ -102,7 +110,7 @@
                                                                 text="5"
                                                                 value="5"/>
                                                     </items>
-                                                </priorityList>
+                                                </priority>
                                             </items>
                                         </column>
                                     </items>
@@ -112,7 +120,7 @@
                                         maxlimit="5"/>
                             </priority>
                         </items>
-                    </general>
+                    </priorities>
                 </items>
             </tabs>
         </items>

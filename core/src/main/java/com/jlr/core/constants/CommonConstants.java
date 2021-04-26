@@ -58,7 +58,7 @@ public class CommonConstants {
     public static final String PN_IMAGE_FOLDER_PATH = "folderPath";
 
     public static final String PN_PATHS_TO_EXCLUDE = "pathsToExclude";
-    public static final String PN_INCLUDE_CHILD_PAGES = "includeChildPages";
+    public static final String PN_EXCLUDE_CHILD_PAGES = "excludeChildPages";
     public static final String PN_PRIORITY_PATHS = "priorityPaths";
     public static final String PN_PRIORITY = "priority";
 
