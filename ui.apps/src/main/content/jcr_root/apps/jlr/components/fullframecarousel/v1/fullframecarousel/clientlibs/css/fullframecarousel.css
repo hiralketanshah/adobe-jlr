@@ -305,14 +305,14 @@
   .carousel
   .cmp-carousel__slide
   .fullFrameContent
-  .primaryLinkWithStyle {
+  .cmp-fullframe .primaryLinkWithStyle {
   margin-top: 36px;
 }
 .cmp-carousel
   .carousel
   .cmp-carousel__slide
   .fullFrameContent
-  .secondaryLinkWithStyle {
+  .cmp-fullframe  .secondaryLinkWithStyle {
   color: #898d90;
   margin-top: 30px;
 }
@@ -723,7 +723,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .primaryLinkWithStyle {
+    .cmp-fullframe .primaryLinkWithStyle {
     /* background-color: #fff; */
     /* color: #0c121c; */
   }
@@ -731,7 +731,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .primaryLinkWithStyle:hover {
+    .cmp-fullframe .primaryLinkWithStyle:hover {
     /* background-color: #0c121c;
     color: #fff; */
   }
@@ -739,14 +739,14 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .secondaryLinkWithStyle {
+    .cmp-fullframe  .secondaryLinkWithStyle {
     color: #aeb0b2;
   }
   #landrover
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .secondaryLinkWithStyle:hover {
+    .cmp-fullframe  .secondaryLinkWithStyle:hover {
     color: #e4e8e8;
   }
   #landrover
@@ -789,7 +789,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
 .customControl{
   object-fit: cover
 }
-.headerClass{
+.cmp-fullframe .headerClass{
 float: left;
 margin-right: 40px;
 min-height: 200px;
@@ -798,11 +798,11 @@ min-width: 360px;
 .linkContainer,.secondaryLinkContainer{
   float: left;
 }
-.fontBodyCopyLarge{
+.cmp-fullframe .fontBodyCopyLarge{
   text-align: left;
   padding-right: 40px;
 }
-.shelfComponent{
+.cmp-fullframe .shelfComponent{
   padding-left: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
@@ -832,7 +832,7 @@ min-width: 360px;
      margin-right: 130px;
      margin-top: 60px;
    }
-   .shelfComponent{
+   .cmp-fullframe .shelfComponent{
      margin-left: 100px;
      width: 1100px;
    }
@@ -874,7 +874,7 @@ min-width: 360px;
       position: relative;
       padding-bottom: 0%;
     }
-    .shelfComponent {
+    .cmp-fullframe .shelfComponent {
       padding-left: 30px;
       padding-right: 25px;
       padding-top: 28px;
@@ -883,27 +883,27 @@ min-width: 360px;
       max-width: 75.4%;
       
   }
-  .headerClass {
+  .cmp-fullframe .headerClass {
     float: left;
     min-height: 0px;
     margin-bottom: 0px;
     width: 100%;
 }
-.headerClass h2{
+.cmp-fullframe .headerClass h2{
   margin-top: 0px;
   margin-bottom: 14px;
   display:block;
 }
-.fontBodyCopyLarge{
+.cmp-fullframe .fontBodyCopyLarge{
   width: 100%;
   margin-bottom: 43px;
   padding-right: 0px;
 }
-#landrover .secondaryLinkWithStyle{
+#landrover .cmp-fullframe  .secondaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.primaryLinkWithStyle{
+.cmp-fullframe .primaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
@@ -932,7 +932,7 @@ min-width: 360px;
       position: relative;
       padding-bottom: 0%;
     }
-    .shelfComponent {
+    .cmp-fullframe .shelfComponent {
       padding-left: 25px;
       padding-right: 25px;
       padding-top: 16px;
@@ -941,27 +941,27 @@ min-width: 360px;
       max-width: 100%;
       
   }
-  .headerClass {
+  .cmp-fullframe .headerClass {
     float: left;
     min-height: 0px;
     margin-bottom: 0px;
     width: 100%;
 }
-.headerClass h2{
+.cmp-fullframe .headerClass h2{
   margin-top: 0px;
   margin-bottom: 14px;
   display:block;
 }
-.fontBodyCopyLarge{
+.cmp-fullframe .fontBodyCopyLarge{
   width: 100%;
   margin-bottom: 43px;
   padding-right: 0px;
 }
-#landrover .secondaryLinkWithStyle{
+#landrover .cmp-fullframe  .secondaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.primaryLinkWithStyle{
+.cmp-fullframe .primaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
@@ -979,7 +979,7 @@ min-width: 360px;
 .cmp-carousel__slider{
   height: 100% !important;
 }
-.primaryLinkWithStyle{
+.cmp-fullframe .primaryLinkWithStyle{
   float:left
 }
 .videoCustom { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; }
