@@ -83,6 +83,70 @@ public class PrimaryNavTabModel {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+	private List<String> getPrimaryNavSecTab(String path) {
+		Resource rootNavigationResource=resourceResolver.getResource(path);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        while (childResources.hasNext()) {
+            Resource child = childResources.next();
+            ValueMap properties = child.adaptTo(ValueMap.class);
+            if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get(CommonConstants.PN_TAB_NAME, String.class));
+            	}
+            }
+        return list;
+	}
+	
+	private List<QuickLinks> getQuickLinks(String path) {
+		Resource rootNavigationResource=resourceResolver.getResource(path);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        List<QuickLinks> list = new ArrayList<>();
+        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        	Resource quicklinks=child.getChild(CommonConstants.PN_QUICK_LINKS);
+            Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
+            while(quickLinkchildResources.hasNext()) {
+            	Resource quickLinkchild = quickLinkchildResources.next();
+                ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
+                list.add(new QuickLinks(quickLinkproperties.get(CommonConstants.PN_QUICK_LINKS_CTA_TEXT,String.class),
+                		LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_QUICK_LINKS_CTA_LINK, String.class),
+                                resourceResolver),
+                		quickLinkproperties.get(CommonConstants.PN_QUICK_LINKS_CTA_ICON,String.class),
+                		quickLinkproperties.get(CommonConstants.PN_QUICK_LINKS_CTA_TARGET,String.class)));
+            }
+        }
+        return list;
+	}
+	
+	private List<String> getNavPageTitle(String path) {
+		Resource rootNavigationResource=resourceResolver.getResource(path);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
+          }
+        return list;
+	}
+	
+	private List<String> getNavPageAriaLabel(String path) {
+		Resource rootNavigationResource=resourceResolver.getResource(path);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
+          }
+        return list;
+	}
+	
 	public String getNavPagePathOne() {
 		return navPagePathOne;
 	}
@@ -94,196 +158,52 @@ public class PrimaryNavTabModel {
 	public String getNavPagePathThree() {
 		return navPagePathThree;
 	}
-
+	
 	public List<String> getPrimaryNavSecTabOne() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            ValueMap properties = child.adaptTo(ValueMap.class);
-            if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("tabName", String.class));
-            	}
-            }
-        return list;
+		return getPrimaryNavSecTab(navPagePathOne);
         }
 	
 	public List<String> getPrimaryNavSecTabTwo() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            ValueMap properties = child.adaptTo(ValueMap.class);
-            if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("tabName", String.class));
-            	}
-            }
-        return list;
+		return getPrimaryNavSecTab(navPagePathTwo);
         }
 	
 	public List<String> getPrimaryNavSecTabThree() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            ValueMap properties = child.adaptTo(ValueMap.class);
-            if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("tabName", String.class));
-            	}
-            }
-        return list;
+		return getPrimaryNavSecTab(navPagePathThree);
         }
 	
 	public List<QuickLinks> getPageOneQuickLink() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        List<QuickLinks> list = new ArrayList<>();
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-        	Resource quicklinks=child.getChild("quickLinks");
-            Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
-            while(quickLinkchildResources.hasNext()) {
-            	Resource quickLinkchild = quickLinkchildResources.next();
-                ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(new QuickLinks(quickLinkproperties.get("quickLinksCtaText",String.class),
-                		LinkUtils.appendLinkExtension(properties.get("quickLinksCopyCtaLink", String.class),
-                                resourceResolver),
-                		quickLinkproperties.get("quickLinksCopyCtaIcon",String.class),
-                		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
-            }
-        }
-        return list;
+		return getQuickLinks(navPagePathOne);
         }
 	
 	public List<QuickLinks> getPageTwoQuickLink() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        List<QuickLinks> list = new ArrayList<>();
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-        	Resource quicklinks=child.getChild("quickLinks");
-            Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
-            while(quickLinkchildResources.hasNext()) {
-            	Resource quickLinkchild = quickLinkchildResources.next();
-                ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(new QuickLinks(quickLinkproperties.get("quickLinksCtaText",String.class),
-                		LinkUtils.appendLinkExtension(properties.get("quickLinksCopyCtaLink", String.class),
-                                resourceResolver),
-                		quickLinkproperties.get("quickLinksCopyCtaIcon",String.class),
-                		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
-            }
-        }
-        return list;
+		return getQuickLinks(navPagePathTwo);
         }
 	
 	public List<QuickLinks> getPageThreeQuickLink() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        List<QuickLinks> list = new ArrayList<>();
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-        	Resource quicklinks=child.getChild("quickLinks");
-            Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
-            while(quickLinkchildResources.hasNext()) {
-            	Resource quickLinkchild = quickLinkchildResources.next();
-                ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(new QuickLinks(quickLinkproperties.get("quickLinksCtaText",String.class),
-                		LinkUtils.appendLinkExtension(properties.get("quickLinksCopyCtaLink", String.class),
-                                resourceResolver),
-                		quickLinkproperties.get("quickLinksCopyCtaIcon",String.class),
-                		quickLinkproperties.get("quickLinksCopyCtaTarget",String.class)));
-            }
-        }
-        return list;
+		return getQuickLinks(navPagePathThree);
         }
 	
 	public List<String> getNavPageTitleOne() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primaryNavTitle", String.class));
-          }
-        return list;
+		return getNavPageTitle(navPagePathOne);
         }
 	
 	public List<String> getNavPageTitleTwo() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primaryNavTitle", String.class));
-          }
-        return list;
+		return getNavPageTitle(navPagePathTwo);
         }
 	
 	public List<String> getNavPageTitleThree() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primaryNavTitle", String.class));
-          }
-        return list;
+		return getNavPageTitle(navPagePathThree);
         }
 	
 	public List<String> getNavPageAriaLabelOne() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathOne);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primaryNavAriaLabel", String.class));
-          }
-        return list;
+		return getNavPageAriaLabel(navPagePathOne);
         }
 	
 	public List<String> getNavPageAriaLabelTwo() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathTwo);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primaryNavAriaLabel", String.class));
-          }
-        return list;
+		return getNavPageAriaLabel(navPagePathTwo);
         }
 	
 	public List<String> getNavPageAriaLabelThree() {
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathThree);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild("root").getChild("container");
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("primaryNavAriaLabel", String.class));
-          }
-        return list;
+		return getNavPageAriaLabel(navPagePathThree);
         }
-	}
+}

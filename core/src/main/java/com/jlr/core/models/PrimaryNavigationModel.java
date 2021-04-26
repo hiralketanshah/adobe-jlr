@@ -10,7 +10,6 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavigationModel {
@@ -102,9 +101,6 @@ public class PrimaryNavigationModel {
 	}
 
 	public String getPrimaryNavAriaLabel() {
-		if(null==primaryNavAriaLabel) {
-			primaryNavAriaLabel=CommonConstants.EXPLORE.concat(CommonConstants.COLON).concat(primaryNavTitle);
-		}
 		return primaryNavAriaLabel;
 	}
 
