@@ -1,3 +1,10 @@
+.cmp-article .Article__heading {
+    text-transform: uppercase;
+}
+.cmp-article .richText,
+.cmp-article .imageCaption {
+    text-transform: capitalize;
+}
 .cmp-article__videoframe {
     position: relative;
     max-width: 600px;

@@ -971,7 +971,8 @@
 
 .cmp_footerNav__hygieneLinks  li .TargetLinks {
 	margin: 0 20px 16px;
-	padding: 16px 0 0
+	padding: 16px 0 0;
+	text-transform: uppercase;
 }
 
 .cmp_footerNav__hygieneLinks  li .TargetLinks:hover,

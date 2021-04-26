@@ -79,6 +79,9 @@ public class GlobalModelImpl implements GlobalModel {
     private String videoPath;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String posterImage;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String videoTitle;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -184,6 +187,11 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getVideoPath() {
         return videoPath;
+    }
+
+    @Override
+    public String getPosterImage() {
+        return posterImage;
     }
 
     @Override

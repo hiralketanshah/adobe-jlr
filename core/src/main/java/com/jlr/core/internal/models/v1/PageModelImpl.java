@@ -149,10 +149,11 @@ public class PageModelImpl implements PageModel {
      */
     @Override
     public List<String> getGtmTagsList() {
-
-        List<String> GTMtags = Arrays.asList(getGtmTags().split(CommonConstants.COMMA));
-        return GTMtags;
-
+        if (!StringUtils.isBlank(getGtmTags())) {
+            List<String> GTMtags = Arrays.asList(getGtmTags().split(CommonConstants.COMMA));
+            return GTMtags;
+        }
+        return null;
 
     }
 
@@ -164,13 +165,12 @@ public class PageModelImpl implements PageModel {
      */
     @Override
     public String getCommaSeparatedGtmTagsListWithQuotes() {
-        StringBuilder sb = new StringBuilder(100);
-        sb.append(String.join("','", getGtmTags().split(CommonConstants.COMMA)));
-        LOGGER.info("Combined String: {}", sb.toString());
-        return sb.toString();
-
-
+        if (!StringUtils.isBlank(getGtmTags())) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(String.join("','", getGtmTags().split(CommonConstants.COMMA)));
+            return sb.toString();
+        }
+        return null;
     }
-
 
 }

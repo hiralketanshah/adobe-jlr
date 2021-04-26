@@ -1,0 +1,66 @@
+<div data-sly-use.optionpicker="com.jlr.core.models.InteractiveOptionPickerModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+   data-sly-test.hasContent="${optionpicker.globalHeaderCopy || optionpicker.globalSummary}" id="${component.id}"
+   class="cmp-option-picker">
+
+   <div class="cmp_interactiveOptionPicker cmp_interactiveOptionPicker__theme fontSmooth "
+      data-json="${optionpicker.OptionListAsJson @ context='text'}" data-option-type="" data-tab-theme="">
+
+
+      <div class="cmp_interactiveOptionPicker__image-wrapper">
+
+         <span aria-label="" class="cmp_interactiveOptionPicker__image" role="img"></span>
+      </div>
+
+      <div class="cmp_interactiveOptionPicker__content-wrapper">
+         <div class="cmp_interactiveOptionPicker__content">
+
+
+            <div class="cmp_interactiveOptionPicker__option-group-container">
+               <div
+                  class="cmp_interactiveOptionPicker__option-group-slider cmp_interactiveOptionPicker__option-group-slider--without-scrollbar without-scrollbar swiper-container">
+                  <div class="cmp_interactiveOptionPicker__swiper-wrapper swiper-wrapper"></div>
+
+                  <div
+                     class="cmp_interactiveOptionPicker__swiper-scrollbar cmp_interactiveOptionPicker__swiper-scrollbar--hidden swiper-scrollbar hidden">
+                     <div class="cmp_interactiveOptionPicker__swiper-scrollbar-drag swiper-scrollbar-drag"></div>
+                  </div>
+               </div>
+               <div class="picker-over"></div>
+            </div>
+            <div class="cmp_interactiveOptionPicker__option-btn ">
+               <div class="primaryLinkContainer cmp_interactiveOptionPicker__cta">
+                  <a class="primaryLinkWithStyle TargetLinks mobile-add-button" href="#">
+                     <span>Build your own</span>
+                  </a>
+                  <div class="linkBlock orderNow">
+                     <div class="containerKeyLine">
+                        <div class="orderNowButton">
+
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="cmp_interactiveOptionPicker__otr-disclaimer-container">
+                  <div class="cmp_interactiveOptionPicker__otr"></div>
+               </div>
+               <hr>
+            </div>
+         </div>
+         <div data-sly-test="${optionpicker.globalHeaderCopy || optionpicker.globalSummary}"
+            class="cmp_interactiveOptionPicker__bottom-container">
+            <hr>
+            <div data-sly-test="${optionpicker.globalHeaderCopy}" class="cmp_interactiveOptionPicker__bottom-title">
+               <h2 class="cmp_interactiveOptionPicker__header">${optionpicker.globalHeaderCopy @ context='html'}</h2>
+            </div>
+            <div data-sly-test="${optionpicker.globalSummary}" class="cmp_interactiveOptionPicker__bottom-content">
+               <p>${optionpicker.globalSummary @ context='html'}</p>
+            </div>
+         </div>
+      </div>
+
+      <div aria-live="polite" class="cmp_interactiveOptionPicker__aria-live visuallyHidden" tabindex="-1"></div>
+   </div>
+</div>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}">Interactive Option Picker</sly>

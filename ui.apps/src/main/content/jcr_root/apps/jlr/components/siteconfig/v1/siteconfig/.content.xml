@@ -3,4 +3,4 @@
     jcr:description="JLR Sitewise / Global Config to maintain configuration in key value pair"
     jcr:primaryType="cq:Component"
     jcr:title="JLR SiteConfig (V1)"
-    componentGroup="JLR - Content"/>
+    componentGroup="JLR - Config"/>

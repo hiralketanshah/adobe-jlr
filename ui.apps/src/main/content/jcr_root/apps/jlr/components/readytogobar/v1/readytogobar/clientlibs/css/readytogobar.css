@@ -98,6 +98,10 @@
     font-family: "AvenirNext-Regular,Regular";
 }
 
+.cmp-readyToGoBar__copy p::first-letter {
+    text-transform:capitalize;
+}
+
 .cmp-readyToGoBar__heading-inner {
 	transition: all .4s;
 	text-transform: uppercase;
@@ -272,7 +276,7 @@
 }
 
 /* media query for mobile view */
-@media screen and (min-width: 1px) and (max-width: 375px) {
+@media screen and (min-width: 1px) and (max-width: 376px) {
 	.cmp-readyToGoBar__list {
 		flex-direction: column;
 	}

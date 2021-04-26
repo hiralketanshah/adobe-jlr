@@ -41,6 +41,8 @@
     <granite:data
         jcr:primaryType="nt:unstructured"
         accolades-header="true"
+        hero-item-header="true"
+        faq-header="true"
         vertical-slider-header="true"
-        hero-item-header="true"/>
+        full-frame-header="true"/>
 </jcr:root>

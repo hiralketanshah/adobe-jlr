@@ -77,7 +77,6 @@
 }
 .cmp-dualFrameSlider .Slider__left {
     border: 0;
-    width: calc(((100% - 140px) * (0.33333)) + (90px));
     max-height: 481px;
 }
 .dualframeslider.right .cmp-dualFrameSlider .Slider__left {
@@ -139,7 +138,6 @@
 .cmp-dualFrameSlider .Slider__right {
     align-self: center;
     position: relative;
-    width: calc(((100% - 140px) * (0.66666)) + (50px));
     overflow: hidden;
     opacity: 0;
     padding-left: 0px;
