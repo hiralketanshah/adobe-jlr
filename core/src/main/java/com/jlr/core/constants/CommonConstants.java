@@ -18,6 +18,8 @@ public class CommonConstants {
     public static final String UNDERSCORE = "_";
     public static final String TRUE = "true";
     public static final String COMMA = ",";
+    public static final String JLR_ROOT = "root";
+    public static final String JLR_CONTAINER = "container";
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
     public static final String JLR_GLOBAL_MASTER = "/global/global-master";
     public static final String JLR_GLOBAL_PUBLISHED = "/global/published-sites";
@@ -69,7 +71,14 @@ public class CommonConstants {
     public static final String PN_MODELYEAR = "modelYear";
     public static final String PN_DATE_FORMAT = "dateFormat";
     public static final String PN_IMAGE_FOLDER_PATH = "folderPath";
-
+    public static final String PN_PRIMARY_NAV_TITLE = "primaryNavTitle";
+    public static final String PN_PRIMARY_NAV_ARIA_LABEL = "primaryNavAriaLabel";
+    public static final String PN_TAB_NAME = "tabName";
+    public static final String PN_QUICK_LINKS = "quickLinks";
+    public static final String PN_QUICK_LINKS_CTA_TEXT = "quickLinksCtaText";
+    public static final String PN_QUICK_LINKS_CTA_LINK = "quickLinksCopyCtaLink";
+    public static final String PN_QUICK_LINKS_CTA_ICON = "quickLinksCopyCtaIcon";
+    public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";

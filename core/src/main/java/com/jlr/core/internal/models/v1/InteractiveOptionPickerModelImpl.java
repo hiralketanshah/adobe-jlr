@@ -207,51 +207,56 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
         try {
             jsonResponseObject.put(JSON_PROPERTY_TABTITLE, StringUtils.EMPTY);
             JSONArray togglecards = new JSONArray();
-            for (final InteractiveOptionPickerItemPojo optionItem : getOptionImageList()) {
-                JSONObject optionItemDetails = new JSONObject();
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_TITLE,
-                                StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY : optionItem.getOptionLabel());
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGEURL,
-                                StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL,
-                                StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL, StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY
-                                : CommonUtils.getSmallImagePath(optionItem.getOptionImage()));
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_URL, StringUtils.isEmpty(optionItem.getThumbnailImage()) ? StringUtils.EMPTY
-                                : CommonUtils.getTinyImagePath(optionItem.getThumbnailImage()));
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGE_ALT, StringUtils.isEmpty(optionItem.getImgAlt()) ? StringUtils.EMPTY : optionItem.getImgAlt());
-                optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT, StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY
-                                : CommonUtils.getOnlyTextFromHTML(optionItem.getOptionLabel()));
+            if (null != getOptionImageList() && getOptionImageList().size() > 0) {
+                for (final InteractiveOptionPickerItemPojo optionItem : getOptionImageList()) {
+                    JSONObject optionItemDetails = new JSONObject();
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_TITLE,
+                                    StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY : optionItem.getOptionLabel());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGEURL,
+                                    StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL,
+                                    StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL, StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY
+                                    : CommonUtils.getSmallImagePath(optionItem.getOptionImage()));
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_URL, StringUtils.isEmpty(optionItem.getThumbnailImage()) ? StringUtils.EMPTY
+                                    : CommonUtils.getTinyImagePath(optionItem.getThumbnailImage()));
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGE_ALT,
+                                    StringUtils.isEmpty(optionItem.getImgAlt()) ? StringUtils.EMPTY : optionItem.getImgAlt());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT, StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY
+                                    : CommonUtils.getOnlyTextFromHTML(optionItem.getOptionLabel()));
 
-                if (optionItem.getIsCtaOverriden().equalsIgnoreCase(CommonConstants.TRUE)) {
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
-                                    StringUtils.isEmpty(optionItem.getLink()) ? StringUtils.EMPTY : optionItem.getLink());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT, StringUtils.isEmpty(optionItem.getText()) ? StringUtils.EMPTY : optionItem.getText());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON, StringUtils.isEmpty(optionItem.getIcon()) ? StringUtils.EMPTY : optionItem.getIcon());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
-                                    StringUtils.isEmpty(optionItem.getTarget()) ? StringUtils.EMPTY : optionItem.getTarget());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL,
-                                    StringUtils.isEmpty(optionItem.getAriaLabel()) ? StringUtils.EMPTY : optionItem.getAriaLabel());
-                } else {
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
-                                    StringUtils.isEmpty(getGlobalCtaLink()) ? StringUtils.EMPTY : generateGlobalCtaLink());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT, StringUtils.isEmpty(getGlobalCtaText()) ? StringUtils.EMPTY : getGlobalCtaText());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
-                                    StringUtils.isEmpty(generateGlobalCtaIcon()) ? StringUtils.EMPTY : generateGlobalCtaIcon());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
-                                    StringUtils.isEmpty(getGlobalCtaTarget()) ? StringUtils.EMPTY : getGlobalCtaTarget());
-                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL, StringUtils.isEmpty(generateGlobalCtaAriaLabel()) ? StringUtils.EMPTY
-                                    : CommonUtils.getOnlyTextFromHTML(generateGlobalCtaAriaLabel()));
+                    if (optionItem.getIsCtaOverriden().equalsIgnoreCase(CommonConstants.TRUE)) {
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
+                                        StringUtils.isEmpty(optionItem.getLink()) ? StringUtils.EMPTY : optionItem.getLink());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT,
+                                        StringUtils.isEmpty(optionItem.getText()) ? StringUtils.EMPTY : optionItem.getText());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
+                                        StringUtils.isEmpty(optionItem.getIcon()) ? StringUtils.EMPTY : optionItem.getIcon());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
+                                        StringUtils.isEmpty(optionItem.getTarget()) ? StringUtils.EMPTY : optionItem.getTarget());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL,
+                                        StringUtils.isEmpty(optionItem.getAriaLabel()) ? StringUtils.EMPTY : optionItem.getAriaLabel());
+                    } else {
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
+                                        StringUtils.isEmpty(getGlobalCtaLink()) ? StringUtils.EMPTY : generateGlobalCtaLink());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT, StringUtils.isEmpty(getGlobalCtaText()) ? StringUtils.EMPTY : getGlobalCtaText());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
+                                        StringUtils.isEmpty(generateGlobalCtaIcon()) ? StringUtils.EMPTY : generateGlobalCtaIcon());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
+                                        StringUtils.isEmpty(getGlobalCtaTarget()) ? StringUtils.EMPTY : getGlobalCtaTarget());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL, StringUtils.isEmpty(generateGlobalCtaAriaLabel()) ? StringUtils.EMPTY
+                                        : CommonUtils.getOnlyTextFromHTML(generateGlobalCtaAriaLabel()));
 
+                    }
+
+                    if (null != optionItemDetails && optionItemDetails.length() > 0) {
+                        togglecards.put(optionItemDetails);
+                    }
                 }
-
-                if (null != optionItemDetails && optionItemDetails.length() > 0) {
-                    togglecards.put(optionItemDetails);
-                }
+                jsonResponseObject.put(JSON_PROPERTY_TOGGLECARDS, togglecards);
+                jsonRootArray.put(jsonResponseObject);
+                jsonRoot.put(JSON_PROPERTY_TABS, jsonRootArray);
             }
-            jsonResponseObject.put(JSON_PROPERTY_TOGGLECARDS, togglecards);
-            jsonRootArray.put(jsonResponseObject);
-            jsonRoot.put(JSON_PROPERTY_TABS, jsonRootArray);
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
