@@ -3,4 +3,4 @@
     jcr:description="Dual Frame Carousel"
     jcr:primaryType="cq:Component"
     jcr:title="Dual Frame Carousel(v1)"
-    componentGroup="JLR - Content"/>
+    componentGroup=".hidden"/>
