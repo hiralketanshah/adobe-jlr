@@ -1,48 +1,20 @@
-<div class="cmp-dualFrameItem">
-            <div class="cmp-dualFrameItemGridContext ">
-              <div class="summaryItemContent cmp-dualFrameItem__content">
-                <h2 class="summaryItemHeader heading headingH4 cmp-dualFrameItem__header fontQuote">
-                  <span class="headingWrapper">RANGE ROVER</span>
-                </h2>
-                <p class="heading price headingH5 cmp-dualFrameItem__price cmp-dualFrameItem__price--top fontFromPriceModel">FROM £71,320</p>
-                <p>Developed in partnership with LEGO@&nbsp;Technic™. The Land Rover Defender building kit. Buy yours online
-                  or at your local&nbsp;
-                  <a href="https://www.landroverusa.com/national-dealer-locator.html">Land Rover Retailer</a>.</p>
-                <div class="primaryLinkContainer">
-                  <a class="primaryLinkWithStyle plwsTransparentLight" href="#">
-                    <span>EXPLORE THIS VEHICLE</span>
-                  </a>
-                </div>
-                <div class="cmp-dualFrameItem__secondaryLinks">
-                  <span class="secondaryLinkContainer secondaryLinkType">
-                    <a class="secondaryLinkWithStyle slwsLight" href="#">
-                      <span>DRIVE ONE</span>
-                    </a>
-                  </span>
+<sly data-sly-use.model="com.jlr.core.models.DualFrameCarouselModel" data-sly-call="${renderDFC @ model=model}" />
 
-                </div>
-              </div>
-              <div class="summaryItemImage cmp-dualFrameItem__image">
-                <div class="coverImgWrapper">
+<template data-sly-template.renderDFC="${ @ model }">
+<div data-sly-test="${!model.id}" class="cq-placeholder"
+	 data-emptytext="Full Frame Carousel Component"></div>
 
-                  <button class="coverImgBtn" type="button"></button>
+ID : ${model.id}<br/>
+Header : ${model.headerTitle @context='html'}<br/>
+Body : ${model.copy @context='html'}<br/>
 
-                  <div class="mediaOverlay mediaOverlayVideo">
-                    <!-- <div class="mediaOverlayBg"></div> -->
-                    <div class="mediaOverlayIcon"></div>
-                  </div>
-                </div>
-                <video class="video customControl" controls="controls" height="100%" preload="none" width="100%" poster="../_bin/HeroCarousel/img6_2.jpeg">
-                  <source data-1080="https://landrover.ssl.cdn.sdlmedia.com/hd1080p/635427706746887690US.mp4" data-360="https://landrover.ssl.cdn.sdlmedia.com/mobilehi/635427706746887690US.mp4"
-                    data-480="https://landrover.ssl.cdn.sdlmedia.com/web/635427706746887690US.mp4" data-720="https://landrover.ssl.cdn.sdlmedia.com/hd720p/635427706746887690US.mp4"
-                    src="https://landrover.ssl.cdn.sdlmedia.com/hd720p/635427706746887690US.mp4" type="video/mp4" />
+Image : ${model.fileReference}<br/>
+Alt Text : ${model.imageAlt}<br/>
+Image Link : ${model.imageLink}<br/><br/>
 
-                  <source data-1080="https://landrover.ssl.cdn.sdlmedia.com/hd1080p/635427706746887690US.webm" data-360="https://landrover.ssl.cdn.sdlmedia.com/mobilehi/635427706746887690US.webm"
-                    data-480="https://landrover.ssl.cdn.sdlmedia.com/webm/635427706746887690US.webm" data-720="https://landrover.ssl.cdn.sdlmedia.com/hd720p/635427706746887690US.webm"
-                    src="https://landrover.ssl.cdn.sdlmedia.com/hd720p/635427706746887690US.webm" type="video/webm" />
-
-                  <track data-autoplay="true" kind="subtitles" src="../_bin/VideoPlayer/en.html" srclang="en"></track>
-                </video>
-              </div>
-            </div>
-          </div>
+CTAs: 
+<ul data-sly-list.cta="${model.ctaList}">
+  <li>${cta.text} - ${cta.link} - - ${cta.linkType} - ${cta.target} </li>
+  <a href="${cta.link}">link</a>
+</ul>
+</template>

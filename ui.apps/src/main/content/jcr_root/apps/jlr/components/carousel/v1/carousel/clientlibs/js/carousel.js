@@ -8495,7 +8495,7 @@ const Controller = {
       i1 = i3 - 1;
 
       // We have our indexes i1 & i3, so we can calculate already:
-      // y2 := ((x2âˆ’x1) Ã— (y3âˆ’y1)) Ã· (x3âˆ’x1) + y1
+      // y2 := ((x2−x1) × (y3−y1)) ÷ (x3−x1) + y1
       return (((x2 - this.x[i1]) * (this.y[i3] - this.y[i1])) / (this.x[i3] - this.x[i1])) + this.y[i1];
     };
     return this;
@@ -11775,7 +11775,7 @@ class Accolades {
 }
 // Accolades End
 // Full frame start
-const FullFrameCarouselInit = (($, window) => {
+const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
   const FullFrameCarousel = {
     _defaults: {},
 
@@ -12532,7 +12532,7 @@ const FullFrameCarouselInit = (($, window) => {
     }
   };
 
-  jQuery.createComponent('FullFrameCarousel', FullFrameCarousel);
+  jQuery.createComponent(cmp_name, FullFrameCarousel);
 });
 // Full frame end
 const isBlack = document.getElementsByClassName("grey").length>0 || document.getElementsByClassName("white").length>0 || document.getElementsByClassName("light").length>0 ;
@@ -12552,21 +12552,27 @@ const isBlack = document.getElementsByClassName("grey").length>0 || document.get
 //   Array.prototype.forEach.call(AccoladesElements, el => new Accolades(el,isBlack));
 // }
 const carousalElements = document.querySelectorAll('.cmp-carousel');
-const isFullFrameCarouselExists = document.querySelectorAll('.cmp-hero');
-const isHeroCarouselExists = document.querySelectorAll('.cmp-fullframe');
-const isDualFrameItemExists = document.querySelectorAll('.cmp-dualFrameItem');
-if(isFullFrameCarouselExists.length>0 || isHeroCarouselExists.length>0 || isDualFrameItemExists.length>0){
-  FullFrameCarouselInit(jQuery, window);
+if (carousalElements.length) {
+  carousalElements.forEach((el)=>{
+    let accolades = el.querySelector('.cmp-accolades');
+    if(accolades){
+      let controls = el.querySelector('.cmp-carousel__controls');
+      controls.classList.add('cmp-accolades_pagination');
+      new Accolades(el,isBlack)
+    }
+  });
 }
 if (carousalElements.length) {
   carousalElements.forEach((el)=>{
     let hero = el.querySelector('.cmp-hero');
     let fullFrame = el.querySelector('.cmp-fullframe');
     let dualFrame = el.querySelector('.cmp-dualFrameItem');
-    let accolades = el.querySelector('.cmp-accolades');
     if(fullFrame){
+      FullFrameCarouselInit(jQuery, window,"FullFrameCarousel");
+      let controls = el.querySelector('.cmp-carousel__controls');
+      controls.classList.add('cmp-fullframe_pagination');
       if(el.querySelectorAll('.emptyCopy').length>0){
-          let controls = el.querySelector('.cmp-carousel__controls');
+          let controls = el.querySelector('.cmp-fullframe_pagination');
           if(controls){
             if(window.innerWidth >=365 && window.innerWidth<=767){
               controls.style.top = "65%";
@@ -12590,20 +12596,22 @@ if (carousalElements.length) {
       }
     }
     if(dualFrame){
+      FullFrameCarouselInit(jQuery, window,"DualFrameCarousel");
+      let controls = el.querySelector('.cmp-carousel__controls');
+      controls.classList.add('cmp-dualframe_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
-        comp.FullFrameCarousel();
+        comp.DualFrameCarousel();
       }
     }
     if(hero){
-      console.log(hero);
+      FullFrameCarouselInit(jQuery, window,"HeroCarousel");
+      let controls = el.querySelector('.cmp-carousel__controls');
+      controls.classList.add('cmp-hero_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
-        comp.FullFrameCarousel();
+        comp.HeroCarousel();
       }
-    }
-    if(accolades){
-      new Accolades(el,isBlack)
     }
   });
 }
