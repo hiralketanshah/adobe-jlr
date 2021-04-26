@@ -79,6 +79,7 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     @Optional
     private Resource optionPickerList;
 
+    @Optional
     @Inject
     private String globalHeaderCopy;
 
