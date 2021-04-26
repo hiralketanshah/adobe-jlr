@@ -34,7 +34,7 @@
                         </items>
                         <granite:data
                             jcr:primaryType="nt:unstructured"
-                            dual-full-frame-component="true"/>
+                            dual-frame-component="true"/>
                     </general>
                     <imagevideo
                         jcr:primaryType="nt:unstructured"
@@ -112,7 +112,7 @@
                         </items>
                         <granite:data
                             jcr:primaryType="nt:unstructured"
-                            dual-full-frame-component="true"/>
+                            dual-frame-component="true"/>
                     </imagevideo>
                     <cta
                         jcr:primaryType="nt:unstructured"
