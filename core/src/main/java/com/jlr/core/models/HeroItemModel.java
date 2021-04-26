@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * The Interface HeroItemModel.
@@ -27,5 +28,14 @@ public interface HeroItemModel {
      */
     default List<FooterPojo> getFooterList() {
         return new ArrayList<>();
+    }
+
+    /**
+     * Gets caveat.
+     *
+     * @return the caveat
+     */
+    default String getCaveat() {
+        return StringUtils.EMPTY;
     }
 }

@@ -15,6 +15,8 @@ import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.CtaUtils;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 /**
  * The Class HeroItemModelImpl.
@@ -22,7 +24,9 @@ import com.jlr.core.utils.CtaUtils;
 @Model(adaptables = Resource.class, adapters = { HeroItemModel.class }, resourceType = HeroItemModelImpl.RESOURCE_TYPE)
 public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel {
 
-    /** The Constant RESOURCE_TYPE. */
+    /**
+     * The Constant RESOURCE_TYPE.
+     */
     public static final String RESOURCE_TYPE = "jlr/components/heroitem/v1/heroitem";
 
     /** The cta list. */
@@ -39,10 +43,17 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The list of CTA. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String caveat;
+
+    /**
+     * The list of CTA.
+     */
     List<CTAPojo> listOfCta = new ArrayList<>();
 
-    /** The list of footer links. */
+    /**
+     * The list of footer links.
+     */
     List<FooterPojo> listOffooterLinks = new ArrayList<>();
 
     /**
@@ -69,5 +80,16 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
             listOffooterLinks = CommonUtils.createFooterList(footerList);
         }
         return listOffooterLinks;
+    }
+
+
+    /**
+     * Gets caveat.
+     *
+     * @return the caveat
+     */
+    @Override
+    public String getCaveat() {
+        return caveat;
     }
 }

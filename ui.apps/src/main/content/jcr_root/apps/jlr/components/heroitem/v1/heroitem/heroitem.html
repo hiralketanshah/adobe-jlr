@@ -1,20 +1,79 @@
-<sly data-sly-use.model="com.jlr.core.models.HeroItemModel"
-	data-sly-call="${renderHeroCarousel @ heroCarousel=model}" />
+<sly data-sly-use.model="com.jlr.core.models.HeroItemModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='hero.tco.from.txt'}"
+	 data-sly-call="${renderHeroCarousel @ heroCarousel=model, config=config}"/>
+<template data-sly-template.renderHeroCarousel="${ @ heroCarousel, config }">
 
-<template data-sly-template.renderHeroCarousel="${ @ heroCarousel }">
-	<div class="cq-placeholder" data-emptytext="Hero Carousel Component"></div>
-   <img alt="${heroCarousel.imageAlt}"	src="${heroTitleBanner.fileReference}"> 
-   Title: ${heroCarousel.headerTitle @ context="html"} </br>
-   Copy:	${heroCarousel.description @ context="html"} </br>
-   ImageLink:${heroCarousel.imageLink} </br>
-   Show TCO : ${heroCarousel.enableTco}</br>
-	<div data-sly-test="${heroCarousel.enableTco}"
-		data-sly-resource="${ 'tco' @ resourceType = '/apps/jlr/components/tco/v1/tco' }"
-      data-sly-unwrap="${!wcmmode.edit}">
-   </div>
-	<div data-sly-list.item="${heroCarousel.ctaList}">
-		<div>
-			<a target="${item.target}" href="${item.link}"><button>${item.text} - ${item.linkType}</button></a>
+	<div class="cmp-hero" id="${heroCarousel.id}">
+		<div class="cmp-genericItem__element-poster">
+			<div class="coverImgWrapper">
+
+				<button class="coverImgBtn" type="button"></button>
+				<div class="mediaOverlay mediaOverlayVideo">
+					<div class="mediaOverlayBg"></div>
+					<div class="mediaOverlayIcon"></div>
+				</div>
+			</div>
+			<div data-sly-test="${heroCarousel.assetType == 'video'}" class="videoCustom">
+				<iframe width="100%" height="100%" src="${heroCarousel.videoId}" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<picture data-sly-test="${heroCarousel.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
+				<img alt="${heroCarousel.imageAlt}" class="Picture__img" srcset="${heroCarousel.fileReference}" />
+			</picture>
+
+			<video class="video customControl" controls="controls" height="100%" preload="none" width="100%" data-sly-test="${heroCarousel.videoPath}">
+				<source src="${heroCarousel.videoPath}" type="video/mp4" />
+
+				<source src="${heroCarousel.videoPath}" type="video/webm" />
+
+				 <track data-autoplay="true" kind="subtitles" src="../_bin/VideoPlayer/en.html" srclang="en"></track>
+			</video>
+		</div>
+
+		<div class=" shelfComponent" >
+			<div class="headerClass">  <h2 class="heading headingThick fontH2">
+				<div class="${heroCarousel.headerIcon}">
+
+				</div>
+
+
+				<span class="headingWrapper">
+				  ${heroCarousel.copy @ context='html'}
+				</span>
+			</h2>
+				<div class="headerCopy">
+					<p>${heroCarousel.headerCopy @context='html'}</p>
+				</div>
+			</div>
+			<div class="contentClass">
+				<div class="pricing">
+					<p>Starting at</p>
+					<p><strong>${config.configValue}: ${heroCarousel.price}</strong></p>
+				</div>
+				<div class="linkContainer">
+					<sly data-sly-list="${heroCarousel.ctaList}">
+						<sly data-sly-test="${itemList.first}">
+							<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
+								<a class="${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+									<span aria-hidden="true">${item.text}</span>
+								</a>
+							</div>
+						</sly>
+					</sly>
+				</div>
+			</div>
+		</div>
+		<div class="heroFooterSection">
+			<div class="emissionDetails">
+				<sly data-sly-list="${heroCarousel.footerList}">
+					<sly data-sly-test="${itemList}">
+						<label>${item.header @ context='html'} :</label>
+						<p>${item.copy  @ context='html'}</p>
+					</sly>
+				</sly>
+			</div>
+			<div class="caveat">
+				<p>${heroCarousel.caveat}</p>
+			</div>
 		</div>
 	</div>
+
 </template>
