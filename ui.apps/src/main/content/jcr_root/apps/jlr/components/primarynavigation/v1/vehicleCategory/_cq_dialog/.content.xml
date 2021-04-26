@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Primary Navigation - Vehicle Dropdown"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+        margin="{Boolean}false">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <vehicleTabName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Vehicle tab name to be displayed at the top."
+                                fieldLabel="Vehicle Tab Name"
+                                name="./vehicleTabName"/>
+                            <vehicleFamily
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="CTA links that gets displayed on left pane"
+                                fieldLabel="Vehicle Family">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./vehicleFamily">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <vehicleFamilyName
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Vehicle Family Name to be specified."
+                                                    fieldLabel="Vehicle Family Name"
+                                                    name="./vehicleFamilyName"/>
+                                                <vehicles
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                    composite="{Boolean}true"
+                                                    fieldDescription="Maximum 2 CTAs are allowed"
+                                                    fieldLabel="Vehicles">
+                                                    <field
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                        name="./vehiclesList">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <column
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <vehicleTitle
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="The title of the vehicle to be displayed."
+                                                                        fieldLabel="Vehicle Title"
+                                                                        name="./vehicleTitle"
+                                                                        rootPath="/content/landrover"/>
+                                                                    <vehicleLink
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                                        fieldDescription="Link to a vehicle information to be specified."
+                                                                        fieldLabel="Vehicle Link"
+                                                                        name="./vehicleLink"
+                                                                        rootPath="/content/landrover"/>
+                                                                    <vehicleImage
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                        allowUpload="{Boolean}false"
+                                                                        fieldDescription="Select an Vehicle background image to be displayed for the vehicle title."
+                                                                        fieldLabel="Vehicle Background Image"
+                                                                        fileReferenceParameter="./vehicleBgImage"
+                                                                        mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                                        multiple="{Boolean}false"
+                                                                        name="./vehicleImage"
+                                                                        required="true"/>
+                                                                </items>
+                                                            </column>
+                                                        </items>
+                                                    </field>
+                                                    <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        maxlimit="5"/>
+                                                </vehicles>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                            </vehicleFamily>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
