@@ -211,7 +211,7 @@
                     layout="simple"
                     layoutDisabled="true"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Structure]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -225,13 +225,27 @@
                     sling:resourceType="wcm/core/components/policy/policy"
                     layout="simple"
                     layoutDisabled="true"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1574695586800>
+                <policy_1619408388744
+                    jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Config Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    layout="simple"
+                    layoutDisabled="true"
+                    components="[group:JLR - Config,group:JLR - Structure]">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
+                        </assetToComponentMapping>
+                    </cq:authoring>
+                </policy_1619408388744>
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
@@ -245,7 +259,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Config]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
