@@ -681,7 +681,7 @@
                             sling:resourceType="wcm/core/components/policy/policy"
                             autopauseDisabled="false"
                             autoplay="true"
-                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/dualframecarousel/v1/dualframecarousel]"
+                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel]"
                             delay="6000">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
