@@ -9,6 +9,8 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.models.DualFrameCarouselModel;
 import com.jlr.core.pojos.CTAPojo;
@@ -28,6 +30,10 @@ public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameC
     @Optional
     private Resource ctaList;
 
+    /** The content type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String assetType;
+
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
 
@@ -43,5 +49,15 @@ public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameC
             list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
         return list;
+    }
+
+    /**
+     * Gets the content type.
+     *
+     * @return the content type
+     */
+    @Override
+    public String getAssetType() {
+        return assetType;
     }
 }

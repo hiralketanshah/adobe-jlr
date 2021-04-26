@@ -1,0 +1,946 @@
+.cmp-carousel {
+  padding: 60px 60px 80px;
+  min-height: 428px;
+  max-height: 100%;
+  text-align: center;
+  position: relative;
+}
+.cmp-carousel__slider {
+  height: 100%;
+  width: 100%;
+  outline: 0;
+}
+.cmp-carousel__tabImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cmp-carousel__bgImage {
+  display: block;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cmp-carousel__controls {
+  z-index: 1;
+  padding: 0;
+  left: 0px;
+  right: auto;
+  bottom: 1px;
+  position: absolute;
+  justify-content: left;
+}
+.cmp-carousel__controls--hidden {
+  display: none;
+}
+
+.left .cmp-carousel__controls{
+    left: auto;
+    right: 0;
+}
+.slateblue .Pagination--black .Pagination__play-control-icon,
+.slateblue .Pagination--black .Pagination__pause-control-icon{
+fill:#ffffff;
+}
+.slateblue .Pagination__pause:before,
+.slateblue .Pagination--black .Pagination__play:before, .slateblue .Pagination--black .Pagination__pause:before{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.slateblue .Pagination--black .Pagination__pip:after{
+    border: 2px solid #fff;
+}
+.cmp-carousel .swiper-button {
+  display: block;
+}
+.cmp-carousel .swiper-button[aria-disabled="true"] {
+  display: none;
+}
+.cmp-carousel .headerBox.withImage .headerBoxContent {
+  background-color: transparent;
+}
+.cmp-carousel .fullFrameContent {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.cmp-carousel.youtubepresent {
+  min-height: initial;
+}
+.cmp-carousel.youtubepresent .carousel {
+  min-height: initial;
+}
+
+.cmp-carousel .tab-content {
+  display: none;
+}
+.cmp-carousel .VideoPlayer.paused .mejs-overlay-play,
+.cmp-carousel .VideoPlayer.finished .mejs-overlay-play {
+  width: 100%;
+}
+.cmp-carousel .VideoPlayer.paused .mediaOverlay,
+.cmp-carousel .VideoPlayer.finished .mediaOverlay {
+  display: block;
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  .cmp-carousel .VideoPlayer.paused .mediaOverlay,
+  .cmp-carousel .VideoPlayer.finished .mediaOverlay {
+    position: relative;
+  }
+}
+.cmp-carousel .YouTubeGalleryAsset {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.cmp-carousel .YouTubeGalleryAsset > h4,
+.cmp-carousel .YouTubeGalleryAsset > p {
+  display: none;
+}
+.cmp-carousel .YouTubeGalleryAsset .youTubePlayerFFCMask {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 50px);
+  top: 0;
+  left: 0;
+  z-index: 2;
+  min-height: 428px;
+}
+.cmp-carousel .YouTubeGalleryAsset .YouTubePlayer {
+  display: block;
+  padding: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.cmp-carousel .YouTubeGalleryAsset .mediaOverlay {
+  z-index: 3;
+}
+.cmp-carousel .YouTubeGalleryAsset .playerWrapper {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.cmp-carousel .YouTubeGalleryAsset .playerWrapper .placeholderVideo {
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+.cmp-carousel .YouTubeGalleryAsset .playerWrapper > a {
+  display: none !important;
+}
+.cmp-dualFrameItemGridContext .mediaOverlay.mediaOverlayVideo .mediaOverlayIcon:before{
+    font-size: 48px;
+    width: 78px;
+    margin: 0;
+    height: 78px;
+    line-height: 78px;
+    background: #00000052;
+}
+@media screen and (min-width: 741px) {
+  .cmp-carousel .YouTubeGalleryAsset .playerWrapper {
+    top: 0;
+    left: 0;
+    position: absolute;
+    transform: none;
+  }
+}
+.cmp-carousel .mediaOverlay .mediaOverlayBg {
+  width: 100%;
+  height: 100%;
+}
+.cmp-carousel .mediaOverlay:not(.mediaOverlayVideo):hover .mediaOverlayBg {
+  background: none;
+}
+.cmp-carousel .galleryImageLink {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  position: absolute;
+}
+.cmp-carousel
+  .galleryImageLink
+  .mediaOverlay.mediaOverlayVideo
+  .mediaOverlayIcon:before {
+  font-size: 68px;
+}
+@media screen and (min-width: 1px) and (max-width: 1440px) {
+  .cmp-carousel
+    .galleryImageLink
+    .mediaOverlay.mediaOverlayVideo
+    .mediaOverlayIcon:before {
+    margin: auto;
+  }
+  .cmp-carousel
+    .galleryImageLink
+    .mediaOverlay.mediaOverlayVideo
+    .noHeaderBox
+    .mediaOverlayIcon:before {
+    text-align: center;
+    padding: 0;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  .cmp-carousel .galleryImageLink .mediaOverlay.mediaOverlayVideo {
+    display: flex;
+    align-items: center;
+  }
+  .cmp-carousel
+    .galleryImageLink
+    .mediaOverlay.mediaOverlayVideo
+    .mediaOverlayIcon {
+    height: auto;
+  }
+  .cmp-carousel
+    .galleryImageLink
+    .mediaOverlay.mediaOverlayVideo
+    .mediaOverlayIcon:before {
+    font-size: 42px;
+    text-align: center;
+    padding-right: 0;
+  }
+}
+.cmp-carousel.loaded {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+.cmp-carousel .carousel {
+  text-align: center;
+  direction: ltr;
+  min-height: 428px;
+  overflow: unset;
+}
+.cmp-carousel .carousel .cmp-carousel__slide {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #4a4f54;
+}
+
+.cmp-carousel .carousel .cmp-carousel__slide noscript > div,
+.cmp-carousel .carousel .cmp-carousel__slide .VideoPlayer > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -1;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
+  z-index: 2;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent.visible {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent .headingTextMain {
+  color: #a4a7a9;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  margin-bottom: 36px;
+}
+.cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent .headingTextSub {
+  margin: auto;
+  padding-top: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  display: block;
+  font-size: 24px;
+  letter-spacing: 1.2px;
+  margin-bottom: 18px;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide
+  .fullFrameContent
+  .headingTextSub
+  .subtitle {
+  letter-spacing: 1.2px;
+}
+.cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent .bodyText {
+  font-size: 14px;
+  font-family: "avenir", "arial", "helvetica", sans-serif;
+  color: #4a4f54;
+  letter-spacing: 0.28px;
+  line-height: 18px;
+  padding-top: 0;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide
+  .fullFrameContent
+  .primaryLinkWithStyle {
+  margin-top: 36px;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide
+  .fullFrameContent
+  .secondaryLinkWithStyle {
+  color: #898d90;
+  margin-top: 30px;
+}
+.cmp-carousel .carousel .cmp-carousel__slide.left .headerBox .bodyText {
+  text-align: left;
+}
+.cmp-carousel .carousel .cmp-carousel__slide.centre {
+  justify-content: center;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset
+  .headerBox {
+  z-index: 4;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset
+  .YouTubeGalleryAsset {
+  z-index: 1;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset
+  [data-background-image] {
+  z-index: 2;
+}
+@media screen and (min-width: 741px) {
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    .headerBox {
+    pointer-events: none;
+  }
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    .headerBox.visible {
+    pointer-events: auto;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  .cmp-carousel .carousel .cmp-carousel__slide--withYouTubeGalleryAsset {
+    height: auto;
+  }
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    .headerBox {
+    opacity: 1;
+    position: relative;
+    z-index: 4;
+  }
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    [data-background-image] {
+    position: absolute !important;
+    padding: 0 !important;
+    height: 55vw !important;
+    top: 0;
+    left: 0;
+  }
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset
+  .mediaOverlay.mediaOverlayVideo {
+  opacity: 0;
+  z-index: 3;
+  pointer-events: none;
+  -webkit-transition: opacity 0.3s ease;
+  -moz-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset
+  .mediaOverlay.mediaOverlayVideo.visible {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  pointer-events: auto;
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset
+  .mediaOverlay.mediaOverlayVideo
+  .mediaOverlayIcon:before {
+  font-size: 68px;
+}
+@media screen and (min-width: 1px) and (max-width: 1440px) {
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    .mediaOverlay.mediaOverlayVideo
+    .mediaOverlayIcon:before {
+    padding-right: 33%;
+    text-align: right;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    .mediaOverlay.mediaOverlayVideo
+    .mediaOverlayIcon:before {
+    padding-right: 0;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset
+    .mediaOverlay.mediaOverlayVideo {
+    height: 55vw;
+  }
+}
+.cmp-carousel
+  .carousel
+  .cmp-carousel__slide--withYouTubeGalleryAsset.noHeaderBox
+  .mediaOverlay.mediaOverlayVideo
+  .mediaOverlayIcon:before {
+  font-size: 68px;
+}
+@media screen and (min-width: 1px) and (max-width: 1440px) {
+  .cmp-carousel
+    .carousel
+    .cmp-carousel__slide--withYouTubeGalleryAsset.noHeaderBox
+    .mediaOverlay.mediaOverlayVideo
+    .mediaOverlayIcon:before {
+    padding-right: 0;
+    text-align: center;
+  }
+}
+.cmp-carousel .carousel .video {
+  max-width: 100%;
+  object-fit: fill;
+}
+.cmp-carousel .carousel .video .VideoPlayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+@media screen and (min-width: 741px) {
+  .cmp-carousel .carousel .video .VideoPlayer {
+    bottom: 0;
+  }
+}
+.cmp-carousel .carousel .video .VideoPlayer.flash {
+  width: 100%;
+  height: 100%;
+}
+.cmp-carousel .carousel .video .VideoPlayer.flash embed,
+.cmp-carousel .carousel .video .VideoPlayer.flash object {
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+.cmp-carousel .carousel .video .VideoPlayer .posterImage {
+  display: none;
+}
+.cmp-carousel .carousel .video .VideoPlayer video::-webkit-media-controls,
+.cmp-carousel
+  .carousel
+  .video
+  .VideoPlayer
+  video::-webkit-media-controls-start-playback-button {
+  display: none;
+}
+@media screen and (min-width: 741px) {
+  .cmp-carousel .carousel .video .VideoPlayer .mejs-video {
+    position: relative;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+.cmp-carousel
+  .carousel
+  .video
+  .VideoPlayer
+  .mejs-video
+  .mejs-button
+  button {
+  font-size: 68px;
+  border-right: 0;
+}
+.cmp-carousel
+  .carousel
+  .video
+  .VideoPlayer
+  .mejs-video
+  .mejs-button
+  button:before {
+  color: #fff;
+  position: relative;
+  top: -5px;
+  left: -2px;
+}
+.ie
+  .cmp-carousel
+  .carousel
+  .video
+  .VideoPlayer
+  .mejs-video
+  .mejs-button
+  button {
+  height: 68px;
+  width: 68px;
+}
+.cmp-carousel
+  .carousel
+  .video
+  .VideoPlayer
+  .mejs-video
+  .mejs-controls
+  div {
+  display: none;
+}
+.cmp-carousel
+  .carousel
+  .video
+  .VideoPlayer
+  .mejs-video
+  .mejs-controls.hide {
+  visibility: hidden !important;
+  display: none !important;
+}
+.cmp-carousel .carousel .video .VideoPlayer .mejs-layers {
+  width: 100%;
+  height: 100%;
+}
+.cmp-carousel .carousel .video .VideoPlayer video {
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  max-width: 100%;
+  visibility: visible;
+  object-fit: fill;
+}
+.cmp-carousel .carousel .video .VideoPlayer + span {
+  z-index: -1;
+}
+.ie .cmp-carousel .carousel .video .VideoPlayer + span,
+.ms-edge .cmp-carousel .carousel .video .VideoPlayer + span {
+  z-index: 0;
+}
+.cmp-carousel .disable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  background-color: #000;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+}
+.cmp-carousel[data-total="1"] .mejs-video {
+  cursor: default;
+}
+.cmp-carousel[data-total="1"] .mejs-video video,
+.cmp-carousel[data-total="1"] .mejs-video object {
+  cursor: default;
+}
+html.no-js .cmp-carousel {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  height: auto;
+  min-height: 0;
+}
+html.no-js .cmp-carousel .carousel > * {
+  float: none;
+}
+html.no-js .cmp-carousel .carousel .video .VideoPlayer + span {
+  display: block;
+  z-index: 1;
+}
+html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  position: relative;
+  text-align: center;
+  height: auto;
+  display: block;
+}
+html.no-js .cmp-carousel .carousel .cmp-carousel__slide.centre {
+  text-align: left;
+}
+html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  min-height: 0;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+.cmp-carousel__slider .swiper-button--prev{
+    left: -50px;
+}
+.cmp-carousel__slider .swiper-button--next{
+    right: -50px;
+}
+.cmp-carousel__slider{
+  max-height: 428px !important;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__image {        
+    position: relative;
+    min-height: 428px;
+    height: 428px;
+    width: 760px;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItemGridContext {
+    min-height: 320px;
+    position: initial;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.left .cmp-dualFrameItem .cmp-dualFrameItem__content{
+order: 2;
+padding-right: 0;
+padding-left: 40px;
+}
+.left .cmp-dualFrameItem .cmp-dualFrameItem__image{
+    order: 1;
+}
+.cmp-dualFrameItem .BazaarVoiceRating {
+    margin: 39px 0 24px
+}
+
+.cmp-dualFrameItem .summaryItemList+.BazaarVoiceRating {
+    padding-top: 15px;
+    margin-top: 0
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__content {
+    width: 35%;
+    text-align: left;
+    padding-right: 40px;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__content p {
+    margin-top: 4px;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__header {
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: "LandRoverWeb-Bold";
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__price {
+    margin-bottom: 18px;
+    margin-top: 0;
+    line-height: 1;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-family: "avenir", "arial", "helvetica", sans-serif;
+    font-weight: normal
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__list {
+    margin-top: 36px;
+    margin-bottom: 24px
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__list li {
+    margin-bottom: 6px
+}
+
+.cmp-dualFrameItem .SpecificationsAtAGlance {
+    overflow: hidden;
+    *zoom: 1;
+    text-align: left;
+    margin-top: 24px
+}
+
+.cmp-dualFrameItem .SpecificationsAtAGlance .items {
+    margin-right: -12px
+}
+
+.cmp-dualFrameItem .SpecificationsAtAGlance .el {
+    float: left;
+    width: 33.333%;
+    padding: 0 12px 0 0
+}
+
+.cmp-dualFrameItem .SpecificationsAtAGlance p {
+    margin-top: 0;
+    margin-bottom: 0
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__feature {
+    font-size: 10px;
+    color: #4a4f54;
+    margin-bottom: 12px
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__measurement {
+    margin-bottom: 0;
+    border-top: 1px solid #a4a7a9;
+    border-bottom: 1px solid #a4a7a9;
+    padding: 12px 0;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__measurement .valueSmall {
+    font-size: 30px;
+    padding: 0;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__measurement .unitSmall {
+    font-size: 16px;
+}
+
+.cmp-dualFrameItem.dark .cmp-dualFrameItem__feature {
+    color: #e4e8e8;
+}
+
+.cmp-dualFrameItem.grey {
+    color: #4a4f54;
+}
+
+.cmp-dualFrameItem.grey .SpecificationsAtAGlance .feature,
+.cmp-dualFrameItem.grey .SpecificationsAtAGlance .items .el .measurement {
+    color: #4a4f54;
+    border-color: #a4a7a9;
+}
+
+.cmp-dualFrameItem.light {
+    color: #4a4f54;
+}
+
+.cmp-dualFrameItem.light .SpecificationsAtAGlance .feature,
+.cmp-dualFrameItem.light .SpecificationsAtAGlance .items .el .measurement {
+    color: #4a4f54;
+    border-color: #a4a7a9;
+}
+#landrover .cmp-dualFrameItem .cmp-dualFrameItem__secondaryLinks .secondaryLinkWithStyle:hover {
+    color: #005a2b !important;
+    text-decoration: none !important;
+}
+
+
+
+#landrover .cmp-dualFrameItem .primaryLinkWithStyle{
+    margin-top: 0px;
+    font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
+    text-transform: uppercase;
+}
+#landrover .cmp-dualFrameItem .primaryLinkContainer{
+    margin-top: 24px;
+}
+#landrover .cmp-dualFrameItem .primaryLinkContainer:first-of-type{
+    margin-top: 33px;
+}
+
+#landrover .cmp-dualFrameItem .secondaryLinkWithStyle{
+    margin-right: 10px;
+    display: inherit;
+    text-transform: uppercase;
+    font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
+}
+
+#landrover .cmp-dualFrameItem .cmp-dualFrameItem__secondaryLinks .secondaryLinkWithStyle:last-child {
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+
+.cmp-dualFrameItem .cmp-dualFrameItem__image .Picture {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+.cmp-dualFrameItem.left .cmp-dualFrameItem__image .Picture {
+    width: calc(100% - 40px);
+}
+.cmp-dualFrameItem.right .cmp-dualFrameItem__image{
+order:2;
+}
+.cmp-dualFrameItem.right .cmp-dualFrameItem__content{
+order:1;
+}
+.cmp-dualFrameItem.left .cmp-dualFrameItem__image{
+    order:1;
+    }
+.cmp-dualFrameItem.left .cmp-dualFrameItem__content{
+    order:2;
+}
+.cmp-dualFrameItem.right .cmp-dualFrameItem__image .Picture {
+    left: 40px;
+    width: calc(100% - 40px);
+}
+#landrover .cmp-dualFrameItem .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .primaryLinkWithStyle:focus
+{
+    background-color: #4a4f54;
+    color: #fff;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
+}
+    
+#landrover .cmp-dualFrameItem .secondaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .secondaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .secondaryLinkWithStyle:focus {
+    color: #005a2b;
+    text-shadow: none;
+    box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
+}
+.swiper-button{
+    filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 2px rgba(74, 144, 226, 0.1)) drop-shadow(0 0 2px rgba(74, 144, 226, 0.1));
+}
+
+@media screen and (min-width: 1921px) and (max-width: 2560px) {
+    
+    .cmp-carousel {
+        padding: 60px 60px 80px;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItem__image {
+        position: relative;
+        min-height: 496px;
+        height: 496px;
+        width: 880px;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .cmp-carousel {
+        padding: 30px 40px 40px;
+    }
+    .cmp-dualFrameItem {
+        width: 100%;
+        height: 100%;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItemGridContext {
+        min-height: 326px;
+        flex-direction: column;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItem__image {
+        width: 100%;
+        position: relative;
+        height: 48.8vw;
+        left: 0;
+        right: auto;
+        overflow: hidden;
+        padding-left: 0;
+        min-height: 150px;
+        min-height: 399px;
+        max-height: 399px;
+    }
+    .cmp-dualFrameItem.left .cmp-dualFrameItem__image .Picture,
+    .cmp-dualFrameItem.right .cmp-dualFrameItem__image .Picture {
+        width: 100%;
+        height: auto;
+        left:0;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItemGridContext {
+        min-height: 399px
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItem__content {
+        width: 100%;
+        margin-top: 80px;
+        padding: 0;
+        order: 2;
+        margin-bottom: 40px;
+    }
+    .cmp-carousel__controls{
+        bottom: -35px;
+    }
+    .cmp-carousel__slider .swiper-button--next {
+        right: -30px;
+    }
+    .cmp-carousel__slider .swiper-button--prev {
+        left: -30px;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItem__content p{
+        width: 75%;
+    }
+   
+    .cmp-carousel__slider .swiper-button--next{
+        display: none;
+    }
+    .cmp-carousel__slider .swiper-button--prev{
+        display: none;
+    }
+    .cmp-carousel__controls {
+        bottom: -35px;
+    }
+    
+    .cmp-dualFrameItem .cmp-dualFrameItem__header{
+        font-size: 16px;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItem__content p{
+        width: 100%;
+        font-size: 12px;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItemGridContext{
+        min-height: 226px;
+    }
+    .left .cmp-carousel__controls {
+        left: 0;
+        right: auto;
+    }
+}
+@media screen and (max-width: 375px) {
+    
+    .cmp-carousel {
+        padding: 25px;
+    }
+    .cmp-dualFrameItem .cmp-dualFrameItem__image{
+        min-height: 183px;
+    }
+    .cmp-dualFrameItem.left .cmp-dualFrameItem__image .Picture {
+        width: 100%;
+    }
+    .cmp-dualFrameItem.right .cmp-dualFrameItem__image {
+        order: 1;
+    }
+    .cmp-dualFrameItem.right .cmp-dualFrameItem__image .Picture {
+        left: 0px;
+        width: 100%;
+    }
+    .cmp-carousel .YouTubeGalleryAsset .playerWrapper{
+        height: 183px !important;
+    }
+    .cmp-carousel .carousel {
+        max-height: 183px !important;
+        min-height: 183px;
+    }
+}

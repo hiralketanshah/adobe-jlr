@@ -13,14 +13,11 @@ The Full Frame Carousel component uses the `com.jlr.core.models.FullFrameCarouse
 ### Edit Dialog Properties
 The following properties are written to JCR for this Full Frame Carousel component and are expected to be available as `Resource` properties:
 
-1. `./id` - defines the id for the component and is a Mandatory field.
-2. `./headerTitle` - defines the header title for the component
-3. `./copy` - defines the body copy for the component
-4. `./backgroundImage` - defines background image for the component
-5. `./text` - defines the CTA text for the component
-6. `./link` - defines the CTA link for the component
-7. `./linkType` - defines the CTA link types such as Primary or secondary for the component
-8. `./target` - defines the CTA target (new tab or current tab) for the component
+1. `./id` - defines the id for the component.
+2. `./headerTitle` - defines the header title for the component.
+3. `./copy` - defines the body copy for the component.
+4. `./assetType` - defines the assetType - image or video, accordingly show and hide teh fields.
+5. `./ctaList` - defines the list of CTA for the component where max number of CTAs is 2.
 
 The edit dialog allows the page to be refreshed after editing the component
 
@@ -32,4 +29,3 @@ CSS styling and JavaScript component. It should be added to a relevant site clie
 * **Vendor**: Jaguar
 * **Version**: v1
 * **Compatibility**: AEM 6.5
-* **Component Library**: https://wiki.jlrdxhelp.com/967de2bc9/p/90a3fa-accolades
