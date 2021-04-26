@@ -79,6 +79,7 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     @Optional
     private Resource optionPickerList;
 
+    @Optional
     @Inject
     private String globalHeaderCopy;
 
@@ -94,6 +95,7 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     @Inject
     private String globalCtaLink;
 
+    @Optional
     @Inject
     private String globalCtaIcon;
 
