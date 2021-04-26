@@ -14,22 +14,22 @@
                     <countryName
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                        fieldDescription="Specify the Country Name belongs to the region."
+                        fieldDescription="Specify the default country name is that is automatically selected for this market."
                         fieldLabel="Country Name"
                         name="./countryName"/>
                     <countryCode
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                        fieldDescription="Specify the Country code corresponding to the Country Name."
+                        fieldDescription="Specify the default country code correspoding to the country that is automatically selected for this market"
                         fieldLabel="Country Code"
                         name="./countryCode"/>
                     <marketLink
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                        fieldDescription="Specify the Country specific market selector page link."
+                        fieldDescription="Browse the market specific market selector config page."
                         fieldLabel="Market Selector Page Link"
                         name="./marketLink"
-                        rootPath="/content"/>
+                        rootPath="/content/landrover/global"/>
                     <flagIcon
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/include"
