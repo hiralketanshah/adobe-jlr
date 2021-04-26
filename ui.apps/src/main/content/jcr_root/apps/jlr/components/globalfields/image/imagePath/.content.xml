@@ -13,5 +13,5 @@
     <granite:data
         jcr:primaryType="nt:unstructured"
         signpost-image="{Boolean}true"
-        hero-item-title-banner-image="{Boolean}true"/>
+        hero-item-image="{Boolean}true"/>
 </jcr:root>

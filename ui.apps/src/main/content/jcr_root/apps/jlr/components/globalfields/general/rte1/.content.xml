@@ -42,5 +42,5 @@
         jcr:primaryType="nt:unstructured"
         accolades-header="true"
         vertical-slider-header="true"
-        hero-item-title-banner-header="true"/>
+        hero-item-header="true"/>
 </jcr:root>
