@@ -10,4 +10,3 @@ faq-validation.js
 vehiclesummary-validation.js
 option-picker-validation.js
 showhide.js
-dropdownshowhide.js
