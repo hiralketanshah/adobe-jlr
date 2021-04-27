@@ -780,7 +780,7 @@ margin-right: 40px;
 min-height: 200px;
 min-width: 360px;
 }
-.linkContainer,.secondaryLinkContainer{
+.cmp-carousel .linkContainer,.cmp-carousel .secondaryLinkContainer{
   float: left;
 }
 .cmp-fullframe .fontBodyCopyLarge{
