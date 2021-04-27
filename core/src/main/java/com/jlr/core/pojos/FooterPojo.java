@@ -18,7 +18,7 @@ public class FooterPojo {
         this.header = header;
     }
 
-    public String getcopy() {
+    public String getCopy() {
         return copy;
     }
 
