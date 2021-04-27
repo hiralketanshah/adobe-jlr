@@ -3,15 +3,12 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
 import com.jlr.core.models.VerticalSliderModel;
 
 
@@ -35,7 +32,7 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     /** The carousel delay. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private Boolean autopauseDisabled;
-    
+
     @Inject
     private Resource verticalSlider;
 
@@ -54,14 +51,14 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
      */
     @Override
     public List<VerticalSliderItem> getVerticalSliderItems() {
-    	verticalSliderItems = new ArrayList<>();
+        verticalSliderItems = new ArrayList<>();
         if (null != verticalSliderList && verticalSliderList.hasChildren()) {
-        	Iterator<Resource> iterator = verticalSliderList.getChildren().iterator();
-        	while(iterator.hasNext()) {
-        		Resource item = iterator.next();
-        		VerticalSliderItem vsItem = item.adaptTo(VerticalSliderItem.class);
-        		verticalSliderItems.add(vsItem);
-        	}
+            Iterator<Resource> iterator = verticalSliderList.getChildren().iterator();
+            while (iterator.hasNext()) {
+                Resource item = iterator.next();
+                VerticalSliderItem vsItem = item.adaptTo(VerticalSliderItem.class);
+                verticalSliderItems.add(vsItem);
+            }
         }
         return verticalSliderItems;
     }
@@ -97,8 +94,9 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     public String getPipIcon() {
         return pipIcon;
     }
+
     /*
-     * Gets Silder resource Node name
+     * Gets slider resource Node name
      * 
      * @return the resource name
      */

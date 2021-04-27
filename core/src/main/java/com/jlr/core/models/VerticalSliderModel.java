@@ -2,13 +2,12 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
-
 import com.jlr.core.internal.models.v1.VerticalSliderItem;
 
 /**
- * The Interface ArticleModel.
+ * The Interface VerticalSliderModel.
  */
 @ConsumerType
 public interface VerticalSliderModel {
@@ -48,11 +47,11 @@ public interface VerticalSliderModel {
     }
 
     default String getPipIcon() {
-        return null;
+        return StringUtils.EMPTY;
     }
-    
+
     default String getName() {
-        return null;
+        return StringUtils.EMPTY;
     }
 
     default List<VerticalSliderItem> getVerticalSliderItems() {
