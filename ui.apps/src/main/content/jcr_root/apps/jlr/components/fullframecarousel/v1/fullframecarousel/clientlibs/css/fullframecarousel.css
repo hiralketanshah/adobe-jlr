@@ -1,9 +1,9 @@
 .cmp-fullframe .headerClass{
-	text-transform:capitalize;
+	text-transform:uppercase;
 }
 
 .cmp-fullframe .fontBodyCopyLarge{
-	text-transform:uppercase;
+	text-transform:capitalize;
 }
 
 .TabbedContainer .cmp-carousel {

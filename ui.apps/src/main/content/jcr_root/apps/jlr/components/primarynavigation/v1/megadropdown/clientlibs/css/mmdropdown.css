@@ -1068,21 +1068,9 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 .dxnav-unique-nav .dxnav-promo-panel__copy {
 	font-size: 14px;
 	font-weight: 300;
-	margin-bottom: 21px !important;
+	margin-bottom: 21px;
 	letter-spacing: .2px;
 	color: #4a4f54
-}
-
-.dxnav-unique-nav .dxnav-promo-panel__copy::first-letter{
-	text-transform: capitalize;
-}
-
-.dxnav-unique-nav .dxnav-promo-panel__copy p{
-	margin-bottom: 21px !important;
-}
-
-.dxnav-unique-nav .dxnav-promo-panel__copy p::first-letter{
-	text-transform: capitalize;
 }
 
 .dxnav-unique-nav .dxnav-external-link__heading {
@@ -1099,21 +1087,9 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 .dxnav-unique-nav .dxnav-external-link__copy {
 	font-size: 14px;
 	font-weight: 300;
-	margin-bottom: 21px !important;
+	margin-bottom: 21px;
 	letter-spacing: .2px;
 	color: #4a4f54
-}
-
-.dxnav-unique-nav .dxnav-external-link__copy::first-letter{
-	text-transform: capitalize;
-}
-
-.dxnav-unique-nav .dxnav-external-link__copy p{
-	margin-bottom: 21px;
-}
-
-.dxnav-unique-nav .dxnav-external-link__copy p::first-letter{
-	text-transform: capitalize;
 }
 
 .dxnav-unique-nav .dxnav-vehicle-dropdown-shortcuts {

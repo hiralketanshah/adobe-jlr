@@ -104,7 +104,7 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
 
     @Override
     public List<String> getImageList() {
-        return imageList;
+        return new ArrayList<>(imageList);
     }
 
     @Override

@@ -17,16 +17,12 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.day.cq.commons.jcr.JcrConstants;
-import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.pojos.QuickLinks;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavTabModel {
-	
-	@Inject
-	private Resource resource;
 	
 	@Inject
 	private String navPagePathOne;
@@ -36,6 +32,15 @@ public class PrimaryNavTabModel {
 	
 	@Inject
 	private String navPagePathThree;
+	
+	@Inject
+	private String fileReferenceLogo;
+	
+	@Inject
+	private String logoImageAlt;
+	
+	@Inject
+	private String logoImageLink;
 
 	@Inject
 	private String primaryNavSecTabOne;
@@ -75,9 +80,6 @@ public class PrimaryNavTabModel {
 	
 	@Inject
     private ResourceResolver resourceResolver;
-	
-	@Inject
-    private Page currentPage;
 
     static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
 	
@@ -159,6 +161,18 @@ public class PrimaryNavTabModel {
 		return navPagePathThree;
 	}
 	
+	public String getFileReferenceLogo() {
+		return fileReferenceLogo;
+	}
+
+	public String getLogoImageAlt() {
+		return logoImageAlt;
+	}
+
+	public String getLogoImageLink() {
+		return logoImageLink;
+	}
+
 	public List<String> getPrimaryNavSecTabOne() {
 		return getPrimaryNavSecTab(navPagePathOne);
         }

@@ -36,7 +36,7 @@
       <div class="dxnav-primary-tab-columns">
          <div class="dxnav-external-link">
             <h2 data-sly-test="${model.leftPaneHeaderCopy}" class="dxnav-external-link__heading">${model.leftPaneHeaderCopy @ context="html"}</h2>
-            <span data-sly-test="${model.leftPaneBodyCopy}" class="dxnav-external-link__copy">${model.leftPaneBodyCopy @ context="html"}</span>
+            <p data-sly-test="${model.leftPaneBodyCopy}" class="dxnav-external-link__copy">${model.leftPaneBodyCopy @ context="html"}</p>
             <sly data-sly-test="${model.leftTextCta}" data-sly-list.cta="${model.leftTextCta}">
                <a class="dxnav-cta-primary dxnav-external-link__primary-link" href="${cta.leftPaneCopyCtaLink}" data-target="${cta.leftPaneCopyCtaTarget}" target="${cta.leftPaneCopyCtaTarget}">
                   <svg class="dxnav-icon">
@@ -81,7 +81,7 @@
                   <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" src="${cta.fileReferenceImageTxt}" alt="${cta.isImageTextDecorative =='true' ? '': cta.rightPaneImageTextAlt}"> </div>
                   <div class="dxnav-promo-panel__content-wrapper">
                      <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy @ context="html"}</h2>
-                     <span data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy @ context="html"}</span>
+                     <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy @ context="html"}</p>
                      <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>
@@ -105,11 +105,6 @@
 <sly data-sly-test="${model.mmTemplate=='templateB'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
-            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
-               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
-            </ul>
-         </div>
          <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>

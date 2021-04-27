@@ -1,3 +1,10 @@
+.cmp_interactiveOptionPicker__theme .show-cta {
+	display:block;
+}
+.cmp_interactiveOptionPicker__theme .hide-cta {
+    display:none;
+}
+
 .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__cta .primaryLinkWithStyle:nth-child(1) {
     margin-top: 0px;
 }
@@ -456,6 +463,9 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 .cmp_interactiveOptionPicker__bottom-content p{
     padding-bottom: 0;
     width: 71%;
+}
+.cmp_interactiveOptionPicker__bottom-content p:first-letter {
+text-transform: capitalize;
 }
 .cmp_interactiveOptionPicker__bottom-content p:last-child{
     margin-top: 25px;
