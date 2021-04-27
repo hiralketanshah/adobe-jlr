@@ -149,7 +149,7 @@
                         <item29
                                 jcr:primaryType="nt:unstructured"
                                 key="hero.tco.from.txt"
-                                value="Starting at"/>
+                                value="Price From"/>
                     </configList>
                 </siteconfig>
             </container>
