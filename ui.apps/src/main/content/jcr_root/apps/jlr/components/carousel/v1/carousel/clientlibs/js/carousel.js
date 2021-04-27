@@ -11820,6 +11820,13 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
     },
 
     init() {
+      const sliderElement = this.element.querySelector('.cmp-carousel__slider');
+      if(sliderElement){
+        sliderElement.insertAdjacentHTML('beforeend', `
+        <button class="cmp-carousel__previous swiper-button swiper-button--prev"></button>
+        <button class="cmp-carousel__next swiper-button swiper-button--next"></button>
+      `);
+      }
       let resizeTimeout;
       this._tabbedContainer = (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_4__.insideTabbedContainer)(this.$element);
       this._isInsideTabbedContainer = this._tabbedContainer.length;
@@ -12567,7 +12574,9 @@ if (carousalElements.length) {
     let hero = el.querySelector('.cmp-hero');
     let fullFrame = el.querySelector('.cmp-fullframe');
     let dualFrame = el.querySelector('.cmp-dualFrameItem');
+    let heroTitle = el.querySelector('.cmp-heroTitleBanner');
     if(fullFrame){
+      el.classList.add('cmp-fullframe-carousel');
       FullFrameCarouselInit(jQuery, window,"FullFrameCarousel");
       let controls = el.querySelector('.cmp-carousel__controls');
       controls.classList.add('cmp-fullframe_pagination');
@@ -12596,21 +12605,33 @@ if (carousalElements.length) {
       }
     }
     if(dualFrame){
-      FullFrameCarouselInit(jQuery, window,"DualFrameCarousel");
+      el.classList.add('cmp-dualframe-carousel');
+      FullFrameCarouselInit(jQuery, window,"DualFrameCarouselCustom");
       let controls = el.querySelector('.cmp-carousel__controls');
       controls.classList.add('cmp-dualframe_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
-        comp.DualFrameCarousel();
+        comp.DualFrameCarouselCustom();
       }
     }
     if(hero){
+      el.classList.add('cmp-hero-carousel');
       FullFrameCarouselInit(jQuery, window,"HeroCarousel");
       let controls = el.querySelector('.cmp-carousel__controls');
       controls.classList.add('cmp-hero_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
         comp.HeroCarousel();
+      }
+    }
+    if(heroTitle){
+      el.classList.add('cmp-herotitle-carousel');
+      FullFrameCarouselInit(jQuery, window,"HeroTitleBanner");
+      let controls = el.querySelector('.cmp-carousel__controls');
+      controls.classList.add('cmp-heroTitleBanner_pagination');
+      const comp = $(el);
+      if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
+        comp.HeroTitleBanner();
       }
     }
   });

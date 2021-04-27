@@ -14,16 +14,17 @@
                 </h2>
                 <p>${model.copy @context='html'}</p>
 
-				<sly data-sly-list.cta="${model.ctaList}">
-                    <div class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'cmp-dualFrameItem__secondaryLinks'}">
-					<span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}">
-                        <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle plwsTransparentLight' : 'secondaryLinkWithStyle slwsLight'} TargetLinks ${cta.target=='overlay' ? '' : cta.icon}" href="${cta.link}" data-link-desktop="${cta.link}" aria-label="${cta.ariaLabel}" target="${cta.target}" data-target="${cta.target}">
-                            <span >${cta.text}</span>
-                        </a>
-                    </span>
-				
+				<div class="linkContainer">
+					  <sly data-sly-list.cta="${model.ctaList}">
+						<sly data-sly-test="${cta.text}">
+						  <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
+							<a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
+							 <span aria-hidden="true">${cta.text}</span>
+							</a>
+						  </span>
+						</sly>
+					  </sly>
                 </div>
-				</sly>
               </div>
               <div class="summaryItemImage cmp-dualFrameItem__image">
                 <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
