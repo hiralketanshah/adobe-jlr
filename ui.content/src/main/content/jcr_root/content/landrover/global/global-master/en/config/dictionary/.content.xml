@@ -146,6 +146,10 @@
                             jcr:primaryType="nt:unstructured"
                             key="marketregionpricing.dxnav.selectregion"
                             value="SHOW PRICES"/>
+                        <item29
+                                jcr:primaryType="nt:unstructured"
+                                key="hero.tco.from.txt"
+                                value="Starting at"/>
                     </configList>
                 </siteconfig>
             </container>

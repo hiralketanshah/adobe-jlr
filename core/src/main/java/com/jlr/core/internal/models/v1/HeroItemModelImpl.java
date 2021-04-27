@@ -43,8 +43,13 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The caveat. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String caveat;
+
+    /** The price. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String price;
 
     /**
      * The list of CTA.
@@ -91,5 +96,15 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
     @Override
     public String getCaveat() {
         return caveat;
+    }
+
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
+    @Override
+    public String getPrice() {
+        return price;
     }
 }

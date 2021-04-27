@@ -4,7 +4,14 @@
 
 	<div class="cmp-hero" id="${heroCarousel.id}">
 		<div class="cmp-genericItem__element-poster">
-			<div class="coverImgWrapper">
+			<div data-sly-test="${heroCarousel.assetType == 'video'}" class="videoCustom">
+				<!-- <iframe width="100%" height="100%" src="${heroCarousel.videoId}" frameborder="0" allowfullscreen></iframe> -->
+			</div>
+			<picture data-sly-test="${heroCarousel.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
+				<img alt="${heroCarousel.imageAlt}" class="Picture__img" srcset="${heroCarousel.fileReference}" />
+			</picture>
+
+			<div class="coverImgWrapper" data-sly-test="${heroCarousel.videoPath}">
 
 				<button class="coverImgBtn" type="button"></button>
 				<div class="mediaOverlay mediaOverlayVideo">
@@ -12,19 +19,8 @@
 					<div class="mediaOverlayIcon"></div>
 				</div>
 			</div>
-			<div data-sly-test="${heroCarousel.assetType == 'video'}" class="videoCustom">
-				<iframe width="100%" height="100%" src="${heroCarousel.videoId}" frameborder="0" allowfullscreen></iframe>
-			</div>
-			<picture data-sly-test="${heroCarousel.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
-				<img alt="${heroCarousel.imageAlt}" class="Picture__img" srcset="${heroCarousel.fileReference}" />
-			</picture>
-
 			<video class="video customControl" controls="controls" height="100%" preload="none" width="100%" data-sly-test="${heroCarousel.videoPath}">
 				<source src="${heroCarousel.videoPath}" type="video/mp4" />
-
-				<source src="${heroCarousel.videoPath}" type="video/webm" />
-
-				 <track data-autoplay="true" kind="subtitles" src="../_bin/VideoPlayer/en.html" srclang="en"></track>
 			</video>
 		</div>
 
@@ -45,8 +41,8 @@
 			</div>
 			<div class="contentClass">
 				<div class="pricing">
-					<p>Starting at</p>
-					<p><strong>${config.configValue}: ${heroCarousel.price}</strong></p>
+					<p>${config.configValue}</p>
+					<p><strong> ${heroCarousel.price}</strong></p>
 				</div>
 				<div class="linkContainer">
 					<sly data-sly-list="${heroCarousel.ctaList}">
@@ -71,7 +67,7 @@
 				</sly>
 			</div>
 			<div class="caveat">
-				<p>${heroCarousel.caveat}</p>
+				<p>${heroCarousel.caveat @ context='html'}</p>
 			</div>
 		</div>
 	</div>
