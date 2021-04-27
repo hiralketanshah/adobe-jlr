@@ -119,8 +119,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getMarketLink() {
-        String link = LinkUtils.appendLinkExtension(marketLink, resourceResolver);
-        return link;
+        return LinkUtils.appendLinkExtension(marketLink, resourceResolver);
     }
 
     /**
@@ -130,7 +129,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getCountryName() {
-        if (countryName == "" || countryName == null) {
+        if (null == countryName || countryName.isEmpty()) {
             return null;
         }
         return countryName.toUpperCase();
@@ -143,7 +142,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getCountryCode() {
-        if (countryCode == "" || countryCode == null) {
+        if (null == countryCode || countryCode.isEmpty()) {
             return null;
         }
         return countryCode.toUpperCase();
