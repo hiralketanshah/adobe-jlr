@@ -1,17 +1,18 @@
 package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
 import javax.inject.Inject;
+
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 import com.jlr.core.models.VerticalSliderModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
 
 
 /**
@@ -22,10 +23,6 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/verticalslider/v1/verticalslider";
-
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
 
     /** The pip Icon. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -38,14 +35,16 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     /** The carousel delay. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private Boolean autopauseDisabled;
+    
+    @Inject
+    private Resource verticalSlider;
 
-    /** The cta list. */
     @Inject
     @Optional
-    private Resource ctaList;
+    private Resource verticalSliderList;
 
     /** The list. */
-    List<CTAPojo> list = new ArrayList<>();
+    List<VerticalSliderItem> verticalSliderItems = new ArrayList<>();
 
     /**
      * 
@@ -54,13 +53,18 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
      * @return the cta list
      */
     @Override
-    public List<CTAPojo> getCtaList() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+    public List<VerticalSliderItem> getVerticalSliderItems() {
+    	verticalSliderItems = new ArrayList<>();
+        if (null != verticalSliderList && verticalSliderList.hasChildren()) {
+        	Iterator<Resource> iterator = verticalSliderList.getChildren().iterator();
+        	while(iterator.hasNext()) {
+        		Resource item = iterator.next();
+        		VerticalSliderItem vsItem = item.adaptTo(VerticalSliderItem.class);
+        		verticalSliderItems.add(vsItem);
+        	}
         }
-        return list;
+        return verticalSliderItems;
     }
-
 
     /*
      * Gets the delay between transitions
@@ -90,9 +94,17 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
      * @return the icon type
      */
     @Override
-    public String getPipicon() {
+    public String getPipIcon() {
         return pipIcon;
     }
-
+    /*
+     * Gets Silder resource Node name
+     * 
+     * @return the resource name
+     */
+    @Override
+    public String getName() {
+        return verticalSlider.getName();
+    }
 
 }
