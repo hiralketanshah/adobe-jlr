@@ -230,6 +230,12 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
                                         : CommonUtils.getOnlyTextFromHTML(optionItem.getOptionLabel()));
 
                         if (optionItem.getIsCtaOverriden().equalsIgnoreCase(CommonConstants.TRUE)) {
+                            String ctaAriaLabelText = optionItem.getAriaLabel();
+
+                            if (StringUtils.isEmpty(ctaAriaLabelText)) {
+                                ctaAriaLabelText = CtaUtils.getAriaLabel(getGlobalHeaderCopy(), optionItem.getText());
+                            }
+
                             optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
                                             StringUtils.isEmpty(optionItem.getLink()) ? StringUtils.EMPTY : optionItem.getLink());
                             optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT,
@@ -239,7 +245,7 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
                             optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
                                             StringUtils.isEmpty(optionItem.getTarget()) ? StringUtils.EMPTY : optionItem.getTarget());
                             optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL,
-                                            StringUtils.isEmpty(optionItem.getAriaLabel()) ? StringUtils.EMPTY : optionItem.getAriaLabel());
+                                            StringUtils.isEmpty(ctaAriaLabelText) ? StringUtils.EMPTY : ctaAriaLabelText);
                         } else {
                             optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
                                             StringUtils.isEmpty(getGlobalCtaLink()) ? StringUtils.EMPTY : generateGlobalCtaLink());

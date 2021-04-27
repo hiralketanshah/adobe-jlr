@@ -2255,9 +2255,10 @@
                     _this._setComponentHeight();
                   });
                   $(window).resize((0, _utils.throttle)(function () {
-                    _this._calculateOptionContainerWidth();
-                    _this._setComponentHeight();
                     _this._generateSlidesFromJson();
+                    _this._calcVariableSlideWidths();
+                    _this._calculateOptionContainerWidth();;
+                    _this._setComponentHeight();
                     if ((0, _utils.checkDefined)(_this.activeOption) && _this.breakpointSize !== (0, _browserDetection.getBreakpointSize)()) {
                       _this._setBackgroundImage(_this.activeOption);
                       _this.breakpointSize = (0, _browserDetection.getBreakpointSize)();
@@ -2595,7 +2596,7 @@
                   var ctaTarget = activeElement.attr('data-ctaTarget');
                   var ctaAriaLabel = activeElement.attr('data-ctaAriaLabel');
     
-                  if (!(0, _utils.checkDefined)(configUrl) || configUrl === '') {
+                  if (!(0, _utils.checkDefined)(configUrl) || configUrl === ''|| ctaText === '' ) {
                     this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("show-cta");
                     this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("hide-cta");
                     return; // Currently we work on the assumption that a link will always be authored for each card
