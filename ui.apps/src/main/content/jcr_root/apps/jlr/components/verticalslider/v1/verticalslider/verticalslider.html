@@ -38,7 +38,7 @@
                        <div class="linkBlock ">
                           <div class="containerKeyLine">
                              	<sly data-sly-list="${vsItem.ctaList}">
-									<sly data-sly-test="${itemList.first}">
+									<sly data-sly-test="${itemList.first && item.text}">
 										<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
 											<div class="cmp-interactiveNumberedImage__tabItem_cta">
 											<a class="${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
