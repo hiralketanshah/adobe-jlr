@@ -4253,7 +4253,6 @@ var isNumberedImage;
 
     // set initial tab/image states and fire method to handle click events
     _initTabEvents: function _initTabEvents() {
-      console.log("fire");
       var activeTab = this.ui('tabbedNavigationLinks').eq(0);
       var ariaAttributes = function ariaAttributes(ariaSelected) {
         return {
@@ -4405,9 +4404,6 @@ var isNumberedImage;
     },
     _handleSizes: function _handleSizes(force) {
       var mode = this._getMode();
-
-      console.log(mode);
-      console.log(this._isVerticalSlider)
 
       if (mode !== 'desktop') {
        
