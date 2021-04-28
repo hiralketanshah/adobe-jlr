@@ -1,18 +1,75 @@
-<sly data-sly-use.model="com.jlr.core.models.HeroTitleBannerModel" data-sly-call="${renderHeroTitleBanner @ heroTitleBanner=model}" />
+<sly data-sly-use.model="com.jlr.core.models.HeroItemModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='hero.tco.from.txt'}"
+	 data-sly-call="${renderHeroCarousel @ heroCarousel=model, config=config}"/>
+<template data-sly-template.renderHeroCarousel="${ @ heroCarousel, config }">
 
-<template data-sly-template.renderHeroTitleBanner="${ @ heroTitleBanner }">
-<div class="cq-placeholder"
-	 data-emptytext="Hero Title Banner Component"></div>
+	<div class="cmp-hero" id="${heroCarousel.id}">
+		<div class="cmp-genericItem__element-poster">
+			<div data-sly-test="${heroCarousel.assetType == 'video'}" class="videoCustom">
+				<!-- <iframe width="100%" height="100%" src="${heroCarousel.videoId}" frameborder="0" allowfullscreen></iframe> -->
+			</div>
+			<picture data-sly-test="${heroCarousel.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
+				<img alt="${heroCarousel.imageAlt}" class="Picture__img" srcset="${heroCarousel.fileReference}" />
+			</picture>
 
-     <img alt="${heroTitleBanner.imageAlt}" src="${heroTitleBanner.fileReference}">
-     Title: ${heroTitleBanner.headerTitle @ context="html"}
-     Copy: ${heroTitleBanner.copy @ context="html"}
-     ImageLink: ${heroTitleBanner.imageLink}
+			<div class="coverImgWrapper" data-sly-test="${heroCarousel.videoPath}">
 
-<div data-sly-list.item="${heroTitleBanner.ctaList}">
+				<button class="coverImgBtn" type="button"></button>
+				<div class="mediaOverlay mediaOverlayVideo">
+					<div class="mediaOverlayBg"></div>
+					<div class="mediaOverlayIcon"></div>
+				</div>
+			</div>
+			<video class="video customControl" controls="controls" height="100%" preload="none" width="100%" data-sly-test="${heroCarousel.videoPath}">
+				<source src="${heroCarousel.videoPath}" type="video/mp4" />
+			</video>
+		</div>
 
-   <div><a target="${item.target}" href="${item.link}"><button>${item.text}</button></a></div>
+		<div class=" shelfComponent" >
+			<div class="headerClass">  <h2 class="heading headingThick fontH2">
+				<div class="${heroCarousel.headerIcon} logo">
 
-</div>
+				</div>
+
+
+				<span class="headingWrapper">
+				  ${heroCarousel.copy @ context='html'}
+				</span>
+			</h2>
+				<div class="headerCopy">
+					<p>${heroCarousel.headerCopy @context='html'}</p>
+				</div>
+			</div>
+			<div class="contentClass">
+				<div class="pricing">
+					<p>${config.configValue}</p>
+					<p><strong> ${heroCarousel.price}</strong></p>
+				</div>
+				<div class="linkContainer">
+					<sly data-sly-list="${heroCarousel.ctaList}">
+						<sly data-sly-test="${itemList}">
+							<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
+								<a class="${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+									<span aria-hidden="true">${item.text}</span>
+								</a>
+							</div>
+						</sly>
+					</sly>
+				</div>
+			</div>
+		</div>
+		<div class="heroFooterSection">
+			<div class="emissionDetails">
+				<sly data-sly-list="${heroCarousel.footerList}">
+					<sly data-sly-test="${itemList}">
+						<label>${item.header @ context='html'} :</label>
+						<p>${item.copy  @ context='html'}</p>
+					</sly>
+				</sly>
+			</div>
+			<div class="caveat">
+				<p>${heroCarousel.caveat @ context='html'}</p>
+			</div>
+		</div>
+	</div>
 
 </template>

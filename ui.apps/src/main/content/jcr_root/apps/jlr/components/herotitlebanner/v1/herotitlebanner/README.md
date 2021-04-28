@@ -1,27 +1,26 @@
 <!-- Jaguar Component -->
-Hero Title Banner (v1)
+Hero Item (v1)
 ====
-Hero Title Banner component written in HTL.
+Hero Item Component written in HTL.
 
 ## Features
 
-* Hero Title Banner are a versatile component used in a variety of ways on DX.
+* Hero Item are a versatile component used in a variety of ways on DX.
 
 ### Use Object
-The Hero Title Banner component uses the `com.jlr.core.models.HeroTitleBannerModel` Sling model as its Use-object.
+The Hero Carousel component uses the `com.jlr.core.models.HeroItemModel` Sling model as its Use-object.
 
 ### Edit Dialog Properties
-The following properties are written to JCR for this Hero Title Banner component and are expected to be available as `Resource` properties:
+The following properties are written to JCR for this Hero Item and are expected to be available as `Resource` properties:
 
-1. `./headerCopy` - defines the title for the component.
-2. `./copy` - defines the body copy for the component.
-3. `./fileReference` - defines an iamge for the component.
-4. `./imageLink` - Make the image a link to another resource.
-5. `./imageAlt` - defines the iamge alt text for the component.
-6. `./text` - defines the CTA text for the component.
-7. `./link` - defines the CTA link for the component.
-8. `./target` - defines the CTA target (new tab or current tab) for the component.
-9. `./linkType` - defines whether the CTA is primary or Secondary.
+1. `./id` - defines the id for the component.
+2. `./headerCopy` - defines the header copy for the component.
+3. `./headerIcon` - defines an header icon for the component.
+4. `./copy` - Make the image a copy to another resource.
+5. `./price` - defines the price for the component.
+6. `./footerList` - defines the footer list for the component ( header and copy fields).
+7. `./assetType` - defines the asset type for the component (video or image).
+8. `./ctaList` - defines the CTA list for the component.
 
 
 The edit dialog allows the page to be refreshed after editing the component
@@ -33,4 +32,3 @@ The edit dialog allows the page to be refreshed after editing the component
 * **Vendor**: Jaguar
 * **Version**: v1
 * **Compatibility**: AEM 6.5
-* **Component Library**: https://wiki.jlrdxhelp.com/967de2bc9/p/042104-hero-title-banner
