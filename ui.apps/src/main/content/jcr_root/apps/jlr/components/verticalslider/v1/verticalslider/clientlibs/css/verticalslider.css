@@ -5,6 +5,36 @@
 	align-items: stretch
 }
 
+
+.cmp-interactiveNumberedImage ol{
+	list-style: decimal;
+    padding-left: 1em;
+    line-height: 21px;
+    margin-top: 12px;
+
+  }
+
+  .cmp-interactiveNumberedImage ol li:before{
+
+    position: absolute;
+    margin-left: -15px;
+
+  }
+ .cmp-interactiveNumberedImage ul{
+	list-style-type: none;
+    padding-left: 1em;
+    line-height: 21px;
+    margin-top: 12px;
+
+  }
+  
+
+  .cmp-interactiveNumberedImage ul li:before{
+	content: '\2013';
+    position: absolute;
+    margin-left: -15px;
+
+  }
 .cmp-interactiveNumberedImage__toggles {
 	counter-reset: InteractiveNumberedImage;
 	padding-bottom: 39px
@@ -431,17 +461,21 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	border-color: #005a2b
 }
 
-.cmp-interactiveNumberedImage__toggle-text {
+.cmp-interactiveNumberedImage__toggle-text p{
 	min-height: 0;
-	letter-spacing: 2.5px;
+	letter-spacing: 1.32px;
 	font-weight: 400;
 	display: inline;
-	line-height: 1.5
+	line-height: 14px;
+    color:#000000 !important;
+    font-family:"AvenirNext-DemiBold" !important;
 }
 
 .cmp-interactiveNumberedImage__toggle-text-wrapper {
 	min-height: 19px;
-	display: block
+	display: block;
+    text-transform:uppercase;
+    font-family:"AvenirNext-DemiBold" !important;
 }
 
 .cmp-interactiveNumberedImage__controls-progress-loading {
@@ -455,7 +489,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 
 .cmp-interactiveNumberedImage__tabItem_summary {
-	font-family: 'lr_ot4';
+	font-family: 'AvenirNext';
     font-size: 14px;
 	line-height: 19px;
    	text-transform:capitalize;
@@ -494,6 +528,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	}
 	.cmp-interactiveNumberedImage__controls{
 		padding-top:24px;
+    	margin-left:201px;
 	}
 	.cmp-interactiveNumberedImage__tabItem_title{
 		display:none;
@@ -629,7 +664,6 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		justify-content: center;
 		padding-bottom: 23px;
 	}
 	
@@ -667,6 +701,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	
 	.cmp-interactiveNumberedImage__tabItem_cta .primaryLinkWithStyle {
 				margin-top: 60px;
+    			margin-bottom: 77px !important;
 			}
 	.cmp-interactiveNumberedImage__images {
 		width: 100%;
@@ -697,15 +732,30 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 	.cmp-interactiveNumberedImage__tabItem_title p {
 		font-size: 14px !important;
-		font-family: "lr_ot4", "arial", "helvetica", sans-serif;
+		font-family: "AvenirNext", "arial", "helvetica", sans-serif;
 		line-height: 14px;
 		letter-spacing: 1.68px;
 		font-weight: 600;
+        color:#000000;
 		text-transform: uppercase;
+
 	}
 	.cmp-interactiveNumberedImage__toggle-text-wrapper{
     	display:none;
     }
+
+   .cmp-interactiveNumberedImage__toggle:after {
+		content:""; 
+        width:10px;
+        height:10px;
+
+	}
+   .cmp-interactiveNumberedImage__toggle.active:after {
+		content:""; 
+    	width:10px;
+        height:10px;
+
+	}
 }
 
 /* mobile view */
@@ -732,7 +782,6 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		justify-content: center;
 		padding-bottom: 32px
 	}
 	
@@ -769,6 +818,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	
 	.cmp-interactiveNumberedImage__tabItem_cta .primaryLinkWithStyle {
 			margin-top: 41px;
+    		margin-bottom: 66px !important;
 			}
 
 	.cmp-interactiveNumberedImage__images {
@@ -799,16 +849,29 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 	.cmp-interactiveNumberedImage__tabItem_title {
 		font-size: 14px !important;
-		font-family: "lr_ot4", "arial", "helvetica", sans-serif;
+		font-family: "AvenirNext", "arial", "helvetica", sans-serif;
 		line-height: 9px;
 		letter-spacing: 1.68px;
 		font-weight: 600;
+    	color:#000000;
 		text-transform: uppercase;
 	}
 	
 	.cmp-interactiveNumberedImage__toggle-text-wrapper{
     	display:none;
     }
+ 	.cmp-interactiveNumberedImage__toggle:after {
+		content:""; 
+        width:10px;
+        height:10px;
+
+	}
+   .cmp-interactiveNumberedImage__toggle.active:after {
+		content:""; 
+    	 width:10px;
+        height:10px;
+
+	}
 
 
 }

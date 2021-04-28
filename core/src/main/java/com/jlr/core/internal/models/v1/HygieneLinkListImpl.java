@@ -119,8 +119,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getMarketLink() {
-        String link = LinkUtils.appendLinkExtension(marketLink, resourceResolver);
-        return link;
+        return LinkUtils.appendLinkExtension(marketLink, resourceResolver);
     }
 
     /**
