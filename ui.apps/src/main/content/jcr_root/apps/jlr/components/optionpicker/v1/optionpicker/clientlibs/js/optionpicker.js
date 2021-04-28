@@ -1,96 +1,96 @@
 /******/ (function (modules) { // webpackBootstrap
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
+/******/ // The module cache
+/******/ var installedModules = {};
 /******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
+/******/ // The require function
+/******/ function __webpack_require__(moduleId) {
 /******/
-/******/ 		// Check if module is in cache
-/******/ 		if (installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
+/******/             // Check if module is in cache
+/******/             if (installedModules[moduleId]) {
+/******/                         return installedModules[moduleId].exports;
       /******/
     }
-    /******/ 		// Create a new module (and put it into the cache)
-    /******/ 		var module = installedModules[moduleId] = {
-    /******/ 			i: moduleId,
-    /******/ 			l: false,
-    /******/ 			exports: {}
+    /******/             // Create a new module (and put it into the cache)
+    /******/             var module = installedModules[moduleId] = {
+    /******/                         i: moduleId,
+    /******/                         l: false,
+    /******/                         exports: {}
           /******/
         };
     /******/
-    /******/ 		// Execute the module function
-    /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+    /******/             // Execute the module function
+    /******/             modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
     /******/
-    /******/ 		// Flag the module as loaded
-    /******/ 		module.l = true;
+    /******/             // Flag the module as loaded
+    /******/             module.l = true;
     /******/
-    /******/ 		// Return the exports of the module
-    /******/ 		return module.exports;
+    /******/             // Return the exports of the module
+    /******/             return module.exports;
         /******/
       }
     /******/
     /******/
-    /******/ 	// expose the modules object (__webpack_modules__)
-    /******/ 	__webpack_require__.m = modules;
+    /******/ // expose the modules object (__webpack_modules__)
+    /******/ __webpack_require__.m = modules;
     /******/
-    /******/ 	// expose the module cache
-    /******/ 	__webpack_require__.c = installedModules;
+    /******/ // expose the module cache
+    /******/ __webpack_require__.c = installedModules;
     /******/
-    /******/ 	// define getter function for harmony exports
-    /******/ 	__webpack_require__.d = function (exports, name, getter) {
-    /******/ 		if (!__webpack_require__.o(exports, name)) {
-    /******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+    /******/ // define getter function for harmony exports
+    /******/ __webpack_require__.d = function (exports, name, getter) {
+    /******/             if (!__webpack_require__.o(exports, name)) {
+    /******/                         Object.defineProperty(exports, name, { enumerable: true, get: getter });
           /******/
         }
         /******/
       };
     /******/
-    /******/ 	// define __esModule on exports
-    /******/ 	__webpack_require__.r = function (exports) {
-    /******/ 		if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-    /******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+    /******/ // define __esModule on exports
+    /******/ __webpack_require__.r = function (exports) {
+    /******/             if (typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+    /******/                         Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
           /******/
         }
-    /******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+    /******/             Object.defineProperty(exports, '__esModule', { value: true });
         /******/
       };
     /******/
-    /******/ 	// create a fake namespace object
-    /******/ 	// mode & 1: value is a module id, require it
-    /******/ 	// mode & 2: merge all properties of value into the ns
-    /******/ 	// mode & 4: return value when already ns object
-    /******/ 	// mode & 8|1: behave like require
-    /******/ 	__webpack_require__.t = function (value, mode) {
-    /******/ 		if (mode & 1) value = __webpack_require__(value);
-    /******/ 		if (mode & 8) return value;
-    /******/ 		if ((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
-    /******/ 		var ns = Object.create(null);
-    /******/ 		__webpack_require__.r(ns);
-    /******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-    /******/ 		if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) { return value[key]; }.bind(null, key));
-    /******/ 		return ns;
+    /******/ // create a fake namespace object
+    /******/ // mode & 1: value is a module id, require it
+    /******/ // mode & 2: merge all properties of value into the ns
+    /******/ // mode & 4: return value when already ns object
+    /******/ // mode & 8|1: behave like require
+    /******/ __webpack_require__.t = function (value, mode) {
+    /******/             if (mode & 1) value = __webpack_require__(value);
+    /******/             if (mode & 8) return value;
+    /******/             if ((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+    /******/             var ns = Object.create(null);
+    /******/             __webpack_require__.r(ns);
+    /******/             Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+    /******/             if (mode & 2 && typeof value != 'string') for (var key in value) __webpack_require__.d(ns, key, function (key) { return value[key]; }.bind(null, key));
+    /******/             return ns;
         /******/
       };
     /******/
-    /******/ 	// getDefaultExport function for compatibility with non-harmony modules
-    /******/ 	__webpack_require__.n = function (module) {
-    /******/ 		var getter = module && module.__esModule ?
-    /******/ 			function getDefault() { return module['default']; } :
-    /******/ 			function getModuleExports() { return module; };
-    /******/ 		__webpack_require__.d(getter, 'a', getter);
-    /******/ 		return getter;
+    /******/ // getDefaultExport function for compatibility with non-harmony modules
+    /******/ __webpack_require__.n = function (module) {
+    /******/             var getter = module && module.__esModule ?
+    /******/                         function getDefault() { return module['default']; } :
+    /******/                         function getModuleExports() { return module; };
+    /******/             __webpack_require__.d(getter, 'a', getter);
+    /******/             return getter;
         /******/
       };
     /******/
-    /******/ 	// Object.prototype.hasOwnProperty.call
-    /******/ 	__webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+    /******/ // Object.prototype.hasOwnProperty.call
+    /******/ __webpack_require__.o = function (object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
     /******/
-    /******/ 	// __webpack_public_path__
-    /******/ 	__webpack_require__.p = "";
+    /******/ // __webpack_public_path__
+    /******/ __webpack_require__.p = "";
     /******/
     /******/
-    /******/ 	// Load entry module and return exports
-    /******/ 	return __webpack_require__(__webpack_require__.s = "./src/main/webapp/components/InteractiveOptionPicker/js/InteractiveOptionPicker.js");
+    /******/ // Load entry module and return exports
+    /******/ return __webpack_require__(__webpack_require__.s = "./src/main/webapp/components/InteractiveOptionPicker/js/InteractiveOptionPicker.js");
       /******/
     })
     /************************************************************************/
@@ -293,7 +293,7 @@
     /***/ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_add-to-unscopables.js":
     /*!************************************************************************************************!*\
       !*** ./node_modules/babel-runtime/node_modules/core-js/library/modules/_add-to-unscopables.js ***!
-      \************************************************************************************************/
+     \************************************************************************************************/
     /*! no static exports found */
     /***/ (function (module, exports) {
     
@@ -1178,7 +1178,7 @@
     /***/ (function (module, exports, __webpack_require__) {
     
             var dP = __webpack_require__(/*! ./_object-dp */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_object-dp.js");
-            var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_an-object.js");
+           var anObject = __webpack_require__(/*! ./_an-object */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_an-object.js");
             var getKeys = __webpack_require__(/*! ./_object-keys */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_object-keys.js");
     
             module.exports = __webpack_require__(/*! ./_descriptors */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_descriptors.js") ? Object.defineProperties : function defineProperties(O, Properties) {
@@ -1755,7 +1755,7 @@
     
             "use strict";
     
-            var addToUnscopables = __webpack_require__(/*! ./_add-to-unscopables */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_add-to-unscopables.js");
+           var addToUnscopables = __webpack_require__(/*! ./_add-to-unscopables */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_add-to-unscopables.js");
             var step = __webpack_require__(/*! ./_iter-step */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_iter-step.js");
             var Iterators = __webpack_require__(/*! ./_iterators */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_iterators.js");
             var toIObject = __webpack_require__(/*! ./_to-iobject */ "./node_modules/babel-runtime/node_modules/core-js/library/modules/_to-iobject.js");
@@ -1931,7 +1931,7 @@
             var $defineProperties = function defineProperties(it, P) {
               anObject(it);
               var keys = enumKeys(P = toIObject(P));
-              var i = 0;
+             var i = 0;
               var l = keys.length;
               var key;
               while (l > i) $defineProperty(it, key = keys[i++], P[key]);
@@ -2209,55 +2209,51 @@
                   this._slidesData.tabs.forEach(element => {
                     pickersCount += element.toggleCards.length;
                   });
-                  if ($(".cmp_interactiveOptionPicker").hasClass("wheel")) {
-                    if ($(window).width() < 764) {
-                      $('.cmp_interactiveOptionPicker__option-group-container').css('width', '108%');
-                      if (pickersCount < 4) {
-                        $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                      }
-                    }
-                    else {
-                      if (pickersCount > 10) {
-                        $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                        $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
-                        $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                      } else if (pickersCount < 4) {
-                        $('.cmp_interactiveOptionPicker__option-group-container').css('width', '70%');
     
-                      } else if (pickersCount < 6) {
-                        $('.cmp_interactiveOptionPicker__option-group-container').css('width', '70%');
+                  let windowWith = $('.cmp_interactiveOptionPicker').width();
+                  let btnWidth = $('.primaryLinkWithStyle').width() + 72;
+                  let btnSpace = windowWith - $('.cmp_interactiveOptionPicker__option-group').width();
+                  if (btnSpace < $('.primaryLinkWithStyle').width()) {
+                    console.log('Nospace');
     
-                      } else if (pickersCount < 10) {
-                        $('.cmp_interactiveOptionPicker__option-group-container').css('width', '83%');
-                      }
-                    }
-                  } else {
-                    if ($(window).width() < 769) {
-                      if (pickersCount > 10) {
-                        $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                        $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                      }
-                      if (pickersCount < 3) {
-                        $('.cmp_interactiveOptionPicker__option-group-container').css('width', '40%');
-                      }
-                      if ($(window).width() < 480) {
-                        if (pickersCount > 3) {
-                          $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                          $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                        }
-                      }
-    
-                    }
+                    $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
                   }
+    
                   // https://www.jlrdxhelp.com/browse/LRA-25903 - this triggers when the page is loaded as its taking sticky nav
                   // height without waiting for the cookie notificationbar
                   $(window).on('load', function () {
                     _this._setComponentHeight();
                   });
                   $(window).resize((0, _utils.throttle)(function () {
-                    _this._generateSlidesFromJson();
+                                                      
+                                                    _this._generateSlidesFromJson();
                     _this._calcVariableSlideWidths();
                     _this._calculateOptionContainerWidth();;
+                    _this._setComponentHeight();
+    
+                    let windowWith = $('.cmp_interactiveOptionPicker').width();
+                    let btnWidth = $('.primaryLinkWithStyle').width() + 72;
+                    let btnSpace = windowWith - $('.cmp_interactiveOptionPicker__option-group').width();
+                    if (btnSpace < $('.primaryLinkWithStyle').width()) {
+    
+                      $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
+                    }
+    
+    
+                    $(".cmp_interactiveOptionPicker__option-card ").mouseenter(function (e) {
+                      $(".cmp_interactiveOptionPicker__otr").html($(this).attr('data-otr-price'));
+                    });
+                    $(".cmp_interactiveOptionPicker__option-card ").mouseout(function (e) {
+                      $(".cmp_interactiveOptionPicker__otr").html($('.cmp_interactiveOptionPicker__option-card--active').attr('data-otr-price'));
+                    });
+                    if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
+                      $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
+                    }
+                    if (!$(".swiper-scrollbar").hasClass("cmp_interactiveOptionPicker__swiper-scrollbar--hidden")) {
+                      $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
+                      $('.cmp_interactiveOptionPicker__option-btn hr').hide();
+                    }
+                    _this._calculateOptionContainerWidth();
                     _this._setComponentHeight();
                     if ((0, _utils.checkDefined)(_this.activeOption) && _this.breakpointSize !== (0, _browserDetection.getBreakpointSize)()) {
                       _this._setBackgroundImage(_this.activeOption);
@@ -2292,7 +2288,15 @@
                   this._sliderEl = $(this.element).find(this._sliderSelector);
                   this._sliderWrapper = $('.cmp_interactiveOptionPicker__option-group-container', this.element);
                   this._slidesData = $(this.element).data('json');
-                   $(this.element).removeAttr('data-json');
+                  // var pickersCount = 0;
+                  // this._slidesData.tabs.forEach(element => {
+                  //   pickersCount += element.toggleCards.length;
+                  // });
+                  // if (pickersCount > 11) {
+                  //   $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
+                  //   console.log('dasa');
+                  // }
+                  $(this.element).removeAttr('data-json');
     
                   this._type = $(this.element).data('option-type').toLowerCase();
                   $(this.element).addClass('cmp_interactiveOptionPicker--' + this._type);
@@ -2526,10 +2530,10 @@
                     translate = this._slider.maxTranslate();
                   }
     
-                  if (this._slider.translate === 0 && translate === 0) {
-                    this._unlockSlider();
-                    return;
-                  }
+                  // if (this._slider.translate === 0 && translate === 0) {
+                  //   this._unlockSlider();
+                  //   return;
+                  // }
     
                   this._slider.updateProgress(translate);
                   this._slider.setTransition(transitionSpeed);
@@ -2561,7 +2565,7 @@
                   $(this._sliderEl).find('.cmp_interactiveOptionPicker__option-card').removeClass('cmp_interactiveOptionPicker__option-card--active').attr('aria-pressed', 'false');
     
                   var optionCard = this._sliderEl.find('.cmp_interactiveOptionPicker__option-card').first();
-                  optionCard.addClass('cmp_interactiveOptionPicker__option-card--active').attr('aria-pressed', 'true');
+                 optionCard.addClass('cmp_interactiveOptionPicker__option-card--active').attr('aria-pressed', 'true');
                   this.activeOption = optionCard;
                   this._setBackgroundImage(optionCard);
                   this._updateOrderNowCTA(optionCard);
@@ -2596,12 +2600,12 @@
                   var ctaTarget = activeElement.attr('data-ctaTarget');
                   var ctaAriaLabel = activeElement.attr('data-ctaAriaLabel');
     
-                  if (!(0, _utils.checkDefined)(configUrl) || configUrl === ''|| ctaText === '' ) {
-                    this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("show-cta");
-                    this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("hide-cta");
+                  if (!(0, _utils.checkDefined)(configUrl) || configUrl === ''|| ctaText === '') {
+                                                this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("show-cta");
+                        this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("hide-cta");
                     return; // Currently we work on the assumption that a link will always be authored for each card
                   }
-                  this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("show-cta");
+                                          this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("show-cta");
                   this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("hide-cta");
                   buildYourOwn.href = configUrl;
                   if (ctaTarget && ctaTarget != 'undefined') {
@@ -2621,7 +2625,7 @@
                   if (ctaText && ctaText != 'undefined') {
                     buildYourOwn.innerHTML = `<span>${ctaText}</span>`;
                   } else {
-                    buildYourOwn.innerHTML = '<span></span>'
+                    buildYourOwn.innerHTML = '<span>Build your own</span>'
                   }
                   if (ctaIcon && ctaIcon != 'undefined') {
                     buildYourOwn.classList = "";
@@ -2966,7 +2970,7 @@
              */
             var hasBigIntSupport = exports.hasBigIntSupport = function hasBigIntSupport() {
               return typeof BigInt === 'function';
-            };
+           };
     
             /***/
           }),
@@ -3283,7 +3287,7 @@
                           element.css('display', '');
                         } else {
                           location = location.offset().top - accordionHeader.outerHeight();
-                        }
+                       }
                       }
                     }
                   }
@@ -3292,7 +3296,7 @@
                   deepLink = true;
                 } else {
                   // eslint-disable-next-line no-console
-                  console.error('Could not find deep link element with id: ' + id);
+                 console.error('Could not find deep link element with id: ' + id);
                 }
               }
               return deepLink; // eslint-disable-line
@@ -4039,15 +4043,18 @@
     
         /******/
       });
+    
     $(".cmp_interactiveOptionPicker__option-card ").mouseenter(function (e) {
       $(".cmp_interactiveOptionPicker__otr").html($(this).attr('data-otr-price'));
     });
     $(".cmp_interactiveOptionPicker__option-card ").mouseout(function (e) {
       $(".cmp_interactiveOptionPicker__otr").html($('.cmp_interactiveOptionPicker__option-card--active').attr('data-otr-price'));
     });
-    
+    if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
+      $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
+    }
     if (!$(".swiper-scrollbar").hasClass("cmp_interactiveOptionPicker__swiper-scrollbar--hidden")) {
       $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
       $('.cmp_interactiveOptionPicker__option-btn hr').hide();
-    
     }
+    
