@@ -695,7 +695,7 @@
                             sling:resourceType="wcm/core/components/policy/policy"
                             autopauseDisabled="false"
                             autoplay="true"
-                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel]"
+                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/heroitem/v1/heroitem]"
                             delay="6000">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -907,12 +907,12 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
-                                            cq:styleClasses="cmp-vertical-slider--left"
+                                            cq:styleClasses="leftalign"
                                             cq:styleId="1618718833405"
                                             cq:styleLabel="Left"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="cmp-vertical-slider--right"
+                                            cq:styleClasses="rightalign"
                                             cq:styleId="1618718836451"
                                             cq:styleLabel="Right"
                                             jcr:primaryType="nt:unstructured"/>

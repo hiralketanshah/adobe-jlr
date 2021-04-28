@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.HeroCarouselModel;
+import com.jlr.core.models.HeroItemModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -19,10 +19,10 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
  * The Class HeroCarouselModelImplTest.
  */
 @ExtendWith(AemContextExtension.class)
-class HeroCarouselModelImplTest extends GlobalModelImplTest {
+class HeroItemModelImplTest extends GlobalModelImplTest {
 
-    /** The hero carousel model. */
-    private HeroCarouselModel heroCarouselModel;
+    /** The hero item model. */
+    private HeroItemModel heroItemModel;
 
     /**
      * Sets the up.
@@ -34,7 +34,7 @@ class HeroCarouselModelImplTest extends GlobalModelImplTest {
     public void setup(AemContext context) {
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
-        heroCarouselModel = resource.adaptTo(HeroCarouselModelImpl.class);
+        heroItemModel = resource.adaptTo(HeroItemModelImpl.class);
     }
 
     /**
@@ -42,9 +42,7 @@ class HeroCarouselModelImplTest extends GlobalModelImplTest {
      */
     @Test
     void testProperties() {
-        assertEquals("description_test", heroCarouselModel.getDescription());
-        assertEquals(true, heroCarouselModel.getEnableTco());
-        List<CTAPojo> list = heroCarouselModel.getCtaList();
+        List<CTAPojo> list = heroItemModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_text", item.getText());

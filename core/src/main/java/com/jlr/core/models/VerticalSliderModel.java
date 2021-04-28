@@ -2,11 +2,12 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
-import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.internal.models.v1.VerticalSliderItem;
 
 /**
- * The Interface ArticleModel.
+ * The Interface VerticalSliderModel.
  */
 @ConsumerType
 public interface VerticalSliderModel {
@@ -19,7 +20,7 @@ public interface VerticalSliderModel {
     String PN_DELAY = "delay";
 
     /**
-     * Name of the resource property that indicates whether automatic pause on hovering the carousel is disabled, or not.
+     * Name of the resource property that indicates whether play pause options is disabled, or not.
      *
      * @since com.adobe.cq.wcm.core.components.models 12.6.0
      */
@@ -45,11 +46,15 @@ public interface VerticalSliderModel {
         return false;
     }
 
-    default String getPipicon() {
-        return null;
+    default String getPipIcon() {
+        return StringUtils.EMPTY;
     }
 
-    default List<CTAPojo> getCtaList() {
+    default String getName() {
+        return StringUtils.EMPTY;
+    }
+
+    default List<VerticalSliderItem> getVerticalSliderItems() {
         return new ArrayList<>();
     }
 }

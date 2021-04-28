@@ -1,11 +1,9 @@
 <sly data-sly-use.dfslider="com.jlr.core.models.DualFrameSliderModel"
-	data-sly-use.ariaalert="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.aria.alert'}"
-	data-sly-use.ariadec="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.decrease.slider.label'}"
-	data-sly-use.ariainc="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.increase.slider.label'}"/>
+	data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='dualFrameSlider.aria.alert,dualFrameSlider.decrease.slider.label,dualFrameSlider.increase.slider.label'}"/>
 
 <div data-sly-test="${!dfslider.id}" class="cq-placeholder" data-emptytext="Dual Frame Slider Component"></div>
 <div class="cmp-dualFrameSlider fontSmooth" id= "${dfslider.id}" data-frames="${dfslider.framePath}" data-imgformat="jpg"
-  data-length="${dfslider.imageCount}"  data-label-increase-slider="${ariainc.configValue}" data-label-decrease-slider="${ariadec.configValue}" data-aria-alert="${ariaalert.configValue}">
+  data-length="${dfslider.imageCount}"  data-label-increase-slider="${config.configMap['dualFrameSlider.increase.slider.label']}" data-label-decrease-slider="${config.configMap['dualFrameSlider.decrease.slider.label']}" data-aria-alert="${config.configMap['dualFrameSlider.aria.alert']}">
 
   <div aria-live="assertive" class="cmp-dualFrameSlider__notifications visuallyHidden"></div>
   <div class="Slider__left">

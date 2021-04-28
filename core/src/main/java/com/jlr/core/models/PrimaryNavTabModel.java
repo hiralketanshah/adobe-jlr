@@ -34,9 +34,6 @@ public class PrimaryNavTabModel {
 	private String navPagePathThree;
 	
 	@Inject
-	private String fileReferenceLogo;
-	
-	@Inject
 	private String logoImageAlt;
 	
 	@Inject
@@ -159,10 +156,6 @@ public class PrimaryNavTabModel {
 	
 	public String getNavPagePathThree() {
 		return navPagePathThree;
-	}
-	
-	public String getFileReferenceLogo() {
-		return fileReferenceLogo;
 	}
 
 	public String getLogoImageAlt() {
