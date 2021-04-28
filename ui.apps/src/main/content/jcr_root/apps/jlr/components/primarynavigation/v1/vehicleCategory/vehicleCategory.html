@@ -1,1 +1,15 @@
-Vehicle category
+<sly data-sly-use.model="com.jlr.core.models.VehicleCategoryModel"
+ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+
+   VehicleCategory
+   ${model.vehicleTabName}
+
+   <ul data-sly-list.item="${model.vehicleFamily}">
+   <li>${item.vehicleFamilyName}</li>
+   <li>
+   <ul data-sly-list.item1="${item.vehiclesList}">
+   <li>${item1.vehicleLink}</li>
+   </ul>
+   </li>
+   </ul>
