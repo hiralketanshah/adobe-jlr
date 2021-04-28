@@ -432,10 +432,10 @@
                                                             </items>
                                                         </column>
                                                     </items>
-                                                    <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        maxlimit="4"/>
                                                 </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    maxlimit="4"/>
                                             </ctalist>
                                         </items>
                                         <granite:data
