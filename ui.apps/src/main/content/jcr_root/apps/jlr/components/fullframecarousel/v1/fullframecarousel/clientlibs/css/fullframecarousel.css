@@ -1,23 +1,17 @@
-.cmp-fullframe .headerClass{
-	text-transform:uppercase;
-}
-
-.cmp-fullframe .fontBodyCopyLarge{
-	text-transform:capitalize;
-}
-
-.TabbedContainer .cmp-carousel {
+.TabbedContainer .cmp-carousel.cmp-fullframe-carousel {
   min-height: 0;
 }
-.cmp-carousel {
+.cmp-carousel.cmp-fullframe-carousel {
     margin: 60px 60px 80px 60px;
+  /* width: 100%; */
   min-height: 600px;
   max-height: 100%;
   text-align: center;
   position: relative;
+  /* background-color: #000; */
   overflow: hidden;
 }
-.cmp-carousel__slider {
+.cmp-fullframe-carousel .cmp-carousel__slider {
   height: 100%;
   width: 100%;
   outline: 0;
@@ -38,16 +32,16 @@
   width: 100%;
   height: 100%;
 }
-.cmp-carousel__controls.cmp-fullframe_pagination {
+.cmp-fullframe-carousel .cmp-carousel__controls {
   z-index: 1;
   padding: 4px 0 39px 0;
   justify-content: center;
 }
-.cmp-carousel__controls.cmp-fullframe_pagination--hidden {
+.cmp-fullframe-carousel .cmp-carousel__controls--hidden {
   display: none;
 }
 @media screen and (min-width: 741px) {
-  .cmp-carousel__controls.cmp-fullframe_pagination {
+  .cmp-fullframe-carousel .cmp-carousel__controls {
     padding: 0;
     left: 48px;
     right: auto;
@@ -57,7 +51,7 @@
   }
 }
 @media screen and (min-width: 901px) {
-  .cmp-carousel__controls.cmp-fullframe_pagination {
+  .cmp-fullframe-carousel .cmp-carousel__controls {
     left: 88px;
   }
 }
@@ -71,6 +65,7 @@
   background-color: transparent;
 }
 .cmp-carousel .fullFrameContent {
+  /* background-color: rgba(255, 255, 255, 0.9); */
 }
 .cmp-carousel.youtubepresent {
   min-height: initial;
@@ -310,14 +305,14 @@
   .carousel
   .cmp-carousel__slide
   .fullFrameContent
-  .cmp-fullframe .primaryLinkWithStyle {
+  .primaryLinkWithStyle {
   margin-top: 36px;
 }
 .cmp-carousel
   .carousel
   .cmp-carousel__slide
   .fullFrameContent
-  .cmp-fullframe  .secondaryLinkWithStyle {
+  .secondaryLinkWithStyle {
   color: #898d90;
   margin-top: 30px;
 }
@@ -579,6 +574,7 @@
   bottom: 0;
   right: 0;
   z-index: 3;
+  /* background-color: #000; */
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
@@ -589,7 +585,7 @@
 .cmp-carousel[data-total="1"] .mejs-video object {
   cursor: default;
 }
-html.no-js .cmp-carousel {
+html.no-js .cmp-carousel.cmp-fullframe-carousel {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
   height: auto;
@@ -635,7 +631,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
   }
 }
 @media screen and (min-width: 1px) and (max-width: 900px) {
-  .cmp-carousel {
+  .cmp-carousel.cmp-fullframe-carousel {
     min-height: 0;
   }
   .cmp-carousel .headerBox.withImage {
@@ -656,7 +652,8 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
   }
 }
 @media screen and (min-width: 1px) and (max-width: 1900px) {
-  .cmp-carousel {
+  .cmp-carousel.cmp-fullframe-carousel {
+    /* background-color: white; */
   }
   .cmp-carousel .carousel .video .VideoPlayer video {
     height: 100% !important;
@@ -679,6 +676,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
     bottom: 0;
     min-height: 230px;
     width: 100%;
+    /* background: white; */
   }
   .cmp-carousel .carousel .cmp-carousel__slide .headerBox.withImage,
   .cmp-carousel .carousel .cmp-carousel__slide.left .headerBox.withImage,
@@ -701,42 +699,54 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
 }
 @media screen and (min-width: 1px) and (max-width: 1900px) {
   #landrover .cmp-carousel.grey .carousel .cmp-carousel__slide {
+    /* background: #e9ecec; */
   }
   #landrover
     .cmp-carousel.grey
     .carousel
     .cmp-carousel__slide
     .fullFrameContent.headerBox {
+    /* background: #e9ecec; */
   }
   #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide {
-    
+    /* background: #4a4f54;
+    color: #fff; */
   }
-
+  /* #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide .headingTextMain,
+  #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide .bodyText,
+  #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide .headingTextMain,
+  #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide .headingTextSub,
+  #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide .primaryHeading {
+    color: #fff;
+  } */
   #landrover
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .cmp-fullframe .primaryLinkWithStyle {
-
+    .primaryLinkWithStyle {
+    /* background-color: #fff; */
+    /* color: #0c121c; */
   }
   #landrover
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .cmp-fullframe .primaryLinkWithStyle:hover {
+    .primaryLinkWithStyle:hover {
+    /* background-color: #0c121c;
+    color: #fff; */
   }
   #landrover
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .cmp-fullframe  .secondaryLinkWithStyle {
+    .secondaryLinkWithStyle {
     color: #aeb0b2;
   }
   #landrover
     .cmp-carousel.dark
     .carousel
     .cmp-carousel__slide
-    .cmp-fullframe  .secondaryLinkWithStyle:hover {
+    .secondaryLinkWithStyle:hover {
     color: #e4e8e8;
   }
   #landrover
@@ -744,29 +754,34 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
     .carousel
     .cmp-carousel__slide
     .fullFrameContent.headerBox {
+    /* background: #4a4f54;
+    color: #fff; */
   }
   .TabbedContainer .cmp-carousel.oneSlide .headerBox {
     margin-top: 0;
   }
 }
-.cmp-carousel__slider {
+.cmp-fullframe-carousel .cmp-carousel__slider {
+  /* background-color: white; */
 }
 @media screen and (min-width: 1px) and (max-width: 1900px) {
-  .cmp-carousel__controls.cmp-fullframe_pagination .Pagination__pip:after {
+  .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:after {
     box-shadow: none;
     border: 2px solid #000;
   }
-  .cmp-carousel__controls.cmp-fullframe_pagination .Pagination__pip:focus {
+  .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:focus {
     outline: none;
     box-shadow: none;
   }
-  .focusStylesOn .cmp-carousel__controls.cmp-fullframe_pagination .Pagination__pip:focus:after {
+  .focusStylesOn .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:focus:after {
     box-shadow: none;
   }
-  .cmp-carousel__controls.cmp-fullframe_pagination .Pagination__pip:hover:after {
+  .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:hover:after {
+    /* background: rgba(0, 0, 0, 0.2); */
   }
-  .cmp-carousel__controls.cmp-fullframe_pagination .Pagination__pip--active:after,
-  .cmp-carousel__controls.cmp-fullframe_pagination .Pagination__pip--active:hover:after {
+  .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip--active:after,
+  .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip--active:hover:after {
+    /* background: #000; */
     box-shadow: none;
   }
 }
@@ -774,20 +789,20 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide .fullFrameContent {
 .customControl{
   object-fit: cover
 }
-.cmp-fullframe .headerClass{
+.headerClass{
 float: left;
 margin-right: 40px;
 min-height: 200px;
 min-width: 360px;
 }
-.cmp-carousel .linkContainer,.cmp-carousel .secondaryLinkContainer{
+.linkContainer,.secondaryLinkContainer{
   float: left;
 }
-.cmp-fullframe .fontBodyCopyLarge{
+.fontBodyCopyLarge{
   text-align: left;
   padding-right: 40px;
 }
-.cmp-fullframe .shelfComponent{
+.shelfComponent{
   padding-left: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
@@ -795,7 +810,7 @@ min-width: 360px;
   min-height:189px;
   min-width: 960px;
 }
-.cmp-carousel__controls.cmp-fullframe_pagination{
+.cmp-fullframe-carousel .cmp-carousel__controls{
   position: relative;
 }
 /* WIDESCREEN */
@@ -804,11 +819,12 @@ min-width: 360px;
       position: relative;
       width: 1660px;
       height:935px ;
+      /* padding-bottom: 30%; */
     }
-     .cmp-carousel__controls.cmp-fullframe_pagination{
+     .cmp-fullframe-carousel .cmp-carousel__controls{
        position: absolute;
       left: 160px;
-      top: 73%;
+      top: 56%;
 
     }
    .cmp-carousel{
@@ -816,7 +832,7 @@ min-width: 360px;
      margin-right: 130px;
      margin-top: 60px;
    }
-   .cmp-fullframe .shelfComponent{
+   .shelfComponent{
      margin-left: 100px;
      width: 1100px;
    }
@@ -824,20 +840,18 @@ min-width: 360px;
 /* WIDESCREEN END */
 /* DESKTOP */
 @media screen and (min-width: 1279px) and (max-width: 1919px) {
-  .cmp-carousel__controls.cmp-fullframe_pagination{
-    height: 50px;
-  }
     .cmp-genericItem__element-poster{
         min-width: 1160px;
         max-height:653px ;
     }
     .cmp-carousel .carousel .cmp-genericItem__element-poster {
         position: relative;
+        /* padding-bottom: 30%; */
       }
-       .cmp-carousel__controls.cmp-fullframe_pagination{
+       .cmp-fullframe-carousel .cmp-carousel__controls{
          position: absolute;
         margin-left: -60px;
-        top: 68%;
+        top: 46%;
 
       }
      .video{
@@ -860,7 +874,7 @@ min-width: 360px;
       position: relative;
       padding-bottom: 0%;
     }
-    .cmp-fullframe .shelfComponent {
+    .shelfComponent {
       padding-left: 30px;
       padding-right: 25px;
       padding-top: 28px;
@@ -869,45 +883,45 @@ min-width: 360px;
       max-width: 75.4%;
       
   }
-  .cmp-fullframe .headerClass {
+  .headerClass {
     float: left;
     min-height: 0px;
     margin-bottom: 0px;
     width: 100%;
 }
-.cmp-fullframe .headerClass h2{
+.headerClass h2{
   margin-top: 0px;
   margin-bottom: 14px;
   display:block;
 }
-.cmp-fullframe .fontBodyCopyLarge{
+.fontBodyCopyLarge{
   width: 100%;
   margin-bottom: 43px;
   padding-right: 0px;
 }
-#landrover .cmp-fullframe  .secondaryLinkWithStyle{
+#landrover .secondaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.cmp-fullframe .primaryLinkWithStyle{
+.primaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.cmp-carousel__controls.cmp-fullframe_pagination{
+.cmp-fullframe-carousel .cmp-carousel__controls{
   position:absolute;
-  top:50%;
+  top:70px;
   left: 30px;
 }
 }
 /* Tablet End */
 /* Mobile start */
 @media screen and (min-width: 300px) and (max-width: 766px) {
-  .cmp-carousel{
+  .cmp-carousel.cmp-fullframe-carousel{
     margin-top: 30px;
     margin-left: 0px;
     margin-right: 0px;
   }
-  .cmp-carousel .carousel{
+  .cmp-carousel.cmp-fullframe-carousel .carousel{
     min-height: 339px;
   }
   .cmp-genericItem__element-poster{
@@ -918,7 +932,7 @@ min-width: 360px;
       position: relative;
       padding-bottom: 0%;
     }
-    .cmp-fullframe .shelfComponent {
+    .shelfComponent {
       padding-left: 25px;
       padding-right: 25px;
       padding-top: 16px;
@@ -927,48 +941,55 @@ min-width: 360px;
       max-width: 100%;
       
   }
-  .cmp-fullframe .headerClass {
+  .headerClass {
     float: left;
     min-height: 0px;
     margin-bottom: 0px;
     width: 100%;
 }
-.cmp-fullframe .headerClass h2{
+.headerClass h2{
   margin-top: 0px;
   margin-bottom: 14px;
   display:block;
 }
-.cmp-fullframe .fontBodyCopyLarge{
+.fontBodyCopyLarge{
   width: 100%;
   margin-bottom: 43px;
   padding-right: 0px;
 }
-#landrover .cmp-fullframe  .secondaryLinkWithStyle{
+#landrover .secondaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.cmp-fullframe .primaryLinkWithStyle{
+.primaryLinkWithStyle{
   margin-top: 0px;
   margin-bottom: 24px;
 }
-.cmp-carousel__controls.cmp-fullframe_pagination{
-        top:29%;
-        left: -110px;
-
-        position:absolute;
+.cmp-fullframe-carousel .cmp-carousel__controls{
+  position:absolute;
+  top: 150px;
+  left: 20px;
+  justify-content:left;
+  
 }
 }
 /* Mobile END */
 
 /* FIXES */
-.cmp-carousel__slider{
+.cmp-fullframe-carousel .cmp-carousel__slider{
   height: 100% !important;
 }
-.cmp-carousel__controls.cmp-fullframe_pagination{
-  height: 50px !important;
-}
-.cmp-fullframe .primaryLinkWithStyle{
+.primaryLinkWithStyle{
   float:left
+}
+.cmp-carousel__controls{
+  height: 50px;
+}
+.cmp-fullframe .headerClass{
+  text-transform:uppercase;
+}
+.cmp-fullframe .fontBodyCopyLarge{
+  text-transform:capitalize;
 }
 .videoCustom { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; }
 .videoCustom img { position: absolute; display: block; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; cursor: pointer; }
@@ -976,7 +997,7 @@ min-width: 360px;
     background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16"><path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/> </svg>') no-repeat 0 0; 
     top: 45%; left: 45%; width: 100px; height: 100px; z-index: 30; cursor: pointer; } 
 .videoCustom iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-
+ 
 /* image poster clicked, player class added using js */
 .videoCustom.player img { display: none; }
 .videoCustom.player:after { display: none; }
