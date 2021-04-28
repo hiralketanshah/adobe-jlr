@@ -37,6 +37,9 @@ public class GlobalModelImpl implements GlobalModel {
     private String headerCopy;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String headerIcon;
+
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String copy;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -87,6 +90,9 @@ public class GlobalModelImpl implements GlobalModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String icon;
 
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String assetType;
+
     @Inject
     private ResourceResolver resourceResolver;
 
@@ -114,6 +120,11 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getHeaderCopy() {
         return headerCopy;
+    }
+
+    @Override
+    public String getHeaderIcon() {
+        return headerIcon;
     }
 
     @Override
@@ -202,5 +213,10 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getIcon() {
         return CtaUtils.getIcon(icon, linkType);
+    }
+
+    @Override
+    public String getAssetType() {
+        return assetType;
     }
 }

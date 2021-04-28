@@ -22,12 +22,6 @@ public class PrimaryNavLeftCTA {
     private String leftPaneCtaLink;
     
     @Inject
-    private String leftPaneCtaIcon;
-    
-    @Inject
-    private String leftPaneCtaLinkType;
-    
-    @Inject
     private String leftPaneCtaAriaLabel;
     
     @Inject
@@ -39,14 +33,6 @@ public class PrimaryNavLeftCTA {
 
 	public String getLeftPaneCtaLink() {
 		return LinkUtils.appendLinkExtension(leftPaneCtaLink, resourceResolver);
-	}
-
-	public String getLeftPaneCtaIcon() {
-		return leftPaneCtaIcon;
-	}
-
-	public String getLeftPaneCtaLinkType() {
-		return leftPaneCtaLinkType;
 	}
 
 	public String getLeftPaneCtaAriaLabel() {

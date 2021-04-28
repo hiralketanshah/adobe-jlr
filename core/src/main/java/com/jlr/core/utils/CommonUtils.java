@@ -1,26 +1,34 @@
 package com.jlr.core.utils;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.ValueMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.adobe.aem.formsndocuments.util.FMUtils;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.pojos.FooterPojo;
 
 /**
  * The Class CommonUtils is used for commonly used utilities.
@@ -101,7 +109,6 @@ public final class CommonUtils {
 
     /**
      * Retrieves the root page path based on current page.
-     * 
      * @param currentPage
      * @return
      */
@@ -163,6 +170,17 @@ public final class CommonUtils {
             return StringUtils.EMPTY;
         }
     }
-
+    public static List<FooterPojo> createFooterList(Resource footerList) {
+        List<FooterPojo> list = new ArrayList<>();
+        Iterator<Resource> childResources = footerList.listChildren();
+        while (childResources.hasNext()) {
+            Resource child = childResources.next();
+            ValueMap properties = child.adaptTo(ValueMap.class);
+            if (null != properties) {
+                list.add(new FooterPojo(properties.get("header", String.class), properties.get("copy", String.class)));
+            }
+        }
+        return list;
+    }
 
 }

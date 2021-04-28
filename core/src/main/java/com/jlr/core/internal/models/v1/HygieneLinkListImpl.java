@@ -129,8 +129,8 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getCountryName() {
-        if (null == countryName || countryName.isEmpty()) {
-            return null;
+        if (StringUtils.isEmpty(countryName)) {
+            return StringUtils.EMPTY;
         }
         return countryName.toUpperCase();
     }
@@ -142,8 +142,8 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getCountryCode() {
-        if (null == countryCode || countryCode.isEmpty()) {
-            return null;
+        if (StringUtils.isEmpty(countryCode)) {
+        	return StringUtils.EMPTY;
         }
         return countryCode.toUpperCase();
     }

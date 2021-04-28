@@ -2255,9 +2255,10 @@
                     _this._setComponentHeight();
                   });
                   $(window).resize((0, _utils.throttle)(function () {
-                    _this._calculateOptionContainerWidth();
-                    _this._setComponentHeight();
                     _this._generateSlidesFromJson();
+                    _this._calcVariableSlideWidths();
+                    _this._calculateOptionContainerWidth();;
+                    _this._setComponentHeight();
                     if ((0, _utils.checkDefined)(_this.activeOption) && _this.breakpointSize !== (0, _browserDetection.getBreakpointSize)()) {
                       _this._setBackgroundImage(_this.activeOption);
                       _this.breakpointSize = (0, _browserDetection.getBreakpointSize)();
@@ -2291,15 +2292,7 @@
                   this._sliderEl = $(this.element).find(this._sliderSelector);
                   this._sliderWrapper = $('.cmp_interactiveOptionPicker__option-group-container', this.element);
                   this._slidesData = $(this.element).data('json');
-                  // var pickersCount = 0;
-                  // this._slidesData.tabs.forEach(element => {
-                  //   pickersCount += element.toggleCards.length;
-                  // });
-                  // if (pickersCount > 11) {
-                  //   $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                  //   console.log('dasa');
-                  // }
-                  $(this.element).removeAttr('data-json');
+                   $(this.element).removeAttr('data-json');
     
                   this._type = $(this.element).data('option-type').toLowerCase();
                   $(this.element).addClass('cmp_interactiveOptionPicker--' + this._type);
@@ -2603,9 +2596,13 @@
                   var ctaTarget = activeElement.attr('data-ctaTarget');
                   var ctaAriaLabel = activeElement.attr('data-ctaAriaLabel');
     
-                  if (!(0, _utils.checkDefined)(configUrl) || configUrl === '') {
+                  if (!(0, _utils.checkDefined)(configUrl) || configUrl === ''|| ctaText === '' ) {
+                    this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("show-cta");
+                    this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("hide-cta");
                     return; // Currently we work on the assumption that a link will always be authored for each card
                   }
+                  this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("show-cta");
+                  this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("hide-cta");
                   buildYourOwn.href = configUrl;
                   if (ctaTarget && ctaTarget != 'undefined') {
                     buildYourOwn.target = ctaTarget;
@@ -2624,7 +2621,7 @@
                   if (ctaText && ctaText != 'undefined') {
                     buildYourOwn.innerHTML = `<span>${ctaText}</span>`;
                   } else {
-                    buildYourOwn.innerHTML = '<span>Build your own</span>'
+                    buildYourOwn.innerHTML = '<span></span>'
                   }
                   if (ctaIcon && ctaIcon != 'undefined') {
                     buildYourOwn.classList = "";
