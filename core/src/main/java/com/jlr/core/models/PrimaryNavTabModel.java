@@ -34,6 +34,9 @@ public class PrimaryNavTabModel {
 	private String navPagePathThree;
 	
 	@Inject
+	private String navPagePathFour;
+	
+	@Inject
 	private String logoImageAlt;
 	
 	@Inject
@@ -79,6 +82,8 @@ public class PrimaryNavTabModel {
     private ResourceResolver resourceResolver;
 
     static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
+    
+    static String vehicledropdown="jlr/components/primarynavigation/v1/vehicleCategory";
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -143,6 +148,22 @@ public class PrimaryNavTabModel {
         if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
           }
+        return list;
+	}
+	
+	public List<String> getVehicleTabName(){
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        while (childResources.hasNext()) {
+            Resource child = childResources.next();
+            ValueMap properties = child.adaptTo(ValueMap.class);
+            if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get("vehicleTabName", String.class));
+            	logger.info("vehicleTabName {}",properties);
+            	}
+            }
         return list;
 	}
 	

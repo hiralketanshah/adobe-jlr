@@ -40,6 +40,13 @@
                                 fieldLabel="Top Level Page 3"
                                 name="./navPagePathThree"
                                 rootPath="/content/landrover/global"/>
+                            <navPagePathFour
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to a top level page 4 of the Primary navigation.(Example:Purchase.html)"
+                                fieldLabel="Top Level Page 4"
+                                name="./navPagePathFour"
+                                rootPath="/content/landrover/global"/>
                         </items>
                     </properties>
                     <logo
@@ -53,8 +60,8 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify Alternative text for the Logo Image."
                                 fieldLabel="Logo Alternate Text"
-                                required="true"
                                 name="./logoImageAlt"
+                                required="true"
                                 rootPath="/content/landrover"/>
                             <logoImageLink
                                 jcr:primaryType="nt:unstructured"

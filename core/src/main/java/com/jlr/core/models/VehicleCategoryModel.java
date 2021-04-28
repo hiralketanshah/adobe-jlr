@@ -1,6 +1,5 @@
 package com.jlr.core.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,12 +19,12 @@ public class VehicleCategoryModel {
 	@Named("vehicleFamily/.")
 	List<VehicleFamilyModel> vehicleFamily;
 
-	public String getVehicleTabName() {
-		return vehicleTabName;
-	}
-
 	public List<VehicleFamilyModel> getVehicleFamily() {
 		return vehicleFamily;
+	}
+
+	public String getVehicleTabName() {
+		return vehicleTabName;
 	}
 	
 }

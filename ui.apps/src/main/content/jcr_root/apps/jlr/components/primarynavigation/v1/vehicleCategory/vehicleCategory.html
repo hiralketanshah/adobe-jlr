@@ -2,14 +2,11 @@
  data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 
-   VehicleCategory
-   ${model.vehicleTabName}
-
-   <ul data-sly-list.item="${model.vehicleFamily}">
-   <li>${item.vehicleFamilyName}</li>
-   <li>
-   <ul data-sly-list.item1="${item.vehiclesList}">
-   <li>${item1.vehicleLink}</li>
-   </ul>
-   </li>
-   </ul>
+ <sly data-sly-list.item="${model.vehicleFamily}">
+<div class="dxnav-vehicle-nav__category-block" >
+   <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
+   <sly data-sly-list.item1="${item.vehiclesList}">
+   <sly data-sly-resource="${item1.vehicleLink @appendPath='/jcr:content/root/container'}"/>
+   </sly>
+</div>
+</sly>
