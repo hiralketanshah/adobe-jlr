@@ -53,16 +53,15 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify Alternative text for the Logo Image."
                                 fieldLabel="Logo Alternate Text"
-                                required="true"
                                 name="./logoImageAlt"
-                                rootPath="/content/landrover"/>
+                                required="true"/>
                             <logoImageLink
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldDescription="Specify the Link for the Logo Image."
                                 fieldLabel="Logo Image Link"
                                 name="./logoImageLink"
-                                rootPath="/content/landrover"/>
+                                rootPath="/content/landrover/global"/>
                         </items>
                     </logo>
                 </items>

@@ -56,6 +56,10 @@ public class PrimaryNavigationModel {
 	@Inject
     @Named("leftCta/.")
     List<PrimaryNavLeftCTA> leftCta;
+	
+	@Inject
+    @Named("leftDualColumnCta/.")
+    List<PrimaryNavDualLeftCTA> leftDualColumnCta;
     
     @Inject
     @Named("leftTextCta/.")
@@ -128,6 +132,10 @@ public class PrimaryNavigationModel {
 		return quickLinks;
 	}
 	
+	public List<PrimaryNavDualLeftCTA> getLeftDualColumnCta() {
+		return leftDualColumnCta;
+	}
+
 	public String getTabName() {
 		return tabName;
 	}
