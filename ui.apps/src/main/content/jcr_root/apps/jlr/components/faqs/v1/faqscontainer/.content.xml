@@ -4,4 +4,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="FAQ Container(v1) "
     sling:resourceSuperType="core/wcm/components/accordion/v1/accordion"
-    componentGroup="JLR - Content"/>
+    componentGroup="JLR - Container"/>

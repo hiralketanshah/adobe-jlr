@@ -18,6 +18,10 @@ public interface GlobalModel {
         return StringUtils.EMPTY;
     }
 
+    default String getHeaderIcon() {
+        return StringUtils.EMPTY;
+    }
+
     default String getCopy() {
         return StringUtils.EMPTY;
     }
@@ -61,6 +65,7 @@ public interface GlobalModel {
     default String getHeaderTitle() {
         return StringUtils.EMPTY;
     }
+
     default String getVideoId() {
         return StringUtils.EMPTY;
     }
@@ -69,11 +74,19 @@ public interface GlobalModel {
         return StringUtils.EMPTY;
     }
 
+    default String getPosterImage() {
+        return StringUtils.EMPTY;
+    }
+
     default String getVideoTitle() {
         return StringUtils.EMPTY;
     }
 
     default String getIcon() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getAssetType() {
         return StringUtils.EMPTY;
     }
 }

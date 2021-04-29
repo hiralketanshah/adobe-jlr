@@ -13,40 +13,56 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-  <!DOCTYPE HTML>
-  <html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page" data-sly-use.datalayer="com.jlr.core.models.PageModel" lang="${page.language}"
-        data-sly-use.head="head.html"
-        data-sly-use.footer="footer.html"
-        data-sly-use.redirect="redirect.html">
-      <head data-sly-call="${head.head @ page = page}"></head>
-      <body class="${page.cssClassNames}"
-            id="${page.id}"
-            data-cmp-data-layer-enabled="${page.data ? true : false}"
-            data-custom-page-data-layer="${datalayer.PageData @ context='scriptString'}"
-            data-page-data-layer="${page.data.json @ context='scriptString'}">
-          <div id="landrover">
-          <script data-sly-test.dataLayerEnabled="${page.data}">
-            window.jlrDataLayer = window.jlrDataLayer || [];
-            jlrDataLayer.push({
-                page: {
-                	  basic:JSON.parse("${page.data.json @ context='scriptString'}"),
-                    advanced: JSON.parse("${datalayer.PageData @ context='scriptString'}")
-				        },
-                event:'cmp:show',
-                eventInfo: {
-                    path: 'page.${page.id @ context="scriptString"}'
-                }
-            });
-          </script>
-          <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
-               data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
-          <sly data-sly-test="${!isRedirectPage}">
-              <sly data-sly-include="body.skiptomaincontent.html"></sly>
-              <sly data-sly-include="body.socialmedia_begin.html"></sly>
-              <sly data-sly-include="body.html"></sly>
-              <sly data-sly-call="${footer.footer @ page = page}"></sly>
-              <sly data-sly-include="body.socialmedia_end.html"></sly>
-          </sly>
-          </div>
-      </body>
-  </html>
+<!DOCTYPE HTML>
+<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
+  data-sly-use.pageConfig="com.jlr.core.models.PageModel" lang="${page.language}" data-sly-use.head="head.html"
+  data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html">
+
+<head data-sly-call="${head.head @ page = page}">
+</head>
+
+<body class="${page.cssClassNames}" id="${page.id}" data-cmp-data-layer-enabled="${page.data ? true : false}"
+  data-custom-page-data-layer="${pageConfig.PageData @ context='scriptString'}"
+  data-page-data-layer="${page.data.json @ context='scriptString'}">
+  <sly data-sly-list.item="${pageConfig.GtmTagsList}">
+    <noscript>
+      <iframe height="0" src="//www.googletagmanager.com/ns.html?id=${item}" style="display:none;visibility:hidden"
+        width="0">
+      </iframe>
+    </noscript>
+  </sly>
+  <sly data-sly-test="${pageConfig.GtmTagsList}">
+  <script id="dx-loadGTM">
+    loadGTM(gtmTags);
+  </script>
+  </sly>
+
+  <div id="landrover">
+    <script data-sly-test.dataLayerEnabled="${page.data}">
+      window.jlrDataLayer = window.jlrDataLayer || [];
+      jlrDataLayer.push({
+        page: {
+          basic: JSON.parse("${page.data.json @ context='scriptString'}"),
+          advanced: JSON.parse("${pageConfig.PageData @ context='scriptString'}")
+        },
+        event: 'cmp:show',
+        eventInfo: {
+          path: 'page.${page.id @ context="scriptString"}'
+        }
+      });
+    </script>
+
+
+    <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+      data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+    <sly data-sly-test="${!isRedirectPage}">
+      <sly data-sly-include="body.skiptomaincontent.html"></sly>
+      <sly data-sly-include="body.socialmedia_begin.html"></sly>
+      <sly data-sly-include="body.html"></sly>
+      <sly data-sly-call="${footer.footer @ page = page}"></sly>
+      <sly data-sly-include="body.socialmedia_end.html"></sly>
+    </sly>
+  </div>
+</body>
+
+</html>

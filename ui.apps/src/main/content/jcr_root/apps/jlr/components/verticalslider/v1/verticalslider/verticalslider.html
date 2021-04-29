@@ -1,7 +1,113 @@
-<div data-sly-use.verticalslider="com.jlr.core.models.VerticalSliderModel"
+<sly data-sly-use.verticalslider="com.jlr.core.models.VerticalSliderModel"
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-   data-sly-test.hasContent="${verticalslider.ctaList}" id="${component.id}" class="cmp-vertical-slider">
-
-</div>
+   data-sly-test.hasContent="${verticalslider.verticalSliderItems}" id="${component.id}" >
+</sly>
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
+
+<section id="${verticalslider.id}"  class="cmp-interactiveNumberedImage" data-numbered-image="${verticalslider.pipIcon ? '' : 'true'}" data-duration-indicator-time="${verticalslider.delay}"  data-total="${verticalslider.verticalSliderItems.size}">
+    <!-- content start -->
+	<div class="cmp-interactiveNumberedImage__content">
+		<!-- navigation start -->
+		<div class="cmp-interactiveNumberedImage__navigation">
+			<div aria-orientation="vertical" class="cmp-interactiveNumberedImage__toggles" role="tablist">
+				<sly data-sly-list.vsItem="${verticalslider.verticalSliderItems}">
+				     <button  aria-controls="${verticalslider.name}-tabpanel-${vsItemList.index}" class="${verticalslider.pipIcon == 'true'? 'cmp-interactiveNumberedImage__toggle' : 'cmp-interactiveNumberedImageNumber__toggle'}" id="${verticalslider.name}-tab-${vsItemList.index}" >
+				     	<span class="cmp-interactiveNumberedImage__toggle-text-wrapper">
+				     	<span class="cmp-interactiveNumberedImage__toggle-text">${vsItem.headerCopy @ context='html'}</span>
+				     	</span>
+				     </button>
+				</sly>    
+			</div>
+		</div>
+		<!-- navigation end -->
+		
+		
+		<!-- tab content start -->
+		
+     <div class="cmp-interactiveNumberedImage__tabs" data-sly-repeat.vsItem="${verticalslider.verticalSliderItems}">
+        <div aria-labelledby="${verticalslider.name}-tab-${vsItemList.index}" class="cmp-interactiveNumberedImage__tab" id="${verticalslider.name}-tabpanel-${vsItemList.index}" role="tabpanel" >
+           <div class="cmp-interactiveNumberedImage__tabitem">
+              <div class="ContentCard">
+                 <div class="textContainer">
+                    <div class="textContainerTop">
+                       <h2 class="heading ContentCard__heading cmp-interactiveNumberedImage__tabItem_title">${vsItem.headerCopy @ context='html'}</h2>
+                       <div class="body  ContetentCard__body fontBodyCopy cmp-interactiveNumberedImage__tabItem_summary">${vsItem.copy @ context='html'}</div>
+                    </div>
+                    <div class="tableSwap">
+                       <div class="linkBlock ">
+                          <div class="containerKeyLine">
+                             	<sly data-sly-list="${vsItem.ctaList}">
+									<sly data-sly-test="${itemList.first && item.text}">
+										<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
+											<div class="cmp-interactiveNumberedImage__tabItem_cta">
+											<a class="${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+												<span aria-hidden="true">${item.text}</span>
+											</a>
+											</div>
+										</div>
+									</sly>
+								</sly>	
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </div>		
+		<!-- tab content end -->
+	</div>
+	<!-- content end -->
+      <button class="cmp-interactiveNumberedImage__controls cmp-interactiveNumberedImage__controls--playing ${verticalslider.autopauseDisabled ? 'notimer': ''}">
+        <span class="cmp-interactiveNumberedImage__controls-icon-pause icon-pause-evo-jaguar"></span>
+        <span class="cmp-interactiveNumberedImage__controls-icon-play icon-play-evo-jaguar"></span>
+        <svg class="cmp-interactiveNumberedImage__controls-progress">
+             <circle class="cmp-interactiveNumberedImage__controls-progress-background" cx="22" cy="22" r="21"></circle>
+          <circle class="cmp-interactiveNumberedImage__controls-progress-loading" cx="22" cy="22" r="21" shape-rendering="geometricPrecision"></circle>       
+        </svg>
+      </button>  
+      <!-- images start -->
+    <div class="cmp-interactiveNumberedImage__images">
+           <div class="cmp-interactiveNumberedImage__image" data-sly-repeat.item="${verticalslider.verticalSliderItems}">
+	          <picture class="cmp-interactiveNumberedImage__picture Picture Picture--background" data-align="center">
+	             <img alt="${item.imageAlt}" class="Picture__img" data-object-fit="" srcset="${item.fileReference}">
+	          </picture>
+       	  </div>
+    </div>
+    
+    <div class="cmp-interactiveNumberedImage__strings">
+       <div class="cmp-interactiveNumberedImage__strings-autoplay-start">Autoplay Start</div>
+       <div  class="cmp-interactiveNumberedImage__strings-autoplay-stop">Autoplay Stop</div>
+       <div>
+          <!-- images end -->
+       </div>
+   </div>
+</section> 
+<style>
+.cmp-interactiveNumberedImage__images {
+	width: calc(( ( 100% - 140px) * (.66666)) + (50px));
+}
+
+.cmp-interactiveNumberedImage__content {
+	width: calc(( ( 100% - 140px) * (.33333)) + (90px));
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+	.cmp-interactiveNumberedImage__images {
+		width: 100%;
+	}
+	.cmp-interactiveNumberedImage__content {
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 500px) {
+	.cmp-interactiveNumberedImage__images {
+		width: 100%;
+	}
+	.cmp-interactiveNumberedImage__content {
+		width: 100%;
+	}
+}
+</style>

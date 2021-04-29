@@ -18,7 +18,7 @@
                             <ul aria-labelledby="MarketRegionalPricing_title" class="dxDropdown__list" id="dxDropdown__list" role="listbox" tabindex="-1">
                                 <sly data-sly-list.state="${model.stateList}" >
 									<li class="dxDropdown__list-item" role="option">
-                                        <a class="dxDropdown__list-item-link fontEmissionsDetails MarketRegionalPricing__option dxDropdown__list-item-link--active" data-value="${state.stateValue}" href="#">${state.stateName}</a>
+                                        <a class="dxDropdown__list-item-link fontEmissionsDetails MarketRegionalPricing__option dxDropdown__list-item-link--active" data-value="${state.stateValue}" href="#">${state.stateValue} - ${state.stateName}</a>
                                     </li>
 								</sly>
                             </ul>
@@ -33,4 +33,7 @@
     <div class="Modal__background" data-modal-close="">
 	</div>
   </section>
+  
+  <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" 
+    data-sly-call="${clientlib.all @ categories='jlr.components.marketregionpricing.v1'}"/>
 </template>

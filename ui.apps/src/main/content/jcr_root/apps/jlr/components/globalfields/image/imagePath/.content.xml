@@ -12,5 +12,7 @@
     name="./file">
     <granite:data
         jcr:primaryType="nt:unstructured"
-        signpost-image="{Boolean}true"/>
+        signpost-image="{Boolean}true"
+        full-frame-image="{Boolean}true"
+        hero-item-image="{Boolean}true"/>
 </jcr:root>

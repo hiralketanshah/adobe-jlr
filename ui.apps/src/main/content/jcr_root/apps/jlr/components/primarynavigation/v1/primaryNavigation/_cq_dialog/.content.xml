@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Primary Navigation"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+        margin="{Boolean}false">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <navPagePathOne
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to a top level page 1 of the Primary navigation.(Example:Purchase.html)"
+                                fieldLabel="Top Level Page 1"
+                                name="./navPagePathOne"
+                                rootPath="/content/landrover/global"/>
+                            <navPagePathTwo
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to a top level page 2 of the Primary navigation.(Example:Ownership.html)"
+                                fieldLabel="Top Level Page 2"
+                                name="./navPagePathTwo"
+                                rootPath="/content/landrover/global"/>
+                            <navPagePathThree
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to a top level page 3 of the Primary navigation.(Example:Explore.html)"
+                                fieldLabel="Top Level Page 3"
+                                name="./navPagePathThree"
+                                rootPath="/content/landrover/global"/>
+                        </items>
+                    </properties>
+                    <logo
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Logo"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <logoImageAlt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Specify Alternative text for the Logo Image."
+                                fieldLabel="Logo Alternate Text"
+                                name="./logoImageAlt"
+                                required="true"/>
+                            <logoImageLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Specify the Link for the Logo Image."
+                                fieldLabel="Logo Image Link"
+                                name="./logoImageLink"
+                                rootPath="/content/landrover/global"/>
+                        </items>
+                    </logo>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

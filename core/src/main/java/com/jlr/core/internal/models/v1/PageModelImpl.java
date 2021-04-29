@@ -1,7 +1,8 @@
 package com.jlr.core.internal.models.v1;
 
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.ListIterator;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
@@ -47,6 +48,17 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("applicationCode")
     private String applicationCode;
 
+    @HierarchicalPageProperty("gtmTags")
+    private String gtmTags;
+
+    /**
+     * @return the gtmTags
+     */
+
+    public String getGtmTags() {
+        return gtmTags;
+    }
+
     @HierarchicalPageProperty("market")
     private String market;
 
@@ -70,26 +82,6 @@ public class PageModelImpl implements PageModel {
     @SlingObject
     protected Resource resource;
 
-    private String getBluePrintPropertyValue() {
-        if (StringUtils.isBlank(getApplicationCode())) {
-            LOGGER.debug("not null");
-            ListIterator<String> listIterator = CommonConstants.HOMEPAGE_LIST.listIterator();
-            while (listIterator.hasNext()) {
-                String homepagePath = listIterator.next();
-                LOGGER.debug("Homepage is {}", homepagePath);
-                if (StringUtils.contains(homepagePath, currentPage.getPath())) {
-                    LOGGER.debug("Match found: {}", homepagePath);
-                    return homepagePath;
-                }
-            }
-        } else {
-            LOGGER.debug("getApplicationCode is NOT blank");
-            return getApplicationCode();
-        }
-        LOGGER.debug("Match NOT found");
-        return getApplicationCode();
-    }
-
 
     /**
      * The component context.
@@ -101,20 +93,22 @@ public class PageModelImpl implements PageModel {
     /** The logger. */
     private static Logger LOGGER = LoggerFactory.getLogger(PageModelImpl.class);
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the Language of the site root
      * 
-     * @see com.adobe.cq.wcm.core.components.models.Page#getLanguage()
+     * @param
+     * @return Language in ISO
      */
     @Override
     public String getLanguage() {
         return currentPage == null ? Locale.getDefault().toLanguageTag() : currentPage.getLanguage(false).toLanguageTag();
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Build Datalayer JSON Object
      * 
-     * @see com.jlr.core.models.PageModel#getPageData()
+     * @param
+     * @return Datalayer JSON String
      */
     @Override
     public String getPageData() {
@@ -147,6 +141,36 @@ public class PageModelImpl implements PageModel {
         return null;
     }
 
+    /**
+     * Build GTM Tags from Page properties of root node
+     * 
+     * @param
+     * @return List of GTM Tags
+     */
+    @Override
+    public List<String> getGtmTagsList() {
+        if (!StringUtils.isBlank(getGtmTags())) {
+            List<String> GTMtags = Arrays.asList(getGtmTags().split(CommonConstants.COMMA));
+            return GTMtags;
+        }
+        return null;
 
+    }
+
+    /**
+     * Build GTM Tags from Page properties of root node
+     * 
+     * @param
+     * @return String of GTML tags with quotes
+     */
+    @Override
+    public String getCommaSeparatedGtmTagsListWithQuotes() {
+        if (!StringUtils.isBlank(getGtmTags())) {
+            StringBuilder sb = new StringBuilder(100);
+            sb.append(String.join("','", getGtmTags().split(CommonConstants.COMMA)));
+            return sb.toString();
+        }
+        return null;
+    }
 
 }
