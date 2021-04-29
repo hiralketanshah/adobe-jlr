@@ -1042,12 +1042,12 @@
                                         <item0
                                             cq:styleId="1619627807774"
                                             cq:styleLabel="Top"
-                                            cq:styleClasses="top"
+                                            cq:styleClasses="topAlign"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
                                             cq:styleId="1619627818474"
                                             cq:styleLabel="Centre"
-                                            cq:styleClasses="centre"
+                                            cq:styleClasses="centreAlign"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item1>
