@@ -1,0 +1,35 @@
+<sly data-sly-use.model="com.jlr.core.models.VehicleCategoryModel"
+ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+   
+   <div class="dxnav-links-dropdown__section">
+    <button class="dxnav-links-dropdown__link dxnav-subnav-js dxnav-open-dropdown-level-2-js dxnav-dropdown__button">
+       <span class="dxnav-dropdown__button-text">${model.vehicleTabName}</span> 
+       <span class="dxnav-dropdown__button-icon">
+          <svg class="dxnav-icon">
+             <use xlink:href="#Directional_Right"></use>
+          </svg>
+       </span>
+    </button>
+    <ul class="dxnav-links-dropdown__links">
+       <li>
+          <button class="dxnav-dropdown__close-button dxnav-dropdown__close-button--with-border dxnav-close-dropdown-level-2-js" aria-label="??navigation.shared.menu.back_en_AU??">
+             <svg class="dxnav-icon">
+                <use xlink:href="#Arrow_Left"></use>
+             </svg>
+             ${model.vehicleTabName}
+          </button>
+       </li>
+       <sly data-sly-list.item="${model.vehicleFamily}">
+       <li>
+          <div class="dxnav-vehicle-nav__category-block">
+             <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
+             <sly data-sly-list.item1="${item.vehiclesList}">
+                <sly data-sly-resource="${item1.vehicleLink @appendPath='/jcr:content/root/container'}"/>
+             </sly>
+          </div>
+       </li>
+       </sly>
+       <li> <a class="dxnav-vehicle-nav__cta" href="https://quote.landrover.com.au" target="_self"> <span>FIND &amp; PRICE</span> </a> </li>
+    </ul>
+ </div>
