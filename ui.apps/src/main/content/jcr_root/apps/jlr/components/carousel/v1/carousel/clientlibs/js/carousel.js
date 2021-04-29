@@ -198,7 +198,10 @@ class Pagination {
     }
 
     static _replacePlaceholderLabelText(label, textToInsert = '') {
+        if(label)
         return label.replace(/[[]]/g, textToInsert);
+        else
+        return "";
     }
 
     // fires an event with update text which the host component can choose to add to an aria-liveregion
@@ -11600,7 +11603,7 @@ const swiperPreventDefaultButtonAction = (swiperObject, swiperOptions = {}) => {
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/ 	
+/******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -11614,14 +11617,14 @@ const swiperPreventDefaultButtonAction = (swiperObject, swiperOptions = {}) => {
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
 /******/ 		};
-/******/ 	
+/******/
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
-/******/ 	
+/******/
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/ 	
+/******/
 /************************************************************************/
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
@@ -11634,12 +11637,12 @@ const swiperPreventDefaultButtonAction = (swiperObject, swiperOptions = {}) => {
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/ 	
+/******/
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -11650,7 +11653,7 @@ const swiperPreventDefaultButtonAction = (swiperObject, swiperOptions = {}) => {
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/ 	
+/******/
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
@@ -11878,7 +11881,7 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
         this._handleYouTubeOnSlide();
         */
       this._registerVideoClickToPause();
-      
+
       const videoPlayLabel = $('.a11yResourceLabels').attr('data-a11y-video-play') || '';
       const galleryImageLink = this.$element.find('.galleryImageLink');
       galleryImageLink.attr('aria-label', galleryImageLink.attr('aria-label') || videoPlayLabel);
@@ -12010,7 +12013,7 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
         } else {
           this.$element.find('.mediaOverlay').show();
           media.pause();
-        } 
+        }
       });
       this.$element.on('click', '.VideoPlayer', (event) => {
         const { media } = $(event.currentTarget).find('video.video')[0].player;
@@ -12026,7 +12029,7 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
         const media = this.$element.find('video.video')[0];
           if (!media.paused) {
             this.$element.find('.mediaOverlay').show();
-          }      
+          }
       });
     },
 
@@ -12599,11 +12602,11 @@ if (carousalElements.length) {
                 e.style.marginBottom="50px";
               })
               controlsFFC.style.top = offsetheight+25+"px";
-            }   
+            }
           }
       };
       },200);
-  
+
 
     }
     if(dualFrame){
@@ -12628,12 +12631,18 @@ if (carousalElements.length) {
         comp.HeroCarousel();
       }
       setTimeout(()=>{
-        let videomp4 = el.querySelector('video');
-        if(videomp4){
-          videomp4.removeAttribute("controls");
-          // videomp4.loop=true;  
-          // videomp4.play();
 
+        let videomp4List = el.querySelectorAll('video');
+
+        if(videomp4List.length>0)
+        {
+          videomp4List.forEach((videomp4)=>{
+            videomp4.removeAttribute("controls");
+            videomp4.addEventListener('pause',()=>{
+              videomp4.currentTime = 0;
+              videomp4.play();
+            })
+          });
         };
         let controls = el.querySelector('.cmp-carousel__controls');
         if(controls)
@@ -12659,7 +12668,7 @@ if (carousalElements.length) {
                 e.style.marginBottom="50px";
               })
               controlsFFC.style.top = offsetheight+25+"px";
-            }   
+            }
             if(window.innerWidth >=768 && window.innerWidth<=1024){
               let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
               let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
@@ -12667,7 +12676,7 @@ if (carousalElements.length) {
                 e.style.marginBottom="50px";
               })
               controlsFFC.style.top = offsetheight+25+"px";
-            }   
+            }
           }
       };
       },200);
