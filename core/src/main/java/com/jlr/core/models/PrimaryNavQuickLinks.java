@@ -25,9 +25,6 @@ public class PrimaryNavQuickLinks {
     private String quickLinksCopyCtaIcon;
     
     @Inject
-    private String quickLinksCopyCtaLinkType;
-    
-    @Inject
     private String quickLinksCopyCtaAriaLabel;
     
     @Inject
@@ -43,10 +40,6 @@ public class PrimaryNavQuickLinks {
 
 	public String getQuickLinksCopyCtaIcon() {
 		return quickLinksCopyCtaIcon;
-	}
-
-	public String getQuickLinksCopyCtaLinkType() {
-		return quickLinksCopyCtaLinkType;
 	}
 
 	public String getQuickLinksCopyCtaAriaLabel() {

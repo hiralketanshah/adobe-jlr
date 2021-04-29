@@ -60,13 +60,6 @@
                                     jcr:primaryType="nt:unstructured"
                                     cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"/>
                             </style>
-                            <tabName
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="The Primary Navigation tab name to be specified."
-                                fieldLabel="Tab Name"
-                                name="./tabName"
-                                required="true"/>
                             <primaryNavTitle
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -79,6 +72,13 @@
                                 fieldDescription="The aria label for the primary navigation title is specified."
                                 fieldLabel="Primary Navigation Title Aria Label"
                                 name="./primaryNavAriaLabel"/>
+                            <tabName
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The Primary Navigation tab name to be specified."
+                                fieldLabel="Tab Name"
+                                name="./tabName"
+                                required="true"/>
                         </items>
                     </properties>
                     <leftpane
@@ -129,36 +129,7 @@
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
                                                                     fieldLabel="Link"
                                                                     name="./leftPaneCtaLink"
-                                                                    rootPath="/content/landrover"/>
-                                                                <icon
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
-                                                                    fieldDescription="Select an icon to be rendered before the text on the CTA"
-                                                                    fieldLabel="Icon"
-                                                                    name="./leftPaneCtaIcon">
-                                                                    <datasource
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="acs-commons/components/utilities/genericlist/datasource"
-                                                                        path="/etc/acs-commons/lists/icons"/>
-                                                                </icon>
-                                                                <linkType
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                                    fieldDescription="Link Type for the link authored - to make a link as Primary or Secondary"
-                                                                    fieldLabel="Link Type"
-                                                                    name="./leftPaneCtaLinkType">
-                                                                    <items jcr:primaryType="nt:unstructured">
-                                                                        <current
-                                                                            jcr:primaryType="nt:unstructured"
-                                                                            selected="{Boolean}true"
-                                                                            text="Primary"
-                                                                            value="primary"/>
-                                                                        <new
-                                                                            jcr:primaryType="nt:unstructured"
-                                                                            text="Secondary"
-                                                                            value="secondary"/>
-                                                                    </items>
-                                                                </linkType>
+                                                                    rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -191,11 +162,13 @@
                                                         </column>
                                                     </items>
                                                 </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    maxlimit="8"/>
                                             </ctalist>
                                         </items>
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
-                                            maxlimit="16"
                                             showhidetargetvalue="templateA,templateB,templateC,templateD"/>
                                     </ctasection>
                                     <textsection
@@ -459,6 +432,9 @@
                                                         </column>
                                                     </items>
                                                 </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    maxlimit="4"/>
                                             </ctalist>
                                         </items>
                                         <granite:data
@@ -466,6 +442,86 @@
                                             maxlimit="2"
                                             showhidetargetvalue="templateE,templateE"/>
                                     </textsection>
+                                    <dualctasection
+                                        granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <heading
+                                                granite:class="coral-Heading coral-Heading--4"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                level="{Long}4"
+                                                text="Left Panel 2nd Column Links"/>
+                                            <dualctalist
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldDescription="CTA links that gets displayed on left pane"
+                                                fieldLabel="CTA List 2">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                                    name="./leftDualColumnCta">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <column
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <text
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="The text to be rendered on the CTA"
+                                                                    fieldLabel="Text"
+                                                                    name="./leftPaneDualCtaText"/>
+                                                                <link
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                                    fieldDescription="Link to a content page, external URL or page anchor."
+                                                                    fieldLabel="Link"
+                                                                    name="./leftPaneDualCtaLink"
+                                                                    rootPath="/content/landrover/global"/>
+                                                                <ariaLabel
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
+                                                                    fieldLabel="Aria Label"
+                                                                    name="./leftPaneDualCtaAriaLabel"/>
+                                                                <target
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                    fieldDescription="Target for the link authored - current tab or same tab"
+                                                                    fieldLabel="Target"
+                                                                    name="./leftPaneDualCtaTarget">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <sameWindow
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            selected="{Boolean}true"
+                                                                            text="Same Window"
+                                                                            value="_self"/>
+                                                                        <newWindow
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="New Window"
+                                                                            value="_blank"/>
+                                                                        <overlay
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Overlay"
+                                                                            value="overlay"/>
+                                                                    </items>
+                                                                </target>
+                                                            </items>
+                                                        </column>
+                                                    </items>
+                                                </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    maxlimit="8"/>
+                                            </dualctalist>
+                                        </items>
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            showhidetargetvalue="templateB"/>
+                                    </dualctasection>
                                 </items>
                             </container>
                         </items>
@@ -494,8 +550,7 @@
                                                 fileReferenceParameter="./fileReferenceImage"
                                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                 multiple="{Boolean}false"
-                                                name="./rightPaneImage"
-                                                required="true"/>
+                                                name="./rightPaneImage"/>
                                             <decorative
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
@@ -576,8 +631,7 @@
                                                             fileReferenceParameter="./fileReferenceImageTxt"
                                                             mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                             multiple="{Boolean}false"
-                                                            name="./rightPaneImage"
-                                                            required="true"/>
+                                                            name="./rightPaneImage"/>
                                                         <decorative
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
@@ -831,6 +885,9 @@
                                                         </column>
                                                     </items>
                                                 </field>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    maxlimit="2"/>
                                             </section>
                                         </items>
                                         <granite:data
@@ -893,24 +950,6 @@
                                                         sling:resourceType="acs-commons/components/utilities/genericlist/datasource"
                                                         path="/etc/acs-commons/lists/icons"/>
                                                 </icon>
-                                                <linkType
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                    fieldDescription="Link Type for the link authored - to make a link as Primary or Secondary"
-                                                    fieldLabel="Link Type"
-                                                    name="./quickLinksCopyCtaLinkType">
-                                                    <items jcr:primaryType="nt:unstructured">
-                                                        <current
-                                                            jcr:primaryType="nt:unstructured"
-                                                            selected="{Boolean}true"
-                                                            text="Primary"
-                                                            value="primary"/>
-                                                        <new
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="Secondary"
-                                                            value="secondary"/>
-                                                    </items>
-                                                </linkType>
                                                 <ariaLabel
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

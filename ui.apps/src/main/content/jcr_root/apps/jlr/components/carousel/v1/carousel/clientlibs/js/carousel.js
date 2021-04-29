@@ -11832,11 +11832,11 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
       this._isInsideTabbedContainer = this._tabbedContainer.length;
       this._isMobile = (0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)();
       this._total = parseInt(this.$element.data('total'), 10);
-      this.__autoPlay = this.$element.data('data-autoplay') && this.$element.data('data-autoplay') =="false"?false:true;
-      this._sliderSpeed = parseInt(this.$element.data('data-speed')) || 600;
-      this._autoPlayduration = parseInt(this.$element.data('data-duration'))||4000;
+      this.__autoPlay =  this.$element.data('autoplay');
+      this._sliderSpeed = parseInt(this.$element.data('speed')) || 600;
+      this._transistionSpeed = parseInt(this.$element.data('speed')) || 600;
+      this._autoPlayduration = parseInt(this.$element.data('duration'))||6000;
       this._uniqId = Math.floor(Math.random() * 100);
-
       this._$window.on(`resize.ffc-${this.uniqId}`, () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
@@ -11971,7 +11971,6 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
       container.find('.mediaOverlay.mediaOverlayVideo').removeClass('visible');
       container.find('.mediaOverlay.mediaOverlayVideo').addClass('hide');
       container.find('.youTubePlayerFFCMask').addClass('hide');
-      console.log("*************");
       if (!(0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)()) {
         container.find('.headerBox').removeClass('visible');
       }
@@ -12025,7 +12024,6 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
       });
       this.$element.on('click', '.customControl', (event) => {
         const media = this.$element.find('video.video')[0];
-        console.log(media.paused);
           if (!media.paused) {
             this.$element.find('.mediaOverlay').show();
           }      
@@ -12107,7 +12105,7 @@ const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
 
       const labels = this._getLabels();
       const paginationOptions = {
-        isBlack:true,
+        isBlack:false,
         labels,
         numberOfPips: this._total,
         defaultSelected: startingSlideId,
@@ -12578,36 +12576,41 @@ if (carousalElements.length) {
     if(fullFrame){
       el.classList.add('cmp-fullframe-carousel');
       FullFrameCarouselInit(jQuery, window,"FullFrameCarousel");
-      let controls = el.querySelector('.cmp-carousel__controls');
-      controls.classList.add('cmp-fullframe_pagination');
-      if(el.querySelectorAll('.emptyCopy').length>0){
-          let controls = el.querySelector('.cmp-fullframe_pagination');
-          if(controls){
-            if(window.innerWidth >=365 && window.innerWidth<=767){
-              controls.style.top = "65%";
-            }
-            if(window.innerWidth >=768 && window.innerWidth<=1279){
-              controls.style.top = "65%";
-            }
-            if(window.innerWidth >=1280 && window.innerWidth<=1919){
-              controls.style.top = "93%";
-            }
-            if(window.innerWidth >=1920){
-              controls.style.top = "93%";
-            }
-            
-         
-          }
-      };
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
         comp.FullFrameCarousel();
       }
+      setTimeout(()=>{
+        let controls = el.querySelector('.cmp-carousel__controls');
+        if(controls)
+        controls.classList.add('cmp-fullframe_pagination');
+        if(el.querySelectorAll(".cmp-genericItem__element-poster").length>0){
+          //pagination enabled
+          let controls = el.querySelector('.cmp-fullframe_pagination');
+          if(controls){
+            let controlsFFC = el.querySelector('.cmp-fullframe_pagination');
+            let height = el.querySelector(".cmp-genericItem__element-poster").clientHeight;
+            controlsFFC.style.top = "0px";
+            controlsFFC.style.top = height-70+"px";
+            if(window.innerWidth >=300 && window.innerWidth<=767){
+              let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
+              let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
+              elm.forEach((e)=>{
+                e.style.marginBottom="50px";
+              })
+              controlsFFC.style.top = offsetheight+25+"px";
+            }   
+          }
+      };
+      },200);
+  
+
     }
     if(dualFrame){
       el.classList.add('cmp-dualframe-carousel');
       FullFrameCarouselInit(jQuery, window,"DualFrameCarouselCustom");
       let controls = el.querySelector('.cmp-carousel__controls');
+      if(controls)
       controls.classList.add('cmp-dualframe_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
@@ -12618,16 +12621,62 @@ if (carousalElements.length) {
       el.classList.add('cmp-hero-carousel');
       FullFrameCarouselInit(jQuery, window,"HeroCarousel");
       let controls = el.querySelector('.cmp-carousel__controls');
+      if(controls)
       controls.classList.add('cmp-hero_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
         comp.HeroCarousel();
       }
+      setTimeout(()=>{
+        let videomp4 = el.querySelector('video');
+        if(videomp4){
+          videomp4.removeAttribute("controls");
+          // videomp4.loop=true;  
+          // videomp4.play();
+
+        };
+        let controls = el.querySelector('.cmp-carousel__controls');
+        if(controls)
+        controls.classList.add('cmp-fullframe_pagination');
+        if(el.querySelectorAll(".cmp-genericItem__element-poster").length>0){
+          //pagination enabled
+          let controls = el.querySelector('.cmp-fullframe_pagination');
+          if(controls){
+            let controlsFFC = el.querySelector('.cmp-fullframe_pagination');
+            // let paginationPrev = el.querySelector('.cmp-carousel__previous');
+            // let paginationNext = el.querySelector('.cmp-carousel__next');
+            let height = el.querySelector(".cmp-genericItem__element-poster").clientHeight;
+            controlsFFC.style.top = "0px";
+            controlsFFC.style.top = height-70+"px";
+            // paginationNext.style.top = "0";
+            // paginationPrev.style.top = "0";
+            // paginationNext.style.top = height/2+"px !important";
+            // paginationPrev.style.top = height/2+"px !important";
+            if(window.innerWidth >=300 && window.innerWidth<=767){
+              let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
+              let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
+              elm.forEach((e)=>{
+                e.style.marginBottom="50px";
+              })
+              controlsFFC.style.top = offsetheight+25+"px";
+            }   
+            if(window.innerWidth >=768 && window.innerWidth<=1024){
+              let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
+              let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
+              elm.forEach((e)=>{
+                e.style.marginBottom="50px";
+              })
+              controlsFFC.style.top = offsetheight+25+"px";
+            }   
+          }
+      };
+      },200);
     }
     if(heroTitle){
       el.classList.add('cmp-herotitle-carousel');
       FullFrameCarouselInit(jQuery, window,"HeroTitleBanner");
       let controls = el.querySelector('.cmp-carousel__controls');
+      if(controls)
       controls.classList.add('cmp-heroTitleBanner_pagination');
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {

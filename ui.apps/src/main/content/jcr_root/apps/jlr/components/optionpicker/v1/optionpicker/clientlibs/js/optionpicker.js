@@ -401,7 +401,7 @@
   "./node_modules/babel-runtime/node_modules/core-js/library/modules/_add-to-unscopables.js":
     /*!************************************************************************************************!*\
       !*** ./node_modules/babel-runtime/node_modules/core-js/library/modules/_add-to-unscopables.js ***!
-      \************************************************************************************************/
+     \************************************************************************************************/
     /*! no static exports found */
     /***/
     (function (module, exports) {
@@ -2567,51 +2567,48 @@
             this._slidesData.tabs.forEach(element => {
               pickersCount += element.toggleCards.length;
             });
-            if ($(".cmp_interactiveOptionPicker").hasClass("wheel")) {
-              if ($(window).width() < 764) {
-                $('.cmp_interactiveOptionPicker__option-group-container').css('width', '108%');
-                if (pickersCount < 4) {
-                  $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                }
-              } else {
-                if (pickersCount > 11) {
-                  $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                  $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
-                  $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                } else if (pickersCount < 4) {
-                  $('.cmp_interactiveOptionPicker__option-group-container').css('width', '70%');
 
-                } else if (pickersCount < 6) {
-                  $('.cmp_interactiveOptionPicker__option-group-container').css('width', '70%');
-
-                } else if (pickersCount < 11) {
-                  $('.cmp_interactiveOptionPicker__option-group-container').css('width', '83%');
-                }
-              }
-            } else {
-              if ($(window).width() < 769) {
-                if (pickersCount > 10) {
-                  $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                  $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                }
-                if (pickersCount < 3) {
-                  $('.cmp_interactiveOptionPicker__option-group-container').css('width', '40%');
-                }
-                if ($(window).width() < 480) {
-                  if (pickersCount > 3) {
-                    $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-                    $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
-                  }
-                }
-
-              }
+            let windowWith = $('.cmp_interactiveOptionPicker').width();
+            let btnWidth = $('.primaryLinkWithStyle').width() + 72;
+            let btnSpace = windowWith - $('.cmp_interactiveOptionPicker__option-group').width();
+            if (btnSpace < $('.primaryLinkWithStyle').width()) {
+              $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
             }
+
             // https://www.jlrdxhelp.com/browse/LRA-25903 - this triggers when the page is loaded as its taking sticky nav
             // height without waiting for the cookie notificationbar
             $(window).on('load', function () {
               _this._setComponentHeight();
             });
             $(window).resize((0, _utils.throttle)(function () {
+
+              _this._generateSlidesFromJson();
+              _this._calcVariableSlideWidths();
+              _this._calculateOptionContainerWidth();;
+              _this._setComponentHeight();
+
+              let windowWith = $('.cmp_interactiveOptionPicker').width();
+              let btnWidth = $('.primaryLinkWithStyle').width() + 72;
+              let btnSpace = windowWith - $('.cmp_interactiveOptionPicker__option-group').width();
+              if (btnSpace < $('.primaryLinkWithStyle').width()) {
+
+                $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
+              }
+
+
+              $(".cmp_interactiveOptionPicker__option-card ").mouseenter(function (e) {
+                $(".cmp_interactiveOptionPicker__otr").html($(this).attr('data-otr-price'));
+              });
+              $(".cmp_interactiveOptionPicker__option-card ").mouseout(function (e) {
+                $(".cmp_interactiveOptionPicker__otr").html($('.cmp_interactiveOptionPicker__option-card--active').attr('data-otr-price'));
+              });
+              if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
+                $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
+              }
+              if (!$(".swiper-scrollbar").hasClass("cmp_interactiveOptionPicker__swiper-scrollbar--hidden")) {
+                $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
+                $('.cmp_interactiveOptionPicker__option-btn hr').hide();
+              }
               _this._calculateOptionContainerWidth();
               _this._setComponentHeight();
               if ((0, _utils.checkDefined)(_this.activeOption) && _this.breakpointSize !== (0, _browserDetection.getBreakpointSize)()) {
@@ -2647,6 +2644,14 @@
             this._sliderEl = $(this.element).find(this._sliderSelector);
             this._sliderWrapper = $('.cmp_interactiveOptionPicker__option-group-container', this.element);
             this._slidesData = $(this.element).data('json');
+            // var pickersCount = 0;
+            // this._slidesData.tabs.forEach(element => {
+            //   pickersCount += element.toggleCards.length;
+            // });
+            // if (pickersCount > 11) {
+            //   $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
+            //   console.log('dasa');
+            // }
             $(this.element).removeAttr('data-json');
 
             this._type = $(this.element).data('option-type').toLowerCase();
@@ -2678,8 +2683,21 @@
             };
 
             var cardHTML = function cardHTML(cards, tabIndex) {
+
               return cards.map(function (card, cardIndex) {
-                return '\n            <div role="button" \n              class="cmp_interactiveOptionPicker__option-card option-card" \n              tabindex="0" \n              data-tab-index="' + tabIndex + '" \n              data-card-index="' + cardIndex + '" \n              data-configDirectLink="' + card.configDirectLink + '" \n              data-finReference="' + card.finReference + '" \n              data-aria-live-label="' + card.screenreaderAnnouncement + '" \n              data-otr-disclaimer="' + card.priceDisclaimer + '" \n              data-otr-price="' + card.toggleTitle + '" \n              data-secondary-link=\'' + (0, _stringify2.default)(card.secondaryLink) + '\'>\n                <img class="cmp_interactiveOptionPicker__option-image" \n                  src="' + card.toggleThumbnailImageUrl + '" \n                  alt="' + card.toggleThumbnailImageAltText + '">\n                                                            ' + cardWheelHTML(card.price) + '\n            </div>';
+                if (!card.ctaText) {
+                  card.ctaText = ""
+                }
+                if (!card.ctaIcon) {
+                  card.ctaIcon = ""
+                }
+                if (!card.ctaTarget) {
+                  card.ctaTarget = ""
+                }
+                if (!card.ctaAriaLabel) {
+                  card.ctaAriaLabel = ""
+                }
+                return '\n            <div role="button" \n              class="cmp_interactiveOptionPicker__option-card option-card" \n              tabindex="0" \n              data-tab-index="' + tabIndex + '" \n              data-card-index="' + cardIndex + '" \n              data-configDirectLink="' + card.configDirectLink + '" \n    data-ctaText="' + card.ctaText + '" \n  data-ctaAriaLabel="' + card.ctaAriaLabel + '" \n  data-ctaIcon="' + card.ctaIcon + '" \n   data-ctaTarget="' + card.ctaTarget + '" \n             data-finReference="' + card.finReference + '" \n              data-aria-live-label="' + card.screenreaderAnnouncement + '" \n              data-otr-disclaimer="' + card.priceDisclaimer + '" \n              data-otr-price="' + card.toggleTitle + '" \n              data-secondary-link=\'' + (0, _stringify2.default)(card.secondaryLink) + '\'>\n                <img class="cmp_interactiveOptionPicker__option-image" \n                  src="' + card.toggleThumbnailImageUrl + '" \n                  alt="' + card.toggleThumbnailImageAltText + '">\n                                                            ' + cardWheelHTML(card.price) + '\n            </div>';
               }).join('');
             };
 
@@ -2878,10 +2896,10 @@
               translate = this._slider.maxTranslate();
             }
 
-            if (this._slider.translate === 0 && translate === 0) {
-              this._unlockSlider();
-              return;
-            }
+            // if (this._slider.translate === 0 && translate === 0) {
+            //   this._unlockSlider();
+            //   return;
+            // }
 
             this._slider.updateProgress(translate);
             this._slider.setTransition(transitionSpeed);
@@ -2927,7 +2945,6 @@
             }
             var exteriorColorField = orderNowForm.querySelector('input[name="configDirectLink"]');
             var finReferenceField = orderNowForm.querySelector('input[name="finReference"]');
-
             if (exteriorColorField) {
               exteriorColorField.value = activeElement.attr('data-configDirectLink');
             }
@@ -2935,6 +2952,7 @@
             if (finReferenceField) {
               finReferenceField.value = activeElement.attr('data-finReference');
             }
+
           },
           _updateBuildYourOwnCTA: function _updateBuildYourOwnCTA(activeElement) {
             var buildYourOwn = this.element.querySelector('.cmp_interactiveOptionPicker__cta > a');
@@ -2943,11 +2961,46 @@
             }
 
             var configUrl = activeElement.attr('data-configDirectLink');
+            var ctaText = activeElement.attr('data-ctaText');
+            var ctaIcon = activeElement.attr('data-ctaIcon');
+            var ctaTarget = activeElement.attr('data-ctaTarget');
+            var ctaAriaLabel = activeElement.attr('data-ctaAriaLabel');
 
-            if (!(0, _utils.checkDefined)(configUrl) || configUrl === '') {
+            if (!(0, _utils.checkDefined)(configUrl) || configUrl === '' || ctaText === '') {
+              this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("show-cta");
+              this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("hide-cta");
               return; // Currently we work on the assumption that a link will always be authored for each card
             }
+            this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.add("show-cta");
+            this.element.querySelector('.cmp_interactiveOptionPicker__cta').classList.remove("hide-cta");
             buildYourOwn.href = configUrl;
+            if (ctaTarget && ctaTarget != 'undefined') {
+              buildYourOwn.target = ctaTarget;
+            } else {
+              buildYourOwn.target = "_self";
+            }
+            if (ctaAriaLabel && ctaAriaLabel != 'undefined') {
+              buildYourOwn.setAttribute('aria-label', ctaAriaLabel);
+            } else {
+              buildYourOwn.setAttribute('aria-label', "");
+            }
+
+
+
+
+            if (ctaText && ctaText != 'undefined') {
+              buildYourOwn.innerHTML = `<span>${ctaText}</span>`;
+            } else {
+              buildYourOwn.innerHTML = '<span>Build your own</span>'
+            }
+            if (ctaIcon && ctaIcon != 'undefined') {
+              buildYourOwn.classList = "";
+              buildYourOwn.classList.add('primaryLinkWithStyle', 'TargetLinks', 'mobile-add-button', ctaIcon);
+            } else {
+              buildYourOwn.classList = "";
+              buildYourOwn.classList.add('primaryLinkWithStyle', 'TargetLinks', 'mobile-add-button');
+            }
+
           },
           _updateSecondaryCTA: function _updateSecondaryCTA(activeElement) {
             var secondaryCTA = this.element.querySelector('.cmp_interactiveOptionPicker__secondary-cta-link');
@@ -4374,15 +4427,17 @@
 
   /******/
 });
+
 $(".cmp_interactiveOptionPicker__option-card ").mouseenter(function (e) {
   $(".cmp_interactiveOptionPicker__otr").html($(this).attr('data-otr-price'));
 });
 $(".cmp_interactiveOptionPicker__option-card ").mouseout(function (e) {
   $(".cmp_interactiveOptionPicker__otr").html($('.cmp_interactiveOptionPicker__option-card--active').attr('data-otr-price'));
 });
-
+if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
+  $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
+}
 if (!$(".swiper-scrollbar").hasClass("cmp_interactiveOptionPicker__swiper-scrollbar--hidden")) {
   $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
   $('.cmp_interactiveOptionPicker__option-btn hr').hide();
-
 }

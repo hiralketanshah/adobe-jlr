@@ -1,11 +1,3 @@
-.cmp-fullframe .headerClass{
-	text-transform:uppercase;
-}
-
-.cmp-fullframe .fontBodyCopyLarge{
-	text-transform:capitalize;
-}
-
 .TabbedContainer .cmp-carousel.cmp-fullframe-carousel {
   min-height: 0;
 }
@@ -924,12 +916,12 @@ min-width: 360px;
 /* Tablet End */
 /* Mobile start */
 @media screen and (min-width: 300px) and (max-width: 766px) {
-  .cmp-carousel{
+  .cmp-carousel.cmp-fullframe-carousel{
     margin-top: 30px;
     margin-left: 0px;
     margin-right: 0px;
   }
-  .cmp-carousel .carousel{
+  .cmp-carousel.cmp-fullframe-carousel .carousel{
     min-height: 339px;
   }
   .cmp-genericItem__element-poster{
@@ -977,6 +969,7 @@ min-width: 360px;
   position:absolute;
   top: 150px;
   left: 20px;
+  justify-content:left;
   
 }
 }
@@ -988,6 +981,15 @@ min-width: 360px;
 }
 .primaryLinkWithStyle{
   float:left
+}
+.cmp-carousel__controls{
+  height: 50px;
+}
+.cmp-fullframe .headerClass{
+  text-transform:uppercase;
+}
+.cmp-fullframe .fontBodyCopyLarge{
+  text-transform:capitalize;
 }
 .videoCustom { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; }
 .videoCustom img { position: absolute; display: block; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; cursor: pointer; }

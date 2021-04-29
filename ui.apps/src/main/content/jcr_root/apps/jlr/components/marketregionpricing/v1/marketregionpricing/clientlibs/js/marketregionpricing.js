@@ -1401,233 +1401,294 @@ const preventActionOnDeepLink = (event) => {
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-var exports = __webpack_exports__;
 /*!***********************!*\
   !*** ./DxDropdown.js ***!
   \***********************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _resources_dev_js_utils_aria__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../resources/dev/js/utils/aria */ "../../../resources/dev/js/utils/aria.js");
+/* harmony import */ var _resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../resources/dev/js/utils/index */ "../../../resources/dev/js/utils/index.js");
 
-exports.__esModule = true;
-var aria_1 = __webpack_require__(/*! ../../../resources/dev/js/utils/aria */ "../../../resources/dev/js/utils/aria.js");
-var index_1 = __webpack_require__(/*! ../../../resources/dev/js/utils/index */ "../../../resources/dev/js/utils/index.js");
-var DxDropdown = /** @class */ (function () {
-    function DxDropdown(el, preventDefault) {
-        var _this = this;
-        if (preventDefault === void 0) { preventDefault = true; }
-        console.log("Executed");
-        this.element = el;
-        this.open = false;
-        this.marketSelectorButton = el.querySelector('.dxDropdown__button');
+
+window.appReadyEvent = {
+    initiated: false,
+    timeout: 0,
+  };
+  
+  function Timer(callback, time) {
+    this.setTimeout = function() {
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+        this.finished = false;
+        this.callback = callback;
+        this.time = time;
+        this.timer = setTimeout(function() {
+            this.finished = true;
+            callback();
+        }.bind(this), time);
+        this.start = Date.now();
+    };
+  
+    this.add = function() {
+        if (!this.finished) {
+            // add time to time left
+            var timeout = (this.time - (Date.now() - this.start)) + time;
+            this.setTimeout(this.callback, timeout);
+        }
+    };
+  
+    this.setTimeout(callback, time);
+  }
+       var appReadyTimer = new Timer(function() {
+              var appReady = new Event('appReady');
+              window.dispatchEvent(appReady);
+          }, window.appReadyEvent.timeout);
+          window.appReadyEvent.initiated = true;
+class DxDropdown {
+  constructor(el, preventDefault = true) {
+    this.element = el;
+    this.open = false;
+    this.marketButton = el.querySelectorAll('.cmp-marketButton');
+    if(this.marketButton.length>0){
         this.submitButton = el.querySelector('.cmp-marketsubmit');
         this.button = el.querySelector('.dxDropdown__button');
         this.listbox = el.querySelector('.dxDropdown__list');
-        this.element.addEventListener('dxDropdown:Rebind', function () { return _this.rebindListBox(); });
-        this.element.addEventListener('click', function (e) { return _this.clickEventListeners(e, preventDefault); });
-        this.button.addEventListener('keyup', function (e) { return _this.checkShow(e); });
-        this.listbox.addEventListener('blur', function (e) { return _this.testBlur(e); });
-        this.listbox.addEventListener('keydown', function (e) { return _this.keyDownEvents(e); });
-        var firstItem = el.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled');
-        this.addActiveDropdownItem(firstItem);
-        this.marketButton = el.querySelector('.cmp-marketButton');
+        this.element.addEventListener('dxDropdown:Rebind', () => this.rebindListBox());
+        this.element.addEventListener('click', e => this.clickEventListeners(e, preventDefault));
+        this.button.addEventListener('keyup', e => this.checkShow(e));
+        this.listbox.addEventListener('blur', e => this.testBlur(e));
+        this.listbox.addEventListener('keydown', e => this.keyDownEvents(e));
         this.marketPricing = el.querySelector('.cmp-marketregionalpricing');
         this.closeModal = el.querySelector('.Modal__close');
-        this.marketButton.addEventListener('click',e=>{
-            this.marketPricing.classList.add('cmp-showmarket');
+        const firstItem = el.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled');
+        this.addActiveDropdownItem(firstItem);
+        for (var i = 0; i < this.marketButton.length; i++) {
+          this.marketButton[i].addEventListener('click',e=>{
             this.marketPricing.classList.remove('cmp-hidemarket');
+            this.marketPricing.classList.add('cmp-showmarket');
           });
+      }
+        this.closeModal.addEventListener('click',e=>{
+          this.marketPricing.classList.remove('cmp-showmarket');
+          this.marketPricing.classList.add('cmp-hidemarket');
+        });
         this.submitButton.addEventListener('click',e=>{
             location.reload();
         });
-          this.closeModal.addEventListener('click',e=>{
-            this.marketPricing.classList.remove('cmp-showmarket');
-            this.marketPricing.classList.remove('cmp-hidemarket');
-          });
-        window.addEventListener('click', function (e) { return _this.handleWindowClick(e); });
-     
+        window.addEventListener('click', e => this.handleWindowClick(e));
     }
-    DxDropdown.prototype.testBlur = function (e) {
-        if (!e.relatedTarget.classList.contains('dxDropdown__list-item')
-            && !e.relatedTarget.classList.contains('dxDropdown__list-item-link')) {
-            this.closeDropdown();
+
+  }
+
+  testBlur(e) {
+    if (
+      !e.relatedTarget.classList.contains('dxDropdown__list-item')
+      && !e.relatedTarget.classList.contains('dxDropdown__list-item-link')
+    ) {
+      this.closeDropdown();
+    }
+  }
+
+  rebindListBox() {
+    this.listbox = this.element.querySelector('.dxDropdown__list');
+    this.listbox.addEventListener('blur', e => this.testBlur(e));
+    this.listbox.addEventListener('keydown', e => this.keyDownEvents(e));
+  }
+
+  handleWindowClick(e) {
+    const nodes = [];
+    let el = e.target;
+    let isDropdownEl = false;
+
+    while (el.parentNode) {
+      nodes.unshift(el.parentNode);
+      el = el.parentNode;
+    }
+
+    nodes.forEach((node) => {
+      if (node.classList && node === this.element) {
+        isDropdownEl = true;
+      }
+    });
+
+    if (!isDropdownEl) {
+      this.closeDropdown(false);
+    }
+  }
+
+  clickEventListeners(e, preventDefault) {
+    if (preventDefault) {
+      e.preventDefault();
+    }
+    const el = e.target;
+    if (el.classList.contains('dxDropdown__button')) {
+      this.toggleDropdown();
+    } else if (el.classList.contains('dxDropdown__list-item-link') && !el.classList.contains('dxDropdown__list-item-link--disabled')) {
+      this.updateButtonText(e);
+      this.closeDropdown();
+    } else if (el.classList.contains('dxDropdown__list-item') && !el.querySelector('.dxDropdown__list-item-link').classList.contains('dxDropdown__list-item-link--disabled')) {
+      const childLink = el.querySelector('.dxDropdown__list-item-link');
+      this.updateButtonText(childLink);
+      this.closeDropdown();
+    }
+  }
+
+  keyDownEvents(e) {
+    const key = e.which || e.keyCode;
+    const {
+      DOWN,
+      UP,
+      ESC,
+      RETURN,
+      TAB
+    } = _resources_dev_js_utils_aria__WEBPACK_IMPORTED_MODULE_0__.KeyCode;
+
+    switch (key) {
+      case DOWN:
+        e.preventDefault();
+        this.nextItem(e);
+        break;
+      case TAB:
+        e.preventDefault();
+        if (e.shiftKey) {
+          this.previousItem(e);
+        } else {
+          this.nextItem(e);
         }
-    };
-    DxDropdown.prototype.rebindListBox = function () {
-        var _this = this;
-        this.listbox = this.element.querySelector('.dxDropdown__list');
-        this.listbox.addEventListener('blur', function (e) { return _this.testBlur(e); });
-        this.listbox.addEventListener('keydown', function (e) { return _this.keyDownEvents(e); });
-    };
-    DxDropdown.prototype.handleWindowClick = function (e) {
-        var _this = this;
-        var nodes = [];
-        var el = e.target;
-        var isDropdownEl = false;
-        while (el.parentNode) {
-            nodes.unshift(el.parentNode);
-            el = el.parentNode;
+        break;
+      case UP:
+        e.preventDefault();
+        this.previousItem(e);
+        break;
+      case ESC:
+        e.preventDefault();
+        this.closeDropdown();
+        break;
+      case RETURN:
+        e.preventDefault();
+        this.updateButtonText(e);
+        this.closeDropdown();
+        break;
+      default:
+        break;
+    }
+  }
+
+  checkShow(e) {
+    const key = e.which || e.keyCode;
+    const { UP, DOWN } = _resources_dev_js_utils_aria__WEBPACK_IMPORTED_MODULE_0__.KeyCode;
+
+    switch (key) {
+      case UP:
+      case DOWN:
+        e.preventDefault();
+        this.openDropdown();
+        break;
+      default:
+        break;
+    }
+  }
+
+  toggleDropdown() {
+    return this.open ? this.closeDropdown() : this.openDropdown();
+  }
+
+  openDropdown() {
+    this.element.classList.add('dxDropdown--active');
+    this.button.setAttribute('aria-expanded', 'true');
+
+    this.focusFirstItem();
+    this.open = true;
+  }
+
+  closeDropdown(setFocus = true) {
+    this.element.classList.remove('dxDropdown--active');
+    this.button.setAttribute('aria-expanded', 'false');
+    this.open = false;
+
+    if (setFocus) {
+      this.button.focus();
+    }
+    this.submitButton.removeAttribute("disabled");
+    this.submitButton.classList.remove("disabled");
+  }
+
+  updateButtonText(targetElement) {
+    const target = (targetElement.target) ? targetElement.target : targetElement;
+    this.button.innerHTML = target.innerHTML;
+    this.fireEvent('DxDropdown:update', {
+      target,
+      value: this.button.innerHTML
+    });
+    this.addActiveDropdownItem(target);
+  }
+
+  nextItem(e) {
+    const itemList = this.listbox.querySelectorAll('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
+
+    Array.prototype.forEach.call(itemList, (el, i) => {
+      if (e.target === el) {
+        if (i === itemList.length - 1) {
+          this.focusFirstItem();
+        } else {
+          itemList[i + 1].focus();
         }
-        nodes.forEach(function (node) {
-            if (node.classList && node === _this.element) {
-                isDropdownEl = true;
-            }
-        });
-        if (!isDropdownEl) {
-            this.closeDropdown(false);
+      }
+    });
+  }
+
+  previousItem(e) {
+    const itemList = this.listbox.querySelectorAll('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
+
+    Array.prototype.forEach.call(itemList, (el, i) => {
+      if (e.target === el) {
+        if (i === 0) {
+          this.focusLastItem();
+        } else {
+          itemList[i - 1].focus();
         }
-    };
-    DxDropdown.prototype.clickEventListeners = function (e, preventDefault) {
-        if (preventDefault) {
-            e.preventDefault();
-        }
-        var el = e.target;
-        if (el.classList.contains('dxDropdown__button')) {
-            this.toggleDropdown();
-        }
-        else if (el.classList.contains('dxDropdown__list-item-link') && !el.classList.contains('dxDropdown__list-item-link--disabled')) {
-            this.updateButtonText(e);
-            this.closeDropdown();
-        }
-        else if (el.classList.contains('dxDropdown__list-item') && !el.querySelector('.dxDropdown__list-item-link').classList.contains('dxDropdown__list-item-link--disabled')) {
-            var childLink = el.querySelector('.dxDropdown__list-item-link');
-            this.updateButtonText(childLink);
-            this.closeDropdown();
-        }
-    };
-    DxDropdown.prototype.keyDownEvents = function (e) {
-        var key = e.which || e.keyCode;
-        var DOWN = aria_1.KeyCode.DOWN, UP = aria_1.KeyCode.UP, ESC = aria_1.KeyCode.ESC, RETURN = aria_1.KeyCode.RETURN, TAB = aria_1.KeyCode.TAB;
-        switch (key) {
-            case DOWN:
-                e.preventDefault();
-                this.nextItem(e);
-                break;
-            case TAB:
-                e.preventDefault();
-                if (e.shiftKey) {
-                    this.previousItem(e);
-                }
-                else {
-                    this.nextItem(e);
-                }
-                break;
-            case UP:
-                e.preventDefault();
-                this.previousItem(e);
-                break;
-            case ESC:
-                e.preventDefault();
-                this.closeDropdown();
-                break;
-            case RETURN:
-                e.preventDefault();
-                this.updateButtonText(e);
-                this.closeDropdown();
-                break;
-            default:
-                break;
-        }
-    };
-    DxDropdown.prototype.checkShow = function (e) {
-        var key = e.which || e.keyCode;
-        var UP = aria_1.KeyCode.UP, DOWN = aria_1.KeyCode.DOWN;
-        switch (key) {
-            case UP:
-            case DOWN:
-                e.preventDefault();
-                this.openDropdown();
-                break;
-            default:
-                break;
-        }
-    };
-    DxDropdown.prototype.toggleDropdown = function () {
-        return this.open ? this.closeDropdown() : this.openDropdown();
-    };
-    DxDropdown.prototype.openDropdown = function () {
-        this.element.classList.add('dxDropdown--active');
-        this.button.setAttribute('aria-expanded', 'true');
-        this.focusFirstItem();
-        this.open = true;
-    };
-    DxDropdown.prototype.closeDropdown = function (setFocus) {
-        if (setFocus === void 0) { setFocus = true; }
-        this.element.classList.remove('dxDropdown--active');
-        this.button.setAttribute('aria-expanded', 'false');
-        this.open = false;
-        if (setFocus) {
-            this.button.focus();
-        }
-        this.submitButton.removeAttribute("disabled");
-        this.submitButton.classList.remove("disabled");
-    };
-    DxDropdown.prototype.updateButtonText = function (targetElement) {
-        var target = (targetElement.target) ? targetElement.target : targetElement;
-        this.button.innerHTML = target.innerHTML;
-        this.fireEvent('DxDropdown:update', {
-            target: target,
-            value: this.button.innerHTML
-        });
-        this.addActiveDropdownItem(target);
-    };
-    DxDropdown.prototype.nextItem = function (e) {
-        var _this = this;
-        var itemList = this.listbox.querySelectorAll('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
-        Array.prototype.forEach.call(itemList, function (el, i) {
-            if (e.target === el) {
-                if (i === itemList.length - 1) {
-                    _this.focusFirstItem();
-                }
-                else {
-                    itemList[i + 1].focus();
-                }
-            }
-        });
-    };
-    DxDropdown.prototype.previousItem = function (e) {
-        var _this = this;
-        var itemList = this.listbox.querySelectorAll('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
-        Array.prototype.forEach.call(itemList, function (el, i) {
-            if (e.target === el) {
-                if (i === 0) {
-                    _this.focusLastItem();
-                }
-                else {
-                    itemList[i - 1].focus();
-                }
-            }
-        });
-    };
-    DxDropdown.prototype.focusFirstItem = function () {
-        var firstItem = this.listbox.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
-        firstItem.focus();
-    };
-    DxDropdown.prototype.focusLastItem = function () {
-        var itemList = this.listbox.querySelectorAll('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
-        if (itemList.length) {
-            itemList[itemList.length - 1].focus();
-        }
-    };
-    DxDropdown.prototype.addActiveDropdownItem = function (el) {
-        var activeEl = this.element.querySelector('.dxDropdown__list-item-link--active:not(.dxDropdown__list-item-link--disabled)');
-        if (activeEl !== null) {
-            activeEl.classList.remove('dxDropdown__list-item-link--active');
-        }
-        el.classList.add('dxDropdown__list-item-link--active');
-    };
-    DxDropdown.prototype.fireEvent = function (eventType, payload) {
-        if (payload === void 0) { payload = {}; }
-        index_1.eventTrigger(this.element, eventType, payload);
-    };
-    DxDropdown.prototype.getElement = function () {
-        return this.element;
-    };
-    DxDropdown.prototype.DxDropdown = function (method, options) {
-        if (options === void 0) { options = undefined; }
-        var fn = this[method];
-        return typeof fn === 'function' ? fn.bind(this, options)() : undefined;
-    };
-    return DxDropdown;
-}());
-exports.default = new DxDropdown(document.getElementById("landrover"));
+      }
+    });
+  }
+
+  focusFirstItem() {
+    const firstItem = this.listbox.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
+
+    firstItem.focus();
+  }
+
+  focusLastItem() {
+    const itemList = this.listbox.querySelectorAll('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled)');
+
+    if (itemList.length) {
+      itemList[itemList.length - 1].focus();
+    }
+  }
+
+  addActiveDropdownItem(el) {
+    const activeEl = this.element.querySelector('.dxDropdown__list-item-link--active:not(.dxDropdown__list-item-link--disabled)');
+
+    if (activeEl !== null) {
+      activeEl.classList.remove('dxDropdown__list-item-link--active');
+    }
+    el.classList.add('dxDropdown__list-item-link--active');
+  }
+
+  fireEvent(eventType, payload = {}) {
+    (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_1__.eventTrigger)(this.element, eventType, payload);
+  }
+
+
+  getElement() {
+    return this.element;
+  }
+
+  DxDropdown(method, options = undefined) {
+    const fn = this[method];
+    return typeof fn === 'function' ? fn.bind(this, options)() : undefined;
+  }
+}
+new DxDropdown(document.getElementById("landrover"));
 
 })();
 

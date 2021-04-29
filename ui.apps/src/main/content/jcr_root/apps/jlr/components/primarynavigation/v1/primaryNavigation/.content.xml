@@ -3,4 +3,4 @@
     jcr:description="Primary Navigation"
     jcr:primaryType="cq:Component"
     jcr:title="Primary Navigation"
-    componentGroup="JLR - Content"/>
+    componentGroup="JLR - Structure"/>

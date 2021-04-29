@@ -18,6 +18,10 @@ public interface GlobalModel {
         return StringUtils.EMPTY;
     }
 
+    default String getHeaderIcon() {
+        return StringUtils.EMPTY;
+    }
+
     default String getCopy() {
         return StringUtils.EMPTY;
     }
@@ -79,6 +83,10 @@ public interface GlobalModel {
     }
 
     default String getIcon() {
+        return StringUtils.EMPTY;
+    }
+
+    default String getAssetType() {
         return StringUtils.EMPTY;
     }
 }
