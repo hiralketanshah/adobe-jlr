@@ -52,35 +52,35 @@
                             value="From"/>
                         <item5
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.next"
+                            key="generic.slider.label.next"
                             value="Go to next slide"/>
                         <item6
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.pause"
+                            key="generic.slider.label.pause"
                             value="Pause carousel"/>
                         <item7
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.paused"
+                            key="generic.slider.label.paused"
                             value="Carousel paused"/>
                         <item8
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.pip"
+                            key="generic.slider.label.pip"
                             value="Go to slide []"/>
                         <item9
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.play"
+                            key="generic.slider.label.play"
                             value="Play carousel"/>
                         <item10
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.playing"
+                            key="generic.slider.label.playing"
                             value="Carousel playing"/>
                         <item11
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.previous"
+                            key="generic.slider.label.previous"
                             value="Go to previous slide new"/>
                         <item12
                             jcr:primaryType="nt:unstructured"
-                            key="accolade.label.slideChanged"
+                            key="generic.slider.label.slideChanged"
                             value="Now showing slide []"/>
                         <item13
                             jcr:primaryType="nt:unstructured"

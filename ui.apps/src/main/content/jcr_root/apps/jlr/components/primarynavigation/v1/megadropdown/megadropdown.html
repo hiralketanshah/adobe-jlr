@@ -82,7 +82,7 @@
                   <div class="dxnav-promo-panel__content-wrapper">
                      <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy @ context="html"}</h2>
                      <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy @ context="html"}</p>
-                     <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
+                     <div data-sly-test="${cta.rightPaneCopyCtaText}" aria-label="${cta.rightPaneCopyCtaAriaLabel}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>
             </div>
@@ -108,6 +108,11 @@
          <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
             <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
                <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" aria-label="${cta.leftPaneCtaAriaLabel}" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+            </ul>
+         </div>
+         <div data-sly-test="${model.leftDualColumnCta}" class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftDualColumnCta}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneDualCtaLink}" aria-label="${cta.leftPaneDualCtaAriaLabel}" data-target="${cta.leftPaneDualCtaTarget}" target="${cta.leftPaneDualCtaTarget}">${cta.leftPaneDualCtaText}</a> </li>
             </ul>
          </div>
          <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel">
@@ -145,7 +150,7 @@
                   <div class="dxnav-promo-panel__content-wrapper">
                      <h2 data-sly-test="${cta.rightPaneHeaderCopy}" class="dxnav-promo-panel__header">${cta.rightPaneHeaderCopy @ context="html"}</h2>
                      <p data-sly-test="${cta.rightPaneBodyCopy}" class="dxnav-promo-panel__copy">${cta.rightPaneBodyCopy @ context="html"}</p>
-                     <div data-sly-test="${cta.rightPaneCopyCtaText}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
+                     <div data-sly-test="${cta.rightPaneCopyCtaText}" aria-label="${cta.rightPaneCopyCtaAriaLabel}" class="dxnav-cta-secondary" > <span class=" dxnav-promo-panel__secondary-link dxnav-link">${cta.rightPaneCopyCtaText}</span> </div>
                   </div>
                </a>
             </div>
