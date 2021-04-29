@@ -98,6 +98,9 @@
          <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
             <li> <a href="${cta.leftPaneCtaLink}" aria-label="${cta.leftPaneCtaAriaLabel}" class="dxnav-dropdown__button" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}"> <span class="dxnav-dropdown__button-text">${cta.leftPaneCtaText}</span> </a> </li>
          </sly>
+         <sly data-sly-test="${model.leftDualColumnCta}" data-sly-list.cta="${model.leftDualColumnCta}">
+            <li> <a href="${cta.leftPaneDualCtaLink}" aria-label="${cta.leftPaneDualCtaAriaLabel}" class="dxnav-dropdown__button" data-target="${cta.leftPaneDualCtaTarget}" target="${cta.leftPaneDualCtaTarget}"> <span class="dxnav-dropdown__button-text">${cta.leftPaneDualCtaText}</span> </a> </li>
+         </sly>
       </ul>
    </div>
 </sly>

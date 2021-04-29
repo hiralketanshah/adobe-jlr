@@ -164,6 +164,10 @@
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Brochure - Header"
                 value="#Brochure"/>
+            <item40
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Arrow Right - Header"
+                value="#Arrow_Right"/>
         </list>
     </jcr:content>
 </jcr:root>

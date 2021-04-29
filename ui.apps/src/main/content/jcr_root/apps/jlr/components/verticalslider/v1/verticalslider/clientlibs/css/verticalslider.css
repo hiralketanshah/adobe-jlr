@@ -207,7 +207,6 @@
 .cmp-interactiveNumberedImage__content {
 	position: relative;
 	order: 0;
-	width: calc( ( (100% - 140px) * (.33333)) + (90px));
 	padding: 72px 40px 48px 90px
 }
 
@@ -269,8 +268,6 @@
 
 
 .cmp-interactiveNumberedImage__images {
-	/* background-color: grey; */
-	width: calc( ( (100% - 140px) * (.66666)) + (50px));
 	order: 1;
 	box-sizing: border-box;
 	flex-grow: 1;
