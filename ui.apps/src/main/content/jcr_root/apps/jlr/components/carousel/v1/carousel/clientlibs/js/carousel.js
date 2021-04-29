@@ -198,7 +198,10 @@ class Pagination {
     }
 
     static _replacePlaceholderLabelText(label, textToInsert = '') {
+        if(label)
         return label.replace(/[[]]/g, textToInsert);
+        else
+        return "";
     }
 
     // fires an event with update text which the host component can choose to add to an aria-liveregion
@@ -12610,8 +12613,12 @@ if (carousalElements.length) {
       el.classList.add('cmp-dualframe-carousel');
       FullFrameCarouselInit(jQuery, window,"DualFrameCarouselCustom");
       let controls = el.querySelector('.cmp-carousel__controls');
+      let isLeft = el.querySelectorAll('.left');
       if(controls)
       controls.classList.add('cmp-dualframe_pagination');
+      if(isLeft.length>0){
+        controls.classList.add('left');
+      }
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
         comp.DualFrameCarouselCustom();
@@ -12628,21 +12635,24 @@ if (carousalElements.length) {
         comp.HeroCarousel();
       }
       setTimeout(()=>{
-        let videomp4 = el.querySelector('video');
-        if(videomp4){
-          videomp4.removeAttribute("controls");
-          // videomp4.loop=true;  
-          // videomp4.play();
+       
+        let videomp4List = el.querySelectorAll('video');
 
+        if(videomp4List.length>0)
+        {
+          videomp4List.forEach((videomp4)=>{
+            videomp4.removeAttribute("controls");
+            videomp4.addEventListener('pause',()=>{
+              videomp4.currentTime = 0;
+              videomp4.play();
+            })
+          });     
         };
-        let controls = el.querySelector('.cmp-carousel__controls');
-        if(controls)
-        controls.classList.add('cmp-fullframe_pagination');
         if(el.querySelectorAll(".cmp-genericItem__element-poster").length>0){
           //pagination enabled
-          let controls = el.querySelector('.cmp-fullframe_pagination');
+          let controls = el.querySelector('.cmp-hero_pagination');
           if(controls){
-            let controlsFFC = el.querySelector('.cmp-fullframe_pagination');
+            let controlsFFC = el.querySelector('.cmp-hero_pagination');
             // let paginationPrev = el.querySelector('.cmp-carousel__previous');
             // let paginationNext = el.querySelector('.cmp-carousel__next');
             let height = el.querySelector(".cmp-genericItem__element-poster").clientHeight;
@@ -12676,8 +12686,31 @@ if (carousalElements.length) {
       el.classList.add('cmp-herotitle-carousel');
       FullFrameCarouselInit(jQuery, window,"HeroTitleBanner");
       let controls = el.querySelector('.cmp-carousel__controls');
-      if(controls)
-      controls.classList.add('cmp-heroTitleBanner_pagination');
+      if(controls){
+        controls.classList.add('cmp-heroTitleBanner_pagination');
+        let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
+        let height = el.querySelector(".cmp-heroTitleBanner__image").clientHeight;
+        controlsFFC.style.top = "0px";
+        controlsFFC.style.top = height+20+"px";
+      }
+      if(window.innerWidth >=300 && window.innerWidth<=767){
+        let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
+        let offsetheight = el.querySelector(".cmp-heroTitleBanner__image").offsetHeight;
+        let elm = el.querySelectorAll(".cmp-heroTitleBanner__image");
+        elm.forEach((e)=>{
+          e.style.marginBottom="50px";
+        })
+        controlsFFC.style.top = offsetheight+25+"px";
+      }   
+      if(window.innerWidth >=768 && window.innerWidth<=1024){
+        let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
+        let offsetheight = el.querySelector(".cmp-heroTitleBanner__image").offsetHeight;
+        let elm = el.querySelectorAll(".cmp-heroTitleBanner__image");
+        elm.forEach((e)=>{
+          e.style.marginBottom="50px";
+        })
+        controlsFFC.style.top = offsetheight+25+"px";
+      }
       const comp = $(el);
       if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
         comp.HeroTitleBanner();
