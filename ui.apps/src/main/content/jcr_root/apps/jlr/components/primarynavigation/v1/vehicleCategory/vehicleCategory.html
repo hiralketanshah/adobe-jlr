@@ -2,11 +2,21 @@
  data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 
- <sly data-sly-list.item="${model.vehicleFamily}">
-<div class="dxnav-vehicle-nav__category-block" >
-   <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
-   <sly data-sly-list.item1="${item.vehiclesList}">
-   <sly data-sly-resource="${item1.vehicleLink @appendPath='/jcr:content/root/container'}"/>
-   </sly>
+<div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="vehicle-menu-tab-0">
+   <div class="dxnav-vehicle-menu">
+      <div class="dxnav-vehicle-menu__sidebar">
+         <div class="dxnav-vehicle-menu__categories">
+            <sly data-sly-list.item="${model.vehicleFamily}">
+               <div class="dxnav-vehicle-nav__category-block" >
+                  <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
+                  <sly data-sly-list.item1="${item.vehiclesList}">
+                     <sly data-sly-resource="${item1.vehicleLink @appendPath='/jcr:content/root/container'}"/>
+                  </sly>
+               </div>
+            </sly>
+         </div>
+         <a class="dxnav-vehicle-nav__cta dxnav-vehicle-nav__cta--compare" href="https://quote.landrover.com.au" target="_self"> <span>FIND &amp; PRICE</span> </a> 
+      </div>
+      <div class="dxnav-vehicle-menu__product"> </div>
+   </div>
 </div>
-</sly>

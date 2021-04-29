@@ -19,6 +19,18 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+                            <primaryNavTitle
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The Primary Navigation title to be specified."
+                                fieldLabel="Primary Nav Title"
+                                name="./primaryNavTitle"/>
+                            <primaryNavAriaLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="The aria label for the primary navigation title is specified."
+                                fieldLabel="Primary Navigation Title Aria Label"
+                                name="./primaryNavAriaLabel"/>
                             <vehicleTabName
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

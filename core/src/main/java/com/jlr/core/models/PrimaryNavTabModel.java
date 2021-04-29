@@ -161,9 +161,34 @@ public class PrimaryNavTabModel {
             ValueMap properties = child.adaptTo(ValueMap.class);
             if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get("vehicleTabName", String.class));
-            	logger.info("vehicleTabName {}",properties);
             	}
             }
+        return list;
+	}
+	
+	public List<String> getVehicleNavPageTitle(){
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
+        	}
+        return list;
+	}
+	
+	public List<String> getVehicleNavPageArialabel(){
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
+        	}
         return list;
 	}
 	
