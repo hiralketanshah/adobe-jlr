@@ -817,7 +817,9 @@ min-width: 360px;
 @media screen and (min-width: 1920px){
   .cmp-carousel .carousel .cmp-genericItem__element-poster {
       position: relative;
-      width: 1660px;
+      min-width: 1660px;
+      width:2000px;
+      max-width:2000px;
       height:935px ;
       /* padding-bottom: 30%; */
     }
@@ -854,6 +856,10 @@ min-width: 360px;
         top: 46%;
 
       }
+      .cmp-carousel.cmp-fullframe-carousel__previous,.cmp-fullframe-carousel.cmp-carousel__next{
+        top:450px;
+      }
+     
      .video{
        height: 670px;
      }
@@ -861,7 +867,7 @@ min-width: 360px;
 /* DESKTOP END */
 /* Tablet */
 @media screen and (min-width: 767px) and (max-width: 1278px) {
-  .cmp-carousel{
+  .cmp-carousel.cmp-fullframe-carousel{
     margin-top: 40px;
     margin-left: 0px;
     margin-right: 0px;
@@ -896,7 +902,7 @@ min-width: 360px;
 }
 .fontBodyCopyLarge{
   width: 100%;
-  margin-bottom: 43px;
+  margin-bottom: 24px;
   padding-right: 0px;
 }
 #landrover .secondaryLinkWithStyle{
@@ -954,7 +960,7 @@ min-width: 360px;
 }
 .fontBodyCopyLarge{
   width: 100%;
-  margin-bottom: 43px;
+  margin-bottom: 0px;
   padding-right: 0px;
 }
 #landrover .secondaryLinkWithStyle{
@@ -971,6 +977,17 @@ min-width: 360px;
   left: 20px;
   justify-content:left;
   
+}
+.cmp-fullframe-carousel .Pagination--black .Pagination__play-control-icon,
+.cmp-fullframe-carousel .Pagination--black .Pagination__pause-control-icon{
+fill:black;
+}
+.cmp-fullframe-carousel .Pagination__pause:before,
+.cmp-fullframe-carousel .Pagination--black .Pagination__play:before, .cmp-fullframe-carousel .Pagination--black .Pagination__pause:before{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.cmp-fullframe-carousel .Pagination--black .Pagination__pip:after{
+    border: 2px solid black;
 }
 }
 /* Mobile END */

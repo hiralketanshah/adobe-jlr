@@ -198,7 +198,10 @@ class Pagination {
     }
 
     static _replacePlaceholderLabelText(label, textToInsert = '') {
+        if(label)
         return label.replace(/[[]]/g, textToInsert);
+        else
+        return "";
     }
 
     // fires an event with update text which the host component can choose to add to an aria-liveregion
@@ -12628,12 +12631,18 @@ if (carousalElements.length) {
         comp.HeroCarousel();
       }
       setTimeout(()=>{
-        let videomp4 = el.querySelector('video');
-        if(videomp4){
-          videomp4.removeAttribute("controls");
-          // videomp4.loop=true;  
-          // videomp4.play();
+       
+        let videomp4List = el.querySelectorAll('video');
 
+        if(videomp4List.length>0)
+        {
+          videomp4List.forEach((videomp4)=>{
+            videomp4.removeAttribute("controls");
+            videomp4.addEventListener('pause',()=>{
+              videomp4.currentTime = 0;
+              videomp4.play();
+            })
+          });     
         };
         let controls = el.querySelector('.cmp-carousel__controls');
         if(controls)
