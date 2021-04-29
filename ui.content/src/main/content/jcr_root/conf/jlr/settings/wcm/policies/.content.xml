@@ -695,7 +695,7 @@
                             sling:resourceType="wcm/core/components/policy/policy"
                             autopauseDisabled="false"
                             autoplay="true"
-                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/heroitem/v1/heroitem,/apps/jlr/components/herotitlebanner/v1/herotitlebanner]"
+                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/heroitem/v1/heroitem,/apps/jlr/components/dualframecarousel/v1/dualframecarousel,/apps/jlr/components/herotitlebanner/v1/herotitlebanner]"
                             delay="6000">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -976,6 +976,38 @@
                     </optionpicker>
                 </v1>
             </optionpicker>
+            <dualframecarousel jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <dualframecarousel jcr:primaryType="nt:unstructured">
+                        <policy_1619696656661
+                            jcr:lastModified="{Date}2021-04-29T17:14:49.980+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Dual Frame Carousel"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1619696677262"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1619696681046"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1619696656661>
+                    </dualframecarousel>
+                </v1>
+            </dualframecarousel>
             <herotitlebanner jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <herotitlebanner jcr:primaryType="nt:unstructured">
