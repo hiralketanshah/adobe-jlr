@@ -44,5 +44,6 @@
         hero-item-header="true"
         faq-header="true"
         vertical-slider-header="true"
-        full-frame-header="true"/>
+        full-frame-header="true"
+        dual-frame-header="true"/>
 </jcr:root>
