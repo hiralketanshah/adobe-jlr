@@ -110,64 +110,8 @@
                 value="icon-land-rover-to-you"/>
             <item26
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Compare - Header"
-                value="#Compare"/>
-            <item27
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Vehicle Add - Header"
-                value="#Vehicle_Add"/>
-            <item28
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Drive On Road - Header"
-                value="#Drive_On_Road"/>
-            <item29
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Approved Used - Header"
-                value="#Approved_Used"/>
-            <item30
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Map Pin - Header"
-                value="#Map_Pin"/>
-            <item31
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Phone - Header"
-                value="#Phone"/>
-            <item32
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Service - Header"
-                value="#Service"/>
-            <item33
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Guides - Header"
-                value="#Guides"/>
-            <accessories
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Accessories - Header"
-                value="#Accessories"/>
-            <item35
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Incontrol - Header"
-                value="#Incontrol"/>
-            <item36
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Experience - Header"
-                value="#Experience"/>
-            <item37
-                jcr:primaryType="nt:unstructured"
-                text="Star_Filled - Header"
-                value="#Star_Filled"/>
-            <item38
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Vehicle - Header"
-                value="#Vehicle"/>
-            <item39
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Brochure - Header"
-                value="#Brochure"/>
-            <item40
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Arrow Right - Header"
-                value="#Arrow_Right"/>
+                jcr:title="None"
+                value=""/>
         </list>
     </jcr:content>
 </jcr:root>

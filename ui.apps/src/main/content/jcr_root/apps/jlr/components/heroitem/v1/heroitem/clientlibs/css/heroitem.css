@@ -641,6 +641,9 @@ label {
     padding-right: 36px;
   }
 }
+ .cmp-hero-carousel .headingWrapper {
+	font-weight:normal;
+}
 .videoCustom {
   position: initial;
   padding-bottom: 56.25%;
