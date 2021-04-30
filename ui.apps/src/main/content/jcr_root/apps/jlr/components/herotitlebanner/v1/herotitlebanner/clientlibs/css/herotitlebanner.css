@@ -228,7 +228,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 }
 
 #landrover .cmp-heroTitleBanner .primaryLinkContainer {
-	margin-top: 24px
+	margin-top: 0px
 }
 
 #landrover .cmp-heroTitleBanner .secondaryLinkWithStyle {
@@ -274,7 +274,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 	filter: drop-shadow(0 3px 3px rgba(0, 0, 0, .6)) drop-shadow(0 0 2px rgba(74, 144, 226, .1)) drop-shadow(0 0 2px rgba(74, 144, 226, .1))
 }
 
-@media screen and (min-width:1921px) and (max-width:2560px) {
+@media screen and (min-width:1920px) and (max-width:2560px) {
 	.cmp-carousel {
 		padding: 60px 60px 80px
 	}
@@ -283,6 +283,17 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 		min-height: 496px;
 		height: 496px;
 		width: 880px
+	}
+	.cmp-heroTitleBanner .linkContainer {
+		width: 100%;
+	}
+	.cmp-heroTitleBanner .caveat {
+		padding-top: 24px;
+		float: left;
+	}
+	.cmp-heroTitleBanner .pricing{
+		max-width: 100%;
+
 	}
 }
 
@@ -377,22 +388,28 @@ p {
 		flex-direction: row-reverse
 	}
 	.heroFooterSection {
-		padding-left: 440px;
+		padding-left: 380px;
 		margin-bottom: 20px;
 		height: 62px
 	}
 	.cmp-heroTitleBanner .primaryLinkContainer:first-of-type {
-		margin-top: 24px
+		margin-top: 0px
 	}
 	.cmp-heroTitleBanner .cmp-genericItem__content p {
 		margin-top: 10px
 	}
-	.cmp-heroTitleBanner__image {
-		min-height: 461px
+	.cmp-heroTitleBanner .cmp-heroTitleBanner__image {
+    height: 461px;
+		min-height: 461px;
+    min-width:820px;
+
 	}
-	.summaryItemContent {
+	.cmp-heroTitleBanner .summaryItemContent {
 		padding-top: 40px
 	}
+  /* .cmp-heroTitleBanner .heroFooterSection{
+    padding-top: 100px;
+  } */
 }
 
 @media screen and (min-width:1401px) {
@@ -419,7 +436,7 @@ p {
 		height: 62px
 	}
 	.cmp-heroTitleBanner .primaryLinkContainer:first-of-type {
-		margin-top: 24px
+		margin-top: 0px;
 	}
 	.cmp-heroTitleBanner .cmp-genericItem__content p {
 		margin-top: 10px
@@ -449,7 +466,7 @@ p {
   }
  .cmp-heroTitleBanner .linkContainer{
     margin-top: 0px;
-    padding-top: 0px;
+    padding-top: 24px;
     width: 100%;
   }
   .cmp-heroTitleBanner .primaryLinkWithStyle {
@@ -515,7 +532,6 @@ p {
     position: relative;
     min-height: 349px;
     height: 349px;
-    width: 1200px;
     max-width: 1200px;
   }
 }
@@ -575,8 +591,12 @@ p {
 		order: 2
 	}
   .cmp-heroTitleBanner .pricing{
+    height: 60px;
     float: none;
   }
+  .cmp-heroTitleBanner .primaryLinkWithStyle{
+    margin-bottom: 0px;
+  } 
   .cmp-heroTitleBanner .pricing .firstPrice p{
     float: left;
   }
@@ -606,14 +626,15 @@ p {
 		padding-left: 25px;
 		bottom: 60%
 	}
-  .cmp-heroTitleBanner .linkContainer{
-    margin-top: 0px;
-  }
+
   .cmp-heroTitleBanner .caveat{
     margin-top: 24px;
   }
   .cmp-heroTitleBanner .emissionDetails label p{
     padding-left: 0px;
+  }
+  .cmp-heroTitleBanner .linkContainer{
+    margin-top: 0px  !important;
   }
 }
 
@@ -633,20 +654,23 @@ p {
 	display: none
 }
 
-.short .cmp-genericItem__content {
+.centreAlign .cmp-genericItem__content {
 	margin: auto
 }
 
 @media screen and (min-width:1280px) and (max-width:1400px) {
-	.cmp-heroTitleBanner.short.topAlign .cmp-genericItem__content {
+	 .short.topAlign .cmp-genericItem__content {
 		margin-top: 40px;
     min-width: 360px;
+	}
+  .cmp-heroTitleBanner .cmp-genericItem__content {
+    width: 400px;
 	}
 	.short .summaryItemContent {
 		padding-top: 0
 	}
 	.cmp-heroTitleBannerGridContext {
-		height: 349px
+		/* height: 349px */
 	}
       .cmp-heroTitleBanner  .caveat{
         float: left
@@ -666,21 +690,24 @@ p {
 }
 
 @media screen and (min-width:1401px) {
-	.cmp-heroTitleBanner.short.topAlign .cmp-genericItem__content {
+	.short.topAlign .cmp-genericItem__content {
 		margin-top: 40px
 	}
 	.short .summaryItemContent {
 		padding-top: 0
 	}
-	.cmp-heroTitleBannerGridContext {
+	/* .cmp-heroTitleBannerGridContext {
 		height: 349px
-	}
+	} */
 }
 /* NEW CHANGES */
 .cmp-heroTitleBanner .fontQuote p {
     font-family: "lr_ot4";
     }
- .cmp-heroTitleBanner .headingWrapper p{
+.white .cmp-heroTitleBanner .headingWrapper p,
+.grey .cmp-heroTitleBanner .headingWrapper p,
+.light .cmp-heroTitleBanner .headingWrapper p
+{
     color: #0c121c;
 }
 .cmp-herotitle-carousel .Pagination__play:before, .Pagination__pause:before{
@@ -698,5 +725,18 @@ p {
  .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown{
   stroke: white;
  }
-
+ 
+ .grey .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before,
+ .light .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before,
+ .white .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before{
+   color: black;
+   font-size: 40px;
+ }
+ .slateblue .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before{
+	color: white;
+	font-size: 40px;
+  }
+  .cmp-heroTitleBanner .headingWrapper {
+	font-weight:normal;
+}
 /* END */
