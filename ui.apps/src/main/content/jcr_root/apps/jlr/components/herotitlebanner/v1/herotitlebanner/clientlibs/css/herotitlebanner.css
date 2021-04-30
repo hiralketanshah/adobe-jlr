@@ -508,7 +508,8 @@ p {
 		height: 62px
 	}
 	.cmp-heroTitleBanner .primaryLinkContainer:first-of-type {
-		margin-top: 24px
+		margin-top: 24px;
+		margin-bottom: 24px;
 	}
 	.cmp-heroTitleBanner .cmp-genericItem__content p {
 		margin-top: 10px
@@ -636,6 +637,13 @@ p {
   .cmp-heroTitleBanner .linkContainer{
     margin-top: 0px  !important;
   }
+  .cmp-heroTitleBanner .primaryLinkContainer:first-of-type {
+	margin-bottom: 24px;
+}
+#landrover .cmp-heroTitleBanner .secondaryLinkWithStyle
+{
+	margin-bottom: 0px;
+} 
 }
 
 .short .cmp-carousel__bgImage {
