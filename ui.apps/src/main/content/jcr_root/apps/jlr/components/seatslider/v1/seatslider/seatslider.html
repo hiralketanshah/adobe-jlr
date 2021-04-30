@@ -1,0 +1,17 @@
+<sly data-sly-use.seatslider="com.jlr.core.models.SeatSliderModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+   data-sly-test.hasContent="${seatslider.seatSliderItems}" id="${component.id}" >
+</sly>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
+<div>Seat Configuration unit: ${seatslider.headerCopy}</div>
+<div> Seat Configuration Caption: ${seatslider.copy}</div>
+<div>Seat Configuration Image Folder Path: ${seatslider.folderPath}</div>
+<div>-----------Items-------------------------------------</div>
+<div data-sly-list = "${seatslider.seatSliderItems}">
+	<div>Seat Tab Copy: ${item.title}</div>
+	<div>Seat Configuration Header: ${item.headerCopy}</div>
+	<div>Seat Configuration Summary: ${item.copy}</div>
+	<div>Seat Configuration Value: ${item.value}</div>
+	<div>Seat Configuration Capacity Image :  ${item.fileReference}</div>
+</div>
