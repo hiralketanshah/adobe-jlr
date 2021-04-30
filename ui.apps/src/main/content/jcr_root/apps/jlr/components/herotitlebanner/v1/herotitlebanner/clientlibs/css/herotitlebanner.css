@@ -1,4 +1,4 @@
-.cmp-carousel {
+.cmp-carousel.cmp-herotitle-carousel {
 	padding: 0px;
     
 	max-height: 100%;
@@ -6,7 +6,7 @@
 	position: relative
 }
 
-.cmp-carousel__slider {
+.cmp-herotitle-carousel .cmp-carousel__slider {
 	height: 100%;
 	width: 100%;
 	outline: 0
@@ -145,7 +145,7 @@
 	z-index: 0
 }
 
-html.no-js .cmp-carousel {
+html.no-js .cmp-carousel.cmp-herotitle-carousel {
 	opacity: 1;
 	height: auto;
 	min-height: 0
@@ -168,11 +168,11 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 	display: block
 }
 
-.cmp-carousel__slider .swiper-button--prev {
+.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--prev {
 	left: -50px
 }
 
-.cmp-carousel__slider .swiper-button--next {
+.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--next {
 	right: -50px
 }
 
@@ -275,7 +275,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 }
 
 @media screen and (min-width:1920px) and (max-width:2560px) {
-	.cmp-carousel {
+	.cmp-carousel.cmp-herotitle-carousel {
 		padding: 60px 60px 80px
 	}
 	.cmp-heroTitleBanner .cmp-heroTitleBanner__image {
@@ -298,7 +298,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 }
 
 @media screen and (max-width:375px) {
-	.cmp-carousel {
+	.cmp-carousel.cmp-herotitle-carousel {
 		padding: 25px
 	}
 	.cmp-heroTitleBanner .cmp-heroTitleBanner__image {
@@ -316,7 +316,7 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
   }
 }
 
-.cmp-carousel {
+.cmp-carousel.cmp-herotitle-carousel {
 	padding: 0;
 	height: 100%;
 	text-align: center;
@@ -327,43 +327,43 @@ html.no-js .cmp-carousel .carousel .cmp-carousel__slide {
 	padding-left: 60px
 }
 
-.emissionDetails {
+.cmp-heroTitleBanner .emissionDetails {
 	width: 100%;
 	text-align: left;
 	height: 15px;
 	margin-bottom: 8px
 }
 
-.emissionDetails p,
+.cmp-heroTitleBanner .emissionDetails p,
 label {
 	display: inline;
 	font-size: 10px
 }
 
-.emissionDetails
+.cmp-heroTitleBanner .emissionDetails
 label {
 	padding-right: 20px;
 }
 
-.emissionDetails {
+.cmp-heroTitleBanner .emissionDetails {
 	padding-top: 20px;
 	display: flex;
 	flex-direction: row
 }
 
-.emissionDe {
+.cmp-heroTitleBanner .emissionDe {
 	display: flex;
 	flex-direction: column;
 	min-height: 40px;
 	max-height: 60px
 }
 
-.emissionDetails label
+.cmp-heroTitleBanner .emissionDetails label
 p {
 	padding-left: 20px
 }
 
-.emissionDe:not(:first-child) {
+.cmp-heroTitleBanner .emissionDe:not(:first-child) {
 	border-left: 1px solid #4a4F544D
 }
 
@@ -387,7 +387,7 @@ p {
 	.cmp-heroTitleBanner .cmp-heroTitleBannerGridContext {
 		flex-direction: row-reverse
 	}
-	.heroFooterSection {
+	.cmp-heroTitleBanner .heroFooterSection {
 		padding-left: 380px;
 		margin-bottom: 20px;
 		height: 62px
@@ -430,7 +430,7 @@ p {
 	.cmp-heroTitleBanner .cmp-heroTitleBannerGridContext {
 		flex-direction: row-reverse
 	}
-	.heroFooterSection {
+	.cmp-heroTitleBanner .heroFooterSection {
 		padding-left: 445px;
 		margin-bottom: 20px;
 		height: 62px
@@ -447,7 +447,7 @@ p {
 	.summaryItemContent {
 		padding-top: 40px
 	}
-	.heroFooterSection {
+	.cmp-heroTitleBanner .heroFooterSection {
 		padding-top: 148px
 	}
 }
@@ -476,7 +476,7 @@ p {
 		padding-left: 30px;
 		bottom: 30%
 	}
-	.emissionDetails label,
+	.cmp-heroTitleBanner .emissionDetails label,
 	p {
 		padding-left: 28px
 	}
@@ -494,14 +494,14 @@ p {
 		padding-left: 30px;
 		padding-top: 24px
 	}
-	.emissionDetails {
+	.cmp-heroTitleBanner .emissionDetails {
 		display: block;
 		height: 150px;
 		padding-top: 0;
 		margin-top: 0;
 		border: none
 	}
-	.heroFooterSection {
+	.cmp-heroTitleBanner .heroFooterSection {
 		padding-top: 34px;
 		padding-left: 400px;
 		margin-bottom: 20px;
@@ -519,13 +519,13 @@ p {
 	.summaryItemContent {
 		padding-top: 40px
 	}
-	.emissionDe :first-child {
+	.cmp-heroTitleBanner .emissionDe :first-child {
 		padding-top: 0
 	}
-	.emissionDe label {
+	.cmp-heroTitleBanner .emissionDe label {
 		padding-top: 13px
 	}
-	.emissionDe {
+	.cmp-heroTitleBanner .emissionDe {
 		border-left: 1px solid #4a4F544D
 	}
   .cmp-heroTitleBanner .cmp-heroTitleBanner__image {
@@ -537,23 +537,23 @@ p {
 }
 
 @media screen and (min-width:320px) and (max-width:767px) {
-	.emissionDetails {
+	.cmp-heroTitleBanner .emissionDetails {
 		padding-left: 25px;
 		padding-top: 11px;
 		flex-direction: column;
 		height: 100px
 	}
-	.emissionDetails label,
+	.cmp-heroTitleBanner .emissionDetails label,
 	p {
 		padding-left: 0
 	}
-	.emissionDe {
+	.cmp-heroTitleBanner .emissionDe {
 		padding-left: 0
 	}
-	.emissionDe:not(:first-child) {
+	.cmp-heroTitleBanner .emissionDe:not(:first-child) {
 		border-left: none
 	}
-	.emissionDe label {
+	.cmp-heroTitleBanner .emissionDe label {
 		padding-top: 13px
 	}
 	.cmp-heroTitleBanner {
@@ -603,10 +603,10 @@ p {
   .cmp-heroTitleBanner .caveat{
     float:left
   }
-	.cmp-carousel__slider .swiper-button--next {
+  .cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--next {
 		right: -30px
 	}
-	.cmp-carousel__slider .swiper-button--prev {
+	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--prev {
 		left: -30px
 	}
 	.cmp-heroTitleBanner .cmp-genericItem__content p {
@@ -678,11 +678,11 @@ p {
  .cmp-heroTitleBanner .linkContainer{
     width:100%
 }
-.emissionDe p{
+.cmp-heroTitleBanner .emissionDe p{
   display: inline;
   padding-left: 20px;
 }
-.emissionDe label p{
+.cmp-heroTitleBanner .emissionDe label p{
   display: inline;
   padding-left: 20px;
 }
