@@ -725,7 +725,24 @@ p {
  .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown{
   stroke: white;
  }
- 
+ /* slateblue pagination */
+.slateblue .cmp-herotitle-carousel .Pagination__play:before, .Pagination__pause:before{
+  border: 2px solid white;
+ }
+ .slateblue .cmp-herotitle-carousel .Pagination__play-control-icon, .Pagination__pause-control-icon{
+  fill: white;
+ }
+ .slateblue .cmp-herotitle-carousel .Pagination__pip:after{
+  border: 2px solid white;
+ }
+ .slateblue .cmp-herotitle-carousel .Pagination__pip--active:after, .Pagination__pip--active:hover:after{
+  background: white;
+ }
+ .slateblue .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown{
+  stroke: black;
+ }
+ /* end */
+
  .grey .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before,
  .light .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before,
  .white .cmp-herotitle-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before{
