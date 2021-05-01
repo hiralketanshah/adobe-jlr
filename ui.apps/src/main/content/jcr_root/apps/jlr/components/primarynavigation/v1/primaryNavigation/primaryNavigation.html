@@ -170,7 +170,7 @@
                            </div>
                         </div>
                         <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="vehicle-dropdown">
-						<sly data-sly-resource="${model.navPageTitleFour @appendPath='/jcr:content/root/container'}"/>
+						<sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
@@ -181,9 +181,9 @@
                               <svg class="dxnav-icon">
                                  <use xlink:href="#Arrow_Left"></use>
                               </svg>
-                              ${model.navPagePathFour}
+                              ${model.vehicleNavPageTitle}
                            </button>
-						   <sly data-sly-resource="${model.navPageTitleFour @appendPath='/jcr:content/root/container',selectors='vehicleCategorymobile'}"/>
+						   <sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container',selectors='vehicleCategorymobile'}"/>
                         </div>
                      </div>
                   </div>

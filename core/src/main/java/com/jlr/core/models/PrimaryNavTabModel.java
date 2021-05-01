@@ -203,6 +203,10 @@ public class PrimaryNavTabModel {
 	public String getNavPagePathThree() {
 		return navPagePathThree;
 	}
+	
+	public String getNavPagePathFour() {
+		return navPagePathFour;
+	}
 
 	public String getLogoImageAlt() {
 		return logoImageAlt;
