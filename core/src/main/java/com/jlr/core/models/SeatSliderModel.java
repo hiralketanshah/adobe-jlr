@@ -16,7 +16,9 @@ public interface SeatSliderModel {
 	default List<SeatSliderItem> getSeatSliderItems() {
 		return new ArrayList<>();
 	}
-
+	default String getImageList() {
+		return null;
+	}
 	default String getFolderPath() {
 		return null;
 	}
