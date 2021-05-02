@@ -37,6 +37,30 @@ public class PrimaryNavTabModel {
 	private String navPagePathFour;
 	
 	@Inject
+	private String enableLastVisited;
+	
+	@Inject
+	private String enableCustPortal;
+	
+	@Inject
+	private String custPortalLink;
+	
+	@Inject
+	private String custPortalAriaLabel;
+	
+	@Inject
+	private String retailerlLink;
+	
+	@Inject
+	private String retailerAriaLabel;
+	
+	@Inject
+	private String searchAriaLabel;
+	
+	@Inject
+	private String mobileBurgerAriaLabel;
+
+	@Inject
 	private String logoImageAlt;
 	
 	@Inject
@@ -214,6 +238,38 @@ public class PrimaryNavTabModel {
 
 	public String getLogoImageLink() {
 		return logoImageLink;
+	}
+
+	public String getEnableLastVisited() {
+		return enableLastVisited;
+	}
+
+	public String getEnableCustPortal() {
+		return enableCustPortal;
+	}
+
+	public String getCustPortalLink() {
+		return LinkUtils.appendLinkExtension(custPortalLink, resourceResolver);
+	}
+
+	public String getCustPortalAriaLabel() {
+		return custPortalAriaLabel;
+	}
+
+	public String getRetailerlLink() {
+		return LinkUtils.appendLinkExtension(retailerlLink, resourceResolver);
+	}
+
+	public String getRetailerAriaLabel() {
+		return retailerAriaLabel;
+	}
+
+	public String getSearchAriaLabel() {
+		return searchAriaLabel;
+	}
+
+	public String getMobileBurgerAriaLabel() {
+		return mobileBurgerAriaLabel;
 	}
 
 	public List<String> getPrimaryNavSecTabOne() {

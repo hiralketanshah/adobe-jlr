@@ -6,7 +6,7 @@
       <div class="dxnav__primary">
          <div class="dxnav__background--desktop"></div>
          <div class="dxnav-mobile-nav-wrapper">
-            <button class="dxnav-hamburger" id="dxnav-open-nav-js" aria-expanded="false" aria-haspopup="true" aria-label="MENU"> 
+            <button class="dxnav-hamburger" id="dxnav-open-nav-js" aria-expanded="false" aria-haspopup="true" aria-label="${model.mobileBurgerAriaLabel}"> 
             <span class="dxnav-hamburger__menu"> 
             <span class="dxnav-hamburger__bar"></span> 
             <span class="dxnav-hamburger__bar"></span> 
@@ -14,18 +14,31 @@
             <a href="${model.logoImageLink}" class="dxnav__logo">
             <img src="https://dxnav.landrover.com/legacy/images/logo-landrover-7bd33da9d247934b2b4929d399ab8a42.png" alt="${model.logoImageAlt}"></a> 
             <div class="dxnav__mobile-icons">
-               <a href="https://www.landrover.com.au/national-dealer-locator.html" class="dxnav__mobile-icons-retailer" aria-label="RETAILERS" target="_self">
+               <a class="dxnav__mobile-icons-prices MarketRegionalPricing-triggerer" href="#" aria-label="SHOW PRICES" aria-haspopup="dialog" role="button">
+                  <svg class="dxnav-icon">
+                     <use xlink:href="#Show_Prices"></use>
+                  </svg>
+               </a>
+               <a class="dxnav__mobile-icons-search" href="#" aria-label="${model.searchAriaLabel}" aria-expanded="false" aria-haspopup="dialog" role="button">
+                  <svg class="dxnav-icon">
+                     <use xlink:href="#Search"></use>
+                  </svg>
+               </a>
+               <a href="${model.retailerLink}" class="dxnav__mobile-icons-retailer" aria-label="${model.retailerAriaLabel}" target="_self">
                   <svg class="dxnav-icon">
                      <use xlink:href="#Location"></use>
                   </svg>
                </a>
+			   <sly data-sly-test="${model.enableCustPortal}">
+			   <div class="dxnav__zone-mobile" aria-label="${model.custPortalAriaLabel}" data-zone-script-url="${model.custPortalLink}"></div>
+			   </sly>
             </div>
          </div>
          <div class="dxnav__container">
             <div class="dxnav__background"></div>
             <div class="dxnav dxnav__primary-items">
                <ul>
-                  <li class="dxnav__item dxnav-has-dropdown-js" id="dxnav-build-dropdown-label-0" data-dropdown="dxnav-vehicle-dropdown-0">
+                  <li data-sly-test="${model.vehicleNavPageTitle}"class="dxnav__item dxnav-has-dropdown-js" id="dxnav-build-dropdown-label-0" data-dropdown="dxnav-vehicle-dropdown-0">
                      <a href="" target="_self" aria-label="${model.vehicleNavPageArialabel}" aria-expanded="true" aria-haspopup="dialog" role="button">
                         <span>${model.vehicleNavPageTitle}</span>
                         <svg class="dxnav-icon">
@@ -61,8 +74,24 @@
             </div>
             <div class="dxnav dxnav__secondary-items">
                <ul>
+                  <li class="dxnav__item dxnav__item-showprices">
+                     <a class="dxnav-showprices MarketRegionalPricing-triggerer" href="#" aria-label="SHOW PRICES" aria-expanded="false" aria-haspopup="dialog" role="button">
+                        <svg class="dxnav-icon">
+                           <use xlink:href="#Show_Prices"></use>
+                        </svg>
+                        <span class="dxnav__item-prices-label dxnav-hide-desktop">SHOW PRICES</span>
+                     </a>
+                  </li>
+                  <li id="dxnav-search" class="dxnav__item dxnav__item-search" data-dropdown="dxnav__search" data-search-suggestions-url="" data-search-results-url="">
+                     <a class="dxnav-search" href="#" aria-label="${model.searchAriaLabel}" aria-expanded="false" aria-haspopup="dialog" role="button">
+                        <svg class="dxnav-icon">
+                           <use xlink:href="#Search"></use>
+                        </svg>
+                        <span class="dxnav__item-search-label dxnav-hide-desktop">SEARCH</span>
+                     </a>
+                  </li>
                   <li class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="YOUR RETAILER">
-                     <a href="https://www.landrover.com.au/national-dealer-locator.html" aria-label="RETAILERS" target="_self" class="dxnav__item-retailer--link">
+                     <a href="${model.retailerLink}" aria-label="${model.retailerAriaLabel}" target="_self" class="dxnav__item-retailer--link">
                         <svg class="dxnav-icon dxnav-icon__retailer">
                            <use xlink:href="#Location"></use>
                         </svg>
@@ -84,6 +113,10 @@
                         <span class="dxnav-sso-logged-out"></span> 
                      </a>
                   </li>
+				  <sly data-sly-test="${model.enableCustPortal}">
+                  <li class="dxnav__item dxnav__zone" aria-label="${model.custPortalAriaLabel}" data-zone-script-url="${model.custPortalLink}">
+                  </li>
+				  </sly>
                </ul>
             </div>
          </div>
@@ -150,13 +183,14 @@
                <div class="dxnav-vehicle-dropdown-shortcuts__background" data-modal-close></div>
             </section>
             <div class="dxnav__dropdown">
+			<sly data-sly-test="${model.vehicleNavPageTitle}">
                <div id="dxnav-vehicle-dropdown-0" aria-modal="true" role="dialog" class="dxnav-dropdown dxnav-primary-dropdown dxnav-naas-primary-dropdown dxnav-naas-vehicle-dropdown dxnav-dropdown--dropdown">
                   <div class="dxnav-vehicle-dropdown-shortcuts__instructions" style="display: none;" id="dxnav-vehicle-dropdown-shortcuts__instructions"></div>
                   <div class="dxnav-links-dropdown__container dxnav-links-dropdown__container--desktop" role="document">
                      <div class="dxnav-vehicle-nav-desktop" data-dxnav-dropdown-from-text="Drive Away Price for from&lt;sup&gt;‡‡&lt;/sup&gt;" data-dxnav-dropdown-from-lease-text="??navigation.shared.vehicleDropdownFromLeaseText_en_AU??" data-dx-modals-closedialog-aria-label="Close item">
                         <div class="dxnav-dropdown-primary-tabs" data-naastabs-id="vehicle-dropdown">
                            <div role="tablist" class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible" aria-orientation="horizontal">
-                              <sly data-sly-list.tabName="${model.vehicleTabName}">
+                              <sly data-sly-test="${model.vehicleTabName}" data-sly-list.tabName="${model.vehicleTabName}">
                                  <button role="tab" class="dxnav-dropdown-primary-tabs__tab" aria-label="${tabName}"> 
                                  <span class="dxnav-dropdown-primary-tabs__tab-text">${tabName}</span> </button>
                               </sly>
@@ -169,25 +203,29 @@
                               </button>
                            </div>
                         </div>
-                        <div class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="vehicle-dropdown">
-						<sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container'}"/>
+                        <div data-sly-test="${model.navPagePathFour}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="vehicle-dropdown">
+                           <sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
                   <div class="dxnav-links-dropdown__container dxnav-links-dropdown__mobile" role="document">
                      <div class="dxnav-links-dropdown">
                         <div class="dxnav-links-dropdown__section-container">
-                           <button class="dxnav-dropdown__close-button dxnav-close-dropdown-js" aria-label="??navigation.shared.menu.back_en_AU??">
+                           <button data-sly-test="${model.vehicleNavPageTitle}" class="dxnav-dropdown__close-button dxnav-close-dropdown-js" aria-label="??navigation.shared.menu.back_en_AU??">
                               <svg class="dxnav-icon">
                                  <use xlink:href="#Arrow_Left"></use>
                               </svg>
                               ${model.vehicleNavPageTitle}
                            </button>
-						   <sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container',selectors='vehicleCategorymobile'}"/>
+                           <sly data-sly-test="${model.navPagePathFour}">
+                              <sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container',selectors='vehicleCategorymobile'}"/>
+                           </sly>
                         </div>
                      </div>
                   </div>
                </div>
+			   </sly>
+			   <sly data-sly-test="${model.navPageTitleOne}">
                <div id="dxnav-build-dropdown-1" aria-modal="true" role="dialog" class="dxnav-dropdown dxnav-primary-dropdown dxnav-naas-primary-dropdown">
                   <div class="dxnav-links-dropdown__container" role="document">
                      <!-- Mobile Section --> 
@@ -234,6 +272,8 @@
                      </div>
                   </div>
                </div>
+			   </sly>
+			   <sly data-sly-test="${model.navPageTitleTwo}">
                <div id="dxnav-build-dropdown-2" aria-modal="true" role="dialog" class="dxnav-dropdown dxnav-primary-dropdown dxnav-naas-primary-dropdown">
                   <div class="dxnav-links-dropdown__container" role="document">
                      <!-- Mobile Section --> 
@@ -245,7 +285,9 @@
                               </svg>
                               <span data-sly-test="${model.navPageTitleTwo}" class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
                            </button>
-                           <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+                           <sly data-sly-test="${model.navPagePathOne}">
+                              <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+                           </sly>
                            <div data-sly-test="${model.pageTwoQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                               <sly data-sly-list.item="${model.pageTwoQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -280,6 +322,8 @@
                      </div>
                   </div>
                </div>
+			   </sly>
+			   <sly data-sly-test="${model.navPageTitleThree}">
                <div id="dxnav-build-dropdown-3" aria-modal="true" role="dialog" class="dxnav-dropdown dxnav-primary-dropdown dxnav-naas-primary-dropdown">
                   <div class="dxnav-links-dropdown__container" role="document">
                      <!-- Mobile Section --> 
@@ -291,7 +335,9 @@
                               </svg>
                               <span class="dxnav-dropdown__close-text">${model.navPageTitleThree}</span> 
                            </button>
-                           <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+                           <sly data-sly-test="${model.navPagePathThree}">
+                              <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+                           </sly>
                            <div data-sly-test="${model.pageThreeQuickLink}"class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                               <sly data-sly-list.item="${model.pageThreeQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -326,8 +372,105 @@
                      </div>
                   </div>
                </div>
+			   </sly>
             </div>
          </div>
+         <div id="dxnav__search" class="dxnav__search-container dxnav-dropdown" role="dialog" aria-labelledby="dxnav-searchInput" aria-hidden="true">
+            <div class="dxnav-search__bar-container">
+               <div class="dxnav-search-icon">
+                  <svg class="dxnav-icon">
+                     <use xlink:href="#Search"></use>
+                  </svg>
+               </div>
+               <form id="dxnav__search-form" accept-charset="ISO-8859-15">
+                  <input name="iehack" type="hidden" value="☠">
+                  <label class="dxnav-visuallyHidden" for="dxnav-searchInput">SEARCH</label>
+                  <input id="dxnav-searchInput" type="text" class="dxnav-search-input" autocomplete="off" inputmode="search" placeholder="SEARCH">
+                  <button class="dxnav-cta-primary dxnav-search__submit-button" type="submit" disabled="">
+                     <div class="dxnav-search__submit-button__mobile-icon">
+                        <svg class="dxnav-icon">
+                           <use xlink:href="#Search"></use>
+                        </svg>
+                     </div>
+                     <span class="dxnav-search__submit-button__desktop-text">SEARCH</span> 
+                  </button>
+               </form>
+               <span class="dxnav-search-prompt-desktop">SEARCH</span>
+               <span class="dxnav-search-prompt-mobile">SEARCH</span>
+               <button id="dxnav-close-search" aria-label="Close item" class="dxnav-search-close">
+                  <svg class="dxnav-icon">
+                     <use xlink:href="#Close"></use>
+                  </svg>
+               </button>
+            </div>
+            <div class="dxnav-search-results-container">
+               <div class="dxnav-search-status"></div>
+               <div class="dxnav-suggestions" role="alert" aria-atomic="true">
+                  <a class="dxnav-see-all" href=""><span>SEE ALL SEARCH RESULTS</span></a>
+                  <!-- h2 class="dxnav-suggestions__title" th:text="#{navigation.shared.search.suggestions}">SUGGESTIONS</h2 -->
+                  <ul class="dxnav-suggestions__results"></ul>
+               </div>
+               <div class="dxnav-no__results">
+                  <h2 class="dxnav-suggestions__title">SUGGESTIONS:
+                     Make sure all words are spelled correctly.
+                     Try different keywords.
+                     Try more general keywords.
+                  </h2>
+               </div>
+               <div class="dxnav-search__error" role="alert" aria-atomic="true">
+                  <p class="dxnav-search__error-message">An error has occurred -</p>
+                  <a href="" class="dxnav-search__error-link">Please search again</a>
+               </div>
+               <div class="dxnav-search__results">
+                  <div class="dxnav-search__results-title" role="status" aria-live="polite">
+                     <h2 class="dxnav-results-count"></h2>
+                  </div>
+                  <div class="dxnav-search__results-content" aria-busy="false" aria-live="polite" tab-index="-1" aria-label="Search results">
+                     <div class="dxnav-search-results">
+                        <div class="dxnav-loader">
+                           <div class="dxnav-icon__holder">
+                              <svg class="dxnav-icon">
+                                 <use xlink:href="#Spinner"></use>
+                              </svg>
+                           </div>
+                        </div>
+                        <div id="dxnav-search-result" class="dxnav-search-result"></div>
+                     </div>
+                     <!-- div class="dxnav-related-search-results">
+                        <h3 class="dxnav-related-searches-title" th:text="#{navigation.shared.search.related-searches}">RELATED SEARCHES</h3>
+                        <div class="dxnav-related-search-term-container"></div>
+                        </div -->
+                  </div>
+                  <div class="dxnav-search__results-footer">
+                     <!-- <div class="dxnav-search-results-footer">
+                        <button class="dxnav-search__prev" th:aria-label="#{search.previous}">
+                          <svg class="dxnav-icon"><use xlink:href="/icons-sprite-landrover.svg#Close" nav:icon="Chevron_Left"></use></svg>
+                        </button>
+                        <span class="dxnav__search-currentPage">0</span><span>/</span><span class="dxnav__search-maxPage">0</span>
+                        <button class="dxnav-search__next" th:aria-label="#{search.next}">
+                          <svg class="dxnav-icon"><use xlink:href="/icons-sprite-landrover.svg#Close" nav:icon="Chevron_Right"></use></svg>
+                        </button>
+                        </div> -->
+                     <nav role="navigation" class="dxnav-search__results-pagination" aria-label="Search results pagination" data-button-label="??navigation.shared.search.pagination.button.label_en_AU??" data-first-label="??navigation.shared.search.pagination.first-button.label_en_AU??" data-last-label="??navigation.shared.search.pagination.last-button.label_en_AU??">
+                        <button class="dxnav-search__prev" aria-label="Previous">
+                           <svg class="dxnav-icon">
+                              <use xlink:href="#Chevron_Left"></use>
+                           </svg>
+                        </button>
+                        <ul class="dxnav-search__pagination-list"></ul>
+                        <button class="dxnav-search__next" aria-label="Next">
+                           <svg class="dxnav-icon">
+                              <use xlink:href="#Chevron_Right"></use>
+                           </svg>
+                        </button>
+                     </nav>
+                     <div class="dxnav-search__notification-area dxnav-visuallyHidden" aria-live="assertive" aria-atomic="true" data-current-page-label="??navigation.shared.search.pagination.current-page.label_en_AU??"></div>
+                  </div>
+                  <br><br>
+               </div>
+            </div>
+         </div>
+		 <sly data-sly-test="${model.enableLastVisited}">
          <div class="dxnav-retailer" data-direction="ltr">
             <button class="dxnav-dropdown__close-button dxnav-retailer__mobile-close-button dxnav-hide" aria-label="Previous Menu">
                <svg class="dxnav-icon">
@@ -358,6 +501,7 @@
                </a>
             </div>
          </div>
+		 </sly>
       </div>
       <div class="dxnav-icons-sprite">
          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -454,6 +598,9 @@
                </symbol>
                <symbol id="Vehicle_Add" viewBox="0 0 16 16">
                   <path d="M15.333 2.667h-2v-2a.667.667 0 1 0-1.333 0v2h-2A.667.667 0 0 0 10 4h2v2a.667.667 0 1 0 1.334 0V4h2a.667.667 0 0 0-.001-1.333zM12.667 8a.667.667 0 0 0-.667.667V10c0 .736-.597 1.333-1.333 1.333h-8a1.333 1.333 0 0 1-1.32-1.523l.667-4.667A1.332 1.332 0 0 1 3.333 4h4a.667.667 0 1 0 0-1.333h-4a2.669 2.669 0 0 0-2.64 2.286L.027 9.619a2.658 2.658 0 0 0 1.306 2.678v2.37a1.333 1.333 0 0 0 2.667 0v-2h6v2a1.333 1.333 0 0 0 2.666 0v-2.92c.41-.469.667-1.075.667-1.747V8.667A.667.667 0 0 0 12.667 8z"/>
+               </symbol>
+               <symbol id="Show_Prices" viewBox="0 0 24 24">
+                  <path d="M10 10H4.1c-.3 0-.6-.1-.8-.3-.2-.3-.3-.6-.3-.9l.6-6c0-.5.4-.8.9-.8h9.1c.5 0 .8.3.9.8l.1 1.3c.1.5.5 1 1.1.9.5-.1 1-.5.9-1.1l-.1-1.3C16.3 1.1 15 0 13.6 0H4.5C3 0 1.7 1.1 1.6 2.6l-.6 6c-.1.9.2 1.7.8 2.4l.5.5v3.3c0 .7.6 1.3 1.3 1.3h.6c.7 0 1.3-.6 1.3-1.3V12H10c.6 0 1-.4 1-1s-.5-1-1-1zM19 14v-4c1.1 0 2 .9 2 2 0 .6.4 1 1 1s1-.4 1-1c0-2.2-1.8-4-4-4V7c0-.6-.4-1-1-1s-1 .4-1 1v1c-2.2 0-4 1.8-4 4s1.8 4 4 4v4c-1.1 0-2-.9-2-2 0-.6-.4-1-1-1s-1 .4-1 1c0 2.2 1.8 4 4 4v1c0 .6.4 1 1 1s1-.4 1-1v-1c2.2 0 4-1.8 4-4s-1.8-4-4-4zm-2 0c-1.1 0-2-.9-2-2s.9-2 2-2v4zm2 6v-4c1.1 0 2 .9 2 2s-.9 2-2 2z"/>
                </symbol>
             </defs>
          </svg>

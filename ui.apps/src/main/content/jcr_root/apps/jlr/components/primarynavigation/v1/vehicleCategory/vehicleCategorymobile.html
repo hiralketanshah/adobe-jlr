@@ -30,8 +30,17 @@
           </div>
        </li>
        </sly>
-       <li><a class="dxnav-vehicle-nav__cta" href="https://quote.landrover.com.au" target="_self"> <span>FIND &amp; PRICE</span> </a> </li>
-       <li> 
+       <sly data-sly-test="${model.compareText}"></sly>
+       <li>
+         <a class="dxnav-vehicle-nav__cta" href="${model.compareLink}" aria-label=${model.compareAriaLabel} data-target="${model.compareTarget}" target="${model.compareTarget}">
+           <svg class="dxnav-icon">
+             <use xlink:href="${model.compareIcon}"></use>
+           </svg>
+           <span>${model.compareText}</span>
+         </a>
+       </li>
+      </sly>
+      <li> 
         <div class="dxnav-NaasMarketRegionalPricing">
         <a class="dxnav-button-tertiary dxnav-button-tertiary--alt MarketRegionalPricing-triggerer" href="#" aria-label="" aria-expanded="false" aria-haspopup="dialog" role="button">
         <span class="dxnav-NaasMarketRegionalPricing__label">
