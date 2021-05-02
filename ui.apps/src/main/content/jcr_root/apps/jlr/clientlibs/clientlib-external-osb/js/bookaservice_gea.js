@@ -1,0 +1,11 @@
+var leadInTag = document.getElementById('book-a-service-tool');
+leadInTag.classList.add("js-book-a-service-tool");
+leadInTag.classList.add("nd-service-booking-widget");
+var nd = nd || {};
+nd.widget = nd.widget || {};
+nd.widget.serviceCentreV2 = nd.widget.serviceCentreV2 || {};
+nd.widget.serviceCentreV2.dropcode = ['https://service-centre.netdirector.co.uk/', 'build/', ['6b94dba65e935d596070940f47b16db3c44c2ba4']];
+var s = 'script', o = document.createElement( s );
+o.type = 'text/javascript';
+o.src = nd.widget.serviceCentreV2.dropcode[0] + nd.widget.serviceCentreV2.dropcode[1] + 'widget.js';
+document.getElementsByTagName( s )[0].parentNode.appendChild( o );
