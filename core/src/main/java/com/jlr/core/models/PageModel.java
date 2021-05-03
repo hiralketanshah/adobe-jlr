@@ -15,6 +15,10 @@ public interface PageModel extends Page {
         return new ArrayList<>();
     }
 
+    default String getEnableInlineCookieJs() {
+        return StringUtils.EMPTY;
+    }
+
     default String getCommaSeparatedGtmTagsListWithQuotes() {
         return StringUtils.EMPTY;
     }
