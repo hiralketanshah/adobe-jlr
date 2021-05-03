@@ -1,4 +1,4 @@
-<sly data-sly-use.model="com.jlr.core.models.PrimaryNavTabModel"
+<sly data-sly-use.model="com.jlr.core.models.PrimaryNavigationModel"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
    id="${component.id}"></sly>
 
@@ -13,7 +13,7 @@
                      <span class="dxnav-hamburger__bar"></span> 
                      <span class="dxnav-hamburger__bar"></span> </span> </button> 
                      <a href="${model.logoImageLink}" class="dxnav__logo">
-                        <img src="https://dxnav.landrover.com/legacy/images/logo-landrover-7bd33da9d247934b2b4929d399ab8a42.png" alt="${model.logoImageAlt}"></a> 
+                        <img src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/logo/logo.png" alt="${model.logoImageAlt}"></a> 
                <div class="dxnav__mobile-icons">
                   <a href="https://www.landrover.com.au/national-dealer-locator.html" class="dxnav__mobile-icons-retailer" aria-label="RETAILERS" target="_self">
                      <svg class="dxnav-icon">
@@ -590,7 +590,7 @@
                                  </svg>
                                  <span data-sly-test="${model.navPageTitleOne}" class="dxnav-dropdown__close-text">${model.navPageTitleOne}</span> 
                               </button>
-							  <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+							  <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container',selectors='mobile'}"/>
                               <div data-sly-test="${model.pageOneQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
 							  <sly data-sly-list.item="${model.pageOneQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -636,7 +636,7 @@
                                  </svg>
                                  <span data-sly-test="${model.navPageTitleTwo}" class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
                               </button>
-							  <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+							  <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='mobile'}"/>
                             <div data-sly-test="${model.pageTwoQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                             <sly data-sly-list.item="${model.pageTwoQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -682,7 +682,7 @@
                                  </svg>
                                  <span class="dxnav-dropdown__close-text">${model.navPageTitleThree}</span> 
                               </button>
-							  <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
+							  <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='mobile'}"/>
                               <div data-sly-test="${model.pageThreeQuickLink}"class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                                  <sly data-sly-list.item="${model.pageThreeQuickLink}">
                                  <div class="dxnav-quick-links__item">
