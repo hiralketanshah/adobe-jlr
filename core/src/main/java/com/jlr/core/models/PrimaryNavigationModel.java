@@ -12,9 +12,11 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.jlr.core.constants.CommonConstants;
@@ -53,6 +55,9 @@ public class PrimaryNavigationModel {
 	
 	@Inject
 	private String custPortalAriaLabel;
+	
+	@HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String marketRegionPath;
 	
 	@Inject
 	private String retailerlLink;
@@ -194,6 +199,10 @@ public class PrimaryNavigationModel {
 	
 	public String getNavPagePathFour() {
 		return navPagePathFour;
+	}
+
+	public String getMarketRegionPath() {
+		return marketRegionPath;
 	}
 
 	public String getLogoImageAlt() {
