@@ -14,6 +14,7 @@ import org.apache.sling.models.annotations.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.internal.models.v1.GlobalModelImpl;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
@@ -90,7 +91,7 @@ public class ContentCardListModel extends GlobalModelImpl{
 		Iterator<Resource> contentCtaRes=contentCta.listChildren();
 		Resource contentCtaLink=contentCtaRes.next();
 		ValueMap properties = contentCtaLink.adaptTo(ValueMap.class);
-		String firstCtaLink=properties.get("link",String.class);
+		String firstCtaLink=properties.get(CommonConstants.PN_CTA_LINK,String.class);
 		return LinkUtils.appendLinkExtension(firstCtaLink, resourceResolver);
 	}
 
