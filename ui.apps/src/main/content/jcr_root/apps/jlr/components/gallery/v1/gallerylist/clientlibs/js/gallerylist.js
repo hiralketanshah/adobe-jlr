@@ -3269,13 +3269,14 @@
 						}
 					}, {
 						key: "initFilmStrip",
-							setTimeout(function () {
-								var e = this;
-								this.uiSelectors.fullscreenHeader.buttons.prepend(this.uiSelectors.thumbnailToggle),
-								this.uiSelectors.thumbnailToggle.addEventListener("click", function () {
-									e.toggleThumbnails()
-								})
-						}
+						value: function () {
+							var e = this;
+							this.uiSelectors.fullscreenHeader.buttons.prepend(this.uiSelectors.thumbnailToggle),
+							this.uiSelectors.thumbnailToggle.addEventListener("click", function () {
+								e.toggleThumbnails()
+							})
+						
+					}
 					}, {
 						key: "toggleThumbnails",
 						value: function () {
