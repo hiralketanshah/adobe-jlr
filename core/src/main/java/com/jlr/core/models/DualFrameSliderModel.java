@@ -10,9 +10,9 @@ import com.jlr.core.pojos.CTAPojo;
 public interface DualFrameSliderModel {
 	
 	/**
-	 * Gets the hero cta.
+	 * Gets the  cta list.
 	 *
-	 * @return the hero cta
+	 * @return the  cta list
 	 */
 	public List<CTAPojo> getCtaList();
 	

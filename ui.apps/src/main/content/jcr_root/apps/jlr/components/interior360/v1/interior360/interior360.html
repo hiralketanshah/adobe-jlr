@@ -1,0 +1,65 @@
+<sly data-sly-use.interior360="com.jlr.core.models.Interior360Model" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='hero.tco.from.txt'}"/>
+	<div class="cmp-interior360 ">
+    <div class="cmp-interiorInner">
+    <div class="cmp-genericItem__element-poster">
+      <div class="Interior360 fontSmooth" data-animationmode="none" data-contrast="dark" data-fadeout="false" data-loadmode="user" data-loadopacity="0.0" data-loadposition="bottom" data-margin-bottom="x0.5" data-margin-top="x0" data-maxzoomsize="3184" data-overlay="false" data-panoautorotateenabled="false" data-panoautorotatespeed="5" data-panoautorotatewaittime="1.5" data-panocontrolfovfriction="0.9" data-panocontrolfovspeed="3" data-panocontroltouchfriction="0.87" data-panocontroltouchzoom="true" data-panoimageurl="${interior360.folderPath}/" data-panoviewfov="95" data-panoviewfovmax="95" data-panoviewfovmin="0" data-panoviewhlookat="0" data-panoviewlimitview="auto" data-panoviewmaxpixelzoom="1.0" data-panoviewvlookat="0" data-track="true" data-trackadjust="100">
+  
+        <div class="Interior360__no-JS-notice noJsText">Please enable Javascript to view this content</div>
+        <!-- panorama -->
+        <div class="Interior360__panorama-holder">
+          <p class="Interior360__panorama-init-container Interior360__panorama-init-container--desktop">Click here</p>
+          <p class="Interior360__panorama-init-container Interior360__panorama-init-container--mobile">Touch here</p>
+      
+          <div class="Interior360__panorama" id="panotcm91-215332"></div>
+          
+          <div class="Interior360__pano-controls">
+            <div class="Interior360__pano-controls-left">
+              <a class="button-secondary TargetLinks Interior360__pano-gallery-alternative-link keepOriginalClasses" href="#" role="button">Gallery</a>
+            </div>
+      
+            <div class="Interior360__pano-controls-right">
+              <div class="Interior360__zoom-controls">
+                <div class="Interior360__zoom-controls-inner-wrapper">
+                  <button aria-label="click to zoom out" class="Interior360__zoom-out"></button>
+                  <button aria-label="click to zoom in" class="Interior360__zoom-in"></button>
+                </div>
+              </div>
+      
+              <button class="Interior360__reset-control icon-driveonroad">
+                <span class="Interior360__reset-control-desktop-text">EXIT</span>
+                <span class="Interior360__reset-control-mobile-text">EXIT</span>
+              </button>
+      
+              <button aria-label="click to activate gyroscope" class="Interior360__accelerometer-control"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class=" shelfComponent" >
+      <div class="headerClass">  <h2 class="heading headingThick fontH2">
+        <span class="headingWrapper">
+            ${interior360.headerCopy @ context='html'}
+        </span>
+    </h2>
+</div>
+  <div class="contentClass">
+    <div class="copy fontBodyCopyLarge"> ${interior360.copy @ context='html'}</div>
+
+    <div class="linkContainer">
+       <sly data-sly-list="${interior360.ctaList}">
+			<sly data-sly-test="${item.text}">
+				<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
+					<a class="${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+						<span aria-hidden="true">${item.text}</span>
+					</a>
+				</div>
+			</sly>
+		</sly>
+	</div>
+  </div>
+
+  </div>
+  </div>
+  </div>
+
