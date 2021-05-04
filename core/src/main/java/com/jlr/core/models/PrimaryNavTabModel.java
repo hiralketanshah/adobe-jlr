@@ -52,6 +52,9 @@ public class PrimaryNavTabModel {
 
 	@Inject
     private String primaryNavTitle;
+	
+	@Inject
+    public String tabName;
 
 	@Inject
     @Named("leftCta/.")
@@ -135,6 +138,10 @@ public class PrimaryNavTabModel {
 	
 	public String getPrimarNavTitle() {
 		return primaryNavTitle;
+	}
+	
+	public String getTabName() {
+		return tabName;
 	}
 
 }
