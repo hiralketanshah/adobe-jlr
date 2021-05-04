@@ -32,7 +32,6 @@ public class CommonConstants {
     public static final String JLR_DAM_PATH = "/content/dam/landrover/";
     public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
 
-
     /** The DAM ASSET Constant. */
     public static final String THUMB_1280_1280_PNG = ".thumb.1280.1280.png";
     public static final String THUMB_319_319_PNG = ".thumb.319.319.png";
@@ -79,6 +78,7 @@ public class CommonConstants {
     public static final String PN_QUICK_LINKS_CTA_LINK = "quickLinksCopyCtaLink";
     public static final String PN_QUICK_LINKS_CTA_ICON = "quickLinksCopyCtaIcon";
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
+    public static final String PN_TAB_HEADING = "tabHeading";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
@@ -93,7 +93,5 @@ public class CommonConstants {
     public static final String WF_PROCESS_SUBSERVICE = "worflow-process";
 
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
-
-
 
 }
