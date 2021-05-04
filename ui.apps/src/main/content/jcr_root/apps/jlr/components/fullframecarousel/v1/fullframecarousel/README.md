@@ -22,7 +22,7 @@ The following properties are written to JCR for this Full Frame Carousel compone
 The edit dialog allows the page to be refreshed after editing the component
 
 ## Client Libraries
-The component provides a `jaguar.components.fullframecarousel.v1` client library category that contains a recommended base
+The component provides a `jlr.components.fullframecarousel.v1` client library category that contains a recommended base
 CSS styling and JavaScript component. It should be added to a relevant site client library using the `embed` property.
 
 ## Information

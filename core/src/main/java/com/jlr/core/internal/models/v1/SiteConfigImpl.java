@@ -5,10 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -19,7 +17,6 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.SiteConfigModel;
 import com.jlr.core.services.Dictionary;
@@ -31,10 +28,10 @@ import com.jlr.core.utils.CommonUtils;
  * @author Adobe
  *
  */
-@Model(adaptables = { SlingHttpServletRequest.class, Resource.class }, adapters = { SiteConfigModel.class })
+@Model(adaptables = {SlingHttpServletRequest.class, Resource.class}, adapters = {SiteConfigModel.class})
 public class SiteConfigImpl implements SiteConfigModel {
-	
-	private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
+
+    private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
 
     /** Request Parameter - List of Keys */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -50,7 +47,7 @@ public class SiteConfigImpl implements SiteConfigModel {
 
     @OSGiService
     private Dictionary dictionary;
-    
+
     @ScriptVariable
     protected com.day.cq.wcm.api.Page currentPage;
 
@@ -62,23 +59,23 @@ public class SiteConfigImpl implements SiteConfigModel {
 
     @PostConstruct
     public void init() {
-    	if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
-    		String siteRootPath = CommonUtils.getSiteRootPath(currentPage);
+        if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
+            String siteRootPath = CommonUtils.getSiteRootPath(currentPage);
 
-    		String dictPath = dictionary.getPath();
-    		if(null != siteRootPath) {
-    			dictPath = siteRootPath + CommonConstants.JLR_DICTIONARY;
-    			if(null == resourceResolver.getResource(dictPath)) {
-    				dictPath = dictionary.getPath();
-    			}
-    		}
-    		Resource siteConfigRes = getConfigResource(dictPath);
-    		if (null != siteConfigRes) {
-    			configMap = buildConfigMap(siteConfigRes);
-    		}
-    	} else {
-    		configMap = buildConfigMap(resource);
-    	}
+            String dictPath = dictionary.getPath();
+            if (null != siteRootPath) {
+                dictPath = siteRootPath + CommonConstants.JLR_DICTIONARY;
+                if (null == resourceResolver.getResource(dictPath)) {
+                    dictPath = dictionary.getPath();
+                }
+            }
+            Resource siteConfigRes = getConfigResource(dictPath);
+            if (null != siteConfigRes) {
+                configMap = buildConfigMap(siteConfigRes);
+            }
+        } else {
+            configMap = buildConfigMap(resource);
+        }
     }
 
     /**
@@ -140,26 +137,26 @@ public class SiteConfigImpl implements SiteConfigModel {
      */
     @Override
     public String getConfigValue() {
-        if (null != key) {
-            if (null != configMap.get(key)) {
-                return configMap.get(key);
+
+        if (null != configMap.get(key)) {
+            return configMap.get(key);
+        }
+
+        return null;
+    }
+
+    private Resource getConfigResource(String dictPath) {
+        String rootNodePath = dictPath + CommonConstants.CONTAINER_NODE;
+        Resource rootRes = resourceResolver.getResource(rootNodePath);
+        if (null != rootRes) {
+            Iterator<Resource> childItems = rootRes.getChildren().iterator();
+            while (childItems.hasNext()) {
+                Resource childItem = childItems.next();
+                if (childItem.getResourceType().equals(RESOURCE_TYPE)) {
+                    return childItem;
+                }
             }
         }
         return null;
-    }
-    
-    private Resource getConfigResource(String dictPath) {
-    	String rootNodePath = dictPath + CommonConstants.CONTAINER_NODE;
-    	Resource rootRes = resourceResolver.getResource(rootNodePath);
-    	if(null != rootRes) {
-    		Iterator<Resource> childItems = rootRes.getChildren().iterator();
-    		while(childItems.hasNext()) {
-    			Resource childItem = childItems.next();
-    			if(childItem.getResourceType().equals(RESOURCE_TYPE)) {
-    				return childItem;
-    			}
-    		}
-    	}
-    	return null;
     }
 }

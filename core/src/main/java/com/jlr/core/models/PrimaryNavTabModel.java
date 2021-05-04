@@ -34,6 +34,33 @@ public class PrimaryNavTabModel {
 	private String navPagePathThree;
 	
 	@Inject
+	private String navPagePathFour;
+	
+	@Inject
+	private String enableLastVisited;
+	
+	@Inject
+	private String enableCustPortal;
+	
+	@Inject
+	private String custPortalLink;
+	
+	@Inject
+	private String custPortalAriaLabel;
+	
+	@Inject
+	private String retailerlLink;
+	
+	@Inject
+	private String retailerAriaLabel;
+	
+	@Inject
+	private String searchAriaLabel;
+	
+	@Inject
+	private String mobileBurgerAriaLabel;
+
+	@Inject
 	private String logoImageAlt;
 	
 	@Inject
@@ -79,6 +106,8 @@ public class PrimaryNavTabModel {
     private ResourceResolver resourceResolver;
 
     static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
+    
+    static String vehicledropdown="jlr/components/primarynavigation/v1/vehicleCategory";
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -146,6 +175,47 @@ public class PrimaryNavTabModel {
         return list;
 	}
 	
+	public List<String> getVehicleTabName(){
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        while (childResources.hasNext()) {
+            Resource child = childResources.next();
+            ValueMap properties = child.adaptTo(ValueMap.class);
+            if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            	list.add(properties.get("vehicleTabName", String.class));
+            	}
+            }
+        return list;
+	}
+	
+	public List<String> getVehicleNavPageTitle(){
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
+        	}
+        return list;
+	}
+	
+	public List<String> getVehicleNavPageArialabel(){
+		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
+        	}
+        return list;
+	}
+	
 	public String getNavPagePathOne() {
 		return navPagePathOne;
 	}
@@ -157,6 +227,10 @@ public class PrimaryNavTabModel {
 	public String getNavPagePathThree() {
 		return navPagePathThree;
 	}
+	
+	public String getNavPagePathFour() {
+		return navPagePathFour;
+	}
 
 	public String getLogoImageAlt() {
 		return logoImageAlt;
@@ -164,6 +238,38 @@ public class PrimaryNavTabModel {
 
 	public String getLogoImageLink() {
 		return logoImageLink;
+	}
+
+	public String getEnableLastVisited() {
+		return enableLastVisited;
+	}
+
+	public String getEnableCustPortal() {
+		return enableCustPortal;
+	}
+
+	public String getCustPortalLink() {
+		return LinkUtils.appendLinkExtension(custPortalLink, resourceResolver);
+	}
+
+	public String getCustPortalAriaLabel() {
+		return custPortalAriaLabel;
+	}
+
+	public String getRetailerlLink() {
+		return LinkUtils.appendLinkExtension(retailerlLink, resourceResolver);
+	}
+
+	public String getRetailerAriaLabel() {
+		return retailerAriaLabel;
+	}
+
+	public String getSearchAriaLabel() {
+		return searchAriaLabel;
+	}
+
+	public String getMobileBurgerAriaLabel() {
+		return mobileBurgerAriaLabel;
 	}
 
 	public List<String> getPrimaryNavSecTabOne() {
