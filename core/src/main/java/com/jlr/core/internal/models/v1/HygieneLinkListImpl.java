@@ -52,7 +52,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
 
     /** The logo image. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String logoImage;
+    private String flagImage;
 
     /** The list. */
     List<HygieneLinks> list = new ArrayList<>();
@@ -154,7 +154,10 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      * @return the logo image
      */
     @Override
-    public String getLogoImage() {
-        return logoImage;
+    public String getFlagImage() {
+    	if (StringUtils.isEmpty(countryCode)) {
+        	return StringUtils.EMPTY;
+        }
+    	return CommonConstants.CLIENT_LIB_PATH_FLAG.concat(countryCode.toUpperCase()).concat(CommonConstants.PNG_EXTENSION);
     }
 }
