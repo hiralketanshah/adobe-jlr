@@ -1,6 +1,9 @@
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
 }
+.cmp-signPost .cmp-signPost__content-copy-wrapper p{
+
+}
 .cmp-vehicleSummary .cmp-signpostGridContext{
     display: none;
 }
