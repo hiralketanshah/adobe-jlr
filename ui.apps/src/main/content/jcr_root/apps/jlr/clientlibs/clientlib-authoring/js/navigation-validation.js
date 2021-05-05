@@ -2,11 +2,11 @@
     'use strict';
 	
 	/*
-	* TemplateA => 1 Column with Large Promo Image
-	* TemplateB => 2 Column with Small Promo Image 
-	* TemplateC => 1 Column with Large Promo Panel
-	* TemplateD => 1 Column with Dual Promo Panel
-	* TemplateE => External Link with Large Promo Image
+	/* TemplateA => 1 Column with Large Promo Image
+	*  TemplateB => 2 Column with Small Promo Image 
+	*  TemplateC => 1 Column with Large Promo Panel
+	*  TemplateD => 1 Column with Dual Promo Panel
+	*  TemplateE => External Link with Large Promo Image
 	*/
 
 	// Remove the second multi field in right pane once templateC is choosen in the drop down.
@@ -15,7 +15,6 @@
             if ($("[data-promo-panel='true']").find("coral-multifield-item").length > 1) {
                 $("[data-promo-panel='true']").find("coral-multifield-item:last").remove();
             }
-
         }
     });
 
@@ -51,10 +50,8 @@
                 if ($(el).first().val().length < 1) {
                     return "Error: Please fill out this field.";
                 }
-
             }
         }
-
     });
 
 	//Validate if the first Promo Summary field text area is authored
@@ -65,10 +62,8 @@
                 if ($(".promo-summary-templatec").first().val().length < 1) {
                     return "Error: Please fill out this field.";
                 }
-
             }
         }
-
     });
 
 	//Validate if the first Promo Header field text area is authored
@@ -81,7 +76,6 @@
                 }
             }
         }
-
     });
 
 	//Validate if the both CTA text box is authored if 2 multi field is enabled
@@ -94,7 +88,6 @@
                 }
             }
         }
-
     });
 
 	//Validate if the both Promo Summary field text area is authored
@@ -107,7 +100,6 @@
                 }
             }
         }
-
     });
 
 	//Validate if the both Promo Header field text area is authored
@@ -120,7 +112,6 @@
                 }
             }
         }
-
     });
 
 	// Validate if the first CTA link is authored 
@@ -134,7 +125,6 @@
 
             }
         }
-
     });
 	
 	// Validate if the CTA link is authored (upto 2)
@@ -147,7 +137,6 @@
                 }
             }
         }
-
     });
 
 })(window, Granite.$);
