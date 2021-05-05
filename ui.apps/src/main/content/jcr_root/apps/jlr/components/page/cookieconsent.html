@@ -46,7 +46,7 @@
 		} else {
 			deleteCookie(consentCookieCategories);
 		}
-		//checkABTastyPreference();
+		checkABTastyPreference();
 		handleDoNotSellLink();
 	}
 	function checkABTastyPreference() {
@@ -71,6 +71,6 @@
 	window.addEventListener('cookie_closeCallback', handleConsentCookie);
 	window.addEventListener('cookie_consentWithdrawnCallback', handleConsentCookie);
 	window.addEventListener('cookie_consentDeclinedCallback', handleConsentCookie);
-	//checkABTastyPreference();
+	checkABTastyPreference();
 })();
 </script >

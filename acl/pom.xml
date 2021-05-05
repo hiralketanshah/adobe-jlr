@@ -82,6 +82,26 @@
                     <failOnError>true</failOnError>
                 </configuration>
             </plugin>
+            <plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.14.0</version>
+				<configuration>
+					<analysisCache>true</analysisCache>
+					<!-- enable incremental analysis -->
+					<excludes>
+						<exclude>**/**</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+					<version>4.2.0</version>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
         </plugins>
     </build>
         <!-- ====================================================================== -->

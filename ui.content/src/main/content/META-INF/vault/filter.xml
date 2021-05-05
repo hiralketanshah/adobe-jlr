@@ -5,7 +5,7 @@
     <filter root="/content/landrover" mode="merge"/>
     <filter root="/content/dam/landrover" mode="merge"/>
     <filter root="/content/experience-fragments/landrover" mode="merge"/>
-    <filter root="/etc/acs-commons/lists/icons" mode="update"/>
+    <filter root="/etc/acs-commons/lists/icons" mode="replace"/>
     <filter root="/var/acs-commons/reports" mode="merge"/>
     <filter root="/var/workflow/models/dam/jlr_dam_update_asset"/>
     <filter root="/conf/global/settings/workflow/models/dam/jlr_dam_update_asset"/>
