@@ -19,6 +19,13 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+                            <vehicleNavPagePath
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to a top level vehicle page of the Primary navigation.(Example:Purchase.html)"
+                                fieldLabel="Top Level Vehicle Page"
+                                name="./vehicleNavPagePath"
+                                rootPath="/content/landrover/global"/>
                             <navPagePathOne
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
@@ -39,13 +46,6 @@
                                 fieldDescription="Link to a top level page 3 of the Primary navigation.(Example:Explore.html)"
                                 fieldLabel="Top Level Page 3"
                                 name="./navPagePathThree"
-                                rootPath="/content/landrover/global"/>
-                            <navPagePathFour
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a top level page 4 of the Primary navigation.(Example:Purchase.html)"
-                                fieldLabel="Top Level Page 4"
-                                name="./navPagePathFour"
                                 rootPath="/content/landrover/global"/>
                         </items>
                     </properties>
@@ -104,7 +104,7 @@
                                 granite:class="cp-link"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a customer portal."
+                                fieldDescription="Specify Link to a customer portal."
                                 fieldLabel="Customer Portal Link"
                                 name="./custPortalLink"
                                 rootPath="/content/landrover/global"/>
@@ -112,7 +112,7 @@
                                 granite:class="cp-aria"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="Enter the Aria Label for Customer Portal."
+                                fieldDescription="Specify the Aria Label for Customer Portal."
                                 fieldLabel="Customer Portal Aria Label"
                                 name="./custPortalAriaLabel"/>
                             <retailerheading
@@ -124,14 +124,14 @@
                             <retailerlLink
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a Retailer Locator Page."
+                                fieldDescription="Specify the Link to a Retailer Locator Page."
                                 fieldLabel="Retailer Locator Link"
                                 name="./retailerLink"
                                 rootPath="/content/landrover/global"/>
                             <retailerAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="Enter the Aria Label for Retailer Locator."
+                                fieldDescription="Specify the Aria Label for Retailer Locator."
                                 fieldLabel="Retailer Locator Aria Label"
                                 name="./retailerAriaLabel"/>
                             <Searchheading
@@ -143,7 +143,7 @@
                             <searchAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="Enter the Aria Label for Customer Portal."
+                                fieldDescription="Specify the Aria Label for Search."
                                 fieldLabel="Search Aria Label"
                                 name="./searchAriaLabel"/>
                             <mobileBurgerHeading
@@ -155,7 +155,7 @@
                             <mobileBurgerAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                fieldDescription="Enter the Aria Label for Mobile Burger."
+                                fieldDescription="Specify the Aria Label for Mobile Burger."
                                 fieldLabel="Mobile Burger Aria Label"
                                 name="./mobileBurgerAriaLabel"/>
                         </items>

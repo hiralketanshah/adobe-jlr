@@ -40,7 +40,7 @@ public class PrimaryNavigationModel {
 	private String logoImageLink;
 	
 	@Inject
-	private String navPagePathFour;
+	private String vehicleNavPagePath;
 	
 	@Inject
 	private String enableLastVisited;
@@ -140,7 +140,7 @@ public class PrimaryNavigationModel {
 	}
 	
 	public List<String> getVehicleTabName(){
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
@@ -155,7 +155,7 @@ public class PrimaryNavigationModel {
 	}
 	
 	public List<String> getVehicleNavPageTitle(){
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
@@ -168,7 +168,7 @@ public class PrimaryNavigationModel {
 	}
 	
 	public List<String> getVehicleNavPageArialabel(){
-		Resource rootNavigationResource=resourceResolver.getResource(navPagePathFour);
+		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
@@ -192,8 +192,8 @@ public class PrimaryNavigationModel {
 		return navPagePathThree;
 	}
 	
-	public String getNavPagePathFour() {
-		return navPagePathFour;
+	public String getVehicleNavPagePath() {
+		return vehicleNavPagePath;
 	}
 
 	public String getLogoImageAlt() {

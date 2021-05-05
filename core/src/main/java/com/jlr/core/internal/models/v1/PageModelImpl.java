@@ -26,8 +26,7 @@ import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.models.PageModel;
 import com.jlr.core.utils.ErrorUtils;
-
-
+import com.sun.tools.sjavac.Log;
 
 /**
  * The Class PageModelImpl.
@@ -47,11 +46,14 @@ public class PageModelImpl implements PageModel {
 
     @HierarchicalPageProperty("applicationCode")
     private String applicationCode;
+    
+    @HierarchicalPageProperty("skipToMainTitle")
+    private String skipToMainTitle;
 
     @HierarchicalPageProperty("gtmTags")
     private String gtmTags;
     
-    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @HierarchicalPageProperty("marketRegionPath")
     private String marketRegionPath;
 
     @HierarchicalPageProperty("enableInlineCookieJs")
@@ -77,7 +79,11 @@ public class PageModelImpl implements PageModel {
         return gtmTags;
     }
 
-    @HierarchicalPageProperty("market")
+    public String getSkipToMainTitle() {
+		return skipToMainTitle;
+	}
+
+	@HierarchicalPageProperty("market")
     private String market;
 
     /**

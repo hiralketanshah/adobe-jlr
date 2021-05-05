@@ -1,4 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.PrimaryNavigationModel"
+data-sly-use.pageConfig="com.jlr.core.models.PageModel"
+data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
    id="${component.id}"></sly>
 <header class="dxnav-header">
@@ -14,11 +16,13 @@
             <a href="${model.logoImageLink}" class="dxnav__logo">
             <img src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/logo/logo.png" alt="${model.logoImageAlt}"></a> 
             <div class="dxnav__mobile-icons">
-               <a class="dxnav__mobile-icons-prices MarketRegionalPricing-triggerer" href="#" aria-label="SHOW PRICES" aria-haspopup="dialog" role="button">
+			<sly data-sly-test="${pageConfig.marketRegionPath}">
+			   <a class="dxnav__mobile-icons-prices cmp-marketButton MarketRegionalPricing-triggerer" href="#" aria-label="${config.configMap['marketregionpricing.dxnav.selectregion']}" aria-haspopup="dialog" role="button">
                   <svg class="dxnav-icon">
                      <use xlink:href="#Show_Prices"></use>
                   </svg>
                </a>
+			   </sly>
                <a class="dxnav__mobile-icons-search" href="#" aria-label="${model.searchAriaLabel}" aria-expanded="false" aria-haspopup="dialog" role="button">
                   <svg class="dxnav-icon">
                      <use xlink:href="#Search"></use>
@@ -74,14 +78,16 @@
             </div>
             <div class="dxnav dxnav__secondary-items">
                <ul>
+			   <sly data-sly-test="${pageConfig.marketRegionPath}">
                   <li class="dxnav__item dxnav__item-showprices">
-                     <a class="dxnav-showprices MarketRegionalPricing-triggerer" href="#" aria-label="SHOW PRICES" aria-expanded="false" aria-haspopup="dialog" role="button">
+                     <a class="dxnav-showprices cmp-marketButton MarketRegionalPricing-triggerer" href="#" aria-label="${config.configMap['marketregionpricing.dxnav.selectregion']}" aria-expanded="false" aria-haspopup="dialog" role="button">
                         <svg class="dxnav-icon">
                            <use xlink:href="#Show_Prices"></use>
                         </svg>
                         <span class="dxnav__item-prices-label dxnav-hide-desktop">SHOW PRICES</span>
                      </a>
                   </li>
+				  </sly>
                   <li id="dxnav-search" class="dxnav__item dxnav__item-search" data-dropdown="dxnav__search" data-search-suggestions-url="" data-search-results-url="">
                      <a class="dxnav-search" href="#" aria-label="${model.searchAriaLabel}" aria-expanded="false" aria-haspopup="dialog" role="button">
                         <svg class="dxnav-icon">
@@ -203,8 +209,8 @@
                               </button>
                            </div>
                         </div>
-                        <div data-sly-test="${model.navPagePathFour}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="vehicle-dropdown">
-                           <sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container'}"/>
+                        <div data-sly-test="${model.vehicleNavPagePath}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="vehicle-dropdown">
+                           <sly data-sly-resource="${model.vehicleNavPagePath @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
@@ -217,184 +223,12 @@
                               </svg>
                               ${model.vehicleNavPageTitle}
                            </button>
-                           <sly data-sly-test="${model.navPagePathFour}">
-                              <sly data-sly-resource="${model.navPagePathFour @appendPath='/jcr:content/root/container',selectors='vehicleCategorymobile'}"/>
+                           <sly data-sly-test="${model.vehicleNavPagePath}">
+                              <sly data-sly-resource="${model.vehicleNavPagePath @appendPath='/jcr:content/root/container',selectors='vehiclecategorymobile'}"/>
                            </sly>
                         </div>
                      </div>
                   </div>
-                  <script id="dxnav-826212" type="application/json">
-                     {
-                       "tabs": {
-                         "2020": {
-                           "image": {
-                             "widestImage": "/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/fjord-waves.jpg",
-                             "image": {
-                               "publishedImages": [
-                                 "/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/fjord-waves.jpg",
-                                 "/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/fjord-waves.jpg"
-                               ]
-                             },
-                             "alt": "waves"
-                           },
-                           "disclaimerLink2": {
-                             "targetKeyword": "same_window",
-                             "externalLink": "null",
-                             "icon": "null",
-                             "text": "null",
-                             "href": "null",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "disclaimerLink1": {
-                             "targetKeyword": "same_window",
-                             "externalLink": "null",
-                             "icon": "null",
-                             "text": "null",
-                             "href": "null",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "secondaryLinks": [
-                             {
-                               "externalLink": "/content/landrover/global/europe/region-master/en.html",
-                               "icon": "Arrow-right",
-                               "text": "secondary1",
-                               "href": "/content/landrover/global/europe/region-master/en.html",
-                               "accessibleText": "null",
-                               "internalLink": "null"
-                             },
-                             {
-                               "externalLink": "/content/landrover/global/row/region-master.html",
-                               "icon": "Arrow-right",
-                               "text": "extra",
-                               "href": "/content/landrover/global/row/region-master.html",
-                               "accessibleText": "null",
-                               "internalLink": "null"
-                             }
-                           ],
-                           "extraSecondaryLinks": [],
-                           "features": [
-                             {
-                               "icon": "icon-arrow-right",
-                               "label": "<p>fea1</p>\r\n"
-                             },
-                             {
-                               "icon": "icon-arrow-right",
-                               "label": "<p>fea2</p>\r\n"
-                             }
-                           ],
-                           "imageLink": {
-                             "targetKeyword": "same_window",
-                             "externalLink": "null",
-                             "icon": "null",
-                             "text": "null",
-                             "href": "null",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "tabAltText": "RANGE ROVER",
-                           "price": "123",
-                           "noPriceMacro": false,
-                           "primaryLink": {
-                             "externalLink": "/content/landrover/global/europe/region-master/en.html",
-                             "icon": "icon-arrow-right",
-                             "text": "prim1",
-                             "href": "/content/landrover/global/europe/region-master/en.html",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "disclaimer": "This is range rover family. Model is 2020.",
-                           "order": 1
-                         },
-                         "2021": {
-                           "image": {
-                             "widestImage": "/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/majestic-rainbow.jpg",
-                             "image": {
-                               "publishedImages": [
-                                 "/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/majestic-rainbow.jpg",
-                                 "/content/dam/we-retail/en/experiences/arctic-surfing-in-lofoten/majestic-rainbow.jpg"
-                               ]
-                             },
-                             "alt": "rainbow"
-                           },
-                           "disclaimerLink2": {
-                             "targetKeyword": "same_window",
-                             "externalLink": "null",
-                             "icon": "null",
-                             "text": "null",
-                             "href": "null",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "disclaimerLink1": {
-                             "targetKeyword": "same_window",
-                             "externalLink": "null",
-                             "icon": "null",
-                             "text": "null",
-                             "href": "null",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "secondaryLinks": [
-                             {
-                               "externalLink": "/content/landrover/global/europe/region-master/en.html",
-                               "icon": "Arrow-right",
-                               "text": "sec1",
-                               "href": "/content/landrover/global/europe/region-master/en.html",
-                               "accessibleText": "null",
-                               "internalLink": "null"
-                             }
-                           ],
-                           "extraSecondaryLinks": [
-                             {
-                               "externalLink": "/content/landrover/global/row/region-master.html",
-                               "icon": "Arrow-right",
-                               "text": "extra",
-                               "href": "/content/landrover/global/row/region-master.html",
-                               "accessibleText": "null",
-                               "internalLink": "null"
-                             }
-                           ],
-                           "features": [
-                             {
-                               "icon": "Arrow-right",
-                               "label": "<p>feature1</p>\r\n"
-                             },
-                             {
-                               "icon": "Arrow-right",
-                               "label": "<p>feature 2</p>\r\n"
-                             }
-                           ],
-                           "imageLink": {
-                             "targetKeyword": "same_window",
-                             "externalLink": "null",
-                             "icon": "null",
-                             "text": "null",
-                             "href": "null",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "tabAltText": "RANGE ROVER",
-                           "price": "1234",
-                           "noPriceMacro": false,
-                           "primaryLink": {
-                             "externalLink": "/content/landrover/global/row/region-master.html",
-                             "icon": "Arrow-right",
-                             "text": "Primary",
-                             "href": "/content/landrover/global/row/region-master.html",
-                             "accessibleText": "null",
-                             "internalLink": "null"
-                           },
-                           "disclaimer": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. ",
-                           "order": 0
-                         }
-                       },
-                       "initialTab": 0,
-                       "title": "RANGE ROVER",
-                       "introduction": "Welcome to Range Rover family"
-                     }
-                     </script>
                </div>
 			   </sly>
 			   <sly data-sly-test="${model.navPageTitleOne}">
@@ -416,7 +250,7 @@
                                     <a href="${item.quickLinksCopyCtaLink}" data-target="${item.quickLinksCopyCtaTarget}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="${item.quickLinksCopyCtaIcon}"></use>
+                                             <use xlink:href="#${item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
                                        <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
@@ -464,7 +298,7 @@
                                     <a href="${item.quickLinksCopyCtaLink}" data-target="${item.quickLinksCopyCtaTarget}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="${item.quickLinksCopyCtaIcon}"></use>
+                                             <use xlink:href="#${item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
                                        <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
@@ -512,7 +346,7 @@
                                     <a href="${item.quickLinksCopyCtaLink}" data-target="${item.quickLinksCopyCtaTarget}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="${item.quickLinksCopyCtaIcon}"></use>
+                                             <use xlink:href="#${item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
                                        <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
