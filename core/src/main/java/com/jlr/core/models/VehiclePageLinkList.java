@@ -10,10 +10,10 @@ import org.apache.sling.models.annotations.Model;
 public class VehiclePageLinkList {
 	
 	@Inject
-	private String vehicleLink;
+	private String vehicleCardLink;
 
-	public String getVehicleLink() {
-		return vehicleLink;
+	public String getVehicleCardLink() {
+		return vehicleCardLink;
 	}
 
 }

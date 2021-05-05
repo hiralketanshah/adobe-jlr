@@ -148,7 +148,7 @@ public class PrimaryNavigationModel {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
             if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get("vehicleTabName", String.class));
+            	list.add(properties.get(CommonConstants.PN_VEHICLE_TAB_NAME, String.class));
             	}
             }
         return list;

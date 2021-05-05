@@ -76,6 +76,7 @@ public class CommonConstants {
     public static final String PN_PRIMARY_NAV_TITLE = "primaryNavTitle";
     public static final String PN_PRIMARY_NAV_ARIA_LABEL = "primaryNavAriaLabel";
     public static final String PN_TAB_NAME = "tabName";
+    public static final String PN_VEHICLE_TAB_NAME = "vehicleTabName";
     public static final String PN_QUICK_LINKS = "quickLinks";
     public static final String PN_QUICK_LINKS_CTA_TEXT = "quickLinksCtaText";
     public static final String PN_QUICK_LINKS_CTA_LINK = "quickLinksCopyCtaLink";
