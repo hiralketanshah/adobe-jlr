@@ -89,4 +89,8 @@ public interface GlobalModel {
     default String getAssetType() {
         return StringUtils.EMPTY;
     }
+
+    default String getPrice() {
+        return StringUtils.EMPTY;
+    }
 }

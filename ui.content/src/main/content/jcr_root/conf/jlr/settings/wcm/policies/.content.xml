@@ -695,7 +695,7 @@
                             sling:resourceType="wcm/core/components/policy/policy"
                             autopauseDisabled="false"
                             autoplay="true"
-                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/heroitem/v1/heroitem,/apps/jlr/components/dualframecarousel/v1/dualframecarousel]"
+                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/heroitem/v1/heroitem,/apps/jlr/components/dualframecarousel/v1/dualframecarousel,/apps/jlr/components/herotitlebanner/v1/herotitlebanner]"
                             delay="6000">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
@@ -1008,36 +1008,83 @@
                     </dualframecarousel>
                 </v1>
             </dualframecarousel>
+            <herotitlebanner jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <herotitlebanner jcr:primaryType="nt:unstructured">
+                        <policy_1619626689947
+                            jcr:lastModified="{Date}2021-04-28T21:48:32.558+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Hero Title Banner"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Variant"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleId="1619626707693"
+                                            cq:styleLabel="Tall"
+                                            cq:styleClasses="tall"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleId="1619626709472"
+                                            cq:styleLabel="Short"
+                                            cq:styleClasses="short"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleId="1619627807774"
+                                            cq:styleLabel="Top"
+                                            cq:styleClasses="topAlign"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleId="1619627818474"
+                                            cq:styleLabel="Centre"
+                                            cq:styleClasses="centreAlign"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1619626689947>
+                    </herotitlebanner>
+                </v1>
+            </herotitlebanner>
             <interior360 jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <interior360 jcr:primaryType="nt:unstructured">
                         <policy_1620156605744
                             jcr:primaryType="nt:unstructured"
-                            jcr:title="Interior 360"
-                            sling:resourceType="wcm/core/components/policy/policy">
-                            <jcr:content jcr:primaryType="nt:unstructured"/>
-                            <cq:styleGroups jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleGroupLabel="Theme"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="white"
-                                            cq:styleId="1620156615223"
-                                            cq:styleLabel="White"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item1
-                                            cq:styleClasses="light"
-                                            cq:styleId="1620156619801"
-                                            cq:styleLabel="Light"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item0>
+                            jcr:title="Interior 360">
+							    <jcr:content jcr:primaryType="nt:unstructured"/>
+								<cq:styleGroups jcr:primaryType="nt:unstructured">
+									<item0
+										cq:styleGroupLabel="Theme"
+										jcr:primaryType="nt:unstructured"
+										<cq:styles jcr:primaryType="nt:unstructured">
+											<item0
+												cq:styleClasses="white"
+												cq:styleId="1620156615223"
+												cq:styleLabel="White"
+												jcr:primaryType="nt:unstructured"/>
+											<item1
+												cq:styleClasses="light"
+												cq:styleId="1620156619801"
+												cq:styleLabel="Light"
+												jcr:primaryType="nt:unstructured"/>
+										</cq:styles>
+									</item0>
                             </cq:styleGroups>
                         </policy_1620156605744>
                     </interior360>
                 </v1>
-            </interior360>            
+            </interior360> 			
         </components>
     </jlr>
     <rep:policy/>

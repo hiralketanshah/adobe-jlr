@@ -25,16 +25,19 @@
                            <li class="el gridEl">
                               <div class="cmp-ContentCard">
                                  <div class="imageContainer mediaOverlay__wrapper">
+								 <sly data-sly-test="${content.assestType=='video'}">
                                     <a class="imageLink TargetLinks"
-                                       href="${content.link}"
+                                       href="${content.galleryLink}"
                                        data-target="${content.target}" data-type="${content.assestType}">
-									   <sly data-sly-test="${content.assestType=='video'}">
                                        <div class="mediaOverlay mediaOverlayVideo">
                                           <div class="mediaOverlayBg"></div>
                                           <div class="mediaOverlayIcon"></div>
                                        </div>
 									   </sly>
 									   <sly data-sly-test="${content.assestType=='image'}">
+									   <a class="imageLink TargetLinks"
+                                       href="${content.firstCtaLink}"
+                                       data-target="${content.target}" data-type="${content.assestType}">
                                        <div class="mediaOverlay mediaOverlayImage">
                                           <div class="mediaOverlayBg"></div>
                                           <div class="mediaOverlayIcon"></div>

@@ -93,6 +93,9 @@ public class GlobalModelImpl implements GlobalModel {
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String assetType;
 
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String price;
+
     @Inject
     private ResourceResolver resourceResolver;
 
@@ -218,5 +221,10 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getAssetType() {
         return assetType;
+    }
+
+    @Override
+    public String getPrice() {
+        return price;
     }
 }

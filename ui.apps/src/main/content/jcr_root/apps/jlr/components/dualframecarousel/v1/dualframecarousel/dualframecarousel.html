@@ -28,7 +28,7 @@
               </div>
               <div class="summaryItemImage cmp-dualFrameItem__image">
                 <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
-                  <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="/content/dam/jlr/car2.JPG" />
+                  <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}"/>
                 </picture>
 				<div data-sly-test="${model.assetType == 'video'}" class="videoCustom">
                   <img src="${model.posterImage}">
