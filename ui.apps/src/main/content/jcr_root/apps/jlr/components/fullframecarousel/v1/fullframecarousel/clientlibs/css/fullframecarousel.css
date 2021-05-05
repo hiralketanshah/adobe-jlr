@@ -829,7 +829,7 @@ min-width: 360px;
       top: 56%;
 
     }
-   .cmp-carousel{
+    .cmp-fullframe-carousel.cmp-carousel{
      margin-left: 130px;
      margin-right: 130px;
      margin-top: 60px;
@@ -1007,6 +1007,9 @@ fill:black;
 }
 .cmp-fullframe .fontBodyCopyLarge{
   text-transform:capitalize;
+}
+ .cmp-fullframe .headingWrapper {
+	font-weight:normal;
 }
 .videoCustom { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; }
 .videoCustom img { position: absolute; display: block; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; cursor: pointer; }

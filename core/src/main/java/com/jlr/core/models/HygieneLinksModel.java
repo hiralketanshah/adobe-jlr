@@ -53,7 +53,7 @@ public interface HygieneLinksModel {
 	 *
 	 * @return the logo image
 	 */
-	default String getLogoImage() {
+	default String getFlagImage() {
 	     return StringUtils.EMPTY;
 	 }
 }
