@@ -10,36 +10,37 @@ import org.apache.sling.models.annotations.Model;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class PrimaryNavLeftCTAModel {
+public class PrimaryNavDualLeftCTA {
 	
 	@Inject
     private ResourceResolver resourceResolver;
  
     @Inject
-    private String leftPaneCtaText;
+    private String leftPaneDualCtaText;
     
     @Inject
-    private String leftPaneCtaLink;
+    private String leftPaneDualCtaLink;
     
     @Inject
-    private String leftPaneCtaAriaLabel;
+    private String leftPaneDualCtaAriaLabel;
     
     @Inject
-    private String leftPaneCtaTarget;
+    private String leftPaneDualCtaTarget;
 
-	public String getLeftPaneCtaText() {
-		return leftPaneCtaText;
+	public String getLeftPaneDualCtaText() {
+		return leftPaneDualCtaText;
 	}
 
-	public String getLeftPaneCtaLink() {
-		return LinkUtils.appendLinkExtension(leftPaneCtaLink, resourceResolver);
+	public String getLeftPaneDualCtaLink() {
+		return LinkUtils.appendLinkExtension(leftPaneDualCtaLink, resourceResolver);
 	}
 
-	public String getLeftPaneCtaAriaLabel() {
-		return leftPaneCtaAriaLabel;
+	public String getLeftPaneDualCtaAriaLabel() {
+		return leftPaneDualCtaAriaLabel;
 	}
 
-	public String getLeftPaneCtaTarget() {
-		return leftPaneCtaTarget;
+	public String getLeftPaneDualCtaTarget() {
+		return leftPaneDualCtaTarget;
 	}
+
 }

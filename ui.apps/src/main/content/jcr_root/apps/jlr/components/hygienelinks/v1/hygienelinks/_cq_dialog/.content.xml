@@ -30,6 +30,10 @@
                         fieldLabel="Market Selector Page Link"
                         name="./marketLink"
                         rootPath="/content/landrover/global"/>
+                    <flagIcon
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                        path="/mnt/overlay/jlr/components/globalfields/image/logoImage"/>
                     <hygienelinkList
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"

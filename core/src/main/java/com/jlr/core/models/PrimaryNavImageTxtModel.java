@@ -44,6 +44,9 @@ public class PrimaryNavImageTxtModel {
 	@Inject
     private String rightPaneCopyCtaTarget;
 	
+	@Inject
+    private Resource quicklinks;
+	
 	public String getFileReferenceImageTxt() {
 		return fileReferenceImageTxt;
 	}

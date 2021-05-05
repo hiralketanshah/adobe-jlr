@@ -13,4 +13,3 @@ showhide.js
 full-frame-validation.js
 dual-frame-validation.js
 hero-item-validation.js
-hero-title-banner-validation.js

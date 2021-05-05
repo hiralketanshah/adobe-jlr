@@ -9,13 +9,9 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.models.HeroTitleBannerModel;
 import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.pojos.FooterPojo;
-import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.CtaUtils;
 
 /**
@@ -33,28 +29,12 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     @Optional
     private Resource ctaList;
 
-    /** The footer list. */
-    @Inject
-    @Optional
-    private Resource footerList;
-
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The caveat. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String caveat;
-
-    /**
-     * The list of CTA.
-     */
-    List<CTAPojo> listOfCta = new ArrayList<>();
-
-    /**
-     * The list of footer links.
-     */
-    List<FooterPojo> listOffooterLinks = new ArrayList<>();
+    /** The list. */
+    List<CTAPojo> list = new ArrayList<>();
 
     /**
      * Gets the cta list.
@@ -64,31 +44,9 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     @Override
     public List<CTAPojo> getCtaList() {
         if (null != ctaList && ctaList.hasChildren()) {
-            listOfCta = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
-        return listOfCta;
+        return list;
     }
 
-    /**
-     * Gets the footer list.
-     *
-     * @return the footer list
-     */
-    @Override
-    public List<FooterPojo> getFooterList() {
-        if (null != footerList && footerList.hasChildren()) {
-            listOffooterLinks = CommonUtils.createFooterList(footerList);
-        }
-        return listOffooterLinks;
-    }
-
-    /**
-     * Gets caveat.
-     *
-     * @return the caveat
-     */
-    @Override
-    public String getCaveat() {
-        return caveat;
-    }
 }

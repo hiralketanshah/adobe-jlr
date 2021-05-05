@@ -51,17 +51,6 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("gtmTags")
     private String gtmTags;
 
-    @HierarchicalPageProperty("enableInlineCookieJs")
-    private String enableInlineCookieJs;
-
-    /**
-     * @return the enableInlineCookieJs
-     */
-    @Override
-    public String getEnableInlineCookieJs() {
-        return enableInlineCookieJs;
-    }
-
     /**
      * @return the gtmTags
      */

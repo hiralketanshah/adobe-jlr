@@ -3,8 +3,6 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:designPath="/etc/designs/acs-commons"
-        cq:lastModified="{Date}2021-05-02T13:57:58.018+05:30"
-        cq:lastModifiedBy="admin"
         cq:template="/apps/acs-commons/templates/utilities/genericlist"
         jcr:primaryType="cq:PageContent"
         jcr:title="Icons"
@@ -68,7 +66,7 @@
                 value="icon-videoguides-evo-jaguar"/>
             <item14
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Vehicle"
+                jcr:title="View Vehicles"
                 value="icon-view-vehicle"/>
             <item15
                 jcr:primaryType="nt:unstructured"
@@ -98,340 +96,78 @@
                 jcr:primaryType="nt:unstructured"
                 jcr:title="InControl"
                 value="icon-incontrol"/>
-            <item22
+            <item23
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Information"
                 value="icon-information-landrover"/>
-            <item23
+            <item24
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Insurance"
                 value="icon-insurance"/>
-            <item24
+            <item25
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Land Rover to you"
                 value="icon-land-rover-to-you"/>
-            <item25
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Left"
-                value="icon-chevronleft-evo-jaguar"/>
             <item26
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Left Large"/>
+                jcr:title="Compare - Header"
+                value="#Compare"/>
             <item27
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Right"
-                value="icon-chevronright-evo-jaguar "/>
+                jcr:title="Vehicle Add - Header"
+                value="#Vehicle_Add"/>
             <item28
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Right Large"/>
+                jcr:title="Drive On Road - Header"
+                value="#Drive_On_Road"/>
             <item29
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Caution"
-                value="icon-caution"/>
+                jcr:title="Approved Used - Header"
+                value="#Approved_Used"/>
             <item30
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Build Your Own"
-                value="icon-ignite-configure"/>
+                jcr:title="Map Pin - Header"
+                value="#Map_Pin"/>
             <item31
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Edit"
-                value="icon-edit-evo-jaguar"/>
+                jcr:title="Phone - Header"
+                value="#Phone"/>
             <item32
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Events"/>
+                jcr:title="Service - Header"
+                value="#Service"/>
             <item33
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Experience"/>
-            <item34
+                jcr:title="Guides - Header"
+                value="#Guides"/>
+            <accessories
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Filter"
-                value="icon-filter"/>
+                jcr:title="Accessories - Header"
+                value="#Accessories"/>
             <item35
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Find a Retailer"/>
+                jcr:title="Incontrol - Header"
+                value="#Incontrol"/>
             <item36
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Full Screen"
-                value="icon-fullscreen"/>
+                jcr:title="Experience - Header"
+                value="#Experience"/>
             <item37
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Log In"/>
+                text="Star_Filled - Header"
+                value="#Star_Filled"/>
             <item38
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Minus"
-                value="icon-minus"/>
+                jcr:title="Vehicle - Header"
+                value="#Vehicle"/>
             <item39
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Mute"/>
+                jcr:title="Brochure - Header"
+                value="#Brochure"/>
             <item40
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Notes"
-                value="icon-notes"/>
-            <item41
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Parts"
-                value="icon-parts"/>
-            <item42
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Pause"
-                value="icon-pause"/>
-            <item43
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Phone"
-                value="icon-phone"/>
-            <item44
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Play"
-                value="icon-play"/>
-            <item45
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Plus"
-                value="icon-plus"/>
-            <item46
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Print"
-                value="icon-print"/>
-            <item47
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Question Mark"
-                value="icon-question-mark"/>
-            <item48
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Reduce View"/>
-            <item49
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Download a Brochure"/>
-            <item50
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Save"/>
-            <item51
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Search"
-                value="icon-search"/>
-            <item52
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Secure"/>
-            <item53
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Share"/>
-            <item54
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Sound"/>
-            <item55
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Keep Me Informed"/>
-            <item56
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Tick"
-                value="icon-tick"/>
-            <item57
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Warning"/>
-            <item58
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Zoom In"/>
-            <item59
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Zoom Out"/>
-            <item60
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Circle Plus"/>
-            <item61
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Approved Used"/>
-            <item62
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Interim Service"/>
-            <item63
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Brake Fluid"/>
-            <item64
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Brake Pad"/>
-            <item65
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Search Inventory"/>
-            <item66
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Compare Our Vehicles"/>
-            <item67
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Coolant"/>
-            <item68
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Document"/>
-            <item69
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Find Field Location"/>
-            <item70
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Form No"/>
-            <item71
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Form Yes"/>
-            <item72
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Fuel"/>
-            <item73
-                jcr:primaryType="nt:unstructured"
-                jcr:title="InControl / Pivi"/>
-            <item74
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Loading"/>
-            <item75
-                jcr:primaryType="nt:unstructured"
-                jcr:title="More"/>
-            <item76
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Used Prep for Sales"/>
-            <item77
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Notification"/>
-            <item78
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Offers Euro"/>
-            <item79
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Offers Pound"/>
-            <item80
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Oil"/>
-            <item81
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Order Tracker"/>
-            <item82
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Pre-delivery Exception"/>
-            <item83
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Quick Start Guides"
-                value="icon-quickstartguides-evo-jaguar"/>
-            <item84
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Reminders"
-                value="icon-reminder-evo-jaguar"/>
-            <item85
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Web Link"/>
-            <item86
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Sales Retailer"/>
-            <item87
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Favorite"/>
-            <item88
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Step 1"/>
-            <item89
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Step 2"/>
-            <item90
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Step 3"/>
-            <item91
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Search Results"/>
-            <item92
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Service Retailer"
-                value="icon-servicepreferred-evo-jaguar"/>
-            <item93
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Time"/>
-            <item94
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Tyre Pressure"
-                value="icon-tyrepressure-evo-jaguar"/>
-            <item95
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Video Guides"
-                value="icon-videoguides-evo-jaguar"/>
-            <item96
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Washer Fluid"
-                value="icon-washerfluid-evo-jaguar"/>
-            <item97
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Down "
-                value="icon-chevron-down"/>
-            <item98
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Circle Minus"/>
-            <item99
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Circle Refresh"/>
-            <item100
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Contract Hire Calculator"/>
-            <item101
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Credit Card"
-                value="icon-credit-card"/>
-            <item102
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Day"/>
-            <item103
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Garage"/>
-            <item104
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Finance Calculator"
-                value="icon-finance-calculator"/>
-            <item105
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Building"/>
-            <item106
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Rural"/>
-            <item107
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Burger"/>
-            <item108
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Vehicle Notification"/>
-            <item109
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Night"/>
-            <item110
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Car Tax Calculator"/>
-            <item111
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Ownership"
-                value="icon-owners"/>
-            <item112
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Request a Quote Pound"
-                value="icon-request-quote-sterling"/>
-            <item113
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Request a Quote Dollar"
-                value="icon-request-quote-dollar"/>
-            <item114
-                jcr:primaryType="nt:unstructured"
-                jcr:title="News"/>
-            <item115
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Live Chat"/>
-            <item116
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Special Vehicle Operations"
-                value="icon-svo"/>
-            <item117
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Speed"
-                value="icon-speed"/>
-            <item118
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Capacity"
-                value="icon-capacity"/>
-            <item119
-                jcr:primaryType="nt:unstructured"
-                jcr:title="CO2"
-                value="icon-CO2"/>
-            <item120
-                jcr:primaryType="nt:unstructured"
-                jcr:title="None"/>
+                jcr:title="Arrow Right - Header"
+                value="#Arrow_Right"/>
         </list>
     </jcr:content>
 </jcr:root>

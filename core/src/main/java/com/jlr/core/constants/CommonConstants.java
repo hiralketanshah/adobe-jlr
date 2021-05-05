@@ -25,8 +25,6 @@ public class CommonConstants {
     public static final String JLR_GLOBAL_PUBLISHED = "/global/published-sites";
     public static final String JLR_DICTIONARY = "/config/dictionary";
     public static final String CONTAINER_NODE = "/jcr:content/root/container";
-    public static final String CLIENT_LIB_PATH_FLAG = "/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/flags/";
-    public static final String PNG_EXTENSION = ".png";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";

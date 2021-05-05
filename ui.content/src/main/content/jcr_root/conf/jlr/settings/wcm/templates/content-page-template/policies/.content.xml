@@ -145,14 +145,6 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </optionpicker>
-                        <herotitlebanner jcr:primaryType="nt:unstructured">
-                            <v1 jcr:primaryType="nt:unstructured">
-                                <herotitlebanner
-                                    cq:policy="jlr/components/herotitlebanner/v1/herotitlebanner/policy_1619626689947"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                            </v1>
-                        </herotitlebanner>
                         <dualframecarousel jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <dualframecarousel

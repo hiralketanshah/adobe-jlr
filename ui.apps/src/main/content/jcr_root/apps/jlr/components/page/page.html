@@ -20,9 +20,7 @@
 
 <head data-sly-call="${head.head @ page = page}">
 </head>
-<sly data-sly-test="${pageConfig.EnableInlineCookieJs}">
-<sly data-sly-include="cookieconsent.html"></sly>
-</sly>
+
 <body class="${page.cssClassNames}" id="${page.id}" data-cmp-data-layer-enabled="${page.data ? true : false}"
   data-custom-page-data-layer="${pageConfig.PageData @ context='scriptString'}"
   data-page-data-layer="${page.data.json @ context='scriptString'}">

@@ -10,7 +10,7 @@ import org.apache.sling.models.annotations.Model;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class PrimaryNavQuickLinksModel {
+public class PrimaryNavQuickLinks {
 	
 	@Inject
     private ResourceResolver resourceResolver;
