@@ -22,18 +22,12 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/id"/>
-                            <headerCopy
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
-                            <headerIcon
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/headerIcon"/>
-                            <copy
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                            <tabName
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                    fieldLabel="Tab Name"
+                                    name="./tabName"
+                                    required="true"/>
                         </items>
                         <granite:data jcr:primaryType="nt:unstructured"/>
                     </general>
@@ -141,27 +135,27 @@
                                                 <text
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                    path="/mnt/overlay/jlr/components/primarynavigation/cta/text"/>
                                                 <link
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                    path="/mnt/overlay/jlr/components/primarynavigation/cta/link"/>
                                                 <icon
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                                    path="/mnt/overlay/jlr/components/primarynavigation/cta/icon"/>
                                                 <ariaLabel
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                                    path="/mnt/overlay/jlr/components/primarynavigation/cta/ariaLabel"/>
                                                 <target
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                    path="/mnt/overlay/jlr/components/primarynavigation/cta/targetTab"/>
                                                 <linkType
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                                    path="/mnt/overlay/jlr/components/primarynavigation/cta/linkType"/>
                                             </items>
                                         </column>
                                     </items>

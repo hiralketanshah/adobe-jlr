@@ -1,9 +1,10 @@
 package com.jlr.core.utils;
 
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.pojos.*;
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,30 +41,14 @@ public class VehicleCardUtils {
      */
     public static VehicleLink getEmptyVehicleLink() {
         VehicleLink empty = new VehicleLink();
-        empty.setInternalLink(null);
-        empty.setExternalLink(null);
-        empty.setHref(null);
-        empty.setIcon(null);
-        empty.setText(null);
+        empty.setInternalLink(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setExternalLink(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setHref(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setIcon(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setText(JSONObject.NULL+ StringUtils.EMPTY);
         empty.setTargetKeyword("same_window");
-        empty.setAccessibleText(null);
+        empty.setAccessibleText(JSONObject.NULL+ StringUtils.EMPTY);
         return empty;
-    }
-
-    /**
-     * Map links to vehicle card.
-     *
-     * @param ctaPojo        the cta pojo
-     * @param vehicleCard    the vehicle card
-     * @param secondaryLinks the secondary links
-     */
-    public static void mapLinksToVehicleCard(CTAPojo ctaPojo, VehicleCard vehicleCard, List<VehicleLink> secondaryLinks) {
-        if ("Primary".equals(ctaPojo.getLinkType())) {
-            vehicleCard.setPrimaryLink(setCtaToVehicleLink(ctaPojo));
-        } else {
-            secondaryLinks.add(setCtaToVehicleLink(ctaPojo));
-        }
-
     }
 
     /**
@@ -78,8 +63,8 @@ public class VehicleCardUtils {
         vehicleLink.setIcon(ctaPojo.getIcon());
         vehicleLink.setHref(ctaPojo.getLink());
         vehicleLink.setExternalLink(ctaPojo.getLink());
-        vehicleLink.setAccessibleText(null);
-        vehicleLink.setInternalLink(null);
+        vehicleLink.setAccessibleText(JSONObject.NULL+ StringUtils.EMPTY);
+        vehicleLink.setInternalLink(JSONObject.NULL+ StringUtils.EMPTY);
         return vehicleLink;
     }
 
@@ -99,7 +84,7 @@ public class VehicleCardUtils {
                 if (null != properties) {
                     Feature feature = new Feature();
                     feature.setIcon(properties.get("headerIcon", String.class));
-                    feature.setLabel(properties.get("copy", String.class));
+                    feature.setLabel(CommonUtils.getOnlyTextFromHTML(properties.get("copy", String.class)));
                     featureList.add(feature);
                 }
             }
