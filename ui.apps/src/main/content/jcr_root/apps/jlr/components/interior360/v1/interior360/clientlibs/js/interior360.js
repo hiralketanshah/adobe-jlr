@@ -2342,7 +2342,7 @@ var panoId = 0;
 
       var loadButton = $('<button>', {
         class: 'Interior360__load-button'
-      }).append('\n        <span class="Interior360__init-container">\n          <span class="Interior360__init-container-caption">' + caption + '</span>\n          <div class="Interior360__init-container-icon">\n            <div class="Interior360__icon Interior360__icon--up"></div>\n            <div class="Interior360__icon Interior360__icon--left"></div>\n            <div class="Interior360__icon Interior360__icon--right"></div>\n            <div class="Interior360__icon Interior360__icon--down"></div>\n          </div>\n        </span>\n      ');
+      }).append('\n       <div class="Interior360__init-container-icon-backdrop"> <span class="Interior360__init-container">\n          <span class="Interior360__init-container-caption">' + caption + '</span>\n          <div class="Interior360__init-container-icon">\n            <div class="Interior360__icon Interior360__icon--up"></div>\n            <div class="Interior360__icon Interior360__icon--left"></div>\n            <div class="Interior360__icon Interior360__icon--right"></div>\n            <div class="Interior360__icon Interior360__icon--down"></div>\n          </div>\n        </span></div>\n      ');
 
       var left = '';
       if (this._hasHeaderBox && !(0, _browserDetection.isBreakpointSmall)() && !(0, _browserDetection.isBreakpointMedium)() && $(window).width() <= 1400) {
