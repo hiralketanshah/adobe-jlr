@@ -10,7 +10,7 @@
                <div class="dxnav-vehicle-nav__category-block" >
                   <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
                   <sly data-sly-list.item1="${item.vehiclesList}">
-                     <sly data-sly-resource="${item1.vehicleLink @appendPath='/jcr:content/root/container'}"/>
+                     <sly data-sly-resource="${item1.vehicleLink @appendPath='/jcr:content/root/container',selectors='vehicleitem'}"/>
                   </sly>
                </div>
             </sly>

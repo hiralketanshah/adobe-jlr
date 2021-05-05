@@ -50,6 +50,9 @@ public class PageModelImpl implements PageModel {
 
     @HierarchicalPageProperty("gtmTags")
     private String gtmTags;
+    
+    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String marketRegionPath;
 
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
@@ -62,7 +65,11 @@ public class PageModelImpl implements PageModel {
         return enableInlineCookieJs;
     }
 
-    /**
+    public String getMarketRegionPath() {
+		return marketRegionPath;
+	}
+
+	/**
      * @return the gtmTags
      */
 
