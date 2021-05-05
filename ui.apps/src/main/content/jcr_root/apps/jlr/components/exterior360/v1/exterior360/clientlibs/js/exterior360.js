@@ -2872,10 +2872,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     },
     _initialiseDxRangeSlider: function _initialiseDxRangeSlider() {
       var _this6 = this;
-     
-      console.log(_this6);
       if (!this.data.showSlider) {
-        console.log("wel");
         return;
       }
 
@@ -2950,7 +2947,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       this.breakpointSmall = (0, _browserDetection.isBreakpointSmall)();
       this.breakpointMedium = (0, _browserDetection.isBreakpointMedium)();
       this.breakpointLarge = !(0, _browserDetection.isBreakpointMedium)() && !(0, _browserDetection.isBreakpointSmall)();
-      this.width = $('body').innerWidth();
+      this.widthcal = $('body').innerWidth();
+      if(this.widthcal >= 1920){
+        this.width = 1660;
+      }
+      else if(this.widthcal >= 1280  && this.widthcal <= 1920){
+        this.width = 1160;
+      }
+      else{
+        this.width = $('body').innerWidth();
+      }
       this.height = window.innerHeight - (0, _index.getStickyNavHeightV2)(this.$element.offset().top, false);
 
       // reset offsets
@@ -3702,7 +3708,6 @@ var checkDeepLink = exports.checkDeepLink = function checkDeepLink(href) {
       scrollTo(location, duration, null, 'easeStartFastEndSlow');
       deepLink = true;
     } else {
-      // eslint-disable-next-line no-console
       console.error('Could not find deep link element with id: ' + id);
     }
   }

@@ -19,14 +19,14 @@ import com.day.cq.commons.jcr.JcrConstants;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.models.External360Model;
+import com.jlr.core.models.Exterior360Model;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
-@Model(adaptables = Resource.class, adapters = {External360Model.class}, resourceType = External360ModelImpl.RESOURCE_TYPE)
-public class External360ModelImpl extends GlobalModelImpl implements External360Model {
+@Model(adaptables = Resource.class, adapters = {Exterior360Model.class}, resourceType = Exterior360ModelImpl.RESOURCE_TYPE)
+public class Exterior360ModelImpl extends GlobalModelImpl implements Exterior360Model {
 	
-    public static final String RESOURCE_TYPE = "jlr/components/external360/v1/external360";
+    public static final String RESOURCE_TYPE = "jlr/components/exterior360/v1/exterior360";
 
     @Inject
     private ResourceResolver resourceResolver;
@@ -37,7 +37,6 @@ public class External360ModelImpl extends GlobalModelImpl implements External360
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String folderPath;
     
-    private List<String> imageList = new ArrayList<>();
 
     /** The cta list. */
     @Inject
@@ -66,13 +65,11 @@ public class External360ModelImpl extends GlobalModelImpl implements External360
 
 	@Override
 	public String getImageList() {
+	    List<String> imageList = new ArrayList<>();
 		Resource folderRes = resourceResolver.getResource(folderPath);
 		JsonObject list = new JsonObject();
         if (null != folderRes) {
-
-
             Iterator<Resource> childResItr = folderRes.listChildren();
-            imageList = new ArrayList<>();
             while (childResItr.hasNext()) {
                 Resource childRes = childResItr.next();
                 String imageName = childRes.getPath();
