@@ -672,7 +672,7 @@ html.no-js .cmp-interior360 .carousel > * {
   background-size: 45px;
   background-repeat: no-repeat;
   background-position: 54% 54%;
-  background-image: url("/resources/public/images/krpano/gyro.svg");
+  background-image: url("../resources/icons/gyro.svg");
   -webkit-transition-duration: 0s;
   -moz-transition-duration: 0s;
   -o-transition-duration: 0s;
@@ -1146,7 +1146,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__accelerometer-control:active,
 .Interior360__accelerometer-control.gyro-enabled {
   background-color: #fff;
-  background-image: url("/resources/public/images/krpano/gyro-LR-blue.svg");
+  background-image: url("../resources/icons/gyro-lr-blue.svg");
 }
 .Interior360__reset-control {
   padding-left: 40px;
@@ -1158,7 +1158,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__icon {
   height: 20px;
   width: 20px;
-  background: url('/content/dam/landrover/krpano/Internal360-arrow-right.svg')
+  background: url('../resources/icons/internal360-arrow-right.svg')
     center center no-repeat;
   background-size: 15px 15px;
 }

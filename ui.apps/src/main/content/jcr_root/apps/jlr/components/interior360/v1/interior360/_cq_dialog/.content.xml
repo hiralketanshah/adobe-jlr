@@ -13,9 +13,9 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <general
+                    <properties
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="General"
+                        jcr:title="Properties"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -32,17 +32,17 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
                         </items>
-                    </general>
+                    </properties>
                     <image
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Slider Images"
+                        jcr:title="Images"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
                             <folder
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                fieldLabel="Slider Images Folder Path"
+                                fieldLabel="Images Folder Path"
                                 name="./folderPath"
                                 rootPath="/content/dam/landrover"/>
                         </items>
@@ -105,8 +105,5 @@
                 </items>
             </tabs>
         </items>
-        <granite:data
-            jcr:primaryType="nt:unstructured"
-            name="dfs"/>
     </content>
 </jcr:root>
