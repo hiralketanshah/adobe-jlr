@@ -1,1 +1,4 @@
-<sly data-sly-resource="${'vehiclecards' @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.edit}"/>
+<sly data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+   <sly data-sly-resource="${'vehiclecards' @ resourceType='wcm/foundation/components/responsivegrid'}" data-sly-unwrap="${!wcmmode.edit}"/>
+   <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
