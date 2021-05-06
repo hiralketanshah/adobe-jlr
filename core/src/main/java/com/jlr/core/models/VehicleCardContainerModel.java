@@ -14,4 +14,13 @@ public interface VehicleCardContainerModel {
     default String getVehicleCardJson() {
         return StringUtils.EMPTY;
     }
+
+    /**
+     * Gets vehicle card script.
+     *
+     * @return the vehicle card script
+     */
+    default String getVehicleCardScript() {
+        return StringUtils.EMPTY;
+    }
 }

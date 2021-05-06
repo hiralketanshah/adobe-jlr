@@ -12,7 +12,9 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -47,7 +49,11 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     @SlingObject
     private Resource resource;
 
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String uniqueID;
+
     private String vehicleCardJson;
+    private String vehicleCardScript;
 
     /**
      * Init.
@@ -132,5 +138,23 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      */
     public String getVehicleCardJson() {
         return vehicleCardJson;
+    }
+
+    /**
+     * Gets unique id.
+     *
+     * @return the unique id
+     */
+    public String getUniqueID() {
+        return uniqueID;
+    }
+
+    /**
+     * Gets vehicle card script.
+     *
+     * @return the vehicle card script
+     */
+    public String getVehicleCardScript() {
+        return "<script id=\"dxnav-" + uniqueID +  "\" type=\"application/json\">" + vehicleCardJson + "</script>";
     }
 }

@@ -98,5 +98,6 @@ public class CommonConstants {
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
 
 
-
+    public static final String JLR_VEHICLE_CARD_ADDED = "jlr-vehicle-card-added";
+    public static final String UNIQUE_ID = "uniqueID";
 }

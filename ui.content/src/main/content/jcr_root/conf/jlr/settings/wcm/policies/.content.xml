@@ -1056,6 +1056,21 @@
                     </herotitlebanner>
                 </v1>
             </herotitlebanner>
+            <primarynavigation jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclecardcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620264990952
+                                jcr:lastModified="{Date}2021-05-06T07:06:48.750+05:30"
+                                jcr:lastModifiedBy="admin"
+                                jcr:primaryType="nt:unstructured"
+                                jcr:title="Vehicle Card"
+                                sling:resourceType="wcm/core/components/policy/policy"
+                                components="/apps/jlr/components/primarynavigation/v1/vehiclecard">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1620264990952>
+                    </vehiclecardcontainer>
+                </v1>
+            </primarynavigation>
         </components>
     </jlr>
     <rep:policy/>
