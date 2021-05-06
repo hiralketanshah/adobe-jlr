@@ -82,6 +82,9 @@ public class CommonConstants {
     public static final String PN_QUICK_LINKS_CTA_LINK = "quickLinksCopyCtaLink";
     public static final String PN_QUICK_LINKS_CTA_ICON = "quickLinksCopyCtaIcon";
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
+    public static final String PN_VEHICLE_CONTAINER = "vehiclecontainer";
+    public static final String PN_VEHICLES = "vehicles";
+    public static final String PN_VEHICLE_CARD_LINK = "vehicleCardLink";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";

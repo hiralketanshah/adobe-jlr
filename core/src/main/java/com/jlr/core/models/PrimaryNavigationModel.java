@@ -72,8 +72,6 @@ public class PrimaryNavigationModel {
     static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
     
     static String vehicledropdown="jlr/components/primarynavigation/v1/vehiclecategory";
-	
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private List<String> getPrimaryNavSecTab(String path) {
 		Resource rootNavigationResource=resourceResolver.getResource(path);
@@ -141,7 +139,7 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleTabName(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         while (childResources.hasNext()) {
@@ -156,7 +154,7 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleNavPageTitle(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
@@ -169,7 +167,7 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleNavPageArialabel(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
@@ -182,7 +180,7 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleCardScriptPath(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren().next().listChildren().next().listChildren();
         while (childResources.hasNext()) {
@@ -191,10 +189,8 @@ public class PrimaryNavigationModel {
             while(childResourcesList.hasNext()) {
             Resource childLink = childResourcesList.next();
             ValueMap properties = childLink.adaptTo(ValueMap.class);
-            logger.info("propertiesss {}",properties);
-            	list.add(properties.get("vehicleCardLink", String.class));
+            	list.add(properties.get(CommonConstants.PN_VEHICLE_CARD_LINK, String.class));
             }
-            
             }
         return list;
 	}
