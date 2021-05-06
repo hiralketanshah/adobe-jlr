@@ -5963,6 +5963,7 @@
 
               this.store.dispatch((0, _actions.setInitialSettings)({ init: true, playingState: JSON.parse(this.autoplay) }));
               this.bindEventListeners();
+              
             }
           }, {
             key: 'bindEventListeners',
@@ -6205,11 +6206,14 @@
             (0, _classCallCheck3.default)(this, DxTabs);
 
             this.element = element;
+            console.log(this.element);
             this.options = (0, _assign2.default)({}, DxTabs._defaults, options);
             this.tabs = [].concat((0, _toConsumableArray3.default)(this.element.querySelectorAll('[role="tab"]')));
             this.tablist = this.element.querySelector('[role="tablist"]');
             this.tabsWidthTotal = 0;
             this.panelsContainer = document.querySelector('[data-dxtabs-panels-id="' + this.element.getAttribute('data-dxtabs-id') + '"]');
+           // console.log(this.panelsContainer);
+
             this.panels = [].concat((0, _toConsumableArray3.default)(this.panelsContainer.querySelectorAll('[role="tabpanel"]')));
 
             this.animating = false;
@@ -6262,6 +6266,7 @@
                 tab.setAttribute('aria-selected', 'false');
                 tab.setAttribute('id', tabId);
                 tab.setAttribute('aria-controls', panelId);
+                //console.log(panel);
 
                 panel.setAttribute('tabindex', '0');
                 panel.setAttribute('data-index', index);
@@ -6964,7 +6969,7 @@
               _this.bindTabbedContainerEvents();
               _this.bindSliderBasedEvents();
               _this.bindContentBasedEvents();
-              _this.uiSelectors.nonDateAwareSlide.style.display = 'block';
+              //_this.uiSelectors.nonDateAwareSlide.style.display = 'block';
               _this.setSlideHeight();
             });
 
@@ -8038,6 +8043,54 @@
               this.DxCarousel = null;
               this.HeroSlideTemplate = null;
               this._nonJqueryComponents = ['DxCarousel', 'HeroSlideTemplate'];
+              this._setUpYouTubeGalleryAssets();
+            },
+            
+            _setUpYouTubeGalleryAssets() {
+              let videos  = $(".cmp-tabbedContainer .videoCustom");
+              let imagePresentOrNot = $(".cmp-tabbedContainer .videoCustom").find('img').attr('src');
+			  console.log(videos);
+              if(imagePresentOrNot == undefined || imagePresentOrNot == ""){
+                var elm = $(".cmp-tabbedContainer .videoCustom"),
+                      conts   = elm.contents(),
+                      le      = conts.length,
+                      ifr     = null;
+        
+                  for(var i = 0; i<le; i++){
+                    if(conts[i].nodeType == 8) ifr = conts[i].textContent;
+                  }
+        
+                  elm.addClass("player").html(ifr);
+                  elm.off("click");
+              }
+              videos.on("click", function(){
+                  var elm = $(this),
+                      conts   = elm.contents(),
+                      le      = conts.length,
+                      ifr     = null;
+        
+                  for(var i = 0; i<le; i++){
+                    if(conts[i].nodeType == 8) ifr = conts[i].textContent;
+                  }
+        
+                  elm.addClass("player").html(ifr);
+                  elm.off("click");
+              });
+              if (this.$element.find('.YouTubeGalleryAsset').length) {
+                this.$element.find('.YouTubeGalleryAsset').each((s, el) => {
+                  $(el).find('.YouTubePlayer').YouTubePlayer('destroy');
+                  $(el).find('.YouTubePlayer').YouTubePlayer({
+                    playerVars: { controls: 1 },
+                    inFullFrameCarousel: true,
+                    expandToWidthOnly: true
+                  });
+        
+                  // Mask to capture slider events without Youtube being an event-hog
+                  $(el).append('<div class="youTubePlayerFFCMask"/>');
+                  $(el).parent().append('<div class="mediaOverlay mediaOverlayVideo visible"><div class="mediaOverlayIcon"/></div>');
+                  $(el).parents('.cmp-genericItem').addClass('cmp-genericItem--withYouTubeGalleryAsset');
+                });
+              }
             },
             initDxTabs: function initDxTabs() {
               var _this2 = this;
