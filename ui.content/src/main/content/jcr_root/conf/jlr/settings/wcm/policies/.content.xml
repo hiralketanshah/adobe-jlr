@@ -1057,12 +1057,16 @@
                 </v1>
             </herotitlebanner>
             <interior360 jcr:primaryType="nt:unstructured">
-                        <v1 jcr:primaryType="nt:unstructured">
-                            <interior360 jcr:primaryType="nt:unstructured">
-                                <policy_1620156605744
-                                    jcr:primaryType="nt:unstructured"
-                                    jcr:title="Interior 360"
-                                    cq:styleGroupLabel="Theme"
+                <v1 jcr:primaryType="nt:unstructured">
+                    <interior360 jcr:primaryType="nt:unstructured">
+                        <policy_1620156605744
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Interior 360"
+							sling:resourceType="wcm/core/components/policy/policy">
+							<jcr:content jcr:primaryType="nt:unstructured"/>
+							<cq:styleGroups jcr:primaryType="nt:unstructured">
+								 <item0
+									cq:styleGroupLabel="Themes"
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
