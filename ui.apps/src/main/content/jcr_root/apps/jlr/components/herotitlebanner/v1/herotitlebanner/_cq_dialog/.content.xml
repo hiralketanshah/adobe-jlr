@@ -150,7 +150,7 @@
                         </items>
                         <granite:data
                             jcr:primaryType="nt:unstructured"
-                            hero-item-component="true"/>
+                            hero-title-banner-component="true"/>
                     </general>
                     <footer
                         jcr:primaryType="nt:unstructured"
@@ -464,7 +464,7 @@
                                 </items>
                                 <granite:data
                                     jcr:primaryType="nt:unstructured"
-                                    hero-item-component="true"/>
+                                    hero-title-banner-component="true"/>
                             </image>
                             <video
                                 jcr:primaryType="nt:unstructured"

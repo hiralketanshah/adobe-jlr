@@ -1,16 +1,14 @@
 package com.jlr.core.models;
 
 import javax.inject.Inject;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.utils.LinkUtils;
 
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class PrimaryNavLeftTextCTA extends PrimaryNavigationModel {
+public class PrimaryNavLeftTextCTAModel {
 
     @Inject
     private ResourceResolver resourceResolver;
@@ -50,9 +48,6 @@ public class PrimaryNavLeftTextCTA extends PrimaryNavigationModel {
     }
 
     public String getLeftPaneCopyCtaAriaLabel() {
-        if (!StringUtils.isBlank(leftPaneCopyCtaAriaLabel) && !StringUtils.isBlank(super.getLeftPaneHeaderCopy())) {
-            return super.getLeftPaneHeaderCopy().concat(CommonConstants.COLON).concat(leftPaneCopyCtaText);
-        }
         return leftPaneCopyCtaAriaLabel;
     }
 
