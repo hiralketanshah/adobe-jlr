@@ -180,7 +180,7 @@ public class PrimaryNavigationModel {
         return list;
 	}
 	
-	public List<String> getVehicleCardScript(){
+	public List<String> getVehicleCardScriptPath(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
 		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
 		List<String> list = new ArrayList<>();
