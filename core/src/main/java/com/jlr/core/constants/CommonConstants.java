@@ -33,6 +33,7 @@ public class CommonConstants {
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
     public static final String JLR_DAM_PATH = "/content/dam/landrover/";
     public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
+    public static final String PATH_STRING = "path";
 
 
     /** The DAM ASSET Constant. */

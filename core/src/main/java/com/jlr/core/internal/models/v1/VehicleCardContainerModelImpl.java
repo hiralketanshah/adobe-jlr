@@ -1,6 +1,7 @@
 package com.jlr.core.internal.models.v1;
 
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.VehicleCardConstants;
 import com.jlr.core.models.VehicleCardContainerModel;
 import com.jlr.core.pojos.VehicleCard;
 import com.jlr.core.pojos.VehicleLink;
@@ -68,9 +69,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         List<VehicleCardModelImpl> vehicleCardModelList = new ArrayList<>();
         if(resource.hasChildren()) {
             Iterable<Resource> childResources =
-                    resource.getChild("vehiclecards").getChildren();
+                    resource.getChild(VehicleCardConstants.VEHICLECARDS).getChildren();
             childResources.iterator().forEachRemaining(childResource -> {
-                if (childResource.isResourceType("jlr/components/primarynavigation/v1/vehiclecard")) {
+                if (childResource.isResourceType(VehicleCardConstants.JLR_VEHICLECARD_RESOURCETYPE)) {
                     VehicleCardModelImpl vehicleCardModel = childResource.adaptTo(VehicleCardModelImpl.class);
                     if (StringUtils.isEmpty(vehicleImageReference)) {
                         vehicleImageReference = vehicleCardModel.getFileReference();
@@ -89,9 +90,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     private JSONObject createJsonStructure(List<VehicleCardModelImpl> vehicleCardModelList) {
         JSONObject jsonResponseObject = new JSONObject();
         try {
-            jsonResponseObject.put("title", CommonUtils.getOnlyTextFromHTML(getHeaderCopy()));
-            jsonResponseObject.put("introduction", CommonUtils.getOnlyTextFromHTML(getCopy()));
-            jsonResponseObject.put("initialTab", JSONObject.stringToValue("0"));
+            jsonResponseObject.put(VehicleCardConstants.TITLE, CommonUtils.getOnlyTextFromHTML(getHeaderCopy()));
+            jsonResponseObject.put(VehicleCardConstants.INTRODUCTION, CommonUtils.getOnlyTextFromHTML(getCopy()));
+            jsonResponseObject.put(VehicleCardConstants.INITIAL_TAB, JSONObject.stringToValue("0"));
             List<Map<String, VehicleCard>> models = new ArrayList<>();
             Map<String, VehicleCard> model = new HashMap<>();
             for (int i = 0, vehicleCardModelListSize = vehicleCardModelList.size(); i < vehicleCardModelListSize; i++) {
@@ -99,7 +100,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                 VehicleCard vehicleCard = mapVehicleCardDetails(vehicleCardModel, i);
                 model.put(CommonUtils.getOnlyTextFromHTML(vehicleCardModel.getTabName()), vehicleCard);
             }
-            jsonResponseObject.put("tabs", model);
+            jsonResponseObject.put(VehicleCardConstants.TABS, model);
         } catch(JSONException e){
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
@@ -120,9 +121,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         List<VehicleLink> extraSecondaryLinks = new ArrayList<>();
         if (CollectionUtils.isNotEmpty(vehicleCardModel.getCtaList())) {
             vehicleCardModel.getCtaList().stream().forEach(ctaPojo -> {
-                if ("primary".equalsIgnoreCase(ctaPojo.getLinkType())) {
+                if (VehicleCardConstants.PRIMARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                     vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
-                } else if ("secondary".equalsIgnoreCase(ctaPojo.getLinkType())) {
+                } else if (VehicleCardConstants.SECONDARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                     secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else {
                     extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
