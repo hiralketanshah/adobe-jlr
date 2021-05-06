@@ -16,7 +16,6 @@
 	display: none;
 	position: absolute;
 	color: #fff;
-	/* background-color: rgba(228, 220, 220, 0.16) */
 }
 .Exterior360__load-button:hover,
 .Exterior360__load-button:focus {
@@ -63,12 +62,6 @@
 	padding-bottom: 3px
 }
 
-.Exterior360__init-container-caption--desktop {
-	display: none
-}
-.Exterior360__init-container-caption--mobile {
-	display: inline-block
-}
 .cmp-exterior360 .headerBox {
 	z-index: 4
 }
@@ -157,10 +150,6 @@
 	justify-content: center
 }
 
-.cmp-exterior360 {
-	/* height: 768px; */
-	background: #fff
-}
 
 .Exterior360__no-js-notice {
 	padding-top: 200px
@@ -205,7 +194,6 @@
 @media screen and (min-width: 1920px){
 
 	.cmp-exterior360 {
-		background: #fff;
 		margin-bottom:79px;
 		margin-left:130px;
 		margin-right:130px;
@@ -217,8 +205,7 @@
 		padding-right: 390px;
 		padding-bottom: 79px;
 		padding-top: 32px;
-		min-height: 189px;
-		min-width: 960px
+		width:1660px !important;
 	}
 	.headerClass {
 		float: left;
@@ -245,7 +232,7 @@
 		font-size: 24px;
 	}
 
-	.fontBodyCopyLarge {
+	.fontBodyCopyLarge p {
 		width: 100%;
 		margin-bottom: 24px;
 		padding-right: 0;
@@ -297,6 +284,13 @@
 		animation-timing-function: ease-in-out
 	}
 
+	.Exterior360__init-container-caption--desktop {
+		display: inline-block;
+	}
+	.Exterior360__init-container-caption--mobile {
+		display: none;
+	} 
+
 
 }
 
@@ -304,7 +298,6 @@
 /* desktop view  */
 @media screen and (min-width: 1280px) and (max-width: 1920px) {
 	.cmp-exterior360 {
-		background: #fff;
 		margin-left:60px;
 		margin-right:60px;
 		margin-top:60px;
@@ -314,9 +307,9 @@
 		padding-right: 0;
 		padding-bottom: 79px;
 		padding-top: 32px;
-	
-		/* min-height: 189px;
-		min-width: 960px */
+		width: 1160px;
+    	margin: 0 auto;
+		
 	}
 	.headerClass {
 		float: left;
@@ -337,7 +330,7 @@
 		display: block
 	}
 
-	.fontBodyCopyLarge {
+	.fontBodyCopyLarge p{
 		width: 100%;
 		margin-bottom: 24px;
 		padding-right: 0;
@@ -396,14 +389,15 @@
 
 @media screen and (min-width: 500px) and (max-width: 1279px) {
 
-	/* .cmp-exterior360 {
+	.cmp-exterior360 {
 		display: flex;
-		flex-wrap: wrap
-	} */
+		flex-wrap: wrap;
+	}
 
 	.Exterior360__canvas-container {
 		order: 1;
 		margin-top:40px;
+	
 	}
 	.shelfComponent{
 		order:2;
@@ -441,7 +435,7 @@
 		font-size: 21px;
 	}
 
-	.fontBodyCopyLarge {
+	.fontBodyCopyLarge p {
 		width: 100%;
 		margin-bottom: 43px;
 		padding-right: 25px;
@@ -476,6 +470,12 @@
 		line-height: 14;
 
 	}
+	.Exterior360__init-container-caption--desktop {
+		display: none
+	}
+	.Exterior360__init-container-caption--mobile {
+		display: inline-block
+	} 
 	
 
 
@@ -528,7 +528,7 @@
 		font-size: 20px;
 	}
 
-	.fontBodyCopyLarge {
+	.fontBodyCopyLarge p {
 		width: 100%;
 		margin-bottom: 43px;
 		padding-right: 25px;
@@ -563,6 +563,12 @@
 		line-height: 14;
 
 	}
+	.Exterior360__init-container-caption--desktop {
+		display: none
+	}
+	.Exterior360__init-container-caption--mobile {
+		display: inline-block
+	} 
 
 	
 	
@@ -1050,8 +1056,4 @@
 		-o-transform: rotate(90deg) translateX(4px);
 		transform: rotate(90deg) translateX(4px)
 	}
-}
-
-.default{
-	background-color: #fff !important;
 }

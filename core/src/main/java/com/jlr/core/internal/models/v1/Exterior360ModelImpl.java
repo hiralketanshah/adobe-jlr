@@ -10,8 +10,6 @@ import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -20,11 +18,14 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.Exterior360Model;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
-
+/**
+ * 
+ * Implementation class for Exterior360Model
+ * @author Adobe
+ *
+ */
 @Model(adaptables = Resource.class, adapters = {Exterior360Model.class}, resourceType = Exterior360ModelImpl.RESOURCE_TYPE)
-public class Exterior360ModelImpl extends GlobalModelImpl implements Exterior360Model {
+public class Exterior360ModelImpl extends Interior360ModelImpl implements Exterior360Model {
 	
     public static final String RESOURCE_TYPE = "jlr/components/exterior360/v1/exterior360";
 
@@ -37,32 +38,13 @@ public class Exterior360ModelImpl extends GlobalModelImpl implements Exterior360
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String folderPath;
     
-
-    /** The cta list. */
-    @Inject
-    @Optional
-    @ChildResource
-    private Resource ctaList;
-    
-    /**
-     * Gets the cta list.
-     *
-     * @return the cta list
-     */
-
-    @Override
-    public List<CTAPojo> getCtaList() {
-    	List<CTAPojo> list = new ArrayList<>();
-    	if (null != ctaList && ctaList.hasChildren()) {
-    		list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
-    	}
-    	return list;
-    }
     
     public boolean getIsSlider() {
     	return isSlider;
     }
-
+/**
+ * Return Image list
+ */
 	@Override
 	public String getImageList() {
 	    List<String> imageList = new ArrayList<>();
@@ -86,8 +68,8 @@ public class Exterior360ModelImpl extends GlobalModelImpl implements Exterior360
 			}
             list.add("desktop", desktop);
             list.add("mobile", mobile);
-            list.addProperty("isfull360", true);
-            list.addProperty("showSlider", false);
+            list.addProperty("isfull360", !isSlider);
+            list.addProperty("showSlider", isSlider);
 
         }
         return list.toString();
