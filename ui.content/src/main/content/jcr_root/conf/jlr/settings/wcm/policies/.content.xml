@@ -1085,7 +1085,39 @@
                         </policy_1620156605744>
                     </interior360>
                 </v1>
-            </interior360>     
+            </interior360> 
+            <exterior360 jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <exterior360 jcr:primaryType="nt:unstructured">
+                        <policy_1620289198673
+                            jcr:lastModified="{Date}2021-05-06T13:50:23.594+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Exterior 360"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1620289214029"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1620289217685"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620289198673>
+                    </exterior360>
+                </v1>
+             </exterior360>       
         </components>
     </jlr>
     <rep:policy/>
