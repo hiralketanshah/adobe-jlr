@@ -8,6 +8,7 @@ import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.VehicleCardUtils;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -54,6 +55,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
 
     private String vehicleCardJson;
     private String vehicleCardScript;
+    private String vehicleImageReference;
+    private String vehicleImageLink;
+
 
     /**
      * Init.
@@ -66,8 +70,14 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
             Iterable<Resource> childResources =
                     resource.getChild("vehiclecards").getChildren();
             childResources.iterator().forEachRemaining(childResource -> {
-                if(childResource.isResourceType("jlr/components/primarynavigation/v1/vehiclecard")) {
+                if (childResource.isResourceType("jlr/components/primarynavigation/v1/vehiclecard")) {
                     VehicleCardModelImpl vehicleCardModel = childResource.adaptTo(VehicleCardModelImpl.class);
+                    if (StringUtils.isEmpty(vehicleImageReference)) {
+                        vehicleImageReference = vehicleCardModel.getFileReference();
+                    }
+                    if (StringUtils.isEmpty(vehicleImageLink)) {
+                        vehicleImageLink = vehicleCardModel.getImageLink();
+                    }
                     vehicleCardModelList.add(vehicleCardModel);
                 }
             });
@@ -156,5 +166,24 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      */
     public String getVehicleCardScript() {
         return "<script id=\"dxnav-"+ uniqueID +  "\" type=\"application/json\">" + vehicleCardJson + "</script>";
+    }
+
+
+    /**
+     * Gets vehicle image reference.
+     *
+     * @return the vehicle image reference
+     */
+    public String getVehicleImageReference() {
+        return vehicleImageReference;
+    }
+
+    /**
+     * Gets vehicle image link.
+     *
+     * @return the vehicle image link
+     */
+    public String getVehicleImageLink() {
+        return vehicleImageLink;
     }
 }

@@ -32,4 +32,22 @@ public interface VehicleCardContainerModel {
     default String getUniqueID() {
         return StringUtils.EMPTY;
     }
+
+    /**
+     * Gets vehicle image reference.
+     *
+     * @return the vehicle image reference
+     */
+    default String getVehicleImageReference() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets vehicle image link.
+     *
+     * @return the vehicle image link
+     */
+    default String getVehicleImageLink() {
+        return StringUtils.EMPTY;
+    }
 }
