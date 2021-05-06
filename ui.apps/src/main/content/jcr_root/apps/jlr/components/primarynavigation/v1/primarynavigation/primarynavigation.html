@@ -230,7 +230,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                      </div>
                   </div>
                   <sly data-sly-list.path="${model.vehicleCardScriptPath}">
-                     <sly data-sly-resource="${path @appendPath='/jcr:content/root/container',selectors='vehiclecardcontainerjson'}"/>
+                     <sly data-sly-resource="${path @appendPath='/jcr:content/root/container/vehiclecardcontainer',selectors='vehiclecardcontainerjson',context='html'}"/>
                   </sly>
                </div>
 			   </sly>

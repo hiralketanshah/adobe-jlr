@@ -155,6 +155,6 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      * @return the vehicle card script
      */
     public String getVehicleCardScript() {
-        return "<script id=\"dxnav-" + uniqueID +  "\" type=\"application/json\">" + vehicleCardJson + "</script>";
+        return "<script id=\"dxnav-"+ uniqueID +  "\" type=\"application/json\">" + vehicleCardJson + "</script>";
     }
 }

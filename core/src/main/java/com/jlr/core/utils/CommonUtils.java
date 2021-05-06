@@ -150,7 +150,7 @@ public final class CommonUtils {
     }
 
     public static String getOnlyTextFromHTML(String text) {
-        return Jsoup.clean(text, Whitelist.none().addTags("sup"));
+       return StringUtils.isBlank(text) ? StringUtils.EMPTY : Jsoup.clean(text, Whitelist.none().addTags("sup"));
     }
 
     public static List<FooterPojo> createFooterList(Resource footerList) {
