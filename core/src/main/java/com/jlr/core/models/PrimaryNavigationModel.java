@@ -180,6 +180,25 @@ public class PrimaryNavigationModel {
         return list;
 	}
 	
+	public List<String> getVehicleCardScript(){
+		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild("vehiclecontainer").getChild("vehicles");
+		List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources=containerResource.listChildren().next().listChildren().next().listChildren();
+        while (childResources.hasNext()) {
+            Resource child = childResources.next();
+            Iterator<Resource> childResourcesList=child.listChildren().next().listChildren();
+            while(childResourcesList.hasNext()) {
+            Resource childLink = childResourcesList.next();
+            ValueMap properties = childLink.adaptTo(ValueMap.class);
+            logger.info("propertiesss {}",properties);
+            	list.add(properties.get("vehicleCardLink", String.class));
+            }
+            
+            }
+        return list;
+	}
+	
 	public String getNavPagePathOne() {
 		return navPagePathOne;
 	}
