@@ -38,9 +38,6 @@ public class TabbedContainerModelImpl extends GlobalModelImpl implements TabbedC
             ValueMap properties = child.adaptTo(ValueMap.class);
             if (null != properties) {
                 String tabHeading = properties.get(CommonConstants.PN_TAB_HEADING, String.class);
-                tabHeading = null == tabHeading || tabHeading.isEmpty()
-                        ? properties.get(CommonConstants.PN_TITLE, String.class)
-                        : tabHeading;
                 listOfTabHeading.add(tabHeading);
             }
         }

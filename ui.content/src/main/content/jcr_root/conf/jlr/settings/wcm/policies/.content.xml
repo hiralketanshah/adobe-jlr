@@ -1095,7 +1095,7 @@
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Tabbed Container"
                             sling:resourceType="wcm/core/components/policy/policy"
-                            components="[/apps/jlr/components/contentcard/v1/contentcard,/apps/jlr/components/fullframecarousel/v1/fullframecarousel]">
+                            components="[/apps/jlr/components/contentcard/v1/contentcard,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/interior360/v1/interior360]">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
