@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+    fieldDescription="Target for the link authored - current tab or same tab"
+    fieldLabel="Target"
+    name="./target">
+    <items jcr:primaryType="nt:unstructured">
+        <sameWindow
+            jcr:primaryType="nt:unstructured"
+            selected="{Boolean}true"
+            text="Same Window"
+            value="_self"/>
+        <newWindow
+            jcr:primaryType="nt:unstructured"
+            text="New Window"
+            value="_blank"/>
+        <overlay
+            jcr:primaryType="nt:unstructured"
+            text="Overlay"
+            value="overlay"/>
+    </items>
+</jcr:root>

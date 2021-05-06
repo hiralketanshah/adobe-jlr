@@ -76,11 +76,15 @@ public class CommonConstants {
     public static final String PN_PRIMARY_NAV_TITLE = "primaryNavTitle";
     public static final String PN_PRIMARY_NAV_ARIA_LABEL = "primaryNavAriaLabel";
     public static final String PN_TAB_NAME = "tabName";
+    public static final String PN_VEHICLE_TAB_NAME = "vehicleTabName";
     public static final String PN_QUICK_LINKS = "quickLinks";
     public static final String PN_QUICK_LINKS_CTA_TEXT = "quickLinksCtaText";
     public static final String PN_QUICK_LINKS_CTA_LINK = "quickLinksCopyCtaLink";
     public static final String PN_QUICK_LINKS_CTA_ICON = "quickLinksCopyCtaIcon";
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
+    public static final String PN_VEHICLE_CONTAINER = "vehiclecontainer";
+    public static final String PN_VEHICLES = "vehicles";
+    public static final String PN_VEHICLE_CARD_LINK = "vehicleCardLink";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
@@ -97,5 +101,6 @@ public class CommonConstants {
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
 
 
-
+    public static final String JLR_VEHICLE_CARD_ADDED = "jlr-vehicle-card-added";
+    public static final String UNIQUE_ID = "uniqueID";
 }

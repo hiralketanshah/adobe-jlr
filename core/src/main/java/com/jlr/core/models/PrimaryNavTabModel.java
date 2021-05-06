@@ -14,7 +14,7 @@ import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavTabModel {
 	
-	public static final String RESOURCE_TYPE = "jlr/components/primarynavigation/v1/primarynavigation";
+	public static final String RESOURCE_TYPE = "jlr/components/primarynavigation/v1/megadropdown";
 
     /** The resource resolver. */
     @Inject
@@ -52,6 +52,9 @@ public class PrimaryNavTabModel {
 
 	@Inject
     private String primaryNavTitle;
+	
+	@Inject
+    public String tabName;
 
 	@Inject
     @Named("leftCta/.")
@@ -72,9 +75,6 @@ public class PrimaryNavTabModel {
     @Inject
     @Named("quickLinks/.")
 	public List<PrimaryNavQuickLinksModel> quickLinks;
-    
-    @Inject
-    public String tabName;
     
     public String getId() {
         return id;
@@ -135,13 +135,13 @@ public class PrimaryNavTabModel {
 	public List<PrimaryNavDualLeftCTAModel> getLeftDualColumnCta() {
 		return leftDualColumnCta;
 	}
-
-	public String getTabName() {
-		return tabName;
-	}
 	
 	public String getPrimarNavTitle() {
 		return primaryNavTitle;
+	}
+	
+	public String getTabName() {
+		return tabName;
 	}
 
 }
