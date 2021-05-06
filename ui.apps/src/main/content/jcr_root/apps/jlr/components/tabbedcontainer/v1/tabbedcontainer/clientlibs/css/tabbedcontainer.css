@@ -7,9 +7,10 @@
     width: 1160px;
     margin: 0 auto;
     max-height:653px;
-    min-height: 653px;
+    height: auto;
+    /* min-height: 653px; */
     position: relative;
-    background: #242932;
+    /* background: #242932; */
 }
 .DxTabs__panel{
     color: #ffffff;
@@ -46,6 +47,13 @@ top: 2px;
 .cmp-tabbedContainer .DxTabs__tab{
 max-width: 500px;
 outline: none;
+margin: 0px 20px;
+}
+.cmp-tabbedContainer .DxTabs__tab:first-child{
+    margin-left: 0;
+}
+.cmp-tabbedContainer .DxTabs__tab:last-child{
+    margin-right: 0;
 }
 .cmp-tabbedContainer .DxTabs__tab, 
 .cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active){
@@ -164,12 +172,12 @@ text-transform:unset;
     bottom: 0;
     z-index: 1;
 }
-.ContentBlocksContainer .cmp-tabbedContainer  .DxTabs {
+.cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs {
     top: -80px !important;
     bottom: unset;
 }
 
-.ContentBlocksContainer .cmp-tabbedContainer  .DxTabs__panels{
+.cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs__panels{
     margin-top: 80px;
 }
 .cmp-tabbedContainer .GridListWrapper{
@@ -188,23 +196,41 @@ position: relative;
 .cmp-tabbedContainer .DxTabs__tab-inner{
 text-transform: uppercase;
 }
-.ContentBlocksContainer .cmp-tabbedContainer .cmp-tabbedContainer_box{
+.cmp-contentBlocksContainer .cmp-tabbedContainer .cmp-tabbedContainer_box{
     height: auto;
     max-height:unset;
     min-height: unset;
 }
 
-.ContentBlocksContainer .cmp-tabbedContainer .swiper-container{
+.cmp-contentBlocksContainer .cmp-tabbedContainer .swiper-container{
 height: auto;
+}
+/* .cmp-tabbedContainer .interior360{
+    height: 653px;
+} */
+.cmp-tabbedContainer .cmp-interior360{
+    margin: 0;
+}
+.cmp-tabbedContainer .cmp-genericItem__element-poster,
+.cmp-tabbedContainer .Interior360__panorama, 
+.cmp-tabbedContainer .Interior360__panorama-holder{
+    height: 653px;
+}
+.cmp-tabbedContainer .cmp-interior360 .primaryLinkWithStyle{
+    margin-top: 24px;
 }
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
     .cmp-tabbedContainer{
         padding: 60px 0px;
     }
+    
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
 
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    .cmp-tabbedContainer{
+        padding-top: 40px;
+    }
     .cmp-tabbedContainer_box{
         width: 100%;
         max-height:211px;
@@ -215,12 +241,14 @@ height: auto;
     .cmp-tabbedContainer .Exterior360__canvas,
     .cmp-tabbedContainer .swiper-container,
     .cmp-tabbedContainer .videoCustom img,
-    .cmp-tabbedContainer .videoCustom{
-        height: 211px;
+    .cmp-tabbedContainer .videoCustom,
+    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    .cmp-tabbedContainer .Interior360__panorama, 
+    .cmp-tabbedContainer .Interior360__panorama-holder{
+        height: 211px !important;
     }
     .cmp-tabbedContainer .DxTabs{
         padding: 0px 25px;
-        border: unset;
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 25px;
@@ -233,9 +261,14 @@ height: auto;
         padding-top: 24px;
     }
     .cmp-tabbedContainer .DxTabs{
-        bottom: -47px;
+        bottom: -50px;
     }
 }
+@media screen and (min-width: 1px) and (max-width: 375px) {
+    .cmp-tabbedContainer{
+        padding-top: 30px;
+    }
+    }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 
     .cmp-tabbedContainer{
@@ -251,12 +284,15 @@ height: auto;
     .cmp-tabbedContainer .Exterior360__canvas,
     .cmp-tabbedContainer .swiper-container,
     .cmp-tabbedContainer .videoCustom img,
-    .cmp-tabbedContainer .videoCustom{
-        height: 432px;
+    .cmp-tabbedContainer .videoCustom,
+    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    .cmp-tabbedContainer .Interior360__panorama, 
+    .cmp-tabbedContainer .Interior360__panorama-holder{
+        height: 432px !important;
     }
+    
     .cmp-tabbedContainer .DxTabs{
         padding: 0px 30px;
-        border: unset;
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
@@ -282,7 +318,10 @@ height: auto;
     .cmp-tabbedContainer .Exterior360__canvas,
     .cmp-tabbedContainer .swiper-container,
     .cmp-tabbedContainer .videoCustom img,
-    .cmp-tabbedContainer .videoCustom{
+    .cmp-tabbedContainer .videoCustom,
+    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    .cmp-tabbedContainer .Interior360__panorama, 
+    .cmp-tabbedContainer .Interior360__panorama-holder{
         height: 935px;
     }
     .cmp-tabbedContainer .shelfComponent{

@@ -8049,7 +8049,6 @@
             _setUpYouTubeGalleryAssets() {
               let videos  = $(".cmp-tabbedContainer .videoCustom");
               let imagePresentOrNot = $(".cmp-tabbedContainer .videoCustom").find('img').attr('src');
-			  console.log(videos);
               if(imagePresentOrNot == undefined || imagePresentOrNot == ""){
                 var elm = $(".cmp-tabbedContainer .videoCustom"),
                       conts   = elm.contents(),
@@ -8092,6 +8091,7 @@
                 });
               }
             },
+            
             initDxTabs: function initDxTabs() {
               var _this2 = this;
 
