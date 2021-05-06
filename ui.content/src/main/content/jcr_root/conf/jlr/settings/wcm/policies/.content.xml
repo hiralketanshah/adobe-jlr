@@ -284,6 +284,17 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_1620285803627
+                    jcr:lastModified="{Date}2021-05-06T12:53:37.295+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Gallery Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="group:JLR - Gallery"
+                    layout="simple"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1620285803627>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
