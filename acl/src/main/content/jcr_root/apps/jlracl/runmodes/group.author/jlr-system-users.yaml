@@ -1,0 +1,9 @@
+- DEF systemUserPath="/home/users/system/jlr"
+- user_config:
+
+    - vehicle-card-service:
+
+        - name: "System user for Vehicle card"
+          isMemberOf: global-authors
+          path: ${systemUserPath}
+          isSystemUser: "true"

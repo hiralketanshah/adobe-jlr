@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.annotation.Nullable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -17,6 +19,7 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
 import com.day.cq.wcm.api.components.ComponentContext;
@@ -26,8 +29,6 @@ import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.models.PageModel;
 import com.jlr.core.utils.ErrorUtils;
-
-
 
 /**
  * The Class PageModelImpl.
@@ -47,9 +48,15 @@ public class PageModelImpl implements PageModel {
 
     @HierarchicalPageProperty("applicationCode")
     private String applicationCode;
+    
+    @HierarchicalPageProperty("skipToMainTitle")
+    private String skipToMainTitle;
 
     @HierarchicalPageProperty("gtmTags")
     private String gtmTags;
+    
+    @HierarchicalPageProperty("marketRegionPath")
+    private String marketRegionPath;
 
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
@@ -62,7 +69,11 @@ public class PageModelImpl implements PageModel {
         return enableInlineCookieJs;
     }
 
-    /**
+    public String getMarketRegionPath() {
+		return marketRegionPath;
+	}
+
+	/**
      * @return the gtmTags
      */
 
@@ -70,7 +81,11 @@ public class PageModelImpl implements PageModel {
         return gtmTags;
     }
 
-    @HierarchicalPageProperty("market")
+    public String getSkipToMainTitle() {
+		return skipToMainTitle;
+	}
+
+	@HierarchicalPageProperty("market")
     private String market;
 
     /**
