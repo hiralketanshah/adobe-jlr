@@ -169,8 +169,11 @@
                                             path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
                                         <galleryLink
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                            fieldDescription="Link to a video gallery page."
+                                            fieldLabel="Video Gallery Link"
+                                            name="./galleryLink"
+                                            rootPath="/content/landrover/global"/>
                                         <target
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -184,10 +187,10 @@
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
                                         <ctaList
+                                            granite:class="horizontal-line"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                             composite="{Boolean}true"
-                                            granite:class="horizontal-line"
                                             fieldLabel="CTA List">
                                             <field
                                                 jcr:primaryType="nt:unstructured"
@@ -195,8 +198,8 @@
                                                 name="./ctaList">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <column
-                                                        jcr:primaryType="nt:unstructured"
                                                         granite:class="horizontal-line-dotted"
+                                                        jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/foundation/container">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <linkText

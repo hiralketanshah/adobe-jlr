@@ -145,6 +145,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </dualframecarousel>
+                        <interior360 jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <interior360
+                                    cq:policy="jlr/components/interior360/v1/interior360/policy_1620156605744"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </interior360> 
                         <tabbedcontainer jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <tabbedcontainer
@@ -152,7 +160,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </tabbedcontainer>
+                        </tabbedcontainer>						
                     </components>
                 </jlr>
             </container>
