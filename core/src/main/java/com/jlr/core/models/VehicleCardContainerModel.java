@@ -23,4 +23,13 @@ public interface VehicleCardContainerModel {
     default String getVehicleCardScript() {
         return StringUtils.EMPTY;
     }
+
+    /**
+     * Gets unique id.
+     *
+     * @return the unique id
+     */
+    default String getUniqueID() {
+        return StringUtils.EMPTY;
+    }
 }
