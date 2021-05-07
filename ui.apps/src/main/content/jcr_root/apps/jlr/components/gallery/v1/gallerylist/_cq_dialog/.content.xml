@@ -65,7 +65,7 @@
                                                     dfs-required="true"
                                                     fieldDescription="The Header copy to be displayed."
                                                     fieldLabel="Header Copy"
-                                                    name="./galleryHeaderCopy"
+                                                    name="./headerCopy"
                                                     required="{Boolean}true"
                                                     useFixedInlineToolbar="{Boolean}true">
                                                     <rtePlugins jcr:primaryType="nt:unstructured">
@@ -106,7 +106,7 @@
                                                     dfs-required="true"
                                                     fieldDescription="The Information copy to be displayed."
                                                     fieldLabel="Information Copy"
-                                                    name="./infoCopy"
+                                                    name="./copy"
                                                     required="{Boolean}true"
                                                     useFixedInlineToolbar="{Boolean}true">
                                                     <rtePlugins jcr:primaryType="nt:unstructured">
