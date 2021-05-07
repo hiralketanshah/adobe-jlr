@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2021-05-03T14:42:40.470+05:30"
+        cq:lastModified="{Date}2021-05-06T22:44:50.231+05:30"
         cq:lastModifiedBy="admin"
         cq:policy="jlr/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -161,6 +161,18 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </dualframecarousel>
+                        <primarynavigation jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <vehiclecardcontainer
+                                    cq:policy="jlr/components/primarynavigation/v1/vehiclecardcontainer/policy_1620264990952"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <vehiclecontainer
+                                    cq:policy="jlr/components/primarynavigation/v1/vehiclecontainer/policy_1620301901519"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </primarynavigation>
                         <interior360 jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <interior360
@@ -168,7 +180,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </interior360>  
+                        </interior360>
                         <exterior360 jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <exterior360
@@ -176,7 +188,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </exterior360>                                                  
+                        </exterior360>
                     </components>
                 </jlr>
             </container>
