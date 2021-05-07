@@ -18,6 +18,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class ContentCardModelTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class ContentCardModelTest extends GlobalModelImplTest {

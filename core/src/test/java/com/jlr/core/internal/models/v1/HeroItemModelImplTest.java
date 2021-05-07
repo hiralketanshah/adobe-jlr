@@ -17,6 +17,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class HeroCarouselModelImplTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class HeroItemModelImplTest extends GlobalModelImplTest {

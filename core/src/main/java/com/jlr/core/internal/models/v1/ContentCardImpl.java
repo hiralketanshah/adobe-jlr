@@ -15,6 +15,8 @@ import com.jlr.core.utils.CtaUtils;
 
 /**
  * The Class ContentCardImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {ContentCardModel.class}, resourceType = ContentCardImpl.RESOURCE_TYPE,
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)

@@ -2,31 +2,31 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
-
 import com.jlr.core.pojos.CTAPojo;
 
 /**
  * The Interface ReadyToGoBarModel.
+ *
+ * @author Adobe
  */
 public interface ReadyToGoBarModel {
-	
-	/**
-	 * Gets the rtgb.
-	 *
-	 * @return the rtgb
-	 */
-	default List<CTAPojo> getRtgb() {
-		return new ArrayList<>();
-	 }
-	
-	/**
-	 * Gets the enable FAB.
-	 *
-	 * @return the enable FAB
-	 */
-	default String getEnableFAB() {
+
+    /**
+     * Gets the rtgb.
+     *
+     * @return the rtgb
+     */
+    default List<CTAPojo> getRtgb() {
+        return new ArrayList<>();
+    }
+
+    /**
+     * Gets the enable FAB.
+     *
+     * @return the enable FAB
+     */
+    default String getEnableFAB() {
         return StringUtils.EMPTY;
     }
 
@@ -72,8 +72,8 @@ public interface ReadyToGoBarModel {
      * @return the faboverride
      */
     default List<CTAPojo> getFaboverride() {
-		return new ArrayList<>();
-	 }
+        return new ArrayList<>();
+    }
 
 
 }

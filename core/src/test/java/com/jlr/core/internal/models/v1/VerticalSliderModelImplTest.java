@@ -9,11 +9,23 @@ import com.jlr.core.models.VerticalSliderModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class VerticalSliderModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 class VerticalSliderModelImplTest extends GlobalModelImplTest {
 
+    /** The model. */
     private VerticalSliderModel model;
 
+    /**
+     * Sets the up.
+     *
+     * @param context the new up
+     * @throws Exception the exception
+     */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
         context.load().json("/content/jlr/verticalslider/verticalslider.json", "/content/jlr/verticalslider.html");
@@ -22,6 +34,9 @@ class VerticalSliderModelImplTest extends GlobalModelImplTest {
     }
 
 
+    /**
+     * Test get delay.
+     */
     public void testGetDelay() {
         final Long expected = 5L;
         Long actual = model.getDelay();
@@ -29,6 +44,9 @@ class VerticalSliderModelImplTest extends GlobalModelImplTest {
     }
 
 
+    /**
+     * Test get autopause disabled.
+     */
     public void testGetAutopauseDisabled() {
         final Boolean expected = true;
         Boolean actual = model.getAutopauseDisabled();
@@ -36,12 +54,18 @@ class VerticalSliderModelImplTest extends GlobalModelImplTest {
     }
 
 
+    /**
+     * Test get pipicon.
+     */
     public void testGetPipicon() {
         final String expected = "true";
         String actual = model.getPipIcon();
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test verticle slider item list.
+     */
     void testVerticleSliderItemList() {
         List<VerticalSliderItem> list = model.getVerticalSliderItems();
         assertEquals(1, list.size());

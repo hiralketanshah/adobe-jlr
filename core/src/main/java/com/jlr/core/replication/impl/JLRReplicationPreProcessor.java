@@ -21,16 +21,28 @@ import com.day.cq.wcm.api.NameConstants;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.utils.CommonUtils;
 
+/**
+ * The Class JLRReplicationPreProcessor.
+ *
+ * @author Adobe
+ */
 @Component(immediate = true)
 public class JLRReplicationPreProcessor implements Preprocessor {
+    
+    /** The Constant LOGGER. */
     private static final Logger LOGGER = LoggerFactory.getLogger(JLRReplicationPreProcessor.class);
 
+    /** The Constant RESOURCE_UNAPPROVED_MESSAGE. */
     private static final String RESOURCE_UNAPPROVED_MESSAGE = "Page/Asset is not approved or scheduled deployment time not met!";
 
+    /** The resource resolver factory. */
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
 
 
+    /* (non-Javadoc)
+     * @see com.day.cq.replication.Preprocessor#preprocess(com.day.cq.replication.ReplicationAction, com.day.cq.replication.ReplicationOptions)
+     */
     @Override
     public void preprocess(final ReplicationAction replicationAction, final ReplicationOptions replicationOptions) throws ReplicationException {
 
@@ -76,6 +88,12 @@ public class JLRReplicationPreProcessor implements Preprocessor {
     }
 
 
+    /**
+     * Checks if is resource approved.
+     *
+     * @param resource the resource
+     * @return the boolean
+     */
     private Boolean isResourceApproved(Resource resource) {
         // TODO : Check if the approved flag is present in page properties and if the replication time is greater than the scheduled replication time property
         return true;

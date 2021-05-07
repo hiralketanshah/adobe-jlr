@@ -13,31 +13,31 @@
             <item0
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Accessories"
-                value="#Accessories"/>
+                value="Accessories"/>
             <item1
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Approved Used"
-                value="#Approved_Used"/>
+                value="Approved_Used"/>
             <item2
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Brochure"
-                value="#Brochure"/>
+                value="Brochure"/>
             <item3
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Compare"
-                value="#Compare"/>
+                value="Compare"/>
             <item4
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Drive On Road"
-                value="#Drive_On_Road"/>
+                value="Drive_On_Road"/>
             <item5
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Experience"
-                value="#Experience"/>
+                value="Experience"/>
             <item6
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Guides"
-                value="#Guides"/>
+                value="Guides"/>
             <item7
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Incontrol"
@@ -45,19 +45,19 @@
             <item8
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Map Pin"
-                value="#Map_Pin"/>
+                value="Map_Pin"/>
             <item9
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Phone"
-                value="#Phone"/>
+                value="Phone"/>
             <item10
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Service"
-                value="#Service"/>
+                value="Service"/>
             <item11
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Star Filled"
-                value="#Star_Filled"/>
+                value="Star_Filled"/>
             <item12
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle"
@@ -65,11 +65,11 @@
             <item13
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle Add"
-                value="#Vehicle_Add"/>
+                value="Vehicle_Add"/>
             <item14
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Arrow Right"
-                value="#Arrow_Right"/>
+                value="Arrow_Right"/>
         </list>
     </jcr:content>
 </jcr:root>
