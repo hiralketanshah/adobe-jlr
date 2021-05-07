@@ -53,6 +53,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     private String vehicleCardScript;
     private String vehicleImageReference;
     private String vehicleImageLink;
+    private String vehiclePrice;
 
 
     /**
@@ -73,6 +74,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                     }
                     if (StringUtils.isEmpty(vehicleImageLink)) {
                         vehicleImageLink = vehicleCardModel.getImageLink();
+                    }
+                    if (StringUtils.isEmpty(vehiclePrice)) {
+                        vehiclePrice = vehicleCardModel.getPrice();
                     }
                     vehicleCardModelList.add(vehicleCardModel);
                 }
@@ -186,5 +190,14 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     @Override
     public String getVehicleImageLink() {
         return vehicleImageLink;
+    }
+
+    /**
+     * Gets vehicle price.
+     *
+     * @return the vehicle price
+     */
+    public String getVehiclePrice() {
+        return vehiclePrice;
     }
 }

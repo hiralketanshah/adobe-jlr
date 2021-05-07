@@ -50,4 +50,13 @@ public interface VehicleCardContainerModel {
     default String getVehicleImageLink() {
         return StringUtils.EMPTY;
     }
+
+    /**
+     * Gets vehicle price.
+     *
+     * @return the vehicle price
+     */
+    default String getVehiclePrice() {
+        return StringUtils.EMPTY;
+    }
 }

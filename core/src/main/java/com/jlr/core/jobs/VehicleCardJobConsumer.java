@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
+import java.security.SecureRandom;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 import static com.jlr.core.constants.VehicleCardConstants.JLR_VEHICLE_CARD_ADDED;
 
@@ -46,7 +46,7 @@ public class VehicleCardJobConsumer implements JobConsumer {
                 Session session = resourceResolver.adaptTo(Session.class);
                 try {
                     Node rootNode = session.getNode(resource.getPath());
-                    int randomNumber = new Random().nextInt(999999);
+                    int randomNumber = new SecureRandom().nextInt(999999);
                     String uniqueID = String.format("%6d", randomNumber);
                     if (!(rootNode.hasProperty(VehicleCardConstants.UNIQUE_ID))) {
                         rootNode.setProperty(VehicleCardConstants.UNIQUE_ID, uniqueID);
