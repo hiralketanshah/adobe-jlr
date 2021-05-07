@@ -1135,7 +1135,7 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
-                                            cq:styleClasses="ContentBlocksContainer"
+                                            cq:styleClasses="cmp-contentBlocksContainer"
                                             cq:styleId="1620281765626"
                                             cq:styleLabel="Content Card (Top)"
                                             jcr:primaryType="nt:unstructured"/>
