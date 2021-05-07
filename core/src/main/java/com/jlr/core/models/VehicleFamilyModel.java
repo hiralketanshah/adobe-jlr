@@ -1,31 +1,46 @@
 package com.jlr.core.models;
 
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Named;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
 
+/**
+ * The Class VehicleFamilyModel.
+ *
+ * @author Adobe
+ */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleFamilyModel {
-	
-	@Inject
-	private String vehicleFamilyName;
-	
-	@Inject
-	@Named("vehiclesList/.")
-	List<VehiclePageLinkList> vehiclesList;
 
-	public String getVehicleFamilyName() {
-		return vehicleFamilyName;
-	}
+    /** The vehicle family name. */
+    @Inject
+    private String vehicleFamilyName;
 
-	public List<VehiclePageLinkList> getVehiclesList() {
-		return vehiclesList;
-	}
+    /** The vehicles list. */
+    @Inject
+    @Named("vehiclesList/.")
+    List<VehiclePageLinkList> vehiclesList;
+
+    /**
+     * Gets the vehicle family name.
+     *
+     * @return the vehicle family name
+     */
+    public String getVehicleFamilyName() {
+        return vehicleFamilyName;
+    }
+
+    /**
+     * Gets the vehicles list.
+     *
+     * @return the vehicles list
+     */
+    public List<VehiclePageLinkList> getVehiclesList() {
+        return vehiclesList;
+    }
 
 }

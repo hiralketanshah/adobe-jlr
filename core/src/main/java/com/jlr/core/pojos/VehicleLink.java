@@ -2,15 +2,30 @@ package com.jlr.core.pojos;
 
 /**
  * The type Primary link.
+ *
+ * @author Adobe
  */
 public class VehicleLink {
 
+    /** The text. */
     private String text;
+    
+    /** The accessible text. */
     private String accessibleText;
+    
+    /** The internal link. */
     private String internalLink;
+    
+    /** The external link. */
     private String externalLink;
+    
+    /** The target keyword. */
     private String targetKeyword;
+    
+    /** The icon. */
     private String icon;
+    
+    /** The href. */
     private String href;
 
     /**

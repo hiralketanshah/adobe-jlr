@@ -28,6 +28,8 @@ import com.jlr.core.utils.VehicleCardUtils;
 
 /**
  * The type Vehicle card container model.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {VehicleCardContainerModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardContainerModelImpl extends GlobalModelImpl implements VehicleCardContainerModel {
@@ -43,15 +45,24 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
 
 
 
+    /** The resource. */
     @SlingObject
     private Resource resource;
 
+    /** The unique ID. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String uniqueID;
 
+    /** The vehicle card json. */
     private String vehicleCardJson;
+
+    /** The vehicle card script. */
     private String vehicleCardScript;
+
+    /** The vehicle image reference. */
     private String vehicleImageReference;
+
+    /** The vehicle image link. */
     private String vehicleImageLink;
 
 
@@ -82,6 +93,12 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
 
     }
 
+    /**
+     * Creates the json structure.
+     *
+     * @param vehicleCardModelList the vehicle card model list
+     * @return the JSON object
+     */
     private JSONObject createJsonStructure(List<VehicleCardModelImpl> vehicleCardModelList) {
         JSONObject jsonResponseObject = new JSONObject();
         try {
@@ -103,6 +120,13 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         return jsonResponseObject;
     }
 
+    /**
+     * Map vehicle card details.
+     *
+     * @param vehicleCardModel the vehicle card model
+     * @param order the order
+     * @return the vehicle card
+     */
     private VehicleCard mapVehicleCardDetails(VehicleCardModelImpl vehicleCardModel, int order) {
         VehicleCard vehicleCard = new VehicleCard();
         vehicleCard.setOrder(order);

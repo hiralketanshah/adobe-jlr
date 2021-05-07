@@ -15,6 +15,8 @@ import com.jlr.core.models.TcoModel;
 
 /**
  * The Class TcoModelImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {TcoModel.class}, resourceType = TcoModelImpl.RESOURCE_TYPE)
 public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
