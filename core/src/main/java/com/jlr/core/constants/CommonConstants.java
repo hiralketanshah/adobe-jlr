@@ -86,7 +86,6 @@ public class CommonConstants {
     /** The Constant PATH_STRING. */
     public static final String PATH_STRING = "path";
 
-
     /** The DAM ASSET Constant. */
     public static final String THUMB_1280_1280_PNG = ".thumb.1280.1280.png";
 
@@ -212,6 +211,7 @@ public class CommonConstants {
 
     /** The Constant PN_QUICK_LINKS_CTA_TARGET. */
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
+    public static final String PN_TAB_HEADING = "tabHeading";
 
     /** The Constant PN_VEHICLE_CONTAINER. */
     public static final String PN_VEHICLE_CONTAINER = "vehiclecontainer";
@@ -245,7 +245,6 @@ public class CommonConstants {
 
     /** The Constant DL_APPLICATION_DEFAULT_VALUE. */
     public static final String DL_APPLICATION_DEFAULT_VALUE = "website";
-
 
     /** The Constant JLR_VEHICLE_CARD_ADDED. */
     public static final String JLR_VEHICLE_CARD_ADDED = "jlr-vehicle-card-added";
