@@ -3,7 +3,7 @@ package com.jlr.core.models;
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Interface InteractiveOptionPickerModel.
  *

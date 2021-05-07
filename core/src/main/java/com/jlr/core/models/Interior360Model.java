@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.jlr.core.pojos.CTAPojo;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Interface Interior360Model.
  *

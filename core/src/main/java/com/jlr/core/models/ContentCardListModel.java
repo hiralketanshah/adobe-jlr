@@ -17,7 +17,7 @@ import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
 
-// TODO: Auto-generated Javadoc
+
 /**
  * The Class ContentCardListModel.
  *
