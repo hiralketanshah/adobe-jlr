@@ -25,11 +25,11 @@ public class VehicleCardUtils {
      */
     public static Image setImageToVehicleLink(String fileReference, String altText) {
         Image image = new Image();
-        image.setWidestImage(fileReference);
+        image.setWidestImage(CommonUtils.getWebImagePath(fileReference));
         image.setAlt(altText);
         PublishedImage publishedImage = new PublishedImage();
         List<String> publishedImages = new ArrayList<>();
-        publishedImages.add(fileReference);
+        publishedImages.add(CommonUtils.getSmallImagePath(fileReference));
         publishedImages.add(fileReference);
         publishedImage.setPublishedImages(publishedImages);
         image.setImage(publishedImage);
@@ -45,9 +45,9 @@ public class VehicleCardUtils {
         VehicleLink empty = new VehicleLink();
         empty.setInternalLink(JSONObject.NULL+ StringUtils.EMPTY);
         empty.setExternalLink(JSONObject.NULL+ StringUtils.EMPTY);
-        empty.setHref(JSONObject.NULL+ StringUtils.EMPTY);
-        empty.setIcon(JSONObject.NULL+ StringUtils.EMPTY);
-        empty.setText(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setHref(null);
+        empty.setIcon(null);
+        empty.setText(null);
         empty.setTargetKeyword("same_window");
         empty.setAccessibleText(JSONObject.NULL+ StringUtils.EMPTY);
         return empty;

@@ -1,5 +1,6 @@
 package com.jlr.core.pojos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class PublishedImage {
      * @return the published images
      */
     public List<String> getPublishedImages() {
-        return publishedImages;
+        return new ArrayList<>(publishedImages);
     }
 
     /**
@@ -27,6 +28,6 @@ public class PublishedImage {
      * @param publishedImages the published images
      */
     public void setPublishedImages(List<String> publishedImages) {
-        this.publishedImages = publishedImages;
+        this.publishedImages = new ArrayList<>(publishedImages);
     }
 }

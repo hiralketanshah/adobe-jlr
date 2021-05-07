@@ -44,13 +44,6 @@ public class CommonConstants {
     /** The Constant COMMA. */
     public static final String COMMA = ",";
 
-    /** The Constant JLR_ROOT. */
-    public static final String JLR_ROOT = "root";
-
-    /** The Constant JLR_CONTAINER. */
-    public static final String JLR_CONTAINER = "container";
-
-    /** The Constant JLR_LANGUAGE_MASTER. */
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
 
     /** The Constant JLR_GLOBAL_MASTER. */
@@ -224,6 +217,8 @@ public class CommonConstants {
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
+    public static final String NN_ROOT = "root";
+    public static final String NN_CONTAINER = "container";
 
     /** The Data Layer Constants. */
     public static final String DL_APPLICATION = "Application";

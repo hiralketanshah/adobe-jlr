@@ -70,6 +70,26 @@
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Arrow Right"
                 value="Arrow_Right"/>
+            <item15
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Chevron Right"
+                value="Chevron_Right"/>
+            <item16
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Fuel"
+                value="Fuel"/>
+            <item17
+                jcr:primaryType="nt:unstructured"
+                jcr:title="CO2"
+                value="CO2"/>
+            <item18
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Seats"
+                value="Seats"/>
+            <item19
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Capacity"
+                value="Capacity"/>
         </list>
     </jcr:content>
 </jcr:root>

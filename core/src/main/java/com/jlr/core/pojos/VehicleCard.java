@@ -1,5 +1,6 @@
 package com.jlr.core.pojos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -207,7 +208,7 @@ public class VehicleCard {
      * @return the features
      */
     public List<Feature> getFeatures() {
-        return features;
+        return new ArrayList<>(features);
     }
 
     /**
@@ -216,7 +217,7 @@ public class VehicleCard {
      * @param features the features
      */
     public void setFeatures(List<Feature> features) {
-        this.features = features;
+        this.features = new ArrayList<>(features);
     }
 
     /**
@@ -279,7 +280,7 @@ public class VehicleCard {
      * @return the secondary links
      */
     public List<VehicleLink> getSecondaryLinks() {
-        return secondaryLinks;
+        return new ArrayList<>(secondaryLinks);
     }
 
     /**
@@ -288,7 +289,7 @@ public class VehicleCard {
      * @param secondaryLinks the secondary links
      */
     public void setSecondaryLinks(List<VehicleLink> secondaryLinks) {
-        this.secondaryLinks = secondaryLinks;
+        this.secondaryLinks = new ArrayList<>(secondaryLinks);
     }
 
     /**
@@ -333,7 +334,7 @@ public class VehicleCard {
      * @return the extra secondary links
      */
     public List<VehicleLink> getExtraSecondaryLinks() {
-        return extraSecondaryLinks;
+        return new ArrayList<>(extraSecondaryLinks);
     }
 
     /**
@@ -342,6 +343,6 @@ public class VehicleCard {
      * @param extraSecondaryLinks the extra secondary links
      */
     public void setExtraSecondaryLinks(List<VehicleLink> extraSecondaryLinks) {
-        this.extraSecondaryLinks = extraSecondaryLinks;
+        this.extraSecondaryLinks = new ArrayList<>(extraSecondaryLinks);
     }
 }
