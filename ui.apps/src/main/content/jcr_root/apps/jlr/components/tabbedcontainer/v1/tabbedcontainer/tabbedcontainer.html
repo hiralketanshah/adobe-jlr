@@ -6,12 +6,12 @@
     <div data-sly-test="${tabs.items && tabs.items.size > 0}" class="cmp-tabbedContainer_box">
 
         <div class="DxTabs" data-dxtabs-id="${tabs.id}">
-            <div aria-orientation="horizontal" class="cmp-tabs__tablist DxTabs__tablist" role="tablist" aria-multiselectable="false"
+            <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist" aria-multiselectable="false"
                 data-sly-list.heading="${model.tabHeading}">
 
 
                 <!-- example tab with text -->
-                <button class="DxTabs__tab cmp-tabs__tab" role="tab" data-cmp-hook-tabs="tab">
+                <button class="DxTabs__tab" role="tab" data-cmp-hook-tabs="tab">
                     <span class="DxTabs__tab-text">
                         <span class="DxTabs__tab-inner">${heading @context='html'}</span>
                     </span>
