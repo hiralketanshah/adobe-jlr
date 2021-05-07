@@ -7,7 +7,7 @@ public class GalleryItem {
     private String assetType;
     private String fileReference;
     private String imageAlt;
-    private String isDecorative;
+    private boolean isDecorative;
     private String videoId;
     private String text;
     private String link;
@@ -17,7 +17,7 @@ public class GalleryItem {
     private String target;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-            String isDecorative, String videoId, String text, String link, String icon, String linkType,
+            boolean isDecorative, String videoId, String text, String link, String icon, String linkType,
             String ariaLabel, String target) {
         super();
         this.headerCopy = headerCopy;
@@ -68,6 +68,9 @@ public class GalleryItem {
     }
 
     public String getImageAlt() {
+        if (isDecorative) {
+            return null;
+        }
         return imageAlt;
     }
 
@@ -75,11 +78,11 @@ public class GalleryItem {
         this.imageAlt = imageAlt;
     }
 
-    public String getIsDecorative() {
+    public boolean getIsDecorative() {
         return isDecorative;
     }
 
-    public void setIsDecorative(String isDecorative) {
+    public void setIsDecorative(boolean isDecorative) {
         this.isDecorative = isDecorative;
     }
 

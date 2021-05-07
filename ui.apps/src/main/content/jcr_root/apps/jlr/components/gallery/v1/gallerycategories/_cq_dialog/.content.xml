@@ -32,7 +32,7 @@
                                 dfs-required="true"
                                 fieldDescription="The Header copy to be displayed."
                                 fieldLabel="Header Copy"
-                                name="./galleryHeaderCopy"
+                                name="./headerCopy"
                                 required="{Boolean}true"
                                 useFixedInlineToolbar="{Boolean}true">
                                 <rtePlugins jcr:primaryType="nt:unstructured">
@@ -67,6 +67,47 @@
                                     </cui>
                                 </uiSettings>
                             </headerCopy>
+                            <infoCopy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                dfs-required="true"
+                                fieldDescription="The Information copy to be displayed."
+                                fieldLabel="Information Copy"
+                                name="./copy"
+                                required="{Boolean}true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+										<misctools
+										jcr:primaryType="nt:unstructured"
+										features="*">
+										<specialCharsConfig jcr:primaryType="nt:unstructured">
+											<chars jcr:primaryType="nt:unstructured">
+												<non-breaking-space
+													jcr:primaryType="nt:unstructured"
+													entity="&amp;nbsp;"
+													name="Non-breaking space"/>
+												<non-breaking-hyphen
+													jcr:primaryType="nt:unstructured"
+													entity="&amp;#8209"
+													name="Non-breaking hyphen"/>
+											</chars>
+										</specialCharsConfig>
+									</misctools>
+								</rtePlugins>
+								<uiSettings jcr:primaryType="nt:unstructured">
+									<cui jcr:primaryType="nt:unstructured">
+										<inline
+											jcr:primaryType="nt:unstructured"
+											toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+										<dialogFullScreen
+											jcr:primaryType="nt:unstructured"
+											toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+									</cui>
+								</uiSettings>
+							</infoCopy>
                             <exitLink
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
@@ -93,7 +134,7 @@
                                     granite:class="horizontal-line"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/container"
-                                    name="./optionPickerList">
+                                    name="./categoryList">
                                     <items jcr:primaryType="nt:unstructured">
                                         <well
                                             granite:class="grey-border"
@@ -147,14 +188,14 @@
                                                 <categoryLink
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                    path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
                                                 <categoryName
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                                     dfs-required="true"
                                                     fieldDescription="The Category name to be displayed."
                                                     fieldLabel="Category Name"
-                                                    name="./caltegoryName"
+                                                    name="./categoryName"
                                                     required="{Boolean}true"
                                                     useFixedInlineToolbar="{Boolean}true">
                                                     <rtePlugins jcr:primaryType="nt:unstructured">
