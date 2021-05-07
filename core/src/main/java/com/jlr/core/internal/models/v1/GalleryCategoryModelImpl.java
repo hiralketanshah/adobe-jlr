@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.resource.Resource;
@@ -47,13 +48,11 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
 
     List<GalleryCategory> listOfCategoryItems = new ArrayList<>();
 
-    @Override
-    public String getExitPageLink() {
-        return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
-    }
-
-    @Override
-    public List<GalleryCategory> getCategoryList() {
+    /**
+     * Inits the.
+     */
+    @PostConstruct
+    public void init() {
         if (null != categoryList && categoryList.hasChildren()) {
             Iterator<Resource> childResources = categoryList.listChildren();
             while (childResources.hasNext()) {
@@ -74,6 +73,20 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
 
             }
         }
+    }
+
+    @Override
+    public String getExitPageLink() {
+        return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
+    }
+
+    @Override
+    public int getCategoriesCount() {
+        return listOfCategoryItems.size();
+    }
+
+    @Override
+    public List<GalleryCategory> getCategoryList() {
         return listOfCategoryItems;
     }
 

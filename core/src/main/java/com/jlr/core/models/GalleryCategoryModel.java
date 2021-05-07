@@ -19,4 +19,9 @@ public interface GalleryCategoryModel {
     default String getExitPageLink() {
         return StringUtils.EMPTY;
     }
+
+    default int getCategoriesCount() {
+        return 0;
+    }
+
 }

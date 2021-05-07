@@ -26,10 +26,10 @@
 
             <div class="Fullscreen__content-wrapper">
                 <button aria-pressed="false" class="Fullscreen__toggle">
-  <span class="visuallyHidden Fullscreen__toggleText">Toggle full screen mode</span>
-</button>
+                    <span class="visuallyHidden Fullscreen__toggleText">Toggle full screen mode</span>
+                </button>
 
-                <div class="GalleryCategories fontSmooth" data-total="${model.categoryList.size}" data-url="/vehicles/range-rover-sport/gallery.html">
+                <div class="GalleryCategories fontSmooth" data-total="${model.categoriesCount}" data-url="/vehicles/range-rover-sport/gallery.html">
                     <ul class="GalleryCategories__list">
 
 					
@@ -37,13 +37,13 @@
 						
 							<li class="GalleryCategories__list-item">
 
-                            <picture class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--portrait" >
+                            <picture data-total="${model.categoriesCount}" class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--portrait" >
                                 <source data-orientation="portrait" media="(min-width: 550px)" srcset="${category.portraitLargeImage}" />
                                 <source data-orientation="portrait" media="(min-width: 0px)" srcset="${category.portraitSmallImage}" />
                                 <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.portraitLargeImage}" />
                             </picture>
 
-                            <picture class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--landscape" >
+                            <picture data-total="${model.categoriesCount}" class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--landscape" >
                                 <source data-orientation="landscape" media="(min-width: 1200px)" srcset="${category.landscapeLargeImage}" />
                                 <source data-orientation="landscape" media="(min-width: 0px)" srcset="${category.landscapeLargeImage}" />
                                 <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.landscapeLargeImage}" />
@@ -60,14 +60,10 @@
                                     <span class="GalleryCategories__category-count">(${category.count})</span>
                                 </div>
                             </a>
-                        </li>
-						
-						
-						</sly>
-                        
+                        </li>	
+						</sly>                       
                     </ul>
                 </div>
-
             </div>
 
             <div class="Fullscreen__footer">

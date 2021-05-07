@@ -1,8 +1,10 @@
-.gallerylist .Fullscreen__information-heading {
+.gallerylist .Fullscreen__information-heading,
+.gallerylist .Fullscreen__footer-heading {
     text-transform: uppercase;
 }
 
-.gallerylist .Fullscreen__information-text {
+.gallerylist .Fullscreen__information-text,
+.gallerylist .Fullscreen__footer-text {
     text-transform: capitalize;
 }
 

@@ -40,11 +40,8 @@
 								  <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
 							  </picture>
 
-
-
 							  <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
 							  <div class="Gallery__text">${gallery.copy @context='html'}</div>
-
 							  <div class="Gallery__link-container">
 								  <span class="primaryLinkContainer">
 									<a aria-label="${gallery.ariaLabel}" class=" Gallery__cta  primaryLinkWithStyle ${gallery.target=='overlay' ? '' : gallery.icon} TargetLinks" data-link-desktop="${gallery.link}" data-target="${gallery.target}" href="${gallery.link}" data-aria-title="${gallery.text}"><span aria-hidden="true">${gallery.text}</span></a>
@@ -67,29 +64,13 @@
 
 									  <span class="playerCover image backgroundImage" data-alt="Range rover" data-background-image="" data-picture="" >
 										  <span data-src="${gallery.PosterImage}"></span>
-
-
-
 									  </span>
 								  </div>
 							  </div>
-
-							</div>
-
-							  
+							</div>							  
 							  <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
 							  <div class="Gallery__text">${gallery.copy @context='html'}</div>
 							</div>
-
-
-
-
-
-
-
-
-
-
 						</sly>
                       </div>
 
@@ -99,13 +80,10 @@
                       <div class="Gallery__controls"></div>
                   </div>
               </div>
-
           </div>
-
           <div class="Fullscreen__footer">
               <h4 class="heading headingCentre fontH3Brand Fullscreen__footer-heading"></h4>
               <p class="Fullscreen__footer-text"></p>
-
               <div class="Fullscreen__link-container">
                   <!-- this linkcontainer has a buttin injected into it from the gallery slide if one exists - its a placeholder -->
               </div>
