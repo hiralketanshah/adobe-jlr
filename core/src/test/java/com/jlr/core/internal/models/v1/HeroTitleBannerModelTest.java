@@ -17,6 +17,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class HeroTitleBannerModelTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class HeroTitleBannerModelTest extends GlobalModelImplTest {

@@ -208,14 +208,13 @@
                     jcr:description="Allows the template components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
-                    layout="simple"
-                    layoutDisabled="true"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]"
+                    layout="simple"
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                        </assetToComponentMapping>
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
                     </cq:authoring>
                 </policy_1574694950110>
                 <policy_1574695586800
@@ -223,13 +222,12 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]"
                     layout="simple"
-                    layoutDisabled="true"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]">
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                        </assetToComponentMapping>
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
                     </cq:authoring>
                 </policy_1574695586800>
                 <policy_1619408388744
@@ -237,13 +235,12 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Config Page"
                     sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:JLR - Config,group:JLR - Structure]"
                     layout="simple"
-                    layoutDisabled="true"
-                    components="[group:JLR - Config,group:JLR - Structure]">
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                        </assetToComponentMapping>
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
                     </cq:authoring>
                 </policy_1619408388744>
                 <policy_649128221558427
@@ -923,7 +920,7 @@
                     </verticalslider>
                 </v1>
             </verticalslider>
-             <optionpicker jcr:primaryType="nt:unstructured">
+            <optionpicker jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <optionpicker jcr:primaryType="nt:unstructured">
                         <policy_1619190895761
@@ -1020,18 +1017,18 @@
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
-                                    cq:styleGroupLabel="Variant"
+                                   cq:styleGroupLabel="Variant"
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
+                                            cq:styleClasses="tall"
                                             cq:styleId="1619626707693"
                                             cq:styleLabel="Tall"
-                                            cq:styleClasses="tall"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
+                                            cq:styleClasses="short"
                                             cq:styleId="1619626709472"
                                             cq:styleLabel="Short"
-                                            cq:styleClasses="short"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item0>
@@ -1040,14 +1037,14 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
+                                            cq:styleClasses="topAlign"
                                             cq:styleId="1619627807774"
                                             cq:styleLabel="Top"
-                                            cq:styleClasses="topAlign"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
+                                            cq:styleClasses="centreAlign"
                                             cq:styleId="1619627818474"
                                             cq:styleLabel="Centre"
-                                            cq:styleClasses="centreAlign"
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item1>
@@ -1056,6 +1053,125 @@
                     </herotitlebanner>
                 </v1>
             </herotitlebanner>
+            <primarynavigation jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclecardcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620264990952
+                            jcr:lastModified="{Date}2021-05-06T07:06:48.750+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Card"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/primarynavigation/v1/vehiclecard">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0 jcr:primaryType="nt:unstructured"/>
+                            </cq:styleGroups>
+                        </policy_1620264990952>
+                    </vehiclecardcontainer>
+                    <vehiclecontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620301901519
+                            jcr:lastModified="{Date}2021-05-06T17:22:05.869+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/primarynavigation/v1/vehiclecategory">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1620301901519>
+                    </vehiclecontainer>
+                </v1>
+            </primarynavigation>
+            <interior360 jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <interior360 jcr:primaryType="nt:unstructured">
+                        <policy_1620156605744
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Interior 360"
+							sling:resourceType="wcm/core/components/policy/policy">
+							<jcr:content jcr:primaryType="nt:unstructured"/>
+							<cq:styleGroups jcr:primaryType="nt:unstructured">
+								 <item0
+									cq:styleGroupLabel="Themes"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1620156615223"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1620156619801"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620156605744>
+                    </interior360>
+                </v1>
+            </interior360> 
+            <exterior360 jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <exterior360 jcr:primaryType="nt:unstructured">
+                        <policy_1620289198673
+                            jcr:lastModified="{Date}2021-05-06T13:50:23.594+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Exterior 360"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1620289214029"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1620289217685"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620289198673>
+                    </exterior360>
+                </v1>
+            </exterior360>
+            <tabbedcontainer jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <tabbedcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620031717860
+                            jcr:lastModified="{Date}2021-05-06T11:53:19.467+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Tabbed Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[/apps/jlr/components/contentcard/v1/contentcard,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/exterior360/v1/exterior360,/apps/jlr/components/interior360/v1/interior360]">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Heading Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-contentBlocksContainer"
+                                            cq:styleId="1620281765626"
+                                            cq:styleLabel="Content Card (Top)"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620031717860>
+                    </tabbedcontainer>
+                </v1>
+            </tabbedcontainer>
         </components>
     </jlr>
     <rep:policy/>

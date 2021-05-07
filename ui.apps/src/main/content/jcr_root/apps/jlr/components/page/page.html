@@ -40,6 +40,7 @@
   </sly>
 
   <div id="landrover">
+    <sly data-sly-test="${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root'}"></sly>
     <script data-sly-test.dataLayerEnabled="${page.data}">
       window.jlrDataLayer = window.jlrDataLayer || [];
       jlrDataLayer.push({

@@ -102,6 +102,10 @@
                                             jcr:primaryType="nt:unstructured"
                                             maxlimit="2"/>
                                     </ctaList>
+                                    <tabHeading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                        path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
                                 </items>
                             </column>
                         </items>

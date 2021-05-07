@@ -2,13 +2,13 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
-
 import com.jlr.core.pojos.CTAPojo;
 
 /**
  * The Interface SnippetModel.
+ *
+ * @author Adobe
  */
 public interface SnippetModel {
 

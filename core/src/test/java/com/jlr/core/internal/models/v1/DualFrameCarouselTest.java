@@ -15,11 +15,23 @@ import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class DualFrameCarouselTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 class DualFrameCarouselTest extends GlobalModelImplTest {
 
+    /** The dual frame model. */
     private DualFrameCarouselModel dualFrameModel;
 
+    /**
+     * Sets the up.
+     *
+     * @param context the new up
+     * @throws Exception the exception
+     */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
         context.load().json("/content/jlr/dualframecarousel/dualframecarousel.json",
@@ -28,6 +40,9 @@ class DualFrameCarouselTest extends GlobalModelImplTest {
         dualFrameModel = resource.adaptTo(DualFrameCarouselImpl.class);
     }
 
+    /* (non-Javadoc)
+     * @see com.jlr.core.internal.models.v1.GlobalModelImplTest#testCtaProperties()
+     */
     @Override
     @Test
     void testCtaProperties() {
