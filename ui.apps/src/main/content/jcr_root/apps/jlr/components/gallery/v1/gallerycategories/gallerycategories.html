@@ -11,7 +11,7 @@
             <div class="Fullscreen__header" data-close-target="#">
                 <div class="Fullscreen__header-overlay-box"></div>
 
-                <a class="Fullscreen__logo-link" href="/index.html"><img class="Fullscreen__logo" data-alt="Land Rover - Above and Beyond" src="/resources/public/images/logo-small-2x.png" /></a>
+                <a class="Fullscreen__logo-link" href="/index.html"><img class="Fullscreen__logo" data-alt="Land Rover - Above and Beyond" src="${model.imageLink}" /></a>
 
                 <div class="Fullscreen__information-wrapper">
                     <h4 class="heading fontH3Brand Fullscreen__information-heading">${model.headerCopy @context='html'}</h4>
@@ -57,7 +57,7 @@
                                         <span class="GalleryCategories__category-title-inner">${category.categoryName @context='html'}</span>
                                     </h3>
 
-                                    <span class="GalleryCategories__category-count">(8)</span>
+                                    <span class="GalleryCategories__category-count">(${category.count})</span>
                                 </div>
                             </a>
                         </li>

@@ -9,9 +9,10 @@ public class GalleryCategory {
     private boolean isDecorative;
     private String categoryLink;
     private String categoryName;
+    private int count;
 
     public GalleryCategory(String portraitLargeImage, String portraitSmallImage, String landscapeLargeImage,
-            String imageAlt, boolean isDecorative, String link, String categoryName) {
+            String imageAlt, boolean isDecorative, String link, String categoryName, int count) {
         this.portraitLargeImage = portraitLargeImage;
         this.portraitSmallImage = portraitSmallImage;
         this.landscapeLargeImage = landscapeLargeImage;
@@ -19,30 +20,19 @@ public class GalleryCategory {
         this.isDecorative = isDecorative;
         this.categoryLink = link;
         this.categoryName = categoryName;
+        this.count = count;
     }
 
     public String getPortraitLargeImage() {
         return portraitLargeImage;
     }
 
-    public void setPortraitLargeImage(String portraitLargeImage) {
-        this.portraitLargeImage = portraitLargeImage;
-    }
-
     public String getPortraitSmallImage() {
         return portraitSmallImage;
     }
 
-    public void setPortraitSmallImage(String portraitSmallImage) {
-        this.portraitSmallImage = portraitSmallImage;
-    }
-
     public String getLandscapeLargeImage() {
         return landscapeLargeImage;
-    }
-
-    public void setLandscapeLargeImage(String landscapeLargeImage) {
-        this.landscapeLargeImage = landscapeLargeImage;
     }
 
     public String getImageAlt() {
@@ -52,31 +42,20 @@ public class GalleryCategory {
         return imageAlt;
     }
 
-    public void setImageAlt(String imageAlt) {
-        this.imageAlt = imageAlt;
-    }
-
     public boolean getIsDecorative() {
         return isDecorative;
-    }
-
-    public void setIsDecorative(boolean isDecorative) {
-        this.isDecorative = isDecorative;
     }
 
     public String getCategoryLink() {
         return categoryLink;
     }
 
-    public void setCategoryLink(String categoryLink) {
-        this.categoryLink = categoryLink;
-    }
-
     public String getCategoryName() {
         return categoryName;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public int getCount() {
+        return count;
     }
+
 }

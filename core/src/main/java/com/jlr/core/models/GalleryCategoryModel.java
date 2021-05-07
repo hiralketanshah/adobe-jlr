@@ -16,10 +16,6 @@ public interface GalleryCategoryModel {
         return new ArrayList<>();
     }
 
-    default String getLogoLink() {
-        return StringUtils.EMPTY;
-    }
-
     default String getPreviousPageLink() {
         return StringUtils.EMPTY;
     }
