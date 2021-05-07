@@ -1,16 +1,13 @@
 package com.jlr.core.internal.models.v1;
 
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.models.VehicleCardContainerModel;
-import com.jlr.core.pojos.VehicleCard;
-import com.jlr.core.pojos.VehicleLink;
-import com.jlr.core.utils.CommonUtils;
-import com.jlr.core.utils.ErrorUtils;
-import com.jlr.core.utils.VehicleCardUtils;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.PostConstruct;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
@@ -20,18 +17,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.models.VehicleCardContainerModel;
+import com.jlr.core.pojos.VehicleCard;
+import com.jlr.core.pojos.VehicleLink;
+import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
+import com.jlr.core.utils.VehicleCardUtils;
 
 /**
  * The type Vehicle card container model.
  */
-@Model(adaptables = Resource.class, adapters = { VehicleCardContainerModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class, adapters = {VehicleCardContainerModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardContainerModelImpl extends GlobalModelImpl implements VehicleCardContainerModel {
 
 
@@ -43,9 +40,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      */
     public static final String RESOURCE_TYPE = "jlr/components/primarynavigation/v1/vehiclecardcontainer";
 
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
+
 
     @SlingObject
     private Resource resource;
@@ -66,9 +61,8 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     public void init() {
 
         List<VehicleCardModelImpl> vehicleCardModelList = new ArrayList<>();
-        if(resource.hasChildren()) {
-            Iterable<Resource> childResources =
-                    resource.getChild("vehiclecards").getChildren();
+        if (resource.hasChildren()) {
+            Iterable<Resource> childResources = resource.getChild("vehiclecards").getChildren();
             childResources.iterator().forEachRemaining(childResource -> {
                 if (childResource.isResourceType("jlr/components/primarynavigation/v1/vehiclecard")) {
                     VehicleCardModelImpl vehicleCardModel = childResource.adaptTo(VehicleCardModelImpl.class);
@@ -92,7 +86,6 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
             jsonResponseObject.put("title", CommonUtils.getOnlyTextFromHTML(getHeaderCopy()));
             jsonResponseObject.put("introduction", CommonUtils.getOnlyTextFromHTML(getCopy()));
             jsonResponseObject.put("initialTab", JSONObject.stringToValue("0"));
-            List<Map<String, VehicleCard>> models = new ArrayList<>();
             Map<String, VehicleCard> model = new HashMap<>();
             for (int i = 0, vehicleCardModelListSize = vehicleCardModelList.size(); i < vehicleCardModelListSize; i++) {
                 VehicleCardModelImpl vehicleCardModel = vehicleCardModelList.get(i);
@@ -100,9 +93,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                 model.put(CommonUtils.getOnlyTextFromHTML(vehicleCardModel.getTabName()), vehicleCard);
             }
             jsonResponseObject.put("tabs", model);
-        } catch(JSONException e){
+        } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
+                            ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
         return jsonResponseObject;
     }
@@ -146,6 +139,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      *
      * @return the vehicle card json
      */
+    @Override
     public String getVehicleCardJson() {
         return vehicleCardJson;
     }
@@ -155,6 +149,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      *
      * @return the unique id
      */
+    @Override
     public String getUniqueID() {
         return uniqueID;
     }
@@ -164,8 +159,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      *
      * @return the vehicle card script
      */
+    @Override
     public String getVehicleCardScript() {
-        return "<script id=\"dxnav-"+ uniqueID +  "\" type=\"application/json\">" + vehicleCardJson + "</script>";
+        return "<script id=\"dxnav-" + uniqueID + "\" type=\"application/json\">" + vehicleCardJson + "</script>";
     }
 
 
@@ -174,6 +170,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      *
      * @return the vehicle image reference
      */
+    @Override
     public String getVehicleImageReference() {
         return vehicleImageReference;
     }
@@ -183,6 +180,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      *
      * @return the vehicle image link
      */
+    @Override
     public String getVehicleImageLink() {
         return vehicleImageLink;
     }
