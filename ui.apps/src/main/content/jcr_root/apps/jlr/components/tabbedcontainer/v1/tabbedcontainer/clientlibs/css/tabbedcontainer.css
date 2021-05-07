@@ -214,10 +214,14 @@ height: auto;
 .cmp-tabbedContainer .cmp-genericItem__element-poster,
 .cmp-tabbedContainer .Interior360__panorama, 
 .cmp-tabbedContainer .Interior360__panorama-holder{
-    height: 653px;
+    height: 653px !important;
 }
-.cmp-tabbedContainer .cmp-interior360 .primaryLinkWithStyle{
+/* .cmp-tabbedContainer .cmp-interior360 .primaryLinkWithStyle{
     margin-top: 24px;
+} */
+
+.cmp-tabbedContainer .Exterior360__canvas-container{
+    margin: 0;
 }
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
@@ -258,7 +262,7 @@ height: auto;
         max-width: 100%;
     }
     .cmp-tabbedContainer .linkContainer{
-        padding-top: 24px;
+        margin-top: 24px;
     }
     .cmp-tabbedContainer .DxTabs{
         bottom: -50px;
@@ -322,7 +326,7 @@ height: auto;
     .cmp-tabbedContainer .cmp-genericItem__element-poster,
     .cmp-tabbedContainer .Interior360__panorama, 
     .cmp-tabbedContainer .Interior360__panorama-holder{
-        height: 935px;
+        height: 935px !important;
     }
     .cmp-tabbedContainer .shelfComponent{
         margin-left: 0;
