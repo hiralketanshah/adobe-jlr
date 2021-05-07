@@ -185,12 +185,13 @@ public class PrimaryNavigationModel {
         Iterator<Resource> childResources=containerResource.listChildren().next().listChildren().next().listChildren();
         while (childResources.hasNext()) {
             Resource child = childResources.next();
-            Iterator<Resource> childResourcesList=child.listChildren().next().listChildren();
+            Iterator<Resource> childResourcesList=child.listChildren();
             while(childResourcesList.hasNext()) {
             	Resource childLink = childResourcesList.next();
-            	ValueMap properties = childLink.adaptTo(ValueMap.class);
+            	Iterator<Resource> vehiclepathRes=childLink.listChildren();
+            	Resource vehicleList = vehiclepathRes.next();
+            	ValueMap properties = vehicleList.adaptTo(ValueMap.class);
             	list.add(properties.get(CommonConstants.PN_VEHICLE_CARD_LINK, String.class));
-            	return list;
             	}
             }
 		return list;
