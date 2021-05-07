@@ -8,6 +8,8 @@ import com.jlr.core.internal.models.v1.VerticalSliderItem;
 
 /**
  * The Interface VerticalSliderModel.
+ *
+ * @author Adobe
  */
 @ConsumerType
 public interface VerticalSliderModel {
@@ -46,14 +48,29 @@ public interface VerticalSliderModel {
         return false;
     }
 
+    /**
+     * Gets the pip icon.
+     *
+     * @return the pip icon
+     */
     default String getPipIcon() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the name.
+     *
+     * @return the name
+     */
     default String getName() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the vertical slider items.
+     *
+     * @return the vertical slider items
+     */
     default List<VerticalSliderItem> getVerticalSliderItems() {
         return new ArrayList<>();
     }

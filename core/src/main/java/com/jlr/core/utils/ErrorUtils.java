@@ -3,7 +3,9 @@ package com.jlr.core.utils;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * The Class ErrorUtils to streamline error message captured across the application
+ * The Class ErrorUtils to streamline error message captured across the application.
+ *
+ * @author Adobe
  */
 /**
  * @author Adobe
@@ -19,14 +21,14 @@ public final class ErrorUtils {
     public static final String END_BRACKET = "]";
 
     /**
-     * Instantiates a new private constructor
+     * Instantiates a new private constructor.
      */
     private ErrorUtils() {
 
     }
 
     /**
-     * Creates the error message with specific error format for consistent reporting
+     * Creates the error message with specific error format for consistent reporting.
      *
      * @param code the code
      * @param type the type
@@ -46,7 +48,7 @@ public final class ErrorUtils {
     }
 
     /**
-     * This method extracts the error details from the exception
+     * This method extracts the error details from the exception.
      *
      * @param exception the exception
      * @param className the class name

@@ -27,36 +27,68 @@ import org.slf4j.LoggerFactory;
  * A simple demo for cron-job like tasks that get executed regularly.
  * It also demonstrates how property values can be set. Users can
  * set the property values in /system/console/configMgr
+ *
+ * @author Adobe
  */
 @Designate(ocd=SimpleScheduledTask.Config.class)
 @Component(service=Runnable.class)
 public class SimpleScheduledTask implements Runnable {
 
+    /**
+     * The Interface Config.
+     *
+     * @author Adobe
+     */
     @ObjectClassDefinition(name="A scheduled task",
                            description = "Simple demo for cron-job like task with properties")
     public @interface Config {
 
+        /**
+         * Scheduler expression.
+         *
+         * @return the string
+         */
         @AttributeDefinition(name = "Cron-job expression")
         String scheduler_expression() default "*/30 * * * * ?";
 
+        /**
+         * Scheduler concurrent.
+         *
+         * @return true, if successful
+         */
         @AttributeDefinition(name = "Concurrent task",
                              description = "Whether or not to schedule this task concurrently")
         boolean scheduler_concurrent() default false;
 
+        /**
+         * My parameter.
+         *
+         * @return the string
+         */
         @AttributeDefinition(name = "A parameter",
                              description = "Can be configured in /system/console/configMgr")
         String myParameter() default "";
     }
 
+    /** The Constant logger. */
     private static final Logger logger = LoggerFactory.getLogger(SimpleScheduledTask.class);
 
+    /** The my parameter. */
     private String myParameter;
     
+    /* (non-Javadoc)
+     * @see java.lang.Runnable#run()
+     */
     @Override
     public void run() {
         logger.debug("SimpleScheduledTask is now running, myParameter='{}'", myParameter);
     }
 
+    /**
+     * Activate.
+     *
+     * @param config the config
+     */
     @Activate
     protected void activate(final Config config) {
         myParameter = config.myParameter();

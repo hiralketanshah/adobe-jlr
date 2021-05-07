@@ -23,21 +23,21 @@ import com.jlr.core.services.Dictionary;
 import com.jlr.core.utils.CommonUtils;
 
 /**
- * Model for locale based configurations for website
- * 
- * @author Adobe
+ * Model for locale based configurations for website.
  *
+ * @author Adobe
  */
 @Model(adaptables = {SlingHttpServletRequest.class, Resource.class}, adapters = {SiteConfigModel.class})
 public class SiteConfigImpl implements SiteConfigModel {
 
+    /** The Constant RESOURCE_TYPE. */
     private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
 
-    /** Request Parameter - List of Keys */
+    /** Request Parameter - List of Keys. */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     List<String> keys;
 
-    /** Request Parameter -Single Key */
+    /** Request Parameter -Single Key. */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     String key;
 
@@ -45,18 +45,25 @@ public class SiteConfigImpl implements SiteConfigModel {
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The dictionary. */
     @OSGiService
     private Dictionary dictionary;
 
+    /** The current page. */
     @ScriptVariable
     protected com.day.cq.wcm.api.Page currentPage;
 
+    /** The resource. */
     @Inject
     @Optional
     Resource resource;
 
+    /** The config map. */
     Map<String, String> configMap = new HashMap<>();
 
+    /**
+     * Inits the.
+     */
     @PostConstruct
     public void init() {
         if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
@@ -79,10 +86,10 @@ public class SiteConfigImpl implements SiteConfigModel {
     }
 
     /**
-     * Build Configuration map Based on Configuration Resource
-     * 
-     * @param configRes
-     * @return
+     * Build Configuration map Based on Configuration Resource.
+     *
+     * @param configRes the config res
+     * @return the map
      */
     private Map<String, String> buildConfigMap(Resource configRes) {
 
@@ -104,7 +111,9 @@ public class SiteConfigImpl implements SiteConfigModel {
     }
 
     /**
-     * Return Configuration Map for List of Key passed in parameter
+     * Return Configuration Map for List of Key passed in parameter.
+     *
+     * @return the config map
      */
     @Override
     public Map<String, String> getConfigMap() {
@@ -122,6 +131,12 @@ public class SiteConfigImpl implements SiteConfigModel {
         return configMap;
     }
 
+    /**
+     * Gets the map.
+     *
+     * @param listOfKeys the list of keys
+     * @return the map
+     */
     private Map<String, String> getMap(List<String> listOfKeys) {
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
@@ -133,7 +148,9 @@ public class SiteConfigImpl implements SiteConfigModel {
     }
 
     /**
-     * Return Configuration value for Single Key
+     * Return Configuration value for Single Key.
+     *
+     * @return the config value
      */
     @Override
     public String getConfigValue() {
@@ -145,6 +162,12 @@ public class SiteConfigImpl implements SiteConfigModel {
         return null;
     }
 
+    /**
+     * Gets the config resource.
+     *
+     * @param dictPath the dict path
+     * @return the config resource
+     */
     private Resource getConfigResource(String dictPath) {
         String rootNodePath = dictPath + CommonConstants.CONTAINER_NODE;
         Resource rootRes = resourceResolver.getResource(rootNodePath);
@@ -152,7 +175,7 @@ public class SiteConfigImpl implements SiteConfigModel {
             Iterator<Resource> childItems = rootRes.getChildren().iterator();
             while (childItems.hasNext()) {
                 Resource childItem = childItems.next();
-                if (childItem.getResourceType().equals(RESOURCE_TYPE)) {
+                if (childItem.getResourceType().equalsIgnoreCase(RESOURCE_TYPE)) {
                     return childItem;
                 }
             }

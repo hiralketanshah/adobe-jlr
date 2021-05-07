@@ -12,6 +12,8 @@ import java.util.List;
 
 /**
  * The type Vehicle card utils.
+ *
+ * @author Adobe
  */
 public class VehicleCardUtils {
     /**

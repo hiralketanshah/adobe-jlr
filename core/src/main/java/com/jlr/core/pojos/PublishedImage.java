@@ -4,8 +4,12 @@ import java.util.List;
 
 /**
  * The type Published image.
+ *
+ * @author Adobe
  */
 public class PublishedImage {
+    
+    /** The published images. */
     private List<String> publishedImages;
 
     /**

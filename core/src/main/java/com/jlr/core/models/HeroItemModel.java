@@ -2,13 +2,15 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
-import org.apache.commons.lang.StringUtils;
+
 
 /**
  * The Interface HeroItemModel.
+ *
+ * @author Adobe
  */
 public interface HeroItemModel {
 

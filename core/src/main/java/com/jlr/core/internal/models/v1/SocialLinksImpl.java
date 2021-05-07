@@ -18,6 +18,8 @@ import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class SocialLinksImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = {Resource.class}, adapters = {SocialLinksModel.class}, resourceType = SocialLinksImpl.RESOURCE_TYPE,
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)

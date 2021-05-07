@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import javax.annotation.Nullable;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -19,7 +17,6 @@ import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
 import com.day.cq.wcm.api.components.ComponentContext;
@@ -32,6 +29,8 @@ import com.jlr.core.utils.ErrorUtils;
 
 /**
  * The Class PageModelImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = SlingHttpServletRequest.class, adapters = PageModel.class, resourceType = "jlr/components/page",
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
@@ -46,22 +45,29 @@ public class PageModelImpl implements PageModel {
     protected ValueMap pageProperties;
 
 
+    /** The application code. */
     @HierarchicalPageProperty("applicationCode")
     private String applicationCode;
-    
+
+    /** The skip to main title. */
     @HierarchicalPageProperty("skipToMainTitle")
     private String skipToMainTitle;
 
+    /** The gtm tags. */
     @HierarchicalPageProperty("gtmTags")
     private String gtmTags;
-    
+
+    /** The market region path. */
     @HierarchicalPageProperty("marketRegionPath")
     private String marketRegionPath;
 
+    /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
 
     /**
+     * Gets the enable inline cookie js.
+     *
      * @return the enableInlineCookieJs
      */
     @Override
@@ -69,11 +75,18 @@ public class PageModelImpl implements PageModel {
         return enableInlineCookieJs;
     }
 
+    /**
+     * Gets the market region path.
+     *
+     * @return the market region path
+     */
     public String getMarketRegionPath() {
-		return marketRegionPath;
-	}
+        return marketRegionPath;
+    }
 
-	/**
+    /**
+     * Gets the gtm tags.
+     *
      * @return the gtmTags
      */
 
@@ -81,14 +94,22 @@ public class PageModelImpl implements PageModel {
         return gtmTags;
     }
 
+    /**
+     * Gets the skip to main title.
+     *
+     * @return the skip to main title
+     */
     public String getSkipToMainTitle() {
-		return skipToMainTitle;
-	}
+        return skipToMainTitle;
+    }
 
-	@HierarchicalPageProperty("market")
+    /** The market. */
+    @HierarchicalPageProperty("market")
     private String market;
 
     /**
+     * Gets the application code.
+     *
      * @return the applicationCode
      */
     public String getApplicationCode() {
@@ -96,6 +117,8 @@ public class PageModelImpl implements PageModel {
     }
 
     /**
+     * Gets the market.
+     *
      * @return the market
      */
     public String getMarket() {
@@ -120,9 +143,8 @@ public class PageModelImpl implements PageModel {
     private static Logger LOGGER = LoggerFactory.getLogger(PageModelImpl.class);
 
     /**
-     * Gets the Language of the site root
-     * 
-     * @param
+     * Gets the Language of the site root.
+     *
      * @return Language in ISO
      */
     @Override
@@ -131,9 +153,8 @@ public class PageModelImpl implements PageModel {
     }
 
     /**
-     * Build Datalayer JSON Object
-     * 
-     * @param
+     * Build Datalayer JSON Object.
+     *
      * @return Datalayer JSON String
      */
     @Override
@@ -168,25 +189,23 @@ public class PageModelImpl implements PageModel {
     }
 
     /**
-     * Build GTM Tags from Page properties of root node
-     * 
-     * @param
+     * Build GTM Tags from Page properties of root node.
+     *
      * @return List of GTM Tags
      */
     @Override
     public List<String> getGtmTagsList() {
         if (!StringUtils.isBlank(getGtmTags())) {
-            List<String> GTMtags = Arrays.asList(getGtmTags().split(CommonConstants.COMMA));
-            return GTMtags;
+            List<String> listOfGtmTags = Arrays.asList(getGtmTags().split(CommonConstants.COMMA));
+            return listOfGtmTags;
         }
         return null;
 
     }
 
     /**
-     * Build GTM Tags from Page properties of root node
-     * 
-     * @param
+     * Build GTM Tags from Page properties of root node.
+     *
      * @return String of GTML tags with quotes
      */
     @Override

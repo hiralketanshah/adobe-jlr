@@ -2,14 +2,15 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
-
 import com.jlr.core.pojos.CTAPojo;
+
 
 /**
  * The Interface ContentCardModel.
+ *
+ * @author Adobe
  */
 @ConsumerType
 public interface ContentCardModel {
@@ -38,6 +39,6 @@ public interface ContentCardModel {
      * @return the cta list
      */
     default List<CTAPojo> getCtaList() {
-   	 return new ArrayList<>();
+        return new ArrayList<>();
     }
 }

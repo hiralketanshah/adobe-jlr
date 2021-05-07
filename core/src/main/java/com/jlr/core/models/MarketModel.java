@@ -11,8 +11,11 @@ import org.apache.sling.models.annotations.Model;
 
 import com.jlr.core.internal.models.v1.GlobalModelImpl;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class MarketModel.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class MarketModel extends GlobalModelImpl{
