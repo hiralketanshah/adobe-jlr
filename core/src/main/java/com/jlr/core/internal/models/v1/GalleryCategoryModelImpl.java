@@ -37,9 +37,9 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The previousPageLink. */
+    /** The exitPageLink. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String previousPageLink;
+    private String exitPageLink;
 
     @Inject
     @Optional
@@ -48,8 +48,8 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
     List<GalleryCategory> listOfCategoryItems = new ArrayList<>();
 
     @Override
-    public String getPreviousPageLink() {
-        return LinkUtils.appendLinkExtension(previousPageLink, resourceResolver);
+    public String getExitPageLink() {
+        return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
     @Override

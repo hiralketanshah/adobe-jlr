@@ -16,7 +16,7 @@ public interface GalleryCategoryModel {
         return new ArrayList<>();
     }
 
-    default String getPreviousPageLink() {
+    default String getExitPageLink() {
         return StringUtils.EMPTY;
     }
 }
