@@ -1,24 +1,22 @@
 package com.jlr.core.internal.models.v1;
 
-import com.jlr.core.models.VehicleCardModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+import com.jlr.core.models.VehicleCardModel;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.utils.CtaUtils;
 
 /**
  * The type Vehicle card model.
  */
-@Model(adaptables = Resource.class, adapters = { VehicleCardModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class, adapters = {VehicleCardModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCardModel {
 
     /**
@@ -28,12 +26,10 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
 
     /** The cta list. */
     @Inject
-    @Optional
     private Resource ctaList;
 
     /** The features. */
     @Inject
-    @Optional
     private Resource features;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -90,6 +86,7 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
      *
      * @return the price
      */
+    @Override
     public String getPrice() {
         return price;
     }
@@ -126,6 +123,7 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
      *
      * @return the image link
      */
+    @Override
     public String getImageLink() {
         return imageLink;
     }
