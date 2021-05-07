@@ -1,3 +1,11 @@
+.gallerylist .Fullscreen__information-heading {
+    text-transform: uppercase;
+}
+
+.gallerylist .Fullscreen__information-text {
+    text-transform: capitalize;
+}
+
 .Gallery {
     height: 100%;
   }

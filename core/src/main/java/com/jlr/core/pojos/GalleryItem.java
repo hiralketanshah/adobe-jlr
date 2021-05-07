@@ -9,15 +9,15 @@ public class GalleryItem {
     private String imageAlt;
     private boolean isDecorative;
     private String videoId;
+    private String posterImage;
     private String text;
     private String link;
     private String icon;
-    private String linkType;
     private String ariaLabel;
     private String target;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-            boolean isDecorative, String videoId, String text, String link, String icon, String linkType,
+            boolean isDecorative, String videoId, String posterImage, String text, String link, String icon,
             String ariaLabel, String target) {
         super();
         this.headerCopy = headerCopy;
@@ -27,10 +27,10 @@ public class GalleryItem {
         this.imageAlt = imageAlt;
         this.isDecorative = isDecorative;
         this.videoId = videoId;
+        this.posterImage = posterImage;
         this.text = text;
         this.link = link;
         this.icon = icon;
-        this.linkType = linkType;
         this.ariaLabel = ariaLabel;
         this.target = target;
     }
@@ -90,6 +90,10 @@ public class GalleryItem {
         return videoId;
     }
 
+    public String getPosterImage() {
+        return posterImage;
+    }
+
     public void setVideoId(String videoId) {
         this.videoId = videoId;
     }
@@ -116,14 +120,6 @@ public class GalleryItem {
 
     public void setIcon(String icon) {
         this.icon = icon;
-    }
-
-    public String getLinkType() {
-        return linkType;
-    }
-
-    public void setLinkType(String linkType) {
-        this.linkType = linkType;
     }
 
     public String getAriaLabel() {

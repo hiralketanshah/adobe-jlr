@@ -26,8 +26,8 @@
 
           <div class="Fullscreen__content-wrapper">
               <button aria-pressed="false" class="Fullscreen__toggle">
-<span class="visuallyHidden Fullscreen__toggleText">${config.configMap['gallery.fullscreen.toggle.text']}</span>
-</button>
+				<span class="visuallyHidden Fullscreen__toggleText">${config.configMap['gallery.fullscreen.toggle.text']}</span>
+			  </button>
 
               <div class="Gallery fontSmooth" data-label-next="Go to next slide" data-label-pip="Go to slide []" data-label-previous="Go to previous slide" data-label-slideChanged="Now showing slide []" data-url="/vehicles/range-rover/gallery-exterior.html/">
                   <div class="Gallery__slider swiper-container">
@@ -35,23 +35,61 @@
 					  
 						<sly data-sly-list.gallery="${model.galleryList}">
                           <!-- class for theme added below with galleryItem -->
-                          <div class="Gallery__item dark" data-only-item="false" data-swiper-thumbnail="${gallery.fileReference}">
-                              <picture class="Picture Picture--background Gallery__background-image" data-orientation="landscape">
-                                  <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
-                              </picture>
+							<div data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false" data-swiper-thumbnail="${gallery.fileReference}">
+							  <picture data-sly-test="${gallery.fileReference}" class="Picture Picture--background Gallery__background-image" data-orientation="landscape">
+								  <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
+							  </picture>
 
 
 
-                              <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
-                              <div class="Gallery__text">${gallery.copy @context='html'}</div>
+							  <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
+							  <div class="Gallery__text">${gallery.copy @context='html'}</div>
 
-                              <div class="Gallery__link-container">
-                                  <span class="primaryLinkContainer">
+							  <div class="Gallery__link-container">
+								  <span class="primaryLinkContainer">
 									<a aria-label="${gallery.ariaLabel}" class=" Gallery__cta  primaryLinkWithStyle ${gallery.target=='overlay' ? '' : gallery.icon} TargetLinks" data-link-desktop="${gallery.link}" data-target="${gallery.target}" href="${gallery.link}" data-aria-title="${gallery.text}"><span aria-hidden="true">${gallery.text}</span></a>
 								  </span>
-                              </div>
-                          </div>
-                         
+							  </div>
+							</div>
+							<div data-sly-test="${gallery.assetType == 'video'}" class="${gallery.posterImage}abc YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth swiper-slide swiper-slide-active" data-only-item="false" data-swiper-thumbnail="${gallery.posterImage}" style="width: 1707px; margin-right: 15px;">
+								<div class="YouTubePlayer">
+							  <div class="playerWrapper" style="height: 288px; width: 512px;">
+								  <div class="placeholderVideo" data-video-id="${gallery.videoId}"></div>
+
+								  <div class="coverImgWrapper mediaOverlay__wrapper">
+
+									  <button class="coverImgBtn" type="button" aria-label="Show YouTube video"></button>
+
+									  <div class="mediaOverlay mediaOverlayVideo">
+										  <div class="mediaOverlayBg"></div>
+										  <div class="mediaOverlayIcon"></div>
+									  </div>
+
+									  <span class="playerCover image backgroundImage" data-alt="Range rover" data-background-image="" data-picture="" >
+										  <span data-src="${gallery.PosterImage}"></span>
+
+
+
+									  </span>
+								  </div>
+							  </div>
+
+							</div>
+
+							  
+							  <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
+							  <div class="Gallery__text">${gallery.copy @context='html'}</div>
+							</div>
+
+
+
+
+
+
+
+
+
+
 						</sly>
                       </div>
 

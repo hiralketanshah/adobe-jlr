@@ -56,6 +56,7 @@ public class CommonConstants {
     public static final String PN_IMAGE_LINK = "imageLink";
     public static final String PN_IS_DECORATIVE = "isDecorative";
     public static final String PN_VIDEO_ID = "videoId";
+    public static final String PN_POSTER_IMAGE = "posterImage";
     public static final String PN_OPTION_IMAGE = "optionImage";
     public static final String PN_THUMBNAIL_IMAGE = "thumbnailImage";
     public static final String PN_OPTION_LABEL = "optionLabel";

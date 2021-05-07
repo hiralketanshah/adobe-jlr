@@ -74,11 +74,11 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
                             properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
                             properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
                             properties.get(CommonConstants.PN_VIDEO_ID, String.class),
+                            properties.get(CommonConstants.PN_POSTER_IMAGE, String.class),
                             properties.get(CommonConstants.PN_CTA_TEXT, String.class),
                             LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                                     resourceResolver),
                             properties.get(CommonConstants.PN_ICON, String.class),
-                            properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class),
                             properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class),
                             properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
                 }
