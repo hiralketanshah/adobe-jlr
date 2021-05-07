@@ -2,27 +2,26 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
 import com.jlr.core.models.HeroTitleBannerModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.CtaUtils;
 
+
 /**
  * The Class HeroTitleBannerImpl.
+ *
+ * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
-        HeroTitleBannerModel.class }, resourceType = HeroTitleBannerImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = {HeroTitleBannerModel.class}, resourceType = HeroTitleBannerImpl.RESOURCE_TYPE)
 public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBannerModel {
 
     /** The Constant RESOURCE_TYPE. */

@@ -5,24 +5,57 @@ import java.util.List;
 
 /**
  * The type Vehicle card.
+ *
+ * @author Adobe
  */
 public class VehicleCard {
 
+    /** The order. */
     private Integer order;
+    
+    /** The tab alt text. */
     private String tabAltText;
+    
+    /** The price. */
     private String price;
+    
+    /** The lease price. */
     private String leasePrice;
+    
+    /** The bazaar voice rating. */
     private String bazaarVoiceRating;
+    
+    /** The primary link. */
     private VehicleLink primaryLink;
+    
+    /** The image. */
     private Image image;
+    
+    /** The image link. */
     private VehicleLink imageLink;
+    
+    /** The features. */
     private List<Feature> features = null;
+    
+    /** The disclaimer link 2. */
     private VehicleLink disclaimerLink2;
+    
+    /** The disclaimer. */
     private String disclaimer;
+    
+    /** The lease term and deposit due. */
     private String leaseTermAndDepositDue;
+    
+    /** The secondary links. */
     private List<VehicleLink> secondaryLinks = null;
+    
+    /** The disclaimer link 1. */
     private VehicleLink disclaimerLink1;
+    
+    /** The no price macro. */
     private Boolean noPriceMacro;
+    
+    /** The extra secondary links. */
     private List<VehicleLink> extraSecondaryLinks = null;
 
     /**

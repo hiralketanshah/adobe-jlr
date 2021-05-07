@@ -14,6 +14,8 @@ import com.jlr.core.pojos.CTAPojo;
 
 /**
  * The Class CtaUtils.
+ *
+ * @author Adobe
  */
 public class CtaUtils {
 
@@ -22,6 +24,14 @@ public class CtaUtils {
      */
     private CtaUtils() {}
 
+    /**
+     * Creates the cta list.
+     *
+     * @param ctaList the cta list
+     * @param header the header
+     * @param resourceResolver the resource resolver
+     * @return the list
+     */
     public static List<CTAPojo> createCtaList(Resource ctaList, String header, ResourceResolver resourceResolver) {
         List<CTAPojo> list = new ArrayList<>();
         Iterator<Resource> childResources = ctaList.listChildren();
@@ -40,6 +50,13 @@ public class CtaUtils {
         return list;
     }
 
+    /**
+     * Gets the computed aria label.
+     *
+     * @param properties the properties
+     * @param header the header
+     * @return the computed aria label
+     */
     private static String getComputedAriaLabel(ValueMap properties, String header) {
         if (null != properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class)) {
             return properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class);
@@ -47,6 +64,13 @@ public class CtaUtils {
         return getAriaLabel(header, properties.get(CommonConstants.PN_CTA_TEXT, String.class));
     }
 
+    /**
+     * Gets the aria label.
+     *
+     * @param header the header
+     * @param text the text
+     * @return the aria label
+     */
     public static String getAriaLabel(String header, String text) {
         if (null != header) {
             Pattern removeTags = Pattern.compile("<.+?>");
@@ -63,6 +87,13 @@ public class CtaUtils {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the icon.
+     *
+     * @param icon the icon
+     * @param linkType the link type
+     * @return the icon
+     */
     public static String getIcon(String icon, String linkType) {
         if (StringUtils.isNotEmpty(icon)) {
             return icon;

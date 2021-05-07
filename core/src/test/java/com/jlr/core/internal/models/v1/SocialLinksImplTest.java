@@ -17,6 +17,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class SocialLinksImplTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class SocialLinksImplTest extends GlobalModelImplTest {

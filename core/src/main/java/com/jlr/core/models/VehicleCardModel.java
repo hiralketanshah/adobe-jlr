@@ -4,6 +4,8 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * The type Vehicle card model.
+ *
+ * @author Adobe
  */
 public interface VehicleCardModel {
 

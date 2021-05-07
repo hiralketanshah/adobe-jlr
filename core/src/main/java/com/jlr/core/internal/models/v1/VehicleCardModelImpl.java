@@ -15,6 +15,8 @@ import com.jlr.core.utils.CtaUtils;
 
 /**
  * The type Vehicle card model.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {VehicleCardModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCardModel {
@@ -32,18 +34,23 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
     @Inject
     private Resource features;
 
+    /** The disclaimer. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimer;
 
+    /** The disclaimer link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimerLink;
 
+    /** The disclaimer text. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimerText;
 
+    /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageLink;
 
+    /** The tab name. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String tabName;
 

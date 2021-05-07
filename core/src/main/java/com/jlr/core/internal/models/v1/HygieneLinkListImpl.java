@@ -18,8 +18,11 @@ import com.jlr.core.models.HygieneLinksModel;
 import com.jlr.core.pojos.HygieneLinks;
 import com.jlr.core.utils.LinkUtils;
 
+
 /**
  * The Class HygieneLinkListImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {HygieneLinksModel.class}, resourceType = HygieneLinkListImpl.RESOURCE_TYPE)
 public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinksModel {
@@ -143,7 +146,7 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
     @Override
     public String getCountryCode() {
         if (StringUtils.isEmpty(countryCode)) {
-        	return StringUtils.EMPTY;
+            return StringUtils.EMPTY;
         }
         return countryCode.toUpperCase();
     }
@@ -155,9 +158,9 @@ public class HygieneLinkListImpl extends GlobalModelImpl implements HygieneLinks
      */
     @Override
     public String getFlagImage() {
-    	if (StringUtils.isEmpty(countryCode)) {
-        	return StringUtils.EMPTY;
+        if (StringUtils.isEmpty(countryCode)) {
+            return StringUtils.EMPTY;
         }
-    	return CommonConstants.CLIENT_LIB_PATH_FLAG.concat(countryCode.toUpperCase()).concat(CommonConstants.PNG_EXTENSION);
+        return CommonConstants.CLIENT_LIB_PATH_FLAG.concat(countryCode.toUpperCase()).concat(CommonConstants.PNG_EXTENSION);
     }
 }
