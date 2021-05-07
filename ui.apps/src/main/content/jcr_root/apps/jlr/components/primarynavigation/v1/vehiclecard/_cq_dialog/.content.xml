@@ -160,9 +160,6 @@
                                         </column>
                                     </items>
                                 </field>
-                                <granite:data
-                                    jcr:primaryType="nt:unstructured"
-                                    maxlimit="3"/>
                             </ctaList>
                         </items>
                     </cta>

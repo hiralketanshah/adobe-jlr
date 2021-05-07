@@ -1,5 +1,6 @@
 package com.jlr.core.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -25,6 +26,9 @@ public class VehicleFamilyModel {
 	}
 
 	public List<VehiclePageLinkList> getVehiclesList() {
+		if(null == vehiclesList) {
+			return new ArrayList<VehiclePageLinkList>();
+		}
 		return vehiclesList;
 	}
 

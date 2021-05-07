@@ -23,7 +23,7 @@ public class VehicleCardUtils {
      */
     public static Image setImageToVehicleLink(String fileReference, String altText) {
         Image image = new Image();
-        image.setWidestImage(fileReference);
+        image.setWidestImage(CommonUtils.getWebImagePath(fileReference));
         image.setAlt(altText);
         PublishedImage publishedImage = new PublishedImage();
         List<String> publishedImages = new ArrayList<>();

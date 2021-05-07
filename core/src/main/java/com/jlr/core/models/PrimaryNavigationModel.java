@@ -12,8 +12,6 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.day.cq.commons.jcr.JcrConstants;
@@ -69,19 +67,19 @@ public class PrimaryNavigationModel {
 	@Inject
     private ResourceResolver resourceResolver;
 
-    static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
+    static final String RT_MEGADROPDOWN="jlr/components/primarynavigation/v1/megadropdown";
     
-    static String vehicledropdown="jlr/components/primarynavigation/v1/vehiclecategory";
+    static final String RT_VEHICLEDROPDOWN="jlr/components/primarynavigation/v1/vehiclecategory";
 
 	private List<String> getPrimaryNavSecTab(String path) {
 		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
-            if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            if(StringUtils.compare(RT_MEGADROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get(CommonConstants.PN_TAB_NAME, String.class));
             	}
             }
@@ -90,12 +88,12 @@ public class PrimaryNavigationModel {
 	
 	private List<QuickLinks> getQuickLinks(String path) {
 		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
         List<QuickLinks> list = new ArrayList<>();
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        if(StringUtils.compare(RT_MEGADROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	Resource quicklinks=child.getChild(CommonConstants.PN_QUICK_LINKS);
             Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
             while(quickLinkchildResources.hasNext()) {
@@ -113,12 +111,12 @@ public class PrimaryNavigationModel {
 	
 	private List<String> getNavPageTitle(String path) {
 		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        if(StringUtils.compare(RT_MEGADROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
           }
         return list;
@@ -126,12 +124,12 @@ public class PrimaryNavigationModel {
 	
 	private List<String> getNavPageAriaLabel(String path) {
 		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        if(StringUtils.compare(RT_MEGADROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
           }
         return list;
@@ -139,13 +137,13 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleTabName(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         while (childResources.hasNext()) {
             Resource child = childResources.next();
             ValueMap properties = child.adaptTo(ValueMap.class);
-            if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+            if(StringUtils.compare(RT_VEHICLEDROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
             	list.add(properties.get(CommonConstants.PN_VEHICLE_TAB_NAME, String.class));
             	}
             }
@@ -154,12 +152,12 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleNavPageTitle(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        if(StringUtils.compare(RT_VEHICLEDROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
         	}
         return list;
@@ -167,33 +165,31 @@ public class PrimaryNavigationModel {
 	
 	public List<String> getVehicleNavPageArialabel(){
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
         Iterator<Resource> childResources=containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(vehicledropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
+        if(StringUtils.compare(RT_VEHICLEDROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
         	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
         	}
         return list;
 	}
 	
-	public List<String> getVehicleCardScriptPath() {
+	public List<String> getVehicleCardJson() {
 		Resource rootNavigationResource=resourceResolver.getResource(vehicleNavPagePath);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
 		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren().next().listChildren().next().listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            Iterator<Resource> childResourcesList=child.listChildren();
-            while(childResourcesList.hasNext()) {
-            	Resource childLink = childResourcesList.next();
-            	Iterator<Resource> vehiclepathRes=childLink.listChildren();
-            	Resource vehicleList = vehiclepathRes.next();
-            	ValueMap properties = vehicleList.adaptTo(ValueMap.class);
-            	list.add(properties.get(CommonConstants.PN_VEHICLE_CARD_LINK, String.class));
-            	}
-            }
+		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
+		Iterator<Resource> childitr=containerResource.getChildren().iterator();
+		while(childitr.hasNext()) {
+			Resource categoryRes= childitr.next();
+			VehicleCategoryModel category = categoryRes.adaptTo(VehicleCategoryModel.class);
+			for(VehicleFamilyModel vehiclefamily: category.getVehicleFamily()) {
+				for(VehiclePageLinkList vehiclePageLink:vehiclefamily.getVehiclesList()) {
+					list.add(vehiclePageLink.getVehicleCardLink());
+				}
+			}
+		}
 		return list;
 	}
 	

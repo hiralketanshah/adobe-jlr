@@ -18,8 +18,7 @@ public class CommonConstants {
     public static final String UNDERSCORE = "_";
     public static final String TRUE = "true";
     public static final String COMMA = ",";
-    public static final String JLR_ROOT = "root";
-    public static final String JLR_CONTAINER = "container";
+
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
     public static final String JLR_GLOBAL_MASTER = "/global/global-master";
     public static final String JLR_GLOBAL_PUBLISHED = "/global/published-sites";
@@ -89,6 +88,8 @@ public class CommonConstants {
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
+    public static final String NN_ROOT = "root";
+    public static final String NN_CONTAINER = "container";
 
     /** The Data Layer Constants. */
     public static final String DL_APPLICATION = "Application";
