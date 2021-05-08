@@ -1,6 +1,9 @@
 package com.jlr.core.utils;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -16,6 +19,7 @@ public class DAMFolderUtils {
 	public static String getImageList(String folderPath, ResourceResolver resourceResolver) {
         Resource folderRes = resourceResolver.getResource(folderPath);
         JsonArray imageArr = new JsonArray();
+        List<String> imageList = new ArrayList<>();
 
         if (null != folderRes) {
             Iterator<Resource> childResItr = folderRes.listChildren();
@@ -24,8 +28,12 @@ public class DAMFolderUtils {
                 Resource childRes = childResItr.next();
                 String imageName = childRes.getPath();
                 if (!imageName.equals(JcrConstants.JCR_CONTENT) && imageName.contains(CommonConstants.DOT)) {
-                	imageArr.add(imageName);
+                    imageList.add(imageName);
                 }
+            }
+            Collections.sort(imageList);
+            for (String string : imageList) {
+            	imageArr.add(string);
             }
         }
         return imageArr.toString();
