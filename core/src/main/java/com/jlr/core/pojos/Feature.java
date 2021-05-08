@@ -2,10 +2,15 @@ package com.jlr.core.pojos;
 
 /**
  * The type Feature pojo.
+ *
+ * @author Adobe
  */
 public class Feature {
 
+    /** The icon. */
     private String icon;
+    
+    /** The label. */
     private String label;
 
     /**

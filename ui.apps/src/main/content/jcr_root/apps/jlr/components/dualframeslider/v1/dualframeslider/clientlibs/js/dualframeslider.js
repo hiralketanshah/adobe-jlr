@@ -1763,9 +1763,7 @@
               this._initialiseDxRangeSlider();
             },
             _loadImageFrames: function _loadImageFrames() {
-
               this.loadedFrames = { desktop: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [1, this.$element.attr('data-length')], digits: 4 } ), desktopSmall: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [1, this.$element.attr('data-length')], digits: 4 }) };
-              //console.log(this.loadedFrames);
             },
             _setBreakpointState: function _setBreakpointState(e) {
               var breakpoints = this.breakpoints;

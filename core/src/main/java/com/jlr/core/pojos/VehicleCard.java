@@ -1,27 +1,61 @@
 package com.jlr.core.pojos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * The type Vehicle card.
+ *
+ * @author Adobe
  */
 public class VehicleCard {
 
+    /** The order. */
     private Integer order;
+    
+    /** The tab alt text. */
     private String tabAltText;
+    
+    /** The price. */
     private String price;
+    
+    /** The lease price. */
     private String leasePrice;
+    
+    /** The bazaar voice rating. */
     private String bazaarVoiceRating;
+    
+    /** The primary link. */
     private VehicleLink primaryLink;
+    
+    /** The image. */
     private Image image;
+    
+    /** The image link. */
     private VehicleLink imageLink;
+    
+    /** The features. */
     private List<Feature> features = null;
+    
+    /** The disclaimer link 2. */
     private VehicleLink disclaimerLink2;
+    
+    /** The disclaimer. */
     private String disclaimer;
+    
+    /** The lease term and deposit due. */
     private String leaseTermAndDepositDue;
+    
+    /** The secondary links. */
     private List<VehicleLink> secondaryLinks = null;
+    
+    /** The disclaimer link 1. */
     private VehicleLink disclaimerLink1;
+    
+    /** The no price macro. */
     private Boolean noPriceMacro;
+    
+    /** The extra secondary links. */
     private List<VehicleLink> extraSecondaryLinks = null;
 
     /**
@@ -174,7 +208,7 @@ public class VehicleCard {
      * @return the features
      */
     public List<Feature> getFeatures() {
-        return features;
+        return new ArrayList<>(features);
     }
 
     /**
@@ -183,7 +217,7 @@ public class VehicleCard {
      * @param features the features
      */
     public void setFeatures(List<Feature> features) {
-        this.features = features;
+        this.features = new ArrayList<>(features);
     }
 
     /**
@@ -246,7 +280,7 @@ public class VehicleCard {
      * @return the secondary links
      */
     public List<VehicleLink> getSecondaryLinks() {
-        return secondaryLinks;
+        return new ArrayList<>(secondaryLinks);
     }
 
     /**
@@ -255,7 +289,7 @@ public class VehicleCard {
      * @param secondaryLinks the secondary links
      */
     public void setSecondaryLinks(List<VehicleLink> secondaryLinks) {
-        this.secondaryLinks = secondaryLinks;
+        this.secondaryLinks = new ArrayList<>(secondaryLinks);
     }
 
     /**
@@ -300,7 +334,7 @@ public class VehicleCard {
      * @return the extra secondary links
      */
     public List<VehicleLink> getExtraSecondaryLinks() {
-        return extraSecondaryLinks;
+        return new ArrayList<>(extraSecondaryLinks);
     }
 
     /**
@@ -309,6 +343,6 @@ public class VehicleCard {
      * @param extraSecondaryLinks the extra secondary links
      */
     public void setExtraSecondaryLinks(List<VehicleLink> extraSecondaryLinks) {
-        this.extraSecondaryLinks = extraSecondaryLinks;
+        this.extraSecondaryLinks = new ArrayList<>(extraSecondaryLinks);
     }
 }

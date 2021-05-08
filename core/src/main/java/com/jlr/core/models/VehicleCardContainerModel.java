@@ -4,6 +4,8 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  * The interface Vehicle card container model.
+ *
+ * @author Adobe
  */
 public interface VehicleCardContainerModel {
     /**
@@ -48,6 +50,15 @@ public interface VehicleCardContainerModel {
      * @return the vehicle image link
      */
     default String getVehicleImageLink() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets vehicle price.
+     *
+     * @return the vehicle price
+     */
+    default String getVehiclePrice() {
         return StringUtils.EMPTY;
     }
 }

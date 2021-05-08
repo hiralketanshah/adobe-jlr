@@ -2,26 +2,26 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
-
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.HeroItemModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.CtaUtils;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 
 /**
  * The Class HeroItemModelImpl.
+ *
+ * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = { HeroItemModel.class }, resourceType = HeroItemModelImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = {HeroItemModel.class}, resourceType = HeroItemModelImpl.RESOURCE_TYPE)
 public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel {
 
     /**

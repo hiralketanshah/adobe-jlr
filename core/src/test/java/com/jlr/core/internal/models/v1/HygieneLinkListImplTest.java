@@ -16,6 +16,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class HygieneLinkListImplTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class HygieneLinkListImplTest extends GlobalModelImplTest {

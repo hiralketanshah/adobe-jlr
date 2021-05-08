@@ -15,6 +15,8 @@ import com.jlr.core.utils.CtaUtils;
 
 /**
  * The Class ReadyToGoBarImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {ReadyToGoBarModel.class}, resourceType = ReadyToGoBarImpl.RESOURCE_TYPE)
 public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarModel {
@@ -26,7 +28,7 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     @Inject
     @Optional
     private Resource rtgb;
-    
+
     /** The faboverride. */
     @Inject
     @Optional
@@ -39,26 +41,26 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
     /** The enable FAB. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String enableFAB;
-	
-	/** The hide desktop. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+
+    /** The hide desktop. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String hideDesktop;
-	
-	/** The hide tablet. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+
+    /** The hide tablet. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String hideTablet;
-	
-	/** The hide mobile. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+
+    /** The hide mobile. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String hideMobile;
-	
-	/** The list type. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+
+    /** The list type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String listType;
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-    
+
     /** The fab list. */
     List<CTAPojo> fabList = new ArrayList<>();
 
@@ -69,12 +71,12 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
      */
     @Override
     public List<CTAPojo> getRtgb() {
-    	if (null != rtgb && rtgb.hasChildren()) {
+        if (null != rtgb && rtgb.hasChildren()) {
             list = CtaUtils.createCtaList(rtgb, super.getHeaderCopy(), resourceResolver);
         }
         return list;
     }
-    
+
     /**
      * Gets the faboverride.
      *
@@ -82,7 +84,7 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
      */
     @Override
     public List<CTAPojo> getFaboverride() {
-    	if (null != faboverride && faboverride.hasChildren()) {
+        if (null != faboverride && faboverride.hasChildren()) {
             list = CtaUtils.createCtaList(faboverride, super.getHeaderCopy(), resourceResolver);
         }
         return list;
@@ -93,45 +95,50 @@ public class ReadyToGoBarImpl extends GlobalModelImpl implements ReadyToGoBarMod
      *
      * @return the enable FAB
      */
+    @Override
     public String getEnableFAB() {
         return enableFAB;
     }
-    
+
     /**
      * Gets the hide desktop.
      *
      * @return the hide desktop
      */
+    @Override
     public String getHideDesktop() {
-		return hideDesktop;
-	}
+        return hideDesktop;
+    }
 
-	/**
-	 * Gets the hide tablet.
-	 *
-	 * @return the hide tablet
-	 */
-	public String getHideTablet() {
-		return hideTablet;
-	}
+    /**
+     * Gets the hide tablet.
+     *
+     * @return the hide tablet
+     */
+    @Override
+    public String getHideTablet() {
+        return hideTablet;
+    }
 
-	/**
-	 * Gets the hide mobile.
-	 *
-	 * @return the hide mobile
-	 */
-	public String getHideMobile() {
-		return hideMobile;
-	}
+    /**
+     * Gets the hide mobile.
+     *
+     * @return the hide mobile
+     */
+    @Override
+    public String getHideMobile() {
+        return hideMobile;
+    }
 
-	/**
-	 * Gets the list type.
-	 *
-	 * @return the list type
-	 */
-	public String getListType() {
-		return listType;
-	}
+    /**
+     * Gets the list type.
+     *
+     * @return the list type
+     */
+    @Override
+    public String getListType() {
+        return listType;
+    }
 
 }
 

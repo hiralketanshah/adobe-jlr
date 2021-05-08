@@ -1,24 +1,24 @@
 package com.jlr.core.internal.models.v1;
 
-import com.jlr.core.models.VehicleCardModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+import com.jlr.core.models.VehicleCardModel;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.utils.CtaUtils;
 
 /**
  * The type Vehicle card model.
+ *
+ * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = { VehicleCardModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class, adapters = {VehicleCardModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCardModel {
 
     /**
@@ -28,26 +28,29 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
 
     /** The cta list. */
     @Inject
-    @Optional
     private Resource ctaList;
 
     /** The features. */
     @Inject
-    @Optional
     private Resource features;
 
+    /** The disclaimer. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimer;
 
+    /** The disclaimer link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimerLink;
 
+    /** The disclaimer text. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimerText;
 
+    /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageLink;
 
+    /** The tab name. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String tabName;
 
@@ -90,6 +93,7 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
      *
      * @return the price
      */
+    @Override
     public String getPrice() {
         return price;
     }
@@ -126,6 +130,7 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
      *
      * @return the image link
      */
+    @Override
     public String getImageLink() {
         return imageLink;
     }

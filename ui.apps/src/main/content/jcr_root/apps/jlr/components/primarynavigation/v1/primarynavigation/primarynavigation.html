@@ -84,7 +84,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                         <svg class="dxnav-icon">
                            <use xlink:href="#Show_Prices"></use>
                         </svg>
-                        <span class="dxnav__item-prices-label dxnav-hide-desktop">SHOW PRICES</span>
+                        <span class="dxnav__item-prices-label dxnav-hide-desktop">${config.configMap['marketregionpricing.dxnav.selectregion']}</span>
                      </a>
                   </li>
 				  </sly>
@@ -229,7 +229,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                         </div>
                      </div>
                   </div>
-                  <sly data-sly-list.path="${model.vehicleCardScriptPath}">
+                  <sly data-sly-list.path="${model.vehicleCardJson}">
                      <sly data-sly-resource="${path @appendPath='/jcr:content/root/container/vehiclecardcontainer',selectors='vehiclecardcontainerjson',context='html'}"/>
                   </sly>
                </div>

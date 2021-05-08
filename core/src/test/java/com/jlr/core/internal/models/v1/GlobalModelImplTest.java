@@ -18,16 +18,29 @@ import com.jlr.core.models.GlobalModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class GlobalModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 class GlobalModelImplTest {
 
+    /** The context. */
     private final AemContext context = new AemContext();
 
+    /** The global model. */
     private GlobalModel globalModel;
 
+    /** The injector. */
     @InjectMocks
     private HierarchicalPagePropertyInjector injector;
 
+    /**
+     * Sets the up.
+     *
+     * @throws Exception the exception
+     */
     @BeforeEach
     void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -39,6 +52,9 @@ class GlobalModelImplTest {
         globalModel = resource.adaptTo(GlobalModelImpl.class);
     }
 
+    /**
+     * Test general properties.
+     */
     @Test
     void testGeneralProperties() {
         assertEquals("12345", globalModel.getId());
@@ -47,6 +63,9 @@ class GlobalModelImplTest {
         assertEquals("test_body_copy", globalModel.getCopy());
     }
 
+    /**
+     * Test image properties.
+     */
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", globalModel.getLogoImage());
@@ -55,6 +74,9 @@ class GlobalModelImplTest {
         assertEquals("/content/jlr/au", globalModel.getImageLink());
     }
 
+    /**
+     * Test cta properties.
+     */
     @Test
     void testCtaProperties() {
         assertEquals("test_cta_text", globalModel.getText());

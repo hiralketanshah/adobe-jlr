@@ -8,8 +8,11 @@ import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
 
+
 /**
  * The Interface HeroTitleBannerModel.
+ *
+ * @author Adobe
  */
 public interface HeroTitleBannerModel {
 
