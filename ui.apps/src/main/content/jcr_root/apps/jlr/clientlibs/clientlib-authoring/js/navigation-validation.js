@@ -1,16 +1,20 @@
-(function(window, $) {
-    'use strict';
-	
-	/*
-	/* TemplateA => 1 Column with Large Promo Image
-	*  TemplateB => 2 Column with Small Promo Image 
-	*  TemplateC => 1 Column with Large Promo Panel
-	*  TemplateD => 1 Column with Dual Promo Panel
-	*  TemplateE => External Link with Large Promo Image
-	*/
+var CONST = {
+    REQUIRED_MESSAGE: 'Error: Please fill out this field.',
+};
 
-	// Remove the second multi field in right pane once templateC is choosen in the drop down.
-    $(document).on("change", ".template-selector", function() {
+(function (window, $) {
+    'use strict';
+
+    /*
+    /* TemplateA => 1 Column with Large Promo Image
+    *  TemplateB => 2 Column with Small Promo Image 
+    *  TemplateC => 1 Column with Large Promo Panel
+    *  TemplateD => 1 Column with Dual Promo Panel
+    *  TemplateE => External Link with Large Promo Image
+    */
+
+    // Remove the second multi field in right pane once templateC is choosen in the drop down.
+    $(document).on("change", ".template-selector", function () {
         if ($(".template-selector").val() === "templateC") {
             if ($("[data-promo-panel='true']").find("coral-multifield-item").length > 1) {
                 $("[data-promo-panel='true']").find("coral-multifield-item:last").remove();
@@ -18,13 +22,12 @@
         }
     });
 
-
-	// Limit the maximum multi field set for each template. Use maxlimit data attribute to determine value.
+    // Limit the maximum multi field set for each template. Use maxlimit data attribute to determine value.
     $(document).on(
         "dialog-ready",
-        function() {
+        function () {
             $(".coral3-Button").click(
-                function() {
+                function () {
                     if ($("[value='templateA']").attr('selected') || $("[value='templateB']").attr('selected') || $("[value='templateC']").attr('selected') || $("[value='templateD']").attr('selected')) {
                         var field = $(this).parent();
                         var size = field.attr("data-maxlimit-" + $(".template-selector").val());
@@ -42,98 +45,102 @@
                 });
         });
 
-	//Validate if the first CTA text box is authored
+    //Validate if the first CTA text box is authored
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "input[data-cta-text-templatec='true']",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateC']").attr('selected')) {
                 if ($(el).first().val().length < 1) {
-                    return "Error: Please fill out this field.";
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
     });
 
-	//Validate if the first Promo Summary field text area is authored
+    //Validate if the first Promo Summary field text area is authored
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "coral-multifield div[data-promo-summary-templatec='true']",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateC']").attr('selected')) {
                 if ($(".promo-summary-templatec").first().val().length < 1) {
-                    return "Error: Please fill out this field.";
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
     });
 
-	//Validate if the first Promo Header field text area is authored
+    //Validate if the first Promo Header field text area is authored
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "coral-multifield div[data-promo-header-templatec='true']",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateC']").attr('selected')) {
                 if ($(".promo-header-templatec").first().val().length < 1) {
-                    return "Error: Please fill out this field.";
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
     });
 
-	//Validate if the both CTA text box is authored if 2 multi field is enabled
+    //Validate if the both CTA text box is authored if 2 multi field is enabled
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "input[data-cta-text-templated='true']",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateD']").attr('selected')) {
                 if ($(el).val().length < 1) {
-                    return "Error: Please fill out this field.";
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
     });
 
-	//Validate if the both Promo Summary field text area is authored
+    //Validate if the both Promo Summary field text area is authored
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "coral-multifield div[data-promo-summary-templated='true']",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateD']").attr('selected')) {
-                if ($(".promo-summary-templated").val().length < 1) {
-                    return "Error: Please fill out this field.";
+                if ($(el).closest('.richtext-container').find("[data-promo-summary-templated='true']").val().length < 1) {
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
     });
 
-	//Validate if the both Promo Header field text area is authored
+    //Validate if the both Promo Header field text area is authored
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "coral-multifield div[data-promo-header-templated='true']",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateD']").attr('selected')) {
-                if ($(".promo-header-templated").val().length < 1) {
-                    return "Error: Please fill out this field.";
+                if ($(el).closest('.richtext-container').find("[data-promo-header-templated='true']").val().length < 1) {
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
     });
 
-	// Validate if the first CTA link is authored 
+
+
+
+
+    // Validate if the first CTA link is authored 
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "[data-cta-link-templatec='true'] span input",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateC']").attr('selected')) {
                 if ($(el).first().val().length < 1) {
-                    return "Error: Please fill out this field.";
+                    return CONST.REQUIRED_MESSAGE;
                 }
 
             }
         }
     });
-	
-	// Validate if the CTA link is authored (upto 2)
+
+    // Validate if the CTA link is authored (upto 2)
     $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
         selector: "[data-cta-link-templated='true'] span input",
-        validate: function(el) {
+        validate: function (el) {
             if ($("[value='templateD']").attr('selected')) {
                 if ($(el).val().length < 1) {
-                    return "Error: Please fill out this field.";
+                    return CONST.REQUIRED_MESSAGE;
                 }
             }
         }
@@ -144,25 +151,27 @@
 // Validate the image is authored depending on the choosen template
 $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
     selector: "coral-fileupload[data-mandatory-templatea='true'],coral-fileupload[data-mandatory-templateb='true'],coral-fileupload[data-mandatory-templatec='true'],coral-fileupload[data-mandatory-templated='true']",
-    validate: function(el) {
+    validate: function (el) {
         if ($("[value='templateA']").attr('selected')) {
             if (!$('.img-templatea').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
-                return "Error: Please fill out this field.";
+                return CONST.REQUIRED_MESSAGE;
             }
 
         } else if ($("[value='templateB']").attr('selected')) {
             if (!$('.img-templateb').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
-                return "Error: Please fill out this field.";
+                return CONST.REQUIRED_MESSAGE;
             }
 
         } else if ($("[value='templateC']").attr('selected')) {
-            if (!$('.img-templatec:first').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
-                return "Error: Please fill out this field.";
+            if (!$('.img-templatec').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
+                console.log("Template C selected and image is not authored");
+                return CONST.REQUIRED_MESSAGE;
             }
 
         } else if ($("[value='templateD']").attr('selected')) {
             if (!$('.img-templated').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
-                return "Error: Please fill out this field.";
+                console.log("Template D selected and image is not authored");
+                return CONST.REQUIRED_MESSAGE;
             }
 
         }
