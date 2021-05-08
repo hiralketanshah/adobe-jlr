@@ -4,9 +4,9 @@
 <sly data-sly-test="${model.mmTemplate=='templateA'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
-            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
-               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" aria-label="${cta.leftPaneCtaAriaLabel}" href="${cta.leftPaneCtaLink}" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+         <div data-sly-test="${model.leftCtaOne}" class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCtaOne}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" aria-label="${cta.leftPaneCtaAriaLabelOne}" href="${cta.leftPaneCtaLinkOne}" data-target="${cta.leftPaneCtaTargetOne}" target="${cta.leftPaneCtaTargetOne}">${cta.leftPaneCtaTextOne}</a> </li>
             </ul>
          </div>
          <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
@@ -34,14 +34,14 @@
 <sly data-sly-test="${model.mmTemplate=='templateB'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
-            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
-               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" aria-label="${cta.leftPaneCtaAriaLabel}" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+         <div data-sly-test="${model.leftCtaOne}" class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCtaOne}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLinkOne}" aria-label="${cta.leftPaneCtaAriaLabelOne}" data-target="${cta.leftPaneCtaTargetOne}" target="${cta.leftPaneCtaTargetOne}">${cta.leftPaneCtaTextOne}</a> </li>
             </ul>
          </div>
-         <div data-sly-test="${model.leftDualColumnCta}" class="dxnav-primary-tab-columns__content">
-            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftDualColumnCta}">
-               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneDualCtaLink}" aria-label="${cta.leftPaneDualCtaAriaLabel}" data-target="${cta.leftPaneDualCtaTarget}" target="${cta.leftPaneDualCtaTarget}">${cta.leftPaneDualCtaText}</a> </li>
+         <div data-sly-test="${model.leftCtaTwo}" class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCtaTwo}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLinkTwo}" aria-label="${cta.leftPaneCtaAriaLabelTwo}" data-target="${cta.leftPaneCtaTargetTwo}" target="${cta.leftPaneCtaTargetTwo}">${cta.leftPaneCtaTextTwo}</a> </li>
             </ul>
          </div>
          <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel">
@@ -67,9 +67,9 @@
 <sly data-sly-test="${model.mmTemplate=='templateC'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
-            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
-               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" aria-label="${cta.leftPaneCtaAriaLabel}" target="${cta.leftPaneCtaTarget}" data-target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+         <div data-sly-test="${model.leftCtaOne}" class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCtaOne}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLinkOne}" aria-label="${cta.leftPaneCtaAriaLabelOne}" target="${cta.leftPaneCtaTargetOne}" data-target="${cta.leftPaneCtaTargetOne}">${cta.leftPaneCtaTextOne}</a> </li>
             </ul>
          </div>
          <div data-sly-test="${model.rightCta}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-panel" data-sly-list.cta="${model.rightCta}">
@@ -102,9 +102,9 @@
 <sly data-sly-test="${model.mmTemplate=='templateD'}">
    <div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="${model.id}">
       <div class="dxnav-primary-tab-columns">
-         <div data-sly-test="${model.leftCta}" class="dxnav-primary-tab-columns__content">
-            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCta}">
-               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLink}" aria-label="${cta.leftPaneCtaAriaLabel}" data-target="${cta.leftPaneCtaTarget}" target="${cta.leftPaneCtaTarget}">${cta.leftPaneCtaText}</a> </li>
+         <div data-sly-test="${model.leftCtaOne}" class="dxnav-primary-tab-columns__content">
+            <ul class="dxnav-primary-tab-columns__links-list" data-sly-list.cta="${model.leftCtaOne}">
+               <li class="dxnav-primary-tab-columns__list-item"> <a class="dxnav-primary-tab-columns__link" href="${cta.leftPaneCtaLinkOne}" aria-label="${cta.leftPaneCtaAriaLabelOne}" data-target="${cta.leftPaneCtaTargetOne}" target="${cta.leftPaneCtaTargetOne}">${cta.leftPaneCtaTextOne}</a> </li>
             </ul>
          </div>
          <div data-sly-test="${model.rightCta}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--dual" data-sly-list.cta="${model.rightCta}">

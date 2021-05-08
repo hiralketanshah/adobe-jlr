@@ -19,55 +19,55 @@ public class PrimaryNavLeftCTAModel {
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The left pane cta text. */
+    /** The left pane cta text one. */
     @Inject
-    private String leftPaneCtaText;
+    private String leftPaneCtaTextOne;
 
-    /** The left pane cta link. */
+    /** The left pane cta link one. */
     @Inject
-    private String leftPaneCtaLink;
+    private String leftPaneCtaLinkOne;
 
-    /** The left pane cta aria label. */
+    /** The left pane cta aria label one. */
     @Inject
-    private String leftPaneCtaAriaLabel;
+    private String leftPaneCtaAriaLabelOne;
 
-    /** The left pane cta target. */
+    /** The left pane cta target one. */
     @Inject
-    private String leftPaneCtaTarget;
+    private String leftPaneCtaTargetOne;
 
     /**
-     * Gets the left pane cta text.
+     * Gets the left pane cta text one.
      *
-     * @return the left pane cta text
+     * @return the left pane cta text one
      */
-    public String getLeftPaneCtaText() {
-        return leftPaneCtaText;
+    public String getLeftPaneCtaTextOne() {
+        return leftPaneCtaTextOne;
     }
 
     /**
-     * Gets the left pane cta link.
+     * Gets the left pane cta link one.
      *
-     * @return the left pane cta link
+     * @return the left pane cta link one
      */
-    public String getLeftPaneCtaLink() {
-        return LinkUtils.appendLinkExtension(leftPaneCtaLink, resourceResolver);
+    public String getLeftPaneCtaLinkOne() {
+        return LinkUtils.appendLinkExtension(leftPaneCtaLinkOne, resourceResolver);
     }
 
     /**
-     * Gets the left pane cta aria label.
+     * Gets the left pane cta aria label one.
      *
-     * @return the left pane cta aria label
+     * @return the left pane cta aria label one
      */
-    public String getLeftPaneCtaAriaLabel() {
-        return leftPaneCtaAriaLabel;
+    public String getLeftPaneCtaAriaLabelOne() {
+        return leftPaneCtaAriaLabelOne;
     }
 
     /**
-     * Gets the left pane cta target.
+     * Gets the left pane cta target one.
      *
-     * @return the left pane cta target
+     * @return the left pane cta target one
      */
-    public String getLeftPaneCtaTarget() {
-        return leftPaneCtaTarget;
+    public String getLeftPaneCtaTargetOne() {
+        return leftPaneCtaTargetOne;
     }
 }

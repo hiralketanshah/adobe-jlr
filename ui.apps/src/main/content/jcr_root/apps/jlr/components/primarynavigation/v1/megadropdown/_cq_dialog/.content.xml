@@ -91,7 +91,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <ctasection
+                                    <ctasection1
                                         granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/foundation/container">
@@ -111,7 +111,7 @@
                                                 <field
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                                    name="./leftCta">
+                                                    name="./leftCtaOne">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <column
                                                             jcr:primaryType="nt:unstructured"
@@ -121,27 +121,27 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Left Pane Text"
-                                                                    name="./leftPaneCtaText"/>
+                                                                    fieldLabel="Left Pane Text One"
+                                                                    name="./leftPaneCtaTextOne"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Left Pane Link"
-                                                                    name="./leftPaneCtaLink"
+                                                                    fieldLabel="Left Pane Link One"
+                                                                    name="./leftPaneCtaLinkOne"
                                                                     rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Left Pane Aria Label"
-                                                                    name="./leftPaneCtaAriaLabel"/>
+                                                                    fieldLabel="Left Pane Aria Label One"
+                                                                    name="./leftPaneCtaAriaLabelOne"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Left Pane Target"
-                                                                    name="./leftPaneCtaTarget">
+                                                                    fieldLabel="Left Pane Target One"
+                                                                    name="./leftPaneCtaTargetOne">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
                                                                             jcr:primaryType="nt:unstructured"
@@ -173,7 +173,7 @@
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
                                             showhidetargetvalue="templateA,templateB,templateC,templateD"/>
-                                    </ctasection>
+                                    </ctasection1>
                                     <textsection
                                         granite:class="list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                         jcr:primaryType="nt:unstructured"
@@ -445,7 +445,7 @@
                                             maxlimit="2"
                                             showhidetargetvalue="templateE,templateE"/>
                                     </textsection>
-                                    <dualctasection
+                                    <ctasection2
                                         granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/foundation/container">
@@ -456,7 +456,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/heading"
                                                 level="{Long}4"
                                                 text="Left Panel 2nd Column Links"/>
-                                            <dualctalist
+                                            <ctalist
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                 composite="{Boolean}true"
@@ -465,7 +465,7 @@
                                                 <field
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                                    name="./leftDualColumnCta">
+                                                    name="./leftCtaTwo">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <column
                                                             jcr:primaryType="nt:unstructured"
@@ -475,27 +475,27 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Left Pane Second column Text"
-                                                                    name="./leftPaneDualCtaText"/>
+                                                                    fieldLabel="Left Pane Text Two"
+                                                                    name="./leftPaneCtaTextTwo"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Left Pane Second column Link"
-                                                                    name="./leftPaneDualCtaLink"
+                                                                    fieldLabel="Left Pane Link Two"
+                                                                    name="./leftPaneCtaLinkTwo"
                                                                     rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Left Pane Second column Aria Label"
-                                                                    name="./leftPaneDualCtaAriaLabel"/>
+                                                                    fieldLabel="Left Pane Aria Label Two"
+                                                                    name="./leftPaneCtaAriaLabelTwo"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Left Pane Second column Target"
-                                                                    name="./leftPaneDualCtaTarget">
+                                                                    fieldLabel="Left Pane Target Two"
+                                                                    name="./leftPaneCtaTargetTwo">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
                                                                             jcr:primaryType="nt:unstructured"
@@ -520,12 +520,12 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     maxlimit-templateA="8"
                                                     maxlimit-templateB="8"/>
-                                            </dualctalist>
+                                            </ctalist>
                                         </items>
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
                                             showhidetargetvalue="templateB"/>
-                                    </dualctasection>
+                                    </ctasection2>
                                 </items>
                             </container>
                         </items>

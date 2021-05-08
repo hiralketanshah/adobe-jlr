@@ -164,19 +164,16 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
 
         } else if ($("[value='templateC']").attr('selected')) {
             if (!$('.img-templatec').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
-                console.log("Template C selected and image is not authored");
                 return CONST.REQUIRED_MESSAGE;
             }
 
         } else if ($("[value='templateD']").attr('selected')) {
             if ($('.img-templated').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length < 2) {
-                console.log("Template D selected and image is not authored");
                 return CONST.REQUIRED_MESSAGE;
             }
 
         } else if ($("[value='templateE']").attr('selected')) {
-            if (!$('.img-templated').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
-                console.log("Template E selected and image is not authored");
+            if (!$('.img-templatee').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
                 return CONST.REQUIRED_MESSAGE;
             }
 
