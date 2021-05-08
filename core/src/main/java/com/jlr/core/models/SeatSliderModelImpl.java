@@ -13,8 +13,10 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.google.gson.JsonArray;
 import com.jlr.core.internal.models.v1.GlobalModelImpl;
 import com.jlr.core.internal.models.v1.SeatSliderItem;
+import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.DAMFolderUtils;
 
 /**
@@ -56,7 +58,7 @@ public class SeatSliderModelImpl extends GlobalModelImpl implements SeatSliderMo
 	}
 
 	@Override
-	public String getImageList() {
+	public List<String> getImageList() {
 		return DAMFolderUtils.getImageList(folderPath, resourceResolver);
 	}
 
@@ -66,5 +68,30 @@ public class SeatSliderModelImpl extends GlobalModelImpl implements SeatSliderMo
 	@Override
 	public String getFolderPath() {
 		return folderPath;
+	}
+	@Override
+	public String getDesktopFrames() {
+        JsonArray imageArr = new JsonArray();
+        for (String string : getImageList()) {
+        	imageArr.add(string);
+        }
+        return imageArr.toString();
+	}
+	@Override
+	public String getMobileFrames() {
+        JsonArray imageArr = new JsonArray();
+        for (String string : getImageList()) {
+        	imageArr.add(CommonUtils.getSmallImagePath(string));
+        }
+        return imageArr.toString();
+	}
+	
+	@Override
+	public String getCoverImage() {
+		List<String> imageList = getImageList();
+		if(!imageList.isEmpty()) {
+			return getImageList().get(0);
+		}
+		return null;
 	}
 }

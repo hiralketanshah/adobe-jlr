@@ -1,9 +1,5 @@
 <sly data-sly-use.seatslider="com.jlr.core.models.SeatSliderModel"
-   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
-   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-   data-sly-test.hasContent="${seatslider.seatSliderItems}" id="${component.id}" >
-</sly>
-<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
+	 data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='seat_configuration_click_to_interact_desktop,seat_configuration_click_to_interact_mobile,enable.javascript.txt,seat_configuration_literage_label,seat_configuration_seats_label,interactiveslider.odometer.format'}"/>
 
 <div class="cmp-interactiveSlider fontSmooth" id="${seatslider.id}">
     <div aria-describedby="cmp-interactiveSliderClickToInteract cmp-interactiveSliderPurpose" class="clickToInteract" role="button" tabindex="0">
@@ -12,8 +8,8 @@
           <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
         </div>
         <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
-          <span class="desktop">CLICK TO INTERACT</span>
-          <span class="mobile">TAP TO INTERACT</span>
+          <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
+          <span class="mobile">${config.configMap['enable.seat_configuration_click_to_interact_mobile']}</span>
         </div>
       </div>
     </div>
@@ -35,11 +31,6 @@
   
     <div class="frameSliderItem">
       <div class="shelfComponent">
-        <!-- Background -->
-        <picture aria-hidden="true" class="Picture Picture--background cmp-interactiveSlider__background frameSliderBg">
-           <img alt="Range Rover Sport" class="Picture__img" srcset="/content/dam/landrover/australia/en/L462_17_TEC36_DX_BG_Device-Desktop_1600x900_tcm295-333446.jpg" />
-        </picture>
-  
         <div aria-live="polite" class="infoContainer" role="region">
           <div class="content">
             <div class="tabData"></div>
@@ -53,13 +44,13 @@
             <!-- Vehicle -->
             <div aria-hidden="true" class="vehicleContainer">
               <picture class="Picture Picture--background">
-                <img alt="Range Rover Sport" class="Picture__img" srcset="/content/dam/landrover/australia/en/L462_17MY_FRAMESLIDER_CAR_v5_XI_tcm295-333444.png" />
+                <img alt="" class="Picture__img" srcset="${seatslider.coverImage}" />
               </picture>
             </div>
   
             <div aria-hidden="true" class="spriteContainerContext">
-              <div class="sliderFrame mobileSliderFrame onlyOnMobile" data-frames="${seatslider.imageList}"></div>
-              <div class="sliderFrame desktopSliderFrame hideOnMobile" data-frames="${seatslider.imageList}"></div>
+              <div class="sliderFrame mobileSliderFrame onlyOnMobile" data-frames="${seatslider.mobileFrames}"></div>
+              <div class="sliderFrame desktopSliderFrame hideOnMobile" data-frames="${seatslider.desktopFrames}"></div>
            </div>
         </div>
         </div>
@@ -72,7 +63,7 @@
 	            <p class="title">${item.title}</p>
 	            <h1 class="largeTitle">${item.headerCopy  @ context='html'}</h1>
 	            <div class="literage">
-	              <span class="odo-label" role="text" aria-label="6.8 cu. ft."><span aria-hidden="true" class="odo" data-format="(d).dd">${item.value}</span><span aria-hidden="true" class="litres">${seatslider.headerCopy @ context='html'}</span></span>
+	              <span class="odo-label" role="text" aria-label="${item.value}"><span aria-hidden="true" class="odo" data-format="(d).dd">${item.value}</span><span aria-hidden="true" class="litres">${seatslider.headerCopy @ context='html'}</span></span>
 	            </div>
 	            <div class="copy">${item.copy  @ context='html'}</div>
 	            <picture class="Picture">

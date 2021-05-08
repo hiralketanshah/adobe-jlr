@@ -16,10 +16,19 @@ public interface SeatSliderModel {
 	default List<SeatSliderItem> getSeatSliderItems() {
 		return new ArrayList<>();
 	}
-	default String getImageList() {
-		return null;
+	default List<String> getImageList() {
+		return new ArrayList<>();
 	}
 	default String getFolderPath() {
+		return null;
+	}
+	default String getCoverImage() {
+		return null;
+	}
+	default String getDesktopFrames() {
+		return null;
+	}
+	default String getMobileFrames() {
 		return null;
 	}
 }
