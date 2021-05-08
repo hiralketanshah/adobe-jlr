@@ -1,4 +1,4 @@
-<sly data-sly-use.external360="com.jlr.core.models.Exterior360Model"
+<sly data-sly-use.external360="com.jlr.core.models.Exterior360Model"  data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"
 	 data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='exterior360.aria.alert,enable.javascript.txt,exterior360.aria.label,external360.desktoptxt,external360.mobiletxt,exterior360.aria.increase,exterior360.aria.decrease'}"/>
 <div class="cmp-exterior360 fontSmooth"
 aria-label="${config.configMap['exterior360.aria.label']}"
@@ -45,3 +45,4 @@ data-frames="${external360.imageList}" >
 	  </div>
   </div>
 </div>
+<sly data-sly-call="${clientLib.all @ categories='jlr.exterior360.v1'}" >
