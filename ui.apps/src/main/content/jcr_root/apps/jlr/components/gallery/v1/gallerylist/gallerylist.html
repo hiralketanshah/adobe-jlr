@@ -1,97 +1,106 @@
-<sly data-sly-use.model="com.jlr.core.models.GalleryListModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories'}" data-sly-call="${renderGalleryList @ model=model, config=config}" />
+<sly data-sly-use.model="com.jlr.core.models.GalleryListModel"
+  data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories'}"
+  data-sly-call="${renderGalleryList @ model=model, config=config}" />
 
 <template data-sly-template.renderGalleryList="${ @ model, config }">
- <div class="cq-placeholder" data-emptytext="Gallery List Component"></div>
-
-<div class="container">
-  <main id="content">
+  <div class="cq-placeholder" data-emptytext="Gallery List Component"></div>
+  <div class="container">
+    <main id="content">
       <!-- Fullscreen -->
       <div class="Fullscreen fontSmooth  Fullscreen--hasGallery">
-          <div class="Fullscreen__header" data-close-target="#">
-              <div class="Fullscreen__header-overlay-box"></div>
-
-              <a class="Fullscreen__logo-link" href="/index.html"><img class="Fullscreen__logo" data-alt="Land Rover - Above and Beyond" src="https://homepages.cae.wisc.edu/~ece533/images/fruits.png" /></a>
-
-              <div class="Fullscreen__information-wrapper">
-                  <h4 class="heading fontH3Brand Fullscreen__information-heading"></h4>
-                  <p class="Fullscreen__information-text"></p>
-              </div>
-
-              <div class="Fullscreen__buttons">
-
-                  <a aria-label="${config.configMap['gallery.seeCategories']}" class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}" title="${config.configMap['gallery.seeCategories']}"><span></span></a>
-                  <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">VISIT SITE</span></a>
-              </div>
+        <div class="Fullscreen__header" data-close-target="#">
+          <div class="Fullscreen__header-overlay-box"></div>
+          <a class="Fullscreen__logo-link" href="/index.html"><img class="Fullscreen__logo"
+              data-alt="Land Rover - Above and Beyond"
+              src="https://homepages.cae.wisc.edu/~ece533/images/fruits.png" /></a>
+          <div class="Fullscreen__information-wrapper">
+            <h4 class="heading fontH3Brand Fullscreen__information-heading"></h4>
+            <p class="Fullscreen__information-text"></p>
           </div>
-
-          <div class="Fullscreen__content-wrapper">
-              <button aria-pressed="false" class="Fullscreen__toggle">
-				<span class="visuallyHidden Fullscreen__toggleText">${config.configMap['gallery.fullscreen.toggle.text']}</span>
-			  </button>
-
-              <div class="Gallery fontSmooth" data-label-next="Go to next slide" data-label-pip="Go to slide []" data-label-previous="Go to previous slide" data-label-slideChanged="Now showing slide []" data-url="/vehicles/range-rover/gallery-exterior.html/">
-                  <div class="Gallery__slider swiper-container">
-                      <div class="Gallery__wrapper" id="full-width-slider">
-					  
-						<sly data-sly-list.gallery="${model.galleryList}">
-                          <!-- class for theme added below with galleryItem -->
-							<div data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false" data-swiper-thumbnail="${gallery.fileReference}">
-							  <picture data-sly-test="${gallery.fileReference}" class="Picture Picture--background Gallery__background-image" data-orientation="landscape">
-								  <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
-							  </picture>
-
-							  <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
-							  <div class="Gallery__text">${gallery.copy @context='html'}</div>
-							  <div class="Gallery__link-container">
-								  <span class="primaryLinkContainer">
-									<a aria-label="${gallery.ariaLabel}" class=" Gallery__cta  primaryLinkWithStyle ${gallery.target=='overlay' ? '' : gallery.icon} TargetLinks" data-link-desktop="${gallery.link}" data-target="${gallery.target}" href="${gallery.link}" data-aria-title="${gallery.text}"><span aria-hidden="true">${gallery.text}</span></a>
-								  </span>
-							  </div>
-							</div>
-							<div data-sly-test="${gallery.assetType == 'video'}" class="${gallery.posterImage}abc YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth swiper-slide swiper-slide-active" data-only-item="false" data-swiper-thumbnail="${gallery.posterImage}" style="width: 1707px; margin-right: 15px;">
-								<div class="YouTubePlayer">
-							  <div class="playerWrapper" style="height: 288px; width: 512px;">
-								  <div class="placeholderVideo" data-video-id="${gallery.videoId}"></div>
-
-								  <div class="coverImgWrapper mediaOverlay__wrapper">
-
-									  <button class="coverImgBtn" type="button" aria-label="Show YouTube video"></button>
-
-									  <div class="mediaOverlay mediaOverlayVideo">
-										  <div class="mediaOverlayBg"></div>
-										  <div class="mediaOverlayIcon"></div>
-									  </div>
-
-									  <span class="playerCover image backgroundImage" data-alt="Range rover" data-background-image="" data-picture="" >
-										  <span data-src="${gallery.PosterImage}"></span>
-									  </span>
-								  </div>
-							  </div>
-							</div>							  
-							  <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
-							  <div class="Gallery__text">${gallery.copy @context='html'}</div>
-							</div>
-						</sly>
-                      </div>
-
-                      <button class="Gallery__previous swiper-button swiper-button--prev"></button>
-                      <button class="Gallery__next swiper-button swiper-button--next"></button>
-                      <button aria-expanded="false" aria-label="Thumbnail bar toggle" class="filmstripToggle" title="Thumbnail bar toggle"></button>
-                      <div class="Gallery__controls"></div>
+          <div class="Fullscreen__buttons">
+            <a aria-label="${config.configMap['gallery.seeCategories']}"
+              class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}"
+              title="${config.configMap['gallery.seeCategories']}"><span></span></a>
+            <a class="mfp-close" data-close-button-label="a11y.close.overlay"
+              data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span
+                class="visuallyHidden mfp-close__inner">VISIT SITE</span></a>
+          </div>
+        </div>
+        <div class="Fullscreen__content-wrapper">
+          <button aria-pressed="false" class="Fullscreen__toggle">
+            <span
+              class="visuallyHidden Fullscreen__toggleText">${config.configMap['gallery.fullscreen.toggle.text']}</span>
+          </button>
+          <div class="Gallery fontSmooth" data-label-next="Go to next slide" data-label-pip="Go to slide []"
+            data-label-previous="Go to previous slide" data-label-slideChanged="Now showing slide []"
+            data-url="/vehicles/range-rover/gallery-exterior.html/">
+            <div class="Gallery__slider swiper-container">
+              <div class="Gallery__wrapper" id="full-width-slider">
+                <sly data-sly-list.gallery="${model.galleryList}">
+                  <!-- class for theme added below with galleryItem -->
+                  <div data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false"
+                    data-swiper-thumbnail="${gallery.fileReference}">
+                    <picture data-sly-test="${gallery.fileReference}"
+                      class="Picture Picture--background Gallery__background-image" data-orientation="landscape">
+                      <source media="(min-width: 1365px)" srcset="${gallery.fileReference}" />
+                      <source media="(min-width: 1025px)" srcset="${gallery.fileReference}" />
+                      <source media="(min-width: 569px)" srcset="${gallery.fileReference}" />
+                      <source media="(min-width: 0px)" srcset="${gallery.fileReference}" />
+                      <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
+                    </picture>
+                    <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
+                    <div class="Gallery__text">${gallery.copy @context='html'}</div>
+                    <div class="Gallery__link-container">
+                      <span class="primaryLinkContainer">
+                        <a aria-label="${gallery.ariaLabel}"
+                          class=" Gallery__cta  primaryLinkWithStyle ${gallery.target=='overlay' ? '' : gallery.icon} TargetLinks"
+                          data-link-desktop="${gallery.link}" data-target="${gallery.target}" href="${gallery.link}"
+                          data-aria-title="${gallery.text}"><span aria-hidden="true">${gallery.text}</span></a>
+                      </span>
+                    </div>
                   </div>
+                  <div data-sly-test="${gallery.assetType == 'video'}"
+                    class="${gallery.posterImage}abc YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth swiper-slide swiper-slide-active"
+                    data-only-item="false" data-swiper-thumbnail="${gallery.posterImage}"
+                    style="width: 1707px; margin-right: 15px;">
+                    <div class="YouTubePlayer">
+                      <div class="playerWrapper" style="height: 288px; width: 512px;">
+                        <div class="placeholderVideo" data-video-id="${gallery.videoId}"></div>
+                        <div class="coverImgWrapper mediaOverlay__wrapper">
+                          <button class="coverImgBtn" type="button" aria-label="Show YouTube video"></button>
+                          <div class="mediaOverlay mediaOverlayVideo">
+                            <div class="mediaOverlayBg"></div>
+                            <div class="mediaOverlayIcon"></div>
+                          </div>
+                          <span class="playerCover image backgroundImage" data-alt="Range rover"
+                            data-background-image="" data-picture="">
+                            <span data-src="${gallery.PosterImage}"></span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
+                    <div class="Gallery__text">${gallery.copy @context='html'}</div>
+                  </div>
+                </sly>
               </div>
+              <button class="Gallery__previous swiper-button swiper-button--prev"></button>
+              <button class="Gallery__next swiper-button swiper-button--next"></button>
+              <button aria-expanded="false" aria-label="Thumbnail bar toggle" class="filmstripToggle"
+                title="Thumbnail bar toggle"></button>
+              <div class="Gallery__controls"></div>
+            </div>
           </div>
-          <div class="Fullscreen__footer">
-              <h4 class="heading headingCentre fontH3Brand Fullscreen__footer-heading"></h4>
-              <p class="Fullscreen__footer-text"></p>
-              <div class="Fullscreen__link-container">
-                  <!-- this linkcontainer has a buttin injected into it from the gallery slide if one exists - its a placeholder -->
-              </div>
+        </div>
+        <div class="Fullscreen__footer">
+          <h4 class="heading headingCentre fontH3Brand Fullscreen__footer-heading"></h4>
+          <p class="Fullscreen__footer-text"></p>
+          <div class="Fullscreen__link-container">
+            <!-- this linkcontainer has a buttin injected into it from the gallery slide if one exists - its a placeholder -->
           </div>
+        </div>
       </div>
       <!-- /Fullscreen -->
-
-  </main>
-</div>
-
+    </main>
+  </div>
 </template>
