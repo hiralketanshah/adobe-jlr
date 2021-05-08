@@ -416,16 +416,16 @@
   a {
     font-family:"AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
   }
-  #landrover .secondaryLinkWithStyle:before {
+  #landrover .cmp-accolades .secondaryLinkWithStyle:before {
     color: #0c121c;
   }
-  #landrover .secondaryLinkWithStyle:hover {
+  #landrover .cmp-accolades .secondaryLinkWithStyle:hover {
     color: #C9C9C9 !important;
   }
-  #landrover .secondaryLinkWithStyle:hover::before {
+  #landrover .cmp-accolades .secondaryLinkWithStyle:hover::before {
     color: #C9C9C9 !important;
   }
-  .secondaryLinkWithStyle:hover
+  .cmp-accolades .secondaryLinkWithStyle:hover
    {
     text-decoration: underline !important;
     color: #C9C9C9 !important;
