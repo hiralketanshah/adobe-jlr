@@ -5,10 +5,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -19,28 +17,27 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.SiteConfigModel;
 import com.jlr.core.services.Dictionary;
 import com.jlr.core.utils.CommonUtils;
 
 /**
- * Model for locale based configurations for website
- * 
- * @author Adobe
+ * Model for locale based configurations for website.
  *
+ * @author Adobe
  */
-@Model(adaptables = { SlingHttpServletRequest.class, Resource.class }, adapters = { SiteConfigModel.class })
+@Model(adaptables = {SlingHttpServletRequest.class, Resource.class}, adapters = {SiteConfigModel.class})
 public class SiteConfigImpl implements SiteConfigModel {
-	
-	private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
 
-    /** Request Parameter - List of Keys */
+    /** The Constant RESOURCE_TYPE. */
+    private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
+
+    /** Request Parameter - List of Keys. */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     List<String> keys;
 
-    /** Request Parameter -Single Key */
+    /** Request Parameter -Single Key. */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     String key;
 
@@ -48,44 +45,51 @@ public class SiteConfigImpl implements SiteConfigModel {
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The dictionary. */
     @OSGiService
     private Dictionary dictionary;
-    
+
+    /** The current page. */
     @ScriptVariable
     protected com.day.cq.wcm.api.Page currentPage;
 
+    /** The resource. */
     @Inject
     @Optional
     Resource resource;
 
+    /** The config map. */
     Map<String, String> configMap = new HashMap<>();
 
+    /**
+     * Inits the.
+     */
     @PostConstruct
     public void init() {
-    	if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
-    		String siteRootPath = CommonUtils.getSiteRootPath(currentPage);
+        if (null == resource || null == resource.getChild(CommonConstants.NN_CHILD_NODE)) {
+            String siteRootPath = CommonUtils.getSiteRootPath(currentPage);
 
-    		String dictPath = dictionary.getPath();
-    		if(null != siteRootPath) {
-    			dictPath = siteRootPath + CommonConstants.JLR_DICTIONARY;
-    			if(null == resourceResolver.getResource(dictPath)) {
-    				dictPath = dictionary.getPath();
-    			}
-    		}
-    		Resource siteConfigRes = getConfigResource(dictPath);
-    		if (null != siteConfigRes) {
-    			configMap = buildConfigMap(siteConfigRes);
-    		}
-    	} else {
-    		configMap = buildConfigMap(resource);
-    	}
+            String dictPath = dictionary.getPath();
+            if (null != siteRootPath) {
+                dictPath = siteRootPath + CommonConstants.JLR_DICTIONARY;
+                if (null == resourceResolver.getResource(dictPath)) {
+                    dictPath = dictionary.getPath();
+                }
+            }
+            Resource siteConfigRes = getConfigResource(dictPath);
+            if (null != siteConfigRes) {
+                configMap = buildConfigMap(siteConfigRes);
+            }
+        } else {
+            configMap = buildConfigMap(resource);
+        }
     }
 
     /**
-     * Build Configuration map Based on Configuration Resource
-     * 
-     * @param configRes
-     * @return
+     * Build Configuration map Based on Configuration Resource.
+     *
+     * @param configRes the config res
+     * @return the map
      */
     private Map<String, String> buildConfigMap(Resource configRes) {
 
@@ -107,7 +111,9 @@ public class SiteConfigImpl implements SiteConfigModel {
     }
 
     /**
-     * Return Configuration Map for List of Key passed in parameter
+     * Return Configuration Map for List of Key passed in parameter.
+     *
+     * @return the config map
      */
     @Override
     public Map<String, String> getConfigMap() {
@@ -125,6 +131,12 @@ public class SiteConfigImpl implements SiteConfigModel {
         return configMap;
     }
 
+    /**
+     * Gets the map.
+     *
+     * @param listOfKeys the list of keys
+     * @return the map
+     */
     private Map<String, String> getMap(List<String> listOfKeys) {
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
@@ -136,30 +148,38 @@ public class SiteConfigImpl implements SiteConfigModel {
     }
 
     /**
-     * Return Configuration value for Single Key
+     * Return Configuration value for Single Key.
+     *
+     * @return the config value
      */
     @Override
     public String getConfigValue() {
-        if (null != key) {
-            if (null != configMap.get(key)) {
-                return configMap.get(key);
+
+        if (null != configMap.get(key)) {
+            return configMap.get(key);
+        }
+
+        return null;
+    }
+
+    /**
+     * Gets the config resource.
+     *
+     * @param dictPath the dict path
+     * @return the config resource
+     */
+    private Resource getConfigResource(String dictPath) {
+        String rootNodePath = dictPath + CommonConstants.CONTAINER_NODE;
+        Resource rootRes = resourceResolver.getResource(rootNodePath);
+        if (null != rootRes) {
+            Iterator<Resource> childItems = rootRes.getChildren().iterator();
+            while (childItems.hasNext()) {
+                Resource childItem = childItems.next();
+                if (childItem.getResourceType().equalsIgnoreCase(RESOURCE_TYPE)) {
+                    return childItem;
+                }
             }
         }
         return null;
-    }
-    
-    private Resource getConfigResource(String dictPath) {
-    	String rootNodePath = dictPath + CommonConstants.CONTAINER_NODE;
-    	Resource rootRes = resourceResolver.getResource(rootNodePath);
-    	if(null != rootRes) {
-    		Iterator<Resource> childItems = rootRes.getChildren().iterator();
-    		while(childItems.hasNext()) {
-    			Resource childItem = childItems.next();
-    			if(childItem.getResourceType().equals(RESOURCE_TYPE)) {
-    				return childItem;
-    			}
-    		}
-    	}
-    	return null;
     }
 }

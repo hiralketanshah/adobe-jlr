@@ -11,5 +11,8 @@ vehiclesummary-validation.js
 option-picker-validation.js
 showhide.js
 full-frame-validation.js
+dual-frame-validation.js
 hero-item-validation.js
+primary-navigation-validation.js
+hero-title-banner-validation.js
 seat-slider-validation.js

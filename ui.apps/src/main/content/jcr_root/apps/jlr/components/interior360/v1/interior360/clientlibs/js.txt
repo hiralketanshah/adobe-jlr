@@ -1,0 +1,2 @@
+#base=js
+interior360.js

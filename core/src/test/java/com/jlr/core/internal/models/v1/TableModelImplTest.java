@@ -10,6 +10,11 @@ import com.jlr.core.pojos.CTAPojo;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class TableModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 public class TableModelImplTest extends GlobalModelImplTest {
 
@@ -48,6 +53,9 @@ public class TableModelImplTest extends GlobalModelImplTest {
 
     }
 
+    /**
+     * Test get table html.
+     */
     @Test
     public void testGetTableHtml() {
         final String expected =
@@ -56,6 +64,9 @@ public class TableModelImplTest extends GlobalModelImplTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test get caption.
+     */
     @Test
     public void testGetCaption() {
         final String expected = "engine specifications table";
@@ -63,6 +74,9 @@ public class TableModelImplTest extends GlobalModelImplTest {
         assertEquals(expected, actual);
     }
 
+    /**
+     * Test get cta position.
+     */
     @Test
     public void testGetCtaPosition() {
         final String expected = "above";

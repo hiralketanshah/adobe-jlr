@@ -1,0 +1,16 @@
+<sly data-sly-use.model="com.jlr.core.models.VehicleCardContainerModel"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+
+<div class="dxnav-vehicle-nav__category-item">
+   <a class="dxnav-vehicle-nav__item" data-vehicle-id="dxnav-vehicle-0" href="${model.vehicleImageLink}" target="_self" data-tray-data="dxnav-${model.uniqueID}" data-tabs="false" aria-describedby="dxnav-vehicle-dropdown-shortcuts__instructions">
+      <span class="dxnav-vehicle-nav__image" style="background-image: url(${model.vehicleImageReference @context='unsafe'})"></span>
+      <div class="dxnav-vehicle-nav__details">
+         <div class="dxnav-vehicle-nav__details-container">
+            <span class="dxnav-vehicle-nav__title">${model.headerCopy @context='html'}</span>
+            <span class="dxnav-vehicle-nav__price">${model.vehiclePrice}</span>
+         </div>
+      </div>
+   </a>
+</div>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

@@ -1,216 +1,253 @@
 package com.jlr.core.models;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
 import javax.inject.Inject;
-
-import org.apache.commons.lang3.StringUtils;
+import javax.inject.Named;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.adobe.aemds.guide.utils.JcrResourceConstants;
-import com.day.cq.commons.jcr.JcrConstants;
-import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.pojos.QuickLinks;
 import com.jlr.core.utils.LinkUtils;
 
+/**
+ * The Class PrimaryNavTabModel.
+ *
+ * @author Adobe
+ */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavTabModel {
-	
-	@Inject
-	private String navPagePathOne;
-	
-	@Inject
-	private String navPagePathTwo;
-	
-	@Inject
-	private String navPagePathThree;
-	
-	@Inject
-	private String logoImageAlt;
-	
-	@Inject
-	private String logoImageLink;
 
-	@Inject
-	private String primaryNavSecTabOne;
-	
-	@Inject
-	private String primaryNavSecTabTwo;
-	
-	@Inject
-	private String primaryNavSecTabThree;
-	
-	@Inject
-	private String pageOneQuickLink;
-	
-	@Inject
-	private String pageTwoQuickLink;
-	
-	@Inject
-	private String pageThreeQuickLink;
-	
-	@Inject
-	private String navPageTitleOne;
-	
-	@Inject
-	private String navPageTitleTwo;
-	
-	@Inject
-	private String navPageTitleThree;
-	
-	@Inject
-	private String navPageAriaLabelOne;
-	
-	@Inject
-	private String navPageAriaLabelTwo;
-	
-	@Inject
-	private String navPageAriaLabelThree;
-	
-	@Inject
+    /** The Constant RESOURCE_TYPE. */
+    public static final String RESOURCE_TYPE = "jlr/components/primarynavigation/v1/megadropdown";
+
+    /** The resource resolver. */
+    @Inject
     private ResourceResolver resourceResolver;
 
-    static String megadropdown="jlr/components/primarynavigation/v1/megadropdown";
-	
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    /** The id. */
+    @Inject
+    private String id;
 
-	private List<String> getPrimaryNavSecTab(String path) {
-		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        while (childResources.hasNext()) {
-            Resource child = childResources.next();
-            ValueMap properties = child.adaptTo(ValueMap.class);
-            if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get(CommonConstants.PN_TAB_NAME, String.class));
-            	}
-            }
-        return list;
-	}
-	
-	private List<QuickLinks> getQuickLinks(String path) {
-		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        List<QuickLinks> list = new ArrayList<>();
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-        	Resource quicklinks=child.getChild(CommonConstants.PN_QUICK_LINKS);
-            Iterator<Resource> quickLinkchildResources=quicklinks.listChildren();
-            while(quickLinkchildResources.hasNext()) {
-            	Resource quickLinkchild = quickLinkchildResources.next();
-                ValueMap quickLinkproperties = quickLinkchild.adaptTo(ValueMap.class);
-                list.add(new QuickLinks(quickLinkproperties.get(CommonConstants.PN_QUICK_LINKS_CTA_TEXT,String.class),
-                		LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_QUICK_LINKS_CTA_LINK, String.class),
-                                resourceResolver),
-                		quickLinkproperties.get(CommonConstants.PN_QUICK_LINKS_CTA_ICON,String.class),
-                		quickLinkproperties.get(CommonConstants.PN_QUICK_LINKS_CTA_TARGET,String.class)));
-            }
-        }
-        return list;
-	}
-	
-	private List<String> getNavPageTitle(String path) {
-		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
-          }
-        return list;
-	}
-	
-	private List<String> getNavPageAriaLabel(String path) {
-		Resource rootNavigationResource=resourceResolver.getResource(path);
-		Resource containerResource=rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.JLR_ROOT).getChild(CommonConstants.JLR_CONTAINER);
-		List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources=containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if(StringUtils.compare(megadropdown, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class))==0) {
-            	list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
-          }
-        return list;
-	}
-	
-	public String getNavPagePathOne() {
-		return navPagePathOne;
-	}
-	
-	public String getNavPagePathTwo() {
-		return navPagePathTwo;
-	}
-	
-	public String getNavPagePathThree() {
-		return navPagePathThree;
-	}
+    /** The mm template. */
+    @Inject
+    private String mmTemplate;
 
-	public String getLogoImageAlt() {
-		return logoImageAlt;
-	}
+    /** The left pane header copy. */
+    @Inject
+    private String leftPaneHeaderCopy;
 
-	public String getLogoImageLink() {
-		return logoImageLink;
-	}
+    /** The left pane body copy. */
+    @Inject
+    private String leftPaneBodyCopy;
 
-	public List<String> getPrimaryNavSecTabOne() {
-		return getPrimaryNavSecTab(navPagePathOne);
-        }
-	
-	public List<String> getPrimaryNavSecTabTwo() {
-		return getPrimaryNavSecTab(navPagePathTwo);
-        }
-	
-	public List<String> getPrimaryNavSecTabThree() {
-		return getPrimaryNavSecTab(navPagePathThree);
-        }
-	
-	public List<QuickLinks> getPageOneQuickLink() {
-		return getQuickLinks(navPagePathOne);
-        }
-	
-	public List<QuickLinks> getPageTwoQuickLink() {
-		return getQuickLinks(navPagePathTwo);
-        }
-	
-	public List<QuickLinks> getPageThreeQuickLink() {
-		return getQuickLinks(navPagePathThree);
-        }
-	
-	public List<String> getNavPageTitleOne() {
-		return getNavPageTitle(navPagePathOne);
-        }
-	
-	public List<String> getNavPageTitleTwo() {
-		return getNavPageTitle(navPagePathTwo);
-        }
-	
-	public List<String> getNavPageTitleThree() {
-		return getNavPageTitle(navPagePathThree);
-        }
-	
-	public List<String> getNavPageAriaLabelOne() {
-		return getNavPageAriaLabel(navPagePathOne);
-        }
-	
-	public List<String> getNavPageAriaLabelTwo() {
-		return getNavPageAriaLabel(navPagePathTwo);
-        }
-	
-	public List<String> getNavPageAriaLabelThree() {
-		return getNavPageAriaLabel(navPagePathThree);
-        }
+    /** The file reference image. */
+    @Inject
+    private String fileReferenceImage;
+
+    /** The right pane image link. */
+    @Inject
+    private String rightPaneImageLink;
+
+    /** The right pane image alt. */
+    @Inject
+    private String rightPaneImageAlt;
+
+    /** The right pane image target. */
+    @Inject
+    private String rightPaneImageTarget;
+
+    /** The is image decorative. */
+    @Inject
+    private String isImageDecorative;
+
+    /** The primary nav aria label. */
+    @Inject
+    private String primaryNavAriaLabel;
+
+    /** The primary nav title. */
+    @Inject
+    private String primaryNavTitle;
+
+    /** The tab name. */
+    @Inject
+    public String tabName;
+
+    /** The left cta. */
+    @Inject
+    @Named("leftCta/.")
+    List<PrimaryNavLeftCTAModel> leftCta;
+
+    /** The left dual column cta. */
+    @Inject
+    @Named("leftDualColumnCta/.")
+    List<PrimaryNavDualLeftCTAModel> leftDualColumnCta;
+
+    /** The left text cta. */
+    @Inject
+    @Named("leftTextCta/.")
+    List<PrimaryNavLeftTextCTAModel> leftTextCta;
+
+    /** The right cta. */
+    @Inject
+    @Named("rightCta/.")
+    List<PrimaryNavImageTxtModel> rightCta;
+
+    /** The quick links. */
+    @Inject
+    @Named("quickLinks/.")
+    public List<PrimaryNavQuickLinksModel> quickLinks;
+
+    /**
+     * Gets the id.
+     *
+     * @return the id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * Gets the mm template.
+     *
+     * @return the mm template
+     */
+    public String getMmTemplate() {
+        return mmTemplate;
+    }
+
+    /**
+     * Gets the left pane header copy.
+     *
+     * @return the left pane header copy
+     */
+    public String getLeftPaneHeaderCopy() {
+        return leftPaneHeaderCopy;
+    }
+
+    /**
+     * Gets the left pane body copy.
+     *
+     * @return the left pane body copy
+     */
+    public String getLeftPaneBodyCopy() {
+        return leftPaneBodyCopy;
+    }
+
+    /**
+     * Gets the file reference image.
+     *
+     * @return the file reference image
+     */
+    public String getFileReferenceImage() {
+        return fileReferenceImage;
+    }
+
+    /**
+     * Gets the right pane image alt.
+     *
+     * @return the right pane image alt
+     */
+    public String getRightPaneImageAlt() {
+        return rightPaneImageAlt;
+    }
+
+    /**
+     * Gets the checks if is image decorative.
+     *
+     * @return the checks if is image decorative
+     */
+    public String getIsImageDecorative() {
+        return isImageDecorative;
+    }
+
+    /**
+     * Gets the primary nav aria label.
+     *
+     * @return the primary nav aria label
+     */
+    public String getPrimaryNavAriaLabel() {
+        return primaryNavAriaLabel;
+    }
+
+    /**
+     * Gets the right pane image link.
+     *
+     * @return the right pane image link
+     */
+    public String getRightPaneImageLink() {
+        return LinkUtils.appendLinkExtension(rightPaneImageLink, resourceResolver);
+    }
+
+    /**
+     * Gets the right pane image target.
+     *
+     * @return the right pane image target
+     */
+    public String getRightPaneImageTarget() {
+        return rightPaneImageTarget;
+    }
+
+    /**
+     * Gets the left cta.
+     *
+     * @return the left cta
+     */
+    public List<PrimaryNavLeftCTAModel> getLeftCta() {
+        return leftCta;
+    }
+
+    /**
+     * Gets the left text cta.
+     *
+     * @return the left text cta
+     */
+    public List<PrimaryNavLeftTextCTAModel> getLeftTextCta() {
+        return leftTextCta;
+    }
+
+    /**
+     * Gets the right cta.
+     *
+     * @return the right cta
+     */
+    public List<PrimaryNavImageTxtModel> getRightCta() {
+        return rightCta;
+    }
+
+    /**
+     * Gets the quick links.
+     *
+     * @return the quick links
+     */
+    public List<PrimaryNavQuickLinksModel> getQuickLinks() {
+        return quickLinks;
+    }
+
+    /**
+     * Gets the left dual column cta.
+     *
+     * @return the left dual column cta
+     */
+    public List<PrimaryNavDualLeftCTAModel> getLeftDualColumnCta() {
+        return leftDualColumnCta;
+    }
+
+    /**
+     * Gets the primar nav title.
+     *
+     * @return the primar nav title
+     */
+    public String getPrimarNavTitle() {
+        return primaryNavTitle;
+    }
+
+    /**
+     * Gets the tab name.
+     *
+     * @return the tab name
+     */
+    public String getTabName() {
+        return tabName;
+    }
+
 }

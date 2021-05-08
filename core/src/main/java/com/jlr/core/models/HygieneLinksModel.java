@@ -7,8 +7,11 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jlr.core.pojos.HygieneLinks;
 
+
 /**
  * The Interface HygieneLinksModel.
+ *
+ * @author Adobe
  */
 public interface HygieneLinksModel {
 	
@@ -53,7 +56,7 @@ public interface HygieneLinksModel {
 	 *
 	 * @return the logo image
 	 */
-	default String getLogoImage() {
+	default String getFlagImage() {
 	     return StringUtils.EMPTY;
 	 }
 }

@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -25,8 +26,11 @@ import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.LinkUtils;
 
+
 /**
  * The Class InteractiveOptionPickerModel.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {InteractiveOptionPickerModel.class}, resourceType = InteractiveOptionPickerModelImpl.RESOURCE_TYPE)
 public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements InteractiveOptionPickerModel {
@@ -41,21 +45,50 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
         return jsonRoot.toString();
     }
 
-    private String JSON_PROPERTY_TABS = "tabs";
-    private String JSON_PROPERTY_TABTITLE = "tabTitle";
-    private String JSON_PROPERTY_TOGGLECARDS = "toggleCards";
-    private String JSON_PROPERTY_TOGGLE_TITLE = "toggleTitle";
-    private String JSON_PROPERTY_TOGGLE_IMAGEURL = "toggleImageUrl";
-    private String JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL = "tabletToggleImageUrl";
-    private String JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL = "mobileToggleImageUrl";
-    private String JSON_PROPERTY_TOGGLE_THUMBNAIL_URL = "toggleThumbnailImageUrl";
-    private String JSON_PROPERTY_TOGGLE_IMAGE_ALT = "toggleImageAltText";
-    private String JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT = "toggleThumbnailImageAltText";
-    private String JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK = "configDirectLink";
-    private String JSON_PROPERTY_TOGGLE_CTA_TEXT = "ctaText";
-    private String JSON_PROPERTY_TOGGLE_CTA_ICON = "ctaIcon";
-    private String JSON_PROPERTY_TOGGLE_CTA_TARGET = "ctaTarget";
-    private String JSON_PROPERTY_TOGGLE_CTA_ARIALABEL = "ctaAriaLabel";
+    /** The json property tabs. */
+    private final String JSON_PROPERTY_TABS = "tabs";
+
+    /** The json property tabtitle. */
+    private final String JSON_PROPERTY_TABTITLE = "tabTitle";
+
+    /** The json property togglecards. */
+    private final String JSON_PROPERTY_TOGGLECARDS = "toggleCards";
+
+    /** The json property toggle title. */
+    private final String JSON_PROPERTY_TOGGLE_TITLE = "toggleTitle";
+
+    /** The json property toggle imageurl. */
+    private final String JSON_PROPERTY_TOGGLE_IMAGEURL = "toggleImageUrl";
+
+    /** The json property toggle tablet imageurl. */
+    private final String JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL = "tabletToggleImageUrl";
+
+    /** The json property toggle mobile imageurl. */
+    private final String JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL = "mobileToggleImageUrl";
+
+    /** The json property toggle thumbnail url. */
+    private final String JSON_PROPERTY_TOGGLE_THUMBNAIL_URL = "toggleThumbnailImageUrl";
+
+    /** The json property toggle image alt. */
+    private final String JSON_PROPERTY_TOGGLE_IMAGE_ALT = "toggleImageAltText";
+
+    /** The json property toggle thumbnail image alt. */
+    private final String JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT = "toggleThumbnailImageAltText";
+
+    /** The json property toggle config direct link. */
+    private final String JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK = "configDirectLink";
+
+    /** The json property toggle cta text. */
+    private final String JSON_PROPERTY_TOGGLE_CTA_TEXT = "ctaText";
+
+    /** The json property toggle cta icon. */
+    private final String JSON_PROPERTY_TOGGLE_CTA_ICON = "ctaIcon";
+
+    /** The json property toggle cta target. */
+    private final String JSON_PROPERTY_TOGGLE_CTA_TARGET = "ctaTarget";
+
+    /** The json property toggle cta arialabel. */
+    private final String JSON_PROPERTY_TOGGLE_CTA_ARIALABEL = "ctaAriaLabel";
 
     /** The logger. */
     private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
@@ -66,6 +99,7 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     /** The list. */
     List<InteractiveOptionPickerItemPojo> optionItemlist = new ArrayList<>();
 
+    /** The json root. */
     JSONObject jsonRoot = new JSONObject();
 
 
@@ -79,36 +113,45 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     @Optional
     private Resource optionPickerList;
 
+    /** The global header copy. */
     @Optional
     @Inject
     private String globalHeaderCopy;
 
+    /** The global summary. */
     @Optional
     @Inject
     private String globalSummary;
 
+    /** The global cta text. */
     @Optional
     @Inject
     private String globalCtaText;
 
+    /** The global cta link. */
     @Optional
     @Inject
     private String globalCtaLink;
 
+    /** The global cta icon. */
     @Optional
     @Inject
     private String globalCtaIcon;
 
+    /** The global cta link type. */
     @Optional
     @Inject
     private String globalCtaLinkType;
 
+    /** The global cta aria label. */
     @Optional
     @Inject
     private String globalCtaAriaLabel;
 
 
     /**
+     * Gets the global cta text.
+     *
      * @return the globalCtaText
      */
     public String getGlobalCtaText() {
@@ -116,6 +159,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Gets the global cta link.
+     *
      * @return the globalCtaLink
      */
     public String getGlobalCtaLink() {
@@ -123,6 +168,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Gets the global cta icon.
+     *
      * @return the globalCtaIcon
      */
     public String getGlobalCtaIcon() {
@@ -130,6 +177,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Gets the global cta link type.
+     *
      * @return the globalCtaLinkType
      */
     public String getGlobalCtaLinkType() {
@@ -137,6 +186,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Gets the global cta aria label.
+     *
      * @return the globalCtaAriaLabel
      */
     public String getGlobalCtaAriaLabel() {
@@ -145,17 +196,22 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Gets the global cta target.
+     *
      * @return the globalCtaTarget
      */
     public String getGlobalCtaTarget() {
         return globalCtaTarget;
     }
 
+    /** The global cta target. */
     @Optional
     @Inject
     private String globalCtaTarget;
 
     /**
+     * Gets the global header copy.
+     *
      * @return the globalHeaderCopy
      */
     public String getGlobalHeaderCopy() {
@@ -163,12 +219,17 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Gets the global summary.
+     *
      * @return the globalSummary
      */
     public String getGlobalSummary() {
         return globalSummary;
     }
 
+    /**
+     * Inits the.
+     */
     @PostConstruct
     public void init() {
 
@@ -176,6 +237,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Generate global cta icon.
+     *
      * @return the choosen or fallback icon
      */
     private String generateGlobalCtaIcon() {
@@ -184,6 +247,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Generate global cta link.
+     *
      * @return the CTA link with appended extension
      */
     private String generateGlobalCtaLink() {
@@ -192,6 +257,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Generate global cta aria label.
+     *
      * @return the CTA Aria Label with Header
      */
     private String generateGlobalCtaAriaLabel() {
@@ -200,6 +267,8 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
     }
 
     /**
+     * Generate IO picker JSON.
+     *
      * @return the JSON of Option Image Item
      */
     private void generateIOPickerJSON() {
@@ -210,64 +279,63 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
             jsonResponseObject.put(JSON_PROPERTY_TABTITLE, StringUtils.EMPTY);
             JSONArray togglecards = new JSONArray();
             List<InteractiveOptionPickerItemPojo> imageList = getOptionImageList();
-            if (null != imageList) {
-                if (imageList.size() > 0) {
-                    for (final InteractiveOptionPickerItemPojo optionItem : imageList) {
-                        JSONObject optionItemDetails = new JSONObject();
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_TITLE,
-                                        StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY : optionItem.getOptionLabel());
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGEURL,
-                                        StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL,
-                                        StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL, StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY
-                                        : CommonUtils.getSmallImagePath(optionItem.getOptionImage()));
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_URL, StringUtils.isEmpty(optionItem.getThumbnailImage()) ? StringUtils.EMPTY
-                                        : CommonUtils.getTinyImagePath(optionItem.getThumbnailImage()));
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGE_ALT,
-                                        StringUtils.isEmpty(optionItem.getImgAlt()) ? StringUtils.EMPTY : optionItem.getImgAlt());
-                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT, StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY
-                                        : CommonUtils.getOnlyTextFromHTML(optionItem.getOptionLabel()));
 
-                        if (optionItem.getIsCtaOverriden().equalsIgnoreCase(CommonConstants.TRUE)) {
-                            String ctaAriaLabelText = optionItem.getAriaLabel();
+            if (!CollectionUtils.isEmpty(imageList)) {
 
-                            if (StringUtils.isEmpty(ctaAriaLabelText)) {
-                                ctaAriaLabelText = CtaUtils.getAriaLabel(getGlobalHeaderCopy(), optionItem.getText());
-                            }
+                for (final InteractiveOptionPickerItemPojo optionItem : imageList) {
+                    JSONObject optionItemDetails = new JSONObject();
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_TITLE,
+                                    StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY : optionItem.getOptionLabel());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGEURL,
+                                    StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL,
+                                    StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL, StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY
+                                    : CommonUtils.getSmallImagePath(optionItem.getOptionImage()));
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_URL, StringUtils.isEmpty(optionItem.getThumbnailImage()) ? StringUtils.EMPTY
+                                    : CommonUtils.getTinyImagePath(optionItem.getThumbnailImage()));
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGE_ALT,
+                                    StringUtils.isEmpty(optionItem.getImgAlt()) ? StringUtils.EMPTY : optionItem.getImgAlt());
+                    optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT, StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY
+                                    : CommonUtils.getOnlyTextFromHTML(optionItem.getOptionLabel()));
 
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
-                                            StringUtils.isEmpty(optionItem.getLink()) ? StringUtils.EMPTY : optionItem.getLink());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT,
-                                            StringUtils.isEmpty(optionItem.getText()) ? StringUtils.EMPTY : optionItem.getText());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
-                                            StringUtils.isEmpty(optionItem.getIcon()) ? StringUtils.EMPTY : optionItem.getIcon());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
-                                            StringUtils.isEmpty(optionItem.getTarget()) ? StringUtils.EMPTY : optionItem.getTarget());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL,
-                                            StringUtils.isEmpty(ctaAriaLabelText) ? StringUtils.EMPTY : ctaAriaLabelText);
-                        } else {
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
-                                            StringUtils.isEmpty(getGlobalCtaLink()) ? StringUtils.EMPTY : generateGlobalCtaLink());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT,
-                                            StringUtils.isEmpty(getGlobalCtaText()) ? StringUtils.EMPTY : getGlobalCtaText());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
-                                            StringUtils.isEmpty(generateGlobalCtaIcon()) ? StringUtils.EMPTY : generateGlobalCtaIcon());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
-                                            StringUtils.isEmpty(getGlobalCtaTarget()) ? StringUtils.EMPTY : getGlobalCtaTarget());
-                            optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL, StringUtils.isEmpty(generateGlobalCtaAriaLabel()) ? StringUtils.EMPTY
-                                            : CommonUtils.getOnlyTextFromHTML(generateGlobalCtaAriaLabel()));
+                    if (optionItem.getIsCtaOverriden().equalsIgnoreCase(CommonConstants.TRUE)) {
+                        String ctaAriaLabelText = optionItem.getAriaLabel();
 
+                        if (StringUtils.isEmpty(ctaAriaLabelText)) {
+                            ctaAriaLabelText = CtaUtils.getAriaLabel(getGlobalHeaderCopy(), optionItem.getText());
                         }
 
-                        if (null != optionItemDetails && optionItemDetails.length() > 0) {
-                            togglecards.put(optionItemDetails);
-                        }
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
+                                        StringUtils.isEmpty(optionItem.getLink()) ? StringUtils.EMPTY : optionItem.getLink());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT,
+                                        StringUtils.isEmpty(optionItem.getText()) ? StringUtils.EMPTY : optionItem.getText());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
+                                        StringUtils.isEmpty(optionItem.getIcon()) ? StringUtils.EMPTY : optionItem.getIcon());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
+                                        StringUtils.isEmpty(optionItem.getTarget()) ? StringUtils.EMPTY : optionItem.getTarget());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL, StringUtils.isEmpty(ctaAriaLabelText) ? StringUtils.EMPTY : ctaAriaLabelText);
+                    } else {
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CONFIG_DIRECT_LINK,
+                                        StringUtils.isEmpty(getGlobalCtaLink()) ? StringUtils.EMPTY : generateGlobalCtaLink());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TEXT, StringUtils.isEmpty(getGlobalCtaText()) ? StringUtils.EMPTY : getGlobalCtaText());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ICON,
+                                        StringUtils.isEmpty(generateGlobalCtaIcon()) ? StringUtils.EMPTY : generateGlobalCtaIcon());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_TARGET,
+                                        StringUtils.isEmpty(getGlobalCtaTarget()) ? StringUtils.EMPTY : getGlobalCtaTarget());
+                        optionItemDetails.put(JSON_PROPERTY_TOGGLE_CTA_ARIALABEL, StringUtils.isEmpty(generateGlobalCtaAriaLabel()) ? StringUtils.EMPTY
+                                        : CommonUtils.getOnlyTextFromHTML(generateGlobalCtaAriaLabel()));
+
                     }
-                    jsonResponseObject.put(JSON_PROPERTY_TOGGLECARDS, togglecards);
-                    jsonRootArray.put(jsonResponseObject);
-                    jsonRoot.put(JSON_PROPERTY_TABS, jsonRootArray);
+
+                    if (null != optionItemDetails && optionItemDetails.length() > 0) {
+                        togglecards.put(optionItemDetails);
+                    }
                 }
+                jsonResponseObject.put(JSON_PROPERTY_TOGGLECARDS, togglecards);
+                jsonRootArray.put(jsonResponseObject);
+                jsonRoot.put(JSON_PROPERTY_TABS, jsonRootArray);
+
             }
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
@@ -278,6 +346,11 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
 
 
 
+    /**
+     * Gets the option image list.
+     *
+     * @return the option image list
+     */
     private List<InteractiveOptionPickerItemPojo> getOptionImageList() {
         optionItemlist = null;
         if (null != optionPickerList && optionPickerList.hasChildren()) {
@@ -286,6 +359,12 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
         return optionItemlist;
     }
 
+    /**
+     * Assemble data.
+     *
+     * @param optionItem the option item
+     * @return the list
+     */
     protected List<InteractiveOptionPickerItemPojo> assembleData(Resource optionItem) {
         List<InteractiveOptionPickerItemPojo> list = new ArrayList<>();
         Iterator<Resource> childResources = optionItem.listChildren();

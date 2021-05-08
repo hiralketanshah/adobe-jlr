@@ -183,14 +183,14 @@
                                             <noIndex
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
                                                 fieldDescription="Select to prevent search engine from indexing this page, and index links in them."
                                                 fieldLabel="No Index"
                                                 name="./noIndex"
+                                                text="No Index"
                                                 uncheckedValue="false"
-                                                value="true"
-                                                checked="{Boolean}true"
-                                                defaultChecked="{Boolean}false"
-                                                text="No Index">
+                                                value="true">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
                                                     allowBulkEdit="{Boolean}true"
@@ -199,14 +199,14 @@
                                             <noFollow
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
                                                 fieldDescription="Select to prevent search engine from indexing this page, and do not index links in them."
                                                 fieldLabel="No Follow"
                                                 name="./noFollow"
+                                                text="No Follow"
                                                 uncheckedValue="false"
-                                                value="true"
-                                                checked="{Boolean}true"
-                                                defaultChecked="{Boolean}false"
-                                                text="No Follow">
+                                                value="true">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
                                                     allowBulkEdit="{Boolean}true"
@@ -214,64 +214,64 @@
                                             </noFollow>
                                         </items>
                                     </seo>
-                                     <datalayer
+                                    <datalayer
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="Nameplate Details"
                                         sling:orderBefore="seo"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
                                             <namePlateCode
+                                                cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                autocreateTag="{Boolean}true"
                                                 fieldDescription="Select the NamePlate Code that needs to appear in datalayer."
                                                 fieldLabel="NamePlate Code"
                                                 multiple="{Boolean}false"
-                                                cq:showOnCreate="{Boolean}true"
-                                                autocreateTag="{Boolean}true"
                                                 name="./namePlateCode"
                                                 rootPath="/content/cq:tags/jlr/landrover/vehicles/nameplate-code"/>
                                             <modelYear
+                                                cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                autocreateTag="{Boolean}true"
                                                 fieldDescription="Select the Model year of the Nameplate that needs to be appear in datalayer."
                                                 fieldLabel="Model Year"
                                                 multiple="{Boolean}false"
-                                                cq:showOnCreate="{Boolean}true"
-                                                autocreateTag="{Boolean}true"
                                                 name="./modelYear"
                                                 rootPath="/content/cq:tags/jlr/landrover/vehicles/model-year"/>
                                         </items>
                                     </datalayer>
-                                    <nameplateDetails jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                    sling:orderBefore="seo"
-                                    jcr:title="Datalayer Details">
-                                    <items jcr:primaryType="nt:unstructured">
+                                    <nameplateDetails
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Datalayer Details"
+                                        sling:orderBefore="seo"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
                                             <applicationCode
+                                                cq:showOnCreate="{Boolean}false"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                disabled="{Boolean}true"
                                                 fieldDescription="Application value that needs to appear in datalayer. Defaults to website if not entered"
                                                 fieldLabel="Default Application Value"
-                                                cq:showOnCreate="{Boolean}false"
-                                                disabled="{Boolean}true"
                                                 maxlengthlong="{Long}40"
                                                 name="./applicationCode"/>
                                             <market
+                                                cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                autocreateTag="{Boolean}true"
                                                 fieldDescription="Select the Market that needs to appear in the datalayer."
                                                 fieldLabel="Market"
                                                 multiple="{Boolean}false"
-                                                cq:showOnCreate="{Boolean}true"
-                                                autocreateTag="{Boolean}true"
                                                 name="./market"
-                                                rootPath="/content/cq:tags/jlr/global/market">
-                                            </market>
-                                    </items>
-                                    <granite:rendercondition
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="jlr/granite/rendercondition/template"
-                                        templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
+                                                rootPath="/content/cq:tags/jlr/global/market"/>
+                                        </items>
+                                        <granite:rendercondition
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="jlr/granite/rendercondition/template"
+                                            templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
                                     </nameplateDetails>
                                 </items>
                             </column>
@@ -286,7 +286,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                 <general
+                                    <general
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="General"
                                         sling:orderBefore="moretitles"
@@ -315,18 +315,32 @@
                                                         value="MM dd yyyy"/>
                                                 </items>
                                             </dateFormat>
+                                            <enableInlineCookieJS
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}true"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to automatically add inline cookie consent JS to all pages."
+                                                fieldLabel="Enable cookie consent JS?"
+                                                name="./enableInlineCookieJs"
+                                                text="Enable cookie consent JS?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}false"
+                                                    cq-msm-lockable="enableInlineCookieJs"/>
+                                            </enableInlineCookieJS>
                                             <gtmTags
+                                                cq:showOnCreate="{Boolean}false"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="Add GTM tags specific to the website separated by commas."
                                                 fieldLabel="GTM Tags"
                                                 multiple="{Boolean}false"
-                                                cq:showOnCreate="{Boolean}false"
-                                                name="./gtmTags">
-                                            </gtmTags>
+                                                name="./gtmTags"/>
                                         </items>
                                     </general>
-                                    
                                     <fab
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="FAB"
@@ -346,7 +360,7 @@
                                                 value="true">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
-                                                    allowBulkEdit="{Boolean}true"
+                                                    allowBulkEdit="{Boolean}false"
                                                     cq-msm-lockable="fabDesktopActive"/>
                                             </desktopActive>
                                             <tabletActive
@@ -362,7 +376,7 @@
                                                 value="true">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
-                                                    allowBulkEdit="{Boolean}true"
+                                                    allowBulkEdit="{Boolean}false"
                                                     cq-msm-lockable="fabTabletActive"/>
                                             </tabletActive>
                                             <mobileActive
@@ -378,11 +392,53 @@
                                                 value="true">
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
-                                                    allowBulkEdit="{Boolean}true"
+                                                    allowBulkEdit="{Boolean}false"
                                                     cq-msm-lockable="fabMobileActive"/>
                                             </mobileActive>
                                         </items>
                                     </fab>
+                                    <marketregionpricing
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Market Region Pricing"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <marketpricingpath
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Select the Market Region Config path"
+                                                fieldLabel="Market Region Path"
+                                                name="./marketRegionPath"
+                                                rootPath="/content/experience-fragments/landrover"
+                                                text="Enable Market Regional Pricing">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="category"/>
+                                            </marketpricingpath>
+                                        </items>
+                                    </marketregionpricing>
+                                    <skiptomaincontent
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Skip To Main Content Configuration"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <skipToMainTitle
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Enter the Skip To Main Content Title"
+                                                fieldLabel="Skip To Main Content Title"
+                                                name="./skipToMainTitle"
+                                                rootPath="/content/landrover/global"
+                                                text="Skip To Main Content Text">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-msm-lockable="category"/>
+                                            </skipToMainTitle>
+                                        </items>
+                                    </skiptomaincontent>
                                 </items>
                             </column>
                         </items>
