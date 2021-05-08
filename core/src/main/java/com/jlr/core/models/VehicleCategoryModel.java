@@ -37,10 +37,6 @@ public class VehicleCategoryModel {
     @Inject
     private String compareAriaLabel;
 
-    /** The compare icon. */
-    @Inject
-    private String compareIcon;
-
     /** The compare target. */
     @Inject
     private String compareTarget;
@@ -93,15 +89,6 @@ public class VehicleCategoryModel {
      */
     public String getCompareAriaLabel() {
         return compareAriaLabel;
-    }
-
-    /**
-     * Gets the compare icon.
-     *
-     * @return the compare icon
-     */
-    public String getCompareIcon() {
-        return compareIcon;
     }
 
     /**

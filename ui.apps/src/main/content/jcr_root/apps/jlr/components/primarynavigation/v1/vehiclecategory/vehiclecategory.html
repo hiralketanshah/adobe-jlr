@@ -20,7 +20,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
          <sly data-sly-test="${model.compareText}">
          <a class="dxnav-vehicle-nav__cta dxnav-vehicle-nav__cta--compare" href="${model.compareLink}" aria-label=${model.compareAriaLabel} data-target="${model.compareTarget}" target="${model.compareTarget}">
             <svg class="dxnav-icon">
-               <use xlink:href="#Compare"></use>
+               <use xlink:href="#${model.compareTarget=='_overlay' ? '' : Compare"></use>
             </svg>
             <span>${model.compareText}</span>
          </a>
