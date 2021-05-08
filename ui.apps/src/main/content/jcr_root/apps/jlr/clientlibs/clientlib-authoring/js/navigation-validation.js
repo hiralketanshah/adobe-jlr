@@ -150,7 +150,7 @@ var CONST = {
 
 // Validate the image is authored depending on the choosen template
 $(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
-    selector: "coral-fileupload[data-mandatory-templatea='true'],coral-fileupload[data-mandatory-templateb='true'],coral-fileupload[data-mandatory-templatec='true'],coral-fileupload[data-mandatory-templated='true']",
+    selector: "coral-fileupload[data-mandatory-templatea='true'],coral-fileupload[data-mandatory-templateb='true'],coral-fileupload[data-mandatory-templatec='true'],coral-fileupload[data-mandatory-templated='true'],coral-fileupload[data-mandatory-templatee='true']",
     validate: function (el) {
         if ($("[value='templateA']").attr('selected')) {
             if (!$('.img-templatea').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
@@ -169,8 +169,14 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
             }
 
         } else if ($("[value='templateD']").attr('selected')) {
-            if (!$('.img-templated').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
+            if ($('.img-templated').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length < 2) {
                 console.log("Template D selected and image is not authored");
+                return CONST.REQUIRED_MESSAGE;
+            }
+
+        } else if ($("[value='templateE']").attr('selected')) {
+            if (!$('.img-templated').find('div.cq-FileUpload-thumbnail').find('div.cq-FileUpload-thumbnail-img').find("img").length) {
+                console.log("Template E selected and image is not authored");
                 return CONST.REQUIRED_MESSAGE;
             }
 

@@ -349,7 +349,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                                     <a href="${item.quickLinksCopyCtaLink}" data-target="${item.quickLinksCopyCtaTarget}" target="${item.quickLinksCopyCtaTarget}" class="dxnav-quick-links__link">
                                        <div class="dxnav-quick-links__icon">
                                           <svg class="dxnav-icon">
-                                             <use xlink:href="#${item.quickLinksCopyCtaIcon}"></use>
+                                             <use xlink:href="#${item.quickLinksCopyCtaTarget=='_overlay' ? '': item.quickLinksCopyCtaIcon}"></use>
                                           </svg>
                                        </div>
                                        <h3 class="dxnav-quick-links__title">${item.quickLinksCtaText}</h3>
