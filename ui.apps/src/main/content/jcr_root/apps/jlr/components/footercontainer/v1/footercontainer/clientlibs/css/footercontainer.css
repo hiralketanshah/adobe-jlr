@@ -1201,3 +1201,17 @@
 }
 
 /* FIXES END */
+
+
+
+@media screen and (min-width: 1px) and (max-width: 411px) {
+.cmp_footerNav__navWrapper {
+		padding: 0 12px;
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 320px) {
+.cmp_footerNav__footerWrapper {
+    padding: 30px 12px 15px;
+}
+}
