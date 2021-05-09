@@ -2,12 +2,14 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.inject.Inject;
-import javax.inject.Named;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
@@ -33,10 +35,13 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     /** The content type. */
     @Inject
     private String column;
+    
+    /** The enable stacking. */
+    @Inject
+    private String enableStacking;
 
     /** The content card list. */
     @Inject
-    @Named("contentCardList/.")
     public List<ContentCardListModel> contentCardList;
 
     /** The cta list. */
@@ -70,6 +75,15 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     }
 
     /**
+     * Gets the enable stacking.
+     *
+     * @return the enable stacking
+     */
+    public String getEnableStacking() {
+		return enableStacking;
+	}
+
+	/**
      * Gets the content card list.
      *
      * @return the content card list

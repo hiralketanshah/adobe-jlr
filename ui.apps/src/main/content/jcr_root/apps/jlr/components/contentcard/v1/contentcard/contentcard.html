@@ -2,7 +2,7 @@
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
-         <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="swiping">
+         <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="${contentCard.enableStacking}">
             <div class="GridListWrapper" data-wrapper="float">
 			<sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
                <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
@@ -14,12 +14,8 @@
                   <div class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
                </div></sly>
 			   <sly data-sly-test="${contentCard.contentCardList}">
-                   <div class="DxTabs DxTabs--flat" data-dxtabs-id="${contentCard.id}" style="display:none">
-                  <div aria-orientation="horizontal" class="DxTabs__tablist" role="tablist">
-                  </div>
-               </div>
-               <div class="DxTabs__panels" data-dxtabs-panels-id="${contentCard.id}">
-                  <div class="cmp-contentCards items DxTabs__panel" role="tabpanel" data-total="${contentCard.column}">
+ 				<div class="unusedClass">	
+                  <div class="cmp-contentCards items" data-total="${contentCard.column}">
                      <div class="cmp-contentCardsCarousel">
                         <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
                            <li class="el gridEl">
@@ -37,9 +33,9 @@
 									   <sly data-sly-test="${content.assestType=='image'}">
 									   <a class="imageLink TargetLinks"
                                        href="${content.firstCtaLink}"
-                                       data-target="${content.target}" data-type="${content.assestType}">
+                                       data-target="${content.target}${content.firstCtaLink}" data-type="${content.assestType}">
                                        <div class="mediaOverlay mediaOverlayImage">
-                                          <div class="mediaOverlayBg"></div>
+                                          <div data-sly-test="${content.firstCtaLink}" class="mediaOverlayBg"></div>
                                           <div class="mediaOverlayIcon"></div>
                                        </div>
 									   </sly>

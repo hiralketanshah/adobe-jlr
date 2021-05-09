@@ -6,7 +6,6 @@ import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 import com.jlr.core.pojos.CTAPojo;
 
-
 /**
  * The Interface ContentCardModel.
  *
@@ -30,6 +29,15 @@ public interface ContentCardModel {
      * @return the column
      */
     default String getColumn() {
+        return StringUtils.EMPTY;
+    }
+    
+    /**
+     * Gets the enable stacking.
+     *
+     * @return the enable stacking
+     */
+    default String getEnableStacking() {
         return StringUtils.EMPTY;
     }
 
