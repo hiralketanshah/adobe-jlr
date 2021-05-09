@@ -44,14 +44,6 @@ public class PrimaryNavImageTxtModel {
     @Inject
     private String rightPaneCopyCtaLink;
 
-    /** The right pane copy cta icon. */
-    @Inject
-    private String rightPaneCopyCtaIcon;
-
-    /** The right pane copy cta link type. */
-    @Inject
-    private String rightPaneCopyCtaLinkType;
-
     /** The right pane copy cta aria label. */
     @Inject
     private String rightPaneCopyCtaAriaLabel;
@@ -112,24 +104,6 @@ public class PrimaryNavImageTxtModel {
      */
     public String getRightPaneCopyCtaLink() {
         return LinkUtils.appendLinkExtension(rightPaneCopyCtaLink, resourceResolver);
-    }
-
-    /**
-     * Gets the right pane copy cta icon.
-     *
-     * @return the right pane copy cta icon
-     */
-    public String getRightPaneCopyCtaIcon() {
-        return rightPaneCopyCtaIcon;
-    }
-
-    /**
-     * Gets the right pane copy cta link type.
-     *
-     * @return the right pane copy cta link type
-     */
-    public String getRightPaneCopyCtaLinkType() {
-        return rightPaneCopyCtaLinkType;
     }
 
     /**

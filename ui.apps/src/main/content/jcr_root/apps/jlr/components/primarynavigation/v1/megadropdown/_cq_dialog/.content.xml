@@ -27,7 +27,7 @@
                                 fieldLabel="ID"
                                 name="./id"/>
                             <style
-                                granite:class="cq-dialog-dropdown-showhide"
+                                granite:class="cq-dialog-dropdown-showhide template-selector"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                 fieldDescription="Select the template of the mega drop down"
@@ -91,7 +91,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/container">
                                 <items jcr:primaryType="nt:unstructured">
-                                    <ctasection
+                                    <ctasection1
                                         granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/foundation/container">
@@ -111,7 +111,7 @@
                                                 <field
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                                    name="./leftCta">
+                                                    name="./leftCtaOne">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <column
                                                             jcr:primaryType="nt:unstructured"
@@ -121,27 +121,27 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Text"
-                                                                    name="./leftPaneCtaText"/>
+                                                                    fieldLabel="Left Pane Text One"
+                                                                    name="./leftPaneCtaTextOne"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Link"
-                                                                    name="./leftPaneCtaLink"
+                                                                    fieldLabel="Left Pane Link One"
+                                                                    name="./leftPaneCtaLinkOne"
                                                                     rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Aria Label"
-                                                                    name="./leftPaneCtaAriaLabel"/>
+                                                                    fieldLabel="Left Pane Aria Label One"
+                                                                    name="./leftPaneCtaAriaLabelOne"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Target"
-                                                                    name="./leftPaneCtaTarget">
+                                                                    fieldLabel="Left Pane Target One"
+                                                                    name="./leftPaneCtaTargetOne">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
                                                                             jcr:primaryType="nt:unstructured"
@@ -164,13 +164,16 @@
                                                 </field>
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
-                                                    maxlimit="8"/>
+                                                    maxlimit-templateA="8"
+                                                    maxlimit-templateB="8"
+                                                    maxlimit-templateC="8"
+                                                    maxlimit-templateD="8"/>
                                             </ctalist>
                                         </items>
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
                                             showhidetargetvalue="templateA,templateB,templateC,templateD"/>
-                                    </ctasection>
+                                    </ctasection1>
                                     <textsection
                                         granite:class="list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                         jcr:primaryType="nt:unstructured"
@@ -186,7 +189,7 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                                 fieldDescription="The Header copy to be displayed."
-                                                fieldLabel="Header Copy"
+                                                fieldLabel="Left Pane Header Copy"
                                                 name="./leftPaneHeaderCopy"
                                                 useFixedInlineToolbar="{Boolean}true">
                                                 <rtePlugins jcr:primaryType="nt:unstructured">
@@ -230,7 +233,7 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                                 fieldDescription="The Body copy to be displayed."
-                                                fieldLabel="Body Copy"
+                                                fieldLabel="Left Pane Body Copy"
                                                 name="./leftPaneBodyCopy"
                                                 useFixedInlineToolbar="{Boolean}true">
                                                 <rtePlugins jcr:primaryType="nt:unstructured">
@@ -362,20 +365,20 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Text"
+                                                                    fieldLabel="Left Pane Copy Text"
                                                                     name="./leftPaneCopyCtaText"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Link"
+                                                                    fieldLabel="Left Pane Copy Link"
                                                                     name="./leftPaneCopyCtaLink"
                                                                     rootPath="/content/landrover"/>
                                                                 <linkType
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Link Type for the link authored - to make a link as Primary or Secondary"
-                                                                    fieldLabel="Link Type"
+                                                                    fieldLabel="Left Pane Copy Link Type"
                                                                     name="./leftPaneCopyCtaLinkType">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <current
@@ -393,7 +396,7 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/foundation/form/select"
                                                                     fieldDescription="Select an icon to be rendered before the text on the CTA"
-                                                                    fieldLabel="Icon"
+                                                                    fieldLabel="Left Pane Copy Icon"
                                                                     name="./leftPaneCopyCtaIcon">
                                                                     <datasource
                                                                         jcr:primaryType="nt:unstructured"
@@ -404,13 +407,13 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Aria Label"
+                                                                    fieldLabel="Left Pane Copy Aria Label"
                                                                     name="./leftPaneCopyCtaAriaLabel"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Target"
+                                                                    fieldLabel="Left Pane Copy Target"
                                                                     name="./leftPaneCopyCtaTarget">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
@@ -442,7 +445,7 @@
                                             maxlimit="2"
                                             showhidetargetvalue="templateE,templateE"/>
                                     </textsection>
-                                    <dualctasection
+                                    <ctasection2
                                         granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/foundation/container">
@@ -453,7 +456,7 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/heading"
                                                 level="{Long}4"
                                                 text="Left Panel 2nd Column Links"/>
-                                            <dualctalist
+                                            <ctalist
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                                 composite="{Boolean}true"
@@ -462,7 +465,7 @@
                                                 <field
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                                    name="./leftDualColumnCta">
+                                                    name="./leftCtaTwo">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <column
                                                             jcr:primaryType="nt:unstructured"
@@ -472,27 +475,27 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Text"
-                                                                    name="./leftPaneDualCtaText"/>
+                                                                    fieldLabel="Left Pane Text Two"
+                                                                    name="./leftPaneCtaTextTwo"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Link"
-                                                                    name="./leftPaneDualCtaLink"
+                                                                    fieldLabel="Left Pane Link Two"
+                                                                    name="./leftPaneCtaLinkTwo"
                                                                     rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Aria Label"
-                                                                    name="./leftPaneDualCtaAriaLabel"/>
+                                                                    fieldLabel="Left Pane Aria Label Two"
+                                                                    name="./leftPaneCtaAriaLabelTwo"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Target"
-                                                                    name="./leftPaneDualCtaTarget">
+                                                                    fieldLabel="Left Pane Target Two"
+                                                                    name="./leftPaneCtaTargetTwo">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
                                                                             jcr:primaryType="nt:unstructured"
@@ -515,13 +518,14 @@
                                                 </field>
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
-                                                    maxlimit="8"/>
-                                            </dualctalist>
+                                                    maxlimit-templateA="8"
+                                                    maxlimit-templateB="8"/>
+                                            </ctalist>
                                         </items>
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
                                             showhidetargetvalue="templateB"/>
-                                    </dualctasection>
+                                    </ctasection2>
                                 </items>
                             </container>
                         </items>
@@ -542,6 +546,7 @@
                                         sling:resourceType="granite/ui/components/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
                                             <imagePath
+                                                granite:class="right-pane-image img-templatea img-templateb img-templatee"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
                                                 allowUpload="{Boolean}false"
@@ -550,8 +555,15 @@
                                                 fileReferenceParameter="./fileReferenceImage"
                                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                 multiple="{Boolean}false"
-                                                name="./rightPaneImage"/>
+                                                name="./rightPaneImage">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    mandatory-templateA="true"
+                                                    mandatory-templateB="true"
+                                                    mandatory-templateE="true"/>
+                                            </imagePath>
                                             <decorative
+                                                granite:class="img-decorative"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                 fieldDescription="Check if the image should be ignored by assistive technology and therefore does not require an alternative text. This applies to decorative images only."
@@ -560,6 +572,7 @@
                                                 uncheckedValue="false"
                                                 value="{Boolean}true"/>
                                             <imageAlt
+                                                granite:class="img-alt"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                 fieldDescription="Textual alternative of the meaning or function of the image, for visually impaired readers."
@@ -569,14 +582,14 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                 fieldDescription="Link to a content page, external URL or page anchor."
-                                                fieldLabel="Link"
+                                                fieldLabel="Image Target Link"
                                                 name="./rightPaneImageLink"
                                                 rootPath="/content/landrover"/>
                                             <imagetarget
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                 fieldDescription="Target for the link authored - current tab or same tab"
-                                                fieldLabel="Target"
+                                                fieldLabel="Image Target"
                                                 name="./rightPaneImageTarget">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <sameWindow
@@ -623,6 +636,7 @@
                                                     name="./rightCta">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <imagePath
+                                                            granite:class="img-templatec img-templated"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
                                                             allowUpload="{Boolean}false"
@@ -631,8 +645,14 @@
                                                             fileReferenceParameter="./fileReferenceImageTxt"
                                                             mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                             multiple="{Boolean}false"
-                                                            name="./rightPaneImage"/>
+                                                            name="./rightPaneImage">
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                mandatory-templateA="true"
+                                                                mandatory-templateB="true"/>
+                                                        </imagePath>
                                                         <decorative
+                                                            granite:class="img-decorative"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                             fieldDescription="Check if the image should be ignored by assistive technology and therefore does not require an alternative text. This applies to decorative images only."
@@ -641,16 +661,18 @@
                                                             uncheckedValue="false"
                                                             value="{Boolean}true"/>
                                                         <imageAlt
+                                                            granite:class="img-alt"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                             fieldDescription="Textual alternative of the meaning or function of the image, for visually impaired readers."
                                                             fieldLabel="Alternative Text"
                                                             name="./rightPaneImageTextAlt"/>
                                                         <headerCopy
+                                                            granite:class="promo-header-templatec promo-header-templated"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-                                                            fieldDescription="The Header copy to be displayed."
-                                                            fieldLabel="Header Copy"
+                                                            fieldDescription="The Promo Header to be displayed."
+                                                            fieldLabel="Promo Header"
                                                             name="./rightPaneHeaderCopy"
                                                             useFixedInlineToolbar="{Boolean}true">
                                                             <rtePlugins jcr:primaryType="nt:unstructured">
@@ -689,12 +711,17 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     removeSingleParagraphContainer="{Boolean}true"/>
                                                             </htmlRules>
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                promo-header-templatec="true"
+                                                                promo-header-templated="true"/>
                                                         </headerCopy>
                                                         <bodyCopy
+                                                            granite:class="promo-summary-templatec promo-summary-templated"
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="cq/gui/components/authoring/dialog/richtext"
-                                                            fieldDescription="The Body copy to be displayed."
-                                                            fieldLabel="Body Copy"
+                                                            fieldDescription="The Promo Summary to be displayed."
+                                                            fieldLabel="Promo Summary"
                                                             name="./rightPaneBodyCopy"
                                                             useFixedInlineToolbar="{Boolean}true">
                                                             <rtePlugins jcr:primaryType="nt:unstructured">
@@ -806,6 +833,10 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     removeSingleParagraphContainer="{Boolean}true"/>
                                                             </htmlRules>
+                                                            <granite:data
+                                                                jcr:primaryType="nt:unstructured"
+                                                                promo-summary-templatec="true"
+                                                                promo-summary-templated="true"/>
                                                         </bodyCopy>
                                                         <column
                                                             jcr:primaryType="nt:unstructured"
@@ -815,55 +846,36 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Text"
-                                                                    name="./rightPaneCopyCtaText"/>
+                                                                    fieldLabel="Promo CTA Text"
+                                                                    name="./rightPaneCopyCtaText">
+                                                                    <granite:data
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        cta-text-templatec="true"
+                                                                        cta-text-templated="true"/>
+                                                                </text>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Link"
+                                                                    fieldLabel="Promo CTA Link"
                                                                     name="./rightPaneCopyCtaLink"
-                                                                    rootPath="/content/landrover"/>
-                                                                <icon
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
-                                                                    fieldDescription="Select an icon to be rendered before the text on the CTA"
-                                                                    fieldLabel="Icon"
-                                                                    name="./rightPaneCopyCtaIcon">
-                                                                    <datasource
+                                                                    rootPath="/content/landrover">
+                                                                    <granite:data
                                                                         jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="acs-commons/components/utilities/genericlist/datasource"
-                                                                        path="/etc/acs-commons/lists/header-icons"/>
-                                                                </icon>
-                                                                <linkType
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                                    fieldDescription="Link Type for the link authored - to make a link as Primary or Secondary"
-                                                                    fieldLabel="Link Type"
-                                                                    name="./rightPaneCopyCtaLinkType">
-                                                                    <items jcr:primaryType="nt:unstructured">
-                                                                        <current
-                                                                            jcr:primaryType="nt:unstructured"
-                                                                            selected="{Boolean}true"
-                                                                            text="Primary"
-                                                                            value="primary"/>
-                                                                        <new
-                                                                            jcr:primaryType="nt:unstructured"
-                                                                            text="Secondary"
-                                                                            value="secondary"/>
-                                                                    </items>
-                                                                </linkType>
+                                                                        cta-link-templatec="true"
+                                                                        cta-link-templated="true"/>
+                                                                </link>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Aria Label"
+                                                                    fieldLabel="Promo CTA Aria Label"
                                                                     name="./rightPaneCopyCtaAriaLabel"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Target"
+                                                                    fieldLabel="Promo CTA Target"
                                                                     name="./rightPaneCopyCtaTarget">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
@@ -887,12 +899,13 @@
                                                 </field>
                                                 <granite:data
                                                     jcr:primaryType="nt:unstructured"
-                                                    maxlimit="2"/>
+                                                    maxlimit-templateC="1"
+                                                    maxlimit-templateD="2"
+                                                    promo-panel="true"/>
                                             </section>
                                         </items>
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
-                                            maxlimit="2"
                                             showhidetargetvalue="templateC,templateD"/>
                                     </imagetextctasection>
                                 </items>
@@ -930,20 +943,20 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldDescription="The text to be rendered on the CTA"
-                                                    fieldLabel="Text"
+                                                    fieldLabel="Quick Link Text"
                                                     name="./quickLinksCtaText"/>
                                                 <link
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                    fieldLabel="Link"
+                                                    fieldLabel="Quick Link Path"
                                                     name="./quickLinksCopyCtaLink"
                                                     rootPath="/content/landrover"/>
                                                 <icon
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/foundation/form/select"
                                                     fieldDescription="Select an icon to be rendered before the text on the CTA"
-                                                    fieldLabel="Icon"
+                                                    fieldLabel="Quick Link Icon"
                                                     name="./quickLinksCopyCtaIcon">
                                                     <datasource
                                                         jcr:primaryType="nt:unstructured"
@@ -954,13 +967,13 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                    fieldLabel="Aria Label"
+                                                    fieldLabel="Quick Link Aria Label"
                                                     name="./quickLinksCopyCtaAriaLabel"/>
                                                 <target
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                    fieldLabel="Target"
+                                                    fieldLabel="Quick Link Target"
                                                     name="./quickLinksCopyCtaTarget">
                                                     <items jcr:primaryType="nt:unstructured">
                                                         <sameWindow

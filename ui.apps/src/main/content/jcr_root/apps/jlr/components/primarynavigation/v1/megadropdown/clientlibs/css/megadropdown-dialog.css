@@ -1,0 +1,15 @@
+.author-table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .author-td, .author-th {
+    border: 1px solid black;
+    text-align: center;
+    padding: 8px;
+  }
+  .author-tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
