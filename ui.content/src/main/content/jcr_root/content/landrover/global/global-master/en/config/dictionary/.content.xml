@@ -147,9 +147,29 @@
                             key="marketregionpricing.dxnav.selectregion"
                             value="SHOW PRICES"/>
                         <item29
-                                jcr:primaryType="nt:unstructured"
-                                key="hero.tco.from.txt"
-                                value="Price From"/>
+                            jcr:primaryType="nt:unstructured"
+                            key="hero.tco.from.txt"
+                            value="Price From"/>
+                        <item30
+                            jcr:primaryType="nt:unstructured"
+                            key="gallery.fullscreen.toggle.text"
+                            value="Toggle full screen mode"/>
+                        <item31
+                            jcr:primaryType="nt:unstructured"
+                            key="gallery.seeCategories"
+                            value="See gallery categories"/>
+                        <item32
+                            jcr:primaryType="nt:unstructured"
+                            key="gallery.next.slide"
+                            value="Go to next slide"/>
+                        <item33
+                            jcr:primaryType="nt:unstructured"
+                            key="gallery.previous.slide"
+                            value="Go to previous slide"/>
+                        <item34
+                            jcr:primaryType="nt:unstructured"
+                            key="fullscreen.default.close.link.text"
+                            value="VISIT SITE"/>
                     </configList>
                 </siteconfig>
             </container>
