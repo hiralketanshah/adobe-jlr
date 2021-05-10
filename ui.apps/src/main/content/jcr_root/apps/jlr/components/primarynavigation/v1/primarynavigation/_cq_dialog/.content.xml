@@ -133,6 +133,7 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Retailer Locator."
                                 fieldLabel="Retailer Locator Aria Label"
+                                required="true"
                                 name="./retailerAriaLabel"/>
                             <Searchheading
                                 granite:class="coral-Heading coral-Heading--4"
@@ -145,6 +146,7 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Search."
                                 fieldLabel="Search Aria Label"
+                                required="true"
                                 name="./searchAriaLabel"/>
                             <mobileBurgerHeading
                                 granite:class="coral-Heading coral-Heading--4"
@@ -157,6 +159,7 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Mobile Burger."
                                 fieldLabel="Mobile Burger Aria Label"
+                                required="true"
                                 name="./mobileBurgerAriaLabel"/>
                         </items>
                     </secondary>
