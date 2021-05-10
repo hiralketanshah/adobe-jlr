@@ -24,14 +24,14 @@
                   <span class="headingWrapper">${model.headerCopy @context='html'}</span>
                 </h2>
                 <p>${model.copy @ context='html'}</p>
-				
+
 				<div data-sly-test="${model.price}" class="pricing">
                   <div class="firstPrice">
                     <p>${config.configValue}</p>
                   <p><strong>${model.price}</strong></p>
                   </div> 
                 </div>
-				
+
 				<div class="linkContainer">
 					<sly data-sly-list.cta="${model.ctaList}">
 						<sly data-sly-test="${cta.text}">
@@ -43,7 +43,6 @@
 						</sly>
 					</sly>
 				</div>
-                
                 <div class="caveat">
                   <p>${model.caveat @ context='html'}</p>
                  </div>
