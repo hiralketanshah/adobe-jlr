@@ -1,0 +1,362 @@
+.cmp-tabbedContainer {
+    padding: 60px;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+}
+.cmp-tabbedContainer_box{
+    width: 1160px;
+    margin: 0 auto;
+    max-height:653px;
+    height: auto;
+    /* min-height: 653px; */
+    position: relative;
+    /* background: #242932; */
+}
+.DxTabs__panel{
+    color: #ffffff;
+}
+.cmp-tabbedContainer .DxTabs {
+    position: absolute;
+    width: 100%;
+    bottom: -41px;
+    left: 0;
+    z-index: 1;
+    padding: 0;
+    top:unset !important;
+    border-bottom: 2px solid #4A4F544D;
+}
+.cmp-tabbedContainer .DxTabs__panels {
+    position: relative;
+    z-index: 0;
+}
+.cmp-tabbedContainer .DxTabs__tablist {
+    padding: 0;
+}
+.cmp-tabbedContainer .DxTabs__tablist{
+width: 100%;
+text-align: left;
+padding: 0px;
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+position: relative;
+top: 2px;
+}
+.cmp-tabbedContainer .DxTabs__tablist::-webkit-scrollbar {
+    display: none;
+  }
+.cmp-tabbedContainer .DxTabs__tab{
+max-width: 500px;
+outline: none;
+margin: 0px 20px;
+}
+.cmp-tabbedContainer .DxTabs__tab:first-child{
+    margin-left: 0;
+}
+.cmp-tabbedContainer .DxTabs__tab:last-child{
+    margin-right: 0;
+}
+.cmp-tabbedContainer .DxTabs__tab, 
+.cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active){
+    background-color: #FFFFFF;
+    color: #0C121C;
+    border-bottom: 2px solid #4A4F544D; 
+    border-right: 0;
+    outline: none;
+}
+.cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active):hover{
+    background-color: #FFFFFF;
+    color: #0C121C;
+    border-bottom: 5px solid #A8AAAE;
+    outline: none;
+}
+
+.cmp-tabbedContainer .DxTabs__tab:not(:first-of-type), 
+.cmp-tabbedContainer .DxTabs__tab:hover:not(:first-of-type){
+    border-left:0; 
+}
+.cmp-tabbedContainer .DxTabs__mask{
+    display: none
+}
+.cmp-tabbedContainer .DxTabs__tab--active,
+.cmp-tabbedContainer .DxTabs__tab--active:hover{
+    border-bottom: 5px solid #005A2B;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+}
+.cmp-tabbedContainer__bottom-title{
+    width: 32%;
+    float: left;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #0C121C;
+    margin-top: 25px;
+}
+.cmp-tabbedContainer__bottom-title h2{
+    font-family: "LandRoverWeb-Bold";
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.cmp-tabbedContainer__bottom-content{
+    width: 68%;
+    float: left;
+    margin-top: 25px;
+    padding-left: 40px;
+    font-size: 14px;
+    color: #4A4F54;
+}
+
+.cmp-tabbedContainer__bottom-content p{
+    padding-bottom: 0;
+    width: 71%;
+}
+.cmp-tabbedContainer__bottom-content p:last-child{
+    margin-top: 25px;
+}
+.slateblue .cmp-tabbedContainer__option-card--active{
+    background-color: #0C121C;
+}
+.slateblue .cmp-tabbedContainer__bottom-title{
+    color: #ffffff;
+}
+.cmp-tabbedContainer__bottom-container{
+    padding-bottom: 0px;
+    width: 1160px;
+    margin: 0 auto;
+    margin-top: 45px;
+    display: inline-block;
+}
+.cmp-tabbedContainer .shelfComponent{
+    padding: 80px 0px 40px;
+}
+.cmp-tabbedContainer .cmp-carousel__bgImage{
+    position: inherit;
+    height: 653px;
+}
+.cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge{
+color: #4A4F54;
+text-transform:unset;
+}
+.cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge::first-letter{
+    text-transform:capitalize;
+}
+.cmp-tabbedContainer .headerClass{
+    max-width: 360px;
+}
+.cmp-tabbedContainer .headerClass .headingWrapper p{
+    font-family: "LandRoverWeb-Bold";
+   color: #0C121C;
+   font-size: 24px;
+}
+.cmp-tabbedContainer .emissionDetails label, p{
+    padding-left: 0px;
+}
+.cmp-tabbedContainer .linkContainer{
+    padding-top: 0;
+}
+.cmp-tabbedContainer .DxTabs__tablist:before{
+    background-color: unset;
+    box-shadow: unset;
+}
+.cmp-tabbedContainer .Exterior360__canvas{
+    width: 100%;
+    height: 653px;
+}
+.cmp-tabbedContainer .swiper-container{
+    width: 100%;
+    height: 653px;
+}
+.cmp-tabbedContainer .DxCarousel__controls.Pagination{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs {
+    top: -80px !important;
+    bottom: unset;
+}
+
+.cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs__panels{
+    margin-top: 80px;
+}
+.cmp-tabbedContainer .GridListWrapper{
+position: relative;
+}
+.cmp-tabbedContainer .videoCustom{
+    height: 653px;
+    position: relative;
+}
+.cmp-tabbedContainer .videoCustom img{
+    height: 653px;
+}
+.cmp-tabbedContainer .cmp-exterior360{
+    margin: 0;
+}
+.cmp-tabbedContainer .DxTabs__tab-inner{
+text-transform: uppercase;
+}
+.cmp-contentBlocksContainer .cmp-tabbedContainer .cmp-tabbedContainer_box{
+    height: auto;
+    max-height:unset;
+    min-height: unset;
+}
+
+.cmp-contentBlocksContainer .cmp-tabbedContainer .swiper-container{
+height: auto;
+}
+/* .cmp-tabbedContainer .interior360{
+    height: 653px;
+} */
+.cmp-tabbedContainer .cmp-interior360{
+    margin: 0;
+}
+.cmp-tabbedContainer .cmp-genericItem__element-poster,
+.cmp-tabbedContainer .Interior360__panorama, 
+.cmp-tabbedContainer .Interior360__panorama-holder{
+    height: 653px !important;
+}
+/* .cmp-tabbedContainer .cmp-interior360 .primaryLinkWithStyle{
+    margin-top: 24px;
+} */
+
+.cmp-tabbedContainer .Exterior360__canvas-container{
+    margin: 0;
+}
+@media screen and (min-width: 1px) and (max-width: 768px) {
+
+    .cmp-tabbedContainer{
+        padding: 60px 0px;
+    }
+    
+}
+
+@media screen and (min-width: 1px) and (max-width: 767px) {
+    .cmp-tabbedContainer{
+        padding-top: 40px;
+    }
+    .cmp-tabbedContainer_box{
+        width: 100%;
+        max-height:211px;
+        min-height: 211px;
+        
+    }
+    .cmp-tabbedContainer .cmp-carousel__bgImage,
+    .cmp-tabbedContainer .Exterior360__canvas,
+    .cmp-tabbedContainer .swiper-container,
+    .cmp-tabbedContainer .videoCustom img,
+    .cmp-tabbedContainer .videoCustom,
+    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    .cmp-tabbedContainer .Interior360__panorama, 
+    .cmp-tabbedContainer .Interior360__panorama-holder{
+        height: 211px !important;
+    }
+    .cmp-tabbedContainer .DxTabs{
+        padding: 0px 25px;
+    }
+    .cmp-tabbedContainer .shelfComponent{
+        padding-left: 25px;
+    padding-right: 25px;
+    }
+    .cmp-tabbedContainer .headerClass{
+        max-width: 100%;
+    }
+    .cmp-tabbedContainer .linkContainer{
+        margin-top: 24px;
+    }
+    .cmp-tabbedContainer .DxTabs{
+        bottom: -50px;
+    }
+}
+@media screen and (min-width: 1px) and (max-width: 375px) {
+    .cmp-tabbedContainer{
+        padding-top: 30px;
+    }
+    }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+    .cmp-tabbedContainer{
+    padding: 60px 0px;
+    }
+    .cmp-tabbedContainer_box{
+        width: 100%;
+        max-height:432px;
+        min-height: 432px;
+        
+    }
+    .cmp-tabbedContainer .cmp-carousel__bgImage, 
+    .cmp-tabbedContainer .Exterior360__canvas,
+    .cmp-tabbedContainer .swiper-container,
+    .cmp-tabbedContainer .videoCustom img,
+    .cmp-tabbedContainer .videoCustom,
+    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    .cmp-tabbedContainer .Interior360__panorama, 
+    .cmp-tabbedContainer .Interior360__panorama-holder{
+        height: 432px !important;
+    }
+    
+    .cmp-tabbedContainer .DxTabs{
+        padding: 0px 30px;
+    }
+    .cmp-tabbedContainer .shelfComponent{
+        padding-left: 30px;
+    padding-right: 30px;
+    }
+    .cmp-tabbedContainer .headerClass{
+        max-width: 100%;
+    }
+    .cmp-tabbedContainer .DxTabs{
+        bottom: -50px;
+    }
+    }
+@media screen and (min-width: 1920px) and (max-width: 2500px) {
+    .cmp-tabbedContainer {
+        padding: 60px 130px;
+    }
+    .cmp-tabbedContainer_box{
+        width: 1660px;
+        max-height:935px;
+        min-height: 935px;
+    }
+    .cmp-tabbedContainer .cmp-carousel__bgImage, 
+    .cmp-tabbedContainer .Exterior360__canvas,
+    .cmp-tabbedContainer .swiper-container,
+    .cmp-tabbedContainer .videoCustom img,
+    .cmp-tabbedContainer .videoCustom,
+    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    .cmp-tabbedContainer .Interior360__panorama, 
+    .cmp-tabbedContainer .Interior360__panorama-holder{
+        height: 935px !important;
+    }
+    .cmp-tabbedContainer .shelfComponent{
+        margin-left: 0;
+    }
+    .cmp-tabbedContainer .secondaryLinkWithStyle{
+        margin-top: 24px;
+    }
+}
+
+
+
+@media screen and (min-width: 1px) and (max-width: 740px) {
+    .Accordion .accordion-group-content-inner > .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .InteractiveSlider,
+    .Accordion .accordion-group-content-inner > .SameSizeCarousel,
+    .Accordion .accordion-group-content-inner > .FullFrameCarousel,
+    .Accordion .accordion-group-content-inner > .ModelSelector,
+    .Accordion .accordion-group-content-inner > .FullWidthImage,
+    .Accordion .accordion-group-content-inner > .ContentBlocksContainer,
+    .Accordion .accordion-group-content-inner > .DualFrameCarousel {
+        border-top: 0 none;
+    }
+    .Accordion .accordion-group-content-inner > .cmp-tabbedContainer ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .InteractiveSlider ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .SameSizeCarousel ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .FullFrameCarousel ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .ModelSelector ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .FullWidthImage ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .ContentBlocksContainer ~ .cmp-tabbedContainer,
+    .Accordion .accordion-group-content-inner > .DualFrameCarousel ~ .cmp-tabbedContainer {
+        border-top: 1px solid #c0c0c0;
+    }
+}

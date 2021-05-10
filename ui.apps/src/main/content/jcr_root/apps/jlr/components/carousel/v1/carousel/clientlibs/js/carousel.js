@@ -11862,8 +11862,10 @@
           }
         });
   
+  
         if (this._total > 1) {
           this._initGallery();
+          $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','78px')
         } else {
           this._$currentSlide = this.$element;
   
@@ -12686,51 +12688,12 @@
         el.classList.add('cmp-herotitle-carousel');
         FullFrameCarouselInit(jQuery, window,"HeroTitleBanner");
         let controls = el.querySelector('.cmp-carousel__controls');
-        if(controls){
-          controls.classList.add('cmp-heroTitleBanner_pagination');
-          let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
-          let height = el.querySelector(".cmp-heroTitleBanner__image").clientHeight;
-          controlsFFC.style.top = "0px";
-          controlsFFC.style.top = height+20+"px";
-        }
-        if(window.innerWidth >=300 && window.innerWidth<=767){
-          let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
-          let offsetheight = el.querySelector(".cmp-heroTitleBanner__image").offsetHeight;
-          let elm = el.querySelectorAll(".cmp-heroTitleBanner__image");
-          elm.forEach((e)=>{
-            e.style.marginBottom="60px";
-          })
-          controlsFFC.style.top = offsetheight+25+"px";
-        }   
-        if(window.innerWidth >=768 && window.innerWidth<=1024){
-          let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
-          let offsetheight = el.querySelector(".cmp-heroTitleBanner__image").offsetHeight;
-          let elm = el.querySelectorAll(".cmp-heroTitleBanner__image");
-          elm.forEach((e)=>{
-            e.style.marginBottom="50px";
-          })
-          controlsFFC.style.top = offsetheight+25+"px";
-        }
-     
-      
+        if(controls)
+        controls.classList.add('cmp-heroTitleBanner_pagination');
         const comp = $(el);
         if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
           comp.HeroTitleBanner();
         }
-        setTimeout(()=>{
-          let videomp4List = el.querySelectorAll('video');
-  
-          if(videomp4List.length>0)
-          {
-            videomp4List.forEach((videomp4)=>{
-              videomp4.removeAttribute("controls");
-              videomp4.addEventListener('pause',()=>{
-                videomp4.currentTime = 0;
-                videomp4.play();
-              })
-            });     
-          };
-        },200);
       }
     });
   }

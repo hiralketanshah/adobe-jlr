@@ -772,3 +772,95 @@ height: 493px;
         width: 100%;
     }
 }
+
+/*--------defect 566-----------*/
+.cmp-vehicleSummary ul li:before {
+    content: '\2013';
+    position: absolute;
+    margin-left: -14px;
+}
+.cmp-vehicleSummary__header{
+	font-size:24px; 
+	line-height:24px;
+}
+
+.cmp-vehicleSummary ul {
+	list-style-type: none;
+	padding-left: 1em;
+	line-height: 19px;
+    margin-top: 36px;
+    margin-bottom:0px;
+  }
+  
+  .primaryLinkWithStyle{
+	margin-top:0;
+  }
+  
+  .cmp-vehicleSummary .cmp-vehicleSummary__price{
+		line-height:19px;
+  }
+  .Picture--background .Picture__img {
+    object-fit: cover;
+    
+}
+
+@media screen and (min-width: 1px) and (max-width: 1240px){
+.cmp-vehicleSummary .cmp-vehicleSummary__image {
+    order: 1;
+    width: 70%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    min-height: 428px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: -4%;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+
+.summaryItemContent {
+    padding-top: 30px;
+}
+}
+    @media screen and (min-width: 1280px) and (max-width: 1919px){
+
+.cmp-vehicleSummary .cmp-vehicleSummary__image {
+    height: 428px;
+    width: 760px;
+   
+}
+}
+@media screen and (min-width: 1920px) and (max-width: 2560px){
+.cmp-vehicleSummary .cmp-vehicleSummary__content {
+    width: 34%;
+    padding-right: 40px;
+}}
+
+ @media screen and (min-width: 1px) and (max-width: 900px){
+.cmp-vehicleSummary ul{
+	margin-top:24px;
+	margin-bottom: 0;
+}
+	.primaryLinkWithStyle{
+	margin-top:0;
+  }
+   .linkContainer{
+  margin-top:0;
+  }
+  
+  }
+ @media screen and (min-width: 1px) and (max-width: 740px){
+.cmp-vehicleSummary ul{
+	margin-top:24px;
+	margin-bottom: 0;
+	}
+.primaryLinkWithStyle{
+	margin-top:0;
+  }
+.linkContainer{
+  margin-top:0;
+  }
+  
+}

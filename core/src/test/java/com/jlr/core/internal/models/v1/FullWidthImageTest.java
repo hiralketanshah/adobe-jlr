@@ -17,6 +17,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class FullWidthImageTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 public class FullWidthImageTest extends GlobalModelImplTest {

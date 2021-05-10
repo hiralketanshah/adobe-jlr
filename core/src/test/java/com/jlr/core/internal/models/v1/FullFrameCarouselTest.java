@@ -17,6 +17,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class FullFrameCarouselTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class FullFrameCarouselTest extends GlobalModelImplTest {
@@ -38,6 +40,9 @@ class FullFrameCarouselTest extends GlobalModelImplTest {
         fullFrameCarouselModel = resource.adaptTo(FullFrameCarouselImpl.class);
     }
 
+    /* (non-Javadoc)
+     * @see com.jlr.core.internal.models.v1.GlobalModelImplTest#testCtaProperties()
+     */
     @Override
     @Test
     void testCtaProperties() {

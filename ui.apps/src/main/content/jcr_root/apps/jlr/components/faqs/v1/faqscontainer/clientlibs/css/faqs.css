@@ -248,6 +248,9 @@
     text-transform: uppercase;
    
 }
+.cmp-faqmodel__list__title p{
+    font-family: 'LandRoverWeb-Bold';
+}
 
 /* media query  */
 /* dektop view  */

@@ -416,16 +416,16 @@
   a {
     font-family:"AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
   }
-  #landrover .secondaryLinkWithStyle:before {
+  #landrover .cmp-accolades .secondaryLinkWithStyle:before {
     color: #0c121c;
   }
-  #landrover .secondaryLinkWithStyle:hover {
+  #landrover .cmp-accolades .secondaryLinkWithStyle:hover {
     color: #C9C9C9 !important;
   }
-  #landrover .secondaryLinkWithStyle:hover::before {
+  #landrover .cmp-accolades .secondaryLinkWithStyle:hover::before {
     color: #C9C9C9 !important;
   }
-  .secondaryLinkWithStyle:hover
+  .cmp-accolades .secondaryLinkWithStyle:hover
    {
     text-decoration: underline !important;
     color: #C9C9C9 !important;
@@ -440,3 +440,66 @@
       color:#0C121C
   }
   /* FIXES END */
+
+
+.cmp-accolades .swiper-button--next {
+    left: auto;
+    right: 0;
+    margin-top: -3%;
+}
+.cmp-accolades .swiper-button--prev {
+    left: 0;
+    right: auto;
+    margin-top: -3%;
+}
+
+
+.cmp-carousel__slider{
+  
+    min-height:425px!important;
+}
+
+
+.cmp-accolades_pagination .Pagination__controls {
+    margin-top: -12%;
+}
+
+.cmp-accolades__copy--tertiary{
+	color:#0C121C ;
+}
+
+.specialColor .fontQuote p{
+color:#0C121C!important ;
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px){
+.cmp-carousel .carousel {
+    min-height: 320px;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 1280px){
+.cmp-accolades {
+    padding-bottom: 60px;
+ }
+ }
+
+@media screen and (min-width: 200px) and (max-width: 768px){
+.cmp-accolades {
+    padding-top: 30px;
+    padding-left: 25px;
+	padding-bottom:40px;
+                    }
+.cmp-carousel__slider{
+  
+    min-height:415px!important;
+                }
+.cmp-accolades_pagination .Pagination__controls {
+    margin-top: -25%;
+}
+ }
+
+ @media screen and (max-width: 767px) and (max-height: 850px)
+.cmp-accolades {
+    height: auto;
+    padding: 20px 0;
+}

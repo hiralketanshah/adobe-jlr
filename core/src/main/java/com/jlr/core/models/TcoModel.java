@@ -2,12 +2,13 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * The Interface TcoModel.
+ *
+ * @author Adobe
  */
 @ConsumerType
 public interface TcoModel {
@@ -47,7 +48,7 @@ public interface TcoModel {
     default String getPriceSuffix() {
         return StringUtils.EMPTY;
     }
-    
+
     /**
      * Gets the view type.
      *
@@ -56,7 +57,7 @@ public interface TcoModel {
     default String getViewType() {
         return StringUtils.EMPTY;
     }
-    
+
     /**
      * Gets the emission head.
      *
@@ -65,7 +66,7 @@ public interface TcoModel {
     default String getEmissionHead() {
         return StringUtils.EMPTY;
     }
-    
+
     /**
      * Gets the emission body.
      *
@@ -74,7 +75,7 @@ public interface TcoModel {
     default String getEmissionBody() {
         return StringUtils.EMPTY;
     }
-    
+
     /**
      * Gets the lease label.
      *
@@ -83,7 +84,7 @@ public interface TcoModel {
     default String getLeaseLabel() {
         return StringUtils.EMPTY;
     }
-    
+
     /**
      * Gets the lease price.
      *

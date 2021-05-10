@@ -14,9 +14,15 @@ import com.jlr.core.models.TcoModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class TcoModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 class TcoModelImplTest extends GlobalModelImplTest {
 
+    /** The tco model. */
     private TcoModel tcoModel;
 
     /**

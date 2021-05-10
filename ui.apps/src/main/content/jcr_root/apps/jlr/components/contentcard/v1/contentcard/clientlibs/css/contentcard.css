@@ -59,7 +59,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   margin-top: 17px;
 }
 .cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle {
-  margin-top: 15px;
+  margin-top: 0px;
 }
 .cmp-ContentBlocksContainer.twoCol .el {
   width: 49.5% !important;
@@ -1390,38 +1390,38 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 }
 /* MOBILE START */
 /* TABLET START */
-@media screen and (min-width: 375px) and (max-width: 765px){
+@media screen and (min-width: 300px) and (max-width: 765px){
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
     width: calc(100% - 45px);
 }
-  /* .swiper-slide-visible{
+  .swiper-slide-visible{
     width: 325px;
   }
   .swiper-slide-next .cmp-ContentCard{
     padding-left: 325px;
     width: 325px;
-  } */
-  /* .swiper-slide-prev .cmp-ContentCard{ */
-    /* margin-right: 325px; */
-    /* width: 325px;
-    visibility: hidden; */
-  /* } */
-  /* .swiper-slide-active{
+  }
+  .swiper-slide-prev .cmp-ContentCard{ 
+    margin-right: 325px; 
+     width: 325px;
+    visibility: hidden; 
+   } 
+  .swiper-slide-active{
     width: 325px;
   }
   .swiper-slide-active .cmp-ContentCard{
     width: 325px;
-  } */
-  /* .swiper-slide-next .cmp-ContentCard{
+  }
+  .swiper-slide-next .cmp-ContentCard{
     width: 325px;
     padding-right: 100px;
     padding-left: 50px;
-  } */
-  /* .GridListWrapper {
-      padding-top:40px;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-bottom: 60px;
+  }
+  .GridListWrapper {
+      padding-top:25px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 25px;
   }
   .GridListWrapper .headerBlock{
     padding-left: 0px;
@@ -1429,11 +1429,27 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .GridListWrapper .items .el{
     padding-left: 0px;
     padding-right: 28px;
-  } */
+  }
+ .cmp-ContentBlocksContainer .headerBlock{
+  padding-right: 0px;
+  }
+  .cmp-ContentBlocksContainer .el.gridEl{
+      padding-right: 0px;
+  }
+  .cmp-ContentBlocksContainer .primaryLinkWithStyle {
+      margin-bottom: 0px;
+  }
+  #landrover .cmp-ContentBlocksContainer .secondaryLinkWithStyle{
+      margin-bottom: 0px;
+  }
 }
 /* MOBILE END */
 /* TABLET START */
 @media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-ContentBlocksContainer .secondaryLinkWithStyle,.cmp-ContentBlocksContainer .primaryLinkWithStyle  {
+      margin-top: 0;
+      margin-bottom: 0px !important;
+  }
   .GridListWrapper {
       padding-top:40px;
       padding-left: 30px;
@@ -1568,3 +1584,28 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     margin-top: 15px !important;
   }
   /* FIXES END */
+  .cmp-ContentCard .mediaOverlayVideo, video {
+      height: 100% !important;
+  }
+  .cmp-ContentCard .heading p{
+          color:#0c121c;
+  }
+  .cmp-ContentCard .secondaryLinkContainer{
+      padding-top: 0px;
+}
+
+.cmp-ContentBlocksContainer .linkContainer{
+  padding-top: 0px  !important;
+  margin-top: 24px;
+}
+.cmp-ContentBlocksContainer .ctaContainer .primaryLinkContainer .primaryLinkWithStyle{
+  padding-top: 17px  !important;
+}
+.cmp-ContentBlocksContainer .ctaContainer .primaryLinkContainer{
+  width: 100%;
+  float: left;
+}
+.containerKeyLine span{
+  width: 100%;
+  float: left;
+}  

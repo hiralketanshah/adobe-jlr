@@ -15,6 +15,8 @@ import com.jlr.core.utils.CtaUtils;
 
 /**
  * The Class SnippetModelImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {SnippetModel.class}, resourceType = SnippetModelImpl.RESOURCE_TYPE,
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)

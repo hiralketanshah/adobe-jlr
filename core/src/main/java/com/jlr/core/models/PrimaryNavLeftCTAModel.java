@@ -1,45 +1,73 @@
 package com.jlr.core.models;
 
 import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-
 import com.jlr.core.utils.LinkUtils;
 
+/**
+ * The Class PrimaryNavLeftCTAModel.
+ *
+ * @author Adobe
+ */
 @Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavLeftCTAModel {
-	
-	@Inject
+
+    /** The resource resolver. */
+    @Inject
     private ResourceResolver resourceResolver;
- 
-    @Inject
-    private String leftPaneCtaText;
-    
-    @Inject
-    private String leftPaneCtaLink;
-    
-    @Inject
-    private String leftPaneCtaAriaLabel;
-    
-    @Inject
-    private String leftPaneCtaTarget;
 
-	public String getLeftPaneCtaText() {
-		return leftPaneCtaText;
-	}
+    /** The left pane cta text one. */
+    @Inject
+    private String leftPaneCtaTextOne;
 
-	public String getLeftPaneCtaLink() {
-		return LinkUtils.appendLinkExtension(leftPaneCtaLink, resourceResolver);
-	}
+    /** The left pane cta link one. */
+    @Inject
+    private String leftPaneCtaLinkOne;
 
-	public String getLeftPaneCtaAriaLabel() {
-		return leftPaneCtaAriaLabel;
-	}
+    /** The left pane cta aria label one. */
+    @Inject
+    private String leftPaneCtaAriaLabelOne;
 
-	public String getLeftPaneCtaTarget() {
-		return leftPaneCtaTarget;
-	}
+    /** The left pane cta target one. */
+    @Inject
+    private String leftPaneCtaTargetOne;
+
+    /**
+     * Gets the left pane cta text one.
+     *
+     * @return the left pane cta text one
+     */
+    public String getLeftPaneCtaTextOne() {
+        return leftPaneCtaTextOne;
+    }
+
+    /**
+     * Gets the left pane cta link one.
+     *
+     * @return the left pane cta link one
+     */
+    public String getLeftPaneCtaLinkOne() {
+        return LinkUtils.appendLinkExtension(leftPaneCtaLinkOne, resourceResolver);
+    }
+
+    /**
+     * Gets the left pane cta aria label one.
+     *
+     * @return the left pane cta aria label one
+     */
+    public String getLeftPaneCtaAriaLabelOne() {
+        return leftPaneCtaAriaLabelOne;
+    }
+
+    /**
+     * Gets the left pane cta target one.
+     *
+     * @return the left pane cta target one
+     */
+    public String getLeftPaneCtaTargetOne() {
+        return leftPaneCtaTargetOne;
+    }
 }
