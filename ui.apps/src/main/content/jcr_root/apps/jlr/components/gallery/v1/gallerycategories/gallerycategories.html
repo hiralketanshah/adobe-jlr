@@ -1,0 +1,72 @@
+<sly data-sly-use.model="com.jlr.core.models.GalleryCategoryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories,fullscreen.default.close.link.text'}" data-sly-call="${renderGalleryCategories @ model=model, config=config}" />
+
+<template data-sly-template.renderGalleryCategories="${ @ model, config }">
+ <div class="cq-placeholder" data-emptytext="Gallery Category Component"></div>
+
+        <div class="Fullscreen fontSmooth  Fullscreen--hasGalleryCategories">
+            <div class="Fullscreen__header" data-close-target="#">
+                <div class="Fullscreen__header-overlay-box"></div>
+
+                <div class="Fullscreen__information-wrapper">
+                    <h4 class="heading fontH3Brand Fullscreen__information-heading">${model.headerCopy @context='html'}</h4>
+                    <div class="Fullscreen__information-text">${model.copy @context='html'}</div>
+                </div>
+
+                <div class="Fullscreen__buttons">
+
+                    <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">${config.configMap['fullscreen.default.close.link.text']}</span></a>
+                </div>
+            </div>
+
+            <div class="Fullscreen__content-wrapper">
+                <button aria-pressed="false" class="Fullscreen__toggle">
+                    <span class="visuallyHidden Fullscreen__toggleText">Toggle full screen mode</span>
+                </button>
+
+                <div class="GalleryCategories fontSmooth" data-total="${model.categoriesCount}">
+                    <ul class="GalleryCategories__list">
+
+					
+						<sly data-sly-list.category="${model.categoryList}">
+						
+							<li class="GalleryCategories__list-item">
+
+                            <picture data-total="${model.categoriesCount}" class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--portrait" >
+                                <source data-orientation="portrait" media="(min-width: 550px)" srcset="${category.bgImage}" />
+                                <source data-orientation="portrait" media="(min-width: 0px)" srcset="${category.bgImage}" />
+                                <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.bgImage}" />
+                            </picture>
+
+                            <picture data-total="${model.categoriesCount}" class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--landscape" >
+                                <source data-orientation="landscape" media="(min-width: 1200px)" srcset="${category.bgImage}" />
+                                <source data-orientation="landscape" media="(min-width: 0px)" srcset="${category.bgImage}" />
+                                <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.bgImage}" />
+                            </picture>
+
+
+                            <a class="GalleryCategories__link" href="${category.categoryLink}">
+                                <div class="GalleryCategories__overlay"></div>
+                                <div class="GalleryCategories__text-container">
+                                    <h3 class="GalleryCategories__category-title heading headingLight headingLinear headingCentre headingThick">
+                                        <span class="GalleryCategories__category-title-inner">${category.categoryName @context='html'}</span>
+                                    </h3>
+
+                                    <span class="GalleryCategories__category-count">(${category.count})</span>
+                                </div>
+                            </a>
+                        </li>	
+						</sly>                       
+                    </ul>
+                </div>
+            </div>
+
+            <div class="Fullscreen__footer">
+                <h4 class="heading headingCentre fontH3Brand Fullscreen__footer-heading">${model.headerCopy @context='html'}</h4>
+                <div class="Fullscreen__footer-text">${model.copy @context='html'}</div>
+
+                <div class="Fullscreen__link-container">
+                    <!-- this linkcontainer has a buttin injected into it from the gallery slide if one exists - its a placeholder -->
+                </div>
+            </div>
+        </div>
+</template>

@@ -1,6 +1,5 @@
 package com.jlr.core.constants;
 
-
 /**
  * The Class CommonConstants.
  *
@@ -44,6 +43,13 @@ public class CommonConstants {
     /** The Constant COMMA. */
     public static final String COMMA = ",";
 
+    /** The Constant JLR_ROOT. */
+    public static final String JLR_ROOT = "root";
+
+    /** The Constant JLR_CONTAINER. */
+    public static final String JLR_CONTAINER = "container";
+
+    /** The Constant JLR_LANGUAGE_MASTER. */
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
 
     /** The Constant JLR_GLOBAL_MASTER. */
@@ -63,6 +69,7 @@ public class CommonConstants {
 
     /** The Constant PNG_EXTENSION. */
     public static final String PNG_EXTENSION = ".png";
+    public static final String JLR_GALLERY_LIST = "gallerylist/galleryList";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
@@ -109,6 +116,9 @@ public class CommonConstants {
     /** The Constant PN_TITLE. */
     public static final String PN_TITLE = "headerCopy";
 
+    /** The Constant PN_ASSET_TYPE. */
+    public static final String PN_ASSET_TYPE = "assetType";
+
     /** The Constant PN_FILE_REFERENCE. */
     public static final String PN_FILE_REFERENCE = "fileReference";
 
@@ -123,6 +133,12 @@ public class CommonConstants {
 
     /** The Constant PN_IS_DECORATIVE. */
     public static final String PN_IS_DECORATIVE = "isDecorative";
+
+    /** The Constant PN_VIDEO_ID. */
+    public static final String PN_VIDEO_ID = "videoId";
+
+    /** The Constant PN_POSTER_IMAGE. */
+    public static final String PN_POSTER_IMAGE = "posterImage";
 
     /** The Constant PN_OPTION_IMAGE. */
     public static final String PN_OPTION_IMAGE = "optionImage";
@@ -204,6 +220,14 @@ public class CommonConstants {
 
     /** The Constant PN_QUICK_LINKS_CTA_TARGET. */
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
+
+    /** The Constant PN_BG_IMAGE. */
+    public static final String PN_BG_IMAGE = "bgImage";
+
+    /** The Constant PN_CATEGORY_NAME. */
+    public static final String PN_CATEGORY_NAME = "categoryName";
+
+    /** The Constant PN_TAB_HEADING. */
     public static final String PN_TAB_HEADING = "tabHeading";
 
     /** The Constant PN_VEHICLE_CONTAINER. */
@@ -217,7 +241,11 @@ public class CommonConstants {
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
+
+    /** The Constant NN_ROOT. */
     public static final String NN_ROOT = "root";
+
+    /** The Constant NN_CONTAINER. */
     public static final String NN_CONTAINER = "container";
 
     /** The Data Layer Constants. */
