@@ -1,12 +1,9 @@
 <sly data-sly-use.model="com.jlr.core.models.GalleryListModel"
-  data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories'}"
+  data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories,gallery.next.slide,gallery.previous.slide,fullscreen.default.close.link.text'}"
   data-sly-call="${renderGalleryList @ model=model, config=config}" />
 
 <template data-sly-template.renderGalleryList="${ @ model, config }">
   <div class="cq-placeholder" data-emptytext="Gallery List Component"></div>
-  <div class="container">
-    <main id="content">
-      <!-- Fullscreen -->
       <div class="Fullscreen fontSmooth  Fullscreen--hasGallery">
           <div class="Fullscreen__header" data-close-target="#">
               <div class="Fullscreen__header-overlay-box"></div>
@@ -18,8 +15,8 @@
 
               <div class="Fullscreen__buttons">
 
-                  <a aria-label="${config.configMap['gallery.seeCategories']}" class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}" title="${config.configMap['gallery.seeCategories']}"><span></span></a>
-                  <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">VISIT SITE</span></a>
+                  <a class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}" title="${config.configMap['gallery.seeCategories']}"><span></span></a>
+                  <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">${config.configMap['fullscreen.default.close.link.text']}</span></a>
               </div>
         </div>
         <div class="Fullscreen__content-wrapper">
@@ -27,8 +24,8 @@
             <span
               class="visuallyHidden Fullscreen__toggleText">${config.configMap['gallery.fullscreen.toggle.text']}</span>
           </button>
-          <div class="Gallery fontSmooth" data-label-next="Go to next slide" data-label-pip="Go to slide []"
-            data-label-previous="Go to previous slide" data-label-slideChanged="Now showing slide []"
+          <div class="Gallery fontSmooth" data-label-next="${config.configMap['gallery.next.slide']}" data-label-pip="Go to slide []"
+            data-label-previous="${config.configMap['gallery.previous.slide']}" data-label-slideChanged="Now showing slide []"
             data-url="/vehicles/range-rover/gallery-exterior.html/">
             <div class="Gallery__slider swiper-container">
               <div class="Gallery__wrapper" id="full-width-slider">
@@ -47,7 +44,7 @@
                     <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
                     <div class="Gallery__text">${gallery.copy @context='html'}</div>
                     <div class="Gallery__link-container">
-                      <span class="primaryLinkContainer">
+                      <span data-sly-test="${gallery.text}" class="primaryLinkContainer">
                         <a aria-label="${gallery.ariaLabel}"
                           class=" Gallery__cta  primaryLinkWithStyle ${gallery.target=='overlay' ? '' : gallery.icon} TargetLinks"
                           data-link-desktop="${gallery.link}" data-target="${gallery.target}" href="${gallery.link}"
@@ -96,7 +93,4 @@
           </div>
         </div>
       </div>
-      <!-- /Fullscreen -->
-    </main>
-  </div>
 </template>

@@ -1,12 +1,8 @@
-<sly data-sly-use.model="com.jlr.core.models.GalleryCategoryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories'}" data-sly-call="${renderGalleryCategories @ model=model, config=config}" />
+<sly data-sly-use.model="com.jlr.core.models.GalleryCategoryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='gallery.fullscreen.toggle.text,gallery.seeCategories,fullscreen.default.close.link.text'}" data-sly-call="${renderGalleryCategories @ model=model, config=config}" />
 
 <template data-sly-template.renderGalleryCategories="${ @ model, config }">
  <div class="cq-placeholder" data-emptytext="Gallery Category Component"></div>
 
-
-<div class="container">
-    <main id="content">
-        <!-- Fullscreen -->
         <div class="Fullscreen fontSmooth  Fullscreen--hasGalleryCategories">
             <div class="Fullscreen__header" data-close-target="#">
                 <div class="Fullscreen__header-overlay-box"></div>
@@ -18,7 +14,7 @@
 
                 <div class="Fullscreen__buttons">
 
-                    <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">VISIT SITE</span></a>
+                    <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">${config.configMap['fullscreen.default.close.link.text']}</span></a>
                 </div>
             </div>
 
@@ -73,9 +69,4 @@
                 </div>
             </div>
         </div>
-        <!-- /Fullscreen -->
-
-    </main>
-</div>
-
 </template>
