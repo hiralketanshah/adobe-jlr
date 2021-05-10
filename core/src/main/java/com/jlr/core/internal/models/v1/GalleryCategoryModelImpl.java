@@ -61,10 +61,8 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
                 String categoryPath = properties.get(CommonConstants.PN_CTA_LINK, String.class);
                 int count = (null != categoryPath) ? getCount(categoryPath) : 0;
                 if (null != properties) {
-                    listOfCategoryItems.add(
-                            new GalleryCategory(properties.get(CommonConstants.PN_PORTRAIT_LARGE_IMAGE, String.class),
-                                    properties.get(CommonConstants.PN_PORTRAIT_SMALL_IMAGE, String.class),
-                                    properties.get(CommonConstants.PN_LANDSCAPE_LARGE_IMAGE, String.class),
+                    listOfCategoryItems
+                            .add(new GalleryCategory(properties.get(CommonConstants.PN_BG_IMAGE, String.class),
                                     properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
                                     properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
                                     LinkUtils.appendLinkExtension(categoryPath, resourceResolver),
@@ -96,7 +94,7 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
         if (null != galleryResource) {
             Resource galleryComp = galleryResource.getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH
                     + CommonConstants.JLR_ROOT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER
-                    + CommonConstants.FORWARD_SLASH + "gallerylist/galleryList");
+                    + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_GALLERY_LIST);
             if (null != galleryComp) {
                 Iterator<Resource> childResources = galleryComp.listChildren();
                 count = Iterators.size(childResources);

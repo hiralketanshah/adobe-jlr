@@ -27,6 +27,7 @@ public class CommonConstants {
     public static final String CONTAINER_NODE = "/jcr:content/root/container";
     public static final String CLIENT_LIB_PATH_FLAG = "/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/flags/";
     public static final String PNG_EXTENSION = ".png";
+    public static final String JLR_GALLERY_LIST = "gallerylist/galleryList";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
@@ -83,9 +84,7 @@ public class CommonConstants {
     public static final String PN_QUICK_LINKS_CTA_LINK = "quickLinksCopyCtaLink";
     public static final String PN_QUICK_LINKS_CTA_ICON = "quickLinksCopyCtaIcon";
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
-    public static final String PN_PORTRAIT_LARGE_IMAGE = "portraitLargeImage";
-    public static final String PN_PORTRAIT_SMALL_IMAGE = "portraitSmallImage";
-    public static final String PN_LANDSCAPE_LARGE_IMAGE = "landscapeLargeImage";
+    public static final String PN_BG_IMAGE = "bgImage";
     public static final String PN_CATEGORY_NAME = "categoryName";
 
     /** The NODE Name Constants. */
