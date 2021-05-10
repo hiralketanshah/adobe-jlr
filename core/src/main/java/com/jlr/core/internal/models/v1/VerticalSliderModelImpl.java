@@ -14,6 +14,8 @@ import com.jlr.core.models.VerticalSliderModel;
 
 /**
  * The Class VerticalSliderModelImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {VerticalSliderModel.class}, resourceType = VerticalSliderModelImpl.RESOURCE_TYPE)
 public class VerticalSliderModelImpl extends GlobalModelImpl implements VerticalSliderModel {
@@ -33,9 +35,11 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private Boolean autopauseDisabled;
 
+    /** The vertical slider. */
     @Inject
     private Resource verticalSlider;
 
+    /** The vertical slider list. */
     @Inject
     @Optional
     private Resource verticalSliderList;
@@ -64,6 +68,11 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     }
 
     /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getDelay()
+     */
+    /*
      * Gets the delay between transitions
      * 
      * @return the delay timer
@@ -74,6 +83,11 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     }
 
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getAutopauseDisabled()
+     */
     /*
      * Gets the autopause state
      * 
@@ -86,6 +100,11 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
 
 
     /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getPipIcon()
+     */
+    /*
      * Gets the icon type - Default to number
      * 
      * @return the icon type
@@ -95,6 +114,11 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
         return pipIcon;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getName()
+     */
     /*
      * Gets slider resource Node name
      * 

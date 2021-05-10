@@ -1,0 +1,11 @@
+.gallerycategories .Fullscreen__information-heading {
+    text-transform: uppercase;
+}
+
+.gallerycategories .Fullscreen__information-text {
+    text-transform: capitalize;
+}
+
+.gallerycategories .GalleryCategories__category-title-inner {
+    text-transform: uppercase;
+}

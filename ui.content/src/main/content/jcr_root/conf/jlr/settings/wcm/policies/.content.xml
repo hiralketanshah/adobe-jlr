@@ -281,6 +281,17 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_1620285803627
+                    jcr:lastModified="{Date}2021-05-06T12:53:37.295+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Gallery Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="group:JLR - Gallery"
+                    layout="simple"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1620285803627>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -823,11 +834,6 @@
                                             cq:styleLabel="Light"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="grey"
-                                            cq:styleId="1618048065522"
-                                            cq:styleLabel="Grey"
-                                            jcr:primaryType="nt:unstructured"/>
-                                        <item2
                                             cq:styleClasses="white"
                                             cq:styleId="1618048069660"
                                             cq:styleLabel="White"
@@ -1143,7 +1149,35 @@
                         </policy_1620289198673>
                     </exterior360>
                 </v1>
-             </exterior360>       
+            </exterior360>
+            <tabbedcontainer jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <tabbedcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620031717860
+                            jcr:lastModified="{Date}2021-05-06T11:53:19.467+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Tabbed Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[/apps/jlr/components/contentcard/v1/contentcard,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/exterior360/v1/exterior360,/apps/jlr/components/interior360/v1/interior360]">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Heading Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-contentBlocksContainer"
+                                            cq:styleId="1620281765626"
+                                            cq:styleLabel="Content Card (Top)"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620031717860>
+                    </tabbedcontainer>
+                </v1>
+            </tabbedcontainer>
         </components>
     </jlr>
     <rep:policy/>

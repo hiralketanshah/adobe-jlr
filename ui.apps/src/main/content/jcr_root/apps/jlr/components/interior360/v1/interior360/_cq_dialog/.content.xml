@@ -31,6 +31,10 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                            <tabHeading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
                         </items>
                     </properties>
                     <image

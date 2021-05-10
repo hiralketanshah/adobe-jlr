@@ -71,9 +71,7 @@
 			$.each($targetElement, function (index, elem) {
 				setTimeout(function () {
 					if (elem.getAttribute("data-showhidetargetvalue").includes(value)) {
-						console.log("matching condition");
 						elem.classList.remove("hide");
-
 					}
 				}, 300);
 			});

@@ -6,6 +6,11 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 
+/**
+ * The Interface TableModel.
+ *
+ * @author Adobe
+ */
 public interface TableModel {
 
     /**
@@ -18,7 +23,7 @@ public interface TableModel {
     }
 
     /**
-     * Gets the table HTML
+     * Gets the table HTML.
      *
      * @return the table HTML
      */

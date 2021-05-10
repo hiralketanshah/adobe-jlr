@@ -2,11 +2,18 @@ package com.jlr.core.pojos;
 
 /**
  * The type Image.
+ *
+ * @author Adobe
  */
 public class Image {
 
+    /** The widest image. */
     private String widestImage;
+    
+    /** The alt. */
     private String alt;
+    
+    /** The image. */
     private PublishedImage image;
 
     /**

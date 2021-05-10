@@ -9,8 +9,8 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
       <div class="dxnav-vehicle-menu__sidebar">
          <div class="dxnav-vehicle-menu__categories">
             <sly data-sly-list.item="${model.vehicleFamily}">
-               <div class="dxnav-vehicle-nav__category-block" >
-                  <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
+               <div class="dxnav-vehicle-nav__category-block">
+                  <div data-sly-test="${item.vehicleFamilyName}" class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
                   <sly data-sly-list.item1="${item.vehiclesList}">
                      <sly data-sly-resource="${item1.vehicleCardLink @appendPath='/jcr:content/root/container',selectors='vehiclecarditem'}"/>
                   </sly>

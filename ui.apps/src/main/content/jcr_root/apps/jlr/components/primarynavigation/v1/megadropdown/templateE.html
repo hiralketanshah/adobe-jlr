@@ -1,0 +1,84 @@
+<template data-sly-template.templateE="${@ model}">
+    <table class="author-table">
+        <tr class="author-tr">
+            <th class="author-th">Key</th>
+            <th class="author-th">Value</th>
+        </tr>
+        <tr class="author-tr">
+            <td class="author-td">Template</td>
+            <td class="author-td">External Link with Large Promo Image</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Tab Name</td>
+            <td class="author-td">${model.tabName}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Primary Navigation Title</td>
+            <td class="author-td">${model.primaryNavTitle}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Primary Navigation Aria Label</td>
+            <td class="author-td">${model.primaryNavAriaLabel}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Header Copy</td>
+            <td class="author-td">${model.leftPaneHeaderCopy}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Body Copy</td>
+            <td class="author-td">${model.leftPaneBodyCopy}</td>
+        </tr>
+
+        <sly data-sly-test="${model.leftTextCta}" data-sly-list.cta="${model.leftTextCta}">
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Text ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCopyCtaText}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Link ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCopyCtaLink}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Aria Label ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCopyCtaAriaLabel}</td>
+            </tr>
+        </sly>
+
+        <tr class="author-tr">
+            <td class="author-td">Image</td>
+            <td class="author-td">${model.fileReferenceImage}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Image alt text</td>
+            <td class="author-td">${model.rightPaneImageAlt}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Image link</td>
+            <td class="author-td">${model.rightPaneImageLink}</td>
+        </tr>
+
+        <sly data-sly-test="${model.quickLinks}" data-sly-list.quicklinks="${model.quickLinks}">
+            <tr class="author-tr">
+                <td class="author-td">Quick Links Text ${quicklinksList.index}</td>
+                <td class="author-td">"${quicklinks.quickLinksCtaText}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Quick Links Link ${quicklinksList.index}</td>
+                <td class="author-td">"${quicklinks.quickLinksCopyCtaLink}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Quick Links Aria Label ${quicklinksList.index}</td>
+                <td class="author-td">"${quicklinks.quickLinksCopyCtaAriaLabel}</td>
+            </tr>
+
+        </sly>
+
+    </table>
+</template>
