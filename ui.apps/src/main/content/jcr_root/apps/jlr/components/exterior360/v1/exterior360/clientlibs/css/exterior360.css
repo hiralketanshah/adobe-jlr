@@ -150,7 +150,6 @@
 	justify-content: center
 }
 
-
 .Exterior360__no-js-notice {
 	padding-top: 200px
 }
@@ -180,7 +179,8 @@
 }
 .fontBodyCopyLarge {
 	text-align: left;
-	padding-right: 40px
+	padding-right: 40px;
+	margin-top: 5px;
 }
 .primaryLinkWithStyle {
 	float: left
