@@ -73,6 +73,8 @@ public class CommonConstants {
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
+    public static final String PATH_HEADER = "/config/navigation/header";
+    public static final String PATH_FOOTER = "/config/navigation/footer";
 
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";

@@ -2,7 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="Primary Navigation"
-    sling:resourceType="cq/gui/components/authoring/dialog">
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[jlr.authoring.dialog]">
     <content
         jcr:primaryType="nt:unstructured"
         sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
@@ -92,7 +93,7 @@
                                 level="{Long}4"
                                 text="Customer Portal"/>
                             <enableCustPortal
-                                granite:class="cq-dialog-checkbox-nav-showhide"
+                                granite:class="primary-nav-cp"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                 fieldDescription="Check if the Customer Portal should be linked to Primary Navigation."
@@ -101,7 +102,7 @@
                                 uncheckedValue="false"
                                 value="{Boolean}true"/>
                             <custPortalLink
-                                granite:class="cust-portal-hide-show"
+                                granite:class="primary-nav-cp-link"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                 fieldDescription="Specify Link to a customer portal."
@@ -109,7 +110,7 @@
                                 name="./custPortalLink"
                                 rootPath="/content/landrover/global"/>
                             <custPortalAriaLabel
-                                granite:class="cust-portal-aria-hide-show"
+                                granite:class="primary-nav-cp-aria"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Customer Portal."
@@ -133,8 +134,8 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Retailer Locator."
                                 fieldLabel="Retailer Locator Aria Label"
-                                required="true"
-                                name="./retailerAriaLabel"/>
+                                name="./retailerAriaLabel"
+                                required="true"/>
                             <Searchheading
                                 granite:class="coral-Heading coral-Heading--4"
                                 jcr:primaryType="nt:unstructured"
@@ -146,8 +147,8 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Search."
                                 fieldLabel="Search Aria Label"
-                                required="true"
-                                name="./searchAriaLabel"/>
+                                name="./searchAriaLabel"
+                                required="true"/>
                             <mobileBurgerHeading
                                 granite:class="coral-Heading coral-Heading--4"
                                 jcr:primaryType="nt:unstructured"
@@ -159,8 +160,8 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the Aria Label for Mobile Burger."
                                 fieldLabel="Mobile Burger Aria Label"
-                                required="true"
-                                name="./mobileBurgerAriaLabel"/>
+                                name="./mobileBurgerAriaLabel"
+                                required="true"/>
                         </items>
                     </secondary>
                 </items>
