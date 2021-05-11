@@ -1,3 +1,6 @@
+.cmp-interior360 .headingThick{
+  padding: 0px !important;
+}
 .Interior360__icon {
     height: 20px;
     width: 20px;
@@ -103,21 +106,21 @@
       min-height: 0;
     }
   }
-  .headerClass {
+  .cmp-interior360 .headerClass {
     float: left;
     margin-right: 40px;
     min-height: 200px;
     min-width: 360px;
   }
-  .linkContainer,
+  .cmp-interior360 .linkContainer,
   .secondaryLinkContainer {
     float: left;
   }
-  .fontBodyCopyLarge {
+  .cmp-interior360 .fontBodyCopyLarge {
     text-align: left;
     padding-right: 40px;
   }
-  .shelfComponent {
+  .cmp-interior360 .shelfComponent {
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -146,9 +149,31 @@
       margin-right: 130px;
       margin-top: 60px;
     }
-    .shelfComponent {
-      margin-left: 100px;
+    .cmp-interior360 .shelfComponent {
+      margin-left: 160px;
       width: 1100px;
+    }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 24px;
+    }
+    .cmp-interior360 .linkContainer{
+      padding-top: 24px !important;
+    }
+    .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
+      margin-top: 23px !important;
+    }
+    .cmp-interior360 .headerClass { 
+      min-width: 420px;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 32px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 24px !important;
+    }
+    .cmp-interior360 .Interior360__init-container-icon{
+      width: 78px;
+      height: 78px;
     }
   }
   @media screen and (min-width: 1279px) and (max-width: 1919px) {
@@ -174,6 +199,28 @@
     .cmp-interior360 .primaryLinkWithStyle{
       margin-top: 0px;
     }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 24px;
+    }
+    .cmp-interior360 .linkContainer{
+      padding-top: 24px !important;
+    }
+    .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
+      margin-top: 24px !important;
+    }
+    .cmp-interior360 .headerClass { 
+      min-width: 360px;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 32px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 24px !important;
+    }
+    .cmp-interior360 .Interior360__init-container-icon{
+      width: 78px;
+      height: 78px;
+    }
   }
   @media screen and (min-width: 767px) and (max-width: 1278px) {
     .cmp-interior360{
@@ -190,7 +237,7 @@
       position: relative;
       padding-bottom: 0;
     }
-    .shelfComponent {
+    .cmp-interior360 .shelfComponent {
       padding-left: 30px;
       padding-right: 25px;
       padding-top: 28px;
@@ -198,13 +245,13 @@
       min-width: 40%;
       max-width: 75.4%;
     }
-    .headerClass {
+    .cmp-interior360 .headerClass {
       float: left;
       min-height: 0;
       margin-bottom: 0;
       width: 100%;
     }
-    .headerClass h2 {
+    .cmp-interior360 .headerClass h2 {
       margin-top: 0;
       margin-bottom: 14px;
       display: block;
@@ -226,6 +273,18 @@
       position: absolute;
       top: 70px;
       left: 30px;
+    }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 21px;
+    }
+    .cmp-interior360 .linkContainer {
+      padding-top: 19px;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 28px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 21px !important;
     }
   }
   @media screen and (min-width: 300px) and (max-width: 766px) {
@@ -257,7 +316,7 @@
       position: relative;
       padding-bottom: 0;
     }
-    .shelfComponent {
+    .cmp-interior360 .shelfComponent {
       padding-left: 25px;
       padding-right: 25px;
       padding-top: 16px;
@@ -265,18 +324,18 @@
       min-width: 40%;
       max-width: 100%;
     }
-    .headerClass {
+    .cmp-interior360 .headerClass {
       float: left;
       min-height: 0;
       margin-bottom: 0;
       width: 100%;
     }
-    .headerClass h2 {
+    .cmp-interior360 .headerClass h2 {
       margin-top: 0;
       margin-bottom: 14px;
       display: block;
     }
-    .fontBodyCopyLarge {
+    .cmp-interior360 .fontBodyCopyLarge {
       width: 100%;
       margin-bottom: 0;
       padding-right: 0;
@@ -325,11 +384,23 @@
       left: 50%;
       margin-left: -9px;
     }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 20px;
+    }
+    .cmp-interior360 .linkContainer{
+      margin-top: 43px !important;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 27px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 20px !important;
+    }
   }
   .cmp-interiorInner .cmp-carousel__slider {
     height: 100% !important;
   }
-  .primaryLinkWithStyle {
+  .cmp-interior360 .primaryLinkWithStyle {
     float: left;
   }
   .cmp-carousel__controls {
@@ -1266,4 +1337,14 @@
   }
   .Interior360__load-button:hover{
     background-color: rgba(0, 0, 0, 0.16);
+  }
+  .grey .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p,.white .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p {
+    color: #0c121c !important;
+  }
+
+  .cmp-interior360 .primaryLinkWithStyle { 
+    line-height: 14px !important;
+  }
+  .cmp-interior360 .secondaryLinkWithStyle { 
+    line-height: 12.5px !important;
   }
