@@ -1338,6 +1338,23 @@
   .Interior360__load-button:hover{
     background-color: rgba(0, 0, 0, 0.16);
   }
+  @media screen and (min-width: 1920px) {
+    .Interior360__load-button {
+     width: 1672px;
+     height:937px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .Interior360__load-button {
+     width: 780px;
+     height:434px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .Interior360__load-button {
+     width: 387px;
+     height:213px;
+    }
   .grey .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p,.white .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p {
     color: #0c121c !important;
   }

@@ -1,6 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.PrimaryNavigationModel"
 data-sly-use.pageConfig="com.jlr.core.models.PageModel"
-data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"
+data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,navigation.shared.vehicleDropdownFromText,navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown'}"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
    id="${component.id}"></sly>
 <header class="dxnav-header">
@@ -193,7 +193,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                <div id="dxnav-vehicle-dropdown-0" aria-modal="true" role="dialog" class="dxnav-dropdown dxnav-primary-dropdown dxnav-naas-primary-dropdown dxnav-naas-vehicle-dropdown dxnav-dropdown--dropdown">
                   <div class="dxnav-vehicle-dropdown-shortcuts__instructions" style="display: none;" id="dxnav-vehicle-dropdown-shortcuts__instructions"></div>
                   <div class="dxnav-links-dropdown__container dxnav-links-dropdown__container--desktop" role="document">
-                     <div class="dxnav-vehicle-nav-desktop" data-dxnav-dropdown-from-text="Drive Away Price for from&lt;sup&gt;‡‡&lt;/sup&gt;" data-dxnav-dropdown-from-lease-text="??navigation.shared.vehicleDropdownFromLeaseText_en_AU??" data-dx-modals-closedialog-aria-label="Close item">
+                     <div class="dxnav-vehicle-nav-desktop" data-dxnav-dropdown-from-text="${config.configMap['navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown']}" data-dxnav-dropdown-from-lease-text="??navigation.shared.vehicleDropdownFromLeaseText_en_AU??" data-dx-modals-closedialog-aria-label="Close item">
                         <div class="dxnav-dropdown-primary-tabs" data-naastabs-id="vehicle-dropdown">
                            <div role="tablist" class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible" aria-orientation="horizontal">
                               <sly data-sly-test="${model.vehicleTabName}" data-sly-list.tabName="${model.vehicleTabName}">

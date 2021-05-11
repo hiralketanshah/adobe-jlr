@@ -177,3 +177,14 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
         }
     }
 });
+
+$(window).on("dialog-ready", function() {
+    $('.img-decorative').each(function(index, value){
+        var status = $(this).prop("checked");
+        if (status) {
+            $(this).parent().parent().find(".img-alt").parent().hide();
+        } else {
+            $(this).parent().parent().find(".img-alt").parent().show();
+        }
+    });
+});

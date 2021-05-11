@@ -182,13 +182,44 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
 
 });
 
+// Validator for to hide/show customer portal link and aria-label
+$(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
+    selector: ".primary-nav-cp",
+    validate: function (el) {
+        var status = $(el).prop("checked");
+        if (status) {
+            $(el).parent().parent().find(".primary-nav-cp-link").parent().show();
+            $(el).parent().parent().find(".primary-nav-cp-aria").parent().show();
+        } else {
+            $(el).parent().parent().find(".primary-nav-cp-link").parent().hide();
+            $(el).parent().parent().find(".primary-nav-cp-aria").parent().hide();
+        }
+    }
+});
+
 $(window).on("dialog-ready", function() {
-    $('.img-decorative').each(function(index, value){
+    $('.primary-nav-cp').each(function(index, value){
         var status = $(this).prop("checked");
         if (status) {
-            $(this).parent().parent().find(".img-alt").parent().hide();
+            $(this).parent().parent().find(".primary-nav-cp-link").parent().show();
+            $(this).parent().parent().find(".primary-nav-cp-aria").parent().show();
         } else {
-            $(this).parent().parent().find(".img-alt").parent().show();
+            $(this).parent().parent().find(".primary-nav-cp-link").parent().hide();
+            $(this).parent().parent().find(".primary-nav-cp-aria").parent().hide();
         }
     });
+});
+
+// Validator to make customer portal aria label as mandatory
+$(window).adaptTo("foundation-registry").register("foundation.validation.validator", {
+    selector: ".primary-nav-cp-aria",
+    validate: function (el) {
+        var status = $(".primary-nav-cp").prop("checked");
+        if (status) {
+            if( $(".primary-nav-cp-aria").val().length < 1)
+           {
+               return CONST.REQUIRED_MESSAGE;
+           }
+        }
+    }
 });
