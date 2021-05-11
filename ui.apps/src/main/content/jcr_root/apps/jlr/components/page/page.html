@@ -49,7 +49,7 @@
          <div class="skip-link">
             <a class="primaryLinkWithStyle skipLink" href="#content" tabindex="1">${pageConfig.skipToMainTitle}</a>
          </div>
-         <sly data-sly-test="!${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
+         <sly data-sly-test="${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
          <script data-sly-test.dataLayerEnabled="${page.data}">
             window.jlrDataLayer = window.jlrDataLayer || [];
             jlrDataLayer.push({
