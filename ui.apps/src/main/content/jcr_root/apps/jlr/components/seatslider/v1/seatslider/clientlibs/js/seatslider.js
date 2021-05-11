@@ -748,11 +748,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       if (window.innerWidth <= 740 && !this.isOldSlider) {
         sliderFlexWidth = this.$sliderContainerUpper.width() - 20;
       }
+      console.log(window.innerWidth);
       console.log(this.$sliderControls);
-      this.$sliderControls.css({
+     
+      if(window.innerWidth == 1920){
         
-        width: sliderFlexWidth
-      });
+        
+        // this.$sliderControls.css({
+        
+        //   width: 500      
+        // });
+      }
+      else{
+        this.$sliderControls.css({
+        
+          width: sliderFlexWidth
+          // width:"530px"         
+        });
+
+      }
 
       if (!resize) {
         this._showtitle(this._initialPosition);
@@ -1131,9 +1145,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
       if (this.currentState !== 'mobile') {
         var topCalculation = ($('.frameSliderBg', this.$element).height() - $(this.$arrangementInformationContainer).outerHeight()) / 2;
 
-        $('.infoContainer', this.$element).css({
-          top: topCalculation
-        });
+        // $('.infoContainer', this.$element).css({
+        //   top: topCalculation
+        // });
       }
     },
 

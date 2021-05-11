@@ -1,8 +1,14 @@
 .cmp-interactiveSlider {
 	position: relative;
 	overflow: hidden;
-	width: 100%
+	width: 100%;
+	background-color: #fff;
 }
+.light .cmp-interactiveSlider{
+
+	background-color: #f8f9f9;
+    color: #4a4f54;
+        }
 
 .cmp-interactiveSlider.old .sliderContainer {
 	position: absolute;
@@ -42,11 +48,11 @@
 }
 
 
-.cmp-interactiveSlider:not(.old) .sliderContainerUpper {
+/*.cmp-interactiveSlider:not(.old) .sliderContainerUpper {
 	margin-right: 200px;
 	margin-left: 200px;
 	left: -179px;
-}
+}*/
 
 
 .cmp-interactiveSlider:not(.old) .frames-loaded .spriteContainer {
@@ -115,7 +121,6 @@
 .cmp-interactiveSlider .frameSliderBg,
 .cmp-interactiveSlider .frameSliderBgNoScript,
 .cmp-interactiveSlider .vehicleNoScript,
-.cmp-interactiveSlider .clickToInteract,
 .cmp-interactiveSlider .loadingOverlay {
 	position: absolute;
 	top: 0;
@@ -123,6 +128,20 @@
 	right: 0;
 	height: 100%;
 	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	-ms-behavior: url(/resources/public/css/backgroundsize-iepolyfill.min.htc?v=3646d426d3f484b6166c39ae1e83de1e);
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box
+}
+.cmp-interactiveSlider .clickToInteract{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -218,18 +237,20 @@
 	padding-bottom: 20px;
 	display: flex;
 	flex-wrap: nowrap;
-	justify-content: space-between
+	/* justify-content: space-between */
 }
 
 .cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons {
 	font-family: "AvenirNext-DemiBold";
 	text-transform: uppercase;
+	font-size:11px;
 	float: left;
 	background: #fff;
-	color: #898d90;
+	color: #0C121C;
 	height: 45px;
-	line-height: 43px;
+	line-height: 14px;
 	margin-top: 6px;
+	letter-spacing: 1.32px;
 	font-weight: 900;
 	-webkit-transition: color .4s;
 	-moz-transition: color .4s;
@@ -267,7 +288,7 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	left: -357px;
+	/*left: -357px;*/
 }
 
 .cmp-interactiveSlider:not(.frames-loaded) .sliderControls .handleInner {
@@ -393,7 +414,7 @@
 	margin-bottom: 17px
 }
 
-.cmp-interactiveSlider .infoContainer .tabData .literage>span {
+.cmp-interactiveSlider .infoContainer .tabData .literage>s {
 	position: relative;
 	padding-left: 0;
 	padding-right: 10px;
@@ -520,11 +541,12 @@
 
 
 .cmp-interactiveSlider__infoContainerTemplates-content-purpose {
-	font-family: "AvenirNext-Regular";
+	font-family: "AvenirNext";
 	line-height: 18px;
 	font-size: 11px;
 	letter-spacing: 0.16px;
-	margin-top: 16px
+	margin-top: 16px;
+	font-weight:400;
 }
 
 
@@ -559,9 +581,9 @@
 	color: #0c121c
 }
 
-.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons:hover .desktop {
+/* .cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons:hover .desktop {
 	border-bottom: 5px solid rgba(74, 79, 84, 0.6)
-}
+} */
 
 
 .cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons .desktop {
@@ -733,13 +755,6 @@
 .odometer.odometer-auto-theme .odometer-value,
 .odometer.odometer-theme-default .odometer-value {
 	text-align: center
-}
-
-.cmp-interactiveSlider .infoContainer .tabData .copy {
-	font-size: 1.4rem;
-	line-height: 1.9rem;
-	letter-spacing: .02rem;
-	font-weight: 400
 }
 
 
@@ -1260,7 +1275,7 @@ screen and (max-height: 620px) {
 		left: 0
 	}
 	.cmp-interactiveSlider__infoContainerTemplates-content-purpose {
-		text-align: center
+		text-align: left;
 	}
 	.cmp-interactiveSlider .loadingOverlay canvas {
 		left: calc(50% - 50px)
@@ -1342,7 +1357,8 @@ screen and (max-height: 620px) {
 		height: 450px
 	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons {
-		font-size: 16px;
+		font-size: 10px;
+		text-align:left;
 		-webkit-transform: translateX(0);
 		-moz-transform: translateX(0);
 		-ms-transform: translateX(0);
@@ -1370,16 +1386,58 @@ screen and (max-height: 620px) {
 		padding: 59px 289px 91px 291px;
 	}
 	.sliderContainer{
-		width:879px;
-		/* height: 41px; */
-		margin-bottom: 23px;
-		/* padding-bottom: 23px !important; */
+		
+		padding-bottom: 23px;
 	}
+	.cmp-interactiveSlider .sliderContainer{
+		bottom:23px;
+	}
+
+	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons{
+		margin: 0px 22px;
+	}
+	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons:first-child{
+		margin-left: 0;
+	}
+	.cmp-interactiveSlider:not(.old) .sliderControls .sliderTrack{
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.cmp-interactiveSlider:not(.old) .sliderControls{
+		margin: 0;
+    	margin-top: 20px;
+	}
+
+
+	.cmp-interactiveSlider:not(.old) .sliderControls .sliderHandle .handleInner{
+		left:0;
+	}
+
+	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper,
+	.cmp-interactiveSlider .sliderContainer .sliderContainerLower{
+		width:879px;
+		height: 41px;
+	}
+
+	.cmp-interactiveSlider .clickToInteract{
+    	width: 100%;
+    	height: 100%;
+		left:0;
+		right:0;
+	}
+	.clickToInteract__text{
+		margin-top: 339px;
+		margin-left: 498px;
+        position: initial;
+	}
+
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer{
 		width:880px;
 		height:496px;
-		left: -267px;
+		left: 0;
+		top:0;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .largeTitle{
 		font-family: "LandRoverWeb-Bold";
@@ -1402,13 +1460,14 @@ screen and (max-height: 620px) {
 		
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .copy{
-		font-family: "AvenirNext-Regular";
+		font-family: "AvenirNext";
    		font-size: 14px;
    		line-height: 19px;
     	letter-spacing: 0.2px;
     	color: #4A4F54;
     	text-transform: capitalize;
     	margin-bottom: 2px;
+		font-weight: 400;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 420px;
@@ -1416,8 +1475,8 @@ screen and (max-height: 620px) {
 	}
 	.cmp-interactiveSlider .infoContainer{
 		position: absolute;
-		top: -50px;
-    	left: 592px;
+		/* top: -50px; */
+    	/* left: 592px; */
 		right:0;
 		padding-left: 40px;
 		width: 420px;
@@ -1447,22 +1506,56 @@ screen and (max-height: 620px) {
 		display: none;
 	}
 
+	.bgforcaption{
+		background-color:black;opacity: 0.8;width:170px;height:170px;background-color: black;
+        opacity: 0.8;
+        width: 170px;
+        height: 170px;
+        position: absolute;
+        top: 266px;
+        left: 620px;
+        padding-top: 30px;
+	}
+
 }
 
-@media screen and (min-width:900px) and (max-width:1919px){
+@media screen and (min-width:1201px) and (max-width:1919px){
 	.cmp-interactiveSlider{
 		padding: 59px 60px 60px 60px;
 	}
 	.sliderContainer{
+		
+		padding-bottom: 24px;
+	}
+	
+
+	.cmp-interactiveSlider .sliderContainer{
+		bottom:24px;
+	}
+
+	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper,
+	.cmp-interactiveSlider .sliderContainer .sliderContainerLower{
 		width:760px;
-		/* height: 41px; */
-		padding-bottom: 24px !important;
+		height: 41px;
+	}
+
+	.cmp-interactiveSlider .clickToInteract{
+    	width: 100%;
+    	height: 100%;
+		left:0;
+		right:0;
+	}
+	.clickToInteract__text{
+		margin-top: 294px;
+        position: initial;
+        margin-right: 40%;
 	}
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer{
-		width:880px;
+		width:760px;
 		height:496px;
-		left: -267px;
+		left: 0;
+		top:0;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .largeTitle{
 		font-family: "LandRoverWeb-Bold";
@@ -1485,13 +1578,14 @@ screen and (max-height: 620px) {
 		
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .copy{
-		font-family: "AvenirNext-Regular";
+		font-family: "AvenirNext";
    		font-size: 14px;
    		line-height: 19px;
     	letter-spacing: 0.2px;
     	color: #4A4F54;
     	text-transform: capitalize;
     	margin-bottom: 2px;
+		font-weight: 400;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 360px;
@@ -1499,8 +1593,7 @@ screen and (max-height: 620px) {
 	}
 	.cmp-interactiveSlider .infoContainer{
 		position: absolute;
-    	top: -50px;
-    	left: 592px;
+    	top: 0px;
 		padding-left: 40px;
 		width: 360px;
 		height: 435px;
@@ -1528,7 +1621,7 @@ screen and (max-height: 620px) {
 
 }
 
-@media screen and (min-width:501px) and (max-width:900px){
+@media screen and (min-width:501px) and (max-width:1200px){
 	.cmp-interactiveSlider{
 		padding: 39px 30px 60px 30px;
 	}
@@ -1539,11 +1632,29 @@ screen and (max-height: 620px) {
 	}
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer{
-		width:708px;
-		height:398px;
+		/* width:708px;
+		height:398px; */
 		top: 0px;
-		left: 155px;
+		left: 0;
+	    left: 0;
+ 		margin: 0 auto;
+    	width: 708px;
+		height:398px;
 				
+	}
+	.cmp-interactiveSlider .clickToInteract{
+
+		width: 100%;
+		height:398px;
+		left:0;
+		right:0;
+	}
+	.clickToInteract__text{
+		margin-top: 269px;
+        position: initial;
+	}
+	.sliderFrame .desktopSliderFrame .hideOnMobile .spritespin-instance{
+		width: auto !important;
 	}
 	.cmp-interactiveSlider:not(.old) .sliderContainerUpper{
 		left: 0;
@@ -1565,6 +1676,7 @@ screen and (max-height: 620px) {
 		width: 679px;
 		height: 190px;	
 		right:0;
+		left: 0;
     	-webkit-transition: top .3s;
     	-moz-transition: top .3s;
     	-o-transition: top .3s;
@@ -1588,20 +1700,28 @@ screen and (max-height: 620px) {
 		display: none;
 	}
 
+	.cmp-interactiveSlider:not(.old) .sliderContainerUpper {
+
+		margin-left:0;
+		margin-right:0;
+	}
+
 
 
 }
 /* mobile view  */
 @media screen and (min-width:1px) and (max-width:500px){
 	.cmp-interactiveSlider{
-		padding: 14px 18px 40px 25px;
+		padding: 14px 25px 40px 25px;
 	}
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer
 	{
 		top: 0px;
-		left: 225px;
-		width:325px;
+		left: 0;
+		margin: 0 auto;
+		width: 100%;
+		/* width:325px; */
 		height:183px;	
 	}
 	.cmp-interactiveSlider:not(.old) .frameSliderItem
@@ -1613,6 +1733,9 @@ screen and (max-height: 620px) {
 		top: 177px;
 		opacity: 1;
 	}
+	.sliderFrame .mobileSliderFrame .onlyOnMobile .spritespin-instance{
+		width:auto !important;
+		}
 
 	
 	.cmp-interactiveSlider .infoContainer .content {
@@ -1652,7 +1775,7 @@ screen and (max-height: 620px) {
 		width:332px;
 		height:27px;
 	}
-	.cmp-interactiveSlider .infoContainer .tabData .literage{
+	.cmp-interactiveSlider .infoContainer .tabData .literage span{
 		font-family: "LandRoverWeb-Bold";
    		font-size: 42px;
    		line-height: 42px;
@@ -1663,13 +1786,14 @@ screen and (max-height: 620px) {
 		
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .copy{
-		font-family: "AvenirNext-Regular";
+		font-family: "AvenirNext";
    		font-size: 14px;
    		line-height: 19px;
     	letter-spacing: 0.2px;
     	color: #4A4F54;
     	text-transform: capitalize;
     	margin-bottom: 2px;
+		font-weight:400;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 324px;
@@ -1680,23 +1804,25 @@ screen and (max-height: 620px) {
 		padding:0;
 	}
 
-
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons span {
-		display: none
+		display: none;
 	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons .mobile {
-		display: block
+		display: block;
 	}
-			
-}
 
+	.cmp-interactiveSlider:not(.old) .sliderControls .sliderTrack{
+		margin-left: -10px;
+    	margin-right: -10px;
+	}
 
-
-
-.default{
-	background-color: #fff !important;
-}
-.Picture--background .Picture__img{
-	background-color: black;
+	.cmp-interactiveSlider:not(.old) .sliderControls .sliderHandle .handleInner {
+    width: 23px;
+    left: -11px;
+	}
+.cmp-interactiveSlider .infoContainer .tabData .literage .litres{
+        top: -24px !important;
+    }
+      			
 }
 

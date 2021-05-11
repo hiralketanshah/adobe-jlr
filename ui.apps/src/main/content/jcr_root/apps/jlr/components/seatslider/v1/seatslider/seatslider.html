@@ -4,12 +4,16 @@
 <div class="cmp-interactiveSlider fontSmooth" id="${seatslider.id}">
     <div aria-describedby="cmp-interactiveSliderClickToInteract cmp-interactiveSliderPurpose" class="clickToInteract" role="button" tabindex="0">
       <div aria-hidden="true" class="text clickToInteract__text">
+
+        <div class="bgforcaption">
+
         <div aria-hidden="true" class="clickToInteract__image">
           <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
         </div>
         <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
           <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
           <span class="mobile">${config.configMap['enable.seat_configuration_click_to_interact_mobile']}</span>
+        </div>
         </div>
       </div>
     </div>
@@ -54,7 +58,7 @@
            </div>
         </div>
         </div>
-  
+   
         <div class="infoContainerTemplates">
           <!-- for when there is a single .. tab.. thing -->
           <!-- for when there are multiple.. tab.. things -->

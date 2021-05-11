@@ -327,7 +327,8 @@
 	.headerClass h2 {
 		margin-top: 0;
 		margin-bottom: 14px;
-		display: block
+		display: block;
+		font-size: 24px
 	}
 
 	.fontBodyCopyLarge p{
