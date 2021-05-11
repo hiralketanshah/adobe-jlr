@@ -6726,16 +6726,21 @@
     },
     onPrevClick(e) {
       const swiper = this;
+      
       e.preventDefault();
       if (swiper.isBeginning && !swiper.params.loop) return;
-      swiper.slidePrev();
-    },
-    onNextClick(e) {
+      let pre = swiper.activeIndex - 1;
+      $(`[data-pip-index="${pre}"]`).trigger("click");
+      // swiper.slidePrev();
+      },
+      onNextClick(e) {
       const swiper = this;
       e.preventDefault();
       if (swiper.isEnd && !swiper.params.loop) return;
-      swiper.slideNext();
-    },
+      let next = swiper.activeIndex + 1;
+      $(`[data-pip-index="${next}"]`).trigger("click");
+      //swiper.slideNext();
+      },
     init() {
       const swiper = this;
       const params = swiper.params.navigation;
