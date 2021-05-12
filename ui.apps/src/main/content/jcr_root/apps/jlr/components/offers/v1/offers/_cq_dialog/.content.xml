@@ -137,15 +137,7 @@
                                 mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                 multiple="{Boolean}false"
                                 name="./file"
-                                required="true">
-                                <granite:data
-                                    jcr:primaryType="nt:unstructured"
-                                    dual-frame-image="{Boolean}true"
-                                    full-frame-image="{Boolean}true"
-                                    hero-item-image="{Boolean}true"
-                                    hero-title-banner-image="{Boolean}true"
-                                    signpost-image="{Boolean}true"/>
-                            </imagePath>
+                                required="true"/>
                             <alt
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
