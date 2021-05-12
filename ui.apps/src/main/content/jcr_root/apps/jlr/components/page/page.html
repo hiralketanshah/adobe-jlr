@@ -18,9 +18,6 @@
    data-sly-use.pageConfig="com.jlr.core.models.PageModel" lang="${page.language}" data-sly-use.head="head.html"
    data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html">
    <head data-sly-call="${head.head @ page = page, additionalPage = pageConfig}"></head>
-   <sly data-sly-test="${pageConfig.EnableInlineCookieJs}">
-      <sly data-sly-include="cookieconsent.html"></sly>
-   </sly>
    <body class="${page.cssClassNames}" id="${page.id}" data-cmp-data-layer-enabled="${page.data ? true : false}"
       data-custom-page-data-layer="${pageConfig.PageData @ context='scriptString'}"
       data-page-data-layer="${page.data.json @ context='scriptString'}">

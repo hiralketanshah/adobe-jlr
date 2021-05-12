@@ -210,7 +210,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                            </div>
                         </div>
                         <div data-sly-test="${model.vehicleNavPagePath}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="vehicle-dropdown">
-                           <sly data-sly-resource="${model.vehicleNavPagePath @appendPath='/jcr:content/root/container', wcmmode='disabled'}"/>
+                           <sly data-sly-resource="${model.vehicleNavPagePath @appendPath='/jcr:content/root/container'}"/>
                         </div>
                      </div>
                   </div>
@@ -224,13 +224,13 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                               ${model.vehicleNavPageTitle}
                            </button>
                            <sly data-sly-test="${model.vehicleNavPagePath}">
-                              <sly data-sly-resource="${model.vehicleNavPagePath @appendPath='/jcr:content/root/container',selectors='vehiclecategorymobile', wcmmode='disabled'}"/>
+                              <sly data-sly-resource="${model.vehicleNavPagePath @appendPath='/jcr:content/root/container',selectors='vehiclecategorymobile'}"/>
                            </sly>
                         </div>
                      </div>
                   </div>
                   <sly data-sly-list.path="${model.vehicleCardJson}">
-                     <sly data-sly-resource="${path @appendPath='/jcr:content/root/container/vehiclecardcontainer',selectors='vehiclecardcontainerjson',context='html', wcmmode='disabled'}"/>
+                     <sly data-sly-resource="${path @appendPath='/jcr:content/root/container/vehiclecardcontainer',selectors='vehiclecardcontainerjson',context='html'}"/>
                   </sly>
                </div>
 			   </sly>
@@ -246,7 +246,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                               </svg>
                               <span data-sly-test="${model.navPageTitleOne}" class="dxnav-dropdown__close-text">${model.navPageTitleOne}</span> 
                            </button>
-                           <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container',selectors='megadropdownmobile', wcmmode='disabled'}"/>
+                           <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
                            <div data-sly-test="${model.pageOneQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                               <sly data-sly-list.item="${model.pageOneQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -277,7 +277,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                         </div>
                      </div>
                      <div data-sly-test="${model.navPagePathOne}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-1">
-                        <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container', wcmmode='disabled'}"/>
+                        <sly data-sly-resource="${model.navPagePathOne @appendPath='/jcr:content/root/container'}"/>
                      </div>
                   </div>
                </div>
@@ -294,7 +294,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                               </svg>
                               <span data-sly-test="${model.navPageTitleTwo}" class="dxnav-dropdown__close-text">${model.navPageTitleTwo}</span> 
                            </button>
-                              <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile', wcmmode='disabled'}"/>
+                              <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
                            <div data-sly-test="${model.pageTwoQuickLink}" class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                               <sly data-sly-list.item="${model.pageTwoQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -325,7 +325,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                         </div>
                      </div>
                      <div data-sly-test="${model.navPagePathTwo}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-2">
-                        <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container', wcmmode='disabled'}"/>
+                        <sly data-sly-resource="${model.navPagePathTwo @appendPath='/jcr:content/root/container'}"/>
                      </div>
                   </div>
                </div>
@@ -342,7 +342,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                               </svg>
                               <span class="dxnav-dropdown__close-text">${model.navPageTitleThree}</span> 
                            </button>
-                              <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile', wcmmode='disabled'}"/>
+                              <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container',selectors='megadropdownmobile'}"/>
                            <div data-sly-test="${model.pageThreeQuickLink}"class="dxnav-quick-links dxnav-quick-links--mobile-level-2" data-links-total="5">
                               <sly data-sly-list.item="${model.pageThreeQuickLink}">
                                  <div class="dxnav-quick-links__item">
@@ -373,7 +373,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
                         </div>
                      </div>
                      <div data-sly-test="${model.navPagePathThree}" class="dxnav-dropdown-primary-tabs__panels" data-naastabs-panels-id="primary-dropdown-3">
-                        <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container', wcmmode='disabled'}"/>
+                        <sly data-sly-resource="${model.navPagePathThree @appendPath='/jcr:content/root/container'}"/>
                      </div>
                   </div>
                </div>
