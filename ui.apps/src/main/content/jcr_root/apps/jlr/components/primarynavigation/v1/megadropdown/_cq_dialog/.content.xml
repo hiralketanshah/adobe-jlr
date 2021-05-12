@@ -6,7 +6,7 @@
     extraClientlibs="[jlr.authoring.dialog]">
     <content
         jcr:primaryType="nt:unstructured"
-        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+        sling:resourceType="granite/ui/components/coral/foundation/container"
         margin="{Boolean}false">
         <items jcr:primaryType="nt:unstructured">
             <tabs
@@ -121,26 +121,26 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Left Pane Text One"
+                                                                    fieldLabel="CTA Text"
                                                                     name="./leftPaneCtaTextOne"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Left Pane Link One"
+                                                                    fieldLabel="CTA Link"
                                                                     name="./leftPaneCtaLinkOne"
                                                                     rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Left Pane Aria Label One"
+                                                                    fieldLabel="CTA Aria Label"
                                                                     name="./leftPaneCtaAriaLabelOne"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Left Pane Target One"
+                                                                    fieldLabel="CTA Target"
                                                                     name="./leftPaneCtaTargetOne">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow
@@ -475,26 +475,26 @@
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="The text to be rendered on the CTA"
-                                                                    fieldLabel="Left Pane Text Two"
+                                                                    fieldLabel="CTA Text"
                                                                     name="./leftPaneCtaTextTwo"/>
                                                                 <link
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                                     fieldDescription="Link to a content page, external URL or page anchor."
-                                                                    fieldLabel="Left Pane Link Two"
+                                                                    fieldLabel="CTA Link"
                                                                     name="./leftPaneCtaLinkTwo"
                                                                     rootPath="/content/landrover/global"/>
                                                                 <ariaLabel
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                                     fieldDescription="Leave blank for automated aria label ({header}:{CTA text})."
-                                                                    fieldLabel="Left Pane Aria Label Two"
+                                                                    fieldLabel="CTA Aria Label"
                                                                     name="./leftPaneCtaAriaLabelTwo"/>
                                                                 <target
                                                                     jcr:primaryType="nt:unstructured"
                                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                     fieldDescription="Target for the link authored - current tab or same tab"
-                                                                    fieldLabel="Left Pane Target Two"
+                                                                    fieldLabel="CTA Target"
                                                                     name="./leftPaneCtaTargetTwo">
                                                                     <items jcr:primaryType="nt:unstructured">
                                                                         <sameWindow

@@ -2385,20 +2385,7 @@
 			}, {
 				key: "searchFormSubmitListeners",
 				value: function () {
-					var e = this,
-						t = document.getElementById("dxnav__search-form"),
-						n = c.default.getElementByClassName("dxnav-suggestions"),
-						a = c.default.getElementByClassName("dxnav-search__results"),
-						i = c.default.getElementByClassName("dxnav-search__error-link");
-					t && (t.addEventListener("submit", function (t) {
-						e.clearSearchSuggestions();
-						var i = document.getElementById("dxnav-searchInput");
-						t.preventDefault(), i.value.length >= 2 ? (e.siteSearch(i.value, n, a), c.default.removeClass(i, "dxnav-pulse")) : c.default.addClass(i, "dxnav-pulse")
-					}), i.addEventListener("click", function (t) {
-						t.preventDefault();
-						var i = document.getElementById("dxnav-searchInput");
-						e.siteSearch(i.value, n, a)
-					}))
+					
 				}
 			}, {
 				key: "checkSearchInput",

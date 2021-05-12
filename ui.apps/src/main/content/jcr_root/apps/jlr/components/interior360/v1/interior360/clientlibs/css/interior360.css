@@ -1,15 +1,16 @@
 .Interior360__icon {
-    height: 20px;
-    width: 20px;
+    height: 15px;
+    width: 9px;
     background: url('../resources/icons/internal360-arrow-right.svg')
       center center no-repeat;
     background-size: 15px 15px;
   }
   .Interior360__init-container-icon-backdrop {
-    top: -60px;
+    top: 25%;
+    left: 45%;
     width: 180px;
     height: 180px;
-    position: initial;
+    position: absolute;
     margin: auto;
     background-color: #0C121C;
     opacity: 0.8;
@@ -103,21 +104,22 @@
       min-height: 0;
     }
   }
-  .headerClass {
+  .cmp-interior360 .headerClass {
     float: left;
     margin-right: 40px;
-    min-height: 200px;
+    min-height: 28px;
+    max-height: 32px;
     min-width: 360px;
   }
-  .linkContainer,
+  .cmp-interior360 .linkContainer,
   .secondaryLinkContainer {
     float: left;
   }
-  .fontBodyCopyLarge {
+  .cmp-interior360 .fontBodyCopyLarge {
     text-align: left;
-    padding-right: 40px;
+    padding-right: 0px;
   }
-  .shelfComponent {
+  .cmp-interior360 .shelfComponent {
     padding-left: 0;
     padding-right: 0;
     padding-bottom: 0;
@@ -129,6 +131,18 @@
     position: relative;
   }
   @media screen and (min-width: 1920px) {
+    .cmp-interior360 .contentClass{
+      width: 650px;
+    }
+    .cmp-interior360 .shelfComponent {
+    display: flex;
+    flex-direction: row;
+    }
+    .cmp-interior360 .shelfComponent {
+      margin-left: 160px;
+      margin-right: 0px;
+      width: 100%;
+    }
     .cmp-interior360 .carousel .cmp-interior360render {
       position: relative;
       min-width: 1660px;
@@ -146,9 +160,28 @@
       margin-right: 130px;
       margin-top: 60px;
     }
-    .shelfComponent {
-      margin-left: 100px;
-      width: 1100px;
+    .cmp-interior360 .headingWrapper p{
+      font-size: 24px;
+    }
+    .cmp-interior360 .linkContainer{
+      padding-top: 24px !important;
+    }
+    .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
+      margin-top: 23px !important;
+    }
+    .cmp-interior360 .headerClass { 
+      min-width: 420px;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 32px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 24px !important;
+      letter-spacing: 1.2px !important;
+    }
+    .cmp-interior360 .Interior360__init-container-icon{
+      width: 78px;
+      height: 78px;
     }
   }
   @media screen and (min-width: 1279px) and (max-width: 1919px) {
@@ -174,6 +207,40 @@
     .cmp-interior360 .primaryLinkWithStyle{
       margin-top: 0px;
     }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 24px;
+    }
+    .cmp-interior360 .linkContainer{
+      padding-top: 24px !important;
+    }
+    .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
+      margin-top: 24px !important;
+    }
+    .cmp-interior360 .headerClass { 
+      min-width: 360px;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 32px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 24px !important;
+      letter-spacing: 1.2px !important;
+    }
+    .cmp-interior360 .Interior360__init-container-icon{
+      width: 78px;
+      height: 78px;
+    }
+    .cmp-interior360 .shelfComponent {
+      display: flex;
+      flex-direction: row;
+      }
+      .cmp-interior360 .shelfComponent {
+        margin-right: 0px;
+        width: 100%;
+      }
+      .cmp-interior360 .contentClass{
+        width: 560px;
+      }
   }
   @media screen and (min-width: 767px) and (max-width: 1278px) {
     .cmp-interior360{
@@ -190,7 +257,7 @@
       position: relative;
       padding-bottom: 0;
     }
-    .shelfComponent {
+    .cmp-interior360 .shelfComponent {
       padding-left: 30px;
       padding-right: 25px;
       padding-top: 28px;
@@ -198,13 +265,13 @@
       min-width: 40%;
       max-width: 75.4%;
     }
-    .headerClass {
+    .cmp-interior360 .headerClass {
       float: left;
       min-height: 0;
       margin-bottom: 0;
       width: 100%;
     }
-    .headerClass h2 {
+    .cmp-interior360 .headerClass h2 {
       margin-top: 0;
       margin-bottom: 14px;
       display: block;
@@ -227,6 +294,26 @@
       top: 70px;
       left: 30px;
     }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 21px;
+    }
+    .cmp-interior360 .linkContainer {
+      padding-top: 19px;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 28px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 21px !important;
+      letter-spacing: 1.05px !important;
+    }
+      .cmp-interior360 .shelfComponent {
+        margin-right: 0px;
+        width: 100%;
+      }
+      .cmp-interior360 .contentClass{
+        width: 560px;
+      }
   }
   @media screen and (min-width: 300px) and (max-width: 766px) {
     .Interior360__init-container-icon {
@@ -257,7 +344,7 @@
       position: relative;
       padding-bottom: 0;
     }
-    .shelfComponent {
+    .cmp-interior360 .shelfComponent {
       padding-left: 25px;
       padding-right: 25px;
       padding-top: 16px;
@@ -265,18 +352,18 @@
       min-width: 40%;
       max-width: 100%;
     }
-    .headerClass {
+    .cmp-interior360 .headerClass {
       float: left;
       min-height: 0;
       margin-bottom: 0;
       width: 100%;
     }
-    .headerClass h2 {
+    .cmp-interior360 .headerClass h2 {
       margin-top: 0;
       margin-bottom: 14px;
       display: block;
     }
-    .fontBodyCopyLarge {
+    .cmp-interior360 .fontBodyCopyLarge {
       width: 100%;
       margin-bottom: 0;
       padding-right: 0;
@@ -306,12 +393,12 @@
     }
     .Interior360__icon--up {
       top: 7px;
-      left: 50%;
+      left: 65%;
       margin-left: -9px;
     }
     .Interior360__icon--down {
       bottom: 9px;
-      left: 50%;
+      left: 65%;
       margin-left: -9px;
       margin-top: 0px;
     }
@@ -325,11 +412,24 @@
       left: 50%;
       margin-left: -9px;
     }
+    .cmp-interior360 .headingWrapper p{
+      font-size: 20px;
+    }
+    .cmp-interior360 .linkContainer{
+      margin-top: 43px !important;
+    }
+    .cmp-interior360 .headerClass .heading{ 
+      min-height: 27px;
+    }
+    .cmp-interior360 .headerClass .heading p{ 
+      line-height: 20px !important;
+      letter-spacing: 0.64px !important;
+    }
   }
   .cmp-interiorInner .cmp-carousel__slider {
     height: 100% !important;
   }
-  .primaryLinkWithStyle {
+  .cmp-interior360 .primaryLinkWithStyle {
     float: left;
   }
   .cmp-carousel__controls {
@@ -1030,10 +1130,10 @@
     position: absolute;
   }
   .Interior360__icon--up {
-    top: 7px;
-    left: 50%;
+    top: 13px;
+    left: 56.5%;
     margin-left: -9px;
-    background-size: 12px 12px;
+    background-size: 15px 15px;
     -webkit-transform: rotate(270deg) translateX(0px);
     -moz-transform: rotate(270deg) translateX(0px);
     -ms-transform: rotate(270deg) translateX(0px);
@@ -1048,9 +1148,9 @@
     }
   }
   .Interior360__icon--down {
-    bottom: 9px;
+    bottom: 12px;
     left: 50%;
-    margin-left: -9px;
+    margin-left: -5px;
     margin-top: -20px;
     -webkit-transform: rotate(90deg) translateX(0px);
     -moz-transform: rotate(90deg) translateX(0px);
@@ -1067,9 +1167,9 @@
     }
   }
   .Interior360__icon--right {
-    top: 50%;
-    margin-top: -12px;
-    right: 6px;
+    top: 55%;
+    margin-top: -10px;
+    right: 14px;
     -webkit-transform: rotate(0deg) translateX(0px);
     -moz-transform: rotate(0deg) translateX(0px);
     -ms-transform: rotate(0deg) translateX(0px);
@@ -1084,9 +1184,9 @@
     }
   }
   .Interior360__icon--left {
-    top: 50%;
-    margin-top: -11px;
-    left: 8px;
+    top: 55%;
+    margin-top: -10px;
+    left: 14px;
     -webkit-transform: rotate(180deg) translateX(0px);
     -moz-transform: rotate(180deg) translateX(0px);
     -ms-transform: rotate(180deg) translateX(0px);
@@ -1229,20 +1329,22 @@
       border: 2px solid white;
     }
     .Interior360__icon {
+      height: 10px;
+      width: 6px;
       background-size: 8px 8px;
   }
     .Interior360__icon--up {
       width: 56x;
       height: 10px;
-      top: 6px;
-      left: 50%;
+      top: 8px;
+      left: 65%;
       margin-left: -9px;
     }
     .Interior360__icon--down {
       width: 56x;
       height: 11px;
-      bottom: 7px;
-      left: 50%;
+      bottom: 7.5px;
+      left: 65%;
       margin-left: -9px;
       margin-top: 0px;
     }
@@ -1250,14 +1352,14 @@
       width: 56x;
       height: 11px;
       top: 25px;
-      left: 11px;
+      left: 45%;
       margin-left: -9px;
     }
     .Interior360__icon--right {
       width: 56x;
       height: 10px;
       top: 26px;
-      left: 30px;
+      left: 85%;
       margin-left: -9px;
     }
   }
@@ -1267,3 +1369,109 @@
   .Interior360__load-button:hover{
     background-color: rgba(0, 0, 0, 0.16);
   }
+  .grey .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p,.white .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p {
+    color: #0c121c !important;
+  }
+
+  .cmp-interior360 .primaryLinkWithStyle { 
+    line-height: 14px !important;
+  }
+  .cmp-interior360 .secondaryLinkWithStyle { 
+    line-height: 12.5px !important;
+  }
+  /* FIXES for Image */
+  @media screen and (min-width: 1920px) {
+    .Interior360__init-container-icon-backdrop {
+      top: 45%;
+      left: 45%;
+    }
+    .Interior360__init-container-caption{
+      line-height: 15px;
+    }
+    .cmp-interior360 .headingThick{
+      padding: 0px !important;
+    }
+    .cmp-interiorInner {
+     min-width: 1672px;
+     min-height:937px;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    .cmp-interior360 .shelfComponent{
+      display: flex;
+      flex-direction: column;
+    }
+    .Interior360__init-container-caption{
+      line-height: 12px;
+    }
+    .cmp-interior360 .headingThick{
+      padding: 2px !important;
+      margin-bottom: 16px !important;
+    }
+    .cmp-interiorInner {
+     min-width: 387px;
+     min-height:213px;
+    }
+    .Interior360__reset-control{
+      line-height: 14px;
+    }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px){
+    .Interior360__init-container-icon-backdrop {
+      position: unset;
+    }
+    .cmp-interior360 .shelfComponent{
+      display: flex;
+      flex-direction: column;
+    }
+    .Interior360__init-container-caption{
+      line-height: 12px;
+    }
+    .cmp-interior360 .headingThick{
+      padding: 0px !important;
+    }
+    .cmp-interiorInner {
+      min-width: 780px;
+      min-height:434px;
+     }
+    .Interior360__icon {
+      background-size: 12px 12px;
+  }
+    .Interior360__icon--up {
+      top: 9px;
+      left: 57%;
+      margin-left: -9px;
+    }
+    .Interior360__icon--down {
+      bottom: 14px;
+      left: 58%;
+      margin-left: -9px;
+      margin-top: 0px;
+    }
+    .Interior360__icon--left {
+      top: 50%;
+      left: 39%;
+      margin-left: -9px;
+    }
+    .Interior360__icon--right {
+      top: 50%;
+      left: 78%;
+      margin-left: -9px;
+    }
+    .Interior360__reset-control:before {
+      visibility: hidden !important;
+    }
+    .Interior360__reset-control{
+      padding-left: 19px;
+      line-height: 14px;
+    }
+  }
+  @media screen and (min-width: 1280px) and (max-width: 1910px){
+    .Interior360__init-container-caption{
+      line-height: 15px !important;
+    }
+  }
+  .Interior360__reset-control{
+    text-transform: uppercase;
+  }
+ 

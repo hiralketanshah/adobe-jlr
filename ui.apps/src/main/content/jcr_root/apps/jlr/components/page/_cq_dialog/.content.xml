@@ -399,7 +399,7 @@
                                     </fab>
                                     <marketregionpricing
                                         jcr:primaryType="nt:unstructured"
-                                        jcr:title="Market Region Pricing"
+                                        jcr:title="Primary Navigation Setings"
                                         sling:orderBefore="moretitles"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
@@ -407,23 +407,12 @@
                                                 cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                fieldDescription="Select the Market Region Config path"
+                                                fieldDescription="Select the Market Region Config path. This should be an experience Fragment"
                                                 fieldLabel="Market Region Path"
                                                 name="./marketRegionPath"
                                                 rootPath="/content/experience-fragments/landrover"
                                                 text="Enable Market Regional Pricing">
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    cq-msm-lockable="category"/>
                                             </marketpricingpath>
-                                        </items>
-                                    </marketregionpricing>
-                                    <skiptomaincontent
-                                        jcr:primaryType="nt:unstructured"
-                                        jcr:title="Skip To Main Content Configuration"
-                                        sling:orderBefore="moretitles"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
-                                        <items jcr:primaryType="nt:unstructured">
                                             <skipToMainTitle
                                                 cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"
@@ -431,14 +420,10 @@
                                                 fieldDescription="Enter the Skip To Main Content Title"
                                                 fieldLabel="Skip To Main Content Title"
                                                 name="./skipToMainTitle"
-                                                rootPath="/content/landrover/global"
                                                 text="Skip To Main Content Text">
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    cq-msm-lockable="category"/>
                                             </skipToMainTitle>
                                         </items>
-                                    </skiptomaincontent>
+                                    </marketregionpricing>
                                 </items>
                             </column>
                         </items>

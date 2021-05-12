@@ -690,6 +690,10 @@
     html.no-js .cmp-carousel .carousel .cmp-carousel__slide:first-child {
       display: block;
     }
+    .cmp-carousel.cmp-fullframe-carousel .videoCustom:after{
+      top: 30%;
+      left: 33%;
+      }
   }
   @media screen and (min-width: 1px) and (max-width: 1900px) {
     #landrover .cmp-carousel.grey .carousel .cmp-carousel__slide {
@@ -982,8 +986,22 @@
   .cmp-fullframe .fontBodyCopyLarge{
     text-transform:capitalize;
   }
-   .cmp-fullframe .headingWrapper {
+  .cmp-fullframe .headingWrapper {
       font-weight:normal;
+  }
+  .cmp-fullframe-carousel .swiper-button--next {
+    margin-top: -15%;
+  }
+  .cmp-fullframe-carousel .swiper-button--prev {
+    margin-top: -15%;
+  }
+  @media screen and (min-width: 1px) and (max-width: 1024px){
+    .cmp-fullframe-carousel .swiper-button--prev {
+       display:none;
+    }
+    .cmp-fullframe-carousel .swiper-button--next {
+       display:none;
+    }
   }
   .videoCustom { position: relative; padding-bottom: 56.25%; /* 16:9 */ height: 0; }
   .videoCustom img { position: absolute; display: block; top: 0; left: 0; width: 100%; height: 100%; z-index: 20; cursor: pointer; }
