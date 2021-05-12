@@ -17,13 +17,14 @@
 <html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
    data-sly-use.pageConfig="com.jlr.core.models.PageModel" lang="${page.language}" data-sly-use.head="head.html"
    data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html">
-   <head data-sly-call="${head.head @ page = page}"></head>
+   <head data-sly-call="${head.head @ page = page, additionalPage = pageConfig}"></head>
    <sly data-sly-test="${pageConfig.EnableInlineCookieJs}">
       <sly data-sly-include="cookieconsent.html"></sly>
    </sly>
    <body class="${page.cssClassNames}" id="${page.id}" data-cmp-data-layer-enabled="${page.data ? true : false}"
       data-custom-page-data-layer="${pageConfig.PageData @ context='scriptString'}"
       data-page-data-layer="${page.data.json @ context='scriptString'}">
+      
       <sly data-sly-list.item="${pageConfig.GtmTagsList}">
          <noscript>
             <iframe height="0" src="//www.googletagmanager.com/ns.html?id=${item}" style="display:none;visibility:hidden"
@@ -50,19 +51,7 @@
             <a class="primaryLinkWithStyle skipLink" href="#content" tabindex="1">${pageConfig.skipToMainTitle}</a>
          </div>
          <sly data-sly-test="${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
-         <script data-sly-test.dataLayerEnabled="${page.data}">
-            window.jlrDataLayer = window.jlrDataLayer || [];
-            jlrDataLayer.push({
-              page: {
-                basic: JSON.parse("${page.data.json @ context='scriptString'}"),
-                advanced: JSON.parse("${pageConfig.PageData @ context='scriptString'}")
-              },
-              event: 'cmp:show',
-              eventInfo: {
-                path: 'page.${page.id @ context="scriptString"}'
-              }
-            });
-         </script>
+
          <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
             data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
          <sly data-sly-test="${!isRedirectPage}">
