@@ -1,0 +1,10 @@
+<sly data-sly-use.model="com.jlr.core.models.QuoteModel"
+data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+id="${component.id}"></sly>
+
+${model.id}
+${model.quote}
+${model.quoteAuthorName}
+${model.quoteTitleName}
+
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
