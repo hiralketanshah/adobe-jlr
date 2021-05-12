@@ -1,0 +1,28 @@
+<sly data-sly-use.model="com.jlr.core.models.OffersModel"
+data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+id="${component.id}"></sly>
+
+${model.id} <br>
+${model.headerCopy} <br>
+${model.copy} <br>
+<sly data-sly-list.item ="${model.quoteTitleName}">
+    ${item.text} <br> 
+    ${item.link} <br>
+    ${item.ariaLabel} <br>
+    ${item.target} <br>
+</sly>
+${model.fileReference} <br> 
+${model.imageAlt} <br> 
+${model.isDecorative} <br> 
+
+<sly data-sly-list.item ="${model.offerList}">
+    ${item.offerCopy} <br> 
+    ${item.offerPrefix} <br>
+    ${item.offerValue} <br>
+    ${item.offerSuffix} <br>
+    ${item.offerLabel} <br>
+    ${item.offerDetailsButton} <br>
+    ${item.offerOverlayHeader} <br>
+    ${item.offerOverlaySummary} <br>
+</sly>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly> 
