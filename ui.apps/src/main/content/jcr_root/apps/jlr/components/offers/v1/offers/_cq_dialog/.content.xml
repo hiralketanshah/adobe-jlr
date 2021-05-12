@@ -24,8 +24,45 @@
                                 path="/mnt/overlay/jlr/components/globalfields/general/id"/>
                             <header
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                dfs-required="true"
+                                fieldDescription="The Header copy to be displayed."
+                                fieldLabel="Header Copy"
+                                name="./headerCopy"
+                                required="true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <misctools
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                            <chars jcr:primaryType="nt:unstructured">
+                                                <non-breaking-space
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;nbsp;"
+                                                    name="Non-breaking space"/>
+                                                <non-breaking-hyphen
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;#8209"
+                                                    name="Non-breaking hyphen"/>
+                                            </chars>
+                                        </specialCharsConfig>
+                                    </misctools>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                    </cui>
+                                </uiSettings>
+                            </header>
                             <summary
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -78,6 +115,9 @@
                                     jcr:primaryType="nt:unstructured"
                                     maxlimit="3"/>
                             </ctaList>
+                            <granite:data
+                                jcr:primaryType="nt:unstructured"
+                                offers-component="true"/>
                         </items>
                     </properties>
                     <image
@@ -86,10 +126,26 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <file
+                            <imagePath
+                                granite:class="img-path"
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                fieldDescription="Select an Image to be displayed"
+                                fieldLabel="Image"
+                                fileReferenceParameter="./fileReference"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                required="true">
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    dual-frame-image="{Boolean}true"
+                                    full-frame-image="{Boolean}true"
+                                    hero-item-image="{Boolean}true"
+                                    hero-title-banner-image="{Boolean}true"
+                                    signpost-image="{Boolean}true"/>
+                            </imagePath>
                             <alt
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
