@@ -189,7 +189,7 @@
                                                     </items>
                                                     <granite:data
                                                         jcr:primaryType="nt:unstructured"
-                                                        showhidetargetvalue="image,abc"/>
+                                                        showhidetargetvalue="image"/>
                                                 </image>
                                                 <video
                                                     granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
@@ -213,7 +213,7 @@
                                                     </items>
                                                     <granite:data
                                                         jcr:primaryType="nt:unstructured"
-                                                        showhidetargetvalue="video,xyz"/>
+                                                        showhidetargetvalue="video"/>
                                                 </video>
                                                 <well
                                                     granite:class="grey-border"
