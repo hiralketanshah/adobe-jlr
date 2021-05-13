@@ -160,6 +160,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </article>
+                        <carousel jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <carousel
+                                    cq:policy="jlr/components/carousel/v1/carousel/policy_1617711636936"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </carousel>
                     </components>
                 </jlr>
             </container_1838800311>

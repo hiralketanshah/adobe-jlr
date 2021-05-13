@@ -50,7 +50,6 @@ class ContentCardModelTest extends GlobalModelImplTest {
         list.forEach(item -> {
             assertEquals("https://google.com", item.getImageLink());
             assertEquals("imageAlt", item.getImageAlt());
-            assertEquals("04-04-2021", item.getDate());
             assertEquals("$98.05", item.getPrice());
             assertEquals("headerCopy", item.getHeaderCopy());
             assertEquals("copy", item.getCopy());

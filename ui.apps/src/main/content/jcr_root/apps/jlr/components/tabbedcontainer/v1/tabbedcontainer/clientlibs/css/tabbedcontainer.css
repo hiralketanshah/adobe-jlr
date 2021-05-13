@@ -244,9 +244,7 @@ height: auto;
 .cmp-tabbedContainer .cmp-genericItem__element-poster{
     max-height: unset;
 }
-.cmp-tabbedContainer .cmp-interiorInner .shelfComponent{
-display: inline-block;
-}
+
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
     .cmp-tabbedContainer{
@@ -296,6 +294,10 @@ display: inline-block;
 @media screen and (min-width: 1px) and (max-width: 375px) {
     .cmp-tabbedContainer{
         padding-top: 30px;
+    }
+    .cmp-tabbedContainer .videoCustom:after{
+        left: 35%;
+        top: 30%;
     }
     }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -361,7 +363,7 @@ display: inline-block;
     .cmp-tabbedContainer .shelfComponent{
        
         margin: 0 150px;
-    width: calc(100% - 300px);
+    width: calc(100% - 300px) !important;
     }
     .cmp-tabbedContainer .secondaryLinkWithStyle{
         margin-top: 24px;
