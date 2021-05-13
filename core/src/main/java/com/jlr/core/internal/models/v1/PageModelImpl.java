@@ -73,6 +73,9 @@ public class PageModelImpl implements PageModel {
     /** The footer path. */
     @HierarchicalPageProperty("footerPath")
     private String footerPath;
+    
+    @HierarchicalPageProperty("includeHeader")
+    private String includeHeader;
 
     /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
@@ -250,5 +253,10 @@ public class PageModelImpl implements PageModel {
         }
         return null;
     }
+
+	public String getIncludeHeader() {
+		Page currentPage;
+		return includeHeader;
+	}
 
 }
