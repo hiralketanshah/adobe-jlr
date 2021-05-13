@@ -864,10 +864,3 @@ height: 493px;
   }
   
 }
-
-@media screen and (min-width: 1280px) and (max-width: 1919px){
-    .cmp-vehicleSummary .cmp-vehicleSummary__image {
-        height: 428px;
-        width: 760px;
-    }
-}

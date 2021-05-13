@@ -64,9 +64,9 @@ public class PrimaryNavigationModel {
     @Inject
     private String custPortalAriaLabel;
 
-    /** The retailer link. */
+    /** The retailerl link. */
     @Inject
-    private String retailerLink;
+    private String retailerlLink;
 
     /** The retailer aria label. */
     @Inject
@@ -333,7 +333,7 @@ public class PrimaryNavigationModel {
      * @return the cust portal link
      */
     public String getCustPortalLink() {
-        return LinkUtils.appendLinkExtension(custPortalLink, resourceResolver);
+        return custPortalLink;
     }
 
     /**
@@ -346,12 +346,12 @@ public class PrimaryNavigationModel {
     }
 
     /**
-     * Gets the retailer link.
+     * Gets the retailerl link.
      *
-     * @return the retailer link
+     * @return the retailerl link
      */
-    public String getRetailerLink() {
-        return retailerLink;
+    public String getRetailerlLink() {
+        return retailerlLink;
     }
 
     /**
