@@ -3,15 +3,17 @@ data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
 id="${component.id}"></sly>
 
 ${model.id} <br>
-${model.headerCopy} <br>
+${model.offersHeaderCopy} <br>
 ${model.copy} <br>
-<sly data-sly-list.item ="${model.quoteTitleName}">
+<sly data-sly-list.item ="${model.ctaList}">
     ${item.text} <br> 
     ${item.link} <br>
     ${item.ariaLabel} <br>
     ${item.target} <br>
+    ${item.linkType} <br>
+    ${item.icon} <br>
 </sly>
-${model.fileReference} <br> 
+${model.offersImageFileReference} <br> 
 ${model.imageAlt} <br> 
 ${model.isDecorative} <br> 
 

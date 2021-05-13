@@ -9,6 +9,8 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.models.OffersList;
 import com.jlr.core.models.OffersModel;
@@ -31,6 +33,14 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 	/** The offer list. */
 	@Inject
 	public List<OffersList> offerList = new ArrayList<>();
+	
+	/** The offers header copy. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String offersHeaderCopy;
+	
+	/** The offers image file reference. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String offersImageFileReference;
 	
 	/** The resource resolver. */
 	@Inject
@@ -61,6 +71,26 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 	@Override
     public List<OffersList> getOfferList() {
 		return offerList;
+	}
+
+	/**
+	 * Gets the offers header copy.
+	 *
+	 * @return the offers header copy
+	 */
+	@Override
+	public String getOffersHeaderCopy() {
+		return offersHeaderCopy;
+	}
+
+	/**
+	 * Gets the offers image file reference.
+	 *
+	 * @return the offers image file reference
+	 */
+	@Override
+	public String getOffersImageFileReference() {
+		return offersImageFileReference;
 	}
 
 }
