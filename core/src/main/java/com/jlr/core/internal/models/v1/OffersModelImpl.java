@@ -29,7 +29,8 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 	List<CTAPojo> list = new ArrayList<>();
 	
 	/** The offer list. */
-	List<OffersList> offerList = new ArrayList<>();
+	@Inject
+	public List<OffersList> offerList = new ArrayList<>();
 	
 	/** The resource resolver. */
 	@Inject
