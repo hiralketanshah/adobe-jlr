@@ -73,6 +73,9 @@ public class PageModelImpl implements PageModel {
     /** The footer path. */
     @HierarchicalPageProperty("footerPath")
     private String footerPath;
+    
+    @HierarchicalPageProperty("includeHeaderFooter")
+    private String includeHeaderFooter;
 
     /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
@@ -250,5 +253,16 @@ public class PageModelImpl implements PageModel {
         }
         return null;
     }
+
+	public Boolean getIncludeHeaderFooter() {
+		Page CurrentPage;
+		String template=currentPage.getTemplate().getName();
+		if(template.equals(CommonConstants.TEMPLATE_EMPTY) || 
+				template.equals(CommonConstants.TEMPLATE_GALLERY) || 
+				template.equals(CommonConstants.TEMPLATE_REDIRECT)) {
+				return false;
+			}
+		return true;
+	}
 
 }

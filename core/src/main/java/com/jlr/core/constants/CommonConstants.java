@@ -75,6 +75,11 @@ public class CommonConstants {
     public static final String PATH_CONTENT = "/content";
     public static final String PATH_HEADER = "/config/navigation/header";
     public static final String PATH_FOOTER = "/config/navigation/footer";
+    
+    /** The Template Constants. */
+    public static final String TEMPLATE_GALLERY = "gallery-page-template";
+    public static final String TEMPLATE_EMPTY = "empty-page-template";
+    public static final String TEMPLATE_REDIRECT = "redirect-page-template";
 
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
