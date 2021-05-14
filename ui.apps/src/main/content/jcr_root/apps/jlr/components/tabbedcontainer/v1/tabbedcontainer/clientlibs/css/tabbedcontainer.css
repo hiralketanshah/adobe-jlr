@@ -3,14 +3,26 @@
     height: 100%;
     -webkit-transform-style: preserve-3d;
 }
+
+@media screen and (min-width: 1279px) {
+
+    .cmp-tabbedContainer_box .fontBodyCopyLarge p{
+		width: 100%;
+		margin-bottom: 24px;
+		padding-right: 0;
+		font-family:"AvenirNext";
+		line-height: 19px;
+		letter-spacing: 0.2px;
+		color:#4A4F54;
+		font-size: 14px;
+	}
+}
 .cmp-tabbedContainer_box{
     width: 1160px;
     margin: 0 auto;
     max-height:653px;
     height: auto;
-    /* min-height: 653px; */
     position: relative;
-    /* background: #242932; */
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer{
     padding-top: 60px;
@@ -152,7 +164,7 @@ border-bottom:5px solid #fff;
 color: #4A4F54;
 text-transform:unset;
 }
-.cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge::first-letter{
+.cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge p:first-child::first-letter{
     text-transform:capitalize;
 }
 .cmp-tabbedContainer .headerClass{
@@ -223,9 +235,7 @@ text-transform: uppercase;
 .cmp-contentBlocksContainer .cmp-tabbedContainer .swiper-container{
 height: auto;
 }
-/* .cmp-tabbedContainer .interior360{
-    height: 653px;
-} */
+
 .cmp-tabbedContainer .cmp-interior360{
     margin: 0;
 }
@@ -234,9 +244,6 @@ height: auto;
 .cmp-tabbedContainer .Interior360__panorama-holder{
     height: 653px !important;
 }
-/* .cmp-tabbedContainer .cmp-interior360 .primaryLinkWithStyle{
-    margin-top: 24px;
-} */
 
 .cmp-tabbedContainer .Exterior360__canvas-container{
     margin: 0;
@@ -369,8 +376,6 @@ height: auto;
         margin-top: 24px;
     }
 }
-
-
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
     .Accordion .accordion-group-content-inner > .cmp-tabbedContainer,

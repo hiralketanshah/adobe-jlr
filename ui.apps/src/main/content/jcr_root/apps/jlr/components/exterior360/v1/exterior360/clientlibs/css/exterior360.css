@@ -4,6 +4,10 @@
 	position: relative;
 	text-align: left;
 }
+
+.cmp-exterior360 .fontBodyCopyLarge p:first-child::first-letter {
+	text-transform: capitalize;
+}
 .Exterior360--canvas-loaded .Exterior360__load-button {
 	display: block
 }
@@ -240,7 +244,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 	}
@@ -339,7 +342,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 	}
@@ -444,7 +446,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 
@@ -537,7 +538,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 

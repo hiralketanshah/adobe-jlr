@@ -2,7 +2,7 @@
 .cmp-engineSpecifications {
 	font-size: 14px;
 }
-.cmp-engineSpecifications .cmp-engineSpecifications__summary p{
+.cmp-engineSpecifications .cmp-engineSpecifications__summary p:first-child::first-letter{
 	text-transform: capitalize;
 }
 .cmp-engineSpecifications .headerBlock {

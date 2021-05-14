@@ -430,7 +430,7 @@
     text-decoration: underline !important;
     color: #C9C9C9 !important;
   }
-  .cmp-accolades__copy--primary p, .cmp-accolades__copy--secondary p {
+  .cmp-accolades__copy--primary p, .cmp-accolades__copy--secondary p:first-child::first-letter {
     text-transform: capitalize;
   }
   .fontQuote p{
