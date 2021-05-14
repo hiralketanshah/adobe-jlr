@@ -1,8 +1,8 @@
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
 }
-.cmp-signPost .cmp-signPost__content-copy-wrapper p{
-
+.cmp-vehicleSummary .cmp-vehicleSummary__content p:first-child::first-letter {
+    text-transform:capitalize;
 }
 .cmp-vehicleSummary .cmp-signpostGridContext{
     display: none;
@@ -383,9 +383,9 @@ height: 493px;
     padding-left: 0px;
 }
 
+
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
     margin-top: 3px;
-    text-transform:capitalize;
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
@@ -863,4 +863,11 @@ height: 493px;
   margin-top:0;
   }
   
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px){
+    .cmp-vehicleSummary .cmp-vehicleSummary__image {
+        height: 428px;
+        width: 760px;
+    }
 }

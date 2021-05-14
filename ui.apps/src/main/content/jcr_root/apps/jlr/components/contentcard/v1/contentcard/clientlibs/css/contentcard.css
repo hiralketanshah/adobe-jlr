@@ -1381,7 +1381,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     text-align: left;
     margin-left: 0px;
 }
-.cmp-ContentBlocksContainer .subHeading p::first-letter{
+.cmp-ContentBlocksContainer .subHeading p:first-child::first-letter{
   text-transform: capitalize;
 }
 .GridListWrapper .items .el .heading {

@@ -11,7 +11,7 @@
     text-transform: uppercase;
 }
 
-.cmp-snippet .copy p:first-letter {
+.cmp-snippet .copy p:first-child::first-letter{
     text-transform: capitalize;
 }
 

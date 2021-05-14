@@ -98,7 +98,7 @@
     font-family: "AvenirNext-Regular,Regular";
 }
 
-.cmp-readyToGoBar__copy p::first-letter {
+.cmp-readyToGoBar__copy p:first-child::first-letter {
     text-transform:capitalize;
 }
 
