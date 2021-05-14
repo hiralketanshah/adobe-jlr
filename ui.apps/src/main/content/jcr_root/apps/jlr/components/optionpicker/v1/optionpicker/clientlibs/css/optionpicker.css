@@ -464,7 +464,7 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
     padding-bottom: 0;
     width: 71%;
 }
-.cmp_interactiveOptionPicker__bottom-content p:first-letter {
+.cmp_interactiveOptionPicker__bottom-content p:first-child::first-letter {
 text-transform: capitalize;
 }
 .cmp_interactiveOptionPicker__bottom-content p:last-child{

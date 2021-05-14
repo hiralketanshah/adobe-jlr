@@ -2,7 +2,7 @@
     text-transform: uppercase;
 }
 
-.gallerycategories .Fullscreen__information-text {
+.gallerycategories .Fullscreen__information-text p:first-child::first-letter {
     text-transform: capitalize;
 }
 

@@ -116,14 +116,16 @@
                 value="icon-chevronleft-evo-jaguar"/>
             <item26
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Left Large"/>
+                jcr:title="Chevron Left Large"
+                value="icon-dx-chevron-left-large"/>
             <item27
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Chevron Right"
                 value="icon-chevronright-evo-jaguar "/>
             <item28
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Chevron Right Large"/>
+                jcr:title="Chevron Right Large"
+                value="icon-dx-chevron-right-large"/>
             <item29
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Caution"
@@ -138,31 +140,36 @@
                 value="icon-edit-evo-jaguar"/>
             <item32
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Events"/>
+                jcr:title="Events"
+                value="icon-dx-events"/>
             <item33
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Experience"/>
+                jcr:title="Experience"
+                value="icon-dx-experience"/>
             <item34
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Filter"
                 value="icon-filter"/>
             <item35
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Find a Retailer"/>
+                jcr:title="Find a Retailer"
+                value="icon-dx-find-a-retailer"/>
             <item36
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Full Screen"
                 value="icon-fullscreen"/>
             <item37
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Log In"/>
+                jcr:title="Log In"
+                value="icon-dx-login"/>
             <item38
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Minus"
                 value="icon-minus"/>
             <item39
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Mute"/>
+                jcr:title="Mute"
+                value="icon-dx-mute"/>
             <item40
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Notes"
@@ -197,111 +204,144 @@
                 value="icon-question-mark"/>
             <item48
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Reduce View"/>
+                jcr:title="Reduce View"
+                value="icon-dx-reduce-view"/>
             <item49
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Download a Brochure"/>
+                jcr:title="Download a Brochure"
+                value="icon-download-brochure"/>
             <item50
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Save"/>
+                jcr:title="Save"
+                value="icon-dx-save"/>
             <item51
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Search"
                 value="icon-search"/>
             <item52
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Secure"/>
+                jcr:title="Secure"
+                value="icon-dx-secure"/>
             <item53
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Share"/>
+                jcr:title="Share"
+                value="icon-dx-share"/>
             <item54
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Sound"/>
+                jcr:title="Sound"
+                value="icon-dx-sound"/>
             <item55
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Keep Me Informed"/>
+                jcr:title="Keep Me Informed"
+                value="icon-dx-keep-me-informed"/>
             <item56
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Tick"
                 value="icon-tick"/>
             <item57
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Warning"/>
+                jcr:title="Warning"
+                value="icon-dx-warning"/>
             <item58
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Zoom In"/>
+                jcr:title="Zoom In"
+                value="icon-dx-zoom-in"/>
             <item59
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Zoom Out"/>
+                jcr:title="Zoom Out"
+                value="icon-dx-zoom-out"/>
             <item60
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Circle Plus"/>
+                jcr:title="Circle Plus"
+                value="icon-dx-circle=plus"/>
             <item61
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Approved Used"/>
+                jcr:title="Approved Used"
+                value="icon-dx-approved-used"/>
             <item62
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Interim Service"/>
+                jcr:title="Interim Service"
+                value="icon-dx-interim-service"/>
             <item63
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Brake Fluid"/>
+                jcr:title="Brake Fluid"
+                value="icon-dx-break-fluid"/>
             <item64
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Brake Pad"/>
+                jcr:title="Brake Pad"
+                value="icon-dx-brake-pad"/>
             <item65
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Search Inventory"/>
+                jcr:title="Search Inventory"
+                value="icon-dx-search-inventory"/>
             <item66
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Compare Our Vehicles"/>
+                jcr:title="Compare Our Vehicles"
+                value="icon-dx-compare-our-vehicles"/>
             <item67
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Coolant"/>
+                jcr:title="Coolant"
+                value="icon-dx-coolant"/>
             <item68
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Document"/>
+                jcr:title="Document"
+                value="icon-dx-document"/>
             <item69
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Find Field Location"/>
+                jcr:title="Find Field Location"
+                value="icon-dx-find-field-location"/>
             <item70
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Form No"/>
+                jcr:title="Form No"
+                value="icon-dx-form-no"/>
             <item71
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Form Yes"/>
+                jcr:title="Form Yes"
+                value="icon-dx-form-yes"/>
             <item72
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Fuel"/>
+                jcr:title="Fuel"
+                value="icon-dx-fuel"/>
             <item73
                 jcr:primaryType="nt:unstructured"
-                jcr:title="InControl / Pivi"/>
+                jcr:title="InControl / Pivi"
+                value="icon-dx-incontrol"/>
             <item74
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Loading"/>
+                jcr:title="Loading"
+                value="icon-dx-loading"/>
             <item75
                 jcr:primaryType="nt:unstructured"
-                jcr:title="More"/>
+                jcr:title="More"
+                value="icon-dx-more"/>
             <item76
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Used Prep for Sales"/>
+                jcr:title="Used Prep for Sales"
+                value="icon-dx-used-prep-for-sales"/>
             <item77
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Notification"/>
+                jcr:title="Notification"
+                value="icon-dx-notification"/>
             <item78
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Offers Euro"/>
+                jcr:title="Offers Euro"
+                value="icon-dx-offers-euro"/>
             <item79
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Offers Pound"/>
+                jcr:title="Offers Pound"
+                value="icon-dx-offers-pound"/>
             <item80
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Oil"/>
+                jcr:title="Oil"
+                value="icon-dx-oil"/>
             <item81
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Order Tracker"/>
+                jcr:title="Order Tracker"
+                value="icon-dx-order-tracker"/>
             <item82
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Pre-delivery Exception"/>
+                jcr:title="Pre-delivery Exception"
+                value="icon-dx-pde"/>
             <item83
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Quick Start Guides"
@@ -312,32 +352,40 @@
                 value="icon-reminder-evo-jaguar"/>
             <item85
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Web Link"/>
+                jcr:title="Web Link"
+                value="icon-dx-web-link"/>
             <item86
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Sales Retailer"/>
+                jcr:title="Sales Retailer"
+                value="icon-dx-sales-retailer"/>
             <item87
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Favorite"/>
+                jcr:title="Favorite"
+                value="icon-dx-favorite"/>
             <item88
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Step 1"/>
+                jcr:title="Step 1"
+                value="icon-dx-step1"/>
             <item89
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Step 2"/>
+                jcr:title="Step 2"
+                value="icon-dx-step2"/>
             <item90
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Step 3"/>
+                jcr:title="Step 3"
+                value="icon-dx-step3"/>
             <item91
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Search Results"/>
+                jcr:title="Search Results"
+                value="icon-dx-search-results"/>
             <item92
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Service Retailer"
                 value="icon-servicepreferred-evo-jaguar"/>
             <item93
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Time"/>
+                jcr:title="Time"
+                value="icon-dx-time"/>
             <item94
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Tyre Pressure"
@@ -356,45 +404,56 @@
                 value="icon-chevron-down"/>
             <item98
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Circle Minus"/>
+                jcr:title="Circle Minus"
+                value="icon-dx-cicle-minus"/>
             <item99
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Circle Refresh"/>
+                jcr:title="Circle Refresh"
+                value="icon-dx-circle-refresh"/>
             <item100
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Contract Hire Calculator"/>
+                jcr:title="Contract Hire Calculator"
+                value="icon-dx-contract-hire-calculator"/>
             <item101
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Credit Card"
                 value="icon-credit-card"/>
             <item102
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Day"/>
+                jcr:title="Day"
+                value="icon-dx-day"/>
             <item103
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Garage"/>
+                jcr:title="Garage"
+                value="icon-dx-garage"/>
             <item104
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Finance Calculator"
                 value="icon-finance-calculator"/>
             <item105
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Building"/>
+                jcr:title="Building"
+                value="icon-dx-building"/>
             <item106
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Rural"/>
+                jcr:title="Rural"
+                value="icon-dx-rural"/>
             <item107
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Burger"/>
+                jcr:title="Burger"
+                value="icon-dx-burger"/>
             <item108
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Vehicle Notification"/>
+                jcr:title="Vehicle Notification"
+                value="icon-dx-vehicle-notification"/>
             <item109
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Night"/>
+                jcr:title="Night"
+                value="icon-dx-night"/>
             <item110
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Car Tax Calculator"/>
+                jcr:title="Car Tax Calculator"
+                value="icon-dx-car-tax-calculators"/>
             <item111
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Ownership"
@@ -409,10 +468,12 @@
                 value="icon-request-quote-dollar"/>
             <item114
                 jcr:primaryType="nt:unstructured"
-                jcr:title="News"/>
+                jcr:title="News"
+                value="icon-dx-news"/>
             <item115
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Live Chat"/>
+                jcr:title="Live Chat"
+                value="icon-dx-live-chat"/>
             <item116
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Special Vehicle Operations"

@@ -3,8 +3,8 @@
     text-transform: uppercase;
 }
 
-.gallerylist .Fullscreen__information-text,
-.gallerylist .Fullscreen__footer-text {
+.gallerylist .Fullscreen__information-text p:first-child::first-letter,
+.gallerylist .Fullscreen__footer-text p:first-child::first-letter{
     text-transform: capitalize;
 }
 
