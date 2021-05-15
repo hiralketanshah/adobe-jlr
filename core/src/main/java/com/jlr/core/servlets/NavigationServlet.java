@@ -56,19 +56,27 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
                          final SlingHttpServletResponse response)
             throws ServletException, IOException {
 
-        Boolean cache = Boolean.valueOf(request.getParameter("cache"));
-        Boolean fullyQualifyDxLinks = Boolean.valueOf(request.getParameter("fullyQualifyDxLinks"));
         String locale = request.getParameter("locale"); // en_AU, de_DE
-        Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
-        Boolean retailerLocatorLink = Boolean.valueOf(request.getParameter("retailerLocatorLink"));
+        Boolean cache = Boolean.valueOf(request.getParameter("cache"));
+        Boolean fullyQualifyDxLinks = Boolean.valueOf(request.getParameter("fullyQualifyDxLinks")); // externalizer changes
         String retailerName = request.getParameter("retailerName");
         String retailerUrl = request.getParameter("retailerUrl");
         Boolean search = Boolean.valueOf(request.getParameter("search"));
         Boolean yourRetailer = Boolean.valueOf(request.getParameter("yourRetailer"));
+        Boolean retailerLocatorLink = Boolean.valueOf(request.getParameter("retailerLocatorLink"));
+
         Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
+        Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
         /* TODO: give proper header nav page path */
-        String requestPath = "/content/landrover/global/global-master/en/test123/jcr:content/root/container/vehiclecardcontainer/vehiclecards/vehiclecard.html";
+        String requestPath = "/content/landrover/global/global-master/en/config/navigation/header.html";
+
+        try{
+            LOGGER.info("Sleeping for 5 sec");
+            Thread.sleep(5000);
+        } catch (InterruptedException e){
+            LOGGER.error(e.getMessage());
+        }
 
         HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
         WCMMode.DISABLED.toRequest(req);
@@ -86,6 +94,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         NavigationUtils.changeAttributeValue("data-retailer-name", retailerName, header);
         NavigationUtils.changeAttributeValue("data-retailer-url", retailerUrl, header);
         NavigationUtils.changeAttributeValue("data-locale", locale, header);
+
+        /*Get the retailer and search divs*/
+        Elements searchElement = document.select("li#");
 
         /* cache maxAge=750 or 15 min, retailer Url and retailer name substitute with request param value*/
         JSONObject responseObject = new JSONObject();

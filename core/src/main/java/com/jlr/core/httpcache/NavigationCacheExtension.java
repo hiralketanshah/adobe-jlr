@@ -7,12 +7,11 @@ import com.adobe.acs.commons.httpcache.exception.HttpCacheKeyCreationException;
 import com.adobe.acs.commons.httpcache.exception.HttpCacheRepositoryAccessException;
 import com.adobe.acs.commons.httpcache.keys.CacheKey;
 import com.adobe.acs.commons.httpcache.keys.CacheKeyFactory;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.jlr.core.httpcache.key.CookieKeyValueMapBuilder;
-import com.jlr.core.httpcache.key.NavigationCacheKey;
-import com.jlr.core.httpcache.key.RequestKeyValueMap;
-import com.jlr.core.httpcache.key.RequestParameterKeyValueMapBuilder;
+import com.jlr.core.httpcache.key.*;
 import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -24,7 +23,6 @@ import org.osgi.service.metatype.annotations.Designate;
 
 import javax.servlet.http.Cookie;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Pattern;
 
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE, service = {HttpCacheConfigExtension.class, CacheKeyFactory.class})
@@ -39,10 +37,15 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
     private Set<String> requestParameters;
     private Set<String> requestParameterValues;
     private String configName;
+    private Map<String, String[]> allowedParameters;
+    private String cacheKeyId;
+
+    public Map<String, String[]> getAllowedKeyValues() {
+        return allowedParameters;
+    }
 
     @Override
-    public boolean accepts(SlingHttpServletRequest request, HttpCacheConfig cacheConfig) throws
-            HttpCacheRepositoryAccessException {
+    public boolean accepts(SlingHttpServletRequest request, HttpCacheConfig cacheConfig) throws HttpCacheRepositoryAccessException {
         String resourcePath = request.getRequestPathInfo().getResourcePath();
 
         if (!matches(selectorPatterns, request.getRequestPathInfo().getSelectorString())) {
@@ -59,10 +62,8 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
             }
         }
 
-        if (CollectionUtils.isNotEmpty(requestParameters)) {
-            if (!requestParameterMatch(requestParameters, request.getParameterMap())) {
+        if (CollectionUtils.isNotEmpty(requestParameterValues) && !requestParameterMatch(request)) {
                 return false;
-            }
         }
 
         if (!emptyCookieKeySetAllowed) {
@@ -73,16 +74,27 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
         return true;
     }
 
-    private boolean requestParameterMatch(Set<String> requestParameters, Map<String, String[]> parameterMap) {
-        AtomicReference<Boolean> matched = new AtomicReference<>(false);
-        RequestParameterKeyValueMapBuilder builder = new RequestParameterKeyValueMapBuilder(requestParameters, requestParameterValues);
-        Map<String, String[]> map = builder.build();
-        parameterMap.entrySet().stream().forEach(entry -> {
-            if(map.containsKey(entry.getKey())) {
-                matched.set(Arrays.stream(map.get(entry.getKey())).anyMatch(value -> (value.equals(entry.getValue()[0]))));
+    protected String getActualValue(String key, SlingHttpServletRequest request) {
+        return request.getParameter(key);
+    }
+
+    public String getCacheKeyId() {
+        return "[Request Parameter: " + cacheKeyId + "]";
+    }
+
+    private boolean requestParameterMatch(SlingHttpServletRequest request) {
+        for (final Map.Entry<String, String[]> entry : getAllowedKeyValues().entrySet()) {
+            if (request.getParameterMap().keySet().contains(entry.getKey())) {
+                final String[] parameterValues = request.getParameterMap().get(entry.getKey());
+                if (ArrayUtils.isEmpty(entry.getValue()) || CollectionUtils.containsAny(Arrays.asList(entry.getValue()), Arrays.asList(parameterValues))) {
+                    // If no values were specified, then assume ANY and ALL values are acceptable, and were are merely looking for the existence of the request parameter
+                    return true;
+                }
+                // No matches found for this row; continue looking through the allowed list
             }
-        });
-        return matched.get();
+        }
+        // No valid request parameter could be found.
+        return false;
     }
 
     private boolean resourceTypeMatch(Set<String> resourceTypes, Resource resource) {
@@ -122,22 +134,22 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
             throws HttpCacheKeyCreationException {
         ImmutableSet<Cookie> presentCookies = ImmutableSet.copyOf(slingHttpServletRequest.getCookies());
         CookieKeyValueMapBuilder cookieKeyValueMapBuilder = new CookieKeyValueMapBuilder(cookieKeys, presentCookies);
-        RequestParameterKeyValueMapBuilder requestParameterKeyValueMapBuilder = new RequestParameterKeyValueMapBuilder(requestParameters, requestParameterValues);
+        RequestKeyValueMapBuilder requestKeyValueMapBuilder = new RequestKeyValueMapBuilder(requestParameters, requestParameterValues, slingHttpServletRequest);
         return new NavigationCacheKey(
                 slingHttpServletRequest,
                 cacheConfig,
-                cookieKeyValueMapBuilder.build()
+                cookieKeyValueMapBuilder.build(),
+                requestKeyValueMapBuilder.build()
         );
     }
 
 
     public CacheKey build(String resourcePath, HttpCacheConfig httpCacheConfig) throws HttpCacheKeyCreationException {
-        return new NavigationCacheKey(resourcePath, httpCacheConfig, new RequestKeyValueMap("CookieKeyValueMap"));
+        return new NavigationCacheKey(resourcePath, httpCacheConfig, new RequestKeyValueMap("CookieKeyValueMap"), new RequestKeyValueMap("RequestKeyValueMap"));
     }
 
     @Override
     public boolean doesKeyMatchConfig(CacheKey key, HttpCacheConfig cacheConfig) throws HttpCacheKeyCreationException {
-
         // Check if key is instance of GroupCacheKey.
         if (!(key instanceof NavigationCacheKey)) {
             return false;
@@ -145,7 +157,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
         NavigationCacheKey thatKey = (NavigationCacheKey) key;
 
-        return new NavigationCacheKey(thatKey.getUri(), cacheConfig, thatKey.getCookieKeyValueMap()).equals(key);
+        return new NavigationCacheKey(thatKey.getUri(), cacheConfig, thatKey.getCookieKeyValueMap(), thatKey.getRequestKeyValueMap()).equals(key);
     }
 
     @Activate
@@ -159,6 +171,9 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
         this.emptyCookieKeySetAllowed = config.emptyCookieKeySetAllowed();
         this.requestParameters = ImmutableSet.copyOf(config.requestParameters());
         this.requestParameterValues = ImmutableSet.copyOf(config.requestParameterValues());
+        RequestKeyValueMapBuilder requestKeyValueMapBuilder = new RequestKeyValueMapBuilder(requestParameters, requestParameterValues, null);
+        allowedParameters = requestKeyValueMapBuilder.getAllowedParameterValues();
+        cacheKeyId = UUID.randomUUID().toString();
     }
 
     private List<Pattern> compileToPatterns(final String[] regexes) {

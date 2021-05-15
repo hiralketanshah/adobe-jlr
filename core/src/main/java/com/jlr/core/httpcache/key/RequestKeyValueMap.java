@@ -50,7 +50,6 @@ public class RequestKeyValueMap extends HashMap<String, String> {
             result.append("]");
         }
 
-
         return result.toString();
 
     }

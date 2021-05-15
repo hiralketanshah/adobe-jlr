@@ -52,13 +52,13 @@ public @interface NavigationCacheExtensionConfig {
     boolean emptyCookieKeySetAllowed() default false;
 
     @AttributeDefinition(
-            name = "Allow request headers",
+            name = "Allow request parameters",
             description = "The HTTP Request Parameter to check."
     )
     String[] requestParameters() default {};
 
     @AttributeDefinition(
-            name = "Allowed request header values",
+            name = "Allowed request parameter values",
             description = "This request is only accepted for caching when its named request parameter (above) contains one of these values. Leave blank for any value."
     )
     String[] requestParameterValues() default {};
