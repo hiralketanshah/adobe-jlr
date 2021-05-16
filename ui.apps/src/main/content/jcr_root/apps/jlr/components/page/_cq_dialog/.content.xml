@@ -273,6 +273,66 @@
                                             sling:resourceType="jlr/granite/rendercondition/template"
                                             templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
                                     </nameplateDetails>
+                                    <secnav
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Secondary Navigation"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <showinsecnav
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./showInSecNav"
+                                                renderReadOnly="{Boolean}true"
+                                                text="Show in Secondary Navigation"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="showInSecNav"/>
+                                            </showinsecnav>
+                                            <secnavigationtitle
+                                                cq:showOnCreate="{Boolean}true"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                allowBulkEdit="{Boolean}true"
+                                                fieldLabel="Secondary Navigation Title"
+                                                name="./secNavTitle"
+                                                renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="secNavTitle"/>
+                                            </secnavigationtitle>
+                                            <hideparent
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                name="./hideParent"
+                                                renderReadOnly="{Boolean}true"
+                                                text="Hide Parent"
+                                                value="true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="hideParent"/>
+                                            </hideparent>
+                                            <quicklink
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldLabel="Secondary Navigation Quick Link"
+                                                name="./secNavExtLink"
+                                                renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="secNavExtLink"/>
+                                                <granite:rendercondition
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="jlr/granite/rendercondition/template"
+                                                    templatePath="/conf/jlr/settings/wcm/templates/redirect-page-template"/>
+                                            </quicklink>
+                                        </items>
+                                    </secnav>                                    
                                 </items>
                             </column>
                         </items>
