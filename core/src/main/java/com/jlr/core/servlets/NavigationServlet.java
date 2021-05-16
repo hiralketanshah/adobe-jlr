@@ -1,13 +1,16 @@
 package com.jlr.core.servlets;
 
+import com.day.cq.commons.Externalizer;
 import com.day.cq.contentsync.handler.util.RequestResponseFactory;
 import com.day.cq.wcm.api.WCMMode;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.NavigationUtils;
 import org.apache.commons.lang.CharEncoding;
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.engine.SlingRequestProcessor;
 import org.json.JSONException;
@@ -29,12 +32,14 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
+
 /**
  * Navigation Servlet is used to fetch the header nav based on request parameters,
  * and also to return the json.
  */
-@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "=Navigation Servlet",
-        "sling.servlet.resourceTypes=" + NavigationServlet.RESOURCE_TYPES,
+@Component(service = Servlet.class, property = {Constants.SERVICE_DESCRIPTION + "=Navigation Servlet",
+        "sling.servlet.resourceTypes=" + RESOURCE_TYPES,
         "sling.servlet.selectors=" + NavigationServlet.SELECTOR_JSON})
 public class NavigationServlet extends SlingSafeMethodsServlet {
 
@@ -58,12 +63,12 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         String locale = request.getParameter("locale"); // en_AU, de_DE
         Boolean cache = Boolean.valueOf(request.getParameter("cache"));
-        Boolean fullyQualifyDxLinks = Boolean.valueOf(request.getParameter("fullyQualifyDxLinks")); // externalizer changes
+        Boolean fullyQualifyDxLinks = Boolean.valueOf(request.getParameter("fullyQualifyDxLinks"));
         String retailerName = request.getParameter("retailerName");
         String retailerUrl = request.getParameter("retailerUrl");
-        Boolean search = Boolean.valueOf(request.getParameter("search"));
-        Boolean yourRetailer = Boolean.valueOf(request.getParameter("yourRetailer"));
-        Boolean retailerLocatorLink = Boolean.valueOf(request.getParameter("retailerLocatorLink"));
+        Boolean search = request.getParameter("search") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("search"));
+        Boolean yourRetailer = request.getParameter("yourRetailer") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("yourRetailer"));
+        Boolean retailerLocatorLink = request.getParameter("retailerLocatorLink") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("retailerLocatorLink"));
 
         Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
@@ -71,10 +76,10 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         /* TODO: give proper header nav page path */
         String requestPath = "/content/landrover/global/global-master/en/config/navigation/header.html";
 
-        try{
+        try {
             LOGGER.info("Sleeping for 5 sec");
             Thread.sleep(5000);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             LOGGER.error(e.getMessage());
         }
 
@@ -85,10 +90,20 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         HttpServletResponse resp = requestResponseFactory.createResponse(out);
 
+        ResourceResolver resourceResolver = request.getResourceResolver();
+        Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
+        String baseUrl = externalizer.publishLink(resourceResolver, StringUtils.EMPTY);
+
         /* Process request through Sling */
-        requestProcessor.processRequest(req, resp, request.getResourceResolver());
+        requestProcessor.processRequest(req, resp, resourceResolver);
         String html = out.toString();
-        Document document =  Jsoup.parse(html);
+        Document document = null;
+        if (fullyQualifyDxLinks) {
+            document = Jsoup.parse(html, baseUrl);
+            NavigationUtils.processUrls(document);
+        } else {
+            document = Jsoup.parse(html);
+        }
         Elements header = document.select("header");
         NavigationUtils.setCacheHeaderResponse(response, cache, header);
         NavigationUtils.changeAttributeValue("data-retailer-name", retailerName, header);
@@ -96,15 +111,27 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         NavigationUtils.changeAttributeValue("data-locale", locale, header);
 
         /*Get the retailer and search divs*/
-        Elements searchElement = document.select("li#");
+        if(!search) {
+            NavigationUtils.removeAttribute(document, "li#dxnav-search");
+        }
+        if(!retailerLocatorLink) {
+            NavigationUtils.removeAttribute(document, "a.dxnav__item-retailer--link");
+        }
+        if(!yourRetailer) {
+            NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-retailer");
+        }
 
+        sendResponse(response, cache, document);
+    }
+
+    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document) throws IOException {
         /* cache maxAge=750 or 15 min, retailer Url and retailer name substitute with request param value*/
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
             responseObject.put("cssFontImportsLink", "https://dxnav.landrover.com/current/fontImports-landrover-385e43ef7ee2dd6fe7b21f42089c6929.css");
             responseObject.put("cssLink", "https://dxnav.landrover.com/current/landrover-4d9fac083e07ef876c84b1aeafc88492.css");
-            responseObject.put("html",document.html());
+            responseObject.put("html", document.html());
             responseObject.put("javascriptLink", "https://dxnav.landrover.com/current/main-2f17544b886e637183bcfd0cfa6021c2.js");
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
@@ -116,7 +143,6 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         PrintWriter printOut = response.getWriter();
         printOut.print(responseObject);
         printOut.flush();
-
     }
 
 }
