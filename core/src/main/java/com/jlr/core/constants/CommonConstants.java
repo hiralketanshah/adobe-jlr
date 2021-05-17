@@ -276,4 +276,7 @@ public class CommonConstants {
 
     /** The Constant UNIQUE_ID. */
     public static final String UNIQUE_ID = "uniqueID";
+
+    /** The Constant EXTENSION_PRICING_API. */
+    public static final String EXTENSION_PRICING_API = ".json?view=dx-products";
 }
