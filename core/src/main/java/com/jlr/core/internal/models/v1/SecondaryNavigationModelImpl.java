@@ -94,7 +94,7 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 		List<SecondaryNavigation> subNavList = new ArrayList<>();
 		while(childItr.hasNext()) {
 			Page childPage = childItr.next();
-			if(getShowInSecNav(childPage)) {
+			if(!getShowInSecNav(childPage)) {
 				continue;
 			}
 			SecondaryNavigation secNavItem = new SecondaryNavigation();
