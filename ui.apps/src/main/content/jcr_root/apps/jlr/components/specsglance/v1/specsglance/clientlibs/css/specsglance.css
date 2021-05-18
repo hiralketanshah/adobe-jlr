@@ -1,0 +1,96 @@
+.cmp-specificationsAtAGlance__heading{
+    margin:0 auto 23px;
+    text-align: left;
+}
+.cmp-gridListWrapper{
+    padding:60px 60px 40px;
+}
+.cmp-specificationsAtAGlance__copy{
+    width:519px;
+    margin-bottom: 81px;
+}
+.cmp-gridListWrapper .items .el {
+    padding: 0 21px 24px 0;
+    width:23% !important;
+}
+.cmp-itemsAtAGlance .dividerBlock{
+    border: none;
+    margin-bottom: 21.333px;
+    padding-top: 19px;
+    padding-bottom: 21px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+.cmp-itemsAtAGlance .items .el .dividerBlock span, .cmp-itemsAtAGlance .items .el .dividerBlock div {
+    line-height: 1;
+}
+.cmp-itemsAtAGlance .items .el .valueLarge, .cmp-itemsAtAGlance .items .el .valueSmall {
+    font-size: 56px;
+    font-weight: 700;
+}
+
+
+@media screen and (min-width: 1px) and (max-width: 900px){
+    .SpecificationsAtAGlance__heading{
+        margin-bottom:40px
+    }
+}
+.cmp-specificationsAtAGlance .cmp-ctaContainer{
+    margin-top:0px;
+    text-align: left;
+    padding-left: 0 !important;
+}
+.SpecificationsAtAGlance.dark .SpecificationsAtAGlance__items p{
+    color:#fff
+}
+.SpecificationsAtAGlance__heading{
+    line-height:38px;
+    letter-spacing:.19rem
+}
+@media screen and (min-width: 1px) and (max-width: 900px){
+    .SpecificationsAtAGlance__heading{
+        line-height:33px;
+        letter-spacing:.19rem
+    }
+}
+@media screen and (min-width: 1px) and (max-width: 740px){
+    .SpecificationsAtAGlance__heading{
+        line-height:26px;
+        letter-spacing:.13rem
+    }
+}
+.SpecificationsAtAGlance__heading.fontH2{
+    font-size:3.8rem
+}
+@media screen and (min-width: 1px) and (max-width: 900px){
+    .SpecificationsAtAGlance__heading.fontH2{
+        font-size:3.3rem
+    }
+}
+@media screen and (min-width: 1px) and (max-width: 740px){
+    .SpecificationsAtAGlance__heading.fontH2{
+        font-size:2.6rem
+    }
+}
+.SpecificationsAtAGlance__items.items .measurement span.valueLarge{
+    color:#4a4f54;
+    font-weight:700;
+    font-size:5.6rem
+}
+.SpecificationsAtAGlance__items.items .measurement span.unitLarge{
+    color:#4a4f54;
+    font-weight:700;
+    font-size:2.8rem;
+    line-height:24px
+}
+.SpecificationsAtAGlance__items.items .measurement span.unitLarge sub{
+    vertical-align:baseline
+}
+.SpecificationsAtAGlance.dark .SpecificationsAtAGlance__items.items .measurement .valueLarge{
+    color:#e9ecec
+}
+.SpecificationsAtAGlance.dark .SpecificationsAtAGlance__items.items .measurement .unitLarge{
+    color:#e9ecec
+}
+ 
