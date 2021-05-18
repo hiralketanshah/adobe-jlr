@@ -281,4 +281,11 @@ public class CommonConstants {
 
     /** The Constant UNIQUE_ID. */
     public static final String UNIQUE_ID = "uniqueID";
+    public static final String PRICING_SUPPRESSION = "pricingSuppression";
+    public static final String PRICING_CURRENT_FORMAT = "pricingCurrentFormat";
+    public static final String DEFAULT_PRICE_TYPE = "defaultPriceType";
+    public static final String FALLBACK_PRICE_TYPE = "fallbackPriceType";
+    public static final String DOT_REGEX = "\\.";
+    public static final String YYY = "yyy";
+    public static final String STATE = "state";
 }

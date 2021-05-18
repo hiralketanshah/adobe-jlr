@@ -1,19 +1,19 @@
 package com.jlr.core.internal.models.v1;
 
 import com.day.cq.commons.inherit.InheritanceValueMap;
-import com.jlr.core.constants.ErrorUtilsConstants;
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.TcoModel;
-import com.jlr.core.utils.ErrorUtils;
-import org.apache.commons.collections.MapUtils;
+import com.jlr.core.pojos.PricingPojo;
+import com.jlr.core.services.TcoService;
 import org.apache.commons.lang.StringUtils;
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.*;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -23,14 +23,9 @@ import javax.inject.Inject;
  *
  * @author Adobe
  */
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {TcoModel.class}, resourceType = TcoModelImpl.RESOURCE_TYPE)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {TcoModel.class},
+        resourceType = TcoModelImpl.RESOURCE_TYPE)
 public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
-
-    /**
-     * The Constant LOGGER.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
-            TcoModelImpl.class);
 
     /**
      * The Constant RESOURCE_TYPE.
@@ -44,110 +39,48 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
     private ResourceResolver resourceResolver;
 
     @Inject
+    private Page currentPage;
+
+    @Inject
     private InheritanceValueMap pageProperties;
+
+    @OSGiService
+    private TcoService tcoService;
 
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String priceMacro;
-
-    private String namePlateDetails;
-    private String priceType;
+    private String pricingSuppression;
     private String modelPrice;
-    private String modelYear;
 
     /**
      * Init.
      */
     @PostConstruct
     public void init() {
-        priceMacro = "config.l405/A-I6-400-HSE_k20.price.net";
+        priceMacro = "config.l663/A-S-D200-I6.price.gross";
+
+        pricingSuppression = pageProperties
+                .getInherited(CommonConstants.PRICING_SUPPRESSION, String.class);
+        if (Boolean.valueOf(pricingSuppression)) {
+            return;
+        }
+        PricingPojo pricingPojo = new PricingPojo();
+        pricingPojo.setRegion("de");
+        pricingPojo.setCurrencyFormat(
+                pageProperties.getInherited(CommonConstants.PRICING_CURRENT_FORMAT, String.class));
+        pricingPojo.setDefaultPriceType(
+                pageProperties.getInherited(CommonConstants.DEFAULT_PRICE_TYPE, String.class));
+        pricingPojo.setFallbackPriceType(
+                pageProperties.getInherited(CommonConstants.FALLBACK_PRICE_TYPE, String.class));
         if (StringUtils.isNotEmpty(priceMacro)) {
-            String[] configCodes = priceMacro.split("\\.");
-            namePlateDetails = configCodes[1];
-            if(configCodes.length == 4) {
-                priceType = configCodes[3];
+            String[] configCodes = priceMacro.split(CommonConstants.DOT_REGEX);
+            pricingPojo.setPriceMacroConfig(configCodes[1]);
+            if (configCodes.length == 4) {
+                pricingPojo.setPriceType(configCodes[3]);
             }
-            if(StringUtils.isEmpty(priceType)) {
-                priceType = pageProperties.getInherited("defaultPriceType", String.class).isEmpty()
-                        ? pageProperties.getInherited("fallBackPriceType", String.class)
-                        : pageProperties.getInherited("defaultPriceType", String.class);
-            }
-            String env = "prd";
-            String region = "de";
-            modelYear = pageProperties.getInherited("modelYear", String.class);
-            modelYear = "k20";
-            String basePath = "/var/jlr/pricing/" + env + "/" + region + "/" + getPlaceHolder(region) +"/";
-            try {
-                if (hasModelWithNamePlate(namePlateDetails)) {
-                    fetchPriceFromModel(basePath, namePlateDetails, priceType);
-                } else {
-                    fetchPriceFromNamePlate(basePath, namePlateDetails, priceType);
-                }
-            } catch (PersistenceException e) {
-                LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                        ErrorUtilsConstants.MODULE_LISTENER, this.getClass().getSimpleName(), e));
-            }
+            modelPrice = tcoService.getModelPrice(pricingPojo, resourceResolver, currentPage);
         }
 
-    }
-
-    private void fetchPriceFromNamePlate(String basePath, String namePlateDetails, String priceType) throws PersistenceException {
-        String path = basePath + modelYear +"/"+ namePlateDetails;
-        Resource varResource = ResourceUtil.getOrCreateResource(
-                resourceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
-        ValueMap valueMap = varResource.getValueMap();
-        if (valueMap.containsKey(priceType)) {
-            this.modelPrice = valueMap.get(priceType, String.class);
-        }
-
-    }
-
-    private String getPlaceHolder(String region) {
-        String placeHolder = null;
-        if(region.equalsIgnoreCase("de")) {
-            placeHolder = "yyy";
-        } else {
-            placeHolder = "state";
-        }
-        return placeHolder;
-    }
-
-    private void fetchPriceFromModel(String basePath, String namePlateDetails, String priceType) throws PersistenceException {
-        String product = null;
-        String namePlate = null;
-        if (namePlateDetails.contains("/")) {
-            String[] models = namePlateDetails.split("/");
-            namePlate = models[0];
-            if(models[1].contains("_")) {
-                String[] productYears = models[1].split("_");
-                product = productYears[0];
-                modelYear = productYears[1];
-            }
-        } else {
-            if(namePlateDetails.contains("_")) {
-                String[] productYears = namePlateDetails.split("_");
-                namePlate = productYears[0];
-                modelYear = productYears[1];
-            }
-        }
-        String path = getNamePlatePath(basePath, namePlate, product, modelYear);
-        Resource resource = ResourceUtil.getOrCreateResource(
-                resourceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
-        ValueMap valueMap = resource.getValueMap();
-        if(MapUtils.isNotEmpty(valueMap)){
-            this.modelPrice = valueMap.get(priceType, String.class);
-        }
-    }
-
-    private String getNamePlatePath(String basePath, String namePlate, String product, String modelYear) {
-        if(StringUtils.isNotEmpty(product)) {
-            return basePath + modelYear+"/"+namePlate+"/" +product;
-        } else {
-            return basePath + modelYear+"/"+namePlate;
-        }
-    }
-
-    private boolean hasModelWithNamePlate(String namePlateDetails) {
-        return (namePlateDetails.contains("/") || namePlateDetails.contains("_"));
     }
 
     public String getModelPrice() {
