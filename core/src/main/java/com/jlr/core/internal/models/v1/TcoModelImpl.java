@@ -1,164 +1,156 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import javax.inject.Inject;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ValueMap;
-import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import com.jlr.core.constants.CommonConstants;
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.models.TcoModel;
+import com.jlr.core.utils.ErrorUtils;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.jackrabbit.JcrConstants;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.*;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 /**
  * The Class TcoModelImpl.
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {TcoModel.class}, resourceType = TcoModelImpl.RESOURCE_TYPE)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {TcoModel.class}, resourceType = TcoModelImpl.RESOURCE_TYPE)
 public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
 
-    /** The Constant RESOURCE_TYPE. */
+    /**
+     * The Constant LOGGER.
+     */
+    private static final Logger LOGGER = LoggerFactory.getLogger(
+            TcoModelImpl.class);
+
+    /**
+     * The Constant RESOURCE_TYPE.
+     */
     public static final String RESOURCE_TYPE = "jlr/components/tco/v1/tco";
 
-    /** The price. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String price;
-
-    /** The price desc symbol. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String priceDescSymbol;
-
-    /** The price suffix. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String priceSuffix;
-
-    /** The view type. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String viewType;
-
-    /** The emission head. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String emissionHead;
-
-    /** The emission body. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String emissionBody;
-
-    /** The lease label. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String leaseLabel;
-
-    /** The lease price. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String leasePrice;
-
-    /** The caveat list. */
+    /**
+     * The resource resolver.
+     */
     @Inject
-    @Optional
-    private Resource caveatList;
+    private ResourceResolver resourceResolver;
+
+    @Inject
+    private InheritanceValueMap pageProperties;
+
+    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String priceMacro;
+
+    private String namePlateDetails;
+    private String priceType;
+    private String modelPrice;
+    private String modelYear;
 
     /**
-     * Gets the price.
-     *
-     * @return the price
+     * Init.
      */
-    @Override
-    public String getPrice() {
-        return price;
-    }
-
-    /**
-     * Gets the price desc symbol.
-     *
-     * @return the price desc symbol
-     */
-    @Override
-    public String getPriceDescSymbol() {
-        return priceDescSymbol;
-    }
-
-    /**
-     * Gets the price suffix.
-     *
-     * @return the price suffix
-     */
-    @Override
-    public String getPriceSuffix() {
-        return priceSuffix;
-    }
-
-    /**
-     * Gets the view type.
-     *
-     * @return the view type
-     */
-    @Override
-    public String getViewType() {
-        return viewType;
-    }
-
-    /**
-     * Gets the emission head.
-     *
-     * @return the emission head
-     */
-    @Override
-    public String getEmissionHead() {
-        return emissionHead;
-    }
-
-    /**
-     * Gets the emission body.
-     *
-     * @return the emission body
-     */
-    @Override
-    public String getEmissionBody() {
-        return emissionBody;
-    }
-
-    /**
-     * Gets the lease label.
-     *
-     * @return the lease label
-     */
-    @Override
-    public String getLeaseLabel() {
-        return leaseLabel;
-    }
-
-    /**
-     * Gets the lease price.
-     *
-     * @return the lease price
-     */
-    @Override
-    public String getLeasePrice() {
-        return leasePrice;
-    }
-
-    /**
-     * Gets the caveats.
-     *
-     * @return the caveats
-     */
-    @Override
-    public List<String> getCaveats() {
-        List<String> list = new ArrayList<>();
-        if (null != caveatList && caveatList.hasChildren()) {
-            Iterator<Resource> childResources = caveatList.listChildren();
-            while (childResources.hasNext()) {
-                Resource child = childResources.next();
-                ValueMap properties = child.adaptTo(ValueMap.class);
-                if (null != properties) {
-                    list.add(properties.get(CommonConstants.PN_CTA_TEXT, String.class));
+    @PostConstruct
+    public void init() {
+        priceMacro = "config.l405/A-I6-400-HSE_k20.price.net";
+        if (StringUtils.isNotEmpty(priceMacro)) {
+            String[] configCodes = priceMacro.split("\\.");
+            namePlateDetails = configCodes[1];
+            if(configCodes.length == 4) {
+                priceType = configCodes[3];
+            }
+            if(StringUtils.isEmpty(priceType)) {
+                priceType = pageProperties.getInherited("defaultPriceType", String.class).isEmpty()
+                        ? pageProperties.getInherited("fallBackPriceType", String.class)
+                        : pageProperties.getInherited("defaultPriceType", String.class);
+            }
+            String env = "prd";
+            String region = "de";
+            modelYear = pageProperties.getInherited("modelYear", String.class);
+            modelYear = "k20";
+            String basePath = "/var/jlr/pricing/" + env + "/" + region + "/" + getPlaceHolder(region) +"/";
+            try {
+                if (hasModelWithNamePlate(namePlateDetails)) {
+                    fetchPriceFromModel(basePath, namePlateDetails, priceType);
+                } else {
+                    fetchPriceFromNamePlate(basePath, namePlateDetails, priceType);
                 }
+            } catch (PersistenceException e) {
+                LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                        ErrorUtilsConstants.MODULE_LISTENER, this.getClass().getSimpleName(), e));
             }
         }
-        return list;
+
+    }
+
+    private void fetchPriceFromNamePlate(String basePath, String namePlateDetails, String priceType) throws PersistenceException {
+        String path = basePath + modelYear +"/"+ namePlateDetails;
+        Resource varResource = ResourceUtil.getOrCreateResource(
+                resourceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
+        ValueMap valueMap = varResource.getValueMap();
+        if (valueMap.containsKey(priceType)) {
+            this.modelPrice = valueMap.get(priceType, String.class);
+        }
+
+    }
+
+    private String getPlaceHolder(String region) {
+        String placeHolder = null;
+        if(region.equalsIgnoreCase("de")) {
+            placeHolder = "yyy";
+        } else {
+            placeHolder = "state";
+        }
+        return placeHolder;
+    }
+
+    private void fetchPriceFromModel(String basePath, String namePlateDetails, String priceType) throws PersistenceException {
+        String product = null;
+        String namePlate = null;
+        if (namePlateDetails.contains("/")) {
+            String[] models = namePlateDetails.split("/");
+            namePlate = models[0];
+            if(models[1].contains("_")) {
+                String[] productYears = models[1].split("_");
+                product = productYears[0];
+                modelYear = productYears[1];
+            }
+        } else {
+            if(namePlateDetails.contains("_")) {
+                String[] productYears = namePlateDetails.split("_");
+                namePlate = productYears[0];
+                modelYear = productYears[1];
+            }
+        }
+        String path = getNamePlatePath(basePath, namePlate, product, modelYear);
+        Resource resource = ResourceUtil.getOrCreateResource(
+                resourceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
+        ValueMap valueMap = resource.getValueMap();
+        if(MapUtils.isNotEmpty(valueMap)){
+            this.modelPrice = valueMap.get(priceType, String.class);
+        }
+    }
+
+    private String getNamePlatePath(String basePath, String namePlate, String product, String modelYear) {
+        if(StringUtils.isNotEmpty(product)) {
+            return basePath + modelYear+"/"+namePlate+"/" +product;
+        } else {
+            return basePath + modelYear+"/"+namePlate;
+        }
+    }
+
+    private boolean hasModelWithNamePlate(String namePlateDetails) {
+        return (namePlateDetails.contains("/") || namePlateDetails.contains("_"));
+    }
+
+    public String getModelPrice() {
+        return modelPrice;
     }
 }
