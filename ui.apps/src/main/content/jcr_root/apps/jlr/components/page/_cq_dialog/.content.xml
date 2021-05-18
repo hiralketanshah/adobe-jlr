@@ -273,6 +273,68 @@
                                             sling:resourceType="jlr/granite/rendercondition/template"
                                             templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
                                     </nameplateDetails>
+                                    <pricingConfig
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Pricing Config"
+                                        sling:orderBefore="onofftime"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <pricing
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="NameplateID and Model year">
+                                                <field
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./nameplateDetails">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <well
+                                                            granite:class="grey-border"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <nameplate
+                                                                    cq:showOnCreate="{Boolean}false"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Enter the nameplate ID to associate to the model year"
+                                                                    fieldLabel="Nameplate ID"
+                                                                    maxlengthlong="{Long}40"
+                                                                    name="./nameplate"/>
+                                                                <modelyear
+                                                                    cq:showOnCreate="{Boolean}false"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    disabled="{Boolean}false"
+                                                                    fieldDescription="Comma separated list of model years associated with the nameplate id entered above."
+                                                                    fieldLabel="Model Year"
+                                                                    maxlengthlong="{Long}40"
+                                                                    name="./modelYear"/>
+                                                                <environment
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/foundation/form/select"
+                                                                    fieldDescription="Select the environment to retrieve pricing details"
+                                                                    fieldLabel="Configurator environment"
+                                                                    name="./environment">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <stg
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Stage"
+                                                                            value="stg"/>
+                                                                        <prd
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Production"
+                                                                            value="prd"/>
+                                                                    </items>
+                                                                </environment>
+                                                            </items>
+                                                        </well>
+                                                    </items>
+                                                </field>
+                                            </pricing>
+                                        </items>
+                                    </pricingConfig>
                                 </items>
                             </column>
                         </items>
@@ -424,6 +486,100 @@
                                             </skipToMainTitle>
                                         </items>
                                     </marketregionpricing>
+                                    <pricing
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Pricing Config"
+                                        sling:orderBefore="moretitles"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <currencyFormat
+                                                cq:showOnCreate="{Boolean}false"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Pricing Macro Currency Format"
+                                                fieldLabel="Pricing Macro Currency Format"
+                                                name="./pricingCurrentFormat"
+                                                text="Pricing Macro Currency Format"/>
+                                            <defaultPriceType
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+                                                text="Pricing Macro Default Price Type"
+                                                title="Pricing Macro Default Price Type"
+                                                vertical="{Boolean}false">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <gross
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        checked="{Boolean}true"
+                                                        name="./defaultPriceType"
+                                                        text="Gross"
+                                                        value="Gross"/>
+                                                    <net
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        name="./defaultPriceType"
+                                                        text="Net"
+                                                        value="Net"/>
+                                                    <retail
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        name="./defaultPriceType"
+                                                        text="Retail"
+                                                        value="Retail"/>
+                                                </items>
+                                            </defaultPriceType>
+                                            <fallbackPriceType
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+                                                text="Pricing Macro Fallback Price Type"
+                                                title="Pricing Macro Fallback Price Type"
+                                                vertical="{Boolean}false">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <gross
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        name="./fallbackPriceType"
+                                                        text="Gross"
+                                                        value="Gross"/>
+                                                    <net
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        checked="{Boolean}true"
+                                                        name="./fallbackPriceType"
+                                                        text="Net"
+                                                        value="Net"/>
+                                                    <retail
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        name="./fallbackPriceType"
+                                                        text="Retail"
+                                                        value="Retail"/>
+                                                </items>
+                                            </fallbackPriceType>
+                                            <suppressPrice
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/form/radiogroup"
+                                                text="Pricing Suppression"
+                                                title="Pricing Suppression"
+                                                vertical="{Boolean}false">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <true
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        name="./suppressPrice"
+                                                        text="True"
+                                                        value="False"/>
+                                                    <false
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/radio"
+                                                        checked="{Boolean}true"
+                                                        name="./suppressPrice"
+                                                        text="False"
+                                                        value="False"/>
+                                                </items>
+                                            </suppressPrice>
+                                        </items>
+                                    </pricing>
                                 </items>
                             </column>
                         </items>
