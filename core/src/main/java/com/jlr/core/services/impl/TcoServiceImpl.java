@@ -40,6 +40,7 @@ public class TcoServiceImpl implements TcoService {
     private void decodeSimpleMacroForPrice(PricingPojo pricingPojo,
                                            ResourceResolver resourceResolver,
                                            Page currentPage) {
+        pricingPojo.setNamePlate(pricingPojo.getPriceMacroConfig());
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, StringUtils.EMPTY, BASE_PATH);
         fetchPriceFromResource(pricingPojo, resourceResolver, path);
@@ -66,8 +67,8 @@ public class TcoServiceImpl implements TcoService {
             if (MapUtils.isNotEmpty(valueMap)
                     && valueMap.containsKey(pricingPojo.getPriceType())) {
                 String price = valueMap.get(pricingPojo.getPriceType(), String.class);
-                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat()
-                        , Double.parseDouble(price)));
+                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
+                        Double.parseDouble(price)));
             }
         } catch (PersistenceException e) {
             LOGGER.error(ErrorUtils
@@ -88,6 +89,8 @@ public class TcoServiceImpl implements TcoService {
                 String[] productYears = models[1].split(CommonConstants.UNDERSCORE);
                 pricingPojo.setProduct(productYears[0]);
                 macroModelYear = productYears[1];
+            } else {
+                pricingPojo.setProduct(models[1]);
             }
         } else {
             if (pricingPojo.getPriceMacroConfig().contains(CommonConstants.UNDERSCORE)) {

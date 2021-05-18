@@ -57,7 +57,7 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
      */
     @PostConstruct
     public void init() {
-        priceMacro = "config.l663/A-S-D200-I6.price.gross";
+        priceMacro = "config.l663.price";
 
         pricingSuppression = pageProperties
                 .getInherited(CommonConstants.PRICING_SUPPRESSION, String.class);
@@ -66,12 +66,7 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
         }
         PricingPojo pricingPojo = new PricingPojo();
         pricingPojo.setRegion("de");
-        pricingPojo.setCurrencyFormat(
-                pageProperties.getInherited(CommonConstants.PRICING_CURRENT_FORMAT, String.class));
-        pricingPojo.setDefaultPriceType(
-                pageProperties.getInherited(CommonConstants.DEFAULT_PRICE_TYPE, String.class));
-        pricingPojo.setFallbackPriceType(
-                pageProperties.getInherited(CommonConstants.FALLBACK_PRICE_TYPE, String.class));
+        mapPagePropertiesToPojo(pricingPojo);
         if (StringUtils.isNotEmpty(priceMacro)) {
             String[] configCodes = priceMacro.split(CommonConstants.DOT_REGEX);
             pricingPojo.setPriceMacroConfig(configCodes[1]);
@@ -81,6 +76,15 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
             modelPrice = tcoService.getModelPrice(pricingPojo, resourceResolver, currentPage);
         }
 
+    }
+
+    private void mapPagePropertiesToPojo(PricingPojo pricingPojo) {
+        pricingPojo.setCurrencyFormat(
+                pageProperties.getInherited(CommonConstants.PRICING_CURRENT_FORMAT, String.class));
+        pricingPojo.setDefaultPriceType(
+                pageProperties.getInherited(CommonConstants.DEFAULT_PRICE_TYPE, String.class));
+        pricingPojo.setFallbackPriceType(
+                pageProperties.getInherited(CommonConstants.FALLBACK_PRICE_TYPE, String.class));
     }
 
     public String getModelPrice() {
