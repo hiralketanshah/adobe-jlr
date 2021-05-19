@@ -46,21 +46,6 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 	}
 
 	@Override
-	public List<SecondaryNavigation> getItems(String parent) {
-		return secondaryNavMap.get(parent);
-	}
-
-	@Override
-	public Map<String,String> getSecondaryNavParentMap() {
-		return parentNavMap;
-	}
-	
-	@Override
-	public Map<String,List<SecondaryNavigation>> getSecondaryNavMap() {
-		return secondaryNavMap;
-	}
-
-	@Override
 	public List<String> getSecondaryNavParentList() {
 		List<String> parentList = new ArrayList<>();
 		String rootPath = CommonUtils.getSiteRootPath(currentPage);
@@ -72,13 +57,13 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 			if(parent.getPath().equals(rootPath)) {
 				break;
 			}
-
-			if(!getSecondaryNavHideParent(parent)) {
-				parentList.add(getSecondaryNavLink(parent));
-				parentNavMap.put(parent.getPath(), getSecondaryNavTitle(parent));			
+			parentList.add(getSecondaryNavLink(parent));
+			parentNavMap.put(parent.getPath(), getSecondaryNavTitle(parent));
+			if(getSecondaryNavHideParent(parent)) {
+				parent = parent.getParent().getParent();
+			} else {
+				parent = parent.getParent();
 			}
-
-			parent = parent.getParent();
 		}
 		Collections.sort(parentList);
 		return parentList;
@@ -128,8 +113,24 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 		}
 		return  page.getPath();
 	}
+	
 	private boolean getSecondaryNavHideParent(Page page) {
 		ValueMap propMap = page.getContentResource().adaptTo(ValueMap.class);
 		return null != propMap.get(CommonConstants.PN_SECONDARY_NAVIGATION_HIDE_PARENT) && Boolean.parseBoolean(propMap.get(CommonConstants.PN_SECONDARY_NAVIGATION_HIDE_PARENT).toString());
+	}
+	
+	@Override
+	public List<SecondaryNavigation> getItems(String parent) {
+		return secondaryNavMap.get(parent);
+	}
+
+	@Override
+	public Map<String,String> getSecondaryNavParentMap() {
+		return parentNavMap;
+	}
+	
+	@Override
+	public Map<String,List<SecondaryNavigation>> getSecondaryNavMap() {
+		return secondaryNavMap;
 	}
 }
