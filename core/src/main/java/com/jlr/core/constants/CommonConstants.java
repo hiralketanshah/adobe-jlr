@@ -13,6 +13,9 @@ public class CommonConstants {
     /** The Constant FORWARD_SLASH. */
     public static final String FORWARD_SLASH = "/";
 
+    /** The Constant JLR_PRICING_COMPONENT. */
+    public static final String PIPE_CHARACTER = "|";
+
     /** The Constant EXTENSION_DOT_HTML. */
     public static final String EXTENSION_DOT_HTML = ".html";
 
@@ -277,6 +280,13 @@ public class CommonConstants {
     /** The Constant UNIQUE_ID. */
     public static final String UNIQUE_ID = "uniqueID";
 
-    /** The Constant EXTENSION_PRICING_API. */
-    public static final String EXTENSION_PRICING_API = ".json?view=dx-products";
+    /** The Constant RUNMODE_AUTHOR. */
+    public static final String RUNMODE_AUTHOR = "author";
+
+    /** The Constant RUNMODE_STAGE. */
+    public static final String RUNMODE_STAGE = "stage";
+
+    /** The Constant RUNMODE_PROD. */
+    public static final String RUNMODE_PROD = "prod";
+
 }

@@ -1,5 +1,7 @@
 package com.jlr.core.services;
 
+import java.util.Map;
+
 /**
  * Service Interface for FetchPrice Service.
  *
@@ -7,5 +9,9 @@ package com.jlr.core.services;
  */
 public interface FetchPrice {
 
-    public String getPrices();
+    public String getPrices(Map<String, String> endpoints, Map<String, String> staticUrl,
+            Map<String, String> configPages, Map<String, String> header, String destinationPath, String market,
+            String[] listOfStates);
+
+    public void replicate(String pricingDestinationPath);
 }

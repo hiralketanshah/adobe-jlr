@@ -1,3 +1,8 @@
-<sly data-sly-list.nameplate="${properties.nameplateList}">
-   <div>${nameplate}</div>
-	</sly>
+<sly data-sly-use.model="com.jlr.core.models.PriceConfigModel" data-sly-call="${renderConfig @ model=model}" />	
+
+<template data-sly-template.renderConfig="${ @ model }">
+	<div class="cq-placeholder" data-emptytext="Site Config Component"></div>
+	<div data-sly-list.nameplate="${model.nameplates}">
+	<div> ${nameplate.nameplateId} : ${nameplate.modelYear}
+</div>
+</template>

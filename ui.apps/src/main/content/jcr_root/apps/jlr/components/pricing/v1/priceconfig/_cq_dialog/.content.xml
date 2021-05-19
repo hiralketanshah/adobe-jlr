@@ -42,27 +42,11 @@
                                                     required="{Boolean}true"/>
                                                 <modelyear
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                    fieldDescription="Author the multiple model year for the nameplate ID"
-                                                    fieldLabel="Model year"
-                                                    multiple="{Boolean}true"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Enter the model year as comma separated values"
+                                                    fieldLabel="Model Year"
                                                     name="./modelYear"
-                                                    required="{Boolean}true">
-                                                    <items jcr:primaryType="nt:unstructured">
-                                                        <_x0032_018
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="2018"
-                                                            value="k18"/>
-                                                        <_x0032_019
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="2019"
-                                                            value="k19"/>
-                                                        <_x0032_020
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="2020"
-                                                            value="k20"/>
-                                                    </items>
-                                                </modelyear>
+                                                    required="{Boolean}true"/>
                                             </items>
                                         </column>
                                     </items>
