@@ -41,13 +41,14 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
     @Reference
     private transient SlingSettingsService slingSettingsService;
 
-    private transient Map<String, String> endpoints;
-    private transient Map<String, String> stageEndpoints;
-    private transient Map<String, String> staticUrl;
-    private transient Map<String, String> configPages;
-    private transient Map<String, String> destinationPaths;
-    private transient Map<String, String> header = new HashMap<>();
-    private transient String[] listOfStates;
+    private Map<String, String> endpoints;
+    private Map<String, String> stageEndpoints;
+    private Map<String, String> staticUrl;
+    private Map<String, String> configPages;
+    private Map<String, String> destinationPaths;
+    private Map<String, String> header = new HashMap<>();
+    private String[] listOfStates;
+    private String destinationPath;
 
     @Modified
     @Activate
@@ -61,6 +62,7 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
         staticUrl = PricingUtils.getMapOfConfigFields(config.listOfStaticUrl());
         configPages = PricingUtils.getMapOfConfigFields(config.listOfConfigPages());
         listOfStates = config.listOfStates();
+        destinationPath = config.destinationPath();
     }
 
     @Override
@@ -80,7 +82,7 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
                             destinationPaths.get(CommonConstants.RUNMODE_STAGE), market, listOfStates));
                 }
                 // replication
-                fetchPrice.replicate(PricingConstants.PRICING_DESTINATION_PATH);
+                fetchPrice.replicate(destinationPath);
                 response.getWriter().print(responseBuilder.toString());
             }
             LOGGER.debug("Completed FetchPriceServlet - {}", new java.util.Date());

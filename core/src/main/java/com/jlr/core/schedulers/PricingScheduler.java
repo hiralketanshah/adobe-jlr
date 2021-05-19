@@ -31,13 +31,14 @@ public class PricingScheduler implements Runnable {
     @Reference
     private SlingSettingsService slingSettingsService;
 
-    private transient Map<String, String> endpoints;
-    private transient Map<String, String> stageEndpoints;
-    private transient Map<String, String> staticUrl;
-    private transient Map<String, String> configPages;
-    private transient Map<String, String> destinationPaths;
-    private transient Map<String, String> header = new HashMap<>();
-    private transient String[] listOfStates;
+    private Map<String, String> endpoints;
+    private Map<String, String> stageEndpoints;
+    private Map<String, String> staticUrl;
+    private Map<String, String> configPages;
+    private Map<String, String> destinationPaths;
+    private Map<String, String> header = new HashMap<>();
+    private String[] listOfStates;
+    private String destinationPath;
     String cronExpression;
     private int schedulerId;
     private String schedulerName;
@@ -82,6 +83,7 @@ public class PricingScheduler implements Runnable {
             staticUrl = PricingUtils.getMapOfConfigFields(config.listOfStaticUrl());
             configPages = PricingUtils.getMapOfConfigFields(config.listOfConfigPages());
             listOfStates = config.listOfStates();
+            destinationPath = config.destinationPath();
             cronExpression = config.cronExpression();
             ScheduleOptions scheduleOptions = scheduler.EXPR(cronExpression);
             scheduleOptions.canRunConcurrently(false);
@@ -109,7 +111,7 @@ public class PricingScheduler implements Runnable {
                         listOfStates));
             }
             // replication
-            fetchPrice.replicate(PricingConstants.PRICING_DESTINATION_PATH);
+            fetchPrice.replicate(destinationPath);
         }
     }
 

@@ -27,9 +27,6 @@ public @interface PricingConfig {
     public String[] listOfProdEndpoints() default { "de|https://rules.configureconnect.com/",
             "en_au|https://rules.australia.jlr.com/" };
 
-    @AttributeDefinition(name = "Destination path", description = "Destination path", type = AttributeType.STRING)
-    public String[] listOfDestinationPaths() default { "stage|/var/jlr/pricing/stg/", "prod|/var/jlr/pricing/prd/" };
-
     @AttributeDefinition(name = "Staging Endpoints from which the prices shall be fetched", description = "Staging Endpoints from which the prices shall be fetched. Add the trailing slash. Format to be followed : <region> | <endpoint>", type = AttributeType.STRING)
     public String[] listOfStageEndpoints() default { "de|https://rules.staging.configureconnect.com/",
             "en_au|https://rules.australia.jlr.com/" };
@@ -50,4 +47,10 @@ public @interface PricingConfig {
             @Option(label = "South Australia", value = "SA"), @Option(label = "Tasmania", value = "TAS"),
             @Option(label = "Victoria", value = "VIC"), @Option(label = "Western Australia", value = "WA") })
     public String[] listOfStates() default { "NSW", "NT", "SA", "TAS", "VIC", "WA" };
+
+    @AttributeDefinition(name = "Destination path", description = "Destination path", type = AttributeType.STRING)
+    public String[] listOfDestinationPaths() default { "stage|/var/jlr/pricing/stg/", "prod|/var/jlr/pricing/prd/" };
+
+    @AttributeDefinition(name = "Destination path to be replicated", description = "Destination path to be replicated", type = AttributeType.STRING)
+    public String destinationPath() default "/var/jlr/pricing";
 }

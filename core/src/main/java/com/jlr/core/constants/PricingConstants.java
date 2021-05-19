@@ -73,7 +73,4 @@ public class PricingConstants {
     /** The Constant JLR_PRICING_COMPONENT. */
     public static final String PN_CURRENCY = "currency";
 
-    /** The Constant JLR_PRICING_COMPONENT. */
-    public static final String PRICING_DESTINATION_PATH = "/var/jlr/pricing";
-
 }
