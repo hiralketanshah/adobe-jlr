@@ -41,7 +41,7 @@
             <item7
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Incontrol"
-                value="#Incontrol"/>
+                value="Incontrol"/>
             <item8
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Map Pin"
@@ -61,7 +61,7 @@
             <item12
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle"
-                value="#Vehicle"/>
+                value="Vehicle"/>
             <item13
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle Add"

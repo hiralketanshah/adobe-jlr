@@ -1,8 +1,8 @@
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
 }
-.cmp-signPost .cmp-signPost__content-copy-wrapper p{
-
+.cmp-vehicleSummary .cmp-vehicleSummary__content p:first-child::first-letter {
+    text-transform:capitalize;
 }
 .cmp-vehicleSummary .cmp-signpostGridContext{
     display: none;
@@ -383,9 +383,9 @@ height: 493px;
     padding-left: 0px;
 }
 
+
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
     margin-top: 3px;
-    text-transform:capitalize;
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
@@ -864,3 +864,74 @@ height: 493px;
   }
   
 }
+
+@media screen and (min-width: 1280px) and (max-width: 1919px){
+    .cmp-vehicleSummary .cmp-vehicleSummary__image {
+        height: 428px;
+        width: 760px;
+    }
+}
+
+     /*------code fix for bug 584-----*/
+     @media screen and (min-width: 1280px) and (max-width: 2560px){
+        .signpostvehiclesummary .cmp-vehicleSummary__content {
+            width: 50%;
+            padding-right: 40px;
+        }
+        .signpostvehiclesummary  .summaryItemImage {
+            width:50%;
+        }
+        .signpostvehiclesummary .headingWrapper{
+            font-size:30px;
+        }
+        .signpostvehiclesummary .primaryLinkContainer {
+            margin-top:20px;
+        }
+        }
+        @media screen and (min-width: 768px) and (max-width: 1279px){
+        .signpostvehiclesummary .cmp-vehicleSummary__content {
+            width: 50%;
+            padding-right: 40px;
+        }
+        .signpostvehiclesummary  .summaryItemImage {
+            width:50%;
+            margin-top: 0%;
+            height:auto;
+            min-height:250px;
+        }
+        .signpostvehiclesummary .Picture--background .Picture__img {
+            object-fit: contain;
+        }
+        
+        .signpostvehiclesummary .summaryItemContent{
+        
+          padding-top:0;
+        }
+        .signpostvehiclesummary .cmp-vehicleSummaryGridContext{
+        
+          height:auto;
+          min-height:auto;
+          flex-direction:initial;
+        }
+        .signpostvehiclesummary .cmp-vehicleSummary.right, .signpostvehiclesummary .cmp-vehicleSummary__image {
+            order: 2!important;
+        }
+        }
+        
+        @media screen and (min-width: 320px) and (max-width: 767px){
+        .signpostvehiclesummary .Picture--background .Picture__img {
+            object-fit: contain;
+        }
+        .signpostvehiclesummary  .summaryItemImage {
+            width:100%;
+            height: auto;
+            min-height: 200px;
+            }
+        .signpostvehiclesummary.cmp-vehicleSummary {
+            padding: 40px 30px 0 30px;
+        }
+        .signpostvehiclesummary.cmp-vehicleSummary:last-child {
+            padding: 40px 30px ;
+        }
+        }
+          /*------code fix for bug 584-----*/

@@ -2,7 +2,7 @@
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
-         <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="${contentCard.enableStacking}">
+<div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="${contentCard.enableStacking== 'swiping'? 'swiping' : 'data-blocks'}">
             <div class="GridListWrapper" data-wrapper="float">
 			<sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
                <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">

@@ -1448,7 +1448,7 @@ class DxDropdown {
   constructor(el, preventDefault = true) {
     this.element = el;
     this.open = false;
-    this.marketButton = el.querySelectorAll('.cmp-marketButton');
+    this.marketButton = document.querySelectorAll('.cmp-marketButton');
     if(this.marketButton.length>0){
         this.submitButton = el.querySelector('.cmp-marketsubmit');
         this.button = el.querySelector('.dxDropdown__button');
@@ -1458,7 +1458,7 @@ class DxDropdown {
         this.button.addEventListener('keyup', e => this.checkShow(e));
         this.listbox.addEventListener('blur', e => this.testBlur(e));
         this.listbox.addEventListener('keydown', e => this.keyDownEvents(e));
-        this.marketPricing = el.querySelector('.cmp-marketregionalpricing');
+        this.marketPricing = document.querySelector('.cmp-marketregionalpricing');
         this.closeModal = el.querySelector('.Modal__close');
         const firstItem = el.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled');
         this.addActiveDropdownItem(firstItem);
@@ -1688,7 +1688,10 @@ class DxDropdown {
     return typeof fn === 'function' ? fn.bind(this, options)() : undefined;
   }
 }
-new DxDropdown(document.getElementById("landrover"));
+setTimeout(()=>{
+  new DxDropdown(document.getElementsByClassName('cmp-marketregionalpricing')[0]);
+},500)
+
 
 })();
 

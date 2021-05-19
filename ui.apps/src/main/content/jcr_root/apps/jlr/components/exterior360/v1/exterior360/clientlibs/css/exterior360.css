@@ -1,7 +1,12 @@
+
 .cmp-exterior360 {
 	cursor: pointer;
 	position: relative;
 	text-align: left;
+}
+
+.cmp-exterior360 .fontBodyCopyLarge p:first-child::first-letter {
+	text-transform: capitalize;
 }
 .Exterior360--canvas-loaded .Exterior360__load-button {
 	display: block
@@ -239,7 +244,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 	}
@@ -338,7 +342,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 	}
@@ -443,7 +446,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 
@@ -536,7 +538,6 @@
 		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		text-transform: capitalize;
 		color:#4A4F54;
 		font-size: 14px;
 
@@ -1058,5 +1059,47 @@
 		-ms-transform: rotate(90deg) translateX(4px);
 		-o-transform: rotate(90deg) translateX(4px);
 		transform: rotate(90deg) translateX(4px)
+	}
+}
+/* code fix for defect 733*/
+@media screen and (min-width: 1px) and (max-width: 640px) {
+	.nocopy .Exterior360__slider--visible {
+		left: intial;
+		top: 247px;
+	}
+	.nocopy .shelfComponent {
+		display: none;
+	}
+	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider--range,
+		.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider__custom-connect
+		{
+		background: #000;
+		box-shadow: 0 0px 3px rgb(0 0 0/ 30%), 0 1px 3px rgb(0 0 0/ 30%);
+	}
+	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-handle {
+		border-color: #000;
+		background-color: transparent;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.3);
+	}
+	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-touch-area:after
+		{
+		color: #000;
+	}
+	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-handle:hover,
+		.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-handle:focus
+		{
+		border-color: #000;
+		background-color: #fff;
+	}
+	.nocopy .DxRangeSlider--range  .noUi-touch-area:after {
+		color: #000;
+	}
+	.nocopy .DxRangeSlider--range .noUi-handle {
+		background-color: #fff;
+		border-color: #0c121c !important;
+	}
+	.nocopy .DxRangeSlider__custom-connect {
+		background: #000 !important;
+		box-shadow: 0 0px 3px rgb(0 0 0/ 30%), 0 1px 3px rgb(0 0 0/ 30%);
 	}
 }
