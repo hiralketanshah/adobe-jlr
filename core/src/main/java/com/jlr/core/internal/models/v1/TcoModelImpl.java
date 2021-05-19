@@ -57,14 +57,13 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
      */
     @PostConstruct
     public void init() {
-        priceMacro = "config.l663.price";
-
         pricingSuppression = pageProperties
                 .getInherited(CommonConstants.PRICING_SUPPRESSION, String.class);
         if (Boolean.valueOf(pricingSuppression)) {
             return;
         }
         PricingPojo pricingPojo = new PricingPojo();
+        //TODO: Fetch Region
         pricingPojo.setRegion("de");
         mapPagePropertiesToPojo(pricingPojo);
         if (StringUtils.isNotEmpty(priceMacro)) {
