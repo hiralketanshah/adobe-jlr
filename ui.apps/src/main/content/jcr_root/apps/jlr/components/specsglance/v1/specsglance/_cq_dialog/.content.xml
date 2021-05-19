@@ -151,7 +151,7 @@
                                     min-items="{Long}3"
                                     max-items="{Long}4"
                                     validation="minmax"
-                                    specsglance-component="true"/>
+                                    specs-glance-component="true"/>
                             </dataItem>
                         </items>
                     </dataitems>

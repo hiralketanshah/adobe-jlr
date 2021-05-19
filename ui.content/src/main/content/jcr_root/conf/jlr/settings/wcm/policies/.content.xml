@@ -1023,7 +1023,7 @@
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                             <cq:styleGroups jcr:primaryType="nt:unstructured">
                                 <item0
-                                   cq:styleGroupLabel="Variant"
+                                    cq:styleGroupLabel="Variant"
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
@@ -1094,11 +1094,11 @@
                         <policy_1620156605744
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Interior 360"
-							sling:resourceType="wcm/core/components/policy/policy">
-							<jcr:content jcr:primaryType="nt:unstructured"/>
-							<cq:styleGroups jcr:primaryType="nt:unstructured">
-								 <item0
-									cq:styleGroupLabel="Themes"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Themes"
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
@@ -1117,7 +1117,7 @@
                         </policy_1620156605744>
                     </interior360>
                 </v1>
-            </interior360> 
+            </interior360>
             <exterior360 jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <exterior360 jcr:primaryType="nt:unstructured">
@@ -1178,6 +1178,55 @@
                     </tabbedcontainer>
                 </v1>
             </tabbedcontainer>
+            <specsglance jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <specsglance jcr:primaryType="nt:unstructured">
+                        <policy_1621446983475
+                            cq:styleDefaultClasses="large"
+                            jcr:lastModified="{Date}2021-05-19T23:27:40.073+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Specs At A Glance"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1621446997067"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1621446999813"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Data Size"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="small"
+                                            cq:styleId="1621447005203"
+                                            cq:styleLabel="Small"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="large"
+                                            cq:styleId="1621447007996"
+                                            cq:styleLabel="Large"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1621446983475>
+                    </specsglance>
+                </v1>
+            </specsglance>
         </components>
     </jlr>
     <rep:policy/>

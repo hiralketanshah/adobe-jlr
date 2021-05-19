@@ -6,25 +6,29 @@
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
 
 <!-- SpecificationsAtAGlance -->
- <div class="SpecificationsAtAGlance cmp-gridListWrapper GridListWrapper light fontSmooth cmp-itemsAtAGlance">
+ <div class="cmp-specificationsAtAGlance cmp-gridListWrapper GridListWrapper light fontSmooth cmp-itemsAtAGlance">
      <h2 class="heading headingCentre fontH2 cmp-specificationsAtAGlance__heading">
-         <span class="SpecificationsAtAGlance__heading-wrapper">
+         <span class="cmp-specificationsAtAGlance__heading-wrapper">
              ${specsglance.headerCopy @ context='html'}
          </span>
      </h2>
      <div class=" cmp-specificationsAtAGlance__copy">${specsglance.copy @ context='html'}</div>
-     <div class="SpecificationsAtAGlance__items items clearfix" data-sly-list="${specsglance.dataItems}" data-total="4">
+     <div class="cmp-specificationsAtAGlance__items items clearfix" data-sly-list="${specsglance.dataItems}" data-total="${itemList.count}">
          <div class="el">
              <h3 class="feature">${item.headerCopy @ context='html'}</h3>
-             <div class="measurement dividerBlock"><span class="valueLarge"> ${item.value}</span><span class="unitLarge">${item.suffix @ context='html'}</span></div>
+             <div class="measurement dividerBlock">
+             	<span class="unitLarge">${item.prefix @ context='html'}</span>
+             	<span class="valueLarge"> ${item.value}</span>
+             	<span class="unitLarge">${item.suffix @ context='html'}</span>
+             </div>
              ${item.copy @ context='html'}
          </div>
      </div>
      <div class="cmp-ctaContainer">
-		<sly data-sly-list="${vsItem.ctaList}">
+		<sly data-sly-list="${specsglance.ctaList}">
 			<sly data-sly-test="${itemList.first && item.text}">
 				<div class="${item.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
-					<a class="SpecificationsAtAGlance__link ${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+					<a class="cmp-specificationsAtAGlance__link ${item.linkType == 'primary' ? 'primaryLinkWithStyle plwsLight' : 'secondaryLinkWithStyle'} ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
 						<span aria-hidden="true">${item.text}</span>
 					</a>
 				</div>

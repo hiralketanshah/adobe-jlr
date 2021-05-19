@@ -6,12 +6,16 @@
     padding:60px 60px 40px;
 }
 .cmp-specificationsAtAGlance__copy{
-    width:519px;
     margin-bottom: 81px;
+    color: #4A4F54;
 }
 .cmp-gridListWrapper .items .el {
     padding: 0 21px 24px 0;
-    width:23% !important;
+    display: inline-block;
+    float: left;
+}
+.cmp-gridListWrapper .items .el p {
+font-size:14px;
 }
 .cmp-itemsAtAGlance .dividerBlock{
     border: none;
@@ -29,11 +33,31 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 56px;
     font-weight: 700;
 }
+h3.feature{
+    color:#4A4F54;
+} 
+h3.feature p{
+    font-size:16px !important;
+    color:#4A4F54;
+}
+
 
 
 @media screen and (min-width: 1px) and (max-width: 900px){
-    .SpecificationsAtAGlance__heading{
+    .cmp-specificationsAtAGlance__heading{
         margin-bottom:40px
+    }
+}
+    @media screen and (min-width: 1280px) and (max-width: 2000px){
+    .cmp-specificationsAtAGlance__copy{
+        width:800px;
+            }
+}
+
+@media screen and (min-width: 375px) and (max-width: 600px){
+    .cmp-specificationsAtAGlance__copy p{
+        width: 248px;
+        font-size: 14px;
     }
 }
 .cmp-specificationsAtAGlance .cmp-ctaContainer{
@@ -41,56 +65,68 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
     padding-left: 0 !important;
 }
-.SpecificationsAtAGlance.dark .SpecificationsAtAGlance__items p{
+.cmp-specificationsAtAGlance.dark .cmp-specificationsAtAGlance__items p{
     color:#fff
 }
-.SpecificationsAtAGlance__heading{
+.cmp-specificationsAtAGlance__heading{
     line-height:38px;
     letter-spacing:.19rem
 }
 @media screen and (min-width: 1px) and (max-width: 900px){
-    .SpecificationsAtAGlance__heading{
+    .cmp-specificationsAtAGlance__heading{
         line-height:33px;
         letter-spacing:.19rem
     }
 }
 @media screen and (min-width: 1px) and (max-width: 740px){
-    .SpecificationsAtAGlance__heading{
+    .cmp-specificationsAtAGlance__heading{
         line-height:26px;
         letter-spacing:.13rem
     }
 }
-.SpecificationsAtAGlance__heading.fontH2{
-    font-size:3.8rem
+.cmp-specificationsAtAGlance__heading.fontH2{
+    font-size:3.8rem;
+    color:#0C121C;
+}
+h2.heading, .heading.headingH2{
+    color:#0c121c;
 }
 @media screen and (min-width: 1px) and (max-width: 900px){
-    .SpecificationsAtAGlance__heading.fontH2{
+    .cmp-specificationsAtAGlance__heading.fontH2{
         font-size:3.3rem
     }
 }
 @media screen and (min-width: 1px) and (max-width: 740px){
-    .SpecificationsAtAGlance__heading.fontH2{
+    .cmp-specificationsAtAGlance__heading.fontH2{
         font-size:2.6rem
     }
 }
-.SpecificationsAtAGlance__items.items .measurement span.valueLarge{
-    color:#4a4f54;
-    font-weight:700;
-    font-size:5.6rem
+.cmp-specificationsAtAGlance__items.items .measurement span.valueLarge{
+    color: #0C121C;
+    font-weight: 700;
+    font-size: 56px;
+    letter-spacing: 2px;
+    font-family: 'lr_ot4';
 }
-.SpecificationsAtAGlance__items.items .measurement span.unitLarge{
+.cmp-specificationsAtAGlance__items.items .measurement span.unitLarge{
     color:#4a4f54;
     font-weight:700;
     font-size:2.8rem;
     line-height:24px
 }
-.SpecificationsAtAGlance__items.items .measurement span.unitLarge sub{
+
+.cmp-specificationsAtAGlance__items.items .measurement span.unitLarge sub{
     vertical-align:baseline
 }
-.SpecificationsAtAGlance.dark .SpecificationsAtAGlance__items.items .measurement .valueLarge{
+.cmp-specificationsAtAGlance.dark .cmp-specificationsAtAGlance__items.items .measurement .valueLarge{
     color:#e9ecec
 }
-.SpecificationsAtAGlance.dark .SpecificationsAtAGlance__items.items .measurement .unitLarge{
+.cmp-specificationsAtAGlance.dark .cmp-specificationsAtAGlance__items.items .measurement .unitLarge{
     color:#e9ecec
 }
- 
+ .grey p, .light p, .white p{
+    color:#0C121C;
+    }
+.unitLarge p{
+    display:inline-block;
+    }
