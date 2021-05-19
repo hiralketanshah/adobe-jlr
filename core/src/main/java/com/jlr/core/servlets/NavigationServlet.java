@@ -3,6 +3,7 @@ package com.jlr.core.servlets;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.contentsync.handler.util.RequestResponseFactory;
 import com.day.cq.wcm.api.WCMMode;
+import com.jlr.core.config.NavigationServletConfig;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.NavigationUtils;
@@ -19,8 +20,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.osgi.framework.Constants;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +44,7 @@ import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
 @Component(service = Servlet.class, property = {Constants.SERVICE_DESCRIPTION + "=Navigation Servlet",
         "sling.servlet.resourceTypes=" + RESOURCE_TYPES,
         "sling.servlet.selectors=" + NavigationServlet.SELECTOR_JSON})
+@Designate(ocd = NavigationServletConfig.class, factory = true)
 public class NavigationServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
@@ -55,6 +59,12 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
     @Reference
     private SlingRequestProcessor requestProcessor;
+    private NavigationServletConfig config;
+
+    @Activate
+    protected void activate(NavigationServletConfig config) {
+        this.config = config;
+    }
 
     @Override
     protected void doGet(final SlingHttpServletRequest request,
@@ -74,7 +84,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
         /* TODO: give proper header nav page path */
-        String requestPath = "/content/landrover/global/global-master/en/config/navigation/header.html";
+        String requestPath = config.headerPath();
 
         try {
             LOGGER.info("Sleeping for 5 sec");
@@ -129,10 +139,10 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
-            responseObject.put("cssFontImportsLink", "https://dxnav.landrover.com/current/fontImports-landrover-385e43ef7ee2dd6fe7b21f42089c6929.css");
-            responseObject.put("cssLink", "https://dxnav.landrover.com/current/landrover-4d9fac083e07ef876c84b1aeafc88492.css");
-            responseObject.put("html", document.html());
-            responseObject.put("javascriptLink", "https://dxnav.landrover.com/current/main-2f17544b886e637183bcfd0cfa6021c2.js");
+            responseObject.put("cssFontImportsLink", config.cssFontImportsLink());
+            responseObject.put("cssLink", config.cssLink());
+            responseObject.put("html", document.getElementsByTag("header").outerHtml());
+            responseObject.put("javascriptLink", config.javascriptLink());
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
