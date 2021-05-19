@@ -966,7 +966,7 @@
                                         <item0
                                             cq:styleClasses="wheel"
                                             cq:styleId="1619190932718"
-                                            cq:styleLabel="Option"
+                                            cq:styleLabel="Wheel"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
                                             cq:styleId="1619192090295"
@@ -1183,6 +1183,7 @@
                     <quote jcr:primaryType="nt:unstructured">
                         <policy_1620815338366
                             jcr:lastModified="{Date}2021-05-12T16:00:20.760+05:30"
+                            cq:styleDefaultClasses="cmp-quote--white white"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Quote"
@@ -1194,22 +1195,22 @@
                                     jcr:primaryType="nt:unstructured">
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
-                                            cq:styleClasses="light"
+                                            cq:styleClasses="cmp-quote--light light"
                                             cq:styleId="1620815349245"
                                             cq:styleLabel="Light"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
-                                            cq:styleClasses="white"
+                                            cq:styleClasses="cmp-quote--white white"
                                             cq:styleId="1620815368672"
                                             cq:styleLabel="White"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item2
-                                            cq:styleClasses="grey"
+                                            cq:styleClasses="cmp-quote--grey grey"
                                             cq:styleId="1620815402420"
                                             cq:styleLabel="Grey"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item3
-                                            cq:styleClasses="slateblue"
+                                            cq:styleClasses="cmp-quote--slateblue slateblue"
                                             cq:styleId="1620815383755"
                                             cq:styleLabel="Slate Blue"
                                             jcr:primaryType="nt:unstructured"/>

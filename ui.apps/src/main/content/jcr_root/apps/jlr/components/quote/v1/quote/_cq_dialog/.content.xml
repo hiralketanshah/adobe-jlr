@@ -106,7 +106,7 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                 fieldDescription="Specify the title of the individual who said the quote."
-                                fieldLabel="Name"
+                                fieldLabel="Title"
                                 name="./quoteTitleName"
                                 useFixedInlineToolbar="{Boolean}true">
                                 <rtePlugins jcr:primaryType="nt:unstructured">

@@ -1,10 +1,14 @@
 <sly data-sly-use.model="com.jlr.core.models.QuoteModel"
-data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-id="${component.id}"></sly>
+    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+    data-sly-test.hasContent="${model.quote}" id="${component.id}"></sly>
 
-${model.id}
-${model.quote}
-${model.quoteAuthorName}
-${model.quoteTitleName}
+<div class="cmp-quote cmp-quote--centre fontSmooth" id="${model.id}">
+    <div class="cmp-quote__content">
+        <div class="cmp-quote__content-text">${model.quote @context='html'}
+        </div>
+        <div class="cmp-quote__content-giver-name">${model.quoteAuthorName @context='html'}</div>
+        <div class="cmp-quote__content-information">${model.quoteTitleName @context='html'}</div>
+    </div>
+</div>
 
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
