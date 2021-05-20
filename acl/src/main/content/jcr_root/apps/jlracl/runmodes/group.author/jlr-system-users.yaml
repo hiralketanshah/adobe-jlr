@@ -7,3 +7,21 @@
           isMemberOf: global-authors
           path: ${systemUserPath}
           isSystemUser: "true"
+
+    - pricing-service:
+
+        - name: "System user for Pricing service"
+          path: ${systemUserPath}
+          isSystemUser: "true"
+
+- ace_config:
+
+  - pricing-service:
+
+    - path: /content/landrover
+      permission: allow
+      actions: read
+
+    - path: /var/jlr
+      permission: allow
+      actions: read,create,modify,delete,replicate
