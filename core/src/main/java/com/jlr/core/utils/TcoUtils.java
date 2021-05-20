@@ -17,16 +17,15 @@ public class TcoUtils {
     }
 
     public static boolean hasComplexMacro(String namePlateDetails) {
-        return (namePlateDetails.contains("/") || namePlateDetails.contains("_"));
+        return (namePlateDetails.contains(CommonConstants.FORWARD_SLASH) || namePlateDetails.contains(CommonConstants.UNDERSCORE));
     }
 
-    private static String getPlaceHolder(String region) {
+    private static String getPlaceHolder(String region, String stateCode) {
         String placeHolder = null;
-        if (region.equalsIgnoreCase("de")) {
+        if (region.equalsIgnoreCase(CommonConstants.DE)) {
             placeHolder = CommonConstants.YYY;
         } else {
-            //TODO: get the state value from cookie
-            placeHolder = CommonConstants.STATE;
+            placeHolder = stateCode;
         }
         return placeHolder;
     }
@@ -39,7 +38,7 @@ public class TcoUtils {
         }
         pathBuilder.append(pricingPojo.getEnvironment()).append(CommonConstants.FORWARD_SLASH)
                 .append(pricingPojo.getRegion()).append(CommonConstants.FORWARD_SLASH)
-                .append(getPlaceHolder(pricingPojo.getRegion()))
+                .append(getPlaceHolder(pricingPojo.getRegion(), pricingPojo.getStateCode()))
                 .append(CommonConstants.FORWARD_SLASH).append(macroModelYear)
                 .append(CommonConstants.FORWARD_SLASH).append(pricingPojo.getNamePlate());
         if (StringUtils.isNotEmpty(pricingPojo.getProduct())) {

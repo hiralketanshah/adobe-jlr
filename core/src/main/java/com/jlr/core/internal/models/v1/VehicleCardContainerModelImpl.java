@@ -61,6 +61,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     private ResourceResolver resourceResolver;
 
     @Inject
+    private SlingHttpServletRequest request;
+
+    @Inject
     private Page currentPage;
 
     @Inject
@@ -118,7 +121,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     }
 
     private String getVehicleModelPrice(String priceMacro){
-        return tcoService.getModelPrice(resourceResolver, currentPage, pageProperties, priceMacro);
+        return tcoService.getModelPrice(resourceResolver, request, currentPage, pageProperties, priceMacro);
     }
 
     /**

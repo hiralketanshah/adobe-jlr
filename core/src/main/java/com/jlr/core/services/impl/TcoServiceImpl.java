@@ -11,10 +11,14 @@ import com.jlr.core.utils.TcoUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.jackrabbit.JcrConstants;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.Cookie;
+import java.util.Arrays;
 
 import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
 import static com.jlr.core.utils.TcoUtils.BASE_PATH;
@@ -30,14 +34,27 @@ public class TcoServiceImpl implements TcoService {
 
     @Override
     public String getModelPrice(ResourceResolver resourceResolver,
-                                Page currentPage, InheritanceValueMap pageProperties, String priceMacro) {
+                                SlingHttpServletRequest request,
+                                Page currentPage, InheritanceValueMap pageProperties,
+                                String priceMacro) {
+
         if (StringUtils.isNotEmpty(priceMacro)) {
             if (Boolean.valueOf(pageProperties
                     .getInherited(CommonConstants.PRICING_SUPPRESSION, String.class))) {
                 return StringUtils.EMPTY;
             }
             PricingPojo pricingPojo = new PricingPojo();
-            pricingPojo.setRegion(getRegionFromPage(currentPage, resourceResolver));
+            String region = getRegionFromPage(currentPage, resourceResolver);
+            pricingPojo.setRegion(region);
+            if(region.equalsIgnoreCase("au")){
+                Cookie stateCode = request.getCookie(CommonConstants.JLR_LOCALE_PRICING);
+                String[] states = { "NSW", "NT", "SA", "TAS", "VIC", "WA" };
+                String state = validState(stateCode.getValue(), states);
+                if(StringUtils.isEmpty(state)){
+                    return StringUtils.EMPTY;
+                }
+                pricingPojo.setStateCode(state.toLowerCase());
+            }
             mapPagePropertiesToPojo(pricingPojo, pageProperties);
             String[] configCodes = priceMacro.split(CommonConstants.DOT_REGEX);
             pricingPojo.setPriceMacroConfig(configCodes[1]);
@@ -52,6 +69,10 @@ public class TcoServiceImpl implements TcoService {
             return pricingPojo.getModelPrice();
         }
         return  StringUtils.EMPTY;
+    }
+
+    private String validState(String stateCode, String[] states) {
+        return Arrays.stream(states).filter(s -> s.equalsIgnoreCase(stateCode)).findFirst().get();
     }
 
     private String getRegionFromPage(Page currentPage,

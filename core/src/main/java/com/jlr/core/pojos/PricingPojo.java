@@ -18,6 +18,7 @@ public class PricingPojo {
     private String fallbackPriceType;
     private String pricingSuppression;
     private String currencyFormat;
+    private String stateCode;
 
     /**
      * Gets price macro config.
@@ -233,5 +234,23 @@ public class PricingPojo {
      */
     public void setCurrencyFormat(String currencyFormat) {
         this.currencyFormat = currencyFormat;
+    }
+
+    /**
+     * Gets state code.
+     *
+     * @return the state code
+     */
+    public String getStateCode() {
+        return stateCode;
+    }
+
+    /**
+     * Sets state code.
+     *
+     * @param stateCode the state code
+     */
+    public void setStateCode(String stateCode) {
+        this.stateCode = stateCode;
     }
 }

@@ -287,5 +287,6 @@ public class CommonConstants {
     public static final String FALLBACK_PRICE_TYPE = "fallbackPriceType";
     public static final String DOT_REGEX = "\\.";
     public static final String YYY = "yyy";
-    public static final String STATE = "state";
+    public static final String DE = "de";
+    public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
 }

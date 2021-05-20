@@ -36,6 +36,9 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
     private ResourceResolver resourceResolver;
 
     @Inject
+    private SlingHttpServletRequest request;
+
+    @Inject
     private Page currentPage;
 
     @Inject
@@ -53,7 +56,9 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
      */
     @PostConstruct
     public void init() {
-        modelPrice = tcoService.getModelPrice(resourceResolver, currentPage, pageProperties, priceMacro);
+        modelPrice = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                pageProperties,
+                priceMacro);
     }
 
     public String getModelPrice() {
