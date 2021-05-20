@@ -1,4 +1,5 @@
-<sly data-sly-use.model="com.jlr.core.models.VehicleCardModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='hero.tco.from.txt'}"
+<sly data-sly-use.model="com.jlr.core.models.VehicleCardModel"
+     data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='navigation.vehicle.dropdown.from'}"
      data-sly-call="${renderVehicleCard @ vehicleCard=model, config=config}"/>
 <template data-sly-template.renderVehicleCard="${ @ vehicleCard, config }">
 

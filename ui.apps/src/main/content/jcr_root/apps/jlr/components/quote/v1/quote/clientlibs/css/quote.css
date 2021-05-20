@@ -1,0 +1,216 @@
+.cmp-quote {
+    display: flex;
+    align-items: center;
+}
+
+.Article+.cmp-quote.cmp-quote--in-article {
+    padding: 0 30px 30px
+}
+.cmp-quote__content{
+    width:100%;
+    height:100%;
+   
+} 
+
+.cmp-quote__content-text p{
+    font-family:"ascender";
+    text-align: left;
+    margin-bottom:15px; 
+	font-style: normal;
+	font-weight: normal;
+
+}
+.cmp-quote__content-giver-name p{
+    width:360px;
+    height:19px;
+    font-family:"lr_ot4";
+	font-style: normal;
+	font-weight: bold;
+    letter-spacing:0.28px;
+    line-height:18px;
+    text-transform: uppercase;   
+    text-align: left;
+  
+}
+.cmp-quote__content-information p{
+    width:360px;
+    height:15px;
+    font-family:"lr_ot4";
+	font-style: normal;
+	font-weight: normal;
+    letter-spacing:0.88px;
+    line-height:14px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+
+.light.cmp-quote {
+    background-color: #f8f9f9;
+}
+.grey.cmp-quote{
+    background-color:#E9ECEC;
+} 
+.white.cmp-quote{
+    background-color: #FFFFFF;
+}
+
+.light .cmp-quote .cmp-quote__content-text p,
+.grey .cmp-quote .cmp-quote__content-text p,
+.white .cmp-quote .cmp-quote__content-text p {
+    color: #005a2b
+}
+
+
+
+.light .cmp-quote .cmp-quote__content-giver-name p,
+.grey .cmp-quote .cmp-quote__content-giver-name p,
+.white .cmp-quote .cmp-quote__content-giver-name p,
+.light .cmp-quote .cmp-quote__content-information p,
+.grey .cmp-quote .cmp-quote__content-information p,
+.white .cmp-quote .cmp-quote__content-information p{
+    color: #4a4f54
+}
+
+
+
+/* slate blue */
+.slateblue .cmp-quote {
+    background-color: #0C121C;
+}
+
+.slateblue .cmp-quote .cmp-quote__content-text p,
+.slateblue .cmp-quote .cmp-quote__content-giver-name p,
+.slateblue .cmp-quote .cmp-quote__content-information p {
+    color: #FFFFFF;
+}
+
+
+/* theme end  */
+
+
+/* media query start  */
+
+
+/* wide screen  1251-2000*/ 
+@media screen and (min-width: 1920px) {
+    .cmp-quote.cmp-quote--in-article .cmp-quote__content {
+        max-width: 600px
+    }
+   
+    .cmp-quote__content{
+        width:100%;
+        height:100%;
+        margin:60px 290px 80px 290px;
+       
+    } 
+    .cmp-quote__content-text p { 
+        width :100%;
+        max-height:147px;
+        font-size: 38px;             
+        line-height:48px;
+        letter-spacing:0.38px;
+        margin-inline-end: 0;
+        margin-inline-start: 0;             
+    } 
+    .cmp-quote__content-giver-name p{    
+        font-size: 14px;     
+    }
+    .cmp-quote__content-information p{    
+        font-size: 11px;
+    }
+ 
+}
+/* desktop view 901-1250 */
+@media screen and (min-width: 1201px) and (max-width: 1919px){
+    .Article+.cmp-quote.cmp-quote--in-article {
+        padding: 0 0 52px 0
+    }
+    
+    .cmp-quote--left:not(.cmp-quote--in-article) .cmp-quote__content-text {
+        width: 66.667%
+    }
+   
+    .cmp-quote__content{
+       margin:60px 60px 80px 60px; 
+    }    
+    .cmp-quote__content-text p { 
+        width :100%;
+        max-height:195px;     
+        font-size: 38px;             
+        line-height:48px;
+        letter-spacing:0.38px;
+        margin-inline-end: 0;
+        margin-inline-start: 0;             
+    } 
+    .cmp-quote__content-giver-name p{    
+        font-size: 14px;     
+    }
+    .cmp-quote__content-information p{    
+        font-size: 11px;
+    }
+}
+
+/* tab view  741-900*/
+@media screen and (min-width: 741px) and (max-width:1200px){
+   
+    .Article+.cmp-quote.cmp-quote--in-article {
+            padding: 0 30px 38px
+        }
+
+    
+    .cmp-quote__content{
+       margin:60px 30px 60px 30px; 
+    }    
+    .cmp-quote__content-text p{
+        width :100%;
+        max-height:184px;       
+        font-size: 30px;             
+        line-height:36px;
+        letter-spacing: 0.3px;
+        margin-inline-end: 0;
+        margin-inline-start: 0;             
+    } 
+    .cmp-quote__content-giver-name p{    
+        font-size: 14px;
+          
+    }
+    .cmp-quote__content-information p {    
+        font-size: 11px;
+
+    }
+    
+}
+/* mobile view  320-740*/
+@media screen and (min-width: 1px) and (max-width:740px){
+    .cmp-quote.cmp-quote--in-article .cmp-quote__content {
+        max-width: 500px
+    }
+    .cmp-quote.cmp-quote--in-article {
+        justify-content: center
+    }
+   
+    .cmp-quote__content{
+      
+        margin:30px 25px 40px 25px; 
+    }    
+    .cmp-quote__content-text p { 
+        width :100%;
+        max-height:291px;
+        font-size: 26px;             
+        line-height:32px;
+        letter-spacing: 0.26px; 
+        margin-inline-end: 0;
+        margin-inline-start: 0;           
+    } 
+    .cmp-quote__content-giver-name p{    
+        font-size: 14px;
+        width:100%;
+        height:19px;      
+    }
+    .cmp-quote__content-information p{    
+        font-size: 11px;
+        width:100%;
+        height:15px; 
+    }
+}

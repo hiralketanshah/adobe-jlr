@@ -13,6 +13,9 @@ public class CommonConstants {
     /** The Constant FORWARD_SLASH. */
     public static final String FORWARD_SLASH = "/";
 
+    /** The Constant PIPE_CHARACTER. */
+    public static final String PIPE_CHARACTER = "|";
+
     /** The Constant EXTENSION_DOT_HTML. */
     public static final String EXTENSION_DOT_HTML = ".html";
 
@@ -75,6 +78,11 @@ public class CommonConstants {
     public static final String PATH_CONTENT = "/content";
     public static final String PATH_HEADER = "/config/navigation/header";
     public static final String PATH_FOOTER = "/config/navigation/footer";
+    
+    /** The Template Constants. */
+    public static final String TEMPLATE_GALLERY = "gallery-page-template";
+    public static final String TEMPLATE_EMPTY = "empty-page-template";
+    public static final String TEMPLATE_REDIRECT = "redirect-page-template";
 
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
@@ -276,4 +284,32 @@ public class CommonConstants {
 
     /** The Constant UNIQUE_ID. */
     public static final String UNIQUE_ID = "uniqueID";
+
+    /** The Constant RUNMODE_AUTHOR. */
+    public static final String RUNMODE_AUTHOR = "author";
+
+    /** The Constant RUNMODE_STAGE. */
+    public static final String RUNMODE_STAGE = "stage";
+
+    /** The Constant RUNMODE_PROD. */
+    public static final String RUNMODE_PROD = "prod";
+
+    /** The Constant QUERY_PATH. */
+    public static final String QUERY_PATH = "path";
+
+    /** The Constant QUERY_TYPE. */
+    public static final String QUERY_TYPE = "type";
+
+    /** The Constant QUERY_LIMIT. */
+    public static final String QUERY_LIMIT = "p.limit";
+
+    /** The Constant QUERY_ORDERBY. */
+    public static final String QUERY_ORDERBY = "orderby";
+
+    /** The Constant GROUP_ADMINISTRATOR. */
+    public static final String GROUP_ADMINISTRATOR = "administrators";
+
+    /** The Constant GROUP_GLOBAL_LEADS. */
+    public static final String GROUP_GLOBAL_LEADS = "global-leads";
+
 }

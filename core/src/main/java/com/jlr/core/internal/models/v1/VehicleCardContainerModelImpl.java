@@ -5,12 +5,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.services.TcoService;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.json.JSONException;
@@ -31,7 +39,9 @@ import com.jlr.core.utils.VehicleCardUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {VehicleCardContainerModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters =
+        {VehicleCardContainerModel.class},
+        defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardContainerModelImpl extends GlobalModelImpl implements VehicleCardContainerModel {
 
 
@@ -43,11 +53,24 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      */
     public static final String RESOURCE_TYPE = "jlr/components/primarynavigation/v1/vehiclecardcontainer";
 
-
-
     /** The resource. */
     @SlingObject
     private Resource resource;
+
+    @Inject
+    private ResourceResolver resourceResolver;
+
+    @Inject
+    private SlingHttpServletRequest request;
+
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private InheritanceValueMap pageProperties;
+
+    @OSGiService
+    private TcoService tcoService;
 
     /** The unique ID. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -87,7 +110,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                         vehicleImageLink = vehicleCardModel.getImageLink();
                     }
                     if (StringUtils.isEmpty(vehiclePrice)) {
-                        vehiclePrice = vehicleCardModel.getPrice();
+                        vehiclePrice = getVehicleModelPrice(vehicleCardModel.getPrice());
                     }
                     vehicleCardModelList.add(vehicleCardModel);
                 }
@@ -95,6 +118,10 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         }
         vehicleCardJson = createJsonStructure(vehicleCardModelList).toString();
 
+    }
+
+    private String getVehicleModelPrice(String priceMacro){
+        return tcoService.getModelPrice(resourceResolver, request, currentPage, pageProperties, priceMacro);
     }
 
     /**
@@ -135,7 +162,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         VehicleCard vehicleCard = new VehicleCard();
         vehicleCard.setOrder(order);
         vehicleCard.setTabAltText(CommonUtils.getOnlyTextFromHTML(getHeaderCopy()));
-        vehicleCard.setPrice(vehicleCardModel.getPrice());
+        vehicleCard.setPrice(getVehicleModelPrice(vehicleCardModel.getPrice()));
         vehicleCard.setLeasePrice(null);
         vehicleCard.setLeaseTermAndDepositDue(null);
         vehicleCard.setBazaarVoiceRating(null);

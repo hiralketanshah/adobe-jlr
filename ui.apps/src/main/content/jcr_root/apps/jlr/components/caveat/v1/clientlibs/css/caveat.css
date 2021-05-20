@@ -137,3 +137,26 @@
 		padding: 20px 25px;
 	}
 }
+
+/* code fix for defect 570*/
+@media screen and (min-width: 767px) and (max-width: 1278px){
+	.caveat {
+		padding-top: 0; 
+		width: 400px;
+		margin-left:0;
+		text-align: left;
+	}}
+	
+	.caveat a{
+	color: #4a4f54;
+	font-weight:normal;
+	font-family: "AvenirNext", "arial", "helvetica", "sans-serif";
+	}
+	.caveat a:hover, .caveat a:focus{
+	color: #4a4f54;
+	font-weight:normal;
+	}
+	
+	sub{line-height:0;}
+	
+/* code fix for defect 570*/

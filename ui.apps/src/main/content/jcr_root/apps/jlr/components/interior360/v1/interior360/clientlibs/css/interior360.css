@@ -438,7 +438,7 @@
   .cmp-fullframe .headerClass {
     text-transform: uppercase;
   }
-  .cmp-fullframe .fontBodyCopyLarge {
+  .cmp-fullframe .fontBodyCopyLarge p:first-child::first-letter{
     text-transform: capitalize;
   }
   
