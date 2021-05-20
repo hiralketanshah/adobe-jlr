@@ -1,10 +1,15 @@
 package com.jlr.core.pojos;
 
-public class SecondaryNavigation {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SecondaryNavigation implements Comparable<SecondaryNavigation> {
 
 	private String title;
 	private String path;
 	private boolean hasChild;
+	private SecondaryNavigation previousLink;
+	List<SecondaryNavigation> subNavList = new ArrayList<>();
 
 	public SecondaryNavigation() {
 
@@ -34,5 +39,32 @@ public class SecondaryNavigation {
 	public void setHasChild(boolean hasChild) {
 		this.hasChild = hasChild;
 	}
-
+	public SecondaryNavigation getPreviousLink() {
+		return previousLink;
+	}
+	public void setPreviousLink(SecondaryNavigation previousLink) {
+		this.previousLink = previousLink;
+	}
+	public List<SecondaryNavigation> getSubNavList() {
+		return subNavList;
+	}
+	public void setSubNavList(List<SecondaryNavigation> subNavList) {
+		this.subNavList = subNavList;
+	}
+	@Override
+	public int compareTo(SecondaryNavigation o) {
+		return this.getPath().compareTo(o.getPath());
+	}
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof SecondaryNavigation) {
+			SecondaryNavigation obj = (SecondaryNavigation)o;
+			return this.getPath().equals(obj.getPath());			
+		}
+		return false;
+	}
+	@Override
+	public int hashCode() {
+		return this.getPath().hashCode();			
+	}
 }

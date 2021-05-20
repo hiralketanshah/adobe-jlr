@@ -2,12 +2,9 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -34,36 +31,29 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 	@ScriptVariable
 	private Page currentPage; 
 
-	private Map<String,List<SecondaryNavigation>> secondaryNavMap = new HashMap<>();
-	private Map<String,String> parentNavMap = new HashMap<>();
-
-	@PostConstruct
-	public void init() {
-		List<String> parents = getSecondaryNavParentList();
-		for(String parentPath : parents)  {
-			secondaryNavMap.put(parentPath, getSecondaryNavItems(parentPath));
-		}
-	}
-
 	@Override
-	public List<String> getSecondaryNavParentList() {
-		List<String> parentList = new ArrayList<>();
+	public List<SecondaryNavigation> getSecondaryNavParentList() {
+		List<SecondaryNavigation> parentList = new ArrayList<>();
 		String rootPath = CommonUtils.getSiteRootPath(currentPage);
-		if(rootPath == null || !currentPage.getPath().startsWith(CommonConstants.JLR_CONTENT_PATH) || !getShowInSecNav(currentPage)) {
+		if(rootPath == null || !currentPage.getPath().startsWith(CommonConstants.JLR_CONTENT_PATH) || !getShowInSecNav(currentPage) || !getShowInSecNav(currentPage.getParent())) {
 			return parentList;
 		}
-		Page parent = currentPage;
-		while(parent!= null) {
-			if(parent.getPath().equals(rootPath)) {
+		Page parentPage = currentPage;
+		while(parentPage!= null) {
+			if(parentPage.getPath().equals(rootPath)) {
 				break;
 			}
-			parentList.add(getSecondaryNavLink(parent));
-			parentNavMap.put(parent.getPath(), getSecondaryNavTitle(parent));
-			if(getSecondaryNavHideParent(parent)) {
-				parent = parent.getParent().getParent();
+			SecondaryNavigation parent = new SecondaryNavigation();
+			parent.setTitle(getSecondaryNavTitle(parentPage));
+			parent.setPath(getSecondaryNavLink(parentPage));
+			parent.setSubNavList(getSecondaryNavItems(parent.getPath()));
+			parentList.add(parent);
+			if(getSecondaryNavHideParent(parentPage)) {
+				parentPage = parentPage.getParent().getParent();
 			} else {
-				parent = parent.getParent();
+				parentPage = parentPage.getParent();
 			}
+			parent.setPreviousLink(getSecondaryNavItem(parentPage));
 		}
 		Collections.sort(parentList);
 		return parentList;
@@ -82,18 +72,20 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 			if(!getShowInSecNav(childPage)) {
 				continue;
 			}
-			SecondaryNavigation secNavItem = new SecondaryNavigation();
-
-			if(childPage.listChildren().hasNext()) {
-				secNavItem.setHasChild(true);
-			}
-			secNavItem.setTitle(getSecondaryNavTitle(childPage));
-			secNavItem.setPath(getSecondaryNavLink(childPage));
-			subNavList.add(secNavItem);
+			subNavList.add(getSecondaryNavItem(childPage));
 		}
 		return subNavList;
 	}
-	
+
+	private SecondaryNavigation getSecondaryNavItem(Page page) {
+		SecondaryNavigation secNavItem = new SecondaryNavigation();
+		if(hasChid(page)) {
+			secNavItem.setHasChild(true);
+		}
+		secNavItem.setTitle(getSecondaryNavTitle(page));
+		secNavItem.setPath(getSecondaryNavLink(page));
+		return secNavItem;
+	}
 	private String getSecondaryNavTitle(Page page) {
 		ValueMap propMap = page.getContentResource().adaptTo(ValueMap.class);
 		return null != propMap.get(CommonConstants.PN_SECONDARY_NAVIGATION_TITLE) ? propMap.get(CommonConstants.PN_SECONDARY_NAVIGATION_TITLE).toString() : page.getTitle();
@@ -113,24 +105,20 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 		}
 		return  page.getPath();
 	}
-	
+
 	private boolean getSecondaryNavHideParent(Page page) {
 		ValueMap propMap = page.getContentResource().adaptTo(ValueMap.class);
 		return null != propMap.get(CommonConstants.PN_SECONDARY_NAVIGATION_HIDE_PARENT) && Boolean.parseBoolean(propMap.get(CommonConstants.PN_SECONDARY_NAVIGATION_HIDE_PARENT).toString());
 	}
-	
-	@Override
-	public List<SecondaryNavigation> getItems(String parent) {
-		return secondaryNavMap.get(parent);
-	}
 
-	@Override
-	public Map<String,String> getSecondaryNavParentMap() {
-		return parentNavMap;
-	}
-	
-	@Override
-	public Map<String,List<SecondaryNavigation>> getSecondaryNavMap() {
-		return secondaryNavMap;
+	private boolean hasChid(Page page) {
+		Iterator<Page> childItr = page.listChildren();
+		while(childItr.hasNext()) {
+			Page childPage = childItr.next();
+			if(getShowInSecNav(childPage)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

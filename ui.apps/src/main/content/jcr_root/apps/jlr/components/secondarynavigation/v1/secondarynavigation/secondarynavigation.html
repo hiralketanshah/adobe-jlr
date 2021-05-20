@@ -1,20 +1,18 @@
-<sly data-sly-use.model="com.jlr.core.models.SecondaryNavigationModel"
-data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,navigation.shared.vehicleDropdownFromText,navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown'}"
-   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+<sly data-sly-use.model="com.jlr.core.models.SecondaryNavigationModel" data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
    id="${component.id}"></sly>
 <nav id="dxnav-unique-nav" class="dxnav-unique-nav" data-naas-activated="true">   
 <div class="dxnav__breadcrumbs-container dxnav__breadcrumb-hasTitle">
-    <div class="dxnav__breadcrumbs" data-sly-list.parent="${model.secondaryNavParentList}">
-        <div class="dxnav__breadcrumb dxnav__breadcrumb--with-dropdown">
-          <a class="dxnav__breadcrumb-link" href="/explore-land-rover/index.html" aria-expanded="false">
-            <span class="dxnav__breadcrumb-text">${model.secondaryNavParentMap[parent]}</span>
+    <div class="dxnav__breadcrumbs" data-sly-test="${model.secondaryNavParentList.size > 0}" data-sly-list.parent="${model.secondaryNavParentList}" >
+        <div class="dxnav__breadcrumb dxnav__breadcrumb--with-dropdown" data-sly-test="${!parentList.last}">
+          <a class="dxnav__breadcrumb-link" href="${parent.path @ extension='html'}" aria-expanded="false">
+            <span class="dxnav__breadcrumb-text">${parent.title}</span>
               <span class="dxnav-breadcrumb__ellipsis dxnav-hide">...</span>
               <svg class="dxnav-icon">
               <use xlink:href="#Chevron_Right"></use>
             </svg>
           </a>
           
-          <ul class="dxnav__breadcrumb-dropdown" data-sly-list="${model.secondaryNavMap[parent]}" style="display:block">
+          <ul class="dxnav__breadcrumb-dropdown" data-sly-list="${parent.subNavList}">
             <li class="dxnav__breadcrumb-dropdown-item">
               <a class="dxnav__breadcrumb-dropdown-link ${item.path in model.secondaryNavParentList ? 'dxnav-selected' : ''}" href="${item.path @ extension='html'}">
                 <span class="dxnav__breadcrumb-text">${item.title}</span>
@@ -24,10 +22,25 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
               </a>
             </li>
           </ul>
-       
+          <a data-sly-test="${!parentList.first || !parentList.last}" class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.path @ extension='html'}">
+            <svg class="dxnav-icon">
+              <use xlink:href="#Chevron_Right"></use>
+            </svg>
+            <span class="dxnav__breadcrumb-prev-text">${parent.previousLink.title}</span>
+          </a>
         </div>
 
+		<div class="dxnav__breadcrumb" data-sly-test="${parentList.last}">     
+          <span class="dxnav__breadcrumb-link">
+            <span class="dxnav__breadcrumb-text">${parent.title}</span>
+          </span>
+          <a class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.path @ extension='html'}">
+            <svg class="dxnav-icon">
+              <use xlink:href="#Chevron_Right"></use>
+            </svg>
+            <span class="dxnav__breadcrumb-prev-text">${parent.previousLink.title}</span>
+          </a>
+        </div>
         </div>
     </div>
 </nav>    
-<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
