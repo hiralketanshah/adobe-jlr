@@ -1,5 +1,6 @@
 package com.jlr.core.services.impl;
 
+import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
@@ -15,6 +16,7 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
 import static com.jlr.core.utils.TcoUtils.BASE_PATH;
 import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
 
@@ -27,14 +29,45 @@ public class TcoServiceImpl implements TcoService {
             TcoServiceImpl.class);
 
     @Override
-    public String getModelPrice(PricingPojo pricingPojo, ResourceResolver resourceResolver,
-                                Page currentPage) {
-        if (TcoUtils.hasComplexMacro(pricingPojo.getPriceMacroConfig())) {
-            decodeComplexMacroForPrice(pricingPojo, resourceResolver, currentPage);
-        } else {
-            decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
+    public String getModelPrice(ResourceResolver resourceResolver,
+                                Page currentPage, InheritanceValueMap pageProperties, String priceMacro) {
+        if (StringUtils.isNotEmpty(priceMacro)) {
+            if (Boolean.valueOf(pageProperties
+                    .getInherited(CommonConstants.PRICING_SUPPRESSION, String.class))) {
+                return StringUtils.EMPTY;
+            }
+            PricingPojo pricingPojo = new PricingPojo();
+            pricingPojo.setRegion(getRegionFromPage(currentPage, resourceResolver));
+            mapPagePropertiesToPojo(pricingPojo, pageProperties);
+            String[] configCodes = priceMacro.split(CommonConstants.DOT_REGEX);
+            pricingPojo.setPriceMacroConfig(configCodes[1]);
+            if (configCodes.length == 4) {
+                pricingPojo.setPriceType(configCodes[3]);
+            }
+            if (TcoUtils.hasComplexMacro(pricingPojo.getPriceMacroConfig())) {
+                decodeComplexMacroForPrice(pricingPojo, resourceResolver, currentPage);
+            } else {
+                decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
+            }
+            return pricingPojo.getModelPrice();
         }
-        return pricingPojo.getModelPrice();
+        return  StringUtils.EMPTY;
+    }
+
+    private String getRegionFromPage(Page currentPage,
+                                     ResourceResolver resourceResolver) {
+        String siteRootPath = getSiteRootPath(currentPage);
+        Resource resource = resourceResolver.getResource(siteRootPath);
+        return resource.getParent().getName();
+    }
+
+    private void mapPagePropertiesToPojo(PricingPojo pricingPojo, InheritanceValueMap pageProperties) {
+        pricingPojo.setCurrencyFormat(
+                pageProperties.getInherited(CommonConstants.PRICING_CURRENT_FORMAT, String.class));
+        pricingPojo.setDefaultPriceType(
+                pageProperties.getInherited(CommonConstants.DEFAULT_PRICE_TYPE, String.class));
+        pricingPojo.setFallbackPriceType(
+                pageProperties.getInherited(CommonConstants.FALLBACK_PRICE_TYPE, String.class));
     }
 
     private void decodeSimpleMacroForPrice(PricingPojo pricingPojo,

@@ -25,6 +25,7 @@ public class TcoUtils {
         if (region.equalsIgnoreCase("de")) {
             placeHolder = CommonConstants.YYY;
         } else {
+            //TODO: get the state value from cookie
             placeHolder = CommonConstants.STATE;
         }
         return placeHolder;
