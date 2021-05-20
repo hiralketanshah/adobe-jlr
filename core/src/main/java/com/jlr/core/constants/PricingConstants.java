@@ -88,4 +88,37 @@ public class PricingConstants {
     /** The Constant PN_LAST_FETCHED. */
     public static final String PN_LAST_FETCHED = "lastFetched";
 
+    /**
+     * The constant DE_ROOT_PATH_NAME.
+     */
+    public static final String DE_ROOT_PATH_NAME = "de_de";
+
+    /**
+     * The constant PRICING_SUPPRESSION.
+     */
+    public static final String PRICING_SUPPRESSION = "pricingSuppression";
+    /**
+     * The constant PRICING_CURRENT_FORMAT.
+     */
+    public static final String PRICING_CURRENT_FORMAT = "pricingCurrentFormat";
+    /**
+     * The constant DEFAULT_PRICE_TYPE.
+     */
+    public static final String DEFAULT_PRICE_TYPE = "defaultPriceType";
+    /**
+     * The constant FALLBACK_PRICE_TYPE.
+     */
+    public static final String FALLBACK_PRICE_TYPE = "fallbackPriceType";
+    /**
+     * The constant DOT_REGEX.
+     */
+    public static final String DOT_REGEX = "\\.";
+    /**
+     * The constant PN_YYY.
+     */
+    public static final String PN_YYY = "yyy";
+    /**
+     * The constant JLR_LOCALE_PRICING.
+     */
+    public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
 }
