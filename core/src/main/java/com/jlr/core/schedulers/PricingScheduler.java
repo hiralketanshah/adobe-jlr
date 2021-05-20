@@ -1,8 +1,5 @@
 package com.jlr.core.schedulers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.sling.commons.scheduler.ScheduleOptions;
 import org.apache.sling.commons.scheduler.Scheduler;
 import org.apache.sling.settings.SlingSettingsService;
@@ -11,18 +8,19 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.AttributeDefinition;
+import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.Designate;
+import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jlr.core.config.PricingConfig;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.services.FetchPrice;
-import com.jlr.core.utils.PricingUtils;
 
 @Component(immediate = true, service = Runnable.class)
-@Designate(ocd = PricingConfig.class)
+@Designate(ocd = PricingScheduler.SchedulerConfig.class)
 public class PricingScheduler implements Runnable {
 
     @Reference
@@ -31,17 +29,10 @@ public class PricingScheduler implements Runnable {
     @Reference
     private SlingSettingsService slingSettingsService;
 
-    private Map<String, String> endpoints;
-    private Map<String, String> stageEndpoints;
-    private Map<String, String> staticUrl;
-    private Map<String, String> configPages;
-    private Map<String, String> destinationPaths;
-    private Map<String, String> header = new HashMap<>();
-    private String[] listOfStates;
-    private String destinationPath;
     String cronExpression;
     private int schedulerId;
     private String schedulerName;
+    private boolean isEnabled;
 
     /** LOGGER */
     private static final Logger LOGGER = LoggerFactory.getLogger(PricingScheduler.class);
@@ -50,20 +41,21 @@ public class PricingScheduler implements Runnable {
     private Scheduler scheduler;
 
     @Activate
-    public void activate(PricingConfig config) {
+    public void activate(PricingScheduler.SchedulerConfig config) {
         addScheduler(config);
-
     }
 
     @Modified
-    protected void modified(PricingConfig config) {
+    protected void modified(SchedulerConfig config) {
         removeScheduler();
-        schedulerId = schedulerName.hashCode();
+        if (null != schedulerName) {
+            schedulerId = schedulerName.hashCode();
+        }
         addScheduler(config);
     }
 
     @Deactivate
-    protected void deactivate(PricingConfig config) {
+    protected void deactivate(SchedulerConfig config) {
         removeScheduler();
     }
 
@@ -71,19 +63,10 @@ public class PricingScheduler implements Runnable {
         scheduler.unschedule(String.valueOf(schedulerId));
     }
 
-    private void addScheduler(PricingConfig config) {
-        if (config.serviceEnabled()) {
+    private void addScheduler(SchedulerConfig config) {
+        isEnabled = config.serviceEnabled();
+        if (isEnabled) {
             schedulerName = config.schedulerName();
-            destinationPaths = PricingUtils.getMapOfConfigFields(config.listOfDestinationPaths());
-            endpoints = PricingUtils.getMapOfConfigFields(config.listOfProdEndpoints());
-            if (!isProd()) {
-                stageEndpoints = PricingUtils.getMapOfConfigFields(config.listOfStageEndpoints());
-                header.put("x-api-key", config.stageApiKey());
-            }
-            staticUrl = PricingUtils.getMapOfConfigFields(config.listOfStaticUrl());
-            configPages = PricingUtils.getMapOfConfigFields(config.listOfConfigPages());
-            listOfStates = config.listOfStates();
-            destinationPath = config.destinationPath();
             cronExpression = config.cronExpression();
             ScheduleOptions scheduleOptions = scheduler.EXPR(cronExpression);
             scheduleOptions.canRunConcurrently(false);
@@ -98,25 +81,26 @@ public class PricingScheduler implements Runnable {
     @Override
     public void run() {
 
-        if (this.slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)
-                && destinationPaths.containsKey(CommonConstants.RUNMODE_PROD)) {
+        if (isEnabled && this.slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
             LOGGER.debug("JLR pricing scheduler : In Run method");
             StringBuilder responseBuilder = new StringBuilder();
-            responseBuilder.append(fetchPrice.getPrices(endpoints, staticUrl, configPages, header,
-                    destinationPaths.get(CommonConstants.RUNMODE_PROD), PricingConstants.JLR_PRICING_MARKET_ALL,
-                    listOfStates));
-            if (null != stageEndpoints && destinationPaths.containsKey(CommonConstants.RUNMODE_STAGE)) {
-                responseBuilder.append(fetchPrice.getPrices(stageEndpoints, staticUrl, configPages, header,
-                        destinationPaths.get(CommonConstants.RUNMODE_STAGE), PricingConstants.JLR_PRICING_MARKET_ALL,
-                        listOfStates));
-            }
-            // replication
-            fetchPrice.replicate(destinationPath);
+            responseBuilder.append(fetchPrice.fetchAndStorePrice(PricingConstants.JLR_PRICING_MARKET_ALL));
+            LOGGER.debug(responseBuilder.toString());
         }
     }
 
-    private boolean isProd() {
-        return this.slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_PROD);
+    @ObjectClassDefinition(name = "Pricing Scheduler Configuration", description = "Pricing Scheduler Configuration")
+    public @interface SchedulerConfig {
+
+        @AttributeDefinition(name = "Enabled", description = "Enable Scheduler", type = AttributeType.BOOLEAN)
+        boolean serviceEnabled() default true;
+
+        @AttributeDefinition(name = "Cron Job Expression", description = "Cron Job Expression", type = AttributeType.STRING)
+        public String cronExpression() default "0 0 0/6 1/1 * ? *";
+
+        @AttributeDefinition(name = "Scheduler name", description = "Scheduler name", type = AttributeType.STRING)
+        public String schedulerName() default "JLR Pricing Scheduler";
+
     }
 
 }

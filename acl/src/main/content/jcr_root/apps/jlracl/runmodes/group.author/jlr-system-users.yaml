@@ -8,15 +8,15 @@
           path: ${systemUserPath}
           isSystemUser: "true"
 
-    - jlr-pricing-user:
+    - pricing-service:
 
-        - name: "JLR Pricing User"
+        - name: "System user for Pricing service"
           path: ${systemUserPath}
           isSystemUser: "true"
 
 - ace_config:
 
-  - jlr-pricing-user:
+  - pricing-service:
 
     - path: /content/landrover
       permission: allow

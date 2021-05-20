@@ -90,6 +90,7 @@ public class PricingUtils {
         modelNode.setProperty(PricingConstants.PN_NET, Double.toString(minNet));
         modelNode.setProperty(PricingConstants.PN_RETAIL, Double.toString(minRetail));
         modelNode.setProperty(PricingConstants.PN_CURRENCY, currency);
+        modelNode.setProperty(PricingConstants.PN_LAST_FETCHED, System.currentTimeMillis());
 
     }
 
