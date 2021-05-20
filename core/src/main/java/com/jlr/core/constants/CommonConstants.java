@@ -312,12 +312,4 @@ public class CommonConstants {
     /** The Constant GROUP_GLOBAL_LEADS. */
     public static final String GROUP_GLOBAL_LEADS = "global-leads";
 
-    public static final String PRICING_SUPPRESSION = "pricingSuppression";
-    public static final String PRICING_CURRENT_FORMAT = "pricingCurrentFormat";
-    public static final String DEFAULT_PRICE_TYPE = "defaultPriceType";
-    public static final String FALLBACK_PRICE_TYPE = "fallbackPriceType";
-    public static final String DOT_REGEX = "\\.";
-    public static final String YYY = "yyy";
-    public static final String DE = "de";
-    public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
 }

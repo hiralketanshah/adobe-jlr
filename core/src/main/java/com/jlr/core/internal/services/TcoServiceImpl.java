@@ -1,7 +1,8 @@
-package com.jlr.core.services.impl;
+package com.jlr.core.internal.services;
 
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.config.PricingConfig;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.pojos.PricingPojo;
@@ -13,24 +14,35 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.*;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.Cookie;
 import java.util.Arrays;
 
+import static com.jlr.core.constants.PricingConstants.*;
 import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
 import static com.jlr.core.utils.TcoUtils.BASE_PATH;
 import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
 
 @Component(immediate = true, service = TcoService.class)
+@Designate(ocd = PricingConfig.class)
 public class TcoServiceImpl implements TcoService {
     /**
      * The Constant LOGGER.
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(
             TcoServiceImpl.class);
+
+    private String[] listOfStates;
+
+    @Activate
+    public void activate(PricingConfig config) {
+        listOfStates = config.listOfStates();
+    }
 
     @Override
     public String getModelPrice(ResourceResolver resourceResolver,
@@ -40,23 +52,21 @@ public class TcoServiceImpl implements TcoService {
 
         if (StringUtils.isNotEmpty(priceMacro)) {
             if (Boolean.valueOf(pageProperties
-                    .getInherited(CommonConstants.PRICING_SUPPRESSION, String.class))) {
+                    .getInherited(PRICING_SUPPRESSION, String.class))) {
                 return StringUtils.EMPTY;
             }
             PricingPojo pricingPojo = new PricingPojo();
             String region = getRegionFromPage(currentPage, resourceResolver);
             pricingPojo.setRegion(region);
-            if(region.equalsIgnoreCase("au")){
-                Cookie stateCode = request.getCookie(CommonConstants.JLR_LOCALE_PRICING);
-                String[] states = { "NSW", "NT", "SA", "TAS", "VIC", "WA" };
-                String state = validState(stateCode.getValue(), states);
-                if(StringUtils.isEmpty(state)){
+            if(region.equalsIgnoreCase("en_au")){
+                Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
+                if(!validState(stateCode.getValue(), listOfStates)){
                     return StringUtils.EMPTY;
                 }
-                pricingPojo.setStateCode(state.toLowerCase());
+                pricingPojo.setStateCode(stateCode.getValue().toLowerCase());
             }
             mapPagePropertiesToPojo(pricingPojo, pageProperties);
-            String[] configCodes = priceMacro.split(CommonConstants.DOT_REGEX);
+            String[] configCodes = priceMacro.split(DOT_REGEX);
             pricingPojo.setPriceMacroConfig(configCodes[1]);
             if (configCodes.length == 4) {
                 pricingPojo.setPriceType(configCodes[3]);
@@ -71,24 +81,24 @@ public class TcoServiceImpl implements TcoService {
         return  StringUtils.EMPTY;
     }
 
-    private String validState(String stateCode, String[] states) {
-        return Arrays.stream(states).filter(s -> s.equalsIgnoreCase(stateCode)).findFirst().get();
+    private boolean validState(String stateCode, String[] states) {
+        return Arrays.stream(states).anyMatch(s -> s.equalsIgnoreCase(stateCode));
     }
 
     private String getRegionFromPage(Page currentPage,
                                      ResourceResolver resourceResolver) {
         String siteRootPath = getSiteRootPath(currentPage);
         Resource resource = resourceResolver.getResource(siteRootPath);
-        return resource.getParent().getName();
+        return DE_ROOT_PATH_NAME.equalsIgnoreCase(resource.getName()) ? JLR_LOCALE_DE : resource.getName();
     }
 
     private void mapPagePropertiesToPojo(PricingPojo pricingPojo, InheritanceValueMap pageProperties) {
         pricingPojo.setCurrencyFormat(
-                pageProperties.getInherited(CommonConstants.PRICING_CURRENT_FORMAT, String.class));
+                pageProperties.getInherited(PRICING_CURRENT_FORMAT, String.class));
         pricingPojo.setDefaultPriceType(
-                pageProperties.getInherited(CommonConstants.DEFAULT_PRICE_TYPE, String.class));
+                pageProperties.getInherited(DEFAULT_PRICE_TYPE, String.class));
         pricingPojo.setFallbackPriceType(
-                pageProperties.getInherited(CommonConstants.FALLBACK_PRICE_TYPE, String.class));
+                pageProperties.getInherited(FALLBACK_PRICE_TYPE, String.class));
     }
 
     private void decodeSimpleMacroForPrice(PricingPojo pricingPojo,

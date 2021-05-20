@@ -6,13 +6,19 @@ import org.apache.commons.lang.StringUtils;
 
 import java.text.DecimalFormat;
 
+import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
+import static com.jlr.core.constants.PricingConstants.PN_YYY;
+
 public class TcoUtils {
 
     public static final String BASE_PATH = "/var/jlr/pricing/";
 
     public static String currencyFormat(String pattern, Double value) {
         DecimalFormat currencyFormatter = new DecimalFormat(pattern);
-        String currencyString = currencyFormatter.format(value);
+        String currencyString = StringUtils.EMPTY;
+        if(value.intValue() != 0) {
+            currencyString = currencyFormatter.format(value);
+        }
         return currencyString;
     }
 
@@ -22,8 +28,8 @@ public class TcoUtils {
 
     private static String getPlaceHolder(String region, String stateCode) {
         String placeHolder = null;
-        if (region.equalsIgnoreCase(CommonConstants.DE)) {
-            placeHolder = CommonConstants.YYY;
+        if (region.equalsIgnoreCase(JLR_LOCALE_DE)) {
+            placeHolder = PN_YYY;
         } else {
             placeHolder = stateCode;
         }
