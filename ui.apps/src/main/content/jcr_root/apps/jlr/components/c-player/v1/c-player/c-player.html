@@ -2,18 +2,18 @@
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" 
 data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
-	<div class="cmp-cplayer sectioncss groupcss" data-vechicle-id="${model.nameplateId}" data-model-year="${model.modelyear}" data-vechicle-name="${model.nameplateId}">
+	<div class="cmp-cplayer cmp-cplayer-hidden sectioncss groupcss" data-vechicle-id="${model.nameplateId}" data-model-year="${model.modelyear}" data-vechicle-name="${model.nameplateId}">
 		<div class="col span_1_of_3 cplayerCopy">
 			<div class="grid-container">
 				<div class="grid-item summaryItemContentCplayer">
-					<div class="heading">
+					<div class="headingMain">
 						<h2 class="summaryItemHeader heading headingH4 fontQuote">
 							<span class="headingWrapper">${model.headerCopy @context ='html'}</span>
 						</h2>
 					</div>
-					<div class="vechicleSummary">
+					<div class="vechicleSummaryMain">
 						<h3 class="vechicleSummary summaryItemHeader fontQuote">
-							<span class="headingWrapper">Range Rover sport</span>
+							<span class="headingWrapper"></span>
 						</h3>
 					</div>
 					<div class="summary">
@@ -39,7 +39,9 @@ data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
 		</div>
 		<div class="col span_2_of_3 cplayerImageDiv">
 			<div class="cplayerImage">
-			</div>
+				<picture class="Picture Picture--background">
+                </picture>
+              </div>
 		</div>
 	</div>
 	<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"/>
