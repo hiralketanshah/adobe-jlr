@@ -176,7 +176,23 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </tabbedcontainer>	
+                        </tabbedcontainer>
+                        <quote jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <quote
+                                    cq:policy="jlr/components/quote/v1/quote/policy_1620815338366"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </quote>
+                        <c-player jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <c-player
+                                    cq:policy="jlr/components/c-player/v1/c-player/policy_1621317733304"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </c-player>
                         <specsglance jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <specsglance
@@ -184,7 +200,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </specsglance>                        					
+                        </specsglance>
                     </components>
                 </jlr>
             </container>
