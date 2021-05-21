@@ -2,7 +2,12 @@
     data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
     data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}"
     data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
-<div class="cmp-offersContainer fontSmooth white">
+   
+<div class="cmp-offersContainer fontSmooth">
+    <!-- Page Wrapper dummy for overlay -->
+    <div class="pageWrapper">
+    </div>
+    <!-- end -->
     <!--/* OFFER - odd - light theme */-->
     <div class="offer">
         <div class="offerMainFrame">
@@ -25,7 +30,7 @@
                     <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
                 </div>
                 <div class="offerPrice">
-                    <p class="Offers__price heading price">BASE MSRP FROM $80,000</p>
+                    <p class="Offers__price heading price"></p>
                 </div>
                 <div class="offerBody">
                     ${model.copy @context='html'}
@@ -55,7 +60,7 @@
                     <sly data-sly-test="${offersList.index==0}">
                         <!-- Leasing information -->
                         <div class="offerInfo offerInfoLease">
-                            <p class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'} </p>
+                            <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'} </div>
                             <p class="heading Offers__amount headingH1">
                                 <span class="headingWrapper" role="text">
                                     <span class="currency">
@@ -67,18 +72,18 @@
                                         @context='html'}</small>
                                 </span>
                             </p>
-                            <p class="heading subHeading body Offers__info-body headingH6">
+                            <div class="body Offers__info-body">
                                 <span data-sly-test="${offers.offerLabel}" class="headingWrapper">
                                     ${offers.offerLabel @context='html'}
                                 </span>
-                            </p>
+                            </div>
                             <button data-sly-test="${offers.offerDetailsButton}"
                                 class="offerDetailsLink button-tertiary" data-close-label="close modal"
                                 data-modal-trigger="">
                                 <span>${offers.offerDetailsButton}</span>
                             </button>
                             <div class="offerDetails offerLeaseDetails" data-modal-content="">
-                                <h3 class="Modal__title">${offers.offerOverlayHeader}</h3>
+                                <h3 class="Modal__title">${offers.offerOverlayHeader @context='html'}</h3>
                                 <div class="termsConditions">
                                     ${offers.offerOverlaySummary @context='html'}
                                 </div>
@@ -88,7 +93,7 @@
                     <!--/* Loan information */-->
                     <sly data-sly-test="${offersList.index==1}">
                         <div class="offerInfo offerInfoApr">
-                            <p class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</p>
+                            <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</div>
                             <p class="heading Offers__amount headingH2">
                                 <span class="headingWrapper" role="text">
                                     <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
@@ -99,18 +104,18 @@
 
                                 </span>
                             </p>
-                            <p class="heading subHeading body Offers__info-body headingH6">
+                            <div class="body Offers__info-body">
                                 <span data-sly-test="${offers.offerLabel}" class="headingWrapper">
                                     ${offers.offerLabel @context='html'}
                                 </span>
-                            </p>
+                            </div>
                             <button data-sly-test="${offers.offerDetailsButton}"
                                 class="offerDetailsLink button-tertiary" data-close-label="${config.configValue}"
                                 data-modal-trigger="">
                                 <span>${offers.offerDetailsButton}</span>
                             </button>
                             <div class="offerDetails offerFinanceDetails" data-modal-content="">
-                                <h3 class="Modal__title">${offers.offerOverlayHeader  @context='html'}</h3>
+                                <h3 class="Modal__title">${offers.offerOverlayHeader @context='html'}</h3>
                                 <div class="termsConditions">
                                     ${offers.offerOverlaySummary @context='html'}
                                 </div>
