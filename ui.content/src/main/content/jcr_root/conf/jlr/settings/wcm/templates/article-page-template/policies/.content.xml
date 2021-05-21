@@ -15,6 +15,14 @@
                 sling:resourceType="wcm/core/components/policies/mapping">
                 <jlr jcr:primaryType="nt:unstructured">
                     <components jcr:primaryType="nt:unstructured">
+                        <quote jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <quote
+                                    cq:policy="jlr/components/quote/v1/quote/policy_1620815338366"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </quote>
                         <caveat jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <caveat
@@ -365,6 +373,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
+                        <specsglance jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <specsglance
+                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </specsglance> 
                     </components>
                 </jlr>
             </container_1992655900>
