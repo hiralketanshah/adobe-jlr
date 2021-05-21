@@ -1,3 +1,6 @@
+.cmp-offersContainer p:first-letter,.offerDetails p:first-letter{
+  text-transform: capitalize;
+}
 .slateblue .cmp-offersContainer .offerHeading p{
   color: #FFFFFF;
 }
@@ -7,8 +10,15 @@
 #landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary{
   background-color: #e9ecec;
 }
-#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover{
-  background-color: #4a4f54;
+#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover
+  {
+    background-color: #4a4f54;
+    box-shadow: 0 0 0 1px #fff inset;
+    color: #FFFFFF;
+  }
+#landrover .slateblue .cmp-offersContainer .secondaryLinkWithStyle:hover {
+  color: #C9C9C9;
+    text-decoration: underline;
 }
 .cmp-offersContainer .offerDescription .offerLink{
   display: none;
