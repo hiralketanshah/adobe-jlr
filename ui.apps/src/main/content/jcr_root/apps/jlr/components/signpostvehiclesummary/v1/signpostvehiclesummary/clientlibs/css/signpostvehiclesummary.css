@@ -1,4 +1,4 @@
-.cmp-signPost .cmp-signPost__content-copy-wrapper{
+.cmp-signPost .cmp-signPost__content-copy-wrapper p:first-child::first-letter{
 	text-transform:capitalize;
 }
 .cmp-signPost .cmp-vehicleSummaryGridContext{
