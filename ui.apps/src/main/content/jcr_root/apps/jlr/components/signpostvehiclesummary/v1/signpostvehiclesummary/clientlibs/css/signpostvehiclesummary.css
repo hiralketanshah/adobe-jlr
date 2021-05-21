@@ -1,3 +1,6 @@
+.cmp-signPost .cmp-signPost__content-copy-wrapper{
+	text-transform:capitalize;
+}
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
 }
