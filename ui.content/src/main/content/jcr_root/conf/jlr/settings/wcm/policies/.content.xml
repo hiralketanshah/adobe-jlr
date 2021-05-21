@@ -1279,7 +1279,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <specsglance jcr:primaryType="nt:unstructured">
                         <policy_1621446983475
-                            cq:styleDefaultClasses="large"
+                            cq:styleDefaultClasses="light large"
                             jcr:lastModified="{Date}2021-05-19T23:27:40.073+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
@@ -1314,7 +1314,7 @@
                                         <item1
                                             cq:styleClasses="large"
                                             cq:styleId="1621447007996"
-                                            cq:styleLabel="Large"
+                                            cq:styleLabel="Large"/>
                                     </cq:styles>
                                 </item1>
                             </cq:styleGroups>											

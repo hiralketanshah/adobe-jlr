@@ -123,6 +123,7 @@ h2.heading, .heading.headingH2{
     font-size:2.8rem;
     line-height:24px
 }
+
 .cmp-specificationsAtAGlance__items.items .measurement span.unitLarge sub{
     vertical-align:baseline
 }
@@ -137,5 +138,11 @@ h2.heading, .heading.headingH2{
     }
 .unitLarge p{
     display:inline-block;
+    }
+.large .valueLarge{
+    font-size:56px !important;
+    }
+.small .valueLarge{
+    font-size:36px !important;
     }
 
