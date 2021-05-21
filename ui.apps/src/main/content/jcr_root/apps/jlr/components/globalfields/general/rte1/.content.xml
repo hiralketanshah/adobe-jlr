@@ -46,5 +46,6 @@
         vertical-slider-header="true"
         full-frame-header="true"
         dual-frame-header="true"
+        specs-glance-header="true"
         hero-title-banner-header="true"/>
 </jcr:root>

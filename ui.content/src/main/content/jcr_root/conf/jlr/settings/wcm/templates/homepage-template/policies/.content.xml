@@ -193,6 +193,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </c-player>
+                        <specsglance jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <specsglance
+                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </specsglance>
                     </components>
                 </jlr>
             </container>
