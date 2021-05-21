@@ -185,7 +185,6 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </exterior360>
-
                         <quote jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <quote

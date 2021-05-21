@@ -1280,8 +1280,6 @@
                     <specsglance jcr:primaryType="nt:unstructured">
                         <policy_1621446983475
                             cq:styleDefaultClasses="light large"
-                            jcr:lastModified="{Date}2021-05-19T23:27:40.073+05:30"
-                            jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Specs At A Glance"
 							sling:resourceType="wcm/core/components/policy/policy">
@@ -1293,6 +1291,7 @@
                                     <cq:styles jcr:primaryType="nt:unstructured">
                                         <item0
                                             cq:styleClasses="white"
+                                            cq:styleLabel="White"
                                             cq:styleId="1621446997067"
                                             jcr:primaryType="nt:unstructured"/>
                                         <item1
