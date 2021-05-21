@@ -8,7 +8,6 @@ import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
 
-
 /**
  * The Interface HeroTitleBannerModel.
  *
@@ -40,6 +39,15 @@ public interface HeroTitleBannerModel {
      * @return the caveat
      */
     default String getCaveat() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the price config value.
+     *
+     * @return the price config value
+     */
+    default String getPriceConfigValue() {
         return StringUtils.EMPTY;
     }
 }
