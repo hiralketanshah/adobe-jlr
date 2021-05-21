@@ -8,9 +8,10 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='navigation.s
       <span class="dxnav-vehicle-nav__image" style="background-image: url(${model.vehicleImageReference @context='unsafe'})"></span>
       <div class="dxnav-vehicle-nav__details">
          <div class="dxnav-vehicle-nav__details-container">
-            <span class="dxnav-vehicle-nav__title">${model.headerCopy @context='html'}</span>
+            <span class="dxnav-vehicle-nav__title">${model.headerCopy @context='html'} </span>
             <sly data-sly-test="${model.vehiclePrice}">
-            <span class="dxnav-vehicle-nav__price">${config.configMap['navigation.shared.vehicleDropdownFromText']} ${model.vehiclePrice}</span>
+            <span class="dxnav-vehicle-nav__price" data-sly-test="${model.vehiclePrice}">${config.configValue}
+               ${model.vehiclePrice}</span>
          </sly>
          </div>
       </div>

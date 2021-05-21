@@ -20,8 +20,8 @@
         <div class="offerHeading">
           <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
         </div>
-        <div class="offerPrice">
-          <p class="Offers__price heading price">BASE MSRP FROM $80,000</p>
+        <div class="cmp-signPost__content-copy-wrapper">
+          <div data-sly-test="${model.copy}" class="fontBodyCopy">${model.copy @context='html'}</div>
         </div>
         <div class="offerBody">
           ${model.copy @context='html'}
