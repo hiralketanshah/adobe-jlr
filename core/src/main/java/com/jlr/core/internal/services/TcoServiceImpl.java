@@ -1,5 +1,39 @@
 package com.jlr.core.internal.services;
 
+import static com.jlr.core.constants.PricingConstants.DEFAULT_PRICE_TYPE;
+import static com.jlr.core.constants.PricingConstants.DE_ROOT_PATH_NAME;
+import static com.jlr.core.constants.PricingConstants.DOT_REGEX;
+import static com.jlr.core.constants.PricingConstants.FALLBACK_PRICE_TYPE;
+import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
+import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_PRICING;
+import static com.jlr.core.constants.PricingConstants.PRICING_CURRENT_FORMAT;
+import static com.jlr.core.constants.PricingConstants.PRICING_SUPPRESSION;
+import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
+import static com.jlr.core.utils.TcoUtils.BASE_PATH;
+import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.Cookie;
+
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.jackrabbit.JcrConstants;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.PersistenceException;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceUtil;
+import org.apache.sling.api.resource.ValueMap;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.config.PricingConfig;
@@ -10,27 +44,6 @@ import com.jlr.core.services.Dictionary;
 import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.TcoUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.jackrabbit.JcrConstants;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.*;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.metatype.annotations.Designate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.servlet.http.Cookie;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import static com.jlr.core.constants.PricingConstants.*;
-import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
-import static com.jlr.core.utils.TcoUtils.BASE_PATH;
-import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
 
 @Component(immediate = true, service = TcoService.class)
 @Designate(ocd = PricingConfig.class)
@@ -38,8 +51,7 @@ public class TcoServiceImpl implements TcoService {
     /**
      * The Constant LOGGER.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
-            TcoServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(TcoServiceImpl.class);
 
     private String[] listOfStates;
 
@@ -52,14 +64,11 @@ public class TcoServiceImpl implements TcoService {
     }
 
     @Override
-    public Map<String, String> getModelPrice(ResourceResolver resourceResolver,
-                                             SlingHttpServletRequest request,
-                                             Page currentPage, InheritanceValueMap pageProperties,
-                                             String priceMacro, String configKey) {
+    public Map<String, String> getModelPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
+            Page currentPage, InheritanceValueMap pageProperties, String priceMacro, String configKey) {
         Map<String, String> modelPriceMap = new HashMap<>();
         if (StringUtils.isNotEmpty(priceMacro)) {
-            if (Boolean.valueOf(pageProperties
-                    .getInherited(PRICING_SUPPRESSION, String.class))) {
+            if (Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) {
                 return modelPriceMap;
             }
             PricingPojo pricingPojo = new PricingPojo();
@@ -85,17 +94,18 @@ public class TcoServiceImpl implements TcoService {
                 } else {
                     decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
                 }
-                Map<String, String> configMap = dictionary.getConfigMap(resourceResolver,
-                        request.getResource(),
+                Map<String, String> configMap = dictionary.getConfigMap(resourceResolver, request.getResource(),
                         currentPage);
                 String configValue = configMap.get(configKey);
-                if(StringUtils.isNotEmpty(pricingPojo.getStateCode())){
-                    configValue = configValue +" "+ pricingPojo.getStateCode().toUpperCase() + " from";
+                if (StringUtils.isNotEmpty(pricingPojo.getStateCode())) {
+
+                    configValue = configValue.replace("{state}", pricingPojo.getStateCode().toUpperCase());
+
                 }
                 modelPriceMap.put(configValue, pricingPojo.getModelPrice());
             } else {
-                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
-                        Double.parseDouble(priceMacro)));
+                pricingPojo.setModelPrice(
+                        TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), Double.parseDouble(priceMacro)));
                 modelPriceMap.put(StringUtils.EMPTY, pricingPojo.getModelPrice());
             }
 
@@ -107,53 +117,40 @@ public class TcoServiceImpl implements TcoService {
         return Arrays.stream(states).anyMatch(s -> s.equalsIgnoreCase(stateCode));
     }
 
-    private String getRegionFromPage(Page currentPage,
-                                     ResourceResolver resourceResolver) {
+    private String getRegionFromPage(Page currentPage, ResourceResolver resourceResolver) {
         String siteRootPath = getSiteRootPath(currentPage);
         Resource resource = resourceResolver.getResource(siteRootPath);
-        return DE_ROOT_PATH_NAME.equalsIgnoreCase(resource.getName()) ? JLR_LOCALE_DE : resource
-                .getName();
+        return DE_ROOT_PATH_NAME.equalsIgnoreCase(resource.getName()) ? JLR_LOCALE_DE : resource.getName();
     }
 
-    private void mapPagePropertiesToPojo(PricingPojo pricingPojo,
-                                         InheritanceValueMap pageProperties) {
-        pricingPojo.setCurrencyFormat(
-                pageProperties.getInherited(PRICING_CURRENT_FORMAT, String.class));
-        pricingPojo.setDefaultPriceType(
-                pageProperties.getInherited(DEFAULT_PRICE_TYPE, String.class));
-        pricingPojo.setFallbackPriceType(
-                pageProperties.getInherited(FALLBACK_PRICE_TYPE, String.class));
+    private void mapPagePropertiesToPojo(PricingPojo pricingPojo, InheritanceValueMap pageProperties) {
+        pricingPojo.setCurrencyFormat(pageProperties.getInherited(PRICING_CURRENT_FORMAT, String.class));
+        pricingPojo.setDefaultPriceType(pageProperties.getInherited(DEFAULT_PRICE_TYPE, String.class));
+        pricingPojo.setFallbackPriceType(pageProperties.getInherited(FALLBACK_PRICE_TYPE, String.class));
     }
 
-    private void decodeSimpleMacroForPrice(PricingPojo pricingPojo,
-                                           ResourceResolver resourceResolver,
-                                           Page currentPage) {
+    private void decodeSimpleMacroForPrice(PricingPojo pricingPojo, ResourceResolver resourceResolver,
+            Page currentPage) {
         pricingPojo.setNamePlate(pricingPojo.getPriceMacroConfig());
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, StringUtils.EMPTY, BASE_PATH);
         fetchPriceFromResource(pricingPojo, resourceResolver, path);
     }
 
-    private void decodeComplexMacroForPrice(PricingPojo pricingPojo,
-                                            ResourceResolver resourceResolver,
-                                            Page currentPage) {
+    private void decodeComplexMacroForPrice(PricingPojo pricingPojo, ResourceResolver resourceResolver,
+            Page currentPage) {
         String macroModelYear = fetchNamePlateProductDetails(pricingPojo);
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, macroModelYear, BASE_PATH);
         fetchPriceFromResource(pricingPojo, resourceResolver, path);
     }
 
-    private void fetchPriceFromResource(PricingPojo pricingPojo,
-                                        ResourceResolver resourceResolver,
-                                        String path) {
+    private void fetchPriceFromResource(PricingPojo pricingPojo, ResourceResolver resourceResolver, String path) {
         try {
-            Resource varResource = ResourceUtil.getOrCreateResource(
-                    resourceResolver, path, JcrConstants.NT_UNSTRUCTURED,
-                    JcrConstants.NT_UNSTRUCTURED,
-                    false);
+            Resource varResource = ResourceUtil.getOrCreateResource(resourceResolver, path,
+                    JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
             ValueMap valueMap = varResource.getValueMap();
-            if (MapUtils.isNotEmpty(valueMap)
-                    && valueMap.containsKey(pricingPojo.getPriceType())) {
+            if (MapUtils.isNotEmpty(valueMap) && valueMap.containsKey(pricingPojo.getPriceType())) {
                 String price = valueMap.get(pricingPojo.getPriceType(), String.class);
                 if (StringUtils.isEmpty(price) || "0.0".equals(price)) {
                     price = valueMap.get(pricingPojo.getDefaultPriceType(), String.class);
@@ -162,25 +159,21 @@ public class TcoServiceImpl implements TcoService {
                     }
                 }
                 if (StringUtils.isNotEmpty(price)) {
-                    pricingPojo
-                            .setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
-                                    Double.parseDouble(price)));
+                    pricingPojo.setModelPrice(
+                            TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), Double.parseDouble(price)));
                 }
             }
         } catch (PersistenceException e) {
-            LOGGER.error(ErrorUtils
-                    .createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION,
-                            ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                            ErrorUtilsConstants.MODULE_SERVICE,
-                            this.getClass().getSimpleName(), e));
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
         }
     }
 
     private String fetchNamePlateProductDetails(PricingPojo pricingPojo) {
         String macroModelYear = StringUtils.EMPTY;
         if (pricingPojo.getPriceMacroConfig().contains(CommonConstants.FORWARD_SLASH)) {
-            String[] models = pricingPojo.getPriceMacroConfig()
-                    .split(CommonConstants.FORWARD_SLASH);
+            String[] models = pricingPojo.getPriceMacroConfig().split(CommonConstants.FORWARD_SLASH);
             pricingPojo.setNamePlate(models[0]);
             if (models[1].contains(CommonConstants.UNDERSCORE)) {
                 String[] productYears = models[1].split(CommonConstants.UNDERSCORE);
@@ -191,8 +184,7 @@ public class TcoServiceImpl implements TcoService {
             }
         } else {
             if (pricingPojo.getPriceMacroConfig().contains(CommonConstants.UNDERSCORE)) {
-                String[] productYears = pricingPojo.getPriceMacroConfig()
-                        .split(CommonConstants.UNDERSCORE);
+                String[] productYears = pricingPojo.getPriceMacroConfig().split(CommonConstants.UNDERSCORE);
                 pricingPojo.setNamePlate(productYears[0]);
                 macroModelYear = productYears[1];
             }
@@ -200,18 +192,13 @@ public class TcoServiceImpl implements TcoService {
         return macroModelYear;
     }
 
-    private void fetchPageProperties(PricingPojo pricingPojo, ResourceResolver resourceResolver,
-                                     Page currentPage) {
-        Resource resource = resourceResolver
-                .getResource(currentPage.getPath() + "/jcr:content/nameplateDetails");
+    private void fetchPageProperties(PricingPojo pricingPojo, ResourceResolver resourceResolver, Page currentPage) {
+        Resource resource = resourceResolver.getResource(currentPage.getPath() + "/jcr:content/nameplateDetails");
         if (resource != null) {
             resource.getChildren().iterator().forEachRemaining(child -> {
-                if (child.getValueMap().get("nameplate", String.class)
-                        .equals(pricingPojo.getNamePlate())) {
-                    pricingPojo.setModelYear(child.getValueMap().get("modelYear",
-                            String.class));
-                    pricingPojo.setEnvironment(child.getValueMap().get("environment",
-                            String.class));
+                if (child.getValueMap().get("nameplate", String.class).equals(pricingPojo.getNamePlate())) {
+                    pricingPojo.setModelYear(child.getValueMap().get("modelYear", String.class));
+                    pricingPojo.setEnvironment(child.getValueMap().get("environment", String.class));
                 }
             });
         }

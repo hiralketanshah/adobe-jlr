@@ -1,6 +1,6 @@
-<sly data-sly-use.model="com.jlr.core.models.HeroItemModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='hero.tco.from.txt'}"
-	 data-sly-call="${renderHeroCarousel @ heroCarousel=model, config=config}"/>
-<template data-sly-template.renderHeroCarousel="${ @ heroCarousel, config }">
+<sly data-sly-use.model="${'com.jlr.core.models.HeroItemModel' @ key='hero.tco.from.txt'}"
+	 data-sly-call="${renderHeroCarousel @ heroCarousel=model}"/>
+<template data-sly-template.renderHeroCarousel="${ @ heroCarousel }">
 
 	<div class="cmp-hero" id="${heroCarousel.id}">
 		<div class="cmp-genericItem__element-poster">
@@ -33,7 +33,7 @@
 				</div>
 				<div class="contentClass">
 					<div class="pricing">
-						<p data-sly-test="${heroCarousel.price}">${config.configValue}</p>
+						<p data-sly-test="${heroCarousel.price}">${heroCarousel.priceConfigValue}</p>
 						<p><strong> ${heroCarousel.price}</strong></p>
 					</div>
 					<div class="linkContainer">

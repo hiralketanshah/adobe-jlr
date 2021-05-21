@@ -1,4 +1,4 @@
-<sly data-sly-use.contentCard="com.jlr.core.models.ContentCardModel"
+<sly data-sly-use.contentCard="${'com.jlr.core.models.ContentCardModel' @ key='content.blocks.from.text'}"
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
@@ -57,8 +57,8 @@
                                           class="heading headingH5 .cmp-ContentCard__heading fontH4 ignoreIgniteIcon ignoreLinkBeanCss keepOriginalClasses">
                                           ${content.headerCopy @ context="html"}
                                        </h2>
-                                       <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='content.blocks.from.text'}">
-                                          ${config.configValue}: ${content.price}
+                                       <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price">
+                                          ${content.priceConfigValue}: ${content.price}
                                        </p>
                                        <p data-sly-test="${content.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
                                           ${content.copy @ context="html"}

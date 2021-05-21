@@ -1,5 +1,5 @@
-<sly data-sly-use.model="com.jlr.core.models.VehicleSummaryModel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}" data-sly-call="${renderModel @ model=model, config=config}" />
-<template data-sly-template.renderModel="${ @ model, config}">
+<sly data-sly-use.model="${'com.jlr.core.models.VehicleSummaryModel' @ key='hero.tco.from.txt'}" data-sly-call="${renderModel @ model=model}" />
+<template data-sly-template.renderModel="${ @ model}">
   <div class="cmp-vehicleSummaryGridContext clearfix" id="${model.id}">
     <div class="summaryItemImage cmp-vehicleSummary__image">
      <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
@@ -15,7 +15,7 @@
       </span>
      </h2>
      <p data-sly-test="${model.price}" class="heading price headingH5 cmp-vehicleSummary__price cmp-vehicleSummary__price--top fontFromPriceModel">
-      ${config.configValue}: ${model.price}
+      ${model.priceConfigValue}: ${model.price}
      </p>
      <p data-sly-test="${model.copy}" class="subheading cmp-vehicleSummary__subheading fontH1Copy">
       ${model.copy @context='html'}
