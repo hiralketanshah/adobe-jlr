@@ -1,3 +1,15 @@
+.slateblue .cmp-offersContainer .offerHeading p{
+  color: #FFFFFF;
+}
+.slateblue .bullets--line  li:after {
+	background-color: #FFFFFF;
+}
+#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary{
+  background-color: #e9ecec;
+}
+#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover{
+  background-color: #4a4f54;
+}
 .cmp-offersContainer .offerDescription .offerLink{
   display: none;
 }
@@ -159,9 +171,6 @@
       width: 65%;
       width: calc(66.667% - 43px);
     }
-    .cmp-offersContainer .offer .offerImage {
-      padding: 0 0 28.3%;
-    }
     .cmp-offersContainer .offer .offerMainFrame {
       position: relative;
       *zoom: 1;
@@ -243,7 +252,16 @@
   }
   
   /* NEW DE */
+  .cmp-offersContainer .Offers__info-body{
+    text-transform: uppercase;
+  }
+  .cmp-offersContainer .secondaryLinkContainer{
+    width: 100%;
+  }
   @media screen and (min-width: 1280px) {
+    .cmp-offersContainer .offer .offerImage {
+      padding: 0 0 36.9%;
+    }
     .cmp-offersContainer .offer .offerFinanceBoxes {
       float: right;
       width: 100%;
@@ -263,9 +281,6 @@
     .cmp-offersContainer .offer .offerDescription .price {
       margin-bottom: 16px;
       color: #4a4f54;
-    }
-    .cmp-offersContainer .linkContainer .secondaryLinkWithStyle{
-      margin-top: 23px;
     }
     .cmp-offersContainer .offerLink{
       margin-top: 24px;
@@ -297,6 +312,12 @@
           height: auto;
       }
     }
+    @media screen and (min-width: 1920px) {
+      .cmp-offersContainer .offer .offerImage {
+        padding: 0 0 37.02%;
+      }
+    }
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   
   .offerMainFrame{
@@ -733,6 +754,15 @@
     letter-spacing: 2.5px;
     font-size: 10px;
     line-height: 12.5px;
+  }
+  .cmp-offersContainer .secondaryLinkContainer:first-of-type{
+    margin-top: 23px;
+  }
+  .cmp-offersContainer .secondaryLinkContainer:not(:first-of-type){
+    margin-top: 24px;
+  }
+  .cmp-offersContainer .linkContainer .secondaryLinkWithStyle{
+    margin-top: 0px;
   }
 
 }
