@@ -1,16 +1,10 @@
-<sly data-sly-use.specsglance="com.jlr.core.models.SpecsGlanceModel"
-   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
-   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-   data-sly-test.hasContent="${verticalslider.verticalSliderItems}" id="${component.id}" >
-</sly>
-<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
-
+<sly data-sly-use.specsglance="com.jlr.core.models.SpecsGlanceModel"/>
 <!-- SpecificationsAtAGlance -->
- <div class="cmp-specificationsAtAGlance cmp-gridListWrapper GridListWrapper light fontSmooth cmp-itemsAtAGlance">
+ <div class="cmp-specificationsAtAGlance cmp-gridListWrapper GridListWrapper fontSmooth cmp-itemsAtAGlance">
      <h2 class="heading headingCentre fontH2 cmp-specificationsAtAGlance__heading">
          <span class="cmp-specificationsAtAGlance__heading-wrapper">
              ${specsglance.headerCopy @ context='html'}
-         </span>
+         </span> 
      </h2>
      <div class=" cmp-specificationsAtAGlance__copy">${specsglance.copy @ context='html'}</div>
      <div class="cmp-specificationsAtAGlance__items items clearfix" data-sly-list="${specsglance.dataItems}" data-total="${itemList.count}">

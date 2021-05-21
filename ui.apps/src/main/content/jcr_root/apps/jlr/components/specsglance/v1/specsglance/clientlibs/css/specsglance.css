@@ -15,7 +15,10 @@
     float: left;
 }
 .cmp-gridListWrapper .items .el p {
-font-size:14px;
+    color:#4A4F54;
+}
+.cmp-gridListWrapper .items .el p:First-letter {
+    text-transform:uppercase;
 }
 .cmp-itemsAtAGlance .dividerBlock{
     border: none;
@@ -35,6 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 h3.feature{
     color:#4A4F54;
+    text-transform:uppercase;
 } 
 h3.feature p{
     font-size:16px !important;
@@ -53,6 +57,10 @@ h3.feature p{
         width:800px;
             }
 }
+         .cmp-specificationsAtAGlance__copy:First-letter{
+         text-transform: capitalize;
+        width:800px;
+            }
 
 @media screen and (min-width: 375px) and (max-width: 600px){
     .cmp-specificationsAtAGlance__copy p{
@@ -87,6 +95,7 @@ h3.feature p{
 .cmp-specificationsAtAGlance__heading.fontH2{
     font-size:3.8rem;
     color:#0C121C;
+    text-transform:uppercase;
 }
 h2.heading, .heading.headingH2{
     color:#0c121c;
@@ -114,7 +123,6 @@ h2.heading, .heading.headingH2{
     font-size:2.8rem;
     line-height:24px
 }
-
 .cmp-specificationsAtAGlance__items.items .measurement span.unitLarge sub{
     vertical-align:baseline
 }
@@ -130,3 +138,4 @@ h2.heading, .heading.headingH2{
 .unitLarge p{
     display:inline-block;
     }
+
