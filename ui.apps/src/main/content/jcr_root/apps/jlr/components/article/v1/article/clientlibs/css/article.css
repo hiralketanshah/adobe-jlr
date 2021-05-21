@@ -851,6 +851,8 @@
 
 /*----------code fix for defect 568---------*/
 @media screen and (min-width: 1px) and (max-width:1920px){
+    .cmp-article .secondaryLinkWithStyle {margin-top:23px;}
+
 	.cmp-article .sectionWrapper{
 	 padding:60px 90px;
 	}
@@ -860,18 +862,24 @@
 		max-width:650px;
 		height:auto;
 	}
-	
+
+.cmp-article .richText p{line-height:19px;}
 	.cmp-article .richText, .cmp-article .links, .cmp-article .section>h1, .cmp-article .section>h2{
 	max-width:650px;
 	margin:0 auto;
+
 	}
 	.cmp-article .Article__heading+.richText {
 		margin-top: 17px;
 	}
 	.article .primaryLinkContainer{
-	margin-top:24px;
+		margin-top:24px;
 	}
+ .cmp-article .primaryLinkWithStyle{margin-top:0;}
 	.cmp-article .sectionWrapper img{width:880px;}
+.cmp-article .sectionWrapper .Article__Picture--top {
+    margin: 0 0 30px;
+}
 	}
 	@media screen and (min-width: 1px) and (max-width:1280px){
 	.article .Article__heading {
@@ -912,8 +920,14 @@
 	max-width:524px;
 	margin:0 auto;
 	}
+
 	}
-	
+@media screen and (min-width: 767px) and (max-width: 1278px){
+.cmp-article .primaryLinkWithStyle {
+
+    margin-bottom: 23px;
+}
+    }	
 	@media screen and (min-width: 1px) and (max-width: 767px){
 	.cmp-article .sectionWrapper img, .cmp-article .sectionWrapper .imageCaption {
 		max-width: 100%;
@@ -925,5 +939,6 @@
 	.cmp-article .primaryLinkWithStyle{margin-top:0; margin-bottom:0;}
 	}
 
-	
+.cmp-article .secondaryLinkContainer{clear:both;}
+
 /*----------code fix for defect 568---------*/
