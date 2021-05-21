@@ -1,6 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.OffersModel"
     data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From,offers.terms.cta'}"
+    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From,offers.terms.cta,overlay.close'}"
     data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
    
 <div class="cmp-offersContainer fontSmooth">
@@ -77,7 +77,7 @@
                                     ${offers.offerLabel @context='html'}
                                 </span>
                             </div>
-                            <button data-sly-test="${offers.offerDetailsButton}"
+                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
                                 class="offerDetailsLink button-tertiary" data-close-label="close modal"
                                 data-modal-trigger="">
                                 <span>${config.configMap['offers.terms.cta']}</span>
@@ -109,8 +109,8 @@
                                     ${offers.offerLabel @context='html'}
                                 </span>
                             </div>
-                            <button data-sly-test="${offers.offerDetailsButton}"
-                                class="offerDetailsLink button-tertiary" data-close-label="${config.configValue}"
+                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
+                                class="offerDetailsLink button-tertiary" data-close-label="${config.configMap['overlay.close']}"
                                 data-modal-trigger="">
                                 <span>${config.configMap['offers.terms.cta']}</span>
                             </button>
