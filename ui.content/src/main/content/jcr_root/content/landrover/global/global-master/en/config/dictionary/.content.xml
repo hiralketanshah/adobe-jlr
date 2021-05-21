@@ -170,6 +170,14 @@
                             jcr:primaryType="nt:unstructured"
                             key="fullscreen.default.close.link.text"
                             value="VISIT SITE"/>
+                        <item35
+                                jcr:primaryType="nt:unstructured"
+                                key="navigation.shared.vehicleDropdownFromText"
+                                value="Drive away price from"/>
+                        <item36
+                                jcr:primaryType="nt:unstructured"
+                                key="navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown"
+                                value="Drive away price from"/>
                     </configList>
                 </siteconfig>
             </container>
