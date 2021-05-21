@@ -1,6 +1,6 @@
 <sly data-sly-use.model="com.jlr.core.models.OffersModel"
     data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From'}"
+    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From,offers.terms.cta'}"
     data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
    
 <div class="cmp-offersContainer fontSmooth">
@@ -30,7 +30,7 @@
                     <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
                 </div>
                 <div class="offerPrice">
-                    <p class="Offers__price heading price"></p>
+                    <p class="Offers__price heading price">${config.configMap['From']} ${model.price}</p>
                 </div>
                 <div class="offerBody">
                     ${model.copy @context='html'}
@@ -80,7 +80,7 @@
                             <button data-sly-test="${offers.offerDetailsButton}"
                                 class="offerDetailsLink button-tertiary" data-close-label="close modal"
                                 data-modal-trigger="">
-                                <span>${offers.offerDetailsButton}</span>
+                                <span>${config.configMap['offers.terms.cta']}</span>
                             </button>
                             <div class="offerDetails offerLeaseDetails" data-modal-content="">
                                 <h3 class="Modal__title">${offers.offerOverlayHeader @context='html'}</h3>
@@ -112,7 +112,7 @@
                             <button data-sly-test="${offers.offerDetailsButton}"
                                 class="offerDetailsLink button-tertiary" data-close-label="${config.configValue}"
                                 data-modal-trigger="">
-                                <span>${offers.offerDetailsButton}</span>
+                                <span>${config.configMap['offers.terms.cta']}</span>
                             </button>
                             <div class="offerDetails offerFinanceDetails" data-modal-content="">
                                 <h3 class="Modal__title">${offers.offerOverlayHeader @context='html'}</h3>
