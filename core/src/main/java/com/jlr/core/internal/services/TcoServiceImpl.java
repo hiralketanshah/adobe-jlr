@@ -52,10 +52,10 @@ public class TcoServiceImpl implements TcoService {
     }
 
     @Override
-    public Map<String,String> getModelPrice(ResourceResolver resourceResolver,
-                                SlingHttpServletRequest request,
-                                Page currentPage, InheritanceValueMap pageProperties,
-                                String priceMacro, String configKey) {
+    public Map<String, String> getModelPrice(ResourceResolver resourceResolver,
+                                             SlingHttpServletRequest request,
+                                             Page currentPage, InheritanceValueMap pageProperties,
+                                             String priceMacro, String configKey) {
         Map<String, String> modelPriceMap = new HashMap<>();
         if (StringUtils.isNotEmpty(priceMacro)) {
             if (Boolean.valueOf(pageProperties
@@ -65,30 +65,40 @@ public class TcoServiceImpl implements TcoService {
             PricingPojo pricingPojo = new PricingPojo();
             String region = getRegionFromPage(currentPage, resourceResolver);
             pricingPojo.setRegion(region);
-            if(region.equalsIgnoreCase("en_au")){
+            if (region.equalsIgnoreCase("en_au")) {
                 Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
-                if(!validState(stateCode.getValue(), listOfStates)){
+                if (!validState(stateCode.getValue(), listOfStates)) {
                     return modelPriceMap;
                 }
                 pricingPojo.setStateCode(stateCode.getValue().toLowerCase());
             }
             mapPagePropertiesToPojo(pricingPojo, pageProperties);
-            String[] configCodes = priceMacro.split(DOT_REGEX);
-            pricingPojo.setPriceMacroConfig(configCodes[1]);
-            if (configCodes.length == 4) {
-                pricingPojo.setPriceType(configCodes[3]);
-            }
-            if (TcoUtils.hasComplexMacro(pricingPojo.getPriceMacroConfig())) {
-                decodeComplexMacroForPrice(pricingPojo, resourceResolver, currentPage);
+            if (priceMacro.contains("{{") && priceMacro.contains("}}")) {
+                priceMacro.replaceAll("\\{\\}", StringUtils.EMPTY);
+                String[] configCodes = priceMacro.split(DOT_REGEX);
+                pricingPojo.setPriceMacroConfig(configCodes[1]);
+                if (configCodes.length == 4) {
+                    pricingPojo.setPriceType(configCodes[3]);
+                }
+                if (TcoUtils.hasComplexMacro(pricingPojo.getPriceMacroConfig())) {
+                    decodeComplexMacroForPrice(pricingPojo, resourceResolver, currentPage);
+                } else {
+                    decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
+                }
+                Map<String, String> configMap = dictionary.getConfigMap(resourceResolver,
+                        request.getResource(),
+                        currentPage);
+                String configValue = configMap.get(configKey);
+                if(StringUtils.isNotEmpty(pricingPojo.getStateCode())){
+                    configValue = configValue +" "+ pricingPojo.getStateCode().toUpperCase() + " from";
+                }
+                modelPriceMap.put(configValue, pricingPojo.getModelPrice());
             } else {
-                decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
+                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
+                        Double.parseDouble(priceMacro)));
+                modelPriceMap.put(StringUtils.EMPTY, pricingPojo.getModelPrice());
             }
-            Map<String,String> configMap = dictionary.getConfigMap(resourceResolver,
-                    request.getResource(),
-                    currentPage);
-            String configValue = configMap.get(configKey);
 
-            modelPriceMap.put(configValue, pricingPojo.getModelPrice());
         }
         return modelPriceMap;
     }
@@ -101,10 +111,12 @@ public class TcoServiceImpl implements TcoService {
                                      ResourceResolver resourceResolver) {
         String siteRootPath = getSiteRootPath(currentPage);
         Resource resource = resourceResolver.getResource(siteRootPath);
-        return DE_ROOT_PATH_NAME.equalsIgnoreCase(resource.getName()) ? JLR_LOCALE_DE : resource.getName();
+        return DE_ROOT_PATH_NAME.equalsIgnoreCase(resource.getName()) ? JLR_LOCALE_DE : resource
+                .getName();
     }
 
-    private void mapPagePropertiesToPojo(PricingPojo pricingPojo, InheritanceValueMap pageProperties) {
+    private void mapPagePropertiesToPojo(PricingPojo pricingPojo,
+                                         InheritanceValueMap pageProperties) {
         pricingPojo.setCurrencyFormat(
                 pageProperties.getInherited(PRICING_CURRENT_FORMAT, String.class));
         pricingPojo.setDefaultPriceType(
@@ -143,8 +155,17 @@ public class TcoServiceImpl implements TcoService {
             if (MapUtils.isNotEmpty(valueMap)
                     && valueMap.containsKey(pricingPojo.getPriceType())) {
                 String price = valueMap.get(pricingPojo.getPriceType(), String.class);
-                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
-                        Double.parseDouble(price)));
+                if (StringUtils.isEmpty(price) || "0.0".equals(price)) {
+                    price = valueMap.get(pricingPojo.getDefaultPriceType(), String.class);
+                    if (StringUtils.isEmpty(price) || "0.0".equals(price)) {
+                        price = valueMap.get(pricingPojo.getFallbackPriceType(), String.class);
+                    }
+                }
+                if (StringUtils.isNotEmpty(price)) {
+                    pricingPojo
+                            .setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
+                                    Double.parseDouble(price)));
+                }
             }
         } catch (PersistenceException e) {
             LOGGER.error(ErrorUtils
