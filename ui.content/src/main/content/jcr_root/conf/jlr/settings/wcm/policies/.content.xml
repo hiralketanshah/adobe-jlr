@@ -1219,62 +1219,62 @@
                             </cq:styleGroups>
                         </policy_1620815338366>
                     </quote>
+                </v1>
+            </quote>
+            <offers jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
                     <offers jcr:primaryType="nt:unstructured">
-                        <v1 jcr:primaryType="nt:unstructured">
-                            <offers jcr:primaryType="nt:unstructured">
-                                <policy_1621485263708
+                        <policy_1621485263708
                             cq:styleDefaultClasses="white"
                             jcr:lastModified="{Date}2021-05-20T10:09:32.135+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Offers"
                             sling:resourceType="wcm/core/components/policy/policy">
-                                    <jcr:content jcr:primaryType="nt:unstructured"/>
-                                    <cq:styleGroups jcr:primaryType="nt:unstructured">
-                                        <item0
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
                                     cq:styleGroupLabel="Theme"
                                     jcr:primaryType="nt:unstructured">
-                                            <cq:styles jcr:primaryType="nt:unstructured">
-                                                <item0
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
                                             cq:styleClasses="white"
                                             cq:styleId="1621485283126"
                                             cq:styleLabel="White"
                                             jcr:primaryType="nt:unstructured"/>
-                                                <item1
+                                        <item1
                                             cq:styleClasses="light"
                                             cq:styleId="1621485288039"
                                             cq:styleLabel="Light"
                                             jcr:primaryType="nt:unstructured"/>
-                                                <item2
+                                        <item2
                                             cq:styleClasses="slateblue"
                                             cq:styleId="1621485292267"
                                             cq:styleLabel="Slate Blue"
                                             jcr:primaryType="nt:unstructured"/>
-                                            </cq:styles>
-                                        </item0>
-                                        <item1
+                                    </cq:styles>
+                                </item0>
+                                <item1
                                     cq:styleGroupLabel="Alignment"
                                     jcr:primaryType="nt:unstructured">
-                                            <cq:styles jcr:primaryType="nt:unstructured">
-                                                <item0
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
                                             cq:styleClasses="left"
                                             cq:styleId="1621485445407"
                                             cq:styleLabel="Left"
                                             jcr:primaryType="nt:unstructured"/>
-                                                <item1
+                                        <item1
                                             cq:styleId="1621485447963"
                                             cq:styleLabel="right"
                                             jcr:primaryType="nt:unstructured"/>
-                                            </cq:styles>
-                                        </item1>
-                                        <item2 jcr:primaryType="nt:unstructured"/>
-                                    </cq:styleGroups>
-                                </policy_1621485263708>
-                            </offers>
-                        </v1>
+                                    </cq:styles>
+                                </item1>
+                                <item2 jcr:primaryType="nt:unstructured"/>
+                            </cq:styleGroups>
+                        </policy_1621485263708>
                     </offers>
                 </v1>
-            </quote>
+            </offers>
             <c-player jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <c-player jcr:primaryType="nt:unstructured">
@@ -1371,11 +1371,11 @@
                                             cq:styleLabel="Large"/>
                                     </cq:styles>
                                 </item1>
-                            </cq:styleGroups>											
+                            </cq:styleGroups>
                         </policy_1621446983475>
                     </specsglance>
                 </v1>
-            </specsglance>														
+            </specsglance>
         </components>
     </jlr>
     <rep:policy/>
