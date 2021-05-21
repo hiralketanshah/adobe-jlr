@@ -234,7 +234,7 @@
 	margin-top: 31px
 }
 
-.cmp-article .article .richText p:first-letter {
+.cmp-article .article .richText p:first-child::first-letter {
 	text-transform: capitalize;
 }
 .cmp-article .sectionWrapper .imageCaption:first-letter{
