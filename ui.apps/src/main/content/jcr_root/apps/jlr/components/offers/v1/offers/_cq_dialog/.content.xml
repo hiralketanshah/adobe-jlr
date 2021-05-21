@@ -63,6 +63,10 @@
                                     </cui>
                                 </uiSettings>
                             </header>
+                            <price
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/price"/>
                             <summary
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -334,12 +338,6 @@
                                                 </cui>
                                             </uiSettings>
                                         </offerLabel>
-                                        <offerDetailsButton
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                            fieldDescription="Specify the Offer Details button copy to be displayed."
-                                            fieldLabel="Offer Details Button Copy"
-                                            name="./offerDetailsButton"/>
                                         <offerOverlayHeader
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="cq/gui/components/authoring/dialog/richtext"
