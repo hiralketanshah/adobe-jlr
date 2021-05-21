@@ -1268,6 +1268,11 @@
                                             cq:styleId="1621317996909"
                                             cq:styleLabel="Right"
                                             jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="center"
+                                            cq:styleId="1621591998896"
+                                            cq:styleLabel="Center"
+                                            jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item1>
                             </cq:styleGroups>
