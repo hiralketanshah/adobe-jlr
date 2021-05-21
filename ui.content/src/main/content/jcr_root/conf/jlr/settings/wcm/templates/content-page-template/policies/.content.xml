@@ -193,22 +193,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
-                        <c-player jcr:primaryType="nt:unstructured">
+                        <offers jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
-                                <c-player
-                                    cq:policy="jlr/components/c-player/v1/c-player/policy_1621317733304"
+                                <offers
+                                    cq:policy="jlr/components/offers/v1/offers/policy_1621485263708"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </c-player>
-                        <specsglance jcr:primaryType="nt:unstructured">
-                            <v1 jcr:primaryType="nt:unstructured">
-                                <specsglance
-                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                            </v1>
-                        </specsglance>
+                        </offers>
                     </components>
                 </jlr>
             </container>
