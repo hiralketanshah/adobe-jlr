@@ -6,6 +6,7 @@ import com.jlr.core.config.PricingConfig;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.pojos.PricingPojo;
+import com.jlr.core.services.Dictionary;
 import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.TcoUtils;
@@ -16,12 +17,15 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.Cookie;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.jlr.core.constants.PricingConstants.*;
 import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
@@ -39,21 +43,24 @@ public class TcoServiceImpl implements TcoService {
 
     private String[] listOfStates;
 
+    @Reference
+    private Dictionary dictionary;
+
     @Activate
     public void activate(PricingConfig config) {
         listOfStates = config.listOfStates();
     }
 
     @Override
-    public String getModelPrice(ResourceResolver resourceResolver,
+    public Map<String,String> getModelPrice(ResourceResolver resourceResolver,
                                 SlingHttpServletRequest request,
                                 Page currentPage, InheritanceValueMap pageProperties,
-                                String priceMacro) {
-
+                                String priceMacro, String configKey) {
+        Map<String, String> modelPriceMap = new HashMap<>();
         if (StringUtils.isNotEmpty(priceMacro)) {
             if (Boolean.valueOf(pageProperties
                     .getInherited(PRICING_SUPPRESSION, String.class))) {
-                return StringUtils.EMPTY;
+                return modelPriceMap;
             }
             PricingPojo pricingPojo = new PricingPojo();
             String region = getRegionFromPage(currentPage, resourceResolver);
@@ -61,7 +68,7 @@ public class TcoServiceImpl implements TcoService {
             if(region.equalsIgnoreCase("en_au")){
                 Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
                 if(!validState(stateCode.getValue(), listOfStates)){
-                    return StringUtils.EMPTY;
+                    return modelPriceMap;
                 }
                 pricingPojo.setStateCode(stateCode.getValue().toLowerCase());
             }
@@ -76,9 +83,14 @@ public class TcoServiceImpl implements TcoService {
             } else {
                 decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
             }
-            return pricingPojo.getModelPrice();
+            Map<String,String> configMap = dictionary.getConfigMap(resourceResolver,
+                    request.getResource(),
+                    currentPage);
+            String configValue = configMap.get(configKey);
+
+            modelPriceMap.put(configValue, pricingPojo.getModelPrice());
         }
-        return  StringUtils.EMPTY;
+        return modelPriceMap;
     }
 
     private boolean validState(String stateCode, String[] states) {
