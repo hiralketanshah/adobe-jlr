@@ -30,7 +30,7 @@
                     <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
                 </div>
                 <div class="offerPrice">
-                    <p class="Offers__price heading price"></p>
+                    <p class="Offers__price heading price">${config.configMap['From']} ${model.price}</p>
                 </div>
                 <div class="offerBody">
                     ${model.copy @context='html'}
