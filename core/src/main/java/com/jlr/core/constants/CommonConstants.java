@@ -326,5 +326,8 @@ public class CommonConstants {
 
     /** The Constant GROUP_GLOBAL_LEADS. */
     public static final String GROUP_GLOBAL_LEADS = "global-leads";
-
+    /**
+     * The constant JLR_LOCALE_PRICING.
+     */
+    public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
 }

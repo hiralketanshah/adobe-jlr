@@ -39,8 +39,11 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
             String market = (null == request.getParameter(PricingConstants.JLR_PRICING_MARKET))
                     ? PricingConstants.JLR_PRICING_MARKET_ALL
                     : request.getParameter(PricingConstants.JLR_PRICING_MARKET);
+            String resp = fetchPrice.fetchAndStorePrice(market);
 
-            response.getWriter().print(fetchPrice.fetchAndStorePrice(market));
+            response.getWriter().print(resp.isEmpty()
+                    ? "Unable to process! Kindly verify if endpoints and config pages are configured/authored. Else, kindly contact administrator."
+                    : resp);
 
             LOGGER.debug("Completed FetchPriceServlet - {}", new java.util.Date());
         } catch (IOException e) {

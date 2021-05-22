@@ -1,6 +1,5 @@
-<sly data-sly-use.model="com.jlr.core.models.VehicleCardContainerModel"
+<sly data-sly-use.model="${'com.jlr.core.models.VehicleCardContainerModel' @ key='navigation.shared.vehicleDropdownFromText'}"
 data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
-data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='navigation.shared.vehicleDropdownFromText'}"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 
 <div class="dxnav-vehicle-nav__category-item">
@@ -10,7 +9,7 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='navigation.s
          <div class="dxnav-vehicle-nav__details-container">
             <span class="dxnav-vehicle-nav__title">${model.headerCopy @context='html'} </span>
             <sly data-sly-test="${model.vehiclePrice}">
-            <span class="dxnav-vehicle-nav__price" data-sly-test="${model.vehiclePrice}">${config.configValue}
+            <span class="dxnav-vehicle-nav__price" data-sly-test="${model.vehiclePrice}">${model.vehiclePriceConfigValue}
                ${model.vehiclePrice}</span>
          </sly>
          </div>
