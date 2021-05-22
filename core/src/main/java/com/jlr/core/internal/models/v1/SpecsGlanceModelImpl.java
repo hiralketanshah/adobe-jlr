@@ -44,6 +44,7 @@ public class SpecsGlanceModelImpl extends GlobalModelImpl implements SpecsGlance
     @Optional
     private Resource dataItems;
 
+	 List<SpecsGlanceItem> specsGlanceItems = new ArrayList<>();
 
     /**
      * 
@@ -53,7 +54,7 @@ public class SpecsGlanceModelImpl extends GlobalModelImpl implements SpecsGlance
      */
     @Override
     public List<SpecsGlanceItem> getDataItems() {
-    	 List<SpecsGlanceItem> specsGlanceItems = new ArrayList<>();
+    	specsGlanceItems = new ArrayList<>();
         if (null != dataItems && dataItems.hasChildren()) {
             Iterator<Resource> iterator = dataItems.getChildren().iterator();
             while (iterator.hasNext()) {
@@ -78,5 +79,7 @@ public class SpecsGlanceModelImpl extends GlobalModelImpl implements SpecsGlance
         }
         return list;
     }
-
+    public int getCount() {
+    	return specsGlanceItems.size();
+    }
 }
