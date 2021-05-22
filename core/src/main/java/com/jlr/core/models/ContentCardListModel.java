@@ -3,7 +3,9 @@ package com.jlr.core.models;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
 import javax.inject.Inject;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -11,12 +13,12 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.internal.models.v1.GlobalModelImpl;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
-
 
 /**
  * The Class ContentCardListModel.
@@ -59,6 +61,7 @@ public class ContentCardListModel extends GlobalModelImpl {
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
+    String priceConfigValue;
 
     /**
      * Gets the cta list.
@@ -103,6 +106,18 @@ public class ContentCardListModel extends GlobalModelImpl {
     @Override
     public String getPrice() {
         return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getPriceConfigValue() {
+        return priceConfigValue;
+    }
+
+    public void setPriceConfigValue(String priceConfigValue) {
+        this.priceConfigValue = priceConfigValue;
     }
 
     /**

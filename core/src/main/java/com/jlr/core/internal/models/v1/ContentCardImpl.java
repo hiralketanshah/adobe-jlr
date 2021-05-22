@@ -12,10 +12,10 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
@@ -31,11 +31,8 @@ import com.jlr.core.utils.CtaUtils;
  * @author Adobe
  */
 @Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
-        ContentCardModel.class }, resourceType = ContentCardImpl.RESOURCE_TYPE, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+        ContentCardModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel {
-
-    /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/contentcard/v1/contentcard";
 
     /**
      * The Key.
@@ -65,23 +62,23 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
 
     /** The content type. */
     @Inject
+    @Via("resource")
     private String column;
 
     /** The enable stacking. */
     @Inject
+    @Via("resource")
     private String enableStacking;
 
     /** The content card list. */
     @Inject
+    @Via("resource")
     public List<ContentCardListModel> contentCardList;
 
     /** The cta list. */
     @Inject
+    @Via("resource")
     private Resource ctaList;
-
-    /** The price. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String price;
 
     /** The lists. */
     List<CTAPojo> lists = new ArrayList<>();
@@ -95,12 +92,17 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @PostConstruct
     public void init() {
 
-        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
-                pageProperties, price, key);
-        modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
-            priceConfigValue = entry.getKey();
-            price = entry.getValue();
-        });
+        for (ContentCardListModel card : contentCardList) {
+
+            Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                    pageProperties, card.getPrice(), key);
+            modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+                card.setPriceConfigValue(entry.getKey());
+                card.setPrice(entry.getValue());
+
+            });
+
+        }
 
     }
 
@@ -147,23 +149,4 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
         return contentCardList;
     }
 
-    /**
-     * Gets price.
-     *
-     * @return the price
-     */
-    @Override
-    public String getPrice() {
-        return price;
-    }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    @Override
-    public String getPriceConfigValue() {
-        return priceConfigValue;
-    }
 }
