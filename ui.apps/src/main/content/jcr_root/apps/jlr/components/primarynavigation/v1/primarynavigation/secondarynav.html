@@ -1,8 +1,6 @@
-<sly data-sly-use.model="com.jlr.core.models.SecondaryNavigationModel" data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-   id="${component.id}"></sly>
-<nav id="dxnav-unique-nav" class="dxnav-unique-nav" data-naas-activated="true">   
-<div class="dxnav__breadcrumbs-container dxnav__breadcrumb-hasTitle">
-    <div class="dxnav__breadcrumbs" data-sly-test="${model.secondaryNavParentList.size > 0}" data-sly-list.parent="${model.secondaryNavParentList}" >
+<sly data-sly-use.model="com.jlr.core.models.SecondaryNavigationModel"/>
+<div class="dxnav__breadcrumbs-container dxnav__breadcrumb-hasTitle" data-sly-test="${model.displaySecNav}">
+    <div class="dxnav__breadcrumbs"  data-sly-list.parent="${model.secondaryNavParentList}" >
         <div class="dxnav__breadcrumb dxnav__breadcrumb--with-dropdown" data-sly-test="${!parentList.last}">
           <a class="dxnav__breadcrumb-link" href="${parent.path @ extension='html'}" aria-expanded="false">
             <span class="dxnav__breadcrumb-text">${parent.title}</span>
@@ -10,11 +8,12 @@
               <svg class="dxnav-icon">
               <use xlink:href="#Chevron_Right"></use>
             </svg>
+            <span class="dxnav__breadcrumb-secondary-title">${model.secondaryNavParentList[parentList.count].title}</span>
           </a>
           
           <ul class="dxnav__breadcrumb-dropdown" data-sly-list="${parent.subNavList}">
             <li class="dxnav__breadcrumb-dropdown-item">
-              <a class="dxnav__breadcrumb-dropdown-link ${item.path in model.secondaryNavParentList ? 'dxnav-selected' : ''}" href="${item.path @ extension='html'}">
+              <a class="dxnav__breadcrumb-dropdown-link ${item.path in model.secondaryNavParentPathList ? 'dxnav-selected' : ''}" href="${item.link @ extension='html'}"  target="${item.target}" data-target="${item.target}" >
                 <span class="dxnav__breadcrumb-text">${item.title}</span>
                 <svg class="dxnav-icon" data-sly-test="${item.hasChild}">
                   <use xlink:href="#Chevron_Right"></use>
@@ -22,7 +21,7 @@
               </a>
             </li>
           </ul>
-          <a data-sly-test="${!parentList.first || !parentList.last}" class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.path @ extension='html'}">
+          <a data-sly-test="${(!parentList.first || !parentList.last) && parent.previousLink.link}" class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.link @ extension='html'}">
             <svg class="dxnav-icon">
               <use xlink:href="#Chevron_Right"></use>
             </svg>
@@ -34,13 +33,12 @@
           <span class="dxnav__breadcrumb-link">
             <span class="dxnav__breadcrumb-text">${parent.title}</span>
           </span>
-          <a class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.path @ extension='html'}">
+          <a class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.link @ extension='html'}">
             <svg class="dxnav-icon">
               <use xlink:href="#Chevron_Right"></use>
             </svg>
             <span class="dxnav__breadcrumb-prev-text">${parent.previousLink.title}</span>
           </a>
-        </div>
-        </div>
-    </div>
-</nav>    
+      </div>
+    </div> 
+</div>

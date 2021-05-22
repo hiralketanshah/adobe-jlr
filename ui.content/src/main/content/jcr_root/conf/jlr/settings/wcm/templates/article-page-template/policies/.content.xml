@@ -381,15 +381,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
-                        </offers>
-                                                <quote jcr:primaryType="nt:unstructured">
+                        <specsglance jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
-                                <quote
-                                    cq:policy="jlr/components/quote/v1/quote/policy_1620815338366"
+                                <specsglance
+                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </quote>
+                        </specsglance>  
                     </components>
                 </jlr>
             </container_1992655900>

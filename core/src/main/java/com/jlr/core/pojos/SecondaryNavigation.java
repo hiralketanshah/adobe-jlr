@@ -3,10 +3,17 @@ package com.jlr.core.pojos;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Secondary Navigation POJO class
+ * @author Adobe
+ *
+ */
 public class SecondaryNavigation implements Comparable<SecondaryNavigation> {
 
 	private String title;
 	private String path;
+	private String link;
+	private String target;
 	private boolean hasChild;
 	private SecondaryNavigation previousLink;
 	List<SecondaryNavigation> subNavList = new ArrayList<>();
@@ -50,6 +57,18 @@ public class SecondaryNavigation implements Comparable<SecondaryNavigation> {
 	}
 	public void setSubNavList(List<SecondaryNavigation> subNavList) {
 		this.subNavList = subNavList;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public String getTarget() {
+		return target;
+	}
+	public void setTarget(String target) {
+		this.target = target;
 	}
 	@Override
 	public int compareTo(SecondaryNavigation o) {

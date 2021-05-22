@@ -262,7 +262,7 @@ public class CommonConstants {
     public static final String PN_SECONDARY_NAVIGATION_HIDE_PARENT = "hideParent";
     
     /** The Constant PN_REDIRECT_TARTGET. */
-    public static final String PN_REDIRECT_TARTGET = "redirectTarget";
+    public static final String PN_REDIRECT_TARTGET = "cq:redirectTarget";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
