@@ -1383,7 +1383,7 @@
             <seatslider jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <seatslider jcr:primaryType="nt:unstructured">
-                        <policy_328602308773200
+                        <policy_1621706500752
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Seat Slider"
                             sling:resourceType="wcm/core/components/policy/policy">
@@ -1406,7 +1406,7 @@
                                     </cq:styles>
                                 </item0>
                             </cq:styleGroups>
-                        </policy_328602308773200>
+                        </policy_1621706500752>
                     </seatslider>
                 </v1>
             </seatslider>            

@@ -127,10 +127,10 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </optionpicker>
-                   		<seatslider jcr:primaryType="nt:unstructured">
+                        <seatslider jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <seatslider
-                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_328602308773200"
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
@@ -341,10 +341,10 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </optionpicker>
-                     	<seatslider jcr:primaryType="nt:unstructured">
+                        <seatslider jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <seatslider
-                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_328602308773200"
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
