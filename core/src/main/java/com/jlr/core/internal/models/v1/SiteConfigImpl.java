@@ -4,11 +4,9 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.servlet.http.Cookie;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -19,7 +17,6 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.SiteConfigModel;
 import com.jlr.core.services.Dictionary;
@@ -29,7 +26,7 @@ import com.jlr.core.services.Dictionary;
  *
  * @author Adobe
  */
-@Model(adaptables = { SlingHttpServletRequest.class, Resource.class }, adapters = { SiteConfigModel.class })
+@Model(adaptables = {SlingHttpServletRequest.class, Resource.class}, adapters = {SiteConfigModel.class})
 public class SiteConfigImpl implements SiteConfigModel {
 
     /** The Constant RESOURCE_TYPE. */
@@ -98,8 +95,7 @@ public class SiteConfigImpl implements SiteConfigModel {
     /**
      * Gets the map.
      *
-     * @param listOfKeys
-     *            the list of keys
+     * @param listOfKeys the list of keys
      * @return the map
      */
     private Map<String, String> getMap(List<String> listOfKeys) {
@@ -111,12 +107,11 @@ public class SiteConfigImpl implements SiteConfigModel {
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
             if (null != configMap.get(configKey)) {
-                if (configKey.equalsIgnoreCase("marketregionpricing.dxnav.selectregion")
-                        && (currentPage.getPath().contains("aus/") || currentPage.getPath().contains("en_au"))
-                        && StringUtils.isNotBlank(state)) {
-                    if (StringUtils.isNotBlank(state)) {
-                        keyMap.put(configKey, configMap.get("marketregionpricing.dxnav.changeregion").replace("{state}",
-                                state.toUpperCase()));
+                if ((currentPage.getPath().contains("aus/") || currentPage.getPath().contains("en_au")) && StringUtils.isNotBlank(state)) {
+                    if (configKey.equalsIgnoreCase("marketregionpricing.dxnav.selectregion")) {
+                        keyMap.put(configKey, configMap.get("marketregionpricing.dxnav.changeregion").replace("{state}", state.toUpperCase()));
+                    } else {
+                        keyMap.put(configKey, configMap.get(configKey).replace("{state}", state.toUpperCase()));
                     }
                 } else {
                     keyMap.put(configKey, configMap.get(configKey));
@@ -142,3 +137,4 @@ public class SiteConfigImpl implements SiteConfigModel {
     }
 
 }
+
