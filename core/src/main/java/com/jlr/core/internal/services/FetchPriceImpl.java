@@ -105,7 +105,7 @@ public class FetchPriceImpl implements FetchPrice {
                             destinationPaths.get(CommonConstants.RUNMODE_PROD), listOfStates));
                 }
                 if (null != stageEndpoints && destinationPaths.containsKey(CommonConstants.RUNMODE_STAGE)) {
-                    List<String> listOfEndpoints = PricingUtils.formEndpointURLs(resolver, endpoints, staticUrl,
+                    List<String> listOfEndpoints = PricingUtils.formEndpointURLs(resolver, stageEndpoints, staticUrl,
                             configPages, market);
                     responseBuilder.append(getPrices(resolver, listOfEndpoints, header,
                             destinationPaths.get(CommonConstants.RUNMODE_STAGE), listOfStates));

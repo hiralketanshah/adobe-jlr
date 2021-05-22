@@ -7,7 +7,7 @@
          </span> 
      </h2>
      <div class=" cmp-specificationsAtAGlance__copy">${specsglance.copy @ context='html'}</div>
-     <div class="cmp-specificationsAtAGlance__items items clearfix" data-sly-list="${specsglance.dataItems}" data-total="${itemList.count}">
+     <div class="cmp-specificationsAtAGlance__items items clearfix" data-sly-list="${specsglance.dataItems}" data-total="${specsglance.count}">
          <div class="el">
              <h3 class="feature">${item.headerCopy @ context='html'}</h3>
              <div class="measurement dividerBlock">
