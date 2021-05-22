@@ -248,6 +248,21 @@ public class CommonConstants {
 
     /** The Constant PN_VEHICLE_CARD_LINK. */
     public static final String PN_VEHICLE_CARD_LINK = "vehicleCardLink";
+    
+    /** The Constant PN_SECONDARY_NAVIGATION_TITLE. */
+    public static final String PN_SECONDARY_NAVIGATION_TITLE = "secNavTitle";
+    
+    /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
+    public static final String PN_SHOW_IN_SECONDARY_NAVIGATION = "showInSecNav";
+    
+    /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
+    public static final String PN_SECONDARY_NAVIGATION_EXT_LINK = "secNavExtLink";
+    
+    /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
+    public static final String PN_SECONDARY_NAVIGATION_HIDE_PARENT = "hideParent";
+    
+    /** The Constant PN_REDIRECT_TARTGET. */
+    public static final String PN_REDIRECT_TARTGET = "cq:redirectTarget";
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
