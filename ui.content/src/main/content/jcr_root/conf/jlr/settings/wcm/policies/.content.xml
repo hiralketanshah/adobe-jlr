@@ -1380,6 +1380,36 @@
                     </specsglance>
                 </v1>
             </specsglance>
+            <seatslider jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <seatslider jcr:primaryType="nt:unstructured">
+                        <policy_328602308773200
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Seat Slider"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1621706512312"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1621706515256"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_328602308773200>
+                    </seatslider>
+                </v1>
+            </seatslider>            
         </components>
     </jlr>
     <rep:policy/>
