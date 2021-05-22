@@ -4,6 +4,7 @@ import com.day.cq.commons.Externalizer;
 import com.day.cq.contentsync.handler.util.RequestResponseFactory;
 import com.day.cq.wcm.api.WCMMode;
 import com.jlr.core.config.NavigationServletConfig;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.NavigationUtils;
@@ -35,6 +36,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
 import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
 
 /**
@@ -85,7 +87,13 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         /* TODO: give proper header nav page path */
         String requestPath = config.headerPath();
-
+        if (locale.equalsIgnoreCase("en_AU") && !requestPath.contains(CommonConstants.FORWARD_SLASH + locale
+                .toLowerCase() + CommonConstants.FORWARD_SLASH)) {
+            if(requestPath.contains("europe")){
+                requestPath = requestPath.replace("/europe/","/row/");
+            }
+            requestPath = requestPath.replace("de_de", locale.toLowerCase());
+        }
         try {
             LOGGER.info("Sleeping for 5 sec");
             Thread.sleep(5000);
@@ -94,6 +102,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         }
 
         HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
+        req.setAttribute(JLR_LOCALE_PRICING, request.getCookie(JLR_LOCALE_PRICING));
         WCMMode.DISABLED.toRequest(req);
 
         /* Setup response */
