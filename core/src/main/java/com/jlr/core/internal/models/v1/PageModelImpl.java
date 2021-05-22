@@ -8,7 +8,9 @@ import java.util.Map;
 import javax.annotation.Nullable;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.adapter.Adaptable;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -19,12 +21,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.Template;
 import com.day.cq.wcm.api.components.ComponentContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.models.PageModel;
+import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 
 /**
@@ -60,6 +65,17 @@ public class PageModelImpl implements PageModel {
     /** The market region path. */
     @HierarchicalPageProperty("marketRegionPath")
     private String marketRegionPath;
+    
+    /** The header path. */
+    @HierarchicalPageProperty("headerPath")
+    private String headerPath;
+    
+    /** The footer path. */
+    @HierarchicalPageProperty("footerPath")
+    private String footerPath;
+    
+    @HierarchicalPageProperty("includeHeaderFooter")
+    private String includeHeaderFooter;
 
     /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
@@ -123,6 +139,26 @@ public class PageModelImpl implements PageModel {
      */
     public String getMarket() {
         return market;
+    }
+    
+    /**
+     * Gets the header path.
+     *
+     * @return the header path
+     */
+    public String getHeaderPath() {
+    	String headerPathValue=CommonUtils.getSiteRootPath(currentPage).concat(CommonConstants.PATH_HEADER);
+    	return headerPathValue;
+    }
+    
+    /**
+     * Gets the footer path.
+     *
+     * @return the footer path
+     */
+    public String getFooterPath() {
+    	String footerPathValue=CommonUtils.getSiteRootPath(currentPage).concat(CommonConstants.PATH_FOOTER);
+    	return footerPathValue;
     }
 
     /**
@@ -217,5 +253,16 @@ public class PageModelImpl implements PageModel {
         }
         return null;
     }
+
+	public Boolean getIncludeHeaderFooter() {
+		Page CurrentPage;
+		String template=currentPage.getTemplate().getName();
+		if(template.equals(CommonConstants.TEMPLATE_EMPTY) || 
+				template.equals(CommonConstants.TEMPLATE_GALLERY) || 
+				template.equals(CommonConstants.TEMPLATE_REDIRECT)) {
+				return false;
+			}
+		return true;
+	}
 
 }

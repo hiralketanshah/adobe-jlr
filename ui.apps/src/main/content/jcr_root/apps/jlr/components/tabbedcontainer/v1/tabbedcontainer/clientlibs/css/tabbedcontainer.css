@@ -3,15 +3,33 @@
     height: 100%;
     -webkit-transform-style: preserve-3d;
 }
+
+@media screen and (min-width: 1279px) {
+
+    .cmp-tabbedContainer_box .fontBodyCopyLarge p{
+		width: 100%;
+		margin-bottom: 24px;
+		padding-right: 0;
+		font-family:"AvenirNext";
+		line-height: 19px;
+		letter-spacing: 0.2px;
+		color:#4A4F54;
+		font-size: 14px;
+	}
+}
 .cmp-tabbedContainer_box{
     width: 1160px;
     margin: 0 auto;
     max-height:653px;
     height: auto;
-    /* min-height: 653px; */
     position: relative;
-    /* background: #242932; */
 }
+.cmp-contentBlocksContainer .cmp-tabbedContainer{
+    padding-top: 60px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
 .DxTabs__panel{
     color: #ffffff;
 }
@@ -48,6 +66,12 @@ top: 2px;
 max-width: 500px;
 outline: none;
 margin: 0px 20px;
+padding: 0;
+border: 0;
+border-bottom:5px solid #fff; 
+}
+.cmp-tabbedContainer .DxTabs__tab:hover{
+    border: 0;  
 }
 .cmp-tabbedContainer .DxTabs__tab:first-child{
     margin-left: 0;
@@ -62,12 +86,14 @@ margin: 0px 20px;
     border-bottom: 2px solid #4A4F544D; 
     border-right: 0;
     outline: none;
+    box-shadow: unset;
 }
 .cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active):hover{
     background-color: #FFFFFF;
     color: #0C121C;
     border-bottom: 5px solid #A8AAAE;
     outline: none;
+    box-shadow: unset;
 }
 
 .cmp-tabbedContainer .DxTabs__tab:not(:first-of-type), 
@@ -138,7 +164,7 @@ margin: 0px 20px;
 color: #4A4F54;
 text-transform:unset;
 }
-.cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge::first-letter{
+.cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge p:first-child::first-letter{
     text-transform:capitalize;
 }
 .cmp-tabbedContainer .headerClass{
@@ -172,9 +198,11 @@ text-transform:unset;
     bottom: 0;
     z-index: 1;
 }
-.cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs {
-    top: -80px !important;
+.cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs {
+    top: -40px !important;
     bottom: unset;
+    margin: 0px 60px;
+    width: calc(100% - 120px);
 }
 
 .cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs__panels{
@@ -200,29 +228,30 @@ text-transform: uppercase;
     height: auto;
     max-height:unset;
     min-height: unset;
+    margin: 0;
+    width: 100%;
 }
 
 .cmp-contentBlocksContainer .cmp-tabbedContainer .swiper-container{
 height: auto;
 }
-/* .cmp-tabbedContainer .interior360{
-    height: 653px;
-} */
+
 .cmp-tabbedContainer .cmp-interior360{
     margin: 0;
 }
-.cmp-tabbedContainer .cmp-genericItem__element-poster,
+
 .cmp-tabbedContainer .Interior360__panorama, 
 .cmp-tabbedContainer .Interior360__panorama-holder{
     height: 653px !important;
 }
-/* .cmp-tabbedContainer .cmp-interior360 .primaryLinkWithStyle{
-    margin-top: 24px;
-} */
 
 .cmp-tabbedContainer .Exterior360__canvas-container{
     margin: 0;
 }
+.cmp-tabbedContainer .cmp-genericItem__element-poster{
+    max-height: unset;
+}
+
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
     .cmp-tabbedContainer{
@@ -252,7 +281,8 @@ height: auto;
         height: 211px !important;
     }
     .cmp-tabbedContainer .DxTabs{
-        padding: 0px 25px;
+        margin: 0px 25px;
+    width: calc(100% - 50px);
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 25px;
@@ -271,6 +301,10 @@ height: auto;
 @media screen and (min-width: 1px) and (max-width: 375px) {
     .cmp-tabbedContainer{
         padding-top: 30px;
+    }
+    .cmp-tabbedContainer .videoCustom:after{
+        left: 35%;
+        top: 30%;
     }
     }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -296,7 +330,8 @@ height: auto;
     }
     
     .cmp-tabbedContainer .DxTabs{
-        padding: 0px 30px;
+        margin: 0px 30px;
+    width: calc(100% - 60px);
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
@@ -328,15 +363,19 @@ height: auto;
     .cmp-tabbedContainer .Interior360__panorama-holder{
         height: 935px !important;
     }
+    .cmp-tabbedContainer .DxTabs{
+        margin: 0 150px;
+    width: calc(100% - 300px);
+    }
     .cmp-tabbedContainer .shelfComponent{
-        margin-left: 0;
+       
+        margin: 0 150px;
+    width: calc(100% - 300px) !important;
     }
     .cmp-tabbedContainer .secondaryLinkWithStyle{
         margin-top: 24px;
     }
 }
-
-
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
     .Accordion .accordion-group-content-inner > .cmp-tabbedContainer,

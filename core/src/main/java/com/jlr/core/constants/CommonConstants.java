@@ -1,6 +1,5 @@
 package com.jlr.core.constants;
 
-
 /**
  * The Class CommonConstants.
  *
@@ -13,6 +12,9 @@ public class CommonConstants {
 
     /** The Constant FORWARD_SLASH. */
     public static final String FORWARD_SLASH = "/";
+
+    /** The Constant PIPE_CHARACTER. */
+    public static final String PIPE_CHARACTER = "|";
 
     /** The Constant EXTENSION_DOT_HTML. */
     public static final String EXTENSION_DOT_HTML = ".html";
@@ -44,6 +46,13 @@ public class CommonConstants {
     /** The Constant COMMA. */
     public static final String COMMA = ",";
 
+    /** The Constant JLR_ROOT. */
+    public static final String JLR_ROOT = "root";
+
+    /** The Constant JLR_CONTAINER. */
+    public static final String JLR_CONTAINER = "container";
+
+    /** The Constant JLR_LANGUAGE_MASTER. */
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
 
     /** The Constant JLR_GLOBAL_MASTER. */
@@ -63,9 +72,17 @@ public class CommonConstants {
 
     /** The Constant PNG_EXTENSION. */
     public static final String PNG_EXTENSION = ".png";
+    public static final String JLR_GALLERY_LIST = "gallerylist/galleryList";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
+    public static final String PATH_HEADER = "/config/navigation/header";
+    public static final String PATH_FOOTER = "/config/navigation/footer";
+    
+    /** The Template Constants. */
+    public static final String TEMPLATE_GALLERY = "gallery-page-template";
+    public static final String TEMPLATE_EMPTY = "empty-page-template";
+    public static final String TEMPLATE_REDIRECT = "redirect-page-template";
 
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
@@ -109,6 +126,9 @@ public class CommonConstants {
     /** The Constant PN_TITLE. */
     public static final String PN_TITLE = "headerCopy";
 
+    /** The Constant PN_ASSET_TYPE. */
+    public static final String PN_ASSET_TYPE = "assetType";
+
     /** The Constant PN_FILE_REFERENCE. */
     public static final String PN_FILE_REFERENCE = "fileReference";
 
@@ -123,6 +143,12 @@ public class CommonConstants {
 
     /** The Constant PN_IS_DECORATIVE. */
     public static final String PN_IS_DECORATIVE = "isDecorative";
+
+    /** The Constant PN_VIDEO_ID. */
+    public static final String PN_VIDEO_ID = "videoId";
+
+    /** The Constant PN_POSTER_IMAGE. */
+    public static final String PN_POSTER_IMAGE = "posterImage";
 
     /** The Constant PN_OPTION_IMAGE. */
     public static final String PN_OPTION_IMAGE = "optionImage";
@@ -204,6 +230,14 @@ public class CommonConstants {
 
     /** The Constant PN_QUICK_LINKS_CTA_TARGET. */
     public static final String PN_QUICK_LINKS_CTA_TARGET = "quickLinksCopyCtaTarget";
+
+    /** The Constant PN_BG_IMAGE. */
+    public static final String PN_BG_IMAGE = "bgImage";
+
+    /** The Constant PN_CATEGORY_NAME. */
+    public static final String PN_CATEGORY_NAME = "categoryName";
+
+    /** The Constant PN_TAB_HEADING. */
     public static final String PN_TAB_HEADING = "tabHeading";
 
     /** The Constant PN_VEHICLE_CONTAINER. */
@@ -217,7 +251,11 @@ public class CommonConstants {
 
     /** The NODE Name Constants. */
     public static final String NN_CHILD_NODE = "configList";
+
+    /** The Constant NN_ROOT. */
     public static final String NN_ROOT = "root";
+
+    /** The Constant NN_CONTAINER. */
     public static final String NN_CONTAINER = "container";
 
     /** The Data Layer Constants. */
@@ -246,4 +284,32 @@ public class CommonConstants {
 
     /** The Constant UNIQUE_ID. */
     public static final String UNIQUE_ID = "uniqueID";
+
+    /** The Constant RUNMODE_AUTHOR. */
+    public static final String RUNMODE_AUTHOR = "author";
+
+    /** The Constant RUNMODE_STAGE. */
+    public static final String RUNMODE_STAGE = "stage";
+
+    /** The Constant RUNMODE_PROD. */
+    public static final String RUNMODE_PROD = "prod";
+
+    /** The Constant QUERY_PATH. */
+    public static final String QUERY_PATH = "path";
+
+    /** The Constant QUERY_TYPE. */
+    public static final String QUERY_TYPE = "type";
+
+    /** The Constant QUERY_LIMIT. */
+    public static final String QUERY_LIMIT = "p.limit";
+
+    /** The Constant QUERY_ORDERBY. */
+    public static final String QUERY_ORDERBY = "orderby";
+
+    /** The Constant GROUP_ADMINISTRATOR. */
+    public static final String GROUP_ADMINISTRATOR = "administrators";
+
+    /** The Constant GROUP_GLOBAL_LEADS. */
+    public static final String GROUP_GLOBAL_LEADS = "global-leads";
+
 }

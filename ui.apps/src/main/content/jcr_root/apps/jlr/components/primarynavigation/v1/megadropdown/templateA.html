@@ -1,0 +1,43 @@
+<template data-sly-template.templateA="${@ model}">
+    <table class="author-table">
+        <tr class="author-tr">
+            <th class="author-th">Key</th>
+            <th class="author-th">Value</th>
+        </tr>
+        <tr class="author-tr">
+            <td class="author-td">Template</td>
+            <td class="author-td">1 Column with Large Promo Image</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Tab Name</td>
+            <td class="author-td">${model.tabName}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Primary Navigation Title</td>
+            <td class="author-td">${model.primaryNavTitle}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Primary Navigation Aria Label</td>
+            <td class="author-td">${model.primaryNavAriaLabel}</td>
+        </tr>
+
+        <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Text ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCtaText}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Link ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCtaLink}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Aria Label ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCtaAriaLabel}</td>
+            </tr>
+        </sly>
+
+    </table>
+</template>

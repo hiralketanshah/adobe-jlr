@@ -314,7 +314,7 @@
 
 .cmp_footerNav__hygieneLinks li.cmp_footerNav__selectMarket>a .flag {
 	position: absolute;
-	top: 15px;
+	top: 19px;
 	left: 20px
 }
 
@@ -592,7 +592,7 @@
 	}
 	.cmp_footerNav__navWrapper {
 		display: none;
-		padding: 0 40px;
+		padding: 0 20px;
 	}
 	.cmp_footerNav__navWrapper__heading:first-child {
 		padding: 0
@@ -1184,7 +1184,7 @@
 	color: #a4a7a9
 }
 
-.cmp-subFooter .cmp-subFooter__container p::first-letter{
+.cmp-subFooter .cmp-subFooter__container p:first-child::first-letter{
     text-transform: capitalize;
 }
 
@@ -1201,3 +1201,17 @@
 }
 
 /* FIXES END */
+
+
+
+@media screen and (min-width: 1px) and (max-width: 411px) {
+.cmp_footerNav__navWrapper {
+		padding: 0 12px;
+	}
+}
+
+@media screen and (min-width: 1px) and (max-width: 320px) {
+.cmp_footerNav__footerWrapper {
+    padding: 30px 12px 15px;
+}
+}

@@ -57,8 +57,8 @@
     color: #0c121c;
     box-shadow: 0 0 0 1px #0c121c, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
 }
-.cmp-faqmodel__list__content p::first-letter,
-.cmp-faqmodel__list__content__caveat p::first-letter{
+.cmp-faqmodel__list__content p:first-child::first-letter,
+.cmp-faqmodel__list__content__caveat p:first-child::first-letter{
     text-transform:capitalize;
 }
 .cmp-faqmodel__accordion {
@@ -247,6 +247,9 @@
     line-height: 1.5;
     text-transform: uppercase;
    
+}
+.cmp-faqmodel__list__title p{
+    font-family: 'LandRoverWeb-Bold';
 }
 
 /* media query  */

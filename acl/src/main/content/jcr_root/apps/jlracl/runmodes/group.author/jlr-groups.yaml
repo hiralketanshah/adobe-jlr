@@ -156,6 +156,10 @@
           permission: allow
           actions: read,create,modify,delete,replicate
 
+        - path: /content/request
+          permission: allow
+          actions: read
+
     - global-qas:
 
         - path: /content/landrover

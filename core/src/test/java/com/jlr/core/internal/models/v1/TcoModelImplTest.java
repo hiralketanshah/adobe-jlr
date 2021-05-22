@@ -43,19 +43,6 @@ class TcoModelImplTest extends GlobalModelImplTest {
      */
     @Test
     void testProperties() {
-        assertEquals("emission_body", tcoModel.getEmissionBody());
-        assertEquals("emission_head", tcoModel.getEmissionHead());
-        assertEquals("lease_label", tcoModel.getLeaseLabel());
-        assertEquals("lease_price", tcoModel.getLeasePrice());
-        assertEquals("test_price", tcoModel.getPrice());
-        assertEquals("price_symbol", tcoModel.getPriceDescSymbol());
-        assertEquals("price_suffix", tcoModel.getPriceSuffix());
-        assertEquals("view_type", tcoModel.getViewType());
-        List<String> list = tcoModel.getCaveats();
-        assertEquals(1, list.size());
-        list.forEach(item -> {
-            assertEquals("test_text", item);
-        });
 
     }
 

@@ -234,7 +234,7 @@
 	margin-top: 31px
 }
 
-.cmp-article .article .richText p:first-letter {
+.cmp-article .article .richText p:first-child::first-letter {
 	text-transform: capitalize;
 }
 .cmp-article .sectionWrapper .imageCaption:first-letter{
@@ -848,3 +848,97 @@
  text-shadow: none;
  box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
 }
+
+/*----------code fix for defect 568---------*/
+@media screen and (min-width: 1px) and (max-width:1920px){
+    .cmp-article .secondaryLinkWithStyle {margin-top:23px;}
+
+	.cmp-article .sectionWrapper{
+	 padding:60px 90px;
+	}
+	
+	.article .Article__heading {
+		width:100%;
+		max-width:650px;
+		height:auto;
+	}
+
+.cmp-article .richText p{line-height:19px;}
+	.cmp-article .richText, .cmp-article .links, .cmp-article .section>h1, .cmp-article .section>h2{
+	max-width:650px;
+	margin:0 auto;
+
+	}
+	.cmp-article .Article__heading+.richText {
+		margin-top: 17px;
+	}
+	.article .primaryLinkContainer{
+		margin-top:24px;
+	}
+ .cmp-article .primaryLinkWithStyle{margin-top:0;}
+	.cmp-article .sectionWrapper img{width:880px;}
+.cmp-article .sectionWrapper .Article__Picture--top {
+    margin: 0 0 30px;
+}
+	}
+	@media screen and (min-width: 1px) and (max-width:1280px){
+	.article .Article__heading {
+		width:100%;
+		max-width:560px;
+		height:auto;
+	}
+	.cmp-article .richText, .cmp-article .links, .cmp-article .section>h1, .cmp-article .section>h2{
+	max-width:560px;
+	margin:0 auto;
+	}
+	
+	.cmp-article .sectionWrapper{
+	 padding:60px 90px;
+	}
+	.cmp-article .Article__heading+.richText {
+		margin-top: 17px;
+	}
+	.article .primaryLinkContainer{
+	margin-top:24px;
+	}
+	}
+	
+	@media screen and (min-width: 1px) and (max-width: 1080px){
+	.cmp-article .sectionWrapper img, .cmp-article .sectionWrapper .imageCaption {
+		max-width: 708px;
+	}
+	.cmp-article .sectionWrapper{
+	 padding:40px 30px;
+	}
+	.cmp-article .sectionWrapper h1{font-size:24px; line-height:29px;}
+	.article .Article__heading {
+		width:100%;
+		max-width:524px;
+		height:auto;
+	}
+	.cmp-article .richText, .cmp-article .links, .cmp-article .section>h1, .cmp-article .section>h2{
+	max-width:524px;
+	margin:0 auto;
+	}
+
+	}
+@media screen and (min-width: 767px) and (max-width: 1278px){
+.cmp-article .primaryLinkWithStyle {
+
+    margin-bottom: 23px;
+}
+    }	
+	@media screen and (min-width: 1px) and (max-width: 767px){
+	.cmp-article .sectionWrapper img, .cmp-article .sectionWrapper .imageCaption {
+		max-width: 100%;
+	}
+	.cmp-article .sectionWrapper {
+		padding:25px;
+	}
+	.cmp-article .sectionWrapper h1{font-size:18px; line-height:23px;}
+	.cmp-article .primaryLinkWithStyle{margin-top:0; margin-bottom:0;}
+	}
+
+.cmp-article .secondaryLinkContainer{clear:both;}
+
+/*----------code fix for defect 568---------*/

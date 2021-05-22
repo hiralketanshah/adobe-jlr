@@ -17,3 +17,5 @@
 #base=js
 
 dropdownshowhide.js
+navigation-validation.js
+dropdownshowhidemultival.js

@@ -5963,7 +5963,7 @@
 
               this.store.dispatch((0, _actions.setInitialSettings)({ init: true, playingState: JSON.parse(this.autoplay) }));
               this.bindEventListeners();
-              
+
             }
           }, {
             key: 'bindEventListeners',
@@ -6206,13 +6206,11 @@
             (0, _classCallCheck3.default)(this, DxTabs);
 
             this.element = element;
-            console.log(this.element);
             this.options = (0, _assign2.default)({}, DxTabs._defaults, options);
             this.tabs = [].concat((0, _toConsumableArray3.default)(this.element.querySelectorAll('[role="tab"]')));
             this.tablist = this.element.querySelector('[role="tablist"]');
             this.tabsWidthTotal = 0;
             this.panelsContainer = document.querySelector('[data-dxtabs-panels-id="' + this.element.getAttribute('data-dxtabs-id') + '"]');
-           // console.log(this.panelsContainer);
 
             this.panels = [].concat((0, _toConsumableArray3.default)(this.panelsContainer.querySelectorAll('[role="tabpanel"]')));
 
@@ -6266,7 +6264,6 @@
                 tab.setAttribute('aria-selected', 'false');
                 tab.setAttribute('id', tabId);
                 tab.setAttribute('aria-controls', panelId);
-                //console.log(panel);
 
                 panel.setAttribute('tabindex', '0');
                 panel.setAttribute('data-index', index);
@@ -8043,37 +8040,53 @@
               this.DxCarousel = null;
               this.HeroSlideTemplate = null;
               this._nonJqueryComponents = ['DxCarousel', 'HeroSlideTemplate'];
+
               this._setUpYouTubeGalleryAssets();
             },
-            
+
             _setUpYouTubeGalleryAssets() {
-              let videos  = $(".cmp-tabbedContainer .videoCustom");
-              let imagePresentOrNot = $(".cmp-tabbedContainer .videoCustom").find('img').attr('src');
-              if(imagePresentOrNot == undefined || imagePresentOrNot == ""){
-                var elm = $(".cmp-tabbedContainer .videoCustom"),
-                      conts   = elm.contents(),
-                      le      = conts.length,
-                      ifr     = null;
-        
-                  for(var i = 0; i<le; i++){
-                    if(conts[i].nodeType == 8) ifr = conts[i].textContent;
-                  }
-        
-                  elm.addClass("player").html(ifr);
+              var _this4 = this;
+              var tabId = $(_this4.$element)[0].id;
+
+              let videos = $(`#${tabId} .videoCustom`);              
+              let imagePresentOrNot = $(`#${tabId} .videoCustom`).find('img').attr('src');
+              if (imagePresentOrNot == undefined || imagePresentOrNot == "") {
+                var elm = $(`#${tabId} .videoCustom`),
+                  conts = elm.contents(),
+                  le = conts.length,
+                  ifr = null;
+
+                for (var i = 0; i < le; i++) {
+                  if (conts[i].nodeType == 8) ifr = conts[i].textContent;
+                }
+                if (ifr) {
+                  var spanElement = $(ifr);                  
+                  spanElement[0].allow = "autoplay";
+                  spanElement[0].src = spanElement[0].src + '?autoplay=1&background=1&muted=1';
+                  $(spanElement[0]).addClass('youtube-iframe'+tabId);
+                  elm.addClass("player").html(spanElement);
                   elm.off("click");
+                }
               }
-              videos.on("click", function(){
-                  var elm = $(this),
-                      conts   = elm.contents(),
-                      le      = conts.length,
-                      ifr     = null;
-        
-                  for(var i = 0; i<le; i++){
-                    if(conts[i].nodeType == 8) ifr = conts[i].textContent;
-                  }
-        
-                  elm.addClass("player").html(ifr);
+              videos.on("click", function () {
+                var elm = $(this),
+                  conts = elm.contents(),
+                  le = conts.length,
+                  ifr = null;
+
+                for (var i = 0; i < le; i++) {
+                  if (conts[i].nodeType == 8) ifr = conts[i].textContent;
+                }
+
+                if (ifr) {
+                  var spanElement = $(ifr);
+                  spanElement[0].allow = "autoplay";
+                  spanElement[0].src = spanElement[0].src + '?autoplay=1&background=1&muted=1';
+                  $(spanElement[0]).addClass('youtube-iframe'+tabId);
+                  elm.addClass("player").html(spanElement);
                   elm.off("click");
+                }
+
               });
               if (this.$element.find('.YouTubeGalleryAsset').length) {
                 this.$element.find('.YouTubeGalleryAsset').each((s, el) => {
@@ -8083,17 +8096,21 @@
                     inFullFrameCarousel: true,
                     expandToWidthOnly: true
                   });
-        
+
                   // Mask to capture slider events without Youtube being an event-hog
                   $(el).append('<div class="youTubePlayerFFCMask"/>');
                   $(el).parent().append('<div class="mediaOverlay mediaOverlayVideo visible"><div class="mediaOverlayIcon"/></div>');
                   $(el).parents('.cmp-genericItem').addClass('cmp-genericItem--withYouTubeGalleryAsset');
                 });
               }
+              
             },
-            
+
             initDxTabs: function initDxTabs() {
               var _this2 = this;
+              console.log(this.$element.parent().height());
+              
+              console.log(this.$element.height());
 
               this._dxTabsElement = this.$element.get(0).querySelector('.DxTabs');
               this._dxTabsElement.addEventListener('DxTabs:init', function () {
@@ -8116,6 +8133,7 @@
               this._positionTabs();
             },
             _positionTabs: function _positionTabs() {
+              
               if (!(0, _browserDetection.isBreakpointMedium)() && !(0, _browserDetection.isBreakpointSmall)()) {
                 this._dxTabsElement.style.top = '';
                 this.$element.css('margin-top', '');
@@ -8131,6 +8149,14 @@
               // this.$element.css('margin-top', tabHeight);
             },
             _initializeSelectedTab: function _initializeSelectedTab(payload) {
+              var _this4 = this;
+              var tabId = $(_this4.$element)[0].id;
+              var maxHeight = Math.max.apply(null, $(`#${tabId} .cmp-tabs__tabpanel`).map(function ()
+              {
+                  return $(this).height();
+              }).get());
+              this.$element.parent().height(maxHeight);
+
               var _this3 = this;
 
               this._selectedTab = payload.selectedPanel;
@@ -8182,8 +8208,19 @@
               }
             },
             _destroyPreviousTab: function _destroyPreviousTab(payload) {
+              var _this4 = this;
+              var tabId = $(_this4.$element)[0].id;
+              if ($(payload.previousPanel).find('.videoCustom').length) {
+                $(`.youtube-iframe${tabId}`).each(function (index) {
+                  $(this).attr('src', $(this).attr('src'));
+                  return false;
+                });
+              }
+              
               var componentElement = [].concat((0, _toConsumableArray3.default)(payload.previousPanel.children))[0];
               var componentType = payload.previousPanel.getAttribute('data-component');
+
+             
 
               if (componentType === 'DxCarousel') {
                 this.DxCarousel.destroy();
@@ -8196,6 +8233,13 @@
             },
             _resizeComponent: function _resizeComponent() {
               var _this4 = this;
+              var tabId = $(_this4.$element)[0].id;
+              var maxHeight = Math.max.apply(null, $(`#${tabId} .cmp-tabs__tabpanel`).map(function ()
+              {
+                  return $(this).height();
+              }).get());
+              this.$element.parent().height(maxHeight);
+              
 
               var isMobile = (0, _browserDetection.isBreakpointSmall)();
               var isTablet = (0, _browserDetection.isBreakpointMedium)();
@@ -8203,6 +8247,8 @@
               if (this._selectedTab) {
                 if (isDesktop && !this.destroyed) {
                   setTimeout(function () {
+
+
                     _this4.$element.height($(_this4._selectedTab).height());
                   }, 50);
                 } else {
@@ -8214,6 +8260,7 @@
               if (this._selectedTab) {
                 // adding youtube to FFC causes it to behave differently and breaks the sizing, this is a temporary fix until FFC is refactored
                 var ffcException = this._selectedTab.getAttribute('data-component') === 'FullFrameCarousel' && this._selectedTab.querySelector('.FullFrameCarousel').classList.contains('youtubepresent');
+
                 if (ffcException && !(0, _browserDetection.isBreakpointSmall)() && !this.destroyed) {
                   var tabHeight = $(this._selectedTab).height();
                   if (this.previousTabHeight && tabHeight === this.previousTabHeight) {
@@ -8250,6 +8297,7 @@
 
 
         $('.cmp-tabbedContainer').TabbedContainer();
+
 
         /***/
       }),

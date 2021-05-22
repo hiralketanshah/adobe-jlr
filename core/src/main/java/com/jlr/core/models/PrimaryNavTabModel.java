@@ -74,17 +74,14 @@ public class PrimaryNavTabModel {
 
     /** The left cta. */
     @Inject
-    @Named("leftCta/.")
-    List<PrimaryNavLeftCTAModel> leftCta;
+    List<PrimaryNavLeftCTAModel> leftCtaOne;
 
     /** The left dual column cta. */
     @Inject
-    @Named("leftDualColumnCta/.")
-    List<PrimaryNavDualLeftCTAModel> leftDualColumnCta;
+    List<PrimaryNavLeftCTATwoModel> leftCtaTwo;
 
     /** The left text cta. */
     @Inject
-    @Named("leftTextCta/.")
     List<PrimaryNavLeftTextCTAModel> leftTextCta;
 
     /** The right cta. */
@@ -94,7 +91,6 @@ public class PrimaryNavTabModel {
 
     /** The quick links. */
     @Inject
-    @Named("quickLinks/.")
     public List<PrimaryNavQuickLinksModel> quickLinks;
 
     /**
@@ -188,12 +184,12 @@ public class PrimaryNavTabModel {
     }
 
     /**
-     * Gets the left cta.
+     * Gets the left cta one.
      *
-     * @return the left cta
+     * @return the left cta one
      */
-    public List<PrimaryNavLeftCTAModel> getLeftCta() {
-        return leftCta;
+    public List<PrimaryNavLeftCTAModel> getLeftCtaOne() {
+        return leftCtaOne;
     }
 
     /**
@@ -224,12 +220,12 @@ public class PrimaryNavTabModel {
     }
 
     /**
-     * Gets the left dual column cta.
+     * Gets the left cta two.
      *
-     * @return the left dual column cta
+     * @return the left cta two
      */
-    public List<PrimaryNavDualLeftCTAModel> getLeftDualColumnCta() {
-        return leftDualColumnCta;
+    public List<PrimaryNavLeftCTATwoModel> getLeftCtaTwo() {
+        return leftCtaTwo;
     }
 
     /**

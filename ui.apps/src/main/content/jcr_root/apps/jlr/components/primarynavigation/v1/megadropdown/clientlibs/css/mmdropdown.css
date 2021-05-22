@@ -243,7 +243,8 @@ html {
 	color: #4a4f54;
 	font-weight: 600;
 	letter-spacing: .173em;
-	line-height: 11.9px
+	line-height: 11.9px;
+	margin-bottom: 16px;
 }
 
 .dxnav-unique-nav .dxnav-cta-secondary .dxnav-icon {

@@ -1,0 +1,131 @@
+<sly data-sly-use.model="com.jlr.core.models.OffersModel"
+    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From,offers.terms.cta,overlay.close'}"
+    data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
+   
+<div class="cmp-offersContainer fontSmooth">
+    <!-- Page Wrapper dummy for overlay -->
+    <div class="pageWrapper">
+    </div>
+    <!-- end -->
+    <!--/* OFFER - odd - light theme */-->
+    <div class="offer">
+        <div class="offerMainFrame">
+            <!--/* Main offer image */-->
+            <div class="offerImage">
+                <picture class="Picture Picture--background cmp-offersContainer__picture">
+                    <source data-dimensions="1600x696" media="(min-width: 1201px)"
+                        srcset="${model.offersImageFileReference}" />
+                    <source data-dimensions="900x387" media="(min-width: 501px)"
+                        srcset="${model.offersImageFileReference}" />
+                    <source data-dimensions="500x216" media="(min-width: 0px)"
+                        srcset="${model.offersImageFileReference}" />
+                    <img alt="" class="Picture__img" data-dimensions="1600x696"
+                        srcset="${model.offersImageFileReference}" />
+                </picture>
+            </div>
+            <!--/* Block with offer description */-->
+            <div class="offerDescription">
+                <div class="offerHeading">
+                    <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
+                </div>
+                <div class="offerPrice">
+                    <p class="Offers__price heading price">${config.configMap['From']} ${model.price}</p>
+                </div>
+                <div class="offerBody">
+                    ${model.copy @context='html'}
+                </div>
+            </div>
+            <div class="offerLink">
+                <div data-sly-list.cta="${model.ctaList}" class="linkContainer">
+                    <sly data-sly-test="${cta.text}">
+
+
+                        <div
+                            class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}">
+                            <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}"
+                                aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}"
+                                target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
+                                <span aria-hidden="true">${cta.text}</span>
+                            </a>
+                        </div>
+
+
+                    </sly>
+                </div>
+            </div>
+            <!--/* Wrapper for two finance boxes */-->
+            <div class="offerFinanceBoxes">
+                <sly data-sly-list.offers="${model.offerList}">
+                    <sly data-sly-test="${offersList.index==0}">
+                        <!-- Leasing information -->
+                        <div class="offerInfo offerInfoLease">
+                            <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'} </div>
+                            <p class="heading Offers__amount headingH1">
+                                <span class="headingWrapper" role="text">
+                                    <span class="currency">
+                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
+                                            @context='html'}</small>
+                                    </span>
+                                    <span class="amount">${offers.offerValue @context='html'}</span>
+                                    <small class="percent" data-sly-test="${item.offerSuffix}">${offers.offerSuffix
+                                        @context='html'}</small>
+                                </span>
+                            </p>
+                            <div class="body Offers__info-body">
+                                <span data-sly-test="${offers.offerLabel}" class="headingWrapper">
+                                    ${offers.offerLabel @context='html'}
+                                </span>
+                            </div>
+                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
+                                class="offerDetailsLink button-tertiary" data-close-label="close modal"
+                                data-modal-trigger="">
+                                <span>${config.configMap['offers.terms.cta']}</span>
+                            </button>
+                            <div class="offerDetails offerLeaseDetails" data-modal-content="">
+                                <h3 class="Modal__title">${offers.offerOverlayHeader @context='html'}</h3>
+                                <div class="termsConditions">
+                                    ${offers.offerOverlaySummary @context='html'}
+                                </div>
+                            </div>
+                        </div>
+                    </sly>
+                    <!--/* Loan information */-->
+                    <sly data-sly-test="${offersList.index==1}">
+                        <div class="offerInfo offerInfoApr">
+                            <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</div>
+                            <p class="heading Offers__amount headingH1">
+                                <span class="headingWrapper" role="text">
+                                    <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
+                                        @context='html'}</small>
+                                    <span class="amount">${offers.offerValue @context='html'}</span>
+                                    <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix
+                                        @context='html'}</small>
+
+                                </span>
+                            </p>
+                            <div class="body Offers__info-body">
+                                <span data-sly-test="${offers.offerLabel}" class="headingWrapper">
+                                    ${offers.offerLabel @context='html'}
+                                </span>
+                            </div>
+                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
+                                class="offerDetailsLink button-tertiary" data-close-label="${config.configMap['overlay.close']}"
+                                data-modal-trigger="">
+                                <span>${config.configMap['offers.terms.cta']}</span>
+                            </button>
+                            <div class="offerDetails offerFinanceDetails" data-modal-content="">
+                                <h3 class="Modal__title">${offers.offerOverlayHeader @context='html'}</h3>
+                                <div class="termsConditions">
+                                    ${offers.offerOverlaySummary @context='html'}
+                                </div>
+                            </div>
+                    </sly>
+                </sly>
+            </div>
+        </div>
+        <!--/* .offerMainFrame */-->
+    </div>
+    <!--/* .offer */-->
+
+    <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

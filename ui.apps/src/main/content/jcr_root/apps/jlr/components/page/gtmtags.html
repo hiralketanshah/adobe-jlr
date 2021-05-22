@@ -14,11 +14,10 @@
   ~ limitations under the License.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 
-
-  <sly data-sly-use.pageConfig="com.jlr.core.models.PageModel">
-  <sly data-sly-test="${pageConfig.CommaSeparatedGtmTagsListWithQuotes}">
+  <template data-sly-template.gtmTags="${@ additionalPage}">
+  <sly data-sly-test="${additionalPage.CommaSeparatedGtmTagsListWithQuotes}">
     <script data-id="gtmTags">
-      var gtmTags = ['${pageConfig.CommaSeparatedGtmTagsListWithQuotes @context = "html"}'];
+      var gtmTags = ['${additionalPage.CommaSeparatedGtmTagsListWithQuotes @context = "html"}'];
     </script>
 
     <script id="gtm">
@@ -44,5 +43,5 @@
     </script>
 
    </sly> 
-  </sly>
-  
+
+  </template>

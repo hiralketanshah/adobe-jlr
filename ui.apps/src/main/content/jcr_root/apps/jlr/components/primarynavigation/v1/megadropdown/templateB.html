@@ -1,0 +1,89 @@
+<template data-sly-template.templateB="${@ model}">
+    <table class="author-table">
+        <tr class="author-tr">
+            <th class="author-th">Key</th>
+            <th class="author-th">Value</th>
+        </tr>
+        <tr class="author-tr">
+            <td class="author-td">Template</td>
+            <td class="author-td">2 Column with Small Promo Image</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Tab Name</td>
+            <td class="author-td">${model.tabName}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Primary Navigation Title</td>
+            <td class="author-td">${model.primaryNavTitle}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Primary Navigation Aria Label</td>
+            <td class="author-td">${model.primaryNavAriaLabel}</td>
+        </tr>
+
+        <sly data-sly-test="${model.leftCta}" data-sly-list.cta="${model.leftCta}">
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Text ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCtaText}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Link ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCtaLink}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Left CTA Aria Label ${ctaList.index}</td>
+                <td class="author-td">"${cta.leftPaneCtaAriaLabel}</td>
+            </tr>
+        </sly>
+
+        <sly data-sly-test="${model.leftDualColumnCta}" data-sly-list.rightColumncta="${model.leftDualColumnCta}">
+            <tr class="author-tr">
+                <td class="author-td">Right CTA Text ${leftDualColumnCtaList.index}</td>
+                <td class="author-td">"${rightColumncta.leftPaneDualCtaText}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Right CTA Link ${leftDualColumnCtaList.index}</td>
+                <td class="author-td">"${rightColumncta.leftPaneCtaLink}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Right CTA Aria Label ${leftDualColumnCtaList.index}</td>
+                <td class="author-td">"${rightColumncta.leftPaneDualCtaAriaLabel}</td>
+            </tr>
+        </sly>
+
+        <tr class="author-tr">
+            <td class="author-td">Image</td>
+            <td class="author-td">${model.fileReferenceImage}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Image alt text</td>
+            <td class="author-td">${model.rightPaneImageAlt}</td>
+        </tr>
+
+        <tr class="author-tr">
+            <td class="author-td">Image link</td>
+            <td class="author-td">${model.rightPaneImageLink}</td>
+        </tr>
+
+        <sly data-sly-test="${model.quickLinks}" data-sly-list.quicklinks="${model.quickLinks}">
+            <tr class="author-tr">
+                <td class="author-td">Quick Links Text ${quicklinksList.index}</td>
+                <td class="author-td">"${quicklinks.quickLinksCtaText}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Quick Links Link ${quicklinksList.index}</td>
+                <td class="author-td">"${quicklinks.quickLinksCopyCtaLink}</td>
+            </tr>
+            <tr class="author-tr">
+                <td class="author-td">Quick Links Aria Label ${quicklinksList.index}</td>
+                <td class="author-td">"${quicklinks.quickLinksCopyCtaAriaLabel}</td>
+            </tr>
+
+        </sly>
+
+    </table>
+</template>
