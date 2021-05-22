@@ -85,7 +85,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
-        /* TODO: give proper header nav page path */
+        /* TODO: give proper header nav page path - Remove this after testing */
         String requestPath = config.headerPath();
         if (locale.equalsIgnoreCase("en_AU") && !requestPath.contains(CommonConstants.FORWARD_SLASH + locale
                 .toLowerCase() + CommonConstants.FORWARD_SLASH)) {
@@ -94,6 +94,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             }
             requestPath = requestPath.replace("de_de", locale.toLowerCase());
         }
+        //TODO: remove thread sleep after testing
         try {
             LOGGER.info("Sleeping for 5 sec");
             Thread.sleep(5000);

@@ -59,56 +59,63 @@ public class TcoServiceImpl implements TcoService {
                                              Page currentPage, InheritanceValueMap pageProperties,
                                              String priceMacro, String configKey) {
         Map<String, String> modelPriceMap = new HashMap<>();
-        if (StringUtils.isNotEmpty(priceMacro)) {
-            if (Boolean.valueOf(pageProperties
-                    .getInherited(PRICING_SUPPRESSION, String.class))) {
-                return modelPriceMap;
-            }
-            PricingPojo pricingPojo = new PricingPojo();
-            String region = getRegionFromPage(currentPage, resourceResolver);
-            pricingPojo.setRegion(region);
-            if (region.equalsIgnoreCase("en_au")) {
-                Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
-                if(stateCode == null) {
-                    stateCode = (Cookie) request.getAttribute(JLR_LOCALE_PRICING);
-                }
-                if (!validState(stateCode.getValue(), listOfStates)) {
-                    return modelPriceMap;
-                }
-                pricingPojo.setStateCode(stateCode.getValue().toLowerCase());
-            }
-            mapPagePropertiesToPojo(pricingPojo, pageProperties);
-            if (priceMacro.contains("{{") && priceMacro.contains("}}")) {
-                priceMacro.replaceAll("\\{\\}", StringUtils.EMPTY);
-                String[] configCodes = priceMacro.split(DOT_REGEX);
-                pricingPojo.setPriceMacroConfig(configCodes[1]);
-                if (configCodes.length == 4) {
-                    pricingPojo.setPriceType(configCodes[3]);
-                }
-                if (TcoUtils.hasComplexMacro(pricingPojo.getPriceMacroConfig())) {
-                    decodeComplexMacroForPrice(pricingPojo, resourceResolver, currentPage);
-                } else {
-                    decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
-                }
-                Map<String, String> configMap = dictionary.getConfigMap(resourceResolver,
-                        request.getResource(),
-                        currentPage);
-                String configValue = configMap.get(configKey);
-                LOGGER.debug(configKey + "----------- "+configValue);
-                if (StringUtils.isNotEmpty(pricingPojo.getStateCode()) && StringUtils.isNotEmpty(configValue)) {
-                    configValue = configValue.replace("{state}", pricingPojo.getStateCode().toUpperCase());
-                }
-                modelPriceMap.put(configValue, pricingPojo.getModelPrice());
-            } else {
-                if(!priceMacro.matches("^[a-zA-Z]*$")){
-                    pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
-                            Double.parseDouble(priceMacro)));
-                    modelPriceMap.put(StringUtils.EMPTY, pricingPojo.getModelPrice());
-                }
-            }
+        PricingPojo pricingPojo = new PricingPojo();
+        String region = getRegionFromPage(currentPage, resourceResolver);
+        pricingPojo.setRegion(region);
 
+        if (StringUtils.isNotEmpty(priceMacro)) {
+             if (!(Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class)))
+                    && (priceMacro.contains("{{") && priceMacro.contains("}}"))
+                    && StringUtils.isNotEmpty(region)) {
+
+                String stateCookieValue = StringUtils.EMPTY;
+                if (region.equalsIgnoreCase("en_au")) {
+                    Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
+                    if(stateCode == null) {
+                        stateCode = (Cookie) request.getAttribute(JLR_LOCALE_PRICING);
+                    }
+                    if (!validState(stateCode.getValue(), listOfStates)) {
+                        modelPriceMap.put(StringUtils.EMPTY, priceMacro);
+                        return modelPriceMap;
+                    }
+                    stateCookieValue = stateCode.getValue();
+                    pricingPojo.setStateCode(stateCookieValue.toLowerCase());
+                }
+                mapPagePropertiesToPojo(pricingPojo, pageProperties);
+
+                buildModelPriceMap(resourceResolver, request, currentPage, priceMacro, configKey,
+                         modelPriceMap,
+                         pricingPojo);
+             } else {
+                modelPriceMap.put(StringUtils.EMPTY, priceMacro);
+            }
         }
         return modelPriceMap;
+    }
+
+    private void buildModelPriceMap(ResourceResolver resourceResolver,
+                                    SlingHttpServletRequest request, Page currentPage,
+                                    String priceMacro, String configKey,
+                                    Map<String, String> modelPriceMap, PricingPojo pricingPojo) {
+        priceMacro.replaceAll("\\{\\}", StringUtils.EMPTY);
+        String[] configCodes = priceMacro.split(DOT_REGEX);
+        pricingPojo.setPriceMacroConfig(configCodes[1]);
+        if (configCodes.length == 4) {
+            pricingPojo.setPriceType(configCodes[3]);
+        }
+        if (TcoUtils.hasComplexMacro(pricingPojo.getPriceMacroConfig())) {
+            decodeComplexMacroForPrice(pricingPojo, resourceResolver, currentPage);
+        } else {
+            decodeSimpleMacroForPrice(pricingPojo, resourceResolver, currentPage);
+        }
+        Map<String, String> configMap = dictionary.getConfigMap(resourceResolver,
+                request.getResource(),
+                currentPage);
+        String configValue = configMap.get(configKey);
+        if (StringUtils.isNotEmpty(pricingPojo.getStateCode()) && StringUtils.isNotEmpty(configValue)) {
+            configValue = configValue.replace("{state}", pricingPojo.getStateCode().toUpperCase());
+        }
+        modelPriceMap.put(configValue, pricingPojo.getModelPrice());
     }
 
     private boolean validState(String stateCode, String[] states) {
@@ -119,8 +126,12 @@ public class TcoServiceImpl implements TcoService {
                                      ResourceResolver resourceResolver) {
         String siteRootPath = getSiteRootPath(currentPage);
         Resource resource = resourceResolver.getResource(siteRootPath);
-        return DE_ROOT_PATH_NAME.equalsIgnoreCase(resource.getName()) ? JLR_LOCALE_DE : resource
-                .getName();
+        //TODO: need to process other regions, default to "de" for now
+        String region = JLR_LOCALE_DE;
+        if(JLR_LOCALE_AUS.equalsIgnoreCase(resource.getName())) {
+            region = resource.getName().toLowerCase();
+        }
+        return region;
     }
 
     private void mapPagePropertiesToPojo(PricingPojo pricingPojo,
@@ -161,6 +172,9 @@ public class TcoServiceImpl implements TcoService {
                     false);
             ValueMap valueMap = varResource.getValueMap();
             if (MapUtils.isNotEmpty(valueMap)) {
+                if(StringUtils.isEmpty(pricingPojo.getPriceType())){
+                    pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
+                }
                 Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
                 pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(),
                                 dPrice));
@@ -233,7 +247,7 @@ public class TcoServiceImpl implements TcoService {
                                           ResourceResolver resourceResolver, Page currentPage) {
         Resource resource = resourceResolver
                 .getResource(currentPage.getPath() + "/jcr:content/nameplateDetails");
-        if (resource == null || !resourceMatched(pricingPojo, resource)) {
+        if ( null == resource || !resourceMatched(pricingPojo, resource)) {
             if (!reachedRoot(currentPage.getName())) {
                 return getNamePlateResource(pricingPojo, resourceResolver,
                         currentPage.getParent());
