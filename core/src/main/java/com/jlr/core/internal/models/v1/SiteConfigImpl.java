@@ -1,8 +1,13 @@
 package com.jlr.core.internal.models.v1;
 
-import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.models.SiteConfigModel;
-import com.jlr.core.services.Dictionary;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -12,13 +17,9 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.models.SiteConfigModel;
+import com.jlr.core.services.Dictionary;
 
 /**
  * Model for locale based configurations for website.
@@ -42,6 +43,9 @@ public class SiteConfigImpl implements SiteConfigModel {
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
+
+    @Inject
+    private SlingHttpServletRequest request;
 
     /** The dictionary. */
     @OSGiService
@@ -95,10 +99,22 @@ public class SiteConfigImpl implements SiteConfigModel {
      * @return the map
      */
     private Map<String, String> getMap(List<String> listOfKeys) {
+        Cookie stateCookie = request.getCookie(CommonConstants.JLR_LOCALE_PRICING);
+        String state = StringUtils.EMPTY;
+        if (null != stateCookie) {
+            state = stateCookie.getValue();
+        }
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
             if (null != configMap.get(configKey)) {
-                keyMap.put(configKey, configMap.get(configKey));
+                if (configKey.equalsIgnoreCase("marketregionpricing.dxnav.selectregion")
+                                && (currentPage.getPath().contains("aus/") || currentPage.getPath().contains("en_au")) && StringUtils.isNotBlank(state)) {
+                    if (StringUtils.isNotBlank(state)) {
+                        keyMap.put(configKey, configMap.get("marketregionpricing.dxnav.changeregion").replace("{state}", state.toUpperCase()));
+                    }
+                } else {
+                    keyMap.put(configKey, configMap.get(configKey));
+                }
             }
         }
         return keyMap;
