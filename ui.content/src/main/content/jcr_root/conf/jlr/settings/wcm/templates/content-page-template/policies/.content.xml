@@ -2,7 +2,7 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:lastModified="{Date}2021-04-19T13:51:11.759+05:30"
+        cq:lastModified="{Date}2021-05-19T23:27:40.080+05:30"
         cq:lastModifiedBy="admin"
         cq:policy="jlr/components/page/policy"
         jcr:primaryType="nt:unstructured"
@@ -145,6 +145,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </optionpicker>
+                        <seatslider jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <seatslider
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </seatslider>                      
                         <herotitlebanner jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <herotitlebanner
@@ -176,7 +184,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </tabbedcontainer>						
+                        </tabbedcontainer>
                         <exterior360 jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <exterior360
@@ -193,6 +201,22 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
+                        <offers jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <offers
+                                    cq:policy="jlr/components/offers/v1/offers/policy_1621485263708"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </offers>
+                        <specsglance jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <specsglance
+                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </specsglance>
                         <c-player jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <c-player
@@ -200,7 +224,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </c-player>
+                        </c-player>                          
                     </components>
                 </jlr>
             </container>

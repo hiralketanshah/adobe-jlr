@@ -8,10 +8,17 @@
             var cplayer = cplayers[j];
             var vechicleId = cplayer && cplayer.dataset &&cplayer.dataset.vechicleId?cplayer.dataset.vechicleId:"";
             var modelYear = cplayer && cplayer.dataset &&cplayer.dataset.modelYear?cplayer.dataset.modelYear:"";
-                for(var i = 0;i<items.length;i++){
+            var userAuthored = false;
+            if(vechicleId || modelYear){
+                userAuthored = true;
+            }
+            for(var i = 0;i<items.length;i++){
                     var item = items[i];   
                     var isUserBuild = item.length>1 && item[1] && item[1].vehicleId == vechicleId && item[1].modelYear == modelYear;
                     if(isUserBuild || item[0]=="latest")   {
+                        if(userAuthored && !isUserBuild){
+                            break;
+                        }
                         cplayer.style.display = 'flex';
                         var summary = item[1].vehicleDetail.join(" | ");
                         var imgUrl = item[1].media.desktop.frames[0].layers[0].image;

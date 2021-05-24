@@ -15,6 +15,14 @@
                 sling:resourceType="wcm/core/components/policies/mapping">
                 <jlr jcr:primaryType="nt:unstructured">
                     <components jcr:primaryType="nt:unstructured">
+                        <quote jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <quote
+                                    cq:policy="jlr/components/quote/v1/quote/policy_1620815338366"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </quote>
                         <caveat jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <caveat
@@ -119,6 +127,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </optionpicker>
+                        <seatslider jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <seatslider
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </seatslider>
                         <interior360 jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <interior360
@@ -126,7 +142,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </interior360>   
+                        </interior360>
                         <exterior360 jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <exterior360
@@ -151,14 +167,22 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
-                        <c-player jcr:primaryType="nt:unstructured">
+                        <offers jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
-                                <c-player
-                                    cq:policy="jlr/components/c-player/v1/c-player/policy_1621317733304"
+                                <offers
+                                    cq:policy="jlr/components/offers/v1/offers/policy_1621485263708"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </c-player>
+                        </offers>
+                        <specsglance jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <specsglance
+                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </specsglance>                        
                     </components>
                 </jlr>
             </container>
@@ -184,6 +208,22 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </carousel>
+                        <quote jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <quote
+                                    cq:policy="jlr/components/quote/v1/quote/policy_1620815338366"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </quote>
+                        <c-player jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <c-player
+                                    cq:policy="jlr/components/c-player/v1/c-player/policy_1621317733304"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </c-player>
                     </components>
                 </jlr>
             </container_1838800311>
@@ -317,6 +357,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </optionpicker>
+                        <seatslider jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <seatslider
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </seatslider>
                         <dualframecarousel jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <dualframecarousel
@@ -332,7 +380,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </interior360>                        
+                        </interior360>
                         <herotitlebanner jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <herotitlebanner
@@ -365,6 +413,24 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
+
+                        <offers jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <offers
+                                    cq:policy="jlr/components/offers/v1/offers/policy_1621485263708"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </offers>						
+                        <specsglance jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <specsglance
+                                    cq:policy="jlr/components/specsglance/v1/specsglance/policy_1621446983475"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </specsglance>    
+
                     </components>
                 </jlr>
             </container_1992655900>

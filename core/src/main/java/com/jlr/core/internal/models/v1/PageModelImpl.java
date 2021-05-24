@@ -1,16 +1,17 @@
 package com.jlr.core.internal.models.v1;
 
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.adapter.Adaptable;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -21,8 +22,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.Template;
 import com.day.cq.wcm.api.components.ComponentContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -41,6 +40,12 @@ import com.jlr.core.utils.ErrorUtils;
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PageModelImpl implements PageModel {
 
+    private final String AU_LOCALE = "en_AU";
+    private final String DE_LOCALE = "de_DE";
+
+    private final String AU_RETAILER_NAAS_URL = "/content/dam/naas/en_au.html";
+    private final String DE_RETAILER_NAAS_URL = "/content/dam/naas/de_de.html";
+
     /** The current page. */
     @ScriptVariable
     protected com.day.cq.wcm.api.Page currentPage;
@@ -48,6 +53,10 @@ public class PageModelImpl implements PageModel {
     /** The page properties. */
     @ScriptVariable
     protected ValueMap pageProperties;
+
+    /** The request. */
+    @Inject
+    private SlingHttpServletRequest request;
 
 
     /** The application code. */
@@ -65,21 +74,53 @@ public class PageModelImpl implements PageModel {
     /** The market region path. */
     @HierarchicalPageProperty("marketRegionPath")
     private String marketRegionPath;
-    
+
     /** The header path. */
     @HierarchicalPageProperty("headerPath")
     private String headerPath;
-    
+
     /** The footer path. */
     @HierarchicalPageProperty("footerPath")
     private String footerPath;
-    
+
     @HierarchicalPageProperty("includeHeaderFooter")
     private String includeHeaderFooter;
 
     /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
+
+    @PostConstruct
+    public void init() {
+        getNaasUrl();
+        getLocale();
+        getState();
+    }
+
+    @Override
+    public String getLocale() {
+        if (!StringUtils.isBlank(getMarket())) {
+            if (getMarket().contains("/market/au")) {
+                return AU_LOCALE;
+            } else if (getMarket().contains("/market/de")) {
+                return DE_LOCALE;
+            }
+        }
+        return StringUtils.EMPTY;
+    }
+
+    public String getNaasUrl() {
+        if (!StringUtils.isBlank(getMarket())) {
+            if (getMarket().contains("/market/au")) {
+                return AU_RETAILER_NAAS_URL;
+            } else if (getMarket().contains("/market/de")) {
+                return DE_RETAILER_NAAS_URL;
+            }
+        }
+        return StringUtils.EMPTY;
+    }
+
+
 
     /**
      * Gets the enable inline cookie js.
@@ -123,6 +164,7 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("market")
     private String market;
 
+
     /**
      * Gets the application code.
      *
@@ -140,25 +182,32 @@ public class PageModelImpl implements PageModel {
     public String getMarket() {
         return market;
     }
-    
+
+    public String getState() {
+        String state = null != request.getCookie(JLR_LOCALE_PRICING) ? request.getCookie(JLR_LOCALE_PRICING).getValue().toUpperCase() : StringUtils.EMPTY;
+        LOGGER.info("State: {}", state);
+        return state;
+
+    }
+
     /**
      * Gets the header path.
      *
      * @return the header path
      */
     public String getHeaderPath() {
-    	String headerPathValue=CommonUtils.getSiteRootPath(currentPage).concat(CommonConstants.PATH_HEADER);
-    	return headerPathValue;
+        String headerPathValue = CommonUtils.getSiteRootPath(currentPage);
+        return StringUtils.isBlank(headerPathValue) ? StringUtils.EMPTY : headerPathValue.concat(CommonConstants.PATH_HEADER);
     }
-    
+
     /**
      * Gets the footer path.
      *
      * @return the footer path
      */
     public String getFooterPath() {
-    	String footerPathValue=CommonUtils.getSiteRootPath(currentPage).concat(CommonConstants.PATH_FOOTER);
-    	return footerPathValue;
+        String footerPathValue = CommonUtils.getSiteRootPath(currentPage);
+        return StringUtils.isBlank(footerPathValue) ? StringUtils.EMPTY : footerPathValue.concat(CommonConstants.PATH_FOOTER);
     }
 
     /**
@@ -166,6 +215,7 @@ public class PageModelImpl implements PageModel {
      */
     @SlingObject
     protected Resource resource;
+
 
 
     /**
@@ -221,7 +271,7 @@ public class PageModelImpl implements PageModel {
                             ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
 
-        return null;
+        return StringUtils.EMPTY;
     }
 
     /**
@@ -254,15 +304,13 @@ public class PageModelImpl implements PageModel {
         return null;
     }
 
-	public Boolean getIncludeHeaderFooter() {
-		Page CurrentPage;
-		String template=currentPage.getTemplate().getName();
-		if(template.equals(CommonConstants.TEMPLATE_EMPTY) || 
-				template.equals(CommonConstants.TEMPLATE_GALLERY) || 
-				template.equals(CommonConstants.TEMPLATE_REDIRECT)) {
-				return false;
-			}
-		return true;
-	}
+    public Boolean getIncludeHeaderFooter() {
+        String template = currentPage.getTemplate().getName();
+        if (template.equals(CommonConstants.TEMPLATE_EMPTY) || template.equals(CommonConstants.TEMPLATE_GALLERY)
+                        || template.equals(CommonConstants.TEMPLATE_REDIRECT)) {
+            return false;
+        }
+        return true;
+    }
 
 }

@@ -44,5 +44,6 @@ data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
               </div>
 		</div>
 	</div>
-	<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"/>
+	
 </sly>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"/>
