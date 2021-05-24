@@ -86,14 +86,13 @@ public class TcoServiceImpl implements TcoService {
         Boolean mrp = null != request.getAttribute(PricingConstants.PRICING_SUPPRESSION)
                         ? Boolean.valueOf((boolean) request.getAttribute(PricingConstants.PRICING_SUPPRESSION))
                         : true;
-        if (!mrp) {
+        if (!mrp || Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) {
             return Collections.emptyMap();
         }
 
 
         if (StringUtils.isNotEmpty(priceMacro)) {
-            if (!(Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) && (priceMacro.contains("{{") && priceMacro.contains("}}"))
-                            && StringUtils.isNotEmpty(region)) {
+            if ((priceMacro.contains("{{") && priceMacro.contains("}}")) && StringUtils.isNotEmpty(region)) {
 
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.info("Valid marco with pricing supression: False");

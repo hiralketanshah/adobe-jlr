@@ -1,5 +1,6 @@
 package com.jlr.core.internal.models.v1;
 
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Locale;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -52,6 +54,10 @@ public class PageModelImpl implements PageModel {
     @ScriptVariable
     protected ValueMap pageProperties;
 
+    /** The request. */
+    @Inject
+    private SlingHttpServletRequest request;
+
 
     /** The application code. */
     @HierarchicalPageProperty("applicationCode")
@@ -88,6 +94,7 @@ public class PageModelImpl implements PageModel {
     public void init() {
         getNaasUrl();
         getLocale();
+        getState();
     }
 
     @Override
@@ -157,6 +164,7 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("market")
     private String market;
 
+
     /**
      * Gets the application code.
      *
@@ -173,6 +181,13 @@ public class PageModelImpl implements PageModel {
      */
     public String getMarket() {
         return market;
+    }
+
+    public String getState() {
+        String state = null != request.getCookie(JLR_LOCALE_PRICING) ? request.getCookie(JLR_LOCALE_PRICING).getValue().toUpperCase() : StringUtils.EMPTY;
+        LOGGER.info("State: {}", state);
+        return state;
+
     }
 
     /**
@@ -200,6 +215,7 @@ public class PageModelImpl implements PageModel {
      */
     @SlingObject
     protected Resource resource;
+
 
 
     /**

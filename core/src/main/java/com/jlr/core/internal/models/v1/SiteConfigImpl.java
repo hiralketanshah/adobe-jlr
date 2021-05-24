@@ -1,5 +1,6 @@
 package com.jlr.core.internal.models.v1;
 
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -103,6 +104,10 @@ public class SiteConfigImpl implements SiteConfigModel {
         String state = StringUtils.EMPTY;
         if (null != stateCookie) {
             state = stateCookie.getValue();
+        }
+
+        if (null == state) {
+            state = null != request.getAttribute(JLR_LOCALE_PRICING) ? request.getAttribute(JLR_LOCALE_PRICING).toString() : StringUtils.EMPTY;
         }
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
