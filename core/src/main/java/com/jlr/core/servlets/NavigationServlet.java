@@ -132,7 +132,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-retailer");
         }
         if (myLandRover) {
-            document.select("dxnav-profile").removeAttr("style");
+            document.select("a.dxnav-profile").removeAttr("style");
+        } else {
+            NavigationUtils.removeAttribute(document, "a.dxnav-profile");
         }
 
 
