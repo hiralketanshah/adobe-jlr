@@ -4,6 +4,7 @@ import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.TcoModel;
 import com.jlr.core.services.TcoService;
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -14,6 +15,7 @@ import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.util.Map;
 
 /**
  * The Class TcoModelImpl.
@@ -56,9 +58,12 @@ public class TcoModelImpl extends GlobalModelImpl implements TcoModel {
      */
     @PostConstruct
     public void init() {
-        modelPrice = tcoService.getModelPrice(resourceResolver, request, currentPage,
+        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
                 pageProperties,
-                priceMacro);
+                priceMacro, StringUtils.EMPTY);
+        modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+            modelPrice = entry.getValue();
+        });
     }
 
     public String getModelPrice() {

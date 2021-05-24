@@ -1,15 +1,16 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.VehicleCardConstants;
+import com.jlr.core.models.VehicleCardContainerModel;
+import com.jlr.core.pojos.VehicleCard;
+import com.jlr.core.pojos.VehicleLink;
 import com.jlr.core.services.TcoService;
+import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
+import com.jlr.core.utils.VehicleCardUtils;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -17,22 +18,18 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.apache.sling.models.annotations.injectorspecific.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.constants.VehicleCardConstants;
-import com.jlr.core.models.VehicleCardContainerModel;
-import com.jlr.core.pojos.VehicleCard;
-import com.jlr.core.pojos.VehicleLink;
-import com.jlr.core.utils.CommonUtils;
-import com.jlr.core.utils.ErrorUtils;
-import com.jlr.core.utils.VehicleCardUtils;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * The type Vehicle card container model.
@@ -47,6 +44,12 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
 
     /** The logger. */
     private static Logger LOGGER = LoggerFactory.getLogger(VehicleCardContainerModelImpl.class);
+
+    /**
+     * The Key.
+     */
+    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
+    String key;
 
     /**
      * The Constant RESOURCE_TYPE.
@@ -88,6 +91,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     /** The vehicle image link. */
     private String vehicleImageLink;
     private String vehiclePrice;
+    private String vehiclePriceConfigValue;
 
 
     /**
@@ -109,9 +113,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                     if (StringUtils.isEmpty(vehicleImageLink)) {
                         vehicleImageLink = vehicleCardModel.getImageLink();
                     }
-                    if (StringUtils.isEmpty(vehiclePrice)) {
-                        vehiclePrice = getVehicleModelPrice(vehicleCardModel.getPrice());
-                    }
+                    getVehicleModelPrice(vehicleCardModel.getPrice());
                     vehicleCardModelList.add(vehicleCardModel);
                 }
             });
@@ -120,8 +122,18 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
 
     }
 
-    private String getVehicleModelPrice(String priceMacro){
-        return tcoService.getModelPrice(resourceResolver, request, currentPage, pageProperties, priceMacro);
+    private String getVehicleModelPrice(String priceMacro) {
+        if (StringUtils.isEmpty(vehiclePrice)) {
+
+            Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request,
+                    currentPage, pageProperties,
+                    priceMacro, key);
+            modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+                vehiclePriceConfigValue = entry.getKey();
+                vehiclePrice = entry.getValue();
+            });
+        }
+        return vehiclePrice;
     }
 
     /**
@@ -250,5 +262,14 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
      */
     public String getVehiclePrice() {
         return vehiclePrice;
+    }
+
+    /**
+     * Gets vehicle price config value.
+     *
+     * @return the vehicle price config value
+     */
+    public String getVehiclePriceConfigValue() {
+        return vehiclePriceConfigValue;
     }
 }

@@ -397,6 +397,7 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </quote>
+
                         <offers jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <offers
@@ -413,6 +414,7 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </specsglance>    
+
                     </components>
                 </jlr>
             </container_1992655900>

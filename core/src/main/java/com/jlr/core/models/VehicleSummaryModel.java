@@ -2,7 +2,9 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
+
 import com.jlr.core.pojos.CTAPojo;
 
 /**
@@ -27,6 +29,15 @@ public interface VehicleSummaryModel {
      * @return the price
      */
     default String getPrice() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the price config value.
+     *
+     * @return the price config value
+     */
+    default String getPriceConfigValue() {
         return StringUtils.EMPTY;
     }
 }

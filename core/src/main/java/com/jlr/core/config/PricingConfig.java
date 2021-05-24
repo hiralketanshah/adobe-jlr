@@ -34,10 +34,12 @@ public @interface PricingConfig {
             "en_au|/content/landrover/global/row/published-sites/en_au/config/price-config" };
 
     @AttributeDefinition(name = "Australian states", description = "List of Australian states", options = {
+            @Option(label = "Queensland", value = "QLD"),
+            @Option(label = "Australian Capital Territory", value = "ACT"),
             @Option(label = "New South Wales", value = "NSW"), @Option(label = "Northern Territory", value = "NT"),
             @Option(label = "South Australia", value = "SA"), @Option(label = "Tasmania", value = "TAS"),
             @Option(label = "Victoria", value = "VIC"), @Option(label = "Western Australia", value = "WA") })
-    public String[] listOfStates() default { "NSW", "NT", "SA", "TAS", "VIC", "WA" };
+    public String[] listOfStates() default { "QLD", "ACT", "NSW", "NT", "SA", "TAS", "VIC", "WA" };
 
     @AttributeDefinition(name = "Destination path", description = "Destination path", type = AttributeType.STRING)
     public String[] listOfDestinationPaths() default { "stage|/var/jlr/pricing/stg/", "prod|/var/jlr/pricing/prd/" };

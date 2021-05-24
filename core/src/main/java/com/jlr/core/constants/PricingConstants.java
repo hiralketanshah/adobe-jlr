@@ -117,8 +117,5 @@ public class PricingConstants {
      * The constant PN_YYY.
      */
     public static final String PN_YYY = "yyy";
-    /**
-     * The constant JLR_LOCALE_PRICING.
-     */
-    public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
+
 }

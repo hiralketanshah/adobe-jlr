@@ -1,8 +1,8 @@
-<sly data-sly-use.model="com.jlr.core.models.OffersModel"
+<sly data-sly-use.model="${'com.jlr.core.models.OffersModel' @ key='offers.tco.from.txt'}"
     data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='From,offers.terms.cta,overlay.close'}"
+    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='offers.terms.cta,overlay.close'}"
     data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
-   
+
 <div class="cmp-offersContainer fontSmooth">
     <!-- Page Wrapper dummy for overlay -->
     <div class="pageWrapper">
@@ -29,9 +29,11 @@
                 <div class="offerHeading">
                     <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
                 </div>
+                <sly data-sly-test="${model.price}">
                 <div class="offerPrice">
-                    <p class="Offers__price heading price">${config.configMap['From']} ${model.price}</p>
+                    <p class="Offers__price heading price">${model.priceConfigValue} ${model.price}</p>
                 </div>
+            </sly>
                 <div class="offerBody">
                     ${model.copy @context='html'}
                 </div>

@@ -178,6 +178,18 @@
                                 jcr:primaryType="nt:unstructured"
                                 key="navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown"
                                 value="Drive away price from"/>
+                        <item37
+                                jcr:primaryType="nt:unstructured"
+                                key="marketregionpricing.dxnav.changeregion"
+                                value="{state}. CHANGE"/>
+                        <item38
+                                jcr:primaryType="nt:unstructured"
+                                key="offers.terms.cta"
+                                value="OFFER DETAILS"/>
+                        <item39
+                                jcr:primaryType="nt:unstructured"
+                                key="offers.tco.from.txt"
+                                value="Prices starting from: "/>
                     </configList>
                 </siteconfig>
             </container>
