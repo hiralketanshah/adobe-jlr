@@ -85,13 +85,14 @@ public class PricingUtils {
     public static void saveMinPrices(double minGross, double minNet, double minRetail, String destinationPath,
             String currency, Session session) throws RepositoryException {
 
-        Node modelNode = JcrUtils.getOrCreateByPath(destinationPath, JcrConstants.NT_UNSTRUCTURED, session);
-        modelNode.setProperty(PricingConstants.PN_GROSS, Double.toString(minGross));
-        modelNode.setProperty(PricingConstants.PN_NET, Double.toString(minNet));
-        modelNode.setProperty(PricingConstants.PN_RETAIL, Double.toString(minRetail));
-        modelNode.setProperty(PricingConstants.PN_CURRENCY, currency);
-        modelNode.setProperty(PricingConstants.PN_LAST_FETCHED, System.currentTimeMillis());
-
+        Node modelNode = JcrUtils.getNodeIfExists(destinationPath, session);
+        if (null != modelNode) {
+            modelNode.setProperty(PricingConstants.PN_GROSS, Double.toString(minGross));
+            modelNode.setProperty(PricingConstants.PN_NET, Double.toString(minNet));
+            modelNode.setProperty(PricingConstants.PN_RETAIL, Double.toString(minRetail));
+            modelNode.setProperty(PricingConstants.PN_CURRENCY, currency);
+            modelNode.setProperty(PricingConstants.PN_LAST_FETCHED, System.currentTimeMillis());
+        }
     }
 
     public static double savePriceToCrx(JsonElement priceElement, String destinationPath, String productId,
