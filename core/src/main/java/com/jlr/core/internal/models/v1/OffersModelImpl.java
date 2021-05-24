@@ -78,6 +78,7 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
     /** The cta list. */
     @Inject
+    @Via("resource")
     private Resource ctaList;
 
     /** The price config value. */

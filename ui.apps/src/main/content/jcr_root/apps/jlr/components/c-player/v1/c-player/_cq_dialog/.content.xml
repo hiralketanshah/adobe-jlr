@@ -63,6 +63,9 @@
                                 </items>
                             </column>
                         </items>
+                        <granite:data
+                            jcr:primaryType="nt:unstructured"
+                            c-player-component="true"/>
                     </properties>
                     <cta
                         jcr:primaryType="nt:unstructured"
