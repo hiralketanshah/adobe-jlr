@@ -8,7 +8,7 @@
 
 	background-color: #f8f9f9;
     color: #4a4f54;
-        }
+}
 
 .cmp-interactiveSlider.old .sliderContainer {
 	position: absolute;
@@ -71,7 +71,7 @@
 }
 .cmp-interactiveSlider .sliderContainer .sliderContainerUpper{
 	border-bottom: 1px solid #898d90;
-	padding-bottom: 5px !important;
+	padding-bottom: 5px;
  }
 
 
@@ -139,7 +139,7 @@
 	position: relative;
 	overflow: hidden;
 	height: 730px;
-	background: #FFF
+	/* background: #FFF */
 }
 
 .cmp-interactiveSlider .frameSliderBg,
@@ -247,7 +247,7 @@
 }
 
 .cmp-interactiveSlider .sliderContainer {
-	background: #fff;
+	/* background: #fff; */
 	position: static;
 	left: 0;
 	right: 0;
@@ -267,7 +267,7 @@
 	text-transform: uppercase;
 	font-size:11px;
 	float: left;
-	background: #fff;
+	/* background: #fff; */
 	color: #0C121C;
 	height: 45px;
 	line-height: 14px;
@@ -325,7 +325,7 @@
 }
 
 .cmp-interactiveSlider .infoContainer .content {
-	background: #fff;
+	/* background: #fff; */
 	/* opacity: .97; */
 	z-index: 3;
 	-webkit-transition: height .3s;
@@ -358,7 +358,7 @@
 	font-size: 10px;
 	font-weight: normal;
 	/* opacity: .97; */
-	background: #fff;
+	/* background: #fff; */
 	width: 100%;
 	/* padding: 24px */
 }
@@ -450,7 +450,7 @@
 	top: 2px
 }
 
-.cmp-interactiveSlider .infoContainer .tabData .literage .litres p {	
+.cmp-interactiveSlider .infoContainer .tabData .literage .litres p {
 	font-family: "lr_ot4";
 	display: inline-block;
 	position: relative;
@@ -768,11 +768,11 @@
 		.cmp-interactiveSlider .infoContainer .tabData .dimensions {
 			text-align: center
 		}
-	
+
 		.cmp-interactiveSlider {
 			height: auto
 		}
-	
+
 		.cmp-interactiveSlider .headings {
 			padding-bottom: 10px;
 			max-width: none;
@@ -781,7 +781,7 @@
 		.cmp-interactiveSlider .subHeading {
 			display: none
 		}
-	
+
 		.cmp-interactiveSlider .infoContainer .content {
 			-webkit-transform: translateX(0);
 			-moz-transform: translateX(0);
@@ -793,11 +793,11 @@
 		.cmp-interactiveSlider .infoContainer .tabData {
 			opacity: 1
 		}
-		
+
 		.cmp-interactiveSlider .royalSlider {
 			min-height: 0
 		}
-	
+
 		.cmp-interactiveSlider .sliderTitle {
 			-webkit-transition: opacity 150ms ease-out;
 			-webkit-transition-delay: 0;
@@ -841,7 +841,7 @@
 		-o-transform: translateX(0);
 		transform: translateX(0)
 	}
-	
+
 
 }
 
@@ -857,7 +857,7 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) and (orientation: landscape) {
-	
+
 	.cmp-interactiveSlider .outerContainer {
 		margin: 0 30px
 	}
@@ -961,38 +961,30 @@
     	-o-transition: top .3s;
     	transition: top .3s;
 	}
+	.cmp-interactiveSlider .infoContainer .content{
+		height:503px !important;
+	}
+
+	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
+		padding-top:40px;
+	}
 	.cmp-interactiveSlider .sliderContainer{
 		bottom:23px;
 	}
-
-	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons{
-		margin: 0px 22px;
-	}
-	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons:first-child{
-		margin-left: 0;
-	}
-	.cmp-interactiveSlider:not(.old) .sliderControls .sliderTrack{
-		margin-left: 0;
-		margin-right: 0;
-	}
-
 	.cmp-interactiveSlider:not(.old) .sliderControls{
 		margin: 0;
     	margin-top: 20px;
 	}
 
-
-	.cmp-interactiveSlider:not(.old) .sliderControls .sliderHandle .handleInner{
-		left:0;
-	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper{
-		border-bottom: 1px solid;
-		padding-bottom: 6px;
+
+		padding-bottom: 1px !important;
+
 	 }
 
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper,
 	.cmp-interactiveSlider .sliderContainer .sliderContainerLower{
-		width:879px;
+		width: 65.7%;
 		/* height:41px; */
 	}
 
@@ -1021,7 +1013,7 @@
 		line-height: 18px;
 		width:332px;
 		height:24px;
-	
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage{
 		font-family: "LandRoverWeb-Bold";
@@ -1031,10 +1023,10 @@
     	color: #0C121C;
     	text-transform: uppercase;
     	margin-bottom: 19px;
-		
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .copy p{
-			
+
     	margin-bottom: 2px;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres p{
@@ -1044,16 +1036,16 @@
 		line-height:24px;
 		width:57px;
 		height:24px;
-		
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 420px;
 		height: 238px;
 		margin: 0 auto;
 	}
-	
 
-	
+
+
 	.cmp-interactiveSlider .frameSliderItem{
 		height:505px;
 	}
@@ -1084,10 +1076,10 @@
 	}
 	.clickToInteract__image img{
 		width: 70px;
-		height: 70px;	
+		height: 70px;
 	}
-	
-		
+
+
 
 }
 
@@ -1096,19 +1088,41 @@
 @media screen and (min-width:901px) and (max-width:1919px){
 	.cmp-interactiveSlider{
 		padding: 59px 60px 60px 60px;
-		width: 1280px;
-		margin: 0 auto;
+		/* width: 1280px;
+		margin: 0 auto; */
 	}
 	.sliderContainer{
-		
+
 		padding-bottom: 24px;
 	}
-	
+
 
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper,
 	.cmp-interactiveSlider .sliderContainer .sliderContainerLower{
-		width:760px;
+		width: 65.52%;
 		/* height: 41px; */
+	}
+	.cmp-interactiveSlider .infoContainer{
+		position: absolute;
+    	top: 0px;
+		margin-left: 40px;
+		width: 31.1%;
+		height: 435px;
+    	z-index: 2;
+		right:0;
+    	-webkit-transition: top .3s;
+    	-moz-transition: top .3s;
+    	-o-transition: top .3s;
+    	transition: top .3s;
+	}
+	.cmp-interactiveSlider .infoContainer .content{
+		height: 435px !important;
+	}
+	.shelfComponent {
+		display: block;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 
 	.cmp-interactiveSlider .clickToInteract{
@@ -1125,7 +1139,7 @@
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer{
 		width: 65.52%;
-		height:496px;
+		height:428px;
 		left: 0;
 		top:0;
 	}
@@ -1135,7 +1149,7 @@
 		line-height: 18px;
 		width:332px;
 		height:24px;
-	
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres p{
 		font-size: 18px;
@@ -1144,7 +1158,7 @@
 		line-height:24px;
 		width:57px;
 		height:24px;
-		
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage{
 		font-family: "LandRoverWeb-Bold";
@@ -1154,35 +1168,18 @@
     	color: #0C121C;
     	text-transform: uppercase;
     	margin-bottom: 19px;
-		
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .copy{
-		
+
     	margin-bottom: 16px;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
-		width: 360px;
+		width: 99.7%;
 		height: 205px;
 		margin-top:6px;
 	}
-	.cmp-interactiveSlider .infoContainer{
-		position: absolute;
-    	top: 0px;
-		margin-left: 40px;
-		width: 31.1%;
-		height: 435px;
-    	z-index: 2;
-		right:0;
-    	-webkit-transition: top .3s;
-    	-moz-transition: top .3s;
-    	-o-transition: top .3s;
-    	transition: top .3s;
-	}
-	.shelfComponent {
-		display: block;
-		padding: 0;
-		-webkit-font-smoothing: antialiased;
-	}
+
 	.cmp-interactiveSlider .frameSliderItem{
 		height: 496px;
 	}
@@ -1195,7 +1192,7 @@
 
 
 	.bgforcaption{
-		background-color:black;opacity: 0.8;width:170px;height:170px;background-color: black;
+		background-color:black;
         opacity: 0.8;
         width:170px;
         height:170px;
@@ -1203,12 +1200,12 @@
 		top:252px;
 		left:355px;
 		right:755px;
-		bottom:210px;		
+		bottom:210px;
 	}
 	.clickToInteract__image img{
 		width:70px;
 		height:70px;
-	
+
 	}
 	.clickToInteract__image{
 
@@ -1220,9 +1217,9 @@
 
 
 
-	
 
-	
+
+
 
 }
 
@@ -1231,13 +1228,18 @@
 @media screen and (min-width:501px) and (max-width:900px){
 	.cmp-interactiveSlider{
 		padding: 39px 30px 60px 30px;
-		width: 768px;
-		margin: 0 auto;
+		/* width: 768px;
+		margin: 0 auto; */
 	}
 	.sliderContainer{
-		width:708px;
+
 		/* height: 41px; */
 		padding-bottom: 16px !important;
+	}
+	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper,
+	.cmp-interactiveSlider .sliderContainer .sliderContainerLower{
+		width: 99.9%;
+		/* height: 41px; */
 	}
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer{
@@ -1247,9 +1249,9 @@
 		left: 0;
 	    left: 0;
  		margin: 0 auto;
-    	width: 708px;
+		width: 99.9%;
 		height:398px;
-				
+
 	}
 	.cmp-interactiveSlider .clickToInteract{
 
@@ -1272,8 +1274,8 @@
 	.cmp-interactiveSlider .sliderContainerLower{
 		left: 0;
 	}
-	
-	
+
+
 	.shelfComponent {
 		display: block;
 		padding: 0;
@@ -1283,7 +1285,7 @@
 		position: absolute;
 		top: 413px;
 		width: 96%;
-		height: 190px;	
+		height: 190px;
 		right:0;
 		left: 0;
     	-webkit-transition: top .3s;
@@ -1301,7 +1303,7 @@
     	top: 20px;
     	left: 361px;
 	}
-	
+
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons span {
 		display: block;
 	}
@@ -1336,7 +1338,7 @@
 		line-height:21px;
 		width:57px;
 		height:24px;
-		
+
 	}
 
 	.bgforcaption{
@@ -1349,13 +1351,13 @@
     	right:316px;
     	bottom:412px;
     	position: absolute;
-		
+
 	}
 	.clickToInteract__image img{
 		width:59px;
 		height:58px;
-	
-	
+
+
 	}
 	.clickToInteract__image{
 
@@ -1363,7 +1365,7 @@
 		margin-left:38px;
 		margin-right:39px;
 		margin-bottom:15px;
-	
+
 	}
 
 
@@ -1374,8 +1376,8 @@
 @media screen and (min-width:1px) and (max-width:500px){
 	.cmp-interactiveSlider{
 		padding: 14px 25px 40px 25px;
-		width:375px;
-		margin: 0 auto;
+		/* width:375px;
+		margin: 0 auto; */
 	}
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer
@@ -1385,7 +1387,7 @@
 		margin: 0 auto;
 		width: 100%;
 		/* width:325px; */
-		height:183px;	
+		height:183px;
 	}
 	.cmp-interactiveSlider:not(.old) .frameSliderItem
 	{
@@ -1400,7 +1402,7 @@
 		bottom: 0;
 		margin-top: 15px;
 	}
-	
+
 	.cmp-interactiveSlider .infoContainer .content {
 		-webkit-transform: translateX(0);
 		-moz-transform: translateX(0);
@@ -1432,7 +1434,7 @@
 		letter-spacing:1px;
 		width:332px;
 		height:27px;
-	
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres p{
 		font-size: 20px;
@@ -1442,7 +1444,7 @@
 		width:57px;
 		height:24px;
 		top: -22px !important;
-		
+
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage span{
 		font-family: "LandRoverWeb-Bold";
@@ -1452,7 +1454,7 @@
     	color: #0C121C;
     	text-transform: uppercase;
     	margin-bottom: 18px;
-				
+
 	}
 
 
@@ -1463,7 +1465,7 @@
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .copy{
 		width:340px;
-		height:38px;   	
+		height:38px;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 324px;
@@ -1476,14 +1478,14 @@
 
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons span {
 		display: none;
-		
+
 	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons .mobile {
 		display: block;
 		width: 52.063px;
 	}
 
-	
+
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres{
         top: -24px !important;
     }
@@ -1510,13 +1512,13 @@
 		right:127px;
 		bottom:410px;
     	position: absolute;
-		
+
 	}
 	.clickToInteract__image img{
 		width:45px;
-		height:45px;	
-	
-	
+		height:45px;
+
+
 	}
 	.clickToInteract__image{
 
@@ -1524,8 +1526,8 @@
 		margin-left:37px;
 		margin-right:38px;
 		margin-bottom:15px;
-	
-	
+
+
 	}
 }
 @media screen and (min-width:400px) and (max-width:500px){
@@ -1533,12 +1535,3 @@
 		top: 240px !important;
 	}
 }
-
-
-
-
-
-
-
-
-
