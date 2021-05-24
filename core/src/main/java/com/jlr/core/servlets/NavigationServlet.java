@@ -32,7 +32,6 @@ import com.day.cq.commons.Externalizer;
 import com.day.cq.contentsync.handler.util.RequestResponseFactory;
 import com.day.cq.wcm.api.WCMMode;
 import com.jlr.core.config.NavigationServletConfig;
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.utils.ErrorUtils;
@@ -77,27 +76,19 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         Boolean retailerLocatorLink =
                         request.getParameter("retailerLocatorLink") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("retailerLocatorLink"));
 
-        LOGGER.info(":::::::::::::: Within DoGet Method ::::::::::::::::::::");
+
 
         Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
         /* TODO: give proper header nav page path - Remove this after testing */
         String requestPath = config.headerPath();
-        if (locale.equalsIgnoreCase("en_AU") && !requestPath.contains(CommonConstants.FORWARD_SLASH + locale.toLowerCase() + CommonConstants.FORWARD_SLASH)) {
-            if (requestPath.contains("europe")) {
-                requestPath = requestPath.replace("/europe/", "/row/");
-            }
-            requestPath = requestPath.replace("de_de", locale.toLowerCase());
+        if (locale.equalsIgnoreCase("en_AU")) {
+            requestPath = "/content/landrover/global/row/published-sites/en_au/config/navigation/header.html";
+        } else {
+            requestPath = "/content/landrover/global/europe/published-sites/de_de/config/navigation/header.html";
         }
-        LOGGER.info(":::::::::::::: Post RequestPath : DoGet Method :::::::::::::::::::: {}", requestPath);
-        // TODO: remove thread sleep after testing
-        try {
-            LOGGER.info("Sleeping for 5 sec");
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            LOGGER.error(e.getMessage());
-        }
+
 
         HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
         req.setAttribute(JLR_LOCALE_PRICING, request.getCookie(JLR_LOCALE_PRICING));
