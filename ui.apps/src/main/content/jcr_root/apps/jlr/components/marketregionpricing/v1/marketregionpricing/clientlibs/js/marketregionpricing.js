@@ -1449,7 +1449,7 @@
       this.dropDownSelectionKey = "";
       this.element = el;
       this.open = false;
-      this.marketButton = document.querySelectorAll('.cmp-marketButton');
+      this.marketButton = [...document.querySelectorAll('.cmp-marketButton'),...document.querySelectorAll('.MarketRegionalPricing-triggerer')];
       if(this.marketButton.length>0){
           this.submitButton = el.querySelector('.cmp-marketsubmit');
           this.button = el.querySelector('.dxDropdown__button');
@@ -1463,12 +1463,11 @@
           this.closeModal = el.querySelector('.Modal__close');
           const firstItem = el.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled');
           this.addActiveDropdownItem(firstItem);
-          for (var i = 0; i < this.marketButton.length; i++) {
-            this.marketButton[i].addEventListener('click',e=>{
-              this.marketPricing.classList.remove('cmp-hidemarket');
-              this.marketPricing.classList.add('cmp-showmarket');
-            });
-        }
+			$(document).on('click','.MarketRegionalPricing-triggerer',()=>{
+          this.marketPricing.classList.remove('cmp-hidemarket');
+          this.marketPricing.classList.add('cmp-showmarket');
+		});
+
           this.closeModal.addEventListener('click',e=>{
             this.marketPricing.classList.remove('cmp-showmarket');
             this.marketPricing.classList.add('cmp-hidemarket');

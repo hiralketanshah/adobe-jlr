@@ -35,6 +35,7 @@ import com.day.cq.wcm.api.Page;
 import com.jlr.core.config.PricingConfig;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.pojos.PricingPojo;
 import com.jlr.core.services.Dictionary;
 import com.jlr.core.services.TcoService;
@@ -63,12 +64,15 @@ public class TcoServiceImpl implements TcoService {
     public Map<String, String> getModelPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request, Page currentPage,
                     InheritanceValueMap pageProperties, String priceMacro, String configKey) {
 
+
         if (StringUtils.isEmpty(priceMacro)) {
             return Collections.emptyMap();
         }
         Map<String, String> modelPriceMap = new HashMap<>();
         PricingPojo pricingPojo = new PricingPojo();
         String region = getRegionFromPage(currentPage, resourceResolver);
+
+
 
         if (StringUtils.isEmpty(region)) {
             return Collections.emptyMap();
@@ -78,6 +82,14 @@ public class TcoServiceImpl implements TcoService {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.info("Region detected is {} with price macro {}", region, priceMacro);
         }
+
+        Boolean mrp = null != request.getAttribute(PricingConstants.PRICING_SUPPRESSION)
+                        ? Boolean.valueOf((boolean) request.getAttribute(PricingConstants.PRICING_SUPPRESSION))
+                        : true;
+        if (!mrp) {
+            return Collections.emptyMap();
+        }
+
 
         if (StringUtils.isNotEmpty(priceMacro)) {
             if (!(Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) && (priceMacro.contains("{{") && priceMacro.contains("}}"))
@@ -151,8 +163,16 @@ public class TcoServiceImpl implements TcoService {
     }
 
     private String getRegionFromPage(Page currentPage, ResourceResolver resourceResolver) {
+
+
         String siteRootPath = getSiteRootPath(currentPage);
+
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.info("siteRootPath : {}", siteRootPath);
+        }
+
         Resource resource = resourceResolver.getResource(siteRootPath);
+
         // TODO: need to process other regions, default to "de" for now
         String region = StringUtils.EMPTY;
         if (resource.getName().contains("en_au") || resource.getName().contains("aus")) {
@@ -160,6 +180,7 @@ public class TcoServiceImpl implements TcoService {
         } else if (resource.getName().contains("de") || resource.getName().contains("deu")) {
             region = "de";
         }
+
         return region;
     }
 

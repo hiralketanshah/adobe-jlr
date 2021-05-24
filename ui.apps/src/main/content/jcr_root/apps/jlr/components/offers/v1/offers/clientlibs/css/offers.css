@@ -1,362 +1,445 @@
-.cmp-offersContainer p:first-letter,.offerDetails p:first-letter{
+.cmp-offersContainer p:first-letter,
+.offerDetails p:first-letter {
   text-transform: capitalize;
 }
-.slateblue .cmp-offersContainer .offerHeading p{
+
+.offerDetails .Modal__title {
+  text-transform: uppercase;
+}
+
+.offerDetails .termsConditions p:first-letter {
+  text-transform: capitalize;
+}
+
+.slateblue .cmp-offersContainer .offerHeading p {
   color: #FFFFFF;
 }
-.slateblue .bullets--line  li:after {
-	background-color: #FFFFFF;
+
+.slateblue .bullets--line li:after {
+  background-color: #FFFFFF;
 }
-#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary{
+
+#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary {
   background-color: #e9ecec;
 }
-#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover
-  {
-    background-color: #4a4f54;
-    box-shadow: 0 0 0 1px #fff inset;
-    color: #FFFFFF;
-  }
+
+#landrover .slateblue .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover {
+  background-color: #4a4f54;
+  box-shadow: 0 0 0 1px #fff inset;
+  color: #FFFFFF;
+}
+
 #landrover .slateblue .cmp-offersContainer .secondaryLinkWithStyle:hover {
   color: #C9C9C9;
-    text-decoration: underline;
+  text-decoration: underline;
 }
-.cmp-offersContainer .offerDescription .offerLink{
+
+.cmp-offersContainer .offerDescription .offerLink {
   display: none;
 }
+
 .cmp-offersContainer__picture {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
-  .cmp-offersContainer .offer {
-    position: relative;
-    /* background: #e4e8e8; */
-  }
-  .cmp-offersContainer .offer .offerImage {
-    padding: 0 0 43.5%;
-    position: relative;
-    /* background: #f8f9f9; */
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.cmp-offersContainer .offer {
+  position: relative;
+  /* background: #e4e8e8; */
+}
+
+.cmp-offersContainer .offer .offerImage {
+  padding: 0 0 43.5%;
+  position: relative;
+  /* background: #f8f9f9; */
+}
+
+.cmp-offersContainer .offer .offerDescription {
+  /* background: #e4e8e8; */
+  padding: 30px 30px;
+}
+
+@media screen and (min-width: 901px) {
   .cmp-offersContainer .offer .offerDescription {
-    /* background: #e4e8e8; */
-    padding: 30px 30px;
+    padding: 0px 90px;
   }
-  @media screen and (min-width: 901px) {
-    .cmp-offersContainer .offer .offerDescription {
-      padding: 0px 90px;
-    }
-  }
-  .cmp-offersContainer .offer .offerDescription .price {
-    margin-bottom: 24px;
-    color: #4a4f54;
-  }
-  .cmp-offersContainer .offer .offerDescription .primaryLinkWithStyle {
-    margin-bottom: 30px;
-  }
-  .cmp-offersContainer .offer .offerDescription .bullets {
-    margin-top: 24px;
-    margin-bottom: 12px;
-  }
-  .cmp-offersContainer .offer .offerDescription .bullets li {
-    margin-bottom: 6px;
-  }
-  .cmp-offersContainer .offer .offerDescription .secondaryLinkWithStyle {
-    display: block;
-  }
-  .cmp-offersContainer .offer:nth-child(2n),
-  .cmp-offersContainer .offer:nth-child(2n) .offerDescription {
-    /* background: #4a4f54; */
-  }
-  .cmp-offersContainer .offer:nth-child(2n) .offerDescription {
-    /* color: #e4e8e8; */
-  }
-  .cmp-offersContainer
-    .offer:nth-child(2n)
-    .offerDescription
-    .bullets--line
-    li:after {
-    /* background-color: #e4e8e8; */
-  }
-  .cmp-offersContainer .offer:nth-child(2n) .offerDescription .title,
-  .cmp-offersContainer .offer:nth-child(2n) .offerDescription .price {
-    /* color: #e4e8e8; */
-  }
-  .cmp-offersContainer .offer .offerFinanceBoxes .headingWrapper br {
-    visibility: hidden;
-  }
-  .cmp-offersContainer .offer .offerFinanceBoxes .headingLinear {
-    margin-bottom: 14px;
-  }
-  .cmp-offersContainer .offer .offerFinanceBoxes .subHeading {
-    line-height: 1.4em;
-  }
-  #landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary {
-    /* background-color: #e9ecec; */
-    color: #005a2b;
-  }
-  #landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover,
-  #landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:active {
-    background-color: #fff;
-    color: #0c121c;
-    box-shadow: 0 0 0 1px #0c121c;
-  }
-  #landrover
-    .cmp-offersContainer
-    .offer
-    .offerFinanceBoxes
-    .button-tertiary.disabled {
-    background-color: rgba(153, 153, 153, 0.2);
-    color: #fff;
-  }
-  #landrover.focusStylesOn
-    .cmp-offersContainer
-    .offer
-    .offerFinanceBoxes
-    .button-tertiary:focus {
-    background-color: #fff;
-    color: #0c121c;
-    box-shadow: 0 0 0 1px #0c121c, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
-  }
+}
+
+.cmp-offersContainer .offer .offerDescription .price {
+  margin-bottom: 24px;
+  color: #4a4f54;
+}
+
+.cmp-offersContainer .offer .offerDescription .primaryLinkWithStyle {
+  margin-bottom: 30px;
+}
+
+.cmp-offersContainer .offer .offerDescription .bullets {
+  margin-top: 24px;
+  margin-bottom: 12px;
+}
+
+.cmp-offersContainer .offer .offerDescription .bullets li {
+  margin-bottom: 6px;
+}
+
+.cmp-offersContainer .offer .offerDescription .secondaryLinkWithStyle {
+  display: block;
+}
+
+.cmp-offersContainer .offer:nth-child(2n),
+.cmp-offersContainer .offer:nth-child(2n) .offerDescription {
+  /* background: #4a4f54; */
+}
+
+.cmp-offersContainer .offer:nth-child(2n) .offerDescription {
+  /* color: #e4e8e8; */
+}
+
+.cmp-offersContainer .offer:nth-child(2n) .offerDescription .bullets--line li:after {
+  /* background-color: #e4e8e8; */
+}
+
+.cmp-offersContainer .offer:nth-child(2n) .offerDescription .title,
+.cmp-offersContainer .offer:nth-child(2n) .offerDescription .price {
+  /* color: #e4e8e8; */
+}
+
+.cmp-offersContainer .offer .offerFinanceBoxes .headingWrapper br {
+  visibility: hidden;
+}
+
+.cmp-offersContainer .offer .offerFinanceBoxes .headingLinear {
+  margin-bottom: 14px;
+}
+
+.cmp-offersContainer .offer .offerFinanceBoxes .subHeading {
+  line-height: 1.4em;
+}
+
+#landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary {
+  /* background-color: #e9ecec; */
+  color: #005a2b;
+}
+
+#landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:hover,
+#landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:active {
+  background-color: #fff;
+  color: #0c121c;
+  box-shadow: 0 0 0 1px #0c121c;
+}
+
+#landrover .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary.disabled {
+  background-color: rgba(153, 153, 153, 0.2);
+  color: #fff;
+}
+
+#landrover.focusStylesOn .cmp-offersContainer .offer .offerFinanceBoxes .button-tertiary:focus {
+  background-color: #fff;
+  color: #0c121c;
+  box-shadow: 0 0 0 1px #0c121c, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2;
+}
+
+.cmp-offersContainer .offer .offerInfo {
+  width: 100%;
+  padding: 30px 30px;
+}
+
+@media screen and (min-width: 901px) {
   .cmp-offersContainer .offer .offerInfo {
-    width: 100%;
-    padding: 30px 30px;
+    padding: 80px 90px;
   }
-  @media screen and (min-width: 901px) {
-    .cmp-offersContainer .offer .offerInfo {
-      padding: 80px 90px;
-    }
+}
+
+.cmp-offersContainer .offer .offerInfo .offerDetailsLink {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: inherit;
+}
+
+.cmp-offersContainer .offer .offerInfo .offerDetailsLink:hover,
+.cmp-offersContainer .offer .offerInfo .offerDetailsLink:focus {
+  border: 0;
+  outline: 0;
+  background: none;
+}
+
+.cmp-offersContainer .offer .offerInfo [data-modal-content] {
+  display: none;
+}
+
+.cmp-offersContainer .offer .offerInfo:first-child:last-child {
+  width: 100%;
+}
+
+.cmp-offersContainer .offerInfo h4.heading,
+.heading.headingH4 {
+  font-family: "lr_ot4";
+  font-weight: normal;
+}
+
+.cmp-offersContainer .currency,
+.cmp-offersContainer .currency small {
+  font-family: "AvenirNext-DemiBold";
+  font-size: 28px;
+  font-weight: normal;
+}
+
+.cmp-offersContainer .amount {
+  font-family: "lr_ot4";
+  font-size: 56px;
+  font-weight: bold;
+}
+
+.cmp-offersContainer .percent {
+  font-family: "lr_ot4";
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+.cmp-offersContainer .Offers__amount {
+  margin-bottom: 13px;
+}
+
+.cmp-offersContainer .Offers__info-body {
+  margin-bottom: 13px;
+}
+
+.cmp-offersContainer .offerDetailsLink {
+  margin-top: 24px;
+}
+
+@media screen and (min-width: 901px) {
+
+  .cmp-offersContainer .offer .offerFinanceBoxes,
+  .cmp-offersContainer .offer .offerDetails,
+  .cmp-offersContainer .offer .offerImage {
+    width: 65%;
+    width: calc(66.667% - 43px);
   }
-  .cmp-offersContainer .offer .offerInfo .offerDetailsLink {
-    padding-top: 0;
-    padding-bottom: 0;
-    font-family: inherit;
+
+  .cmp-offersContainer .offer .offerMainFrame {
+    position: relative;
+    *zoom: 1;
   }
-  .cmp-offersContainer .offer .offerInfo .offerDetailsLink:hover,
-  .cmp-offersContainer .offer .offerInfo .offerDetailsLink:focus {
-    border: 0;
-    outline: 0;
-    background: none;
+
+  .cmp-offersContainer .offer .offerMainFrame:before,
+  .cmp-offersContainer .offer .offerMainFrame:after {
+    content: " ";
+    display: table;
   }
-  .cmp-offersContainer .offer .offerInfo [data-modal-content] {
-    display: none;
+
+  .cmp-offersContainer .offer .offerMainFrame:after {
+    clear: both;
   }
-  .cmp-offersContainer .offer .offerInfo:first-child:last-child {
-    width: 100%;
+
+  .cmp-offersContainer .offer .offerImage {
+    float: right;
   }
-  .cmp-offersContainer .offerInfo h4.heading, .heading.headingH4 {
-    font-family: "lr_ot4";
-    font-weight: normal;
+
+  .cmp-offersContainer .offer .offerDescription {
+    width: 35%;
+    width: calc(33.333% + 43px);
+    padding-right: 40px;
+    float: left;
   }
-  .cmp-offersContainer .currency, .cmp-offersContainer .currency small {
-    font-family: "AvenirNext-DemiBold";
-    font-size: 28px;
-    font-weight: normal;
+
+  .cmp-offersContainer .offer .offerInfo {
+    padding: 10%;
+    height: 400px;
   }
-  .cmp-offersContainer .amount {
-    font-family: "lr_ot4";
-    font-size: 56px;
-    font-weight: bold;
-  }
-  .cmp-offersContainer .percent {
-    font-family: "lr_ot4";
-    font-size: 28px;
-    font-weight: bold;
-    margin-left: -5px;
-  }
-  .cmp-offersContainer .Offers__amount {
-   margin-bottom: 13px;
-  }
-  .cmp-offersContainer .Offers__info-body {
-    margin-bottom: 13px;
-   }
-   .cmp-offersContainer .offerDetailsLink{
-     margin-top: 24px;
-   }
-  @media screen and (min-width: 901px) {
-    .cmp-offersContainer .offer .offerFinanceBoxes,
-    .cmp-offersContainer .offer .offerDetails,
-    .cmp-offersContainer .offer .offerImage {
-      width: 65%;
-      width: calc(66.667% - 43px);
-    }
-    .cmp-offersContainer .offer .offerMainFrame {
-      position: relative;
-      *zoom: 1;
-    }
-    .cmp-offersContainer .offer .offerMainFrame:before,
-    .cmp-offersContainer .offer .offerMainFrame:after {
-      content: " ";
-      display: table;
-    }
-    .cmp-offersContainer .offer .offerMainFrame:after {
-      clear: both;
-    }
-    .cmp-offersContainer .offer .offerImage {
-      float: right;
-    }
-    .cmp-offersContainer .offer .offerDescription {
-      width: 35%;
-      width: calc(33.333% + 43px);
-      padding-right: 40px;
-      float: left;
-    }
-    .cmp-offersContainer .offer .offerInfo {
-      padding: 10%;
-      height: 400px;
-    }
-    .cmp-offersContainer .offer .offerInfo .amount {
-      /* font-size: 80px;
+
+  .cmp-offersContainer .offer .offerInfo .amount {
+    /* font-size: 80px;
       font-size: 6vw; */
-    }
-    .cmp-offersContainer .offer .offerLink{
-      width: calc(33.333% + 13px);
-      float: left;
-    }
-  
   }
-  @media screen and (min-width: 1px) and (max-width: 900px) {
-    .cmp-offersContainer .offer .offerFinanceBoxes {
-      float: none;
-    }
-    .cmp-offersContainer .offer .offerFinanceBoxes .headingLinear {
-      font-size: 60px;
-    }
+
+  .cmp-offersContainer .offer .offerLink {
+    width: calc(33.333% + 13px);
+    float: left;
   }
-  @media screen and (min-width: 740px) and (max-width: 1023px) {
-    .cmp-offersContainer .offer .offerInfo {
-      padding: 50px;
-    }
+
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-offersContainer .offer .offerFinanceBoxes {
+    float: none;
   }
-  .no-js .cmp-offersContainer .offer {
-    padding-bottom: 50px;
-    background-color: #000;
+
+  .cmp-offersContainer .offer .offerFinanceBoxes .headingLinear {
+    font-size: 60px;
   }
-  .no-js .cmp-offersContainer .offer .offerInfo .heading span {
+}
+
+@media screen and (min-width: 740px) and (max-width: 1023px) {
+  .cmp-offersContainer .offer .offerInfo {
+    padding: 50px;
+  }
+}
+
+.no-js .cmp-offersContainer .offer {
+  padding-bottom: 50px;
+  background-color: #000;
+}
+
+.no-js .cmp-offersContainer .offer .offerInfo .heading span {
+  display: inline-block;
+}
+
+.no-js .cmp-offersContainer .offer .offerImage {
+  padding: 0;
+}
+
+.no-js .cmp-offersContainer .offer img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cmp-offersContainer .Offers__price,
+.cmp-offersContainer .Offers__amount,
+.cmp-offersContainer .Offers__info-body {
+  font-family: "lr_ot4", "arial", "helvetica", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cmp-offersContainer .offerHeading {
+  text-transform: uppercase;
+}
+
+.cmp-offersContainer .Offers__info-body {
+  line-height: 1.4em;
+}
+
+.cmp-offersContainer .offerFinanceBoxes .button-tertiary {
+  letter-spacing: 2.5px;
+}
+
+/* NEW DE */
+.cmp-offersContainer .Offers__info-body {
+  text-transform: uppercase;
+}
+
+.cmp-offersContainer .secondaryLinkContainer {
+  width: 100%;
+}
+
+@media screen and (min-width: 1280px) {
+  .cmp-offersContainer .offer .offerImage {
+    padding: 0 0 36.9%;
+  }
+
+  .cmp-offersContainer .offer .offerFinanceBoxes {
+    float: right;
+    width: 100%;
+  }
+
+  .cmp-offersContainer .offer .offerInfo {
+    width: 49.99%;
+    margin-right: -0.7%;
+    vertical-align: top;
     display: inline-block;
   }
-  .no-js .cmp-offersContainer .offer .offerImage {
-    padding: 0;
+
+  .offerMainFrame {
+    margin-bottom: 80px;
   }
-  .no-js .cmp-offersContainer .offer img {
-    display: block;
-    width: 100%;
+
+  .cmp-offersContainer ul {
+    margin-top: 24px;
+  }
+
+  .cmp-offersContainer .offer .offerDescription .price {
+    margin-bottom: 16px;
+    color: #4a4f54;
+  }
+
+  .cmp-offersContainer .offerLink {
+    margin-top: 24px;
+  }
+
+  .cmp-offersContainer {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+
+  .offerImage {
+    margin-top: 62px;
+  }
+
+  .cmp-offersContainer .offerHeading h2 {
+    margin-bottom: 0.34em;
+  }
+
+  .cmp-offersContainer .offer .offerDescription {
+    margin-top: 51px;
+    padding-left: 0px;
+    width: calc(33.333% + 12px);
+  }
+
+  .cmp-offersContainer .offer .offerFinanceBoxes,
+  .cmp-offersContainer .offer .offerDetails,
+  .cmp-offersContainer .offer .offerImage {
+    width: 65%;
+    width: calc(66.667% - 13px);
+  }
+
+  .cmp-offersContainer .offer .offerInfo {
+    padding-top: 0px;
+    margin-top: 17px;
+    padding-left: 0px;
+    padding-bottom: 0px;
     height: auto;
   }
-  .cmp-offersContainer .Offers__price,
-  .cmp-offersContainer .Offers__amount,
-  .cmp-offersContainer .Offers__info-body {
-    font-family: "lr_ot4", "arial", "helvetica", sans-serif;
-    font-weight: 700;
-    line-height: 1;
+}
+
+@media screen and (min-width: 1920px) {
+  .cmp-offersContainer .offer .offerImage {
+    padding: 0 0 37.02%;
   }
-  .cmp-offersContainer .offerHeading{
-    text-transform: uppercase;
-  }
-  .cmp-offersContainer .Offers__info-body {
-    line-height: 1.4em;
-  }
-  .cmp-offersContainer .offerFinanceBoxes .button-tertiary {
-    letter-spacing: 2.5px;
-  }
-  
-  /* NEW DE */
-  .cmp-offersContainer .Offers__info-body{
-    text-transform: uppercase;
-  }
-  .cmp-offersContainer .secondaryLinkContainer{
-    width: 100%;
-  }
-  @media screen and (min-width: 1280px) {
-    .cmp-offersContainer .offer .offerImage {
-      padding: 0 0 36.9%;
-    }
-    .cmp-offersContainer .offer .offerFinanceBoxes {
-      float: right;
-      width: 100%;
-    }
-    .cmp-offersContainer .offer .offerInfo {
-      width: 49.99%;
-      margin-right: -0.7%;
-      vertical-align: top;
-      display: inline-block;
-    }
-    .offerMainFrame{
-      margin-bottom: 80px;
-    }
-    .cmp-offersContainer ul{
-      margin-top: 24px;
-    }
-    .cmp-offersContainer .offer .offerDescription .price {
-      margin-bottom: 16px;
-      color: #4a4f54;
-    }
-    .cmp-offersContainer .offerLink{
-      margin-top: 24px;
-    }
-      .cmp-offersContainer{
-          margin-left: 60px;
-          margin-right: 60px;
-      }
-      .offerImage{
-          margin-top: 62px;
-      }
-      .cmp-offersContainer .offerHeading h2{
-        margin-bottom: 0.34em;
-      }
-      .cmp-offersContainer .offer .offerDescription {
-          margin-top: 51px;
-          padding-left: 0px;
-          width: calc(33.333% + 12px);
-      }
-      .cmp-offersContainer .offer .offerFinanceBoxes, .cmp-offersContainer .offer .offerDetails, .cmp-offersContainer .offer .offerImage {
-          width: 65%;
-          width: calc(66.667% - 13px);
-      }
-      .cmp-offersContainer .offer .offerInfo {
-          padding-top: 0px;
-          margin-top: 17px;
-          padding-left: 0px;
-          padding-bottom: 0px;
-          height: auto;
-      }
-    }
-    @media screen and (min-width: 1920px) {
-      .cmp-offersContainer .offer .offerImage {
-        padding: 0 0 37.02%;
-      }
-    }
+}
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  
-  .offerMainFrame{
+
+  .offerMainFrame {
     margin-bottom: 61px;
   }
-  .cmp-offersContainer .offerDescription .offerLink{
+
+  .cmp-offersContainer .offerDescription .offerLink {
     display: block;
   }
-  .cmp-offersContainer .offerLink{
+
+  .cmp-offersContainer .offerLink {
     display: none;
   }
-  .cmp-offersContainer .offer .offerImage{
+
+  .cmp-offersContainer .offer .offerImage {
     padding-bottom: 52%;
   }
-  .cmp-offersContainer .offer .offerImage{
+
+  .cmp-offersContainer .offer .offerImage {
     margin-top: 5.21%;
     margin-left: 3.92%;
     margin-right: 3.92%;
   }
-  .offerFinanceBoxes{
+
+  .offerFinanceBoxes {
     border-left: 1px solid #E0E0E0;
 
   }
-  .cmp-offersContainer .offer .offerDescription{
+
+  .cmp-offersContainer .offer .offerDescription {
     padding-left: 30px;
     padding-right: 28px;
     padding-top: 0px;
     margin-top: 24px;
   }
+
   .cmp-offersContainer .offer .offerInfo {
     width: 100%;
     padding: 0px;
@@ -364,225 +447,278 @@
     height: auto;
     padding-bottom: 0px;
   }
-  .cmp-offersContainer .offerMainFrame{
+
+  .cmp-offersContainer .offerMainFrame {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     flex-grow: 1;
-    }
-    .cmp-offersContainer .offerFinanceBoxes{
-      display: flex;
-      flex-direction: column;
-    }
-    .cmp-offersContainer .offerImage{
-      order: 1;
-    }
-    .cmp-offersContainer .offerDescription{
-      order: 2;
-    }
-    .cmp-offersContainer .offerFinanceBoxes{
-      order: 3;
-    }
-    .cmp-offersContainer .offerLink{
-      order: 4;
-    }
-    .cmp-offersContainer .offerImage{
-      flex: 0 1 100%;
-    }
-    .cmp-offersContainer .offerDescription{
-      flex: 0 2 60.03%;
-    }
-    .cmp-offersContainer .offerFinanceBoxes{
-      flex: 0 3 26.85%;
-      padding: 0px;
-      margin-right: 9.51%;
-      margin-top: 26px;
-    }
-    .cmp-offersContainer .offerLink{
-      flex: 0 4 100%;
-    }
-  
   }
+
+  .cmp-offersContainer .offerFinanceBoxes {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cmp-offersContainer .offerImage {
+    order: 1;
+  }
+
+  .cmp-offersContainer .offerDescription {
+    order: 2;
+  }
+
+  .cmp-offersContainer .offerFinanceBoxes {
+    order: 3;
+  }
+
+  .cmp-offersContainer .offerLink {
+    order: 4;
+  }
+
+  .cmp-offersContainer .offerImage {
+    flex: 0 1 100%;
+  }
+
+  .cmp-offersContainer .offerDescription {
+    flex: 0 2 60.03%;
+  }
+
+  .cmp-offersContainer .offerFinanceBoxes {
+    flex: 0 3 26.85%;
+    padding: 0px;
+    margin-right: 9.51%;
+    margin-top: 26px;
+  }
+
+  .cmp-offersContainer .offerLink {
+    flex: 0 4 100%;
+  }
+
+}
+
 @media screen and (max-width: 767px) {
-  .cmp-offersContainer .primaryLinkWithStyle{
+  .cmp-offersContainer .primaryLinkWithStyle {
     margin-bottom: 23px;
   }
-  .offerMainFrame{
+
+  .offerMainFrame {
     margin-bottom: 51px;
   }
-  .cmp-offersContainer .Offers__info-body{
+
+  .cmp-offersContainer .Offers__info-body {
     margin-bottom: 0px;
   }
-  .cmp-offersContainer .linkContainer{
+
+  .cmp-offersContainer .linkContainer {
     margin-top: 0px;
   }
-  .cmp-offersContainer .offerHeading h2{
+
+  .cmp-offersContainer .offerHeading h2 {
     margin-bottom: 0.45em;
   }
-  .cmp-offersContainer .offer .offerDescription .bullets{
+
+  .cmp-offersContainer .offer .offerDescription .bullets {
     margin-top: 12px;
   }
-  .cmp-offersContainer .offer .offerDescription .price{
+
+  .cmp-offersContainer .offer .offerDescription .price {
     margin-bottom: 16px;
   }
-  .cmp-offersContainer .offer .offerDescription
-  {
+
+  .cmp-offersContainer .offer .offerDescription {
     padding: 6.7% 6.7%;
   }
-  .cmp-offersContainer .offer .offerLink{
+
+  .cmp-offersContainer .offer .offerLink {
     padding-top: 6.4%;
     margin-top: 6.4%;
     border-top: 1px solid #E0E0E0;
     margin-left: 6.7%;
     margin-right: 6.7%;
   }
-  .cmp-offersContainer .offer .offerInfo{
-    padding:0px;
+
+  .cmp-offersContainer .offer .offerInfo {
+    padding: 0px;
   }
-  .cmp-offersContainer .offer .offerFinanceBoxes{
+
+  .cmp-offersContainer .offer .offerFinanceBoxes {
     padding-top: 23px;
     border-top: 1px solid #E0E0E0;
     margin-left: 6.7%;
     margin-right: 6.7%;
   }
-  .cmp-offersContainer .offer .offerDescription{
+
+  .cmp-offersContainer .offer .offerDescription {
     padding-top: 4.3%;
   }
-  .cmp-offersContainer .offer .offerImage{
+
+  .cmp-offersContainer .offer .offerImage {
     margin-left: 6.7%;
     margin-right: 6.7%;
     margin-top: 6.7%;
     padding: 0 0 48.8%;
   }
-  .cmp-offersContainer .offerMainFrame{
+
+  .cmp-offersContainer .offerMainFrame {
     display: flex;
     flex-direction: column;
-    }
-    .cmp-offersContainer .offerImage{
-      order: 1;
-    }
-    .cmp-offersContainer .offerDescription{
-      order: 2;
-    }
-    .cmp-offersContainer .offerFinanceBoxes{
-      order: 3;
-    }
-    .cmp-offersContainer .offerLink{
-      order: 4;
-    }
   }
+
+  .cmp-offersContainer .offerImage {
+    order: 1;
+  }
+
+  .cmp-offersContainer .offerDescription {
+    order: 2;
+  }
+
+  .cmp-offersContainer .offerFinanceBoxes {
+    order: 3;
+  }
+
+  .cmp-offersContainer .offerLink {
+    order: 4;
+  }
+}
+
 @media screen and (min-width: 1920px) {
-  .offerMainFrame{
+  .offerMainFrame {
     margin-bottom: 80px;
   }
-  .cmp-offersContainer ul{
+
+  .cmp-offersContainer ul {
     margin-top: 24px;
   }
+
   .cmp-offersContainer .offer .offerDescription .price {
     margin-bottom: 16px;
     color: #4a4f54;
   }
-  .cmp-offersContainer .linkContainer .secondaryLinkWithStyle{
+
+  .cmp-offersContainer .linkContainer .secondaryLinkWithStyle {
     margin-top: 23px;
   }
-  .cmp-offersContainer .offerLink{
+
+  .cmp-offersContainer .offerLink {
     margin-top: 24px;
   }
-    .cmp-offersContainer{
-        margin-left: 290px;
-        margin-right: 290px;
-    }
-    .offerImage{
-        margin-top: 60px;
-    }
-    .cmp-offersContainer .offerHeading h2{
-      margin-bottom: 0.34em;
-    }
-    .cmp-offersContainer .offer .offerDescription {
-        margin-top: 51px;
-        padding-left: 0px;
-        width: calc(33.333% + 12px);
-    }
-    .cmp-offersContainer .offer .offerFinanceBoxes, .cmp-offersContainer .offer .offerDetails, .cmp-offersContainer .offer .offerImage {
-        width: 65%;
-        width: calc(66.667% - 13px);
-    }
-    .cmp-offersContainer .offer .offerInfo {
-        padding-top: 0px;
-        margin-top: 19px;
-        padding-left: 0px;
-        height: aut;
-    }
-    .offerMainFrame{
-      margin-bottom: 80px;
-    }
+
+  .cmp-offersContainer {
+    margin-left: 290px;
+    margin-right: 290px;
   }
 
+  .offerImage {
+    margin-top: 60px;
+  }
+
+  .cmp-offersContainer .offerHeading h2 {
+    margin-bottom: 0.34em;
+  }
+
+  .cmp-offersContainer .offer .offerDescription {
+    margin-top: 51px;
+    padding-left: 0px;
+    width: calc(33.333% + 12px);
+  }
+
+  .cmp-offersContainer .offer .offerFinanceBoxes,
+  .cmp-offersContainer .offer .offerDetails,
+  .cmp-offersContainer .offer .offerImage {
+    width: 65%;
+    width: calc(66.667% - 13px);
+  }
+
+  .cmp-offersContainer .offer .offerInfo {
+    padding-top: 0px;
+    margin-top: 19px;
+    padding-left: 0px;
+    height: aut;
+  }
+
+  .offerMainFrame {
+    margin-bottom: 80px;
+  }
+}
+
 /* FONT DEF MOBILE */
-@media screen and (max-width: 767px){
-  .cmp-offersContainer .offerHeading p{
+@media screen and (max-width: 767px) {
+  .cmp-offersContainer .offerHeading p {
     font-family: 'LandRoverWeb-Bold';
     color: #0C121C;
     letter-spacing: 0.64px;
     line-height: 20px;
 
   }
-  .cmp-offersContainer .offerPrice p{
+
+  .cmp-offersContainer .offerPrice p {
     font-family: 'AvenirNext';
     letter-spacing: 1.54px;
     line-height: 19px;
     font-size: 11px;
     text-transform: none;
-    
+
   }
-  .cmp-offersContainer .offerBody p,.cmp-offersContainer .offerBody ul li{
+
+  .cmp-offersContainer .offerBody p,
+  .cmp-offersContainer .offerBody ul li {
     font-family: 'AvenirNext';
     letter-spacing: 0.2px;
     line-height: 19px;
     font-size: 14px;
-    text-transform: none;    
+    text-transform: none;
   }
-  .cmp-offersContainer .offerBody ul li
-  {
+
+  .cmp-offersContainer .offerBody ul li {
     padding-left: 8px;
   }
-  .cmp-offersContainer .offerInfo .Offers__info-title p{
+
+  .cmp-offersContainer .offerInfo .Offers__info-title p {
     font-family: 'AvenirNext';
     letter-spacing: 1.26px;
     line-height: 18px;
     font-size: 18px;
   }
-  .cmp-offersContainer .Offers__info-body p{
+
+  .cmp-offersContainer .Offers__info-body p {
     font-family: 'LandRoverWeb-Medium';
     font-weight: normal;
     letter-spacing: 0.7px;
     line-height: 18px;
     font-size: 14px;
   }
-  .cmp-offersContainer .currency{
+
+  .cmp-offersContainer .currency {
     letter-spacing: -7px;
   }
-  .cmp-offersContainer .currency small{
+
+  .cmp-offersContainer .currency small {
     letter-spacing: 1.4px;
     font-size: 28px;
     line-height: 28px;
   }
-  .cmp-offersContainer .amount{
+
+  .cmp-offersContainer .amount {
     font-family: 'LandRoverWeb-Bold';
     letter-spacing: 2.8px;
     font-size: 56px;
     line-height: 56px;
   }
-  .cmp-offersContainer .offerInfoLease{
+
+  .cmp-offersContainer .offerInfoLease {
     margin-bottom: 39px;
   }
-  .cmp-offersContainer .offerDetailsLink span,.cmp-offersContainer .primaryLinkWithStyle span{
+
+  .cmp-offersContainer .offerDetailsLink span,
+  .cmp-offersContainer .primaryLinkWithStyle span {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 10px;
     line-height: 14px;
   }
-  .cmp-offersContainer .secondaryLinkWithStyle  span{
+
+  .cmp-offersContainer .secondaryLinkWithStyle span {
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-size: 10px;
@@ -592,9 +728,10 @@
 }
 
 /* FONT DEF TABLET */
-@media screen and (min-width: 768px) and (max-width: 1279px){
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+
   /* heading */
-  .cmp-offersContainer .offerHeading p{
+  .cmp-offersContainer .offerHeading p {
     font-size: 21px;
     font-family: 'LandRoverWeb-Bold';
     color: #0C121C;
@@ -602,72 +739,82 @@
     line-height: 21px;
 
   }
+
   /* offer price below heading */
-  .cmp-offersContainer .offerPrice p{
+  .cmp-offersContainer .offerPrice p {
     font-family: 'AvenirNext';
     letter-spacing: 1.54px;
     line-height: 19px;
     font-size: 11px;
     text-transform: none;
-    
+
   }
+
   /* body and bullets */
-  .cmp-offersContainer .offerBody p,.cmp-offersContainer .offerBody ul li{
+  .cmp-offersContainer .offerBody p,
+  .cmp-offersContainer .offerBody ul li {
     font-family: 'AvenirNext';
     letter-spacing: 0.2px;
     line-height: 19px;
     font-size: 14px;
-    text-transform: none;    
+    text-transform: none;
   }
 
   /* bullet li */
-  .cmp-offersContainer .offerBody ul li
-  {
+  .cmp-offersContainer .offerBody ul li {
     padding-left: 8px;
   }
+
   /* From */
-  .cmp-offersContainer .offerInfo .Offers__info-title p{
+  .cmp-offersContainer .offerInfo .Offers__info-title p {
     font-family: 'AvenirNext';
     letter-spacing: 1.12px;
     line-height: 16px;
     font-size: 16px;
   }
+
   /* Offer body below price */
-  .cmp-offersContainer .Offers__info-body p{
+  .cmp-offersContainer .Offers__info-body p {
     font-family: 'LandRoverWeb-Medium';
     font-weight: normal;
     letter-spacing: 0.7px;
     line-height: 18px;
     font-size: 14px;
   }
+
   /* currency */
-  .cmp-offersContainer .currency{
+  .cmp-offersContainer .currency {
     letter-spacing: -7px;
   }
+
   /* currency */
-  .cmp-offersContainer .currency small{
+  .cmp-offersContainer .currency small {
     letter-spacing: 1px;
     font-size: 20px;
     line-height: 20px;
   }
+
   /* amcount */
-  .cmp-offersContainer .amount{
+  .cmp-offersContainer .amount {
     font-family: 'LandRoverWeb-Bold';
     letter-spacing: 2px;
     font-size: 40px;
     line-height: 40px;
   }
 
-  .cmp-offersContainer .offerInfoLease{
+  .cmp-offersContainer .offerInfoLease {
     margin-bottom: 39px;
   }
-  .cmp-offersContainer .offerDetailsLink span,.cmp-offersContainer .primaryLinkWithStyle span{
+
+  .cmp-offersContainer .offerDetailsLink span,
+  .cmp-offersContainer .primaryLinkWithStyle span {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 10px;
     line-height: 14px;
   }
-  .cmp-offersContainer .secondaryLinkWithStyle  span{
+
+  .cmp-offersContainer .secondaryLinkWithStyle span {
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-size: 10px;
@@ -675,17 +822,20 @@
   }
 
 }
+
 /* FONT DEF DESKTOP */
-@media screen and (min-width: 1280px){
-  .cmp-offersContainer .Offers__info-body{
+@media screen and (min-width: 1280px) {
+  .cmp-offersContainer .Offers__info-body {
     margin-bottom: 0px;
   }
-  .cmp-offersContainer .offerInfo.offerInfoApr{
+
+  .cmp-offersContainer .offerInfo.offerInfoApr {
     padding-left: 40px;
     border-left: 1px solid #E0E0E0;
   }
+
   /* heading */
-  .cmp-offersContainer .offerHeading p{
+  .cmp-offersContainer .offerHeading p {
     font-size: 24px;
     font-family: 'LandRoverWeb-Bold';
     color: #0C121C;
@@ -693,38 +843,42 @@
     line-height: 24px;
 
   }
+
   /* offer price below heading */
-  .cmp-offersContainer .offerPrice p{
+  .cmp-offersContainer .offerPrice p {
     font-family: 'AvenirNext';
     letter-spacing: 1.54px;
     line-height: 19px;
     font-size: 11px;
     text-transform: none;
-    
+
   }
+
   /* body and bullets */
-  .cmp-offersContainer .offerBody p,.cmp-offersContainer .offerBody ul li{
+  .cmp-offersContainer .offerBody p,
+  .cmp-offersContainer .offerBody ul li {
     font-family: 'AvenirNext';
     letter-spacing: 0.2px;
     line-height: 19px;
     font-size: 14px;
-    text-transform: none;    
+    text-transform: none;
   }
 
   /* bullet li */
-  .cmp-offersContainer .offerBody ul li
-  {
+  .cmp-offersContainer .offerBody ul li {
     padding-left: 8px;
   }
+
   /* From */
-  .cmp-offersContainer .offerInfo .Offers__info-title p{
+  .cmp-offersContainer .offerInfo .Offers__info-title p {
     font-family: 'AvenirNext';
     letter-spacing: 1.26px;
     line-height: 18px;
     font-size: 18px;
   }
+
   /* Offer description below price */
-  .cmp-offersContainer .Offers__info-body p{
+  .cmp-offersContainer .Offers__info-body p {
     font-family: 'LandRoverWeb-Medium';
     font-weight: normal;
     letter-spacing: 0.7px;
@@ -732,46 +886,55 @@
     font-size: 14px;
     width: 58.3%;
   }
+
   /* currency */
-  .cmp-offersContainer .currency{
+  .cmp-offersContainer .currency {
     letter-spacing: -7px;
   }
+
   /* currency */
-  .cmp-offersContainer .currency small{
+  .cmp-offersContainer .currency small {
     letter-spacing: 1.4px;
     font-size: 28px;
     line-height: 28px;
   }
+
   /* amcount */
-  .cmp-offersContainer .amount{
+  .cmp-offersContainer .amount {
     font-family: 'LandRoverWeb-Bold';
     letter-spacing: 2.8px;
     font-size: 56px;
     line-height: 56px;
   }
 
-  .cmp-offersContainer .offerInfoLease{
+  .cmp-offersContainer .offerInfoLease {
     margin-bottom: 39px;
   }
-  .cmp-offersContainer .offerDetailsLink span,.cmp-offersContainer .primaryLinkWithStyle span{
+
+  .cmp-offersContainer .offerDetailsLink span,
+  .cmp-offersContainer .primaryLinkWithStyle span {
     text-transform: uppercase;
     letter-spacing: 3px;
     font-size: 10px;
     line-height: 14px;
   }
-  .cmp-offersContainer .secondaryLinkWithStyle  span{
+
+  .cmp-offersContainer .secondaryLinkWithStyle span {
     text-transform: uppercase;
     letter-spacing: 2.5px;
     font-size: 10px;
     line-height: 12.5px;
   }
-  .cmp-offersContainer .secondaryLinkContainer:first-of-type{
+
+  .cmp-offersContainer .secondaryLinkContainer:first-of-type {
     margin-top: 23px;
   }
-  .cmp-offersContainer .secondaryLinkContainer:not(:first-of-type){
+
+  .cmp-offersContainer .secondaryLinkContainer:not(:first-of-type) {
     margin-top: 24px;
   }
-  .cmp-offersContainer .linkContainer .secondaryLinkWithStyle{
+
+  .cmp-offersContainer .linkContainer .secondaryLinkWithStyle {
     margin-top: 0px;
   }
 
@@ -780,13 +943,18 @@
 
 /* Left and Right DESKTOP and WIDESCREEN */
 @media screen and (min-width: 1280px) {
-  .left .offer .offerImage,.left .offer .offerFinanceBoxes{
+
+  .left .offer .offerImage,
+  .left .offer .offerFinanceBoxes {
     float: left;
   }
-  .left .offer .offerLink{
+
+  .left .offer .offerLink {
     float: right;
   }
-  .left .offer .offerDescription,.left .offer .offerLink{
+
+  .left .offer .offerDescription,
+  .left .offer .offerLink {
     padding-right: 0px;
     padding-left: 40px;
   }

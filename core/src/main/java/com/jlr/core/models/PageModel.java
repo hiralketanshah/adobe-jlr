@@ -49,5 +49,10 @@ public interface PageModel extends Page {
         return StringUtils.EMPTY;
     }
 
+    default String getLocale() {
+        return StringUtils.EMPTY;
+    }
+
+
 
 }
