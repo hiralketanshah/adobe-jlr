@@ -1275,6 +1275,19 @@
                     </c-player>
                 </v1>
             </c-player>
+            <derivative jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <derivativecardcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1621876679634
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Derivative Card Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/derivative/v1/derivativecard">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1621876679634>
+                    </derivativecardcontainer>
+                </v1>
+            </derivative>
         </components>
     </jlr>
     <rep:policy/>
