@@ -1279,7 +1279,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <c-player jcr:primaryType="nt:unstructured">
                         <policy_1621317733304
-                            cq:styleDefaultClasses="right white"
+                            cq:styleDefaultClasses="right slateblue"
                             jcr:lastModified="{Date}2021-05-18T11:54:46.164+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
