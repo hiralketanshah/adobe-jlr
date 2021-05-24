@@ -156,7 +156,7 @@
           permission: allow
           actions: read,create,modify,delete,replicate
 
-        - path: /content/request
+        - path: /content/nav
           permission: allow
           actions: read
 
