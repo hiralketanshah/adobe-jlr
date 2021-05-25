@@ -48,6 +48,9 @@ public class NavigationUtils {
 
         Elements span = document.getElementsByTag("span");
         iterateElements(span, "style");
+
+        Elements script = document.select("script[type='application/json']");
+        iterateElements(script, "type");
     }
 
     private static void iterateElements(Elements elements, String key) {
@@ -57,6 +60,9 @@ public class NavigationUtils {
                 String[] array = backgroundImage.split("\\(/");
                 String appendBaseUrl = array[0]+"("+el.baseUri()+array[1];
                 el.attr(key, appendBaseUrl);
+            } else if("type".equals(key)) {
+                String updated = el.html().replaceAll("/content/", el.baseUri()+"content/");
+                el.html(updated);
             } else {
                 el.attr(key, el.absUrl(key));
             }
