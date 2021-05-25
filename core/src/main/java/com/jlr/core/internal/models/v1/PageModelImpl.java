@@ -185,7 +185,6 @@ public class PageModelImpl implements PageModel {
 
     public String getState() {
         String state = null != request.getCookie(JLR_LOCALE_PRICING) ? request.getCookie(JLR_LOCALE_PRICING).getValue().toUpperCase() : StringUtils.EMPTY;
-        LOGGER.info("State: {}", state);
         return state;
 
     }

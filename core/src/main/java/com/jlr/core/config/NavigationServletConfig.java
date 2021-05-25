@@ -17,10 +17,16 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 public @interface NavigationServletConfig {
 
     @AttributeDefinition(
-            name = "Header path",
+            name = "Germany Header path",
             description = "header path of the primary navigation"
     )
-    String headerPath() default "/content/landrover/global/global-master/en/config/navigation/header.html";
+    String de_headerPath() default "/content/landrover/global/europe/published-sites/de_de/config/navigation/header.html";
+
+    @AttributeDefinition(
+            name = "Australia Header path",
+            description = "header path of the primary navigation"
+    )
+    String au_headerPath() default "/content/landrover/global/row/published-sites/en_au/config/navigation/header.html";
 
     @AttributeDefinition(
             name = "CSS Link",
