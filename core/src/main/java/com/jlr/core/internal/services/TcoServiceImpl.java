@@ -69,8 +69,6 @@ public class TcoServiceImpl implements TcoService {
         PricingPojo pricingPojo = new PricingPojo();
         String region = getRegionFromPage(currentPage, resourceResolver);
 
-
-
         if (StringUtils.isEmpty(region)) {
             return Collections.emptyMap();
         }
@@ -86,7 +84,6 @@ public class TcoServiceImpl implements TcoService {
         if (!mrp || Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) {
             return Collections.emptyMap();
         }
-
 
         if (StringUtils.isNotEmpty(priceMacro)) {
             if ((priceMacro.contains("{{") && priceMacro.contains("}}")) && StringUtils.isNotEmpty(region)) {
@@ -208,7 +205,7 @@ public class TcoServiceImpl implements TcoService {
     private void fetchPriceFromResource(PricingPojo pricingPojo, String path) {
         try {
             ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, RESOLVER_SUBSERVICE);
-            Resource varResource = ResourceUtil.getOrCreateResource(serviceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
+            Resource varResource = serviceResolver.getResource(path);
             ValueMap valueMap = varResource.getValueMap();
             if (MapUtils.isNotEmpty(valueMap)) {
                 if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
@@ -223,8 +220,8 @@ public class TcoServiceImpl implements TcoService {
                     LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
                 }
             }
-        } catch (PersistenceException | LoginException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
+        } catch (LoginException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
                             ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
     }
