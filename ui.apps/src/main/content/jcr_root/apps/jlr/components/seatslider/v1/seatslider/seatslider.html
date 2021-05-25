@@ -5,16 +5,7 @@
     <div aria-describedby="cmp-interactiveSliderClickToInteract cmp-interactiveSliderPurpose" class="clickToInteract" role="button" tabindex="0">
       <div aria-hidden="true" class="text clickToInteract__text">
 
-        <div class="bgforcaption">
-
-        <div aria-hidden="true" class="clickToInteract__image">
-          <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
-        </div>
-        <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
-          <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
-          <span class="mobile">${config.configMap['enable.seat_configuration_click_to_interact_mobile']}</span>
-        </div>
-        </div>
+       
       </div>
     </div>
   
@@ -50,12 +41,24 @@
               <picture class="Picture Picture--background">
                 <img alt="" class="Picture__img" srcset="${seatslider.coverImage}" />
               </picture>
+              <div class="bgforcaption">
+
+                <div aria-hidden="true" class="clickToInteract__image">
+                  <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
+                </div>
+                <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
+                  <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
+                  <span class="mobile">${config.configMap['seat_configuration_click_to_interact_mobile']}</span>
+                </div>
+                </div>
             </div>
   
             <div aria-hidden="true" class="spriteContainerContext">
               <div class="sliderFrame mobileSliderFrame onlyOnMobile" data-frames="${seatslider.mobileFrames}"></div>
               <div class="sliderFrame desktopSliderFrame hideOnMobile" data-frames="${seatslider.desktopFrames}"></div>
            </div>
+           
+
         </div>
         </div>
    
@@ -66,7 +69,7 @@
 	          <div class="multi tabData" data-desktop-title="${item.title}" data-item-position="${itemList.index}" data-mobile-title="${item.title}">
 	            <h1 class="largeTitle">${item.headerCopy  @ context='html'}</h1>
 	            <div class="literage">
-	              <span class="odo-label" role="text" aria-label="${item.value}"><span aria-hidden="true" class="odo" data-format="(d).dd">${item.value}</span><span aria-hidden="true" class="litres">${seatslider.headerCopy @ context='html'}</span></span>
+	              <span class="odo-label" role="text" aria-label="${item.value}"><span aria-hidden="true" class="odo" data-format="(d),dd">${item.value}</span><span aria-hidden="true" class="litres">${seatslider.headerCopy @ context='html'}</span></span>
 	            </div>
 	            <div class="copy">${item.copy  @ context='html'}</div>
 	            <picture class="Picture">
