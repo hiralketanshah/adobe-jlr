@@ -86,9 +86,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             return;
         }
 
-        String requestPath = config.de_headerPath();
+        String requestPath = config.deHeaderPath();
         if (locale.equalsIgnoreCase("en_AU")) {
-            requestPath = config.au_headerPath();
+            requestPath = config.auHeaderPath();
         }
         ResourceResolver resourceResolver = request.getResourceResolver();
         ByteArrayOutputStream out = processRequest(request, response, mrp, requestPath, resourceResolver);
