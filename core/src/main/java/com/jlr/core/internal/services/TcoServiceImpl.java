@@ -1,11 +1,7 @@
 package com.jlr.core.internal.services;
 
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-import static com.jlr.core.constants.PricingConstants.DEFAULT_PRICE_TYPE;
-import static com.jlr.core.constants.PricingConstants.DOT_REGEX;
-import static com.jlr.core.constants.PricingConstants.FALLBACK_PRICE_TYPE;
-import static com.jlr.core.constants.PricingConstants.PRICING_CURRENT_FORMAT;
-import static com.jlr.core.constants.PricingConstants.PRICING_SUPPRESSION;
+import static com.jlr.core.constants.PricingConstants.*;
 import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
 import static com.jlr.core.utils.TcoUtils.BASE_PATH;
 import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
@@ -15,15 +11,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.servlet.http.Cookie;
+
+import com.jlr.core.utils.CommonUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.jackrabbit.JcrConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.PersistenceException;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceUtil;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -54,6 +48,9 @@ public class TcoServiceImpl implements TcoService {
 
     @Reference
     private Dictionary dictionary;
+
+    @Reference
+    private ResourceResolverFactory resourceResolverFactory;
 
     @Activate
     public void activate(PricingConfig config) {
@@ -197,7 +194,7 @@ public class TcoServiceImpl implements TcoService {
         pricingPojo.setNamePlate(pricingPojo.getPriceMacroConfig());
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, StringUtils.EMPTY, BASE_PATH);
-        fetchPriceFromResource(pricingPojo, resourceResolver, path);
+        fetchPriceFromResource(pricingPojo, path);
 
     }
 
@@ -205,12 +202,13 @@ public class TcoServiceImpl implements TcoService {
         String macroModelYear = fetchNamePlateProductDetails(pricingPojo);
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, macroModelYear, BASE_PATH);
-        fetchPriceFromResource(pricingPojo, resourceResolver, path);
+        fetchPriceFromResource(pricingPojo, path);
     }
 
-    private void fetchPriceFromResource(PricingPojo pricingPojo, ResourceResolver resourceResolver, String path) {
+    private void fetchPriceFromResource(PricingPojo pricingPojo, String path) {
         try {
-            Resource varResource = ResourceUtil.getOrCreateResource(resourceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
+            ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, RESOLVER_SUBSERVICE);
+            Resource varResource = ResourceUtil.getOrCreateResource(serviceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
             ValueMap valueMap = varResource.getValueMap();
             if (MapUtils.isNotEmpty(valueMap)) {
                 if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
@@ -225,7 +223,7 @@ public class TcoServiceImpl implements TcoService {
                     LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
                 }
             }
-        } catch (PersistenceException e) {
+        } catch (PersistenceException | LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
                             ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
