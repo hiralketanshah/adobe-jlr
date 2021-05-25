@@ -203,21 +203,22 @@ public class TcoServiceImpl implements TcoService {
     }
 
     private void fetchPriceFromResource(PricingPojo pricingPojo, String path) {
-        try {
-            ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, RESOLVER_SUBSERVICE);
+        try (ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, RESOLVER_SUBSERVICE)) {
             Resource varResource = serviceResolver.getResource(path);
-            ValueMap valueMap = varResource.getValueMap();
-            if (MapUtils.isNotEmpty(valueMap)) {
-                if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
-                    pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
-                }
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.info("Resource path is {} and Price Type is {}", varResource.getPath(), valueMap.get(pricingPojo.getPriceType(), String.class));
-                }
-                Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
-                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), dPrice));
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
+            if(varResource != null) {
+                ValueMap valueMap = varResource.getValueMap();
+                if (MapUtils.isNotEmpty(valueMap)) {
+                    if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
+                        pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
+                    }
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.info("Resource path is {} and Price Type is {}", varResource.getPath(), valueMap.get(pricingPojo.getPriceType(), String.class));
+                    }
+                    Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
+                    pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), dPrice));
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
+                    }
                 }
             }
         } catch (LoginException e) {
