@@ -7,9 +7,11 @@ import com.adobe.acs.commons.httpcache.exception.HttpCacheKeyCreationException;
 import com.adobe.acs.commons.httpcache.exception.HttpCacheRepositoryAccessException;
 import com.adobe.acs.commons.httpcache.keys.CacheKey;
 import com.adobe.acs.commons.httpcache.keys.CacheKeyFactory;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.jlr.core.httpcache.key.*;
+import com.jlr.core.httpcache.key.CookieKeyValueMapBuilder;
+import com.jlr.core.httpcache.key.NavigationCacheKey;
+import com.jlr.core.httpcache.key.RequestKeyValueMap;
+import com.jlr.core.httpcache.key.RequestKeyValueMapBuilder;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -132,7 +134,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
     @Override
     public CacheKey build(final SlingHttpServletRequest slingHttpServletRequest, final HttpCacheConfig cacheConfig)
             throws HttpCacheKeyCreationException {
-        ImmutableSet<Cookie> presentCookies = ImmutableSet.copyOf(slingHttpServletRequest.getCookies());
+        ImmutableSet<Cookie> presentCookies = ImmutableSet.copyOf(slingHttpServletRequest.getCookies() != null ? slingHttpServletRequest.getCookies() : new Cookie[]{});
         CookieKeyValueMapBuilder cookieKeyValueMapBuilder = new CookieKeyValueMapBuilder(cookieKeys, presentCookies);
         RequestKeyValueMapBuilder requestKeyValueMapBuilder = new RequestKeyValueMapBuilder(requestParameters, requestParameterValues, slingHttpServletRequest);
         return new NavigationCacheKey(
