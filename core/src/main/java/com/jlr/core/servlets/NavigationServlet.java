@@ -1,16 +1,15 @@
 package com.jlr.core.servlets;
 
-import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.day.cq.contentsync.handler.util.RequestResponseFactory;
+import com.day.cq.wcm.api.WCMMode;
+import com.jlr.core.config.NavigationServletConfig;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.PricingConstants;
+import com.jlr.core.utils.ErrorUtils;
+import com.jlr.core.utils.NavigationUtils;
 import org.apache.commons.lang.CharEncoding;
 import org.apache.commons.lang.StringUtils;
+import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -28,14 +27,18 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.day.cq.commons.Externalizer;
-import com.day.cq.contentsync.handler.util.RequestResponseFactory;
-import com.day.cq.wcm.api.WCMMode;
-import com.jlr.core.config.NavigationServletConfig;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.constants.PricingConstants;
-import com.jlr.core.utils.ErrorUtils;
-import com.jlr.core.utils.NavigationUtils;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
+import static com.jlr.core.utils.NavigationUtils.getBaseUrl;
 
 /**
  * Navigation Servlet is used to fetch the header nav based on request parameters, and also to return the json.
@@ -64,7 +67,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     }
 
     @Override
-    protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
 
         String locale = request.getParameter("locale"); // en_AU, de_DE
         Boolean cache = Boolean.valueOf(request.getParameter("cache"));
@@ -75,42 +78,24 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         Boolean yourRetailer = request.getParameter("yourRetailer") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("yourRetailer"));
         Boolean retailerLocatorLink =
                         request.getParameter("retailerLocatorLink") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("retailerLocatorLink"));
-
-
-
         Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
-        /* TODO: give proper header nav page path - Remove this after testing */
-        String requestPath = config.headerPath();
+        if(StringUtils.isEmpty(locale)) {
+            sendResponseStatus(response, HttpStatus.SC_NOT_FOUND, "Request parameter is not found");
+            return;
+        }
+
+        String requestPath = config.de_headerPath();
         if (locale.equalsIgnoreCase("en_AU")) {
-            requestPath = "/content/landrover/global/row/published-sites/en_au/config/navigation/header.html";
-        } else {
-            requestPath = "/content/landrover/global/europe/published-sites/de_de/config/navigation/header.html";
+            requestPath = config.au_headerPath();
         }
-
-
-        HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
-        req.setAttribute(JLR_LOCALE_PRICING, request.getCookie(JLR_LOCALE_PRICING));
-        if (Boolean.FALSE.equals(mrp)) {
-            req.setAttribute(PricingConstants.PRICING_SUPPRESSION, false);
-        }
-        WCMMode.DISABLED.toRequest(req);
-
-        /* Setup response */
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        HttpServletResponse resp = requestResponseFactory.createResponse(out);
-
         ResourceResolver resourceResolver = request.getResourceResolver();
-        Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
-        String baseUrl = externalizer.publishLink(resourceResolver, StringUtils.EMPTY);
-
-        /* Process request through Sling */
-        requestProcessor.processRequest(req, resp, resourceResolver);
+        ByteArrayOutputStream out = processRequest(request, response, mrp, requestPath, resourceResolver);
         String html = out.toString();
         Document document = null;
         if (fullyQualifyDxLinks) {
-            document = Jsoup.parse(html, baseUrl);
+            document = Jsoup.parse(html, getBaseUrl(resourceResolver));
             NavigationUtils.processUrls(document);
         } else {
             document = Jsoup.parse(html);
@@ -137,14 +122,34 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             NavigationUtils.removeAttribute(document, "a.dxnav-profile");
         }
 
-
         sendResponse(response, cache, document);
     }
 
-    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document) throws IOException {
-        /*
-         * cache maxAge=750 or 15 min, retailer Url and retailer name substitute with request param value
-         */
+    private ByteArrayOutputStream processRequest(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean mrp, String requestPath, ResourceResolver resourceResolver) {
+        HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
+        req.setAttribute(JLR_LOCALE_PRICING, request.getCookie(JLR_LOCALE_PRICING));
+        if (Boolean.FALSE.equals(mrp)) {
+            req.setAttribute(PricingConstants.PRICING_SUPPRESSION, false);
+        }
+        WCMMode.DISABLED.toRequest(req);
+
+        /* Setup response */
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        HttpServletResponse resp = requestResponseFactory.createResponse(out);
+
+
+        /* Process request through Sling */
+        try {
+            requestProcessor.processRequest(req, resp, resourceResolver);
+        } catch (ServletException | IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+            sendResponseStatus(response, HttpStatus.SC_INTERNAL_SERVER_ERROR, "Unable to fetch the header");
+        }
+        return out;
+    }
+
+    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document) {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
@@ -159,9 +164,27 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         response.setContentType(APPLICATION_JSON);
         response.setCharacterEncoding(CharEncoding.UTF_8);
-        PrintWriter printOut = response.getWriter();
-        printOut.print(responseObject);
-        printOut.flush();
+        response.setStatus(HttpStatus.SC_OK);
+        try {
+            PrintWriter printOut = response.getWriter();
+            printOut.print(responseObject);
+            printOut.flush();
+        } catch (IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                    ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+        }
     }
 
+    private void sendResponseStatus(SlingHttpServletResponse response, int statusCode, String message) {
+        try {
+            response.setContentType(APPLICATION_JSON);
+            response.setCharacterEncoding(CharEncoding.UTF_8);
+            response.sendError(statusCode, message);
+            PrintWriter printOut = response.getWriter();
+            printOut.flush();
+        } catch (IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+        }
+    }
 }
