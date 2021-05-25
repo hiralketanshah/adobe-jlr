@@ -179,6 +179,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         try {
             response.setContentType(APPLICATION_JSON);
             response.setCharacterEncoding(CharEncoding.UTF_8);
+            response.setStatus(statusCode);
             response.sendError(statusCode, message);
             PrintWriter printOut = response.getWriter();
             printOut.flush();
