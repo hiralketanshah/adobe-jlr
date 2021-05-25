@@ -8,6 +8,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.poi.hpsf.Array;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -48,24 +49,31 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 	private void buildSecondaryNavigation() {
 		parentList = new ArrayList<>();
 		parentPathList = new ArrayList<>();
+		List<String> hideInNav = new ArrayList<>();
 		String rootPath = CommonUtils.getSiteRootPath(currentPage);
 		if(rootPath == null || !currentPage.getPath().startsWith(rootPath) || !getShowInSecNav(currentPage) || !getShowInSecNav(currentPage.getParent())) {
 			return;
 		}
 		Page parentPage = currentPage;
 		while(parentPage!= null) {
-			SecondaryNavigation parent = new SecondaryNavigation();
-			parent.setTitle(getSecondaryNavTitle(parentPage));
-			parent.setPath(parentPage.getPath());
-			parent.setLink(getSecondaryNavLink(parentPage));
-			parentPathList.add(parent.getPath());
-			parent.setSubNavList(getSecondaryNavItems(parent.getPath()));
-			parentList.add(parent);
-			parentPage = parentPage.getParent();
-			if(isHomePage(parentPage, rootPath) || (getSecondaryNavHideParent(parentPage) && isHomePage(parentPage.getParent(), rootPath))) {
+			if(isHomePage(parentPage, rootPath)) {
 				break;
 			}
+			SecondaryNavigation parent = new SecondaryNavigation();
+			if(!hideInNav.contains(parentPage.getPath())) {
+				parent.setTitle(getSecondaryNavTitle(parentPage));
+				parent.setPath(parentPage.getPath());
+				parent.setLink(getSecondaryNavLink(parentPage));
+				parentPathList.add(parent.getPath());
+				parent.setSubNavList(getSecondaryNavItems(parent.getPath()));
+				parentList.add(parent);
+				if(getSecondaryNavHideParent(parentPage)) {
+					hideInNav.add(parentPage.getParent().getPath());
+				}
+			}
+			parentPage = parentPage.getParent();
 			parent.setPreviousLink(getSecondaryNavItem(parentPage));
+
 		}
 		Collections.sort(parentList);	
 	}
@@ -151,7 +159,7 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
 	 */
 	private String getSecondaryLinkTarget(Page page) {
 		ValueMap propMap = page.getContentResource().adaptTo(ValueMap.class);
-		return null != propMap.get(CommonConstants.PN_CTA_TARGET) ? propMap.get(CommonConstants.PN_CTA_TARGET).toString() : page.getTitle();
+		return null != propMap.get(CommonConstants.PN_CTA_TARGET) ? propMap.get(CommonConstants.PN_CTA_TARGET).toString() : null;
 	}
 	/**
 	 * Get hide parent flag from page
