@@ -11867,34 +11867,25 @@
           }
         });
         let videomp4List = this.element.querySelectorAll('video');  
-        if (this._total > 1) {
-          if(videomp4List.length>0)
-          {
-            videomp4List.forEach((videomp4)=>{
+          videomp4List.forEach((videomp4)=>{
+            if(cmp_name!="HeroCarousel" && cmp_name!="HeroTitleBanner"){
+              console.log(cmp_name);
               videomp4.removeAttribute("controls");
-              setInterval(function() {
-                videomp4.currentTime = 0;
-                  videomp4.play();
-             }, 6000);
-  
-            });                   
-          };
+            }
+            setInterval(function() {
+              videomp4.currentTime = 0;
+                videomp4.play();
+            }, 6000);
+
+          });                   
+        
+        if (this._total > 1) {
           this._initGallery();
           if($(window).width() < 769){
             $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','78px');
           }
           
         } else {
-          if(videomp4List.length>0)
-          {
-            videomp4List.forEach((videomp4)=>{
-              setInterval(function() {
-                videomp4.currentTime = 0;
-                  videomp4.play();
-             }, 6000);
-  
-            });                   
-          };
           this._$currentSlide = this.$element;
   
           this._throttledSlideResize();
