@@ -43,8 +43,8 @@ public class PageModelImpl implements PageModel {
     private final String AU_LOCALE = "en_AU";
     private final String DE_LOCALE = "de_DE";
 
-    private final String AU_RETAILER_NAAS_URL = "/content/dam/naas/en_au.html";
-    private final String DE_RETAILER_NAAS_URL = "/content/dam/naas/de_de.html";
+    private final String AU_RETAILER_NAAS_URL = "/content/nav/naasconfig/en_au.html";
+    private final String DE_RETAILER_NAAS_URL = "/content/nav/naasconfig/de_de.html";
 
     /** The current page. */
     @ScriptVariable
