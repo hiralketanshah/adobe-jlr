@@ -92,7 +92,7 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
      */
     @PostConstruct
     public void init() {
-        if (!CollectionUtils.isEmpty(contentCardList)) {
+        if (CollectionUtils.isNotEmpty(contentCardList)) {
             for (ContentCardListModel card : contentCardList) {
                 Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
                         pageProperties, card.getPrice(), key);
