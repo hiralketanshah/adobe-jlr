@@ -190,33 +190,55 @@
 	}
 }
 
-/*--------code fix for defect 567-------*/
-@media screen and (min-width:1024px) and (max-width: 1920px){
-	.snippet .shelfComponent{
-	padding:60px;
-	
-	}
-	}
-	
-	@media screen and (min-width: 1px) and (max-width: 900px){
-	.snippet .cmp-snippet p {
-		margin-top: 17px;
-	}}
-	.snippet .primaryLinkContainer{margin-top: 25px!important;}
-	
-	@media screen and (max-width: 375px){
-	.cmp-snippet .headingWrapper p {
-	
-	  margin-top:8px;
-	}
-	.snippet .cmp-snippet p {
-		margin-top: 15px;
-	}
-	}
-	
-	@media screen and (min-width: 300px) and (max-width: 766px){
-	.snippet .linkContainer {
-		margin-top: 0px;
-	}}
+ /* code fix for defect 567 */
+ .snippet.grey p, .snippet.light p,.snippet.white p{
+	color:#4A4F54;
+ }
 
-	/*--------code fix for defect 567-------*/
+ @media screen and (min-width:1024px) and (max-width: 1920px){
+.snippet .shelfComponent{
+padding:60px;
+
+}
+.cmp-snippet .linkContainer{padding-top:0;}
+.cmp-snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;}                         
+}
+
+@media screen and (min-width: 1px) and (max-width: 900px){
+.snippet .cmp-snippet p {
+    margin-top: 17px;
+}
+
+}
+@media screen and (min-width: 766px) and (max-width: 900px){
+ .snippet .shelfComponent{
+padding-top:40px;
+   }}
+.snippet .primaryLinkContainer{margin-top: 25px!important; float: left;
+    clear: both;}
+
+@media screen and (max-width: 375px){
+.cmp-snippet .headingWrapper p {
+
+  margin-top:8px;
+}
+.snippet .cmp-snippet p {
+    margin-top: 15px;
+}
+}
+
+@media screen and (min-width: 300px) and (max-width: 766px){
+.snippet .linkContainer {
+    margin-top: 0px;
+}
+ .snippet .shelfComponent{
+padding-top:25px;
+   }
+ .cmp-snippet .secondaryLinkContainer{clear:both;}
+ .snippet .primaryLinkContainer{clear:both;}
+}
+
+
+  /* code fix for defect 567 */
+
+
