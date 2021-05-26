@@ -14,6 +14,12 @@
           path: ${systemUserPath}
           isSystemUser: "true"
 
+    - pricing-read-service:
+
+        - name: "System user for read Pricing service"
+          path: ${systemUserPath}
+          isSystemUser: "true"
+
 - ace_config:
 
   - pricing-service:
@@ -25,3 +31,8 @@
     - path: /var/jlr
       permission: allow
       actions: read,create,modify,delete,replicate
+
+  - pricing-read-service:
+    - path: /var/jlr/pricing
+      permission: allow
+      actions: read

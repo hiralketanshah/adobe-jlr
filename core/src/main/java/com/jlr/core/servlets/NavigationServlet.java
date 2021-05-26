@@ -86,9 +86,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             return;
         }
 
-        String requestPath = config.de_headerPath();
+        String requestPath = config.deHeaderPath();
         if (locale.equalsIgnoreCase("en_AU")) {
-            requestPath = config.au_headerPath();
+            requestPath = config.auHeaderPath();
         }
         ResourceResolver resourceResolver = request.getResourceResolver();
         ByteArrayOutputStream out = processRequest(request, response, mrp, requestPath, resourceResolver);
@@ -105,16 +105,15 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         NavigationUtils.changeAttributeValue("data-retailer-name", retailerName, header);
         NavigationUtils.changeAttributeValue("data-retailer-url", retailerUrl, header);
         NavigationUtils.changeAttributeValue("data-locale", locale, header);
+        NavigationUtils.changeAttributeValue("data-yourretailer-allowed", Boolean.toString(yourRetailer), header);
 
         /* Get the retailer and search divs */
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
         }
         if (!retailerLocatorLink) {
-            NavigationUtils.removeAttribute(document, "a.dxnav__item-retailer--link");
-        }
-        if (!yourRetailer) {
             NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-retailer");
+            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-retailer");
         }
         if (myLandRover) {
             document.select("a.dxnav-profile").removeAttr("style");

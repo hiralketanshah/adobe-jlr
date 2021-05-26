@@ -1,0 +1,15 @@
+- DEF systemUserPath="/home/users/system/jlr"
+- user_config:
+
+    - pricing-read-service:
+
+        - name: "System user for read Pricing service"
+          path: ${systemUserPath}
+          isSystemUser: "true"
+
+- ace_config:
+
+  - pricing-read-service:
+    - path: /var/jlr/pricing
+      permission: allow
+      actions: read
