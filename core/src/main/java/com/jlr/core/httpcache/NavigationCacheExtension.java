@@ -1,6 +1,24 @@
 package com.jlr.core.httpcache;
 
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+import java.util.regex.Pattern;
+import javax.servlet.http.Cookie;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.metatype.annotations.Designate;
 import com.adobe.acs.commons.httpcache.config.HttpCacheConfig;
 import com.adobe.acs.commons.httpcache.config.HttpCacheConfigExtension;
 import com.adobe.acs.commons.httpcache.exception.HttpCacheKeyCreationException;
@@ -12,20 +30,6 @@ import com.jlr.core.httpcache.key.CookieKeyValueMapBuilder;
 import com.jlr.core.httpcache.key.NavigationCacheKey;
 import com.jlr.core.httpcache.key.RequestKeyValueMap;
 import com.jlr.core.httpcache.key.RequestKeyValueMapBuilder;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.ConfigurationPolicy;
-import org.osgi.service.metatype.annotations.Designate;
-
-import javax.servlet.http.Cookie;
-import java.util.*;
-import java.util.regex.Pattern;
 
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE, service = {HttpCacheConfigExtension.class, CacheKeyFactory.class})
 @Designate(ocd = NavigationCacheExtensionConfig.class, factory = true)
@@ -38,7 +42,6 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
     private boolean emptyCookieKeySetAllowed;
     private Set<String> requestParameters;
     private Set<String> requestParameterValues;
-    private String configName;
     private Map<String, String[]> allowedParameters;
     private String cacheKeyId;
 
@@ -48,7 +51,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Override
     public boolean accepts(SlingHttpServletRequest request, HttpCacheConfig cacheConfig) throws HttpCacheRepositoryAccessException {
-        String resourcePath = request.getRequestPathInfo().getResourcePath();
+
 
         if (!matches(selectorPatterns, request.getRequestPathInfo().getSelectorString())) {
             return false;
@@ -65,7 +68,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
         }
 
         if (CollectionUtils.isNotEmpty(requestParameterValues) && !requestParameterMatch(request)) {
-                return false;
+            return false;
         }
 
         if (!emptyCookieKeySetAllowed) {
@@ -89,7 +92,8 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
             if (request.getParameterMap().keySet().contains(entry.getKey())) {
                 final String[] parameterValues = request.getParameterMap().get(entry.getKey());
                 if (ArrayUtils.isEmpty(entry.getValue()) || CollectionUtils.containsAny(Arrays.asList(entry.getValue()), Arrays.asList(parameterValues))) {
-                    // If no values were specified, then assume ANY and ALL values are acceptable, and were are merely looking for the existence of the request parameter
+                    // If no values were specified, then assume ANY and ALL values are acceptable, and were are merely looking for the existence of the request
+                    // parameter
                     return true;
                 }
                 // No matches found for this row; continue looking through the allowed list
@@ -132,20 +136,16 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
     }
 
     @Override
-    public CacheKey build(final SlingHttpServletRequest slingHttpServletRequest, final HttpCacheConfig cacheConfig)
-            throws HttpCacheKeyCreationException {
-        ImmutableSet<Cookie> presentCookies = ImmutableSet.copyOf(slingHttpServletRequest.getCookies() != null ? slingHttpServletRequest.getCookies() : new Cookie[]{});
+    public CacheKey build(final SlingHttpServletRequest slingHttpServletRequest, final HttpCacheConfig cacheConfig) throws HttpCacheKeyCreationException {
+        ImmutableSet<Cookie> presentCookies =
+                        ImmutableSet.copyOf(slingHttpServletRequest.getCookies() != null ? slingHttpServletRequest.getCookies() : new Cookie[] {});
         CookieKeyValueMapBuilder cookieKeyValueMapBuilder = new CookieKeyValueMapBuilder(cookieKeys, presentCookies);
         RequestKeyValueMapBuilder requestKeyValueMapBuilder = new RequestKeyValueMapBuilder(requestParameters, requestParameterValues, slingHttpServletRequest);
-        return new NavigationCacheKey(
-                slingHttpServletRequest,
-                cacheConfig,
-                cookieKeyValueMapBuilder.build(),
-                requestKeyValueMapBuilder.build()
-        );
+        return new NavigationCacheKey(slingHttpServletRequest, cacheConfig, cookieKeyValueMapBuilder.build(), requestKeyValueMapBuilder.build());
     }
 
 
+    @Override
     public CacheKey build(String resourcePath, HttpCacheConfig httpCacheConfig) throws HttpCacheKeyCreationException {
         return new NavigationCacheKey(resourcePath, httpCacheConfig, new RequestKeyValueMap("CookieKeyValueMap"), new RequestKeyValueMap("RequestKeyValueMap"));
     }
@@ -164,12 +164,10 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Activate
     protected void activate(NavigationCacheExtensionConfig config) {
-        this.configName = config.configName();
         this.extensionPatterns = compileToPatterns(config.extensions());
         this.selectorPatterns = compileToPatterns(config.selectors());
         this.cookieKeys = ImmutableSet.copyOf(config.allowedCookieKeys());
         this.resourceTypes = ImmutableSet.copyOf(config.resourceTypes());
-        this.configName = config.configName();
         this.emptyCookieKeySetAllowed = config.emptyCookieKeySetAllowed();
         this.requestParameters = ImmutableSet.copyOf(config.requestParameters());
         this.requestParameterValues = ImmutableSet.copyOf(config.requestParameterValues());

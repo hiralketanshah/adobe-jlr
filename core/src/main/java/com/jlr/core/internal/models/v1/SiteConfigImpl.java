@@ -18,9 +18,13 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.SiteConfigModel;
 import com.jlr.core.services.Dictionary;
+import com.jlr.core.utils.CommonUtils;
+
 
 /**
  * Model for locale based configurations for website.
@@ -32,6 +36,12 @@ public class SiteConfigImpl implements SiteConfigModel {
 
     /** The Constant RESOURCE_TYPE. */
     private static final String RESOURCE_TYPE = "jlr/components/siteconfig/v1/siteconfig";
+
+    private static final String SITE_CONFIG_SELECT_REGION_KEY = "marketregionpricing.dxnav.selectregion";
+    private static final String SITE_CONFIG_CHANGE_REGION_KEY = "marketregionpricing.dxnav.changeregion";
+    private static final String CONFIG_KEY_PLACEHOLDER_STATE = "{state}";
+
+    private static Logger LOGGER = LoggerFactory.getLogger(SiteConfigImpl.class);
 
     /** Request Parameter - List of Keys. */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -106,17 +116,17 @@ public class SiteConfigImpl implements SiteConfigModel {
             state = stateCookie.getValue();
         }
 
-        if (null == state) {
-            state = null != request.getAttribute(JLR_LOCALE_PRICING) ? request.getAttribute(JLR_LOCALE_PRICING).toString() : StringUtils.EMPTY;
+        if (StringUtils.isBlank(state)) {
+            state = null != request.getAttribute(JLR_LOCALE_PRICING) ? ((Cookie) request.getAttribute(JLR_LOCALE_PRICING)).getValue() : StringUtils.EMPTY;
         }
         Map<String, String> keyMap = new HashMap<>();
         for (String configKey : listOfKeys) {
             if (null != configMap.get(configKey)) {
-                if ((currentPage.getPath().contains("aus/") || currentPage.getPath().contains("en_au")) && StringUtils.isNotBlank(state)) {
-                    if (configKey.equalsIgnoreCase("marketregionpricing.dxnav.selectregion")) {
-                        keyMap.put(configKey, configMap.get("marketregionpricing.dxnav.changeregion").replace("{state}", state.toUpperCase()));
+                if (CommonUtils.isAUMarket(currentPage) && StringUtils.isNotBlank(state)) {
+                    if (configKey.equalsIgnoreCase(SITE_CONFIG_SELECT_REGION_KEY)) {
+                        keyMap.put(configKey, configMap.get(SITE_CONFIG_CHANGE_REGION_KEY).replace(CONFIG_KEY_PLACEHOLDER_STATE, state.toUpperCase()));
                     } else {
-                        keyMap.put(configKey, configMap.get(configKey).replace("{state}", state.toUpperCase()));
+                        keyMap.put(configKey, configMap.get(configKey).replace(CONFIG_KEY_PLACEHOLDER_STATE, state.toUpperCase()));
                     }
                 } else {
                     keyMap.put(configKey, configMap.get(configKey));
