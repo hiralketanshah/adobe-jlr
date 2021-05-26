@@ -118,4 +118,8 @@ public class PricingConstants {
      */
     public static final String PN_YYY = "yyy";
 
+    /**
+     * The Pricing read sub service
+     */
+    public static final String PRICING_READ_SUBSERVICE = "jlrreadpricing";
 }

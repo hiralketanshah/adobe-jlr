@@ -1,11 +1,7 @@
 package com.jlr.core.internal.services;
 
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-import static com.jlr.core.constants.PricingConstants.DEFAULT_PRICE_TYPE;
-import static com.jlr.core.constants.PricingConstants.DOT_REGEX;
-import static com.jlr.core.constants.PricingConstants.FALLBACK_PRICE_TYPE;
-import static com.jlr.core.constants.PricingConstants.PRICING_CURRENT_FORMAT;
-import static com.jlr.core.constants.PricingConstants.PRICING_SUPPRESSION;
+import static com.jlr.core.constants.PricingConstants.*;
 import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
 import static com.jlr.core.utils.TcoUtils.BASE_PATH;
 import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
@@ -15,13 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.servlet.http.Cookie;
+
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -205,23 +202,27 @@ public class TcoServiceImpl implements TcoService {
     }
 
     private void fetchPriceFromResource(PricingPojo pricingPojo, String path, ResourceResolver resourceResolver) {
-
-        Resource varResource = resourceResolver.getResource(path);
-        if (varResource != null) {
-            ValueMap valueMap = varResource.getValueMap();
-            if (MapUtils.isNotEmpty(valueMap)) {
-                if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
-                    pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
-                }
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.info("Resource path is {} and Price Type is {}", varResource.getPath(), valueMap.get(pricingPojo.getPriceType(), String.class));
-                }
-                Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
-                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), dPrice));
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
+        try (ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, PRICING_READ_SUBSERVICE)) {
+            Resource varResource = serviceResolver.getResource(path);
+            if (varResource != null) {
+                ValueMap valueMap = varResource.getValueMap();
+                if (MapUtils.isNotEmpty(valueMap)) {
+                    if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
+                        pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
+                    }
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.info("Resource path is {} and Price Type is {}", varResource.getPath(), valueMap.get(pricingPojo.getPriceType(), String.class));
+                    }
+                    Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
+                    pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), dPrice));
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
+                    }
                 }
             }
+        } catch (LoginException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
+                    ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
 
     }
