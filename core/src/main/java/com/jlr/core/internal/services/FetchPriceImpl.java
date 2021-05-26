@@ -110,7 +110,7 @@ public class FetchPriceImpl implements FetchPrice {
                     responseBuilder.append(getPrices(resolver, listOfEndpoints, header,
                             destinationPaths.get(CommonConstants.RUNMODE_STAGE), listOfStates));
                 }
-                replicate(resolver, destinationPath);
+                /* replicate(resolver, destinationPath); */
             }
 
         } catch (LoginException e) {
