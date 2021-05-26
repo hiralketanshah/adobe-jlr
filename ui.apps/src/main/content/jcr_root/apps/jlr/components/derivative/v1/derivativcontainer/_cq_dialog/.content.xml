@@ -233,32 +233,13 @@
                                                             fieldDescription="URL will be appended with this path when the tab is selected"
                                                             fieldLabel="URL path"
                                                             name="./urlPath"/>
-                                                        <derivativelist
+                                                        <link
                                                             jcr:primaryType="nt:unstructured"
-                                                            sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                            composite="{Boolean}true"
-                                                            fieldLabel="Derivative List">
-                                                            <field
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
-                                                                name="./derivativeList">
-                                                                <items jcr:primaryType="nt:unstructured">
-                                                                    <column
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/foundation/container">
-                                                                        <items jcr:primaryType="nt:unstructured">
-                                                                            <link
-                                                                                jcr:primaryType="nt:unstructured"
-                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                                                                fieldDescription="Link to a derivative page path"
-                                                                                fieldLabel="Derivative page path"
-                                                                                name="./link"
-                                                                                rootPath="/content/landrover/global"/>
-                                                                        </items>
-                                                                    </column>
-                                                                </items>
-                                                            </field>
-                                                        </derivativelist>
+                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                            fieldDescription="Link to a derivative page path"
+                                                            fieldLabel="Derivative page path"
+                                                            name="./link"
+                                                            rootPath="/content/landrover/global"/>
                                                     </items>
                                                 </column>
                                             </items>
