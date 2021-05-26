@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.VehicleSummaryModel;
@@ -45,7 +44,6 @@ class VehicleSummaryImplTest extends GlobalModelImplTest {
      * Test cta properties.
      */
     @Override
-    @Test
     void testCtaProperties() {
         List<CTAPojo> list = vehicleSummaryModel.getCtaList();
         assertEquals("pricing_value", vehicleSummaryModel.getPrice());

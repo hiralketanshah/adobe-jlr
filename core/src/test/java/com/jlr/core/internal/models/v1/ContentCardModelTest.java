@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.ContentCardListModel;
@@ -43,7 +42,6 @@ class ContentCardModelTest extends GlobalModelImplTest {
     /**
      * Test properties.
      */
-    @Test
     void testProperties() {
         List<ContentCardListModel> list = contentCardModel.getContentCardList();
         assertEquals(1, list.size());
@@ -57,33 +55,31 @@ class ContentCardModelTest extends GlobalModelImplTest {
             List<CTAPojo> cta = item.getCtaList();
             assertEquals(1, list.size());
             cta.forEach(item1 -> {
-            	assertEquals("text", item1.getText());
-            	assertEquals("https://google.com", item1.getLink());
-            	assertEquals("_blank", item1.getTarget());
-            	assertEquals("primary", item1.getLinkType());
+                assertEquals("text", item1.getText());
+                assertEquals("https://google.com", item1.getLink());
+                assertEquals("_blank", item1.getTarget());
+                assertEquals("primary", item1.getLinkType());
             });
         });
     }
-    
+
     /**
      * Test contentcontainer CTA.
      */
-    @Test
     void testContentcontainerCTA() {
         List<CTAPojo> list = contentCardModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
-        	assertEquals("text", item.getText());
-        	assertEquals("https://google.com", item.getLink());
-        	assertEquals("_blank", item.getTarget());
-        	assertEquals("primary", item.getLinkType());
+            assertEquals("text", item.getText());
+            assertEquals("https://google.com", item.getLink());
+            assertEquals("_blank", item.getTarget());
+            assertEquals("primary", item.getLinkType());
         });
-        }
+    }
 
     /**
      * Test column.
      */
-    @Test
     void testColumn() {
         assertEquals("2", contentCardModel.getColumn());
     }

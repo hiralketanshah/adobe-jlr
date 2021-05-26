@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.HeroItemModel;
@@ -42,7 +41,6 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     /**
      * Test properties.
      */
-    @Test
     void testProperties() {
         List<CTAPojo> list = heroItemModel.getCtaList();
         assertEquals(1, list.size());
