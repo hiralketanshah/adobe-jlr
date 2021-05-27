@@ -27,7 +27,7 @@
 	flex-direction: row;
 }
 .cmp-cplayer-hidden{
-	display: none;
+	display: none !important;
 }
 /*  SECTIONS  */
 .cmp-cplayer .section {
