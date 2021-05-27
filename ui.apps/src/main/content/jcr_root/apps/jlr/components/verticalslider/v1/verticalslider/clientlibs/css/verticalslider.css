@@ -895,3 +895,10 @@ screen and (-ms-high-contrast: none) {
 		margin-left: 0
 	}
 }
+/*----------bug fix 759-----------*/
+
+.verticalslider .cmp-interactiveNumberedImage__verticalSlider-item{
+	clear:both;
+  }
+.verticalslider  .primaryLinkWithStyle {margin-bottom:30px}
+/*----------bug fix 759-----------*/
