@@ -1,3 +1,4 @@
+
 /******/ (function (modules) { // webpackBootstrap
 /******/             // The module cache
 /******/             var installedModules = {};
@@ -731,41 +732,47 @@
                   }
     
                   this._setupWaypointDivs();
-                  // this._resizeElements();
+                  this._resizeElements();
     
                   $(window).resize(function () {
                     clearTimeout(_this.waypointTimeout);
     
                     _this.waypointTimeout = setTimeout(function () {
                       _this._setupWaypointDivs(true);
-                      // _this._resizeElements();
+                      _this._resizeElements();
                     }, _this._resizeTimeout);
                   });
                 },
                 _doNewMobileResize: function _doNewMobileResize() {
+                  console.log("mobileviw");
                   var bgTop = $('.frameSliderBg', this.$element).offset().top;
                   var infoContainerBottom = $('.infoContainer', this.$element).offset().top + $('.infoContainer', this.$element).height();
                   var newHeight = infoContainerBottom - bgTop;
     
                   this.$element.find('.frameSliderItem').height(newHeight);
                 },
-                // _resizeElements: function _resizeElements() {
-                //   var infoContainer = $('.infoContainer', this.$element);
-    
-                //   if (window.innerWidth <= 740 && this.isOldSlider) {
-                //     var infoContainerHeight = infoContainer.height();
-                //     var frameSliderBgHeight = $('.frameSliderBg', this.$element).height();
-                //     var newHeight = infoContainerHeight + frameSliderBgHeight;
-    
-                //     $('.frameSliderItem', this.$element).height(newHeight);
-                //   } else if (window.innerWidth <= 740 && !this.isOldSlider) {
-                //     var _frameSliderBgHeight = $('.frameSliderBg', this.$element).height();
-                //     var _infoContainerHeight = infoContainer.height();
-                //     var _newHeight = _frameSliderBgHeight + _infoContainerHeight;
-    
-                //     $('.frameSliderItem', this.$element).height(_newHeight);
-                //   }
-                // },
+              
+                _resizeElements: function _resizeElements() {
+                
+                  var contentheight = $(".infoContainer .content").css("height");
+                  var spriteContainerheight = $(".spriteContainer").css("height");
+                 
+                  if(window.innerWidth >= 901){
+                  var maxheightcontent = Math.max(parseInt(contentheight),parseInt(spriteContainerheight))
+                  $('.frameSliderItem').css({ height: maxheightcontent });
+                  } 
+                  if(window.innerWidth >= 320  && window.innerWidth <= 900){
+                    var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
+
+                  
+                    $('.frameSliderItem').css({ height: maxheightcontentmobile});
+                   
+                  }
+
+                  
+                  
+
+                },
                 _setupWaypointDivs: function _setupWaypointDivs(resize) {
                   var sliderFlexWidth = this.$sliderContainerUpper.width() - 64;
     
