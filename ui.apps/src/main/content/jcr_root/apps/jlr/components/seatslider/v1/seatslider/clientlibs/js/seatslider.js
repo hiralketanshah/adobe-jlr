@@ -744,7 +744,6 @@
                   });
                 },
                 _doNewMobileResize: function _doNewMobileResize() {
-                  console.log("mobileviw");
                   var bgTop = $('.frameSliderBg', this.$element).offset().top;
                   var infoContainerBottom = $('.infoContainer', this.$element).offset().top + $('.infoContainer', this.$element).height();
                   var newHeight = infoContainerBottom - bgTop;
@@ -810,7 +809,6 @@
                     this.$sliderControls.css({
     
                       width: sliderFlexWidth
-                      // width:"530px"         
                     });
     
                   }
