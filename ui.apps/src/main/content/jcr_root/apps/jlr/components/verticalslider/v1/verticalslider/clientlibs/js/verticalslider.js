@@ -4296,7 +4296,7 @@ var isNumberedImage;
       this.ui('progressLoading').get(0).style.strokeDasharray = this._progressCircumference + ' ' + this._progressCircumference;
       this.ui('progressLoading').get(0).style.strokeDashoffset = '' + this._progressCircumference;
 
-      this._progressStep = 1652 / (duration * 1000);
+      this._progressStep = 1652 / (duration);
       this._startPlaying();
       // this._animationFrame = window.requestAnimationFrame(this._setProgress.bind(this));
     },
