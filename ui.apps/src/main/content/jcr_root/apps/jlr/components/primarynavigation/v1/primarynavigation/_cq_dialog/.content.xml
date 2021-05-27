@@ -96,7 +96,7 @@
                                 granite:class="primary-nav-cp"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                fieldDescription="Check to enable myLandRover link to be displayed."
+                                fieldDescription="Check to enable myJLRProfile link to be displayed."
                                 name="./enableCustPortal"
                                 text="Enable Customer Portal"
                                 uncheckedValue="false"
