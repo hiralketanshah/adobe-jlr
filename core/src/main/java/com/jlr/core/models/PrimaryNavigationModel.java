@@ -121,7 +121,7 @@ public class PrimaryNavigationModel {
     private List<QuickLinks> getQuickLinks(String path) {
         Resource rootNavigationResource = resourceResolver.getResource(path);
         Resource containerResource =
-                        rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
+                        rootNavigationResource.getChild("jcr:content/root/container");
         Iterator<Resource> childResources = containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
@@ -147,39 +147,20 @@ public class PrimaryNavigationModel {
      * @param path the path
      * @return the nav page title
      */
-    private List<String> getNavPageTitle(String path) {
+    private List<String> getNavPage(String path, String commonConstants) {
         Resource rootNavigationResource = resourceResolver.getResource(path);
         Resource containerResource =
-                        rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
+                        rootNavigationResource.getChild("jcr:content/root/container");
         List<String> list = new ArrayList<>();
         Iterator<Resource> childResources = containerResource.listChildren();
         Resource child = childResources.next();
         ValueMap properties = child.adaptTo(ValueMap.class);
         if (StringUtils.compare(RT_MEGADROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
-            list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
+            list.add(properties.get(commonConstants, String.class));
         }
         return list;
     }
 
-    /**
-     * Gets the nav page aria label.
-     *
-     * @param path the path
-     * @return the nav page aria label
-     */
-    private List<String> getNavPageAriaLabel(String path) {
-        Resource rootNavigationResource = resourceResolver.getResource(path);
-        Resource containerResource =
-                        rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT).getChild(CommonConstants.NN_CONTAINER);
-        List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources = containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if (StringUtils.compare(RT_MEGADROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
-            list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
-        }
-        return list;
-    }
 
     /**
      * Gets the vehicle tab name.
@@ -201,44 +182,29 @@ public class PrimaryNavigationModel {
         }
         return list;
     }
-
-    /**
-     * Gets the vehicle nav page title.
-     *
-     * @return the vehicle nav page title
-     */
+    
+    public List<String> getVehicleNavPage(String commonConstants) {
+        Resource rootNavigationResource = resourceResolver.getResource(vehicleNavPagePath);
+        Resource containerResource = rootNavigationResource.getChild("jcr:content/root/container/vehiclecontainer/vehicles");
+        List<String> list = new ArrayList<>();
+        Iterator<Resource> childResources = containerResource.listChildren();
+        Resource child = childResources.next();
+        ValueMap properties = child.adaptTo(ValueMap.class);
+        if (StringUtils.compare(RT_VEHICLEDROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
+            list.add(properties.get(commonConstants, String.class));
+        }
+        return list;
+    }
+    
     public List<String> getVehicleNavPageTitle() {
-        Resource rootNavigationResource = resourceResolver.getResource(vehicleNavPagePath);
-        Resource containerResource = rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT)
-                        .getChild(CommonConstants.NN_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
-        List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources = containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if (StringUtils.compare(RT_VEHICLEDROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
-            list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_TITLE, String.class));
-        }
-        return list;
+		return getVehicleNavPage(CommonConstants.PN_PRIMARY_NAV_TITLE);	
+    }
+    
+    public List<String> getVehicleNavPageArialabel() {
+		return getVehicleNavPage(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL);	
     }
 
-    /**
-     * Gets the vehicle nav page arialabel.
-     *
-     * @return the vehicle nav page arialabel
-     */
-    public List<String> getVehicleNavPageArialabel() {
-        Resource rootNavigationResource = resourceResolver.getResource(vehicleNavPagePath);
-        Resource containerResource = rootNavigationResource.getChild(JcrConstants.JCR_CONTENT).getChild(CommonConstants.NN_ROOT)
-                        .getChild(CommonConstants.NN_CONTAINER).getChild(CommonConstants.PN_VEHICLE_CONTAINER).getChild(CommonConstants.PN_VEHICLES);
-        List<String> list = new ArrayList<>();
-        Iterator<Resource> childResources = containerResource.listChildren();
-        Resource child = childResources.next();
-        ValueMap properties = child.adaptTo(ValueMap.class);
-        if (StringUtils.compare(RT_VEHICLEDROPDOWN, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
-            list.add(properties.get(CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL, String.class));
-        }
-        return list;
-    }
+    
 
     /**
      * Gets the vehicle card json.
@@ -449,7 +415,7 @@ public class PrimaryNavigationModel {
      * @return the nav page title one
      */
     public List<String> getNavPageTitleOne() {
-        return getNavPageTitle(navPagePathOne);
+        return getNavPage(navPagePathOne, CommonConstants.PN_PRIMARY_NAV_TITLE);
     }
 
     /**
@@ -458,7 +424,7 @@ public class PrimaryNavigationModel {
      * @return the nav page title two
      */
     public List<String> getNavPageTitleTwo() {
-        return getNavPageTitle(navPagePathTwo);
+        return getNavPage(navPagePathTwo, CommonConstants.PN_PRIMARY_NAV_TITLE);
     }
 
     /**
@@ -467,7 +433,7 @@ public class PrimaryNavigationModel {
      * @return the nav page title three
      */
     public List<String> getNavPageTitleThree() {
-        return getNavPageTitle(navPagePathThree);
+        return getNavPage(navPagePathThree, CommonConstants.PN_PRIMARY_NAV_TITLE);
     }
 
     /**
@@ -476,7 +442,7 @@ public class PrimaryNavigationModel {
      * @return the nav page aria label one
      */
     public List<String> getNavPageAriaLabelOne() {
-        return getNavPageAriaLabel(navPagePathOne);
+        return getNavPage(navPagePathOne, CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL);
     }
 
     /**
@@ -485,7 +451,7 @@ public class PrimaryNavigationModel {
      * @return the nav page aria label two
      */
     public List<String> getNavPageAriaLabelTwo() {
-        return getNavPageAriaLabel(navPagePathTwo);
+        return getNavPage(navPagePathTwo, CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL);
     }
 
     /**
@@ -494,6 +460,6 @@ public class PrimaryNavigationModel {
      * @return the nav page aria label three
      */
     public List<String> getNavPageAriaLabelThree() {
-        return getNavPageAriaLabel(navPagePathThree);
+        return getNavPage(navPagePathThree, CommonConstants.PN_PRIMARY_NAV_ARIA_LABEL);
     }
 }
