@@ -633,7 +633,7 @@
                                                         value="retail"/>
                                                 </items>
                                             </fallbackPriceType>
-                                            <suppressPrice
+                                            <pricingSuppression
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/foundation/form/radiogroup"
                                                 text="Pricing Suppression"
@@ -650,9 +650,9 @@
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/foundation/form/radio"
                                                         text="False"
-                                                        value="False"/>
+                                                        value="false"/>
                                                 </items>
-                                            </suppressPrice>
+                                            </pricingSuppression>
                                         </items>
                                     </pricing>
                                 </items>
