@@ -1,4 +1,7 @@
 
+.slateblue .cmp-accolades__img .Picture__img{
+  filter: invert(1);
+}
 .cmp-accolades {
     *zoom: 1;
     text-align: center;
