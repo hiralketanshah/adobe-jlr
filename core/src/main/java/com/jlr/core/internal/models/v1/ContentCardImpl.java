@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -91,19 +92,16 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
      */
     @PostConstruct
     public void init() {
-
-        for (ContentCardListModel card : contentCardList) {
-
-            Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
-                    pageProperties, card.getPrice(), key);
-            modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
-                card.setPriceConfigValue(entry.getKey());
-                card.setPrice(entry.getValue());
-
-            });
-
+        if (CollectionUtils.isNotEmpty(contentCardList)) {
+            for (ContentCardListModel card : contentCardList) {
+                Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                        pageProperties, card.getPrice(), key);
+                modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+                    card.setPriceConfigValue(entry.getKey());
+                    card.setPrice(entry.getValue());
+                });
+            }
         }
-
     }
 
     /**

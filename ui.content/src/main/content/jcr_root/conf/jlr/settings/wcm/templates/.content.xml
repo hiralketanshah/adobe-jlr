@@ -13,4 +13,5 @@
     <redirect-page-template/>
     <rep:policy/>
     <empty-page-template/>
+    <naas-page-template/>
 </jcr:root>

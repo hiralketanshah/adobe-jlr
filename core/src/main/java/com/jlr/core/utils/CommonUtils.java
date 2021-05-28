@@ -1,24 +1,32 @@
 package com.jlr.core.utils;
 
+import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import javax.jcr.RepositoryException;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.ValueMap;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.adobe.aem.formsndocuments.util.FMUtils;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.pojos.FooterPojo;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.jackrabbit.api.security.user.UserManager;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.*;
-import org.jsoup.Jsoup;
-import org.jsoup.safety.Whitelist;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.jcr.RepositoryException;
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
-import java.util.*;
 
 /**
  * The Class CommonUtils is used for commonly used utilities.
@@ -99,6 +107,7 @@ public final class CommonUtils {
 
     /**
      * Retrieves the root page path based on current page.
+     * 
      * @param currentPage
      * @return
      */
@@ -150,7 +159,7 @@ public final class CommonUtils {
     }
 
     public static String getOnlyTextFromHTML(String text) {
-       return StringUtils.isBlank(text) ? StringUtils.EMPTY : Jsoup.clean(text, Whitelist.none().addTags("sup"));
+        return StringUtils.isBlank(text) ? StringUtils.EMPTY : Jsoup.clean(text, Whitelist.none().addTags("sup"));
     }
 
     public static List<FooterPojo> createFooterList(Resource footerList) {
@@ -164,6 +173,16 @@ public final class CommonUtils {
             }
         }
         return list;
+    }
+
+    public static Boolean isAUMarket(Page page) {
+        if (null != page) {
+            String pagePath = page.getPath();
+            if (pagePath.contains("aus/") || pagePath.contains("en_au")) {
+                return Boolean.TRUE;
+            }
+        }
+        return Boolean.FALSE;
     }
 
 }

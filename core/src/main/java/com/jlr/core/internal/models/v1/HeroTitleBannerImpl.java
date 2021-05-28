@@ -12,6 +12,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
@@ -63,11 +64,13 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     /** The cta list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource ctaList;
 
     /** The footer list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource footerList;
 
     /** The resource resolver. */
@@ -76,10 +79,12 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
 
     /** The caveat. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String caveat;
 
     /** The price. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String price;
 
     /**

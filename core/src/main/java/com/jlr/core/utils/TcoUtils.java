@@ -23,7 +23,7 @@ public class TcoUtils {
         DecimalFormat currencyFormatter = null;
         try {
             currencyFormatter = new DecimalFormat(pattern);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             LOGGER.error("Invalid currency pattern {} detected!", pattern);
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVICE, "TcoUtils", e));

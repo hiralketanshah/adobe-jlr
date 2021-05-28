@@ -1,11 +1,7 @@
 package com.jlr.core.internal.services;
 
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-import static com.jlr.core.constants.PricingConstants.DEFAULT_PRICE_TYPE;
-import static com.jlr.core.constants.PricingConstants.DOT_REGEX;
-import static com.jlr.core.constants.PricingConstants.FALLBACK_PRICE_TYPE;
-import static com.jlr.core.constants.PricingConstants.PRICING_CURRENT_FORMAT;
-import static com.jlr.core.constants.PricingConstants.PRICING_SUPPRESSION;
+import static com.jlr.core.constants.PricingConstants.*;
 import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
 import static com.jlr.core.utils.TcoUtils.BASE_PATH;
 import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
@@ -15,15 +11,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 import javax.servlet.http.Cookie;
+
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.jackrabbit.JcrConstants;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.PersistenceException;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceUtil;
-import org.apache.sling.api.resource.ValueMap;
+import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -34,12 +29,10 @@ import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.config.PricingConfig;
 import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.pojos.PricingPojo;
 import com.jlr.core.services.Dictionary;
 import com.jlr.core.services.TcoService;
-import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.TcoUtils;
 
 @Component(immediate = true, service = TcoService.class)
@@ -54,6 +47,9 @@ public class TcoServiceImpl implements TcoService {
 
     @Reference
     private Dictionary dictionary;
+
+    @Reference
+    private ResourceResolverFactory resourceResolverFactory;
 
     @Activate
     public void activate(PricingConfig config) {
@@ -72,8 +68,6 @@ public class TcoServiceImpl implements TcoService {
         PricingPojo pricingPojo = new PricingPojo();
         String region = getRegionFromPage(currentPage, resourceResolver);
 
-
-
         if (StringUtils.isEmpty(region)) {
             return Collections.emptyMap();
         }
@@ -89,7 +83,6 @@ public class TcoServiceImpl implements TcoService {
         if (!mrp || Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) {
             return Collections.emptyMap();
         }
-
 
         if (StringUtils.isNotEmpty(priceMacro)) {
             if ((priceMacro.contains("{{") && priceMacro.contains("}}")) && StringUtils.isNotEmpty(region)) {
@@ -197,7 +190,7 @@ public class TcoServiceImpl implements TcoService {
         pricingPojo.setNamePlate(pricingPojo.getPriceMacroConfig());
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, StringUtils.EMPTY, BASE_PATH);
-        fetchPriceFromResource(pricingPojo, resourceResolver, path);
+        fetchPriceFromResource(pricingPojo, path, resourceResolver);
 
     }
 
@@ -205,30 +198,33 @@ public class TcoServiceImpl implements TcoService {
         String macroModelYear = fetchNamePlateProductDetails(pricingPojo);
         fetchPageProperties(pricingPojo, resourceResolver, currentPage);
         String path = getNamePlatePath(pricingPojo, macroModelYear, BASE_PATH);
-        fetchPriceFromResource(pricingPojo, resourceResolver, path);
+        fetchPriceFromResource(pricingPojo, path, resourceResolver);
     }
 
-    private void fetchPriceFromResource(PricingPojo pricingPojo, ResourceResolver resourceResolver, String path) {
-        try {
-            Resource varResource = ResourceUtil.getOrCreateResource(resourceResolver, path, JcrConstants.NT_UNSTRUCTURED, JcrConstants.NT_UNSTRUCTURED, false);
-            ValueMap valueMap = varResource.getValueMap();
-            if (MapUtils.isNotEmpty(valueMap)) {
-                if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
-                    pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
-                }
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.info("Resource path is {} and Price Type is {}", varResource.getPath(), valueMap.get(pricingPojo.getPriceType(), String.class));
-                }
-                Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
-                pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), dPrice));
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
+    private void fetchPriceFromResource(PricingPojo pricingPojo, String path, ResourceResolver resourceResolver) {
+        try (ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, PRICING_READ_SUBSERVICE)) {
+            Resource varResource = serviceResolver.getResource(path);
+            if (varResource != null) {
+                ValueMap valueMap = varResource.getValueMap();
+                if (MapUtils.isNotEmpty(valueMap)) {
+                    if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
+                        pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());
+                    }
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.info("Resource path is {} and Price Type is {}", varResource.getPath(), valueMap.get(pricingPojo.getPriceType(), String.class));
+                    }
+                    Double dPrice = getConvertedPrice(valueMap.get(pricingPojo.getPriceType(), String.class), pricingPojo, valueMap);
+                    pricingPojo.setModelPrice(TcoUtils.currencyFormat(pricingPojo.getCurrencyFormat(), dPrice));
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.info("Path of the nameplate is {} with price {}", path, dPrice);
+                    }
                 }
             }
-        } catch (PersistenceException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
-                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
+        } catch (LoginException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
+                    ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
+
     }
 
     private Double getConvertedPrice(String price, PricingPojo pricingPojo, ValueMap valueMap) {

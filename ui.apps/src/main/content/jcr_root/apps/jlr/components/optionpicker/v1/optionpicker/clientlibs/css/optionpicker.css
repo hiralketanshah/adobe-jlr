@@ -773,3 +773,38 @@ padding-top: 24px;
         padding-bottom: 0px;
     }
 }
+/*------code fix for defect 760----*/
+@media screen and (min-width:1280px) and (max-width: 2700px){
+    .optionpicker .primaryLinkWithStyle {
+        float: right;
+    }
+     .optionpicker .cmp_interactiveOptionPicker__otr{
+    margin-top:7%;
+        margin-left: -154%;
+    }
+     .optionpicker .show-cta{
+    margin-top:8px;
+     }
+    }
+    
+    
+    @media screen and (min-width:768px) and (max-width: 1279px){
+    .optionpicker .primaryLinkWithStyle {
+        float: left;
+    }
+     .wheel .cmp_interactiveOptionPicker__option-group-container {
+        float: left;
+        min-height: 90px;
+        width: 100%!important;
+    }
+        .optionpicker .primaryLinkWithStyle{
+    margin-bottom:0px
+    }
+    }
+    
+    @media screen and (min-width:320px) and (max-width: 767px){
+    .optionpicker .primaryLinkWithStyle{
+    margin-bottom:0px
+    }
+    }
+        /*------code fix for defect 760----*/

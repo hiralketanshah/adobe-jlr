@@ -19,30 +19,34 @@
                         if(userAuthored && !isUserBuild){
                             break;
                         }
-                        cplayer.style.display = 'flex';
-                        var summary = item[1].vehicleDetail.join(" | ");
-                        var imgUrl = item[1].media.desktop.frames[0].layers[0].image;
-                        var vechicleSummary = cplayer.querySelector('.vechicleSummary span');
-                        vechicleSummary.innerHTML = item[1].vehicleName;
-                        cplayer.getElementsByClassName('summary')[0].innerHTML = `<p>${summary}</p>`;
-                        cplayer.getElementsByTagName('picture')[0].innerHTML = `<img alt="" class="Picture__img" src="${imgUrl}" style="max-width:100%;height:max-height:100%;"/>`;
-                         
-                        var primaryLink = cplayer.getElementsByClassName('primaryLinkWithStyle');
-                        var secondaryLink =cplayer.getElementsByClassName('secondaryLinkWithStyle');
-                        if(primaryLink.length>0){
-                            var currentBuildUrl = item[1].currentBuildUrl;
-                            if(!primaryLink[0].href){
-                                primaryLink[0].href = currentBuildUrl;
+                        if(cplayer){
+                            cplayer.classList.remove("cmp-cplayer-hidden");
+                            cplayer.style.display = 'flex';
+                            var summary = item[1].vehicleDetail.join(" | ");
+                            var imgUrl = item[1].media.desktop.frames[0].layers[0].image;
+                            var vechicleSummary = cplayer.querySelector('.vechicleSummary span');
+                            vechicleSummary.innerHTML = item[1].vehicleName;
+                            cplayer.getElementsByClassName('summary')[0].innerHTML = `<p>${summary}</p>`;
+                            cplayer.getElementsByTagName('picture')[0].innerHTML = `<img alt="" class="Picture__img" src="${imgUrl}" style="max-width:100%;height:max-height:100%;"/>`;
+                             
+                            var primaryLink = cplayer.getElementsByClassName('primaryLinkWithStyle');
+                            var secondaryLink =cplayer.getElementsByClassName('secondaryLinkWithStyle');
+                            if(primaryLink.length>0){
+                                var currentBuildUrl = item[1].currentBuildUrl;
+                                if(!primaryLink[0].href){
+                                    primaryLink[0].href = currentBuildUrl;
+                                }
+                            }                      
+                            if(secondaryLink.length>0){
+                                var startNewBuildUrl = item[1].startNewBuildUrl;
+                                if(!secondaryLink[0].href){
+                                    secondaryLink[0].href = startNewBuildUrl;
+                                }
                             }
-                        }                      
-                        if(secondaryLink.length>0){
-                            var startNewBuildUrl = item[1].startNewBuildUrl;
-                            if(!secondaryLink[0].href){
-                                secondaryLink[0].href = startNewBuildUrl;
-                            }
+                            if(isUserBuild)
+                            break;
                         }
-                        if(isUserBuild)
-                        break;
+                    
                     }      
                 }
         }
