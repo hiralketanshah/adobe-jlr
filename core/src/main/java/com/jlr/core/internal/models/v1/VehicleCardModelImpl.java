@@ -73,7 +73,7 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
      * @return the cta list
      */
     public List<CTAPojo> getCtaList() {
-        if (null != ctaList && ctaList.hasChildren()) {
+        if (null != ctaList && ctaList.hasChildren() && "ctaList".equals(ctaList.getName())) {
             listOfCta = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
         return listOfCta;
