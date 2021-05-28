@@ -2,64 +2,89 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.models.DerivativeContainerModel;
 import com.jlr.core.pojos.DerivativeTab;
+import com.jlr.core.services.Derivative;
 
 /**
  * The Class DerivativeContainerModelImpl.
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         DerivativeContainerModel.class }, resourceType = DerivativeContainerModelImpl.RESOURCE_TYPE)
 public class DerivativeContainerModelImpl extends GlobalModelImpl implements DerivativeContainerModel {
 
     /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/derivative/v1/derivativcontainer";
+    public static final String RESOURCE_TYPE = "jlr/components/derivative/v1/derivativecontainer";
+
+    @OSGiService
+    private Derivative derivativeService;
+
+    /** The request. */
+    @Inject
+    private SlingHttpServletRequest request;
 
     /** The tab list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource tabList;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String firstDropdownHeading;
 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String secondDropdownHeading;
 
     /** The dropdown list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource dropdownList;
 
     /** The specsAtaGlanceHeading. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String specsAtaGlanceHeading;
 
     /** The enable pricing. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String enablePricing;
 
     /** The layout. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String layout;
 
     /** The list. */
     List<DerivativeTab> listOfTabs = new ArrayList<>();
     List<String> tabHeadings = new ArrayList<>();
+    List<String> firstDropdownList = new ArrayList<>();
+    Map<String, Map<String, String>> listOfDropdown = new LinkedHashMap<>();
 
     @PostConstruct
     public void init() {
@@ -76,8 +101,36 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 }
 
             }
+        } else if (("dropdown").equalsIgnoreCase(layout)) {
+            Iterator<Resource> iterator = dropdownList.listChildren();
+            while (iterator.hasNext()) {
+                Resource resource = iterator.next();
+                ValueMap properties = resource.adaptTo(ValueMap.class);
+                if (null != properties) {
+                    firstDropdownList.add(properties.get("label", String.class));
+                    listOfDropdown.put(properties.get("label", String.class), getListOfDerivatives(resource));
+
+                }
+
+            }
         }
 
+    }
+
+    private Map<String, String> getListOfDerivatives(Resource resource) {
+        Map<String, String> listOfDerivatives = new LinkedHashMap<>();
+        Resource derivativeListResource = resource.getChild("derivativeList");
+        Iterator<Resource> derivativeIterator = derivativeListResource.listChildren();
+        while (derivativeIterator.hasNext()) {
+            Resource res = derivativeIterator.next();
+            ValueMap prop = res.adaptTo(ValueMap.class);
+            if (null != prop) {
+                String path = prop.get("link", String.class);
+                String dropdownName = derivativeService.getListOfDerivativeDropdown(request, path);
+                listOfDerivatives.put(dropdownName, path);
+            }
+        }
+        return listOfDerivatives;
     }
 
     @Override
@@ -85,9 +138,28 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
         return tabHeadings;
     }
 
+    public List<String> getDropdownLabels() {
+        return firstDropdownList;
+    }
+
+    public Set<String> getSecondDropdownLabels() {
+        Set<String> secondDropdownLabels = new LinkedHashSet<>();
+        for (Entry<String, Map<String, String>> firstLabel : listOfDropdown.entrySet()) {
+            Map<String, String> innerMap = firstLabel.getValue();
+            for (String secondLabel : innerMap.keySet()) {
+                secondDropdownLabels.add(secondLabel);
+            }
+        }
+        return secondDropdownLabels;
+    }
+
     @Override
     public List<DerivativeTab> getListOfTabs() {
         return listOfTabs;
+    }
+
+    public Map<String, Map<String, String>> getListOfDropdown() {
+        return listOfDropdown;
     }
 
     /**
