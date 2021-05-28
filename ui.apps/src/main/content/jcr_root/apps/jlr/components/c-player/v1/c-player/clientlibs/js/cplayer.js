@@ -14,7 +14,7 @@
             }
             for(var i = 0;i<items.length;i++){
                     var item = items[i];   
-                    var isUserBuild = item.length>1 && item[1] && item[1].vehicleId == vechicleId && item[1].modelYear == modelYear;
+                    var isUserBuild = item.length>1 && item[1] && item[1].vehicleId.toLowerCase() == vechicleId.toLowerCase() && item[1].modelYear.toLowerCase() == modelYear.toLowerCase();
                     if(isUserBuild || item[0]=="latest")   {
                         if(userAuthored && !isUserBuild){
                             break;
