@@ -649,7 +649,6 @@
                                                     <false
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/foundation/form/radio"
-                                                        checked="{Boolean}true"
                                                         text="False"
                                                         value="False"/>
                                                 </items>

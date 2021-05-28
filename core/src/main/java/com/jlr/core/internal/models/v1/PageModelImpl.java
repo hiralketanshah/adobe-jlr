@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
@@ -30,6 +31,7 @@ import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.models.PageModel;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
+import com.jlr.core.utils.NavigationUtils;
 
 /**
  * The Class PageModelImpl.
@@ -43,12 +45,15 @@ public class PageModelImpl implements PageModel {
     private final String AU_LOCALE = "en_AU";
     private final String DE_LOCALE = "de_DE";
 
-    private final String AU_RETAILER_NAAS_URL = "/content/nav/naasconfig/en_au.html";
-    private final String DE_RETAILER_NAAS_URL = "/content/nav/naasconfig/de_de.html";
+    private final String AU_RETAILER_NAAS_URL = "content/nav/naasconfig/en_au.html";
+    private final String DE_RETAILER_NAAS_URL = "content/nav/naasconfig/de_de.html";
 
     /** The current page. */
     @ScriptVariable
     protected com.day.cq.wcm.api.Page currentPage;
+
+    @Inject
+    private ResourceResolver resourceResolver;
 
     /** The page properties. */
     @ScriptVariable
@@ -95,6 +100,7 @@ public class PageModelImpl implements PageModel {
         getNaasUrl();
         getLocale();
         getState();
+        getDomainUrl();
     }
 
     @Override
@@ -120,6 +126,9 @@ public class PageModelImpl implements PageModel {
         return StringUtils.EMPTY;
     }
 
+    public String getDomainUrl() {
+        return NavigationUtils.getBaseUrl(resourceResolver);
+    }
 
 
     /**
