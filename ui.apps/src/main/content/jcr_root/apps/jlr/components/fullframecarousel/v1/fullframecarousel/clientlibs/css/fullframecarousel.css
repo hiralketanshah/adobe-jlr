@@ -1012,3 +1012,62 @@
   /* image poster clicked, player class added using js */
   .videoCustom.player img { display: none; }
   .videoCustom.player:after { display: none; }
+
+  
+/*---------code fix for 631-----------*/
+ .cmp-fullframe-carousel .swiper-button--next {
+
+  margin-top: -15%;
+}
+.cmp-fullframe-carousel .swiper-button--prev {
+
+  margin-top: -15%;
+}
+
+@media screen and (min-width: 1px) and (max-width: 1024px){
+
+.cmp-fullframe-carousel .swiper-button--prev {
+
+ display:none;
+}
+.cmp-fullframe-carousel .swiper-button--next {
+
+ display:none;
+}
+
+}
+/*---------code fix for 631-----------*/
+
+/*---------Full Frame UI ------------*/
+.cmp-fullframe .primaryLinkWithStyle{font-family:AvenirNext-DemiBold; line-height:14px;}
+@media screen and (min-width: 1280px) and (max-width: 1920px){
+.cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px; color:#0C121C; font-family:LandRoverWeb-Bold; height:32px;letter-spacing:1.2px;}
+.cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
+.cmp-fullframe .secondaryLinkWithStyle{margin-top:23px!important; line-height:12.5px}
+}   
+@media screen and (min-width: 768px) and (max-width: 1279px){
+.cmp-fullframe .headingWrapper p{font-size:21px; line-height:21px; color:#0C121C;font-family:LandRoverWeb-Bold;height:28px; letter-spacing:1.05px;}
+.cmp-fullframe .primaryLinkWithStyle{ margin-top:43px;}
+.cmp-fullframe-carousel .cmp-carousel__controls{top:382px!important;}
+.cmp-fullframe .secondaryLinkWithStyle{margin-top:23px!important; line-height:12.5px;}
+.cmp-fullframe .shelfComponent {
+  display: block;
+  padding:28px 0 0 30px;
+  -webkit-font-smoothing: antialiased;
+}
+.cmp-fullframe .linkContainer{padding-top:0;}
+.cmp-fullframe .fontBodyCopyLarge{margin-bottom:43px;}
+} 
+@media screen and (min-width: 320px) and (max-width:767px){
+.cmp-fullframe .headingWrapper p{font-size:20px; line-height:19px; color:#0C121C;font-family:LandRoverWeb-Bold;height:27px; letter-spacing:0.64 px;}
+.cmp-fullframe .cmp-carousel__controls{top:160px!important;}  
+.cmp-fullframe .primaryLinkWithStyle{ margin-top:43px;}
+.cmp-fullframe .fontBodyCopyLarge {
+  width: 86%;
+  margin-bottom: 0px;
+  padding-right: 20px;
+}
+.cmp-fullframe .secondaryLinkWithStyle{ line-height:12.5px;}
+}
+
+/*---------Full Frame UI ------------*/
