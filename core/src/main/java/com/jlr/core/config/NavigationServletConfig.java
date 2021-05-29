@@ -41,8 +41,8 @@ public @interface NavigationServletConfig {
     String cssFontImportsLink();
 
     @AttributeDefinition(
-            name = "Configuration Name",
-            description = "The unique identifier of this extension"
+            name = "Javascript Link",
+            description = "javascript Link for the primary navigation"
     )
     String javascriptLink();
 

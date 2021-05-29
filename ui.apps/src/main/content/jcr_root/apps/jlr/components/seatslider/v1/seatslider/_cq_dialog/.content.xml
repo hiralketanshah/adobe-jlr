@@ -42,6 +42,9 @@
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>          
                                 </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    seat-slider-component="true"/>
                             </column>
                         </items>
                     </copy>

@@ -1,6 +1,7 @@
 package com.jlr.core.utils;
 
-import com.day.cq.commons.Externalizer;
+import java.util.Calendar;
+import java.util.Date;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -8,13 +9,11 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import java.util.Calendar;
-import java.util.Date;
+import com.day.cq.commons.Externalizer;
 
 public class NavigationUtils {
     public static void changeAttributeValue(String attributeKey, String attributeValue, Elements header) {
-        if(StringUtils.isNotEmpty(attributeValue)){
+        if (StringUtils.isNotEmpty(attributeValue)) {
             header.attr(attributeKey, attributeValue);
         } else {
             header.removeAttr(attributeKey);
@@ -22,7 +21,7 @@ public class NavigationUtils {
     }
 
     public static void setCacheHeaderResponse(SlingHttpServletResponse response, Boolean cache, Elements header) {
-        if(cache){
+        if (cache) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(new Date());
             cal.add(Calendar.MINUTE, 15);
@@ -34,6 +33,8 @@ public class NavigationUtils {
             response.setHeader(HttpHeaders.CACHE_CONTROL, "max-age=0");
             response.setDateHeader("Expires", new Date().getTime());
         }
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
     }
 
     public static void processUrls(Document document) {
@@ -55,13 +56,13 @@ public class NavigationUtils {
 
     private static void iterateElements(Elements elements, String key) {
         for (Element el : elements) {
-            if("style".equals(key) && el.attr("style").contains("background-image: url(")) {
+            if ("style".equals(key) && el.attr("style").contains("background-image: url(")) {
                 String backgroundImage = el.attr("style");
                 String[] array = backgroundImage.split("\\(/");
-                String appendBaseUrl = array[0]+"("+el.baseUri()+array[1];
+                String appendBaseUrl = array[0] + "(" + el.baseUri() + array[1];
                 el.attr(key, appendBaseUrl);
-            } else if("type".equals(key)) {
-                String updated = el.html().replaceAll("/content/", el.baseUri()+"content/");
+            } else if ("type".equals(key)) {
+                String updated = el.html().replaceAll("/content/", el.baseUri() + "content/");
                 el.html(updated);
             } else {
                 el.attr(key, el.absUrl(key));
@@ -71,7 +72,7 @@ public class NavigationUtils {
 
     public static void removeAttribute(Document document, String elementName) {
         Element element = document.select(elementName).first();
-        if(element != null) {
+        if (element != null) {
             element.remove();
         }
     }
