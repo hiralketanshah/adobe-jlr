@@ -11909,13 +11909,13 @@
       },
   
       _setUpYouTubeGalleryAssets() {
-        let videos  = $(".videoCustom");
+        let videos  = $(this.element).find(".videoCustom");
         
-        let imagePresentOrNot = $(".videoCustom").find('img').attr('src');
+        let imagePresentOrNot =  $(this.element).find(".videoCustom").find('img').attr('src');
 
 
         if(imagePresentOrNot == undefined || imagePresentOrNot == ""){
-          var elm = $(".videoCustom"),
+          var elm =  $(this.element).find(".videoCustom"),
                 conts   = elm.contents(),
                 le      = conts.length,
                 ifr     = null;
