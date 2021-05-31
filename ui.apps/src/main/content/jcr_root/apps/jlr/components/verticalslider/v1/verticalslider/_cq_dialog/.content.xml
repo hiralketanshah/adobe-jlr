@@ -132,8 +132,8 @@
                                                 max="60000"
                                                 min="0"
                                                 name="./delay"
-                                                step="1000"
-                                                value="6000"/>
+                                                step="100"
+                                                value="1000"/>
                                             <autopauseDisabled
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
