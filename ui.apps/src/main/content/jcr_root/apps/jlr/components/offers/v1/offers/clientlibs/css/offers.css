@@ -825,6 +825,10 @@
 
 /* FONT DEF DESKTOP */
 @media screen and (min-width: 1280px) {
+  .cmp-offersContainer .currency {
+    width: 15px;
+    height: 37px;
+  }
   .cmp-offersContainer .Offers__info-body {
     margin-bottom: 0px;
   }
@@ -938,7 +942,9 @@
 
 /* Left and Right DESKTOP and WIDESCREEN */
 @media screen and (min-width: 1280px) {
-
+  .offer .offerFinanceBoxes{
+    display: flex;
+  }
   .left .offer .offerImage,
   .left .offer .offerFinanceBoxes {
     float: left;
