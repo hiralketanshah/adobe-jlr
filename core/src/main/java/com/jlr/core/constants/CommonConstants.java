@@ -43,6 +43,9 @@ public class CommonConstants {
     /** The Constant TRUE. */
     public static final String TRUE = "true";
 
+    /** The Constant FALSE. */
+    public static final String FALSE = "false";
+
     /** The Constant COMMA. */
     public static final String COMMA = ",";
 
@@ -78,7 +81,7 @@ public class CommonConstants {
     public static final String PATH_CONTENT = "/content";
     public static final String PATH_HEADER = "/config/navigation/header";
     public static final String PATH_FOOTER = "/config/navigation/footer";
-    
+
     /** The Template Constants. */
     public static final String TEMPLATE_GALLERY = "gallery-page-template";
     public static final String TEMPLATE_EMPTY = "empty-page-template";
@@ -248,19 +251,19 @@ public class CommonConstants {
 
     /** The Constant PN_VEHICLE_CARD_LINK. */
     public static final String PN_VEHICLE_CARD_LINK = "vehicleCardLink";
-    
+
     /** The Constant PN_SECONDARY_NAVIGATION_TITLE. */
     public static final String PN_SECONDARY_NAVIGATION_TITLE = "secNavTitle";
-    
+
     /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
     public static final String PN_SHOW_IN_SECONDARY_NAVIGATION = "showInSecNav";
-    
+
     /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
     public static final String PN_SECONDARY_NAVIGATION_EXT_LINK = "secNavExtLink";
-    
+
     /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
     public static final String PN_SECONDARY_NAVIGATION_HIDE_PARENT = "hideParent";
-    
+
     /** The Constant PN_REDIRECT_TARTGET. */
     public static final String PN_REDIRECT_TARTGET = "cq:redirectTarget";
 
