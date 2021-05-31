@@ -44,7 +44,8 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                 composite="{Boolean}true"
-                                fieldLabel="Data Item">
+                                fieldLabel="Data Item"
+                                validation="minmax">
                                 <field
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="granite/ui/components/coral/foundation/container"
@@ -148,9 +149,7 @@
                                     max-items="{Long}4"
                                     maxlimit="4"
                                     min-items="{Long}3"
-                                    minlimit="3"
-                                    specs-glance-component="true"
-                                    validation="minmax"/>
+                                    specs-glance-component="true"/>
                             </dataItem>
                         </items>
                     </dataitems>
