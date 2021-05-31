@@ -26,6 +26,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
+import com.google.gson.Gson;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.models.DerivativeContainerModel;
 import com.jlr.core.services.Derivative;
@@ -180,6 +181,24 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     @Override
     public List<String> getDropdownLabels() {
         return firstDropdownList;
+    }
+
+    public String getJson() {
+        Map<String, Set<String>> jsonMap = new LinkedHashMap<>();
+
+        for (Entry<String, Map<String, DerivativeCardModel>> firstLabel : listOfDropdown.entrySet()) {
+            Map<String, DerivativeCardModel> innerMap = firstLabel.getValue();
+            Set<String> secondDropdownLabels = new LinkedHashSet<>();
+            for (String secondLabel : innerMap.keySet()) {
+                secondDropdownLabels.add(secondLabel);
+            }
+            jsonMap.put(firstLabel.getKey(), secondDropdownLabels);
+        }
+
+        Gson gson = new Gson();
+
+        return gson.toJson(jsonMap);
+
     }
 
     @Override
