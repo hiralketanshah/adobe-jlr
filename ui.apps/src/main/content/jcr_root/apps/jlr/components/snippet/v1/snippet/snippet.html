@@ -1,24 +1,21 @@
-<sly data-sly-use.model="com.jlr.core.models.SnippetModel" data-sly-call="${renderSnippet @ snippet=model}"/>
+<sly data-sly-use.model="com.jlr.core.models.SnippetModel" data-sly-call="${renderSnippet @ snippet=model, config=config}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"/>
+<template data-sly-template.renderSnippet="${ @ snippet, config }">
+   <div class="cq-placeholder"
+      data-sly-test="${!snippet.headerCopy || !snippet.copy || !snippet.ctaList}" data-emptytext="Snippet Component"></div>
+   <div class="cmp-snippet shelfComponent">
+      <h2 data-sly-test="${snippet.headerCopy}" class="heading headingThick fontH2">
+         <span class="headingWrapper">${snippet.headerCopy @ context="html"}</span>
+      </h2>
+      <span data-sly-test="${snippet.copy}" class="copy fontBodyCopyLarge">${snippet.copy @ context="html"}</span>
 
-<template data-sly-template.renderSnippet="${ @ snippet }">
-<div class="cq-placeholder"
-	 data-emptytext="Snippet Component"></div>
+      <div data-sly-test="${snippet.enablePricing}" class="Snippet__MarketRegionalPricing">
+         <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+         <sly data-sly-test="${snippet.marketRegionPath}" data-sly-resource="${'marketregionpricing' @ path=snippet.marketRegionPath}"></sly>
+      </div>
 
-     <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-data-sly-call="${clientlib.all @ categories=['JCR-snippet']}"/>
-
-     <div class="snippet_container">
-
-     <h2 aria-label="title">${snippet.headerTitle}</h2>
-
-     <div class="snippet_container-desc" aria-label="description">${snippet.copy @ context="html"}</div>
-
-     <div data-sly-list.item=${snippet.ctaList}>
-
-    <a target="${item.target}" href="${item.link}">
-    <button class="snippet_container_btn">${item.text}</button></a>
-
-
-    </div>
-    </div>
+      <div class="linkContainer" data-sly-test="${snippet.ctaList}" data-sly-list.cta=${snippet.ctaList}>
+         <span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer"><a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+         <span data-sly-test="${cta.linkType=='secondary'}" class="secondaryLinkContainer secondaryLinkType"><a class="secondaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" target="${cta.target}" href="${cta.link}" aria-label="${cta.ariaLabel}"><span>${cta.text}</span></a></span>
+      </div>
+   </div>
 </template>

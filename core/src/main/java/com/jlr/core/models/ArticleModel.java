@@ -2,17 +2,35 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
-
 import com.jlr.core.pojos.CTAPojo;
 
 /**
  * The Interface ArticleModel.
+ *
+ * @author Adobe
  */
 @ConsumerType
 public interface ArticleModel {
+
+    /**
+     * Gets the image position.
+     *
+     * @return the image position
+     */
+    default String getImagePosition() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the asset type.
+     *
+     * @return the asset type
+     */
+    default String getAssetType() {
+        return StringUtils.EMPTY;
+    }
 
     /**
      * Gets the cta list.
@@ -24,29 +42,11 @@ public interface ArticleModel {
     }
 
     /**
-     * Gets the title.
+     * Gets the caption.
      *
-     * @return the title
+     * @return the caption
      */
-    default String getTitle() {
+    default String getCaption() {
         return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the subtitle.
-     *
-     * @return the subtitle
-     */
-    default String getSubtitle() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the hide image.
-     *
-     * @return the hide image
-     */
-    default boolean getHideImage() {
-        return false;
     }
 }

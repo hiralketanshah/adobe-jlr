@@ -1,0 +1,1641 @@
+.cmp-ContentBlocksContainer .ctaListLink {
+  line-height: 1.5;
+  font-weight: bold;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  border: 0;
+  text-decoration: none !important;
+  border-bottom: 0 none;
+}
+.cmp-ContentBlocksContainer .disabled.ctaListLink {
+  cursor: default;
+}
+.cmp-ContentBlocksContainer .disabled.ctaListLink span {
+  border-bottom: 0 none !important;
+}
+.cmp-ContentBlocksContainer .ctaListLink:active {
+  text-shadow: none;
+}
+.cmp-ContentBlocksContainer .ctaListLink:focus {
+  outline: 0;
+}
+.cmp-ContentBlocksContainer .ctaListLink:focus:hover {
+  border-bottom: 0 none;
+}
+.headerBlock .heading p{
+  color: #0c121c;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] .DxTabs {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] .DxTabs {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.cmp-ContentBlocksContainer .headerBlock .headingWrapper{
+  text-transform: uppercase;
+}
+.cmp-ContentBlocksContainer .cmp-contentCards {
+  position: relative;
+}
+.cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner {
+  display: flex;
+}
+html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner {
+  flex-wrap: wrap;
+}
+.cmp-ContentBlocksContainer .cmp-contentCards .imageContainer {
+  position: relative;
+}
+.cmp-ContentBlocksContainer .cmp-contentCards .imageContainer a.imageLink {
+  display: block;
+}
+.cmp-ContentBlocksContainer .primaryLinkContainer + .secondaryLinkContainer {
+  margin-top: 17px;
+}
+.cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle {
+  margin-top: 0px;
+}
+.cmp-ContentBlocksContainer.twoCol .el {
+  width: 49.5% !important;
+  display: inline-block !important;
+  float: none !important;
+}
+@media only screen and (min-width: 740px) and (max-width: 1080px) and (orientation: landscape) {
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el {
+    width: calc(50% - 90px) !important;
+  }
+}
+.cmp-ContentBlocksContainer .ctaContainerMobileHomepage {
+  display: none;
+}
+.cmp-ContentBlocksContainer .ctaListLink {
+  display: block;
+  line-height: 1;
+  position: relative;
+}
+.cmp-ContentBlocksContainer .ctaListLink i {
+  font-size: 20px;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  top: 0;
+}
+.cmp-ContentBlocksContainer .ctaListLink i:before {
+  margin: 0;
+}
+.cmp-ContentBlocksContainer .cmp-ContentCard .textContainer ol,
+.cmp-ContentBlocksContainer .cmp-ContentCard .textContainer ul {
+  margin: 1em 0;
+  padding: 0 0 0 2.5em;
+}
+.cmp-ContentBlocksContainer .cmp-ContentCard .textContainer ul {
+  list-style: disc;
+}
+.cmp-ContentBlocksContainer .cmp-ContentCard .textContainer ol {
+  list-style: decimal;
+}
+.cmp-ContentBlocksContainer .swiper-container {
+  margin-left: -70px;
+  margin-right: -70px;
+}
+.cmp-ContentBlocksContainer .swiper-scrollbar {
+  width: auto;
+  margin-top: 15px;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-contentCardsInner {
+  -webkit-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  -ms-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 400ms;
+  -moz-transition-duration: 400ms;
+  -ms-transition-duration: 400ms;
+  -o-transition-duration: 400ms;
+  transition-duration: 400ms;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 0;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el.hidden,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el.hidden,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el.hidden,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .el.hidden,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el.hidden {
+  display: none;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el.swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .el.swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .el.swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .el.swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .el.swiper-slide {
+  opacity: 0.3;
+  transition: opacity 1100ms ease;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el.swiper-slide-active,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .el.swiper-slide-active,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .el.swiper-slide-active,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .el.swiper-slide-active,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .el.swiper-slide-active {
+  opacity: 1;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el .price,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el .price,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el .price,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .el
+  .price,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el .price {
+  margin-bottom: 12px;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"][data-swiping="true"]
+  .swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-swiping="true"]
+  .swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-swiping="true"]
+  .swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-swiping="true"]
+  .swiper-slide,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-swiping="true"]
+  .swiper-slide {
+  opacity: 1;
+  transition: none;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-ContentCard,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .cmp-ContentCard,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .cmp-ContentCard {
+  padding-bottom: 25px;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-ContentCard
+  .textContainer {
+  padding-right: 35px;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-ContentCard
+  .imageContainer {
+  position: relative;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child),
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child),
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child),
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child),
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child) {
+  display: none;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .ctaContainer,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .ctaContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .ctaContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .ctaContainer,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .ctaContainer {
+  margin: 0;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="initial-load"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="true"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="initial-load"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="true"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="initial-load"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="true"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="initial-load"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="true"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="initial-load"]
+  .cmp-contentCardsInner {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .date,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .body {
+  display: none;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="content-blocks"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="model-selector-stacked"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="model-selector-lite-stacked"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="content-blocks-2column"]
+  .cmp-contentCardsInner {
+  flex-wrap: wrap;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child),
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-ContentCard
+  .secondaryLinkContainer:not(:first-child) {
+  display: inline-block;
+}
+@media screen and (min-width: 741px) {
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .el.swiper-slide-active
+    + .el.swiper-slide
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .el.swiper-slide-active
+    + .el.swiper-slide
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el.swiper-slide-active
+    + .el.swiper-slide
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .el.swiper-slide-active
+    + .el.swiper-slide
+    + .el.swiper-slide {
+    opacity: 1;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .el.swiper-slide-active
+    + .el.swiper-slide {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] {
+    padding-top: 54px;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"] .GridListWrapper {
+    padding-top: 0;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed .headerBlock {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 5 !important;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed .headerBlock .heading {
+    position: absolute;
+    padding: 0;
+    top: 0;
+    line-height: 54px;
+    white-space: nowrap;
+    font-size: 21px;
+    overflow: hidden;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed
+    .headerBlock
+    .headingWrapper {
+    padding: 0;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed
+    .headerBlock
+    .headingWrapper:before,
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed
+    .headerBlock
+    .headingWrapper:after {
+    content: none;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .swiper-container {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] {
+    padding-top: 40px;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed .headerBlock .heading {
+    line-height: 40px;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed .headerBlock .heading {
+    font-size: 14px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .swiper-container {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .ctaContainer,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .ctaContainer {
+    margin: 0 -10px 0;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .subHeading,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .ctaContainer {
+    display: none;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .ctaContainerMobileHomepage {
+    display: block;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) and (orientation: landscape) {
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el.swiper-slide-active
+    + .el.swiper-slide,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .el.swiper-slide-active
+    + .el.swiper-slide {
+    opacity: 1;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .Accordion .cmp-ContentBlocksContainer[data-tabs="true"] {
+    padding-top: 0;
+  }
+  .Accordion .cmp-ContentBlocksContainer[data-tabs="true"] .headerBlock {
+    display: block !important;
+  }
+  .Accordion .cmp-ContentBlocksContainer .headerBlock h2.heading,
+  .Accordion .cmp-ContentBlocksContainer .headerBlock {
+    display: none;
+  }
+  .Accordion .cmp-ContentBlocksContainer .headingCentre,
+  .Accordion .cmp-ContentBlocksContainer .headerBlock:not(.headerBlockLeft) {
+    text-align: left;
+  }
+  .Accordion .cmp-ContentBlocksContainer .subHeading {
+    margin: 30px 0;
+  }
+}
+@media screen and (min-width: 901px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] .DxTabs {
+    padding-bottom: 80px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] .DxTabs {
+    padding-top: 54px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"] .DxTabs {
+    padding-top: 40px;
+  }
+}
+.cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle {
+  padding-top: 17px;
+  padding-bottom: 16px;
+}
+.cmp-ContentBlocksContainer .ctaList {
+  background-color: #e4e8e8;
+}
+.cmp-ContentBlocksContainer .ctaListLink {
+  border-bottom: 1px solid #d9dcdc !important;
+  padding: 20px 50px 20px 62px;
+}
+.cmp-ContentBlocksContainer .ctaListLink i {
+  left: 30px;
+}
+.cmp-ContentBlocksContainer .ctaListLink i:before {
+  line-height: 50px;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-scrollbar,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .swiper-scrollbar,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .swiper-scrollbar,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .swiper-scrollbar,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .swiper-scrollbar {
+  left: 90px;
+  right: 95px;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-contentCardsInner {
+  -webkit-transform: translate(90px);
+  -moz-transform: translate(90px);
+  -ms-transform: translate(90px);
+  -o-transform: translate(90px);
+  transform: translate(90px);
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+  width: calc(33.333% - 60px);
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .el:last-child,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el:last-child,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .el:last-child,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .el:last-child,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el:last-child {
+  margin-right: 180px;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard
+  .textContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-ContentCard
+  .textContainer {
+  padding-left: 90px;
+  margin-right: -90px;
+}
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .cmp-ContentCard
+  .imageContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+  .cmp-ContentCard
+  .imageContainer {
+  margin-left: 90px;
+  margin-right: -85px;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping"] .ctaContainer,
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .ctaContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+  .ctaContainer,
+.touch
+  .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+  .ctaContainer,
+.touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .ctaContainer {
+  padding: 40px 0 0;
+}
+.touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el {
+  width: calc(50% - 40px);
+}
+.cmp-ContentBlocksContainer[data-tabs="true"] .headerBlock {
+  margin-bottom: 0;
+}
+.cmp-ContentBlocksContainer.grey .headerBlock {
+  background-color: #e9ecec;
+}
+.cmp-ContentBlocksContainer.dark .headerBlock {
+  background-color: #4a4f54;
+}
+.touch .cmp-ContentBlocksContainer.grey .ctaList {
+  background-color: #d9dcdc;
+}
+.touch .cmp-ContentBlocksContainer.grey .ctaListLink {
+  border-bottom: 1px solid #cdd1d1 !important;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .touch
+    .cmp-ContentBlocksContainer.grey[data-template="swiping-light-links"]
+    .ctaList {
+    background-color: #f8f9f9;
+  }
+  .touch
+    .cmp-ContentBlocksContainer.grey[data-template="swiping-light-links"]
+    .ctaListLink {
+    border-color: #e4e8e8 !important;
+  }
+}
+.touch
+  .cmp-ContentBlocksContainer.dark[data-template="swiping-light-links"]
+  .ctaList {
+  background-color: #3f4347;
+}
+.touch
+  .cmp-ContentBlocksContainer.dark[data-template="swiping-light-links"]
+  .ctaListLink {
+  border-color: #4a4f54 !important;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"],
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"] {
+  background: #fff;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .GridListWrapper,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .GridListWrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-bottom: -6px;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .headerBlock,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"] .headerBlock {
+  background: #fff;
+  margin-bottom: 40px;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .headerBlock
+  .headingCentre,
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .headerBlock
+  .subHeading,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .headerBlock
+  .headingCentre,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .headerBlock
+  .subHeading {
+  text-align: left;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .headerBlock
+  .heading,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .headerBlock
+  .heading {
+  font-size: 2.4rem;
+  letter-spacing: 1.2px;
+  line-height: 1;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .headerBlock
+  .subHeading,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .headerBlock
+  .subHeading {
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  letter-spacing: 0.02rem;
+  font-weight: 400;
+  margin: 8px 0 0;
+  color: #0c121c;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  .textContainerTop,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  .textContainerTop {
+  margin-bottom: 17px;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  .textContainerTop
+  .heading,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  .textContainerTop
+  .heading {
+  margin-bottom: 16px;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  .price,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  .price {
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list {
+  padding-left: 1em;
+  margin-left: 0;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list
+  li,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list
+  li {
+  list-style: none;
+  position: relative;
+  line-height: 1.286em;
+  margin-bottom: 1.286em;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list
+  li:before,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list
+  li:before {
+  content: "\2013";
+  position: absolute;
+  left: -1em;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list
+  li,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__list
+  li {
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  letter-spacing: 0.02rem;
+  font-weight: 400;
+  margin-bottom: 0px !important;
+  line-height: 2.4rem !important;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__header,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard__bullet__header {
+  margin-bottom: 12px;
+  font-family: "AvenirNext", "arial", "helvetica", sans-serif;
+  line-height: 1.9rem;
+}
+.cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  img,
+.cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+  .cmp-contentCardsInner
+  .cmp-ContentCard
+  img {
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+    .cmp-contentCardsInner
+    .cmp-ContentCard__bullet__header,
+  .cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+    .cmp-contentCardsInner
+    .cmp-ContentCard__bullet__header {
+    margin-top: 22px;
+  }
+  .cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+    .cmp-contentCardsInner
+    .cmp-ContentCard
+    img,
+  .cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+    .cmp-contentCardsInner
+    .cmp-ContentCard
+    img {
+    margin-bottom: 36px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+    .headerBlock,
+  .cmp-ContentBlocksContainer.white[data-template="feature-swiping"] .headerBlock {
+    margin-bottom: 34px;
+  }
+  .cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+    .subHeading,
+  .cmp-ContentBlocksContainer.white[data-template="feature-swiping"] .subHeading {
+    margin-top: 16px;
+  }
+  .cmp-ContentBlocksContainer.white[data-template="insideMultiCatQuestionnaire"]
+    .cmp-contentCardsInner
+    .cmp-ContentCard
+    img,
+  .cmp-ContentBlocksContainer.white[data-template="feature-swiping"]
+    .cmp-contentCardsInner
+    .cmp-ContentCard
+    img {
+    margin-bottom: 16px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed .headerBlock .heading {
+    left: 30px;
+    right: 30px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .swiper-scrollbar {
+    left: 40px;
+    right: 45px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-contentCardsInner {
+    -webkit-transform: translate(40px);
+    -moz-transform: translate(40px);
+    -ms-transform: translate(40px);
+    -o-transform: translate(40px);
+    transform: translate(40px);
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el,
+  .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(33.333% - 26.6px);
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .el:last-child {
+    margin-right: 80px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .textContainer {
+    padding-left: 40px;
+    margin-right: -40px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .imageContainer {
+    margin-left: 40px;
+    margin-right: -35px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .ctaContainer,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .ctaContainer {
+    padding: 20px 0 0;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el {
+    width: calc(50% - 40px);
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .cmp-ContentBlocksContainer .headerBlock {
+    margin-bottom: 30px;
+  }
+  .cmp-ContentBlocksContainer[data-tabs="true"].headerFixed .headerBlock .heading {
+    left: 30px;
+    right: 30px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .swiper-scrollbar {
+    left: 30px;
+    right: 35px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-contentCardsInner {
+    -webkit-transform: translate(30px);
+    -moz-transform: translate(30px);
+    -ms-transform: translate(30px);
+    -o-transform: translate(30px);
+    transform: translate(30px);
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el,
+  .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(100% - 60px);
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .el:last-child {
+    margin-right: 60px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .textContainer {
+    padding-left: 30px;
+    margin-right: -30px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .imageContainer {
+    margin-left: 30px;
+    margin-right: -25px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .imageContainer
+    img,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .imageContainer
+    img,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .imageContainer
+    img,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .imageContainer
+    img,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .imageContainer
+    img {
+    margin-bottom: 44px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .primaryLinkWithStyle,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .primaryLinkWithStyle,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .primaryLinkWithStyle,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .primaryLinkWithStyle,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .primaryLinkWithStyle {
+    margin-top: 3px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .ctaContainer,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .ctaContainer {
+    padding: 40px 0 30px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 740px) and (orientation: landscape) {
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el,
+  .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(50% - 30px);
+  }
+}
+.cmp-ContentBlocksContainer__MarketRegionalPricing {
+  margin-top: 32px;
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .cmp-ContentBlocksContainer__MarketRegionalPricing {
+    margin-top: 24px;
+  }
+}
+
+/* NEW DEVELOPMENT */
+
+.cmp-ContentBlocksContainer .subHeading{
+    text-align: left;
+    margin-left: 0px;
+}
+.cmp-ContentBlocksContainer .subHeading p:first-child::first-letter{
+  text-transform: capitalize;
+}
+.GridListWrapper .items .el .heading {
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+/* MOBILE START */
+/* TABLET START */
+@media screen and (min-width: 300px) and (max-width: 765px){
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(100% - 45px);
+}
+  .swiper-slide-visible{
+    width: 325px;
+  }
+  .swiper-slide-next .cmp-ContentCard{
+    padding-left: 325px;
+    width: 325px;
+  }
+  .swiper-slide-prev .cmp-ContentCard{ 
+    margin-right: 325px; 
+     width: 325px;
+    visibility: hidden; 
+   } 
+  .swiper-slide-active{
+    width: 325px;
+  }
+  .swiper-slide-active .cmp-ContentCard{
+    width: 325px;
+  }
+  .swiper-slide-next .cmp-ContentCard{
+    width: 325px;
+    padding-right: 100px;
+    padding-left: 50px;
+  }
+  .GridListWrapper {
+      padding-top:25px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 25px;
+  }
+  .GridListWrapper .headerBlock{
+    padding-left: 0px;
+  }
+  .GridListWrapper .items .el{
+    padding-left: 0px;
+    padding-right: 28px;
+  }
+ .cmp-ContentBlocksContainer .headerBlock{
+  padding-right: 0px;
+  }
+  .cmp-ContentBlocksContainer .el.gridEl{
+      padding-right: 0px;
+  }
+  .cmp-ContentBlocksContainer .primaryLinkWithStyle {
+      margin-bottom: 0px;
+  }
+  #landrover .cmp-ContentBlocksContainer .secondaryLinkWithStyle{
+      margin-bottom: 0px;
+  }
+}
+/* MOBILE END */
+/* TABLET START */
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-ContentBlocksContainer .secondaryLinkWithStyle,.cmp-ContentBlocksContainer .primaryLinkWithStyle  {
+      margin-top: 0;
+      margin-bottom: 0px !important;
+  }
+  .GridListWrapper {
+      padding-top:40px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 60px;
+  }
+  .GridListWrapper .headerBlock{
+    padding-left: 0px;
+  }
+  .GridListWrapper .items .el{
+    padding-left: 0px;
+    padding-right: 28px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(60% - 120px);
+    padding-right: 28px;
+  }
+}
+/* TABLET END */
+/* DESKTOP START */
+@media screen and (min-width: 1280px) and (max-width: 1389px) {
+  .contentcard  .cmp-ContentBlocksContainer .GridListWrapper{
+    padding-top: 51px;
+  } 
+    .GridListWrapper .items .el{
+        padding-left: 0px;
+        padding-right: 40px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock{
+        padding-left: 0px;
+        margin-bottom: 61px;
+    }
+    .cmp-ContentBlocksContainer .GridListWrapper .headerBlock .subHeading{
+        margin-top:-12px;
+    }
+    .cmp-ContentBlocksContainer .GridListWrapper{
+        padding-top: 60px;
+        padding-left: 60px;
+        padding-right: 0px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock .headingWrapper{
+        max-width:760px;
+        max-height: 51px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock .subHeading{
+        margin-top: 0px;
+        padding-top: 23px;
+        width: 63.3%;
+    }
+   .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
+        width: 300px; 
+    }
+    .GridListWrapper .items[data-total="2"] .el img{
+        width: 100%;
+        margin-bottom: 28px;
+    }
+    .GridListWrapper .items[data-total="2"] .el {
+      width: 600px;
+      height: 100%;
+      margin-bottom: 28px;
+  }
+    .GridListWrapper .items[data-total="3"] .cmp-ContentCard {
+        clear: left;
+        width: 360px;
+    }
+    .GridListWrapper .items[data-total="3"] .el{
+      width:32.80%
+    }
+    .GridListWrapper .items[data-total="3"] .el img{
+        width: 100%;
+        height: 100%;
+        margin-bottom: 28px;
+    }
+    .GridListWrapper .items[data-total="4"] .el img{
+        width: 100%;
+        height: 146px;
+        margin-bottom: 28px;
+    }
+  }
+  /* DESKTOP END */
+  /* Widescreen start */
+  @media screen and (min-width: 1340px){
+    .GridListWrapper .items .el{
+        padding-left: 0px;
+        padding-right: 40px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock{
+        padding-left: 0px;
+        margin-bottom: 61px;
+    }
+    .cmp-ContentBlocksContainer .GridListWrapper{
+        padding-top: 60px;
+        padding-left: 60px;
+        padding-right: 0px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock .headingWrapper{
+        max-width:760px;
+        max-height: 51px;
+    }
+    .cmp-ContentBlocksContainer .headerBlock .subHeading{
+        margin-top: 0px;
+        padding-top: 23px;
+    }
+   /* .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
+        min-width: 345px; 
+    } */
+    .GridListWrapper .items[data-total="2"] .el img{
+        width: 100%;
+        margin-bottom: 28px;
+    }
+    .GridListWrapper .items[data-total="3"] .items .el {
+        clear: left;
+        width: 400px;
+    }
+    .GridListWrapper .items[data-total="3"] .el img{
+        width: 100%;
+        height: auto;
+        margin-bottom: 28px;
+    }
+    .GridListWrapper .items[data-total="4"] .el img{
+        width: 100%;
+        height: auto;
+        margin-bottom: 28px;
+    }
+  }
+  /* Widescreen end */
+
+  /* FIXES */
+
+  .mediaOverlay.mediaOverlayVideo .mediaOverlayIcon:before{
+    content: none;
+  }
+  .mediaOverlay.mediaOverlayVideo:after{
+    content: "";
+    font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+    color: #ffffff;
+    background: unset;
+    background-color: #0C121C;
+    font-size: 68px;
+    line-height: 98px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 30;
+    cursor: pointer;
+    opacity: 80%;
+    box-shadow:none;
+    padding-left:30px;
+}
+  .GridListWrapper .items .el img{
+    height:auto;
+  }
+  #landrover .ctaContainer a{
+    margin-top: 0px !important;
+  }
+  .ctaContainer .primaryLinkContainer{
+    margin-top: 15px !important;
+  }
+  .ctaContainer .secondaryLinkContainer{
+    margin-top: 15px !important;
+  }
+  /* FIXES END */
+  .cmp-ContentCard .mediaOverlayVideo, video {
+      height: 100% !important;
+  }
+  .cmp-ContentCard .heading p{
+          color:#0c121c;
+  }
+  .cmp-ContentCard .secondaryLinkContainer{
+      padding-top: 0px;
+}
+
+.cmp-ContentBlocksContainer .linkContainer{
+  padding-top: 0px  !important;
+  margin-top: 24px;
+}
+.cmp-ContentBlocksContainer .ctaContainer .primaryLinkContainer .primaryLinkWithStyle{
+  padding-top: 17px  !important;
+}
+.cmp-ContentBlocksContainer .ctaContainer .primaryLinkContainer{
+  width: 100%;
+  float: left;
+}
+.containerKeyLine span{
+  width: 100%;
+  float: left;
+}  

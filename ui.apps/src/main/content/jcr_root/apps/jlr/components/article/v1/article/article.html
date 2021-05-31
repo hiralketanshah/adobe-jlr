@@ -1,22 +1,44 @@
 <sly data-sly-use.model="com.jlr.core.models.ArticleModel" data-sly-call="${renderArticle @ article=model}" />
 
 <template data-sly-template.renderArticle="${ @ article }">
-<div data-sly-test="${!article.title}" class="cq-placeholder"
-	 data-emptytext="Article Component"></div>
-
-ID : ${article.id}<br/>
-Title : ${article.title}<br/>
-Subtitle : ${article.subtitle}<br/>
-Copy : ${article.copy @context='html'}<br/><br/>
-
-Image : ${article.fileReference}<br/>
-Alt Text : ${article.imageAlt}<br/>
-Image Link : ${article.imageLink}<br/><br/>
-
-CTAs: 
-<ul data-sly-list.cta="${article.ctaList}">
-  <li>${cta.text} - ${cta.link} - ${cta.linkType} - ${cta.target} </li>
-  <a href="${cta.link}">link</a>
-</ul>
+ <div data-sly-test="${!article.headerCopy || !article.copy}" class="cq-placeholder" data-emptytext="Article Section Component"></div>
+  <div class="section">
+   <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'above'}">
+   <picture class="Picture Article__Picture Article__Picture--top">
+    <a href="${article.imageLink}">
+     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </a>   
+   </picture>
+   <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
+   </sly>
+   <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'above'}" class="cmp-article__videoframe">
+    <div class="cmp-article__video-container">
+     <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
+    </div>
+   </div>
+   <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
+   <div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
+   <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'below'}">
+   <picture class="Picture Article__Picture Article__Picture--bottom">
+    <a href="${article.imageLink}">
+     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </a>
+   </picture>
+   <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
+   </sly>
+   <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'below'}" class="cmp-article__videoframe">
+    <div class="cmp-article__video-container">
+     <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
+    </div>
+   </div>
+   <sly data-sly-list.cta="${article.ctaList}">
+   <div data-sly-test="${cta.text}" class="links">
+	<div class="${cta.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
+      <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon} TargetLinks" aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
+       <span aria-hidden="true">${cta.text}</span>
+      </a>
+     </div>
+    </div>
+	</sly>
+  </div>
 </template>
-

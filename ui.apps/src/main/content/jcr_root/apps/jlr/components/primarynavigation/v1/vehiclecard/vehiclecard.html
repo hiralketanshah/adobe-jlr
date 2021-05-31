@@ -1,0 +1,70 @@
+<sly data-sly-use.model="com.jlr.core.models.VehicleCardModel"
+     data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='navigation.vehicle.dropdown.from'}"
+     data-sly-call="${renderVehicleCard @ vehicleCard=model, config=config}"/>
+<template data-sly-template.renderVehicleCard="${ @ vehicleCard, config }">
+
+    <div id="dxnav-vehicle-0-0-0" class="dxnav-vehicle-info-wrapper__item dxnav-vehicle-tray__info">
+        <div class="dxnav-vehicle-links">
+            <div class="dxnav-cta-container">
+                <sly data-sly-list="${vehicleCard.ctaList}">
+                    <sly data-sly-test="${itemList}">
+                        <div data-sly-test="${item.linkType == 'primary'}">
+                            <a class="dxnav-cta-primary dxnav-cta-primary--hasIcon dxnav-icon ${item.target=='overlay' ? '' : item.icon}" aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}" target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+                                <span class="dxnav-link" aria-hidden="true">${item.text}</span>
+                            </a>
+                        </div>
+                    </sly>
+                </sly>
+            </div>
+            <ul class="dxnav-vehicle-links__nav">
+                <sly data-sly-list="${vehicleCard.ctaList}">
+                    <sly data-sly-test="${itemList}">
+                        <li class="dxnav-vehicle-links__nav-item">
+                            <div data-sly-test="${item.linkType == 'secondary'}">
+                                <a class="dxnav-cta-secondary dxnav-icon ${item.target=='overlay' ? '' : item.icon}"
+                                   aria-label="${item.ariaLabel}" href="${item.link}" data-link-desktop="${item.link}"
+                                   target="${item.target}" data-target="${item.target}" data-aria-title="${item.text}">
+                                    <span class="dxnav-link" aria-hidden="true">${item.text}</span>
+                                </a>
+                            </div>
+                        </li>
+                    </sly>
+                </sly>
+            </ul>
+
+            <div class="dxnav-vehicle-links__family"><a class="dxnav-cta-secondary" href="/families/range-rover.html" target="_self" aria-label="RANGE ROVER: RANGE ROVER FAMILY">
+                <svg class="dxnav-icon">
+                    <use xlink:href="#Chevron_Right"></use>
+                </svg>
+                <span class="dxnav-link">RANGE ROVER FAMILY</span>
+            </a></div>
+        </div>
+        <div class="dxnav-vehicle-info">
+            <a class="dxnav-vehicle-info__hotspot" href="${vehicleCard.imageLink}" target="_self">
+                <picture class="dxnav-vehicle-info__image">
+                    <img alt="${vehicleCard.imageAlt}" class="Picture__img" srcset="${vehicleCard.fileReference}" />
+                </picture>
+            </a>
+            <ul class="dxnav-vehicle-info__icons">
+
+                <sly data-sly-list="${vehicleCard.features}">
+                    <sly data-sly-test="${itemList}">
+                        <li class="dxnav-vehicle-info__icon">
+                            <div class="${item.headerIcon} dxnav-icon">
+                            </div>
+                            ${item.copy}
+                        </li>
+                    </sly>
+                </sly>
+            </ul>
+
+            <div class="dxnav-vehicle-links__disclaimer-container">
+
+                <p class="dxnav-vehicle-links__disclaimer">
+                    †<a href="${vehicleCard.disclaimerLink}">${vehicleCard.disclaimerText}</a>.
+                    ${vehicleCard.disclaimer}</p>
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,76 @@
+<script>
+(function () {
+	const consentCookieCategories = 'consent-categories';
+	function getCookie(name) {
+		const cookieArray = document.cookie.split(';');
+		if (cookieArray.length < 1) {
+			return null;
+		}
+		for (let i = 0; i < cookieArray.length; i++) {
+			const cookieItem = cookieArray[i].split('=');
+			if (cookieItem[0].replace(/\s/g, '') == name) {
+				return cookieItem[1];
+			}
+		}
+		return null;
+	}
+	function setCookie(name, value, days) {
+		let expires = '';
+		if (days) {
+			const date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toGMTString();
+		}
+		document.cookie = name + '=' + value + expires + '; path=/';
+	}
+	function deleteCookie(name) {
+		setCookie(name, '', -1);
+	}
+	function getCookieCategories(cookie) {
+		const cookieCategories = getCookie(cookie);
+		if (!cookieCategories) {
+			return [];
+		}
+		return cookieCategories.split(',');
+	}
+	function handleConsentCookie() {
+		const consentGlobal = window.jlr_consent && window.jlr_consent.categories || {};
+		const cookieCategories = [];
+		for (const category in consentGlobal) {
+			if (consentGlobal[category]) {
+				cookieCategories.push(category);
+			}
+		}
+		if (cookieCategories.length) {
+			setCookie(consentCookieCategories, cookieCategories.join(','), 395);
+		} else {
+			deleteCookie(consentCookieCategories);
+		}
+		checkABTastyPreference();
+		handleDoNotSellLink();
+	}
+	function checkABTastyPreference() {
+		const consentCategories = getCookieCategories(consentCookieCategories);
+		const abtastyConsentOptOut = document.querySelector('[data-abtasty-consentOptOut]').dataset.abtastyConsentoptout;
+		if (consentCategories.includes('functional') || consentCategories.includes('all') || abtastyConsentOptOut.toLowerCase() === 'true') {
+			loadABTasty();
+		}
+	}
+	function handleDoNotSellLink() {
+		const linkClass = 'FooterNav__donotselldata';
+		const link = document.querySelector('.' + linkClass);
+		if (!link) {
+			return;
+		}
+		const cookie = getCookie('notice_behavior');
+		if (cookie && cookie === 'implied,us') {
+			link.classList.remove(linkClass);
+		}
+	}
+	window.addEventListener('cookie_priorConsentCallback', handleConsentCookie);
+	window.addEventListener('cookie_closeCallback', handleConsentCookie);
+	window.addEventListener('cookie_consentWithdrawnCallback', handleConsentCookie);
+	window.addEventListener('cookie_consentDeclinedCallback', handleConsentCookie);
+	checkABTastyPreference();
+})();
+</script >

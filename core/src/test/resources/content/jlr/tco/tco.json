@@ -1,0 +1,19 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "price":"test_price",
+  "priceDescSymbol":"price_symbol",
+  "priceSuffix":"price_suffix",
+  "viewType":"view_type",
+  "emissionHead":"emission_head",
+  "emissionBody":"emission_body",
+  "leaseLabel":"lease_label",
+  "leasePrice":"lease_price",
+  "sling:resourceType":"jlr/components/tco/v1/tco",
+  "caveatList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "text":"test_text"
+    }
+  }
+}

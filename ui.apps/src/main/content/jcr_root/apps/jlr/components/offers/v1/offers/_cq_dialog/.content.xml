@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Offers"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <id
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                            <header
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                dfs-required="true"
+                                fieldDescription="The Header copy for the Offers to be displayed."
+                                fieldLabel="Header Copy"
+                                name="./offersHeaderCopy"
+                                required="true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <misctools
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                            <chars jcr:primaryType="nt:unstructured">
+                                                <non-breaking-space
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;nbsp;"
+                                                    name="Non-breaking space"/>
+                                                <non-breaking-hyphen
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;#8209"
+                                                    name="Non-breaking hyphen"/>
+                                            </chars>
+                                        </specialCharsConfig>
+                                    </misctools>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                    </cui>
+                                </uiSettings>
+                            </header>
+                            <price
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/price"/>
+                            <summary
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                            <ctaList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="Click to add new CTA"
+                                fieldLabel="CTA List">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./ctaList">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <linkText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                        <linkUrl
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                        <target
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                        <ariaLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                        <linkType
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                        <icon
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/form/select"
+                                            fieldDescription="Select an icon to be rendered before the text on the CTA"
+                                            fieldLabel="Icon"
+                                            name="./icon">
+                                            <datasource
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="acs-commons/components/utilities/genericlist/datasource"
+                                                path="/etc/acs-commons/lists/icons"/>
+                                        </icon>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="3"/>
+                            </ctaList>
+                        </items>
+                    </properties>
+                    <image
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Image"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <imagePath
+                                granite:class="img-path"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                allowUpload="{Boolean}false"
+                                fieldDescription="Select an Image to be displayed"
+                                fieldLabel="Image"
+                                fileReferenceParameter="./offersImageFileReference"
+                                mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                multiple="{Boolean}false"
+                                name="./file"
+                                required="true"/>
+                            <alt
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                            <decorative
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
+                        </items>
+                    </image>
+                    <offers
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Offers"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <offerList
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="Click to add a New offer"
+                                validation="minmax"
+                                granite:class="minmax"
+                                fieldLabel="Offer">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./offerList">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <offerCopy
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            dfs-required="true"
+                                            fieldDescription="The Offer copy to be displayed."
+                                            fieldLabel="Offer Copy"
+                                            name="./offerCopy"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </offerCopy>
+                                        <offerPrefix
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Specify Offer prefix which is used for pricing symbol."
+                                            fieldLabel="Offer Prefix"
+                                            name="./offerPrefix"/>
+                                        <offerValue
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="The Offer value to be displayed."
+                                            fieldLabel="Offer Value"
+                                            name="./offerValue"
+                                            required="true"/>
+                                        <offerSuffix
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldDescription="Specify the offer suffix which is used for percentage."
+                                            fieldLabel="Offer Suffix"
+                                            name="./offerSuffix"/>
+                                        <offerLabel
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            dfs-required="true"
+                                            fieldDescription="Specify the Offer Label to be displayed."
+                                            fieldLabel="Offer Label"
+                                            name="./offerLabel"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <format
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="bold,italic"/>
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <paraformat
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <formats jcr:primaryType="nt:unstructured">
+                                                        <default_p
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Paragraph"
+                                                            tag="p"/>
+                                                        <default_h1
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 1"
+                                                            tag="h1"/>
+                                                        <default_h2
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 2"
+                                                            tag="h2"/>
+                                                        <default_h3
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 3"
+                                                            tag="h3"/>
+                                                        <default_h4
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 4"
+                                                            tag="h4"/>
+                                                        <default_h5
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 5"
+                                                            tag="h5"/>
+                                                        <default_h6
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 6"
+                                                            tag="h6"/>
+                                                        <default_blockquote
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Quote"
+                                                            tag="blockquote"/>
+                                                        <default_pre
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Preformatted"
+                                                            tag="pre"/>
+                                                    </formats>
+                                                </paraformat>
+                                                <links
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="modifylink,unlink"/>
+                                                <lists
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars]">
+                                                        <popovers jcr:primaryType="nt:unstructured">
+                                                            <lists
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="[lists#unordered,lists#ordered]"
+                                                                ref="lists"/>
+                                                            <paraformat
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="paraformat:getFormats:paraformat-pulldown"
+                                                                ref="paraformat"/>
+                                                        </popovers>
+                                                    </inline>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars]">
+                                                        <popovers jcr:primaryType="nt:unstructured">
+                                                            <lists
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="[lists#unordered,lists#ordered]"
+                                                                ref="lists"/>
+                                                            <paraformat
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="paraformat:getFormats:paraformat-pulldown"
+                                                                ref="paraformat"/>
+                                                        </popovers>
+                                                    </dialogFullScreen>
+                                                </cui>
+                                            </uiSettings>
+                                        </offerLabel>
+                                        <offerOverlayHeader
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            dfs-required="true"
+                                            fieldDescription="The Offer overlay Header copy to be displayed."
+                                            fieldLabel="Offer Overlay Header"
+                                            name="./offerOverlayHeader"
+                                            required="true"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </offerOverlayHeader>
+                                        <offerOverlaySummary
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            dfs-required="true"
+                                            fieldDescription="The Offer overlay Summary copy to be displayed."
+                                            fieldLabel="&#xa;Offer Overlay Summary"
+                                            name="./offerOverlaySummary"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <format
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="bold,italic"/>
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <paraformat
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <formats jcr:primaryType="nt:unstructured">
+                                                        <default_p
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Paragraph"
+                                                            tag="p"/>
+                                                        <default_h1
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 1"
+                                                            tag="h1"/>
+                                                        <default_h2
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 2"
+                                                            tag="h2"/>
+                                                        <default_h3
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 3"
+                                                            tag="h3"/>
+                                                        <default_h4
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 4"
+                                                            tag="h4"/>
+                                                        <default_h5
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 5"
+                                                            tag="h5"/>
+                                                        <default_h6
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Heading 6"
+                                                            tag="h6"/>
+                                                        <default_blockquote
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Quote"
+                                                            tag="blockquote"/>
+                                                        <default_pre
+                                                            jcr:primaryType="nt:unstructured"
+                                                            description="Preformatted"
+                                                            tag="pre"/>
+                                                    </formats>
+                                                </paraformat>
+                                                <links
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="modifylink,unlink"/>
+                                                <lists
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars]">
+                                                        <popovers jcr:primaryType="nt:unstructured">
+                                                            <lists
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="[lists#unordered,lists#ordered]"
+                                                                ref="lists"/>
+                                                            <paraformat
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="paraformat:getFormats:paraformat-pulldown"
+                                                                ref="paraformat"/>
+                                                        </popovers>
+                                                    </inline>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars]">
+                                                        <popovers jcr:primaryType="nt:unstructured">
+                                                            <lists
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="[lists#unordered,lists#ordered]"
+                                                                ref="lists"/>
+                                                            <paraformat
+                                                                jcr:primaryType="nt:unstructured"
+                                                                items="paraformat:getFormats:paraformat-pulldown"
+                                                                ref="paraformat"/>
+                                                        </popovers>
+                                                    </dialogFullScreen>
+                                                </cui>
+                                            </uiSettings>
+                                        </offerOverlaySummary>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="2"
+                                    min-items="{Long}1"/>
+                            </offerList>
+                        </items>
+                    </offers>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

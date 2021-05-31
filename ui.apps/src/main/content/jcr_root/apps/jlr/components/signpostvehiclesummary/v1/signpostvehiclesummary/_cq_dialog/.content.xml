@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0" jcr:primaryType="nt:unstructured" jcr:title="Signpost / Vehicle Summary" sling:resourceType="cq/gui/components/authoring/dialog">
+   <content jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns" margin="{Boolean}false">
+      <items jcr:primaryType="nt:unstructured">
+         <tabs jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/tabs" maximized="{Boolean}true">
+            <items jcr:primaryType="nt:unstructured">
+               <general jcr:primaryType="nt:unstructured" jcr:title="General" sling:resourceType="granite/ui/components/coral/foundation/container" margin="{Boolean}true">
+                  <items jcr:primaryType="nt:unstructured">
+                     <id jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/general/id" />
+                     <headerCopy jcr:primaryType="nt:unstructured" sling:resourceType="cq/gui/components/authoring/dialog/richtext" fieldDescription="The Header copy to be displayed." fieldLabel="Header Copy" name="./headerCopy" required="{Boolean}true" useFixedInlineToolbar="{Boolean}true">
+                        <rtePlugins jcr:primaryType="nt:unstructured">
+                           <format jcr:primaryType="nt:unstructured" features="bold,italic" />
+                           <subsuperscript jcr:primaryType="nt:unstructured" features="*" />
+                           <paraformat jcr:primaryType="nt:unstructured" features="*">
+                              <formats jcr:primaryType="nt:unstructured">
+                                 <default_p jcr:primaryType="nt:unstructured" description="Paragraph" tag="p" />
+                                 <default_h1 jcr:primaryType="nt:unstructured" description="Heading 1" tag="h1" />
+                                 <default_h2 jcr:primaryType="nt:unstructured" description="Heading 2" tag="h2" />
+                                 <default_h3 jcr:primaryType="nt:unstructured" description="Heading 3" tag="h3" />
+                                 <default_h4 jcr:primaryType="nt:unstructured" description="Heading 4" tag="h4" />
+                                 <default_h5 jcr:primaryType="nt:unstructured" description="Heading 5" tag="h5" />
+                                 <default_h6 jcr:primaryType="nt:unstructured" description="Heading 6" tag="h6" />
+                                 <default_blockquote jcr:primaryType="nt:unstructured" description="Quote" tag="blockquote" />
+                                 <default_pre jcr:primaryType="nt:unstructured" description="Preformatted" tag="pre" />
+                              </formats>
+                           </paraformat>
+                           <links jcr:primaryType="nt:unstructured" features="modifylink,unlink" />
+                           <lists jcr:primaryType="nt:unstructured" features="*" />
+                           <misctools jcr:primaryType="nt:unstructured" features="*">
+                              <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                 <chars jcr:primaryType="nt:unstructured">
+                                    <non-breaking-space jcr:primaryType="nt:unstructured" entity="&amp;nbsp;" name="Non-breaking space" />
+                                    <non-breaking-hyphen jcr:primaryType="nt:unstructured" entity="&amp;#8209" name="Non-breaking hyphen" />
+                                 </chars>
+                              </specialCharsConfig>
+                           </misctools>
+                        </rtePlugins>
+                        <uiSettings jcr:primaryType="nt:unstructured">
+                           <cui jcr:primaryType="nt:unstructured">
+                              <inline jcr:primaryType="nt:unstructured" toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars]">
+                                 <popovers jcr:primaryType="nt:unstructured">
+                                    <lists jcr:primaryType="nt:unstructured" items="[lists#unordered,lists#ordered]" ref="lists" />
+                                    <paraformat jcr:primaryType="nt:unstructured" items="paraformat:getFormats:paraformat-pulldown" ref="paraformat" />
+                                 </popovers>
+                              </inline>
+                              <dialogFullScreen jcr:primaryType="nt:unstructured" toolbar="[format#bold,format#italic,subsuperscript#superscript,subsuperscript#subscript,#paraformat,links#modifylink,links#unlink,#lists,misctools#specialchars]">
+                                 <popovers jcr:primaryType="nt:unstructured">
+                                    <lists jcr:primaryType="nt:unstructured" items="[lists#unordered,lists#ordered]" ref="lists" />
+                                    <paraformat jcr:primaryType="nt:unstructured" items="paraformat:getFormats:paraformat-pulldown" ref="paraformat" />
+                                 </popovers>
+                              </dialogFullScreen>
+                           </cui>
+                        </uiSettings>
+                        <htmlRules jcr:primaryType="nt:unstructured">
+                           <blockHandling jcr:primaryType="nt:unstructured" removeSingleParagraphContainer="{Boolean}true" />
+                        </htmlRules>
+                     </headerCopy>
+                     <pricing jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/general/price" />
+                     <bodyCopy jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/general/rte2" />
+                  </items>
+               </general>
+               <image jcr:primaryType="nt:unstructured" jcr:title="Image" sling:resourceType="granite/ui/components/coral/foundation/container" margin="{Boolean}true">
+                  <items jcr:primaryType="nt:unstructured">
+                     <file jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/image/imagePath" />
+                     <alt jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/image/imageAlt" />
+                     <link jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/image/imageLink" />
+                     <decorative jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/image/decorative" />
+                  </items>
+                  <granite:data jcr:primaryType="nt:unstructured" signpost-component="true" />
+               </image>
+               <cta jcr:primaryType="nt:unstructured" jcr:title="CTA" sling:resourceType="granite/ui/components/coral/foundation/container" margin="{Boolean}true">
+                  <items jcr:primaryType="nt:unstructured">
+                     <ctalist jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/multifield" composite="{Boolean}true" fieldDescription="For Signpost component, only the first CTA will be displayed. For Vehicle Summary component, configure 1 primary and 2 secondary CTAs" fieldLabel="CTA List">
+                        <field jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/form/fieldset" name="./ctaList">
+                           <items jcr:primaryType="nt:unstructured">
+                              <column jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/foundation/container">
+                                 <items jcr:primaryType="nt:unstructured">
+                                    <text jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/cta/text" />
+                                    <link jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/cta/link" />
+                                    <icon jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/cta/icon" />
+                                    <ariaLabel jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel" />
+                                    <target jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/cta/targetTab" />
+                                    <linkType jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/include" path="/mnt/overlay/jlr/components/globalfields/cta/linkType" />
+                                 </items>
+                              </column>
+                           </items>
+                        </field>
+                        <granite:data jcr:primaryType="nt:unstructured" maxlimit="3" />
+                     </ctalist>
+                  </items>
+               </cta>
+            </items>
+         </tabs>
+      </items>
+      <granite:data jcr:primaryType="nt:unstructured" name="vehiclesummary" />
+   </content>
+</jcr:root>

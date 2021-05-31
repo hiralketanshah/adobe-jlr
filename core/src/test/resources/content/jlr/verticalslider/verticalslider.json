@@ -1,0 +1,28 @@
+{
+	"jcr: primaryType": "nt:unstructured",
+	"pipIcon": "true",
+	"autopauseDisabled": "true",
+	"delay": "5",
+	"sling:resourceType": "jlr/components/verticalslider/v1/verticalslider",
+	"verticalSliderList": {
+		"jcr:primaryType": "nt:unstructured",
+		"item0": {
+			"jcr:primaryType": "nt:unstructured",
+			"fileReference": "/content/dam/wknd/en/activities/skiing/skitouring.jpg",
+			"copy": "<p>Hello copy2</p>",
+			"isDecorative": "false",
+			"headerCopy": "<p>hello</p>",
+			"ctaList": {
+				"jcr:primaryType": "nt:unstructured",
+				"item0": {
+					"jcr:primaryType": "nt:unstructured",
+					"target": "_blank",
+					"icon": "icon-download",
+					"link": "/content/landrover/global/row/language-masters/aus/en",
+					"text": "Click here",
+					"linkType": "primary"
+				}
+			}
+		}
+	}
+}

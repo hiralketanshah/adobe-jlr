@@ -1,0 +1,16 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "description":"description_test",
+  "sling:resourceType":"jlr/components/herocarousel/v1/herocarousel",
+  "enableTco" : "true",
+  "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"http://www.google.com",
+      "text":"test_text",
+      "linkType":"primary"
+    }
+  }
+}

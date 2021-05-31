@@ -27,11 +27,12 @@
     <modules>
         <module>all</module>
         <module>core</module>
-        <module>ui.frontend</module>
+        <!-- <module>ui.frontend</module> -->
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.config</module>
         <module>ui.content</module>
+		<module>acl</module>
         <!-- <module>it.tests</module>
              <module>dispatcher</module> 
              <module>ui.tests</module> -->
@@ -48,10 +49,12 @@
         <vault.password>admin</vault.password>
         <core.wcm.components.version>2.13.0</core.wcm.components.version>
         <bnd.version>5.1.2</bnd.version>
+		<biz.netcentric.cq.tools.accesscontroltool.version>2.5.3</biz.netcentric.cq.tools.accesscontroltool.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <componentGroupName>JLR</componentGroupName>
 		<jacoco.data.file>${project.build.directory}/jacoco.exec</jacoco.data.file>
+        <jsoup.version>1.13.1</jsoup.version>
     </properties>
 
     <build>
@@ -171,6 +174,8 @@ Bundle-Category: ${componentGroupName}
 Bundle-DocURL:
 -plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
 -plugin org.apache.sling.bnd.models.ModelsScannerPlugin
+
+-includeresource: META-INF/lib/jsoup.jar=jsoup-${jsoup.version}.jar;lib:=true
                                 ]]></bnd>
                             </configuration>
                         </execution>
@@ -256,7 +261,7 @@ Bundle-DocURL:
                     <groupId>org.apache.jackrabbit</groupId>
                     <artifactId>filevault-package-maven-plugin</artifactId>
                     <extensions>true</extensions>
-                    <version>1.1.4</version>
+                    <version>1.0.4</version>
                     <configuration>
                         <filterSource>src/main/content/META-INF/vault/filter.xml</filterSource>
                         <properties>
@@ -928,6 +933,11 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.13.1</version>
+            </dependency>
 
             <!-- Testing -->
             <dependency>
@@ -971,8 +981,22 @@ Bundle-DocURL:
 				<groupId>org.apache.sling</groupId>
 				<artifactId>org.apache.sling.models.impl</artifactId>
 				<version>1.4.4</version>
-            <scope>test</scope>
-        </dependency>
+                <scope>test</scope>
+            </dependency>
+            <!-- Netcentric ACL Tool -->
+            <dependency>
+                <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+                <artifactId>accesscontroltool-package</artifactId>
+                <type>content-package</type>
+                <version>${biz.netcentric.cq.tools.accesscontroltool.version}</version>
+            </dependency>
+            <!-- Oak Index for netcentric ACL Tool -->
+            <dependency>
+                <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
+                <artifactId>accesscontroltool-oakindex-package</artifactId>
+                <type>zip</type>
+                <version>${biz.netcentric.cq.tools.accesscontroltool.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

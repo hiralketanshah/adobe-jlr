@@ -1,0 +1,49 @@
+<sly data-sly-use.model="com.jlr.core.models.CPlayerModel"
+   data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" 
+data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
+	<div class="cmp-cplayer cmp-cplayer-hidden sectioncss groupcss" data-vechicle-id="${model.nameplateId}" data-model-year="${model.modelyear}" data-vechicle-name="${model.nameplateId}">
+		<div class="col span_1_of_3 cplayerCopy">
+			<div class="grid-container">
+				<div class="grid-item summaryItemContentCplayer">
+					<div class="headingMain">
+						<h2 class="summaryItemHeader heading headingH4 fontQuote">
+							<span class="headingWrapper">${model.headerCopy @context ='html'}</span>
+						</h2>
+					</div>
+					<div class="vechicleSummaryMain">
+						<h3 class="vechicleSummary summaryItemHeader fontQuote">
+							<span class="headingWrapper"></span>
+						</h3>
+					</div>
+					<div class="summary">
+					</div>
+				</div>
+				<div class="grid-item actionItems">  
+					<div class="message">
+						${model.copy @context ='html'}
+					</div>
+					<div class="linkContainer">
+						<sly data-sly-list.cta="${model.ctaList}">
+							<div data-sly-test="${cta.text}" class="links">
+								<div class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}">
+									<a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
+										<span aria-hidden="true">${cta.text}</span>
+									</a>
+								</div>
+							</div>
+						</sly>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col span_2_of_3 cplayerImageDiv">
+			<div class="cplayerImage">
+				<picture class="Picture Picture--background">
+                </picture>
+              </div>
+		</div>
+	</div>
+	
+</sly>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"/>

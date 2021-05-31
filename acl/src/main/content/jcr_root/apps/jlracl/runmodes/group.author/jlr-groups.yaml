@@ -1,0 +1,199 @@
+- DEF groupPath="/home/groups/jlr"
+
+- group_config:
+
+    - global-leads:
+
+        - name: 'Global Leads'
+          isMemberOf: internal-group, template-authors, tag-administrators, internal-tools-nav-group, projects-administrators
+          path: ${groupPath}
+
+    - global-qas:
+
+        - name: 'Global QAs'
+          isMemberOf: internal-group, template-authors, internal-tools-nav-group, projects-administrators
+          path: ${groupPath}
+
+    - global-authors:
+
+        - name: 'Global Authors'
+          isMemberOf: internal-group, internal-tools-nav-group, projects-administrators
+          path: ${groupPath}
+
+    - read-only:
+
+        - name: 'Read Only'
+          isMemberOf: internal-group
+          path: ${groupPath}
+
+    - internal-group:
+
+        - name: 'JLR Internal Group'
+          isMemberOf: contributor, internal-nav-group
+          path: ${groupPath}
+          
+    - internal-nav-group:
+
+        - name: 'JLR Internal Nav Group'
+          path: ${groupPath}
+
+    - internal-tools-nav-group:
+
+        - name: 'JLR Internal Tools Nav Group'
+          path: ${groupPath}
+
+- ace_config:
+
+    - internal-group:
+
+        - path: /content
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+          
+        - path: /content/experience-fragments
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+          
+        - path: /content/cq:tags
+          permission: deny
+          actions: read  
+
+        - path: /content/landrover
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/landrover/jcr:content
+          permission: allow
+          actions: read
+
+        - path: /content/dam
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/dam/landrover
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /content/dam/landrover/jcr:content
+          permission: allow
+          actions: read
+          
+        - path: /content/experience-fragments/landrover
+          permission: allow
+          actions: read
+
+        - path: /home
+          permission: allow
+          actions: read
+
+    - internal-nav-group:
+
+        - path: /libs/cq/core/content/nav/commerce
+          permission: deny
+          actions: read
+
+        - path: /libs/cq/core/content/nav/communities
+          permission: deny
+          actions: read
+
+        - path: /libs/cq/core/content/nav/forms
+          permission: deny
+          actions: read
+
+        - path: /libs/cq/core/content/nav/screens
+          permission: deny
+          actions: read
+
+        - path: /libs/cq/core/content/nav/tools
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+
+        - path: /apps/cq/core/content/nav/tools
+          permission: deny
+          privileges: jcr:read
+          repGlob: /*
+
+    - internal-tools-nav-group:
+
+        - path: /apps/cq/core/content/nav/tools/acs-commons
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /apps/cq/core/content/nav/tools/acs-commons/generic-lists
+          permission: allow
+          actions: read
+
+        - path: /etc/acs-commons/lists
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+    - global-leads:
+
+        - path: /apps/cq/core/content/nav/tools/acs-commons/reports
+          permission: allow
+          actions: read
+          
+        - path: /var/acs-commons/reports
+          permission: allow
+          actions: create,modify,delete
+
+        - path: /content/landrover
+          permission: allow
+          actions: read,create,modify,delete,replicate
+ 
+        - path: /content/dam/landrover
+          permission: allow
+          actions: read,create,modify,delete,replicate
+  
+        - path: /content/experience-fragments/landrover
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+        - path: /content/nav
+          permission: allow
+          actions: read
+
+    - global-qas:
+
+        - path: /content/landrover
+          permission: allow
+          actions: read,create,modify,delete,replicate
+ 
+        - path: /content/dam/landrover
+          permission: allow
+          actions: read,create,modify,delete,replicate
+  
+        - path: /content/experience-fragments/landrover
+          permission: allow
+          actions: read,create,modify,delete,replicate
+
+    - global-authors:
+
+        - path: /content/landrover
+          permission: allow
+          actions: read,create,modify,delete
+
+        - path: /content/dam/landrover
+          permission: allow
+          actions: read,create,modify,delete
+
+        - path: /content/experience-fragments/landrover
+          permission: allow
+          actions: read,create,modify,delete
+
+    - read-only:
+
+        - path: /content/landrover
+          permission: allow
+          actions: read
+ 
+        - path: /content/dam/landrover
+          permission: allow
+          actions: read

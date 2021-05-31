@@ -1,0 +1,42 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "jcr:createdBy":"admin",
+  "column":"2",
+  "id":"contentcard",
+  "copy":"copy",
+  "sling:resourceType":"jlr/components/contentcard/v1/contentcard",
+  "headerCopy":"headerCopy",
+  "contentCardList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "imageLink":"google.com",
+      "imageAlt":"imageAlt",
+      "copy":"copy",
+      "date":"Sun Apr 04 2021 00:38:00 GMT+0530",
+      "price":"$98.05",
+      "headerCopy":"headerCopy",
+      "assestType":"video",
+      "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "target":"_blank",
+          "link":"google.com",
+          "text":"text",
+          "linkType":"primary"
+        }
+      }
+    }
+  },
+ "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "target":"_blank",
+          "link":"google.com",
+          "text":"text",
+          "linkType":"primary"
+        }
+	}
+}

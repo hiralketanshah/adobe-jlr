@@ -17,9 +17,11 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * Simple JUnit test verifying the ArticleModelImpl.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
-class ArticleModelImplTest {
+class ArticleModelImplTest extends GlobalModelImplTest {
 
     /** The article model. */
     private ArticleModel articleModel;
@@ -42,22 +44,23 @@ class ArticleModelImplTest {
      */
     @Test
     void testProperties() {
-        assertEquals("test_title", articleModel.getTitle());
-        assertEquals("test_subtitle", articleModel.getSubtitle());
+        assertEquals("above", articleModel.getImagePosition());
+        assertEquals("image", articleModel.getAssetType());
     }
 
     /**
      * Test cta properties.
      */
+    @Override
     @Test
     void testCtaProperties() {
         List<CTAPojo> list = articleModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
-            assertEquals("test_text", item.getText());
-            assertEquals("http://www.google.com", item.getLink());
-            assertEquals("primary", item.getLinkType());
+            assertEquals("test_cta_text", item.getText());
+            assertEquals("/content/jlr/au", item.getLink());
             assertEquals("_self", item.getTarget());
+            assertEquals("primary", item.getLinkType());
         });
     }
 }

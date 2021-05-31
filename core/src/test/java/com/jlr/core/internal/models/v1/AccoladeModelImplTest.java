@@ -12,11 +12,23 @@ import com.jlr.core.models.AccoladeModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class AccoladeModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
-class AccoladeModelImplTest {
+class AccoladeModelImplTest extends GlobalModelImplTest {
 
+    /** The accolade model. */
     private AccoladeModel accoladeModel;
 
+    /**
+     * Sets the up.
+     *
+     * @param context the new up
+     * @throws Exception the exception
+     */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
         context.load().json("/content/jlr/accolade/accolade.json", "/content/jlr/accolade.html");
@@ -24,11 +36,10 @@ class AccoladeModelImplTest {
         accoladeModel = resource.adaptTo(AccoladeModelImpl.class);
     }
 
-    @Test
-    void testGeneralProperties() {
-        assertEquals("25/02/2021", accoladeModel.getDate());
-    }
-
+    /* (non-Javadoc)
+     * @see com.jlr.core.internal.models.v1.GlobalModelImplTest#testImageProperties()
+     */
+    @Override
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", accoladeModel.getBackgroundImage());

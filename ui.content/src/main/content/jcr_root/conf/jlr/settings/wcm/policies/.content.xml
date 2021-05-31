@@ -2,7 +2,6 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
     jcr:mixinTypes="[rep:AccessControllable]"
     jcr:primaryType="cq:Page">
-    <rep:policy/>
     <jlr jcr:primaryType="nt:unstructured">
         <components jcr:primaryType="nt:unstructured">
             <form jcr:primaryType="nt:unstructured">
@@ -34,9 +33,9 @@
                     jcr:title="Content Image"
                     sling:resourceType="wcm/core/components/policy/policy"
                     allowedRenditionWidths="[320,480,600,800,1024,1200,1600]"
-                    disableLazyLoading="false"
                     allowUpload="false"
                     altValueFromDAM="true"
+                    disableLazyLoading="false"
                     displayPopupTitle="true"
                     isDecorative="false"
                     jpegQuality="{Long}85"
@@ -210,29 +209,12 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Structure]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]"
+                    layout="simple"
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575024218483
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="jlr/components/image"/>
-                            <mapping_1575030843388
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="jlr/components/experiencefragment"/>
-                            <mapping_1575030853128
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="jlr/components/contentfragment"/>
-                        </assetToComponentMapping>
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
                     </cq:authoring>
                 </policy_1574694950110>
                 <policy_1574695586800
@@ -240,31 +222,27 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Container]"
+                    layout="simple"
+                    layoutDisabled="true">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
-                        <assetToComponentMapping jcr:primaryType="nt:unstructured">
-                            <mapping_1575030255082
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="image/*"
-                                droptarget="image"
-                                resourceType="jlr/components/image"/>
-                            <mapping_1575030260142
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="content"
-                                assetMimetype="text/html"
-                                droptarget="experiencefragment"
-                                resourceType="jlr/components/experiencefragment"/>
-                            <mapping_1575030269139
-                                jcr:primaryType="nt:unstructured"
-                                assetGroup="media"
-                                assetMimetype="[text/html,application/vnd.adobe.contentfragment]"
-                                droptarget="contentfragment"
-                                resourceType="jlr/components/contentfragment"/>
-                        </assetToComponentMapping>
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
                     </cq:authoring>
                 </policy_1574695586800>
+                <policy_1619408388744
+                    jcr:description="Allows the page components and defines the component mapping (this configures what components should be automatically created when authors drop assets from the content finder to the page editor)."
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Config Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="[group:JLR - Config,group:JLR - Structure]"
+                    layout="simple"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                    <cq:authoring jcr:primaryType="nt:unstructured">
+                        <assetToComponentMapping jcr:primaryType="nt:unstructured"/>
+                    </cq:authoring>
+                </policy_1619408388744>
                 <policy_649128221558427
                     cq:styleDefaultElement="main"
                     jcr:description="Sets a &lt;main> element on the page content area."
@@ -278,7 +256,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Config]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -303,6 +281,17 @@
                         </assetToComponentMapping>
                     </cq:authoring>
                 </policy_1575040440977>
+                <policy_1620285803627
+                    jcr:lastModified="{Date}2021-05-06T12:53:37.295+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Gallery Page"
+                    sling:resourceType="wcm/core/components/policy/policy"
+                    components="group:JLR - Gallery"
+                    layout="simple"
+                    layoutDisabled="true">
+                    <jcr:content jcr:primaryType="nt:unstructured"/>
+                </policy_1620285803627>
             </container>
             <teaser jcr:primaryType="nt:unstructured">
                 <policy_1575031387650
@@ -339,6 +328,1117 @@
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy>
             </page>
+            <caveat jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <caveat jcr:primaryType="nt:unstructured">
+                        <policy_1615794114228
+                            cq:styleDefaultClasses="cmp-caveat--white white"
+                            jcr:lastModified="{Date}2021-03-29T08:43:41.048+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Caveat"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                <paraformat
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*">
+                                    <formats
+                                        jcr:primaryType="nt:unstructured"
+                                        override="true">
+                                        <item0
+                                            jcr:primaryType="nt:unstructured"
+                                            description="Paragraph"
+                                            tag="p"/>
+                                    </formats>
+                                </paraformat>
+                                <misctools
+                                    jcr:primaryType="nt:unstructured"
+                                    features="specialchars">
+                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                        <chars
+                                            jcr:primaryType="nt:unstructured"
+                                            override="true">
+                                            <item0
+                                                jcr:primaryType="nt:unstructured"
+                                                entity="&amp;#8209;"
+                                                name="Non breaking hyphen"/>
+                                            <item1
+                                                jcr:primaryType="nt:unstructured"
+                                                entity="&amp;nbsp;"
+                                                name="Non breaking space"/>
+                                        </chars>
+                                    </specialCharsConfig>
+                                </misctools>
+                                <edit
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <findreplace
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <undo
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <spellcheck
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <image
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <table
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <lists
+                                    jcr:primaryType="nt:unstructured"
+                                    features="ordered,unordered"/>
+                                <justify
+                                    jcr:primaryType="nt:unstructured"
+                                    features="-"/>
+                                <format
+                                    jcr:primaryType="nt:unstructured"
+                                    features="bold,italic"/>
+                                <links
+                                    jcr:primaryType="nt:unstructured"
+                                    features="modifylink,unlink"/>
+                                <subsuperscript
+                                    jcr:primaryType="nt:unstructured"
+                                    features="*"/>
+                            </rtePlugins>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-caveat--light light"
+                                            cq:styleId="1615794152242"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-caveat--white white"
+                                            cq:styleId="1615794162991"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="cmp-caveat--grey grey"
+                                            cq:styleId="1622101873063"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1615794114228>
+                    </caveat>
+                </v1>
+            </caveat>
+            <article jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <container jcr:primaryType="nt:unstructured">
+                        <policy_1615803880912
+                            cq:styleDefaultClasses="white"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Article Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[/apps/jlr/components/article/v1/article,/apps/jlr/components/table/v1/table]">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1616587815381"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-article--light light"
+                                            cq:styleId="1615873462893"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="cmp-article--grey grey"
+                                            cq:styleId="1615873467769"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="cmp-article--slateblue slateblue"
+                                            cq:styleId="1615873470542"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1615803880912>
+                    </container>
+                </v1>
+            </article>
+            <signpostvehiclesummary jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <signpostvehiclesummary jcr:primaryType="nt:unstructured">
+                        <policy_1616070143899
+                            cq:styleDefaultClasses="cmp-vehicleSummary white right"
+                            jcr:lastModified="{Date}2021-04-08T23:33:15.902+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Signpost / Vehicle Summary"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Component"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-signPost"
+                                            cq:styleId="1617904926367"
+                                            cq:styleLabel="Signpost"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-vehicleSummary"
+                                            cq:styleId="1617904958476"
+                                            cq:styleLabel="Vehicle Summary"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1616413749230"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1617904006880"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1616413752178"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1617904017667"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                                <item2
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1617903992536"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1617903998828"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item2>
+                            </cq:styleGroups>
+                        </policy_1616070143899>
+                    </signpostvehiclesummary>
+                </v1>
+            </signpostvehiclesummary>
+            <snippet jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <snippet jcr:primaryType="nt:unstructured">
+                        <policy_1616999139393
+                            cq:styleDefaultClasses="white"
+                            jcr:lastModified="{Date}2021-03-30T12:29:38.730+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Snippet policy"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1616999144607"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1617008118607"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1616999139393>
+                    </snippet>
+                </v1>
+            </snippet>
+            <readytogobar jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <readytogobar jcr:primaryType="nt:unstructured">
+                        <policy_1617088611211
+                            cq:styleDefaultClasses="cmp-readyToGoBar--default default"
+                            jcr:lastModified="{Date}2021-04-21T21:30:51.413+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Ready to go bar"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-readyToGoBar--white white"
+                                            cq:styleId="1622102137298"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-readyToGoBar--light light"
+                                            cq:styleId="1617088666771"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="cmp-readyToGoBar--grey grey"
+                                            cq:styleId="1617088624973"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="cmp-readyToGoBar--slateblue slateblue"
+                                            cq:styleId="1622102161476"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1617088611211>
+                    </readytogobar>
+                </v1>
+            </readytogobar>
+            <genericexternalapp jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <genericexternalapp jcr:primaryType="nt:unstructured">
+                        <policy_1617607905780
+                            jcr:lastModified="{Date}2021-04-05T13:02:51.340+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="GEA Caveat"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            caveatOption="true">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1617607905780>
+                    </genericexternalapp>
+                </v1>
+            </genericexternalapp>
+            <table jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <table jcr:primaryType="nt:unstructured">
+                        <policy_1617608375376
+                            cq:styleDefaultClasses="cmp-table--white white"
+                            jcr:lastModified="{Date}2021-04-05T13:12:52.493+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Table"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Component Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-table--white white"
+                                            cq:styleId="1617608476084"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-table--light light"
+                                            cq:styleId="1617608478895"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="cmp-table--grey grey"
+                                            cq:styleId="1617608481555"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Table Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-table--table-white"
+                                            cq:styleId="1617608501713"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-table--table-light"
+                                            cq:styleId="1617608513488"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1617608375376>
+                    </table>
+                </v1>
+            </table>
+            <footerlinks jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <footerlinks jcr:primaryType="nt:unstructured">
+                        <policy_1617861364323
+                            jcr:lastModified="{Date}2021-04-08T11:26:29.227+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer Links"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            iconDisabled="true">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1617861364323>
+                    </footerlinks>
+                </v1>
+            </footerlinks>
+            <carousel jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <carousel jcr:primaryType="nt:unstructured">
+                        <policy_1617711636936
+                            cq:styleDefaultClasses="white"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Carousel"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            autopauseDisabled="false"
+                            autoplay="true"
+                            components="[/apps/jlr/components/accolade/v1/accolade,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/heroitem/v1/heroitem,/apps/jlr/components/dualframecarousel/v1/dualframecarousel,/apps/jlr/components/herotitlebanner/v1/herotitlebanner]"
+                            delay="6000">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1617788095061"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1617788099464"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="grey"
+                                            cq:styleId="1617788109684"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1617788116763"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1617711636936>
+                    </carousel>
+                </v1>
+            </carousel>
+            <accolade jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <accolade jcr:primaryType="nt:unstructured">
+                        <policy_1617788181626
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Accolade"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Special Color"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="specialColor"
+                                            cq:styleId="1617788194443"
+                                            cq:styleLabel="Green"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1617788181626>
+                    </accolade>
+                </v1>
+            </accolade>
+            <dualframeslider jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <dualframeslider jcr:primaryType="nt:unstructured">
+                        <policy_1617975684354
+                            cq:styleDefaultClasses="light right"
+                            jcr:lastModified="{Date}2021-04-09T19:13:05.886+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Dual Frame Slider"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1617975698817"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1617975700233"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1617975720246"
+                                            cq:styleLabel="Slider Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1617975723189"
+                                            cq:styleLabel="Slider Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1617975684354>
+                    </dualframeslider>
+                </v1>
+            </dualframeslider>
+            <contentcard jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <contentcard jcr:primaryType="nt:unstructured">
+                        <policy_1618048049608
+                            cq:styleDefaultClasses="light"
+                            jcr:lastModified="{Date}2021-04-10T16:54:29.402+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Content Card"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="light"
+                                            cq:styleId="1618048058791"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="white"
+                                            cq:styleId="1618048069660"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1618048049608>
+                    </contentcard>
+                </v1>
+            </contentcard>
+            <faqs jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <faqscontainer jcr:primaryType="nt:unstructured">
+                        <policy_1618206816390
+                            jcr:lastModified="{Date}2021-04-12T11:24:00.424+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="FAQ Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            allowedHeadingElements="[h2,h3,h4,h5,h6]"
+                            components="/apps/jlr/components/faqs/v1/faqspanel"
+                            headingElement="h3">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1618206816390>
+                    </faqscontainer>
+                </v1>
+            </faqs>
+            <footercontainer jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <footercontainer jcr:primaryType="nt:unstructured">
+                        <policy_137759432013899
+                            jcr:lastModified="{Date}2021-04-19T13:51:11.754+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Footer"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/footerlinks/v1/footerlinks">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_137759432013899>
+                    </footercontainer>
+                </v1>
+            </footercontainer>
+            <verticalslider jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <verticalslider jcr:primaryType="nt:unstructured">
+                        <policy_1618718710382
+                            cq:styleDefaultClasses="white cmp-vertical-slider--white"
+                            jcr:lastModified="{Date}2021-04-18T09:37:51.207+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vertical Slider"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white cmp-vertical-slider--white"
+                                            cq:styleId="1618718760379"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light cmp-vertical-slider--light"
+                                            cq:styleId="1618718764066"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Layout"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="leftalign"
+                                            cq:styleId="1618718833405"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="rightalign"
+                                            cq:styleId="1618718836451"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1618718710382>
+                    </verticalslider>
+                </v1>
+            </verticalslider>
+            <optionpicker jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <optionpicker jcr:primaryType="nt:unstructured">
+                        <policy_1619190895761
+                            cq:styleDefaultClasses="light "
+                            jcr:lastModified="{Date}2021-04-23T21:04:54.197+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Option Picker"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1619190909813"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1619190914120"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1619190917109"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Style"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="wheel"
+                                            cq:styleId="1619190932718"
+                                            cq:styleLabel="Wheel"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleId="1619192090295"
+                                            cq:styleLabel="Color"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1619190895761>
+                    </optionpicker>
+                </v1>
+            </optionpicker>
+            <dualframecarousel jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <dualframecarousel jcr:primaryType="nt:unstructured">
+                        <policy_1619696656661
+                            jcr:lastModified="{Date}2021-04-29T17:14:49.980+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Dual Frame Carousel"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1619696677262"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1619696681046"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1619696656661>
+                    </dualframecarousel>
+                </v1>
+            </dualframecarousel>
+            <herotitlebanner jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <herotitlebanner jcr:primaryType="nt:unstructured">
+                        <policy_1619626689947
+                            jcr:lastModified="{Date}2021-04-28T21:48:32.558+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Hero Title Banner"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Variant"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="tall"
+                                            cq:styleId="1619626707693"
+                                            cq:styleLabel="Tall"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="short"
+                                            cq:styleId="1619626709472"
+                                            cq:styleLabel="Short"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="topAlign"
+                                            cq:styleId="1619627807774"
+                                            cq:styleLabel="Top"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="centreAlign"
+                                            cq:styleId="1619627818474"
+                                            cq:styleLabel="Centre"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1619626689947>
+                    </herotitlebanner>
+                </v1>
+            </herotitlebanner>
+            <primarynavigation jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclecardcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620264990952
+                            jcr:lastModified="{Date}2021-05-06T07:06:48.750+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Card"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/primarynavigation/v1/vehiclecard">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0 jcr:primaryType="nt:unstructured"/>
+                            </cq:styleGroups>
+                        </policy_1620264990952>
+                    </vehiclecardcontainer>
+                    <vehiclecontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620301901519
+                            jcr:lastModified="{Date}2021-05-06T17:22:05.869+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/primarynavigation/v1/vehiclecategory">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1620301901519>
+                    </vehiclecontainer>
+                </v1>
+            </primarynavigation>
+            <interior360 jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <interior360 jcr:primaryType="nt:unstructured">
+                        <policy_1620156605744
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Interior 360"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Themes"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1620156615223"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1620156619801"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620156605744>
+                    </interior360>
+                </v1>
+            </interior360>
+            <exterior360 jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <exterior360 jcr:primaryType="nt:unstructured">
+                        <policy_1620289198673
+                            jcr:lastModified="{Date}2021-05-06T13:50:23.594+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Exterior 360"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1620289214029"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1620289217685"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620289198673>
+                    </exterior360>
+                </v1>
+            </exterior360>
+            <tabbedcontainer jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <tabbedcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1620031717860
+                            jcr:lastModified="{Date}2021-05-06T11:53:19.467+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Tabbed Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="[/apps/jlr/components/contentcard/v1/contentcard,/apps/jlr/components/fullframecarousel/v1/fullframecarousel,/apps/jlr/components/exterior360/v1/exterior360,/apps/jlr/components/interior360/v1/interior360]">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Heading Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-contentBlocksContainer"
+                                            cq:styleId="1620281765626"
+                                            cq:styleLabel="Content Card (Top)"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620031717860>
+                    </tabbedcontainer>
+                </v1>
+            </tabbedcontainer>
+            <quote jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <quote jcr:primaryType="nt:unstructured">
+                        <policy_1620815338366
+                            jcr:lastModified="{Date}2021-05-12T16:00:20.760+05:30"
+                            cq:styleDefaultClasses="cmp-quote--white white"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Quote"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-quote--light light"
+                                            cq:styleId="1620815349245"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-quote--white white"
+                                            cq:styleId="1620815368672"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="cmp-quote--grey grey"
+                                            cq:styleId="1620815402420"
+                                            cq:styleLabel="Grey"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item3
+                                            cq:styleClasses="cmp-quote--slateblue slateblue"
+                                            cq:styleId="1620815383755"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1620815338366>
+                    </quote>
+                </v1>
+            </quote>
+            <offers jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <offers jcr:primaryType="nt:unstructured">
+                        <policy_1621485263708
+                            cq:styleDefaultClasses="white"
+                            jcr:lastModified="{Date}2021-05-20T10:09:32.135+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Offers"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1621485283126"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1621485288039"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1621485292267"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1621485445407"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleId="1621485447963"
+                                            cq:styleLabel="right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                                <item2 jcr:primaryType="nt:unstructured"/>
+                            </cq:styleGroups>
+                        </policy_1621485263708>
+                    </offers>
+                </v1>
+            </offers>
+            <c-player jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <c-player jcr:primaryType="nt:unstructured">
+                        <policy_1621317733304
+                            cq:styleDefaultClasses="right slateblue"
+                            jcr:lastModified="{Date}2021-05-18T11:54:46.164+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="C-Player"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1621317749255"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1621317982817"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1621317985657"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1621317993851"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1621317996909"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="center"
+                                            cq:styleId="1621591998896"
+                                            cq:styleLabel="Center"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1621317733304>
+                    </c-player>
+                </v1>
+            </c-player>
+            <specsglance jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <specsglance jcr:primaryType="nt:unstructured">
+                        <policy_1621446983475
+                            cq:styleDefaultClasses="light large"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Specs At A Glance"
+							sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleLabel="White"
+                                            cq:styleId="1621446997067"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1621446999813"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Data Size"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="small"
+                                            cq:styleId="1621447005203"
+                                            cq:styleLabel="Small"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="large"
+                                            cq:styleId="1621447007996"
+                                            cq:styleLabel="Large"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1621446983475>
+                    </specsglance>
+                </v1>
+            </specsglance>
+            <seatslider jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <seatslider jcr:primaryType="nt:unstructured">
+                        <policy_1621706500752
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Seat Slider"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1621706512312"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1621706515256"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1621706500752>
+                    </seatslider>
+                </v1>
+            </seatslider>
+            <derivative jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <derivativecardcontainer jcr:primaryType="nt:unstructured">
+                        <policy_1621876679634
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Derivative Card Container"
+                            sling:resourceType="wcm/core/components/policy/policy"
+                            components="/apps/jlr/components/derivative/v1/derivativecard">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                        </policy_1621876679634>
+                    </derivativecardcontainer>
+                </v1>
+            </derivative>            
         </components>
     </jlr>
+    <rep:policy/>
 </jcr:root>

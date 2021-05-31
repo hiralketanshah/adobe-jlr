@@ -5,29 +5,24 @@ Dual Frame Carousel component written in HTL.
 
 ## Features
 
-* Full Dual Carousel are a versatile component used in a variety of ways on DX.
+* Dual Frame Carousel are a versatile component used in a variety of ways on DX.
 
 ### Use Object
 The Dual Frame Carousel component uses the `com.jlr.core.models.DualFrameCarouselModel` Sling model as its Use-object.
 
 ### Edit Dialog Properties
-The following properties are written to JCR for this Full Frame Carousel component and are expected to be available as `Resource` properties:
+The following properties are written to JCR for this Dual Frame Carousel component and are expected to be available as `Resource` properties:
 
-1. `./id` - defines the id for the component and is a Mandatory field.
-2. `./headerTitle` - defines the header title for the component
-3. `./copy` - defines the body copy for the component
-4. `./fileReference` - defines background image for the component
-5. `./imageAlt` - defines the iamge alt text for the component
-6. `./imageLink` - defines the image link for the component
-7. `./text` - defines the CTA text for the component
-8. `./link` - defines the CTA link for the component
-9. `./linkType` - defines the CTA link types such as Primary or secondary for the component
-10. `./target` - defines the CTA target (new tab or current tab) for the component
+1. `./id` - defines the id for the component.
+2. `./headerTitle` - defines the header title for the component.
+3. `./copy` - defines the body copy for the component.
+4. `./assetType` - defines the assetType - image or video, accordingly show and hide teh fields.
+5. `./ctaList` - defines the list of CTA for the component where max number of CTAs is 2.
 
 The edit dialog allows the page to be refreshed after editing the component
 
 ## Client Libraries
-The component provides a `jaguar.components.dualframecarousel.v1` client library category that contains a recommended base
+The component provides a `` client library category that contains a recommended base
 CSS styling and JavaScript component. It should be added to a relevant site client library using the `embed` property.
 
 ## Information

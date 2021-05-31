@@ -1,0 +1,33 @@
+<div data-sly-use.carousel="com.adobe.cq.wcm.core.components.models.Carousel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='generic.slider.label.next,generic.slider.label.pause,generic.slider.label.paused,generic.slider.label.pip,generic.slider.label.play,generic.slider.label.playing,generic.slider.label.previous,generic.slider.label.slideChanged'}" 
+     data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+     id="${carousel.id}"
+     class="cmp-carousel"
+     role="group"
+     aria-label="${carousel.accessibilityLabel}"
+     aria-live="polite"
+     aria-roledescription="carousel"
+     data-cmp-is="carousel"
+     data-cmp-delay="${carousel.delay}"
+data-cmp-data-layer="${carousel.data.json}" data-autoplay="${carousel.autoplay @ context='text'}" data-duration="${carousel.delay}" data-speed="600" data-label-next="${config.configMap['generic.slider.label.next']}" data-label-pause="${config.configMap['generic.slider.label.pause']}" data-label-paused="${config.configMap['generic.slider.label.paused']}" data-label-pip="${config.configMap['generic.slider.label.pip']}" data-label-play="${config.configMap['generic.slider.label.play']}" data-label-playing="${config.configMap['generic.slider.label.playing']}" data-label-previous="${config.configMap['generic.slider.label.previous']}" data-label-slidechanged="${config.configMap['generic.slider.label.slideChanged']}" data-pagination="dots" data-randomized="false" data-total="${carousel.items.size}">
+    <div data-sly-test="${carousel.items && carousel.items.size > 0}"
+         class="carousel cmp-carousel__slider swiper-container"
+         aria-atomic="false"
+         aria-live="${carousel.autoplay ? 'off' : 'polite'}">
+         <div class="${wcmmode.edit ? '' : 'swiper-wrapper'}">
+			<div data-sly-repeat.item="${carousel.items}"
+             data-sly-resource="${item.name @ decorationTagName='div'}"
+             id="${item.id}"
+             class="${wcmmode.edit ? 'cmp-carousel__item' : 'cmp-carousel__slide swiper-slide'} ${itemList.first ? ' cmp-carousel__item--active' : ''}"
+             role="tabpanel"
+             data-cmp-data-layer="${item.data.json}"
+             data-cmp-hook-carousel="item"></div>
+         </div>
+        <ol data-cmp-hook-carousel="indicators">
+            <li data-sly-repeat.item="${carousel.items}"
+                data-cmp-hook-carousel="indicator"></li>
+        </ol>
+    </div>
+	<div data-sly-test="${!wcmmode.edit}" class="cmp-carousel__controls"></div>
+    <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
+         data-sly-test="${(wcmmode.edit || wcmmode.preview) && carousel.items.size < 1}"></sly>
+</div>
