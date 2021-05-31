@@ -3,7 +3,7 @@
     text-align: left;
 }
 .cmp-gridListWrapper{
-    padding:60px 60px 40px;
+    padding:60px 40px 40px;
 }
 .cmp-specificationsAtAGlance__copy{
     margin-bottom: 81px;
@@ -146,3 +146,7 @@ h2.heading, .heading.headingH2{
     font-size:36px !important;
     }
 
+ @media screen and (min-width: 1px) and (max-width: 768px){
+.GridListWrapper .items .el {
+    width:33%;
+ }}
