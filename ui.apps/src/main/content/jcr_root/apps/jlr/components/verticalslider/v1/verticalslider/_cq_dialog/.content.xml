@@ -128,10 +128,11 @@
                                                 sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
                                                 fieldDescription="The delay (in milliseconds) before automatically transitioning to the next slide."
                                                 fieldLabel="Transition Delay (milliseconds)"
+                                                required="true"
                                                 max="60000"
                                                 min="0"
                                                 name="./delay"
-                                                step="100"
+                                                step="1000"
                                                 value="6000"/>
                                             <autopauseDisabled
                                                 jcr:primaryType="nt:unstructured"
