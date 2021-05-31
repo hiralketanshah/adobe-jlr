@@ -9,23 +9,16 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
-import com.day.cq.commons.inherit.InheritanceValueMap;
-import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.CtaUtils;
 
 /**
@@ -33,34 +26,11 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
-        DerivativeCardModel.class }, resourceType = DerivativeCardModelImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = { DerivativeCardModel.class })
 public class DerivativeCardModelImpl extends GlobalModelImpl implements DerivativeCardModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/derivative/v1/derivativecard";
-
-    /**
-     * The Key.
-     */
-    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
-    String key;
-
-    /** The request. */
-    @Inject
-    private SlingHttpServletRequest request;
-
-    /** The current page. */
-    @Inject
-    private Page currentPage;
-
-    /** The page properties. */
-    @Inject
-    private InheritanceValueMap pageProperties;
-
-    /** The tco service. */
-    @OSGiService
-    private TcoService tcoService;
 
     /** The resource resolver. */
     @Inject
@@ -68,44 +38,36 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
 
     /** The caveat. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Via("resource")
     private String caveat;
 
     /** The leftColumn. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Via("resource")
     private String leftColumn;
 
     /** The override. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Via("resource")
     private String rightColumn;
 
     /** The override. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Via("resource")
     private boolean override;
 
     /** The specsAtaGlanceHeading. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Via("resource")
     private String specsAtaGlanceHeading;
 
     /** The price. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    @Via("resource")
     private String price;
 
     /** The cta list. */
     @Inject
     @Optional
-    @Via("resource")
     private Resource ctaList;
 
     /** The engine list. */
     @Inject
     @Optional
-    @Via("resource")
     private Resource engineList;
 
     private List<CTAPojo> list = new ArrayList<>();
@@ -115,14 +77,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
 
     @PostConstruct
     public void init() {
-        if (null != price) {
-            Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
-                    pageProperties, price, key);
-            modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
-                priceConfigValue = entry.getKey();
-                price = entry.getValue();
-            });
-        }
+
         if (null != engineList) {
             Iterator<Resource> engineListResources = engineList.listChildren();
             while (engineListResources.hasNext()) {

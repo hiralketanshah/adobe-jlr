@@ -22,8 +22,8 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.models.DerivativeContainerModel;
-import com.jlr.core.pojos.DerivativeTab;
 import com.jlr.core.services.Derivative;
 
 /**
@@ -81,10 +81,11 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     private String layout;
 
     /** The list. */
-    List<DerivativeTab> listOfTabs = new ArrayList<>();
+    // List<DerivativeTab> listOfTabs = new ArrayList<>();
+    Map<String, DerivativeCardModel> listOfTabs = new LinkedHashMap<>();
     List<String> tabHeadings = new ArrayList<>();
     List<String> firstDropdownList = new ArrayList<>();
-    Map<String, Map<String, String>> listOfDropdown = new LinkedHashMap<>();
+    Map<String, Map<String, DerivativeCardModel>> listOfDropdown = new LinkedHashMap<>();
 
     @PostConstruct
     public void init() {
@@ -95,9 +96,10 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 ValueMap properties = tab.adaptTo(ValueMap.class);
                 if (null != properties) {
                     tabHeadings.add(properties.get("tabHeading", String.class));
-                    listOfTabs.add(new DerivativeTab(properties.get("tabHeading", String.class),
-                            properties.get("metaTitle", String.class), properties.get("metaDescription", String.class),
-                            properties.get("link", String.class), properties.get("urlPath", String.class)));
+                    DerivativeCardModel card = derivativeService.getDerivativeCard(request,
+                            properties.get("link", String.class));
+                    String headerCopy = card.getCaveat();
+                    listOfTabs.put(properties.get("urlPath", String.class), card);
                 }
 
             }
@@ -117,8 +119,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     }
 
-    private Map<String, String> getListOfDerivatives(Resource resource) {
-        Map<String, String> listOfDerivatives = new LinkedHashMap<>();
+    private Map<String, DerivativeCardModel> getListOfDerivatives(Resource resource) {
+        Map<String, DerivativeCardModel> listOfDerivatives = new LinkedHashMap<>();
         Resource derivativeListResource = resource.getChild("derivativeList");
         Iterator<Resource> derivativeIterator = derivativeListResource.listChildren();
         while (derivativeIterator.hasNext()) {
@@ -127,7 +129,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
             if (null != prop) {
                 String path = prop.get("link", String.class);
                 String dropdownName = derivativeService.getListOfDerivativeDropdown(request, path);
-                listOfDerivatives.put(dropdownName, path);
+                DerivativeCardModel card = derivativeService.getDerivativeCard(request, path);
+                listOfDerivatives.put(dropdownName, card);
             }
         }
         return listOfDerivatives;
@@ -144,8 +147,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     public Set<String> getSecondDropdownLabels() {
         Set<String> secondDropdownLabels = new LinkedHashSet<>();
-        for (Entry<String, Map<String, String>> firstLabel : listOfDropdown.entrySet()) {
-            Map<String, String> innerMap = firstLabel.getValue();
+        for (Entry<String, Map<String, DerivativeCardModel>> firstLabel : listOfDropdown.entrySet()) {
+            Map<String, DerivativeCardModel> innerMap = firstLabel.getValue();
             for (String secondLabel : innerMap.keySet()) {
                 secondDropdownLabels.add(secondLabel);
             }
@@ -154,11 +157,11 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     }
 
     @Override
-    public List<DerivativeTab> getListOfTabs() {
+    public Map<String, DerivativeCardModel> getListOfTabs() {
         return listOfTabs;
     }
 
-    public Map<String, Map<String, String>> getListOfDropdown() {
+    public Map<String, Map<String, DerivativeCardModel>> getListOfDropdown() {
         return listOfDropdown;
     }
 

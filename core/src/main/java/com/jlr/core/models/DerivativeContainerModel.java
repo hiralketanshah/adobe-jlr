@@ -1,12 +1,12 @@
 package com.jlr.core.models;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
-
-import com.jlr.core.pojos.DerivativeTab;
 
 /**
  * The Interface DerivativeContainerModel.
@@ -40,7 +40,7 @@ public interface DerivativeContainerModel {
         return new ArrayList<>();
     }
 
-    default List<DerivativeTab> getListOfTabs() {
-        return new ArrayList<>();
+    default Map<String, DerivativeCardModel> getListOfTabs() {
+        return new HashMap<>();
     }
 }
