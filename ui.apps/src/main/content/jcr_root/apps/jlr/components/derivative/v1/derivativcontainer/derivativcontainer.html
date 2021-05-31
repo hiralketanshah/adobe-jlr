@@ -3,7 +3,7 @@
 <template data-sly-template.render="${ @ model }">
 	<div data-sly-test="${!model.id}" class="cq-placeholder"
 	 data-emptytext="Derivative Container Component"></div>
-	<div class="cmp-derivativesOverview" id="296-740370" data-template="${model.layout}">
+	<div class="cmp-derivativesOverview js" id="296-740370" data-template="${model.layout}">
 		<div class="cmp-derivative__range  light" data-initial-tab="0">
 			<div class="cmp-derivative__copy">
 				<h2 class="heading headingThick">
@@ -113,7 +113,7 @@
 								</div>
 								<div class="Derivative__price">
 									<div class="Derivative__price-label">
-										Drive Away Price for SA from
+										${card.priceConfigValue}
 									</div>
 									<div class="Derivative__from-price">${card.price}</div>
 								</div>
@@ -130,10 +130,10 @@
 								</div>			
 							  </div>
 							</div>
-							<div class="Derivative__group Derivative__group--data"> abc
+							<div class="Derivative__group Derivative__group--data">
 							  <div class="Derivative__specs">
 								<h3 class="Derivative__accordion-label Derivative__accordion-label--specs fontButtonFont">
-								  ${card.specsAtaGlanceHeading @context='html'}</h3>
+								  ${card.override ? card.specsAtaGlanceHeading : model.specsAtaGlanceHeading @context='html'}</h3>
 								<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-2"
 								  data-labelledby="DerivativesOverview__accordion-button-296-740370-2" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-2">
 								  <div class="Derivative__spec-wrapper">
@@ -236,7 +236,7 @@
 								</div>
 								<div class="Derivative__price">
 									<div class="Derivative__price-label">
-										Drive Away Price for SA from
+										${card.priceConfigValue}
 									</div>
 									<div class="Derivative__from-price">${card.price}</div>
 								</div>
@@ -256,7 +256,7 @@
 							<div class="Derivative__group Derivative__group--data">
 							  <div class="Derivative__specs">
 								<h3 class="Derivative__accordion-label Derivative__accordion-label--specs fontButtonFont">
-								  ${card.specsAtaGlanceHeading @context='html'}</h3>
+								  ${card.override ? card.specsAtaGlanceHeading : model.specsAtaGlanceHeading @context='html'}</h3>
 								<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-2"
 								  data-labelledby="DerivativesOverview__accordion-button-296-740370-2" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-2">
 								  <div class="Derivative__spec-wrapper">

@@ -70,6 +70,10 @@ public interface DerivativeCardModel {
         return StringUtils.EMPTY;
     }
 
+    default boolean getOverride() {
+        return false;
+    }
+
     /**
      * Gets the price config value.
      *
@@ -78,4 +82,8 @@ public interface DerivativeCardModel {
     default String getPriceConfigValue() {
         return StringUtils.EMPTY;
     }
+
+    void setPriceConfigValue(String priceConfigValue);
+
+    void setPrice(String price);
 }

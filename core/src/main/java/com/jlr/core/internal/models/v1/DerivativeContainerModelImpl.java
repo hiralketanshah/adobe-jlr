@@ -14,17 +14,22 @@ import javax.inject.Inject;
 
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.models.DerivativeContainerModel;
 import com.jlr.core.services.Derivative;
+import com.jlr.core.services.TcoService;
 
 /**
  * The Class DerivativeContainerModelImpl.
@@ -38,12 +43,34 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/derivative/v1/derivativecontainer";
 
+    /**
+     * The Key.
+     */
+    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
+    String key;
+
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    /** The page properties. */
+    @Inject
+    private InheritanceValueMap pageProperties;
+
+    /** The tco service. */
+    @OSGiService
+    private TcoService tcoService;
+
     @OSGiService
     private Derivative derivativeService;
 
     /** The request. */
     @Inject
     private SlingHttpServletRequest request;
+
+    /** The resource resolver. */
+    @Inject
+    private ResourceResolver resourceResolver;
 
     /** The tab list. */
     @Inject
@@ -80,8 +107,6 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     @Via("resource")
     private String layout;
 
-    /** The list. */
-    // List<DerivativeTab> listOfTabs = new ArrayList<>();
     Map<String, DerivativeCardModel> listOfTabs = new LinkedHashMap<>();
     List<String> tabHeadings = new ArrayList<>();
     List<String> firstDropdownList = new ArrayList<>();
@@ -98,7 +123,7 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                     tabHeadings.add(properties.get("tabHeading", String.class));
                     DerivativeCardModel card = derivativeService.getDerivativeCard(request,
                             properties.get("link", String.class));
-                    String headerCopy = card.getCaveat();
+                    evaluatePrice(card);
                     listOfTabs.put(properties.get("urlPath", String.class), card);
                 }
 
@@ -119,6 +144,16 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     }
 
+    private DerivativeCardModel evaluatePrice(DerivativeCardModel card) {
+        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                pageProperties, card.getPrice(), key);
+        modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+            card.setPriceConfigValue(entry.getKey());
+            card.setPrice(entry.getValue());
+        });
+        return card;
+    }
+
     private Map<String, DerivativeCardModel> getListOfDerivatives(Resource resource) {
         Map<String, DerivativeCardModel> listOfDerivatives = new LinkedHashMap<>();
         Resource derivativeListResource = resource.getChild("derivativeList");
@@ -130,6 +165,7 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 String path = prop.get("link", String.class);
                 String dropdownName = derivativeService.getListOfDerivativeDropdown(request, path);
                 DerivativeCardModel card = derivativeService.getDerivativeCard(request, path);
+                evaluatePrice(card);
                 listOfDerivatives.put(dropdownName, card);
             }
         }
@@ -141,10 +177,12 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
         return tabHeadings;
     }
 
+    @Override
     public List<String> getDropdownLabels() {
         return firstDropdownList;
     }
 
+    @Override
     public Set<String> getSecondDropdownLabels() {
         Set<String> secondDropdownLabels = new LinkedHashSet<>();
         for (Entry<String, Map<String, DerivativeCardModel>> firstLabel : listOfDropdown.entrySet()) {
@@ -161,15 +199,11 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
         return listOfTabs;
     }
 
+    @Override
     public Map<String, Map<String, DerivativeCardModel>> getListOfDropdown() {
         return listOfDropdown;
     }
 
-    /**
-     * Gets the enable pricing.
-     *
-     * @return the enable pricing
-     */
     @Override
     public String getEnablePricing() {
         return enablePricing;

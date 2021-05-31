@@ -127,6 +127,11 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
         return caveat;
     }
 
+    @Override
+    public boolean getOverride() {
+        return override;
+    }
+
     /**
      * Gets the cta list.
      *
@@ -155,23 +160,23 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
         return specsAtaGlanceHeading;
     }
 
-    /**
-     * Gets the price.
-     *
-     * @return the price
-     */
     @Override
     public String getPrice() {
         return price;
     }
 
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
+    @Override
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
     @Override
     public String getPriceConfigValue() {
         return priceConfigValue;
+    }
+
+    @Override
+    public void setPriceConfigValue(String priceConfigValue) {
+        this.priceConfigValue = priceConfigValue;
     }
 }

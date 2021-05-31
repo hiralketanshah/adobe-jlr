@@ -10,6 +10,10 @@
     margin-bottom: 90px;
     position: relative;
 }
+/* .derivativecard{
+    margin-bottom: 90px;
+    position: relative;
+} */
 .Derivative:last-child {
     margin-bottom: 0;
 }
@@ -27,13 +31,15 @@
     margin: 0 auto;
 }
 .cmp-derivative__range {
-    /* overflow: hidden; */
-    padding: 60px 60px;
+    padding: 60px 60px 80px;
 }
 .cmp-derivative__range .cmp-derivative__copy .headingThick{
     margin-bottom: 23px;
     padding: 0;
     text-transform: uppercase;
+}
+.cmp-derivative__range .cmp-derivative__copy .headingThick p{
+    color:#0C121C;
 }
 .cmp-derivative__range .cmp-derivative__copy{
 width: 760px;
@@ -83,6 +89,9 @@ width: 760px;
 }
 .Derivative__toggle-content {
     position: relative;
+}
+.Derivative__toggle-content-wrapper .Derivative__tabpanel{
+    color: #4a4f54;
 }
 .Derivative__toggle-content-wrapper .Derivative__tabpanel:first-child {
     display: block;
@@ -187,7 +196,7 @@ width: 760px;
 }
 .Derivative__features-intro {
     font-weight: 400;
-    margin-bottom: 17px;
+    /* margin-bottom: 17px; */
     color: #000;
 }
 .js .Derivative__group {
@@ -315,7 +324,6 @@ width: 760px;
     padding-right: 60px;
     padding-left: 30px;
     padding-top: 0;
-    font-family: 'LandRoverWeb-Bold';
     font-size: 18px;
     letter-spacing: 0.9px;
     line-height: 18px;
@@ -407,9 +415,13 @@ width: 760px;
 .js .Derivative__engine-data {
     width: calc(100% + 2.75vw);
 }
+[data-attribute-total|="3"] .Derivative__engine-wrapper{
+    min-width: 29%;
+}
 .Derivative__engine-wrapper {
     margin-top: 25px;
-    min-width: 25%;
+    /* min-width: 25%; */
+    min-width: 43%;     
 }
 .Derivative__engine-wrapper:first-child {
     margin-top: 0;
@@ -556,6 +568,7 @@ width: 760px;
 }
 .cmp-derivativesOverview {
 }
+.derivativecard:after,
 .Derivative:after {
     background: #F8F9F9;
     bottom: -30px;
@@ -566,6 +579,8 @@ width: 760px;
     position: absolute;
     width: 100%;
 }
+
+.derivativecard:after,
 .Derivative:last-child:after {
     display: none;
 }
@@ -613,7 +628,6 @@ width: 760px;
 .Derivative__accordion-label {
     color: #0C121C;
     font-weight: bold;
-    font-family: 'LandRoverWeb-Bold';
     font-size: 18px;
     line-height: 18px;
     letter-spacing: 0.9px;
@@ -623,7 +637,7 @@ width: 760px;
     letter-spacing: 0.07rem;
     line-height: 1.8rem;
     margin: 0;
-    font-family: "lr_ot4", "arial", "helvetica", sans-serif;
+    font-family: "Land Rover Web", "arial", "helvetica", sans-serif;
     font-weight: 700;
     color: #0c121c;
     text-transform: uppercase;
@@ -631,11 +645,11 @@ width: 760px;
 .Derivative__engine-attribute-label {
     font-family: "avenir", "arial", "helvetica", sans-serif;
     font-weight: 400;
-    font-size: 1.2rem;
-    letter-spacing: 0.06rem;
-    line-height: 1.6rem;
+    font-size: 11px;
+    letter-spacing: 0.2px;
+    line-height: 15px;
     color: #4a4f54;
-    margin-bottom: 16px;
+    margin-bottom: 13px;
 }
 .Derivative__engine-attribute-wrapper,
 .Derivative__engine-attribute-value {
@@ -699,7 +713,8 @@ outline: none;
 margin: 0px 20px;
 padding: 0;
 border: 0;
-border-bottom:5px solid #ffffff00; 
+border-bottom: 6px solid #ffffff00; 
+padding-bottom: 20px;
 }
 .cmp-derivativesOverview .DxTabs__tab:hover{
     border: 0;  
@@ -722,7 +737,7 @@ border-bottom:5px solid #ffffff00;
 .cmp-derivativesOverview .DxTabs__tab:not(.DxTabs__tab--active):hover{
     background-color: #ffffff00;
     color: #0C121C;
-    border-bottom: 5px solid #A8AAAE;
+    border-bottom: 6px solid #A8AAAE;
     outline: none;
     box-shadow: unset;
 }
@@ -736,7 +751,7 @@ border-bottom:5px solid #ffffff00;
 }
 .cmp-derivativesOverview .DxTabs__tab--active,
 .cmp-derivativesOverview .DxTabs__tab--active:hover{
-    border-bottom: 5px solid #005A2B;
+    border-bottom: 6px solid #005A2B;
     border-left: 0;
     border-right: 0;
     border-top: 0;
@@ -773,7 +788,43 @@ border-bottom:5px solid #ffffff00;
 .cmp-derivativesOverview .primaryLinkWithStyle:active{
     border:  1px solid #0c121c;
 }
+.Derivative__grouped-feature-column p,
+.Derivative__grouped-feature-column div{
+    margin: 0 0 12px;
+    font-size: 13px;
+    padding: 0;
+    font-weight: 500;
+    line-height: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.65px;
+}
+.Derivative__grouped-feature-column ul{
+    margin-left: 16px;
+    list-style: disc outside none;
+    padding-bottom: 23px;
+}
+.Derivative__grouped-feature-column ul li{
+    margin-bottom: 8px;
+    padding: 0;
+    font-family: "AvenirNext-Regular", "arial", "helvetica", sans-serif;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+}
+.cmp-derivativesOverview .DxTabs__tab{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
 
+/* overlap fix */
+.cmp-derivative__copy .linkContainer,
+.cmp-derivative__copy .secondaryLinkContainer{
+float: none;
+}
+.cmp-derivative__copy .secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-top: 24px;
+}
 @media screen and (min-width: 769px) {
     .cmp-derivativesOverview .toggleLinksItem {
         width: inherit;
@@ -830,19 +881,25 @@ border-bottom:5px solid #ffffff00;
         margin-top: 17px;
     }
     .js .Derivative__strapline{
-        margin-top: 7px;
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 0.2px;
+    }
+    .js .Derivative__caveat{
+        margin-top: 15px;
         font-size: 11px;
         line-height: 15px;
+        letter-spacing: 0.45px;
     }
-    .js .Derivative__lease {
+    .js .Derivative__price .Derivative__price-label{
         font-size: 10px;
         line-height: 14px;
     }
-    .js .Derivative__price {
+    .js .Derivative__price .Derivative__from-price{
         font-size: 18px;
         line-height: 20px;
         margin-top: 0;
-        font-family: 'LandRoverWeb-Bold';
     }
     .Derivative__full-derivative-name-wrapper {
         flex-direction: column;
@@ -896,8 +953,9 @@ border-bottom:5px solid #ffffff00;
     }
     .Derivative__grouped-feature-column {
         flex: 0 0 auto;
-        width: calc(50% - 25.5px);
+        width: calc(50% - 20px);
     }
+    
     .js .Derivative__engine-data {
         display: flex;
         flex-direction: row;
@@ -985,7 +1043,7 @@ border-bottom:5px solid #ffffff00;
         flex: 1 0 auto;
         border-left: 1px solid;
         margin-left: 20px;
-        margin-top: 25px;
+        margin-top: 24px;
     }
     .js .Derivative__features {
         display: flex;
@@ -993,7 +1051,7 @@ border-bottom:5px solid #ffffff00;
         flex: 1 0 auto;
     }
     .js .Derivative__features-intro {
-        margin-top: -6px;
+        /* margin-top: -6px; */
     }
     .js .Derivative__group {
         order: 2;
@@ -1058,7 +1116,7 @@ border-bottom:5px solid #ffffff00;
         padding-right: 90px;
     }
     .js .Derivative__engine-wrapper {
-        margin-right: 2.75vw;
+        margin-right: 20px;
     }
 }
 @media screen and (min-width: 1281px) {
@@ -1066,7 +1124,7 @@ border-bottom:5px solid #ffffff00;
         width: calc(100% + 2.225vw);
     }
     .js .Derivative__engine-wrapper {
-        margin-right: 2.225vw;
+        margin-right: 20px;
     }
 }
 @media screen and (min-width: 2001px) {
@@ -1122,7 +1180,7 @@ border-bottom:5px solid #ffffff00;
         order: 3;
     }
     .Derivative__accordion-button[aria-expanded|="true"]{
-        background-color: #0C121C26;
+        background-color: #E9ECEC;
         text-decoration: none;
     }
     .Derivative__controls-form-submit-container {
@@ -1137,7 +1195,8 @@ border-bottom:5px solid #ffffff00;
     }
 }
 @media screen and (min-width: 901px) {
-    .Derivative:after {
+    .Derivative:after,
+    .derivativecard:after, {
         bottom: -90px;
     }
 }
@@ -1185,14 +1244,17 @@ border-bottom:5px solid #ffffff00;
     .cmp-derivativesOverview .DxTabs{
         padding-top: 50px;
     }
+    .Derivative__image{
+        height: 48.8vw;
+    }
     .js .Derivative__intro {
         padding: 17px 25px 25px;
     }
     .Derivative__accordion-label{
-        padding: 30px 20px 24px 25px;
+        padding: 40px 20px 24px 25px;
     }
     .js .Derivative__accordion-content{
-        padding: 32px 20px 30px 25px;
+        padding: 23px 25px 30px 25px;
     }
     
     .js .Derivative__specs .Derivative__accordion-content{
@@ -1214,9 +1276,31 @@ border-bottom:5px solid #ffffff00;
     }
     .Derivative__strapline, .Derivative__emissions, .Derivative__price, .Derivative__lease{
         margin: 9px 0 0;
+        line-height: 19px;
     }
     .js .Derivative__lease{
         font-size: 10px;
         line-height: 14px;
+        margin-top: 16px;
+        letter-spacing: 0.14px;
+    }
+    .Derivative__price{
+    margin-top: 0;
+    font-size: 18px;
+    letter-spacing: 0.9px;
+    line-height: 20px;
+    }
+    .Derivative__accordion-button{
+        padding: 17px 78px 19px 30px;
+        font-size: 16px;
+        line-height: 18px;
+        letter-spacing: 0.8px;
+    }
+    .Derivative__grouped-feature{
+        padding-bottom: 31px;
+    }
+    .cmp-derivative__copy .secondaryLinkContainer .secondaryLinkWithStyle{
+        margin-top: 24px !important;
+        margin-bottom: 0!important;
     }
 }
