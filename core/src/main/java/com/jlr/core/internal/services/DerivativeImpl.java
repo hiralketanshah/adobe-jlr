@@ -37,7 +37,7 @@ public class DerivativeImpl implements Derivative {
                     .getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_ROOT
                             + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER);
             if (null != container) {
-                Resource derivativeCardContainerResource = container.getChild("derivativecardcontainer");
+                Resource derivativeCardContainerResource = container.getChild("cardcontainer");
                 if (null != derivativeCardContainerResource) {
                     ValueMap prop = derivativeCardContainerResource.adaptTo(ValueMap.class);
                     if (null != prop && prop.containsKey("dropdownName")) {
@@ -66,7 +66,7 @@ public class DerivativeImpl implements Derivative {
             Resource cardResource = derivativeCardResource
                     .getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_ROOT
                             + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER
-                            + CommonConstants.FORWARD_SLASH + "derivativecardcontainer/parsys/derivativecard");
+                            + CommonConstants.FORWARD_SLASH + "cardcontainer/parsys/derivativecard");
 
             if (null != cardResource) {
                 card = cardResource.adaptTo(DerivativeCardModelImpl.class);
