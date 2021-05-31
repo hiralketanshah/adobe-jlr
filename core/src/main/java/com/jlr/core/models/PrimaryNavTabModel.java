@@ -1,249 +1,168 @@
 package com.jlr.core.models;
 
+import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
-import javax.inject.Named;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
-import org.apache.sling.models.annotations.Model;
-import com.jlr.core.utils.LinkUtils;
+
+import org.apache.commons.lang.StringUtils;
+import org.osgi.annotation.versioning.ConsumerType;
 
 /**
- * The Class PrimaryNavTabModel.
- *
- * @author Adobe
+ * The Interface PrimaryNavTabModel.
  */
-@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class PrimaryNavTabModel {
-
-    /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/primarynavigation/v1/megadropdown";
-
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
-
-    /** The id. */
-    @Inject
-    private String id;
-
-    /** The mm template. */
-    @Inject
-    private String mmTemplate;
-
-    /** The left pane header copy. */
-    @Inject
-    private String leftPaneHeaderCopy;
-
-    /** The left pane body copy. */
-    @Inject
-    private String leftPaneBodyCopy;
-
-    /** The file reference image. */
-    @Inject
-    private String fileReferenceImage;
-
-    /** The right pane image link. */
-    @Inject
-    private String rightPaneImageLink;
-
-    /** The right pane image alt. */
-    @Inject
-    private String rightPaneImageAlt;
-
-    /** The right pane image target. */
-    @Inject
-    private String rightPaneImageTarget;
-
-    /** The is image decorative. */
-    @Inject
-    private String isImageDecorative;
-
-    /** The primary nav aria label. */
-    @Inject
-    private String primaryNavAriaLabel;
-
-    /** The primary nav title. */
-    @Inject
-    private String primaryNavTitle;
-
-    /** The tab name. */
-    @Inject
-    public String tabName;
-
-    /** The left cta. */
-    @Inject
-    List<PrimaryNavLeftCTAModel> leftCtaOne;
-
-    /** The left dual column cta. */
-    @Inject
-    List<PrimaryNavLeftCTATwoModel> leftCtaTwo;
-
-    /** The left text cta. */
-    @Inject
-    List<PrimaryNavLeftTextCTAModel> leftTextCta;
-
-    /** The right cta. */
-    @Inject
-    @Named("rightCta/.")
-    List<PrimaryNavImageTxtModel> rightCta;
-
-    /** The quick links. */
-    @Inject
-    public List<PrimaryNavQuickLinksModel> quickLinks;
-
-    /**
-     * Gets the id.
-     *
-     * @return the id
-     */
-    public String getId() {
-        return id;
+@ConsumerType
+public interface PrimaryNavTabModel {
+	
+	/**
+	 * Gets the id.
+	 *
+	 * @return the id
+	 */
+	default String getId() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the mm template.
-     *
-     * @return the mm template
-     */
-    public String getMmTemplate() {
-        return mmTemplate;
+	
+	/**
+	 * Gets the mm template.
+	 *
+	 * @return the mm template
+	 */
+	default String getMmTemplate() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the left pane header copy.
-     *
-     * @return the left pane header copy
-     */
-    public String getLeftPaneHeaderCopy() {
-        return leftPaneHeaderCopy;
+	
+	/**
+	 * Gets the left pane header copy.
+	 *
+	 * @return the left pane header copy
+	 */
+	default String getLeftPaneHeaderCopy() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the left pane body copy.
-     *
-     * @return the left pane body copy
-     */
-    public String getLeftPaneBodyCopy() {
-        return leftPaneBodyCopy;
+	
+	/**
+	 * Gets the left pane body copy.
+	 *
+	 * @return the left pane body copy
+	 */
+	default String getLeftPaneBodyCopy() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the file reference image.
-     *
-     * @return the file reference image
-     */
-    public String getFileReferenceImage() {
-        return fileReferenceImage;
+	
+	/**
+	 * Gets the file reference image.
+	 *
+	 * @return the file reference image
+	 */
+	default String getFileReferenceImage() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the right pane image alt.
-     *
-     * @return the right pane image alt
-     */
-    public String getRightPaneImageAlt() {
-        return rightPaneImageAlt;
+	
+	/**
+	 * Gets the right pane image alt.
+	 *
+	 * @return the right pane image alt
+	 */
+	default String getRightPaneImageAlt() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the checks if is image decorative.
-     *
-     * @return the checks if is image decorative
-     */
-    public String getIsImageDecorative() {
-        return isImageDecorative;
+	
+	/**
+	 * Gets the checks if is image decorative.
+	 *
+	 * @return the checks if is image decorative
+	 */
+	default String getIsImageDecorative() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the primary nav aria label.
-     *
-     * @return the primary nav aria label
-     */
-    public String getPrimaryNavAriaLabel() {
-        return primaryNavAriaLabel;
+	
+	/**
+	 * Gets the primary nav aria label.
+	 *
+	 * @return the primary nav aria label
+	 */
+	default String getPrimaryNavAriaLabel() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the right pane image link.
-     *
-     * @return the right pane image link
-     */
-    public String getRightPaneImageLink() {
-        return LinkUtils.appendLinkExtension(rightPaneImageLink, resourceResolver);
+	
+	/**
+	 * Gets the right pane image link.
+	 *
+	 * @return the right pane image link
+	 */
+	default String getRightPaneImageLink() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the right pane image target.
-     *
-     * @return the right pane image target
-     */
-    public String getRightPaneImageTarget() {
-        return rightPaneImageTarget;
+	
+	/**
+	 * Gets the right pane image target.
+	 *
+	 * @return the right pane image target
+	 */
+	default String getRightPaneImageTarget() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the left cta one.
-     *
-     * @return the left cta one
-     */
-    public List<PrimaryNavLeftCTAModel> getLeftCtaOne() {
-        return leftCtaOne;
+	
+	/**
+	 * Gets the primar nav title.
+	 *
+	 * @return the primar nav title
+	 */
+	default String getPrimarNavTitle() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the left text cta.
-     *
-     * @return the left text cta
-     */
-    public List<PrimaryNavLeftTextCTAModel> getLeftTextCta() {
-        return leftTextCta;
+	
+	/**
+	 * Gets the tab name.
+	 *
+	 * @return the tab name
+	 */
+	default String getTabName() {
+        return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the right cta.
-     *
-     * @return the right cta
-     */
-    public List<PrimaryNavImageTxtModel> getRightCta() {
-        return rightCta;
+	
+	/**
+	 * Gets the left cta one.
+	 *
+	 * @return the left cta one
+	 */
+	default List<PrimaryNavLeftCTAModel> getLeftCtaOne() {
+        return new ArrayList<>();
     }
-
-    /**
-     * Gets the quick links.
-     *
-     * @return the quick links
-     */
-    public List<PrimaryNavQuickLinksModel> getQuickLinks() {
-        return quickLinks;
+	
+	/**
+	 * Gets the left text cta.
+	 *
+	 * @return the left text cta
+	 */
+	default List<PrimaryNavLeftTextCTAModel> getLeftTextCta() {
+        return new ArrayList<>();
     }
-
-    /**
-     * Gets the left cta two.
-     *
-     * @return the left cta two
-     */
-    public List<PrimaryNavLeftCTATwoModel> getLeftCtaTwo() {
-        return leftCtaTwo;
+	
+	/**
+	 * Gets the right cta.
+	 *
+	 * @return the right cta
+	 */
+	default List<PrimaryNavImageTxtModel> getRightCta() {
+        return new ArrayList<>();
     }
-
-    /**
-     * Gets the primar nav title.
-     *
-     * @return the primar nav title
-     */
-    public String getPrimarNavTitle() {
-        return primaryNavTitle;
+	
+	/**
+	 * Gets the quick links.
+	 *
+	 * @return the quick links
+	 */
+	default List<PrimaryNavQuickLinksModel> getQuickLinks() {
+        return new ArrayList<>();
     }
-
-    /**
-     * Gets the tab name.
-     *
-     * @return the tab name
-     */
-    public String getTabName() {
-        return tabName;
+	
+	/**
+	 * Gets the left cta two.
+	 *
+	 * @return the left cta two
+	 */
+	default List<PrimaryNavLeftCTATwoModel> getLeftCtaTwo() {
+        return new ArrayList<>();
     }
 
 }
