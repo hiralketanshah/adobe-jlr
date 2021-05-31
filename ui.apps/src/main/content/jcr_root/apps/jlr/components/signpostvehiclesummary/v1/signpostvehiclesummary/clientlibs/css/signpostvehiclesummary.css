@@ -851,6 +851,7 @@ height: 493px;
   }
 /*--------code fix for bug 566-----------*/
 
+  
       /*------code fix for bug 584-----*/
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
@@ -860,12 +861,13 @@ height: 493px;
      min-height: 315px;
 
    }
+
  .cmp-signPost .cmp-signPost__picture {
     width: 100%!important;
     height: 100%;
 }
  .cmp-signPost .cmp-signPost__center{
-	top:19%;
+	top:24%;
 
     }
  .cmp-signPost .cmp-signPost__content .fontBodyCopy{
@@ -879,11 +881,15 @@ margin-bottom:10px;
 
  @media screen and (min-width: 768px) and (max-width: 1279px){ 
 .cmp-signPost .cmp-signPost__image{width:50%; height: auto;
-     min-height: 315px;}
+     min-height:240px;}
  .cmp-signPost .cmp-signPost__picture {
     width: 100%!important;
     height: 100%;
 }
+     .cmp-signPost .cmp-signPost__center{
+	top:54%;
+
+    }
  .cmp-signPost .Picture--background .Picture__img{
 object-fit: contain;
   }
@@ -895,7 +901,7 @@ object-fit: contain;
 .cmp-signPost .linkContainer {
     margin-top: 10px;
 }
-
+.cmp-signPost.left .cmp-signPost__center{padding-left:0;}
 
     }
 

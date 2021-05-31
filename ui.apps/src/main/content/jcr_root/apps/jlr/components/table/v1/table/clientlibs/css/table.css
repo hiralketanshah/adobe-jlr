@@ -555,3 +555,36 @@
 	}
 
 }
+/*---------code fix for 585----------*/
+@media screen and (min-width:1280px) and (max-width: 1920px){
+	.cmp-table .cmp-engineSpecifications__summary {
+		padding-bottom: 60px!important;
+	}
+			}
+	.cmp-table{padding-bottom:60px;}
+	.cmp-table .primaryLinkWithStyle{
+	margin-top:0;
+	}
+	.cmp-table .cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,.cmp-table .cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{width:auto;}
+	@media screen and (min-width: 768px){
+	.cmp-table .cmp-engineSpecifications .bottomCta {
+		padding: 60px 60px 0 60px;
+	}
+	.cmp-table .primaryLinkWithStyle {margin-bottom:0;padding-bottom:0}
+	
+	}
+	@media screen and (min-width: 320px) and (max-width: 766px){
+			.cmp-table .cmp-engineSpecifications .bottomCta{margin-top:50px;}
+	.cmp-table {
+		padding-bottom: 45px;
+	}
+	.cmp-table .primaryLinkWithStyle {margin-bottom:0;padding-bottom:0}
+	.cmp-table .cmp-engineSpecifications__summary{padding-bottom:0;}
+	.cmp-table .ctaContainer{margin-top:0; padding-left:0;}
+				}
+	.cmp-table .ctaContainer .primaryLinkContainer{margin-top:0!important;}
+	.cmp-table .cmp-engineSpecifications__summary{padding-bottom:25px;}
+		.cmp-table  .cmp-engineSpecifications {
+		overflow-x: hidden;
+	}
+	/*---------code fix for 585----------*/

@@ -78,7 +78,7 @@ public class VehicleCardUtils {
      */
     public static List<Feature> addFeaturesToVehicleCard(Resource features) {
         List<Feature> featureList = new ArrayList<>();
-        if (null != features && features.hasChildren()) {
+        if (null != features && features.hasChildren() & "features".equals(features.getName())) {
             Iterator<Resource> childResources = features.listChildren();
             while (childResources.hasNext()) {
                 Resource child = childResources.next();

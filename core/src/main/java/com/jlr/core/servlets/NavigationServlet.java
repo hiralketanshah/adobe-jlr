@@ -78,7 +78,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         Boolean yourRetailer = request.getParameter("yourRetailer") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("yourRetailer"));
         Boolean retailerLocatorLink =
                         request.getParameter("retailerLocatorLink") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("retailerLocatorLink"));
-        Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
+        Boolean myJLRProfile = Boolean.valueOf(request.getParameter("myJLRProfile"));
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
         if(StringUtils.isEmpty(locale)) {
@@ -108,14 +108,21 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         NavigationUtils.changeAttributeValue("data-yourretailer-allowed", Boolean.toString(yourRetailer), header);
 
         /* Get the retailer and search divs */
+        if(!mrp) {
+            NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-showprices");
+            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-prices.MarketRegionalPricing-triggerer");
+            NavigationUtils.removeAttribute(document, "div.dxnav-NaasMarketRegionalPricing-cta");
+            NavigationUtils.removeAttribute(document, "span.dxnav__item-prices-label");
+        }
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
+            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-search");
         }
         if (!retailerLocatorLink) {
             NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-retailer");
             NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-retailer");
         }
-        if (myLandRover) {
+        if (myJLRProfile) {
             document.select("a.dxnav-profile").removeAttr("style");
         } else {
             NavigationUtils.removeAttribute(document, "a.dxnav-profile");
