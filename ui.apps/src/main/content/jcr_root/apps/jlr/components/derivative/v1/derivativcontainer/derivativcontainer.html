@@ -3,7 +3,7 @@
 <template data-sly-template.render="${ @ model }">
 	<div data-sly-test="${!model.id}" class="cq-placeholder"
 	 data-emptytext="Derivative Container Component"></div>
-	<div class="cmp-derivativesOverview" id="296-740370" data-template="dropdown">
+	<div class="cmp-derivativesOverview" id="296-740370" data-template="${model.layout}">
 		<div class="cmp-derivative__range  light" data-initial-tab="0">
 			<div class="cmp-derivative__copy">
 				<h2 class="heading headingThick">
@@ -22,7 +22,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="DxTabs DerivativesOverview--controls-container DxTabs__theme--default" data-dxtabs-id="296-740370">
+			<div data-sly-test="${model.layout == 'tab'}" class="DxTabs DerivativesOverview--controls-container DxTabs__theme--default" data-dxtabs-id="296-740370">
 				<div aria-orientation="horizontal" class="DxTabs__tablist DerivativesOverview__control-list DxTabs__tablist--visible DxTabs__tablist--overflow"
 				  role="tablist">
 				  <sly data-sly-list.item="${model.listOfTabs}">
@@ -36,7 +36,7 @@
 				  <span class="DxTabs__mask" style="width: 947px;"></span>
 				</div>
 			</div>
-			<form class="Derivative__controls-form">
+			<form data-sly-test="${model.layout == 'dropdown'}" class="Derivative__controls-form">
 				<div class="Derivative__dropdown-filters" data-dropdownvalues="">
 				  <div class="dxDropdown Derivative__dropdown-primary Derivative__control-dropdown Derivative__control-dropdown--bodystyle DerivativesOverview--controls-container">
 					<span class="dxDropdown__heading heading fontH5" id="bodystyle_dropdown_heading">
@@ -79,17 +79,18 @@
 			</form>
 		</div>
 		<div class="Derivative__toggle-content">
-			<div class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="296-740370">
+			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="296-740370">
 				<sly data-sly-list.tab="${model.listOfTabs}">
 
 					<div class="Derivative__panel Derivative__tabpanel DxTabs__panel" data-bodystyle="STANDARD WHEELBASE " role="tabpanel" tabindex="0" data-index="0" id="DxTabs_296-740370_panel_0" aria-labelledby="DxTabs_296-740370_tab_0" style="opacity: 0; display: block;">
-
-						<sly data-sly-resource="${tab.link @ appendPath='jcr:content/root/container'}"/>
+						<div class="Derivative" id="">
+							<sly data-sly-resource="${tab.link @ appendPath='jcr:content/root/container'}"/>
+						</div>
 					</div>
 				</sly>
 			</div>
 		
-			<div class="Derivative__toggle-content-wrapper Derivative__dropdown-panels DerivativesOverview__panels">
+			<div data-sly-test="${model.layout == 'dropdown'}" class="Derivative__toggle-content-wrapper Derivative__dropdown-panels DerivativesOverview__panels">
 				<sly data-sly-list="${model.listOfDropdown}">
 					<div class="Derivative__dropdown-panel Derivative__panel " data-bodystyle="${item}">
 						<sly data-sly-list.derivativeList="${model.listOfDropdown[item]}">

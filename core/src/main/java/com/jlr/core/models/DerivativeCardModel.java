@@ -57,16 +57,25 @@ public interface DerivativeCardModel {
         return new LinkedHashMap<>();
     }
 
-    /**
-     * Gets the caption.
-     *
-     * @return the caption
-     */
-    default String getOverride() {
+    default String getSpecsAtaGlanceHeading() {
         return StringUtils.EMPTY;
     }
 
-    default String getSpecsAtaGlanceHeading() {
+    /**
+     * Gets the price.
+     *
+     * @return the price
+     */
+    default String getPrice() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the price config value.
+     *
+     * @return the price config value
+     */
+    default String getPriceConfigValue() {
         return StringUtils.EMPTY;
     }
 }

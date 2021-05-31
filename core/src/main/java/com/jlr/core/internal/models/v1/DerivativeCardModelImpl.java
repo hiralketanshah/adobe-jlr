@@ -9,16 +9,23 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
+import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.CtaUtils;
 
 /**
@@ -26,12 +33,34 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         DerivativeCardModel.class }, resourceType = DerivativeCardModelImpl.RESOURCE_TYPE)
 public class DerivativeCardModelImpl extends GlobalModelImpl implements DerivativeCardModel {
 
     /** The Constant RESOURCE_TYPE. */
-    public static final String RESOURCE_TYPE = "jlr/components/article/v1/article";
+    public static final String RESOURCE_TYPE = "jlr/components/derivative/v1/derivativecard";
+
+    /**
+     * The Key.
+     */
+    @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
+    String key;
+
+    /** The request. */
+    @Inject
+    private SlingHttpServletRequest request;
+
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    /** The page properties. */
+    @Inject
+    private InheritanceValueMap pageProperties;
+
+    /** The tco service. */
+    @OSGiService
+    private TcoService tcoService;
 
     /** The resource resolver. */
     @Inject
@@ -39,40 +68,61 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
 
     /** The caveat. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String caveat;
-
-    /** The cta list. */
-    @Inject
-    @Optional
-    private Resource ctaList;
 
     /** The leftColumn. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String leftColumn;
 
     /** The override. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String rightColumn;
 
     /** The override. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String override;
+    @Via("resource")
+    private boolean override;
 
     /** The specsAtaGlanceHeading. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String specsAtaGlanceHeading;
+
+    /** The price. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
+    private String price;
+
+    /** The cta list. */
+    @Inject
+    @Optional
+    @Via("resource")
+    private Resource ctaList;
 
     /** The engine list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource engineList;
 
-    List<CTAPojo> list = new ArrayList<>();
-    List<String> engineNames = new ArrayList<>();
-    Map<String, Map<String, String>> engineDataList = new LinkedHashMap<>();
+    private List<CTAPojo> list = new ArrayList<>();
+    private List<String> engineNames = new ArrayList<>();
+    private Map<String, Map<String, String>> engineDataList = new LinkedHashMap<>();
+    private String priceConfigValue;
 
     @PostConstruct
     public void init() {
+        if (null != price) {
+            Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                    pageProperties, price, key);
+            modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+                priceConfigValue = entry.getKey();
+                price = entry.getValue();
+            });
+        }
         if (null != engineList) {
             Iterator<Resource> engineListResources = engineList.listChildren();
             while (engineListResources.hasNext()) {
@@ -146,12 +196,27 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
     }
 
     @Override
-    public String getOverride() {
-        return override;
-    }
-
-    @Override
     public String getSpecsAtaGlanceHeading() {
         return specsAtaGlanceHeading;
+    }
+
+    /**
+     * Gets the price.
+     *
+     * @return the price
+     */
+    @Override
+    public String getPrice() {
+        return price;
+    }
+
+    /**
+     * Gets the price config value.
+     *
+     * @return the price config value
+     */
+    @Override
+    public String getPriceConfigValue() {
+        return priceConfigValue;
     }
 }
