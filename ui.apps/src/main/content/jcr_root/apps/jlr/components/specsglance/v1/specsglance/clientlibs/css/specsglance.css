@@ -17,9 +17,6 @@
 .cmp-gridListWrapper .items .el p {
     color:#4A4F54;
 }
-.cmp-gridListWrapper .items .el p:First-letter {
-    text-transform:uppercase;
-}
 .cmp-itemsAtAGlance .dividerBlock{
     border: none;
     margin-bottom: 21.333px;
@@ -125,7 +122,8 @@ h2.heading, .heading.headingH2{
 }
 
 .cmp-specificationsAtAGlance__items.items .measurement span.unitLarge sub{
-    vertical-align:baseline
+    vertical-align:baseline;
+    font-size: 11px;
 }
 .cmp-specificationsAtAGlance.dark .cmp-specificationsAtAGlance__items.items .measurement .valueLarge{
     color:#e9ecec
