@@ -214,6 +214,9 @@
                                                                         toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
                                                                 </cui>
                                                             </uiSettings>
+                                                            <htmlRules jcr:primaryType="nt:unstructured">
+                                                                <blockHandling jcr:primaryType="nt:unstructured" removeSingleParagraphContainer="{Boolean}true" />
+                                                            </htmlRules>
                                                         </tabHeading>
                                                         <metatitle
                                                             jcr:primaryType="nt:unstructured"
