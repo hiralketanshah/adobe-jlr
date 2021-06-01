@@ -1,8 +1,10 @@
 package com.jlr.core.internal.models.v1;
 
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -22,10 +24,14 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
+import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
+import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.components.ComponentContext;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.models.PageModel;
@@ -47,6 +53,9 @@ public class PageModelImpl implements PageModel {
 
     private final String AU_RETAILER_NAAS_URL = "content/nav/naasconfig/en_au.html";
     private final String DE_RETAILER_NAAS_URL = "content/nav/naasconfig/de_de.html";
+
+    private final String RT_CAROUSEL = "jlr/components/carousel/v1/carousel";
+    private final String RT_HERO_COMPONENT = "jlr/components/herotitlebanner/v1/herotitlebanner";
 
     /** The current page. */
     @ScriptVariable
@@ -101,6 +110,75 @@ public class PageModelImpl implements PageModel {
         getLocale();
         getState();
         getDomainUrl();
+        getImageSchema();
+    }
+
+    public String getImageSchema() {
+        if (pageProperties.get("enableImageSchema", CommonConstants.FALSE).equalsIgnoreCase(CommonConstants.TRUE)) {
+            List<String> heroImageList = new ArrayList<>();
+            Resource pageContainer = resourceResolver.getResource(currentPage.getPath().concat("/jcr:content/root/container"));
+            if (null != pageContainer) {
+                LOGGER.info(" pageContainer ");
+                Iterator<Resource> childResources = pageContainer.listChildren();
+                while (childResources.hasNext()) {
+                    Resource child = childResources.next();
+                    ValueMap properties = child.adaptTo(ValueMap.class);
+                    if (StringUtils.compare(RT_CAROUSEL, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
+                        LOGGER.info(" Carousel container ");
+                        Iterator<Resource> heroItemChildResources = child.listChildren();
+                        while (heroItemChildResources.hasNext()) {
+                            Resource heroItems = heroItemChildResources.next();
+                            ValueMap heroItemProperties = heroItems.adaptTo(ValueMap.class);
+                            if (StringUtils.compare(RT_HERO_COMPONENT,
+                                            heroItemProperties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
+                                String image = heroItemProperties.get("fileReference", String.class);
+                                if (StringUtils.isNotBlank(image)) {
+                                    heroImageList.add(image);
+                                    break;
+                                }
+                            }
+                        }
+                        break;
+                    }
+
+                }
+                return buildImageSchemaJSON(heroImageList);
+            }
+        }
+        return StringUtils.EMPTY;
+
+
+    }
+
+    private String buildImageSchemaJSON(List<String> heroImageList) {
+        JsonObject root = new JsonObject();
+        root.addProperty("@type", "http://schema.org/ImageObject");
+
+
+        JsonObject context = new JsonObject();
+        context.addProperty("contentUrl", "http://schema.org/contentUrl");
+        context.addProperty("uploadDate", "http://schema.org/uploadDate");
+        context.addProperty("author", "http://schema.org/author");
+        context.addProperty("name", "http://schema.org/name");
+        context.addProperty("description", "http://schema.org/description");
+        root.add("@context", context);
+
+        root.addProperty("name", pageProperties.get(JcrConstants.JCR_TITLE, String.class));
+        root.addProperty("description", pageProperties.get(JcrConstants.JCR_DESCRIPTION, String.class));
+
+        JsonObject author = new JsonObject();
+        author.addProperty("@type", "Brand");
+        author.addProperty("name", "landrover");
+
+        root.add("@author", author);
+
+
+        JsonArray imgArray = new JsonArray();
+        heroImageList.stream().forEach((c) -> imgArray.add(NavigationUtils.getBaseUrl(resourceResolver).concat(c.substring(1))));
+        root.addProperty("uploadDate", StringUtils.EMPTY);
+        root.add("contentUrl", imgArray);
+        LOGGER.info("Json path {}", root.toString());
+        return root.toString();
     }
 
     @Override

@@ -71,9 +71,9 @@ public class Exterior360ModelImpl extends Interior360ModelImpl implements Exteri
             Collections.sort(imageList);
             JsonArray desktop = new JsonArray();
             JsonArray mobile = new JsonArray();
-            for (String string : imageList) {
-                desktop.add(string);
-                mobile.add(string);
+            for (String image : imageList) {
+                desktop.add(image);
+                mobile.add(image);
             }
             list.add("desktop", desktop);
             list.add("mobile", mobile);
