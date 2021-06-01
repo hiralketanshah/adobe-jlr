@@ -33,6 +33,9 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	private ResourceResolver resourceResolver;
 
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	private String bodyStyleHeader;
+
+	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
 	private String modelHeader;
 
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
@@ -48,6 +51,11 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 
 	/** The list. */
 	List<CTAPojo> list = new ArrayList<>();
+
+	@Override
+	public String getBodyStyleHeader() {
+		return bodyStyleHeader;
+	}
 
 	public String getModelHeader() {
 		return modelHeader;

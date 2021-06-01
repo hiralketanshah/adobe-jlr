@@ -1,631 +1,113 @@
-<section class="VehicleSpecsRulesEngine fontSmooth VehicleSpecsRulesEngine--stack" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/de_DE/l663_k21/_/" data-lang="de">
+<sly data-sly-use.vehicleSpecs="${'com.jlr.core.models.VehicleSpecsModel'}"></sly>
+<sly data-sly-test="${wcmmode.edit}">
+   <div data-emptytext="${component.title}" class="cq-placeholder"></div>
+</sly>
+
+<section class="VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/en_GB/l405_k215/_/" data-lang="en">
+
    <section class="RulesEngineDropdown">
-      <div class="RulesEngineDropdown__heading-section">
-         <h1 class="heading headingH2 fontH1 RulesEngineDropdown__heading-container">
-            <span class="RulesEngineDropdown__heading">
-               <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:title"} -->LAND ROVER DEFENDER<br>SPECIFICATIONS
-            </span>
-         </h1>
-         <div class="logo_comp">
-         </div>
-      </div>
       <div class="RulesEngineDropdown__dropdowns-container">
-         <div class="RulesEngineDropdown__dropdowns" data-items="4">
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle" data-id="A-90" data-title="DEFENDER 90">
+         <div class="RulesEngineDropdown__dropdowns">
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle">
                <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-1">
-                     <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:bodystyleDropDownTitle"} -->SELECT BODYSTYLE
-                  </span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-1 dxDropdown__button-1" class="RulesEngineDropdown__dropdown-button dxDropdown__button  fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-1" aria-expanded="false">DEFENDER 90</button>
+                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-1"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:bodystyleDropDownTitle"} --> ${vehicleSpecs.bodyStyleHeader @context='html'}</span>
+                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-1 dxDropdown__button-1" class="RulesEngineDropdown__dropdown-button dxDropdown__button  fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-1"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:bodystyleDropDownTitle"} -->SELECT BODYSTYLE</button>
                   <ul aria-labelledby="dxDropdown__heading-1" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-1" role="listbox" tabindex="-1">
                      <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="A-90">DEFENDER 90</a>
+                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
                      </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-110">DEFENDER 110</a>
-                     </li>
+
                   </ul>
                </div>
             </div>
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model" data-id="A-L663" data-title="DEFENDER">
+
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model">
                <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-2">
-                     <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:modelDropDownTitle"} -->SELECT MODEL
-                  </span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-2 dxDropdown__button-2" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-2" aria-expanded="false">DEFENDER</button>
+                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-2"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:modelDropDownTitle"} -->${vehicleSpecs.modelHeader @context='html'}</span>
+                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-2 dxDropdown__button-2" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-2"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:modelDropDownTitle"} -->MODELL AUSWÄHLEN</button>
                   <ul aria-labelledby="dxDropdown__heading-2" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-2" role="listbox" tabindex="-1">
                      <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="A-L663">DEFENDER</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-XDYN">DEFENDER X-DYNAMIC</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-FE">DEFENDER FIRST EDITION</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-X">DEFENDER X</a>
+                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
                      </li>
                   </ul>
                </div>
             </div>
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine" data-id="A-D200-I6" data-title="D200 AWD AUTOMATIC">
+
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine">
                <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropown__heading" id="dxDropdown__heading-3">
-                     <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:engineDropDownTitle"} -->SELECT ENGINE
-                  </span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-3 dxDropdown__button-3" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-3" aria-expanded="false">D200 AWD AUTOMATIC</button>
+                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropown__heading" id="dxDropdown__heading-3"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:engineDropDownTitle"} -->${vehicleSpecs.engineHeader @context='html'}</span>
+                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-3 dxDropdown__button-3" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-3"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:engineDropDownTitle"} -->SELECT ENGINE</button>
                   <ul aria-labelledby="dxDropdown__heading-3" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-3" role="listbox" tabindex="-1">
                      <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="A-D200-I6">D200 AWD AUTOMATIC</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-D250">D250 AWD AUTOMATIC</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-D300">D300 AWD AUTOMATIC</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-P300">P300 AWD AUTOMATIC</a>
-                     </li>
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-P400">P400 AWD AUTOMATIC</a>
+                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
                      </li>
                   </ul>
                </div>
             </div>
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack" data-id="SP0" data-title="DEFENDER">
+
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack">
                <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-4">
-                     <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:specDropDownTitle"} -->SELECT SPECIFICATION
-                  </span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-4 dxDropdown__button-4" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-4" aria-expanded="false">DEFENDER</button>
+                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-4"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:specDropDownTitle"} -->${vehicleSpecs.specHeader @context='html'}</span>
+                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-4 dxDropdown__button-4" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-4"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:specDropDownTitle"} -->SELECT SPECIFICATION</button>
                   <ul aria-labelledby="dxDropdown__heading-4" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-4" role="listbox" tabindex="-1">
                      <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-4-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="SP0">DEFENDER</a>
+                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
                      </li>
                   </ul>
                </div>
             </div>
          </div>
+
          <div class="RulesEngineDropdown__submit">
-            <button aria-labelledby="RulesEngineDropdown__submit-button dxDropdown__button-1 dxDropdown__button-2 dxDropdown__button-3 dxDropdown__button-4" class="RulesEngineDropdown__submit-button primaryLinkWithStyle" id="RulesEngineDropdown__submit-button">
-               <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:dropDownSelectButtonText"} -->VIEW SPECIFICATIONS
-            </button>
-         </div>
-      </div>
-      <div class="RuleEngine_Horizontal_dropdown">
-         <div class="RulesEngineDropdown__dropdowns-container_horz">
-            <div class="RulesEngineDropdown__dropdowns_horiz" data-items="4">
-               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle" data-id="A-90" data-title="DEFENDER 90">
-                  <div class="dxDropdown">
-                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-1">
-                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:bodystyleDropDownTitle"} -->SELECT BODYSTYLE
-                     </span>
-                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-1 dxDropdown__button-1" class="RulesEngineDropdown__dropdown-button dxDropdown__button  fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-1" aria-expanded="false">DEFENDER 90</button>
-                     <ul aria-labelledby="dxDropdown__heading-1" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-1" role="listbox" tabindex="-1">
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="A-90">DEFENDER 90</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-110">DEFENDER 110</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model" data-id="A-L663" data-title="DEFENDER">
-                  <div class="dxDropdown">
-                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-2">
-                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:modelDropDownTitle"} -->SELECT MODEL
-                     </span>
-                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-2 dxDropdown__button-2" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-2" aria-expanded="false">DEFENDER</button>
-                     <ul aria-labelledby="dxDropdown__heading-2" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-2" role="listbox" tabindex="-1">
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="A-L663">DEFENDER</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-XDYN">DEFENDER X-DYNAMIC</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-FE">DEFENDER FIRST EDITION</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-X">DEFENDER X</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine" data-id="A-D200-I6" data-title="D200 AWD AUTOMATIC">
-                  <div class="dxDropdown">
-                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropown__heading" id="dxDropdown__heading-3">
-                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:engineDropDownTitle"} -->SELECT ENGINE
-                     </span>
-                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-3 dxDropdown__button-3" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-3" aria-expanded="false">D200 AWD AUTOMATIC</button>
-                     <ul aria-labelledby="dxDropdown__heading-3" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-3" role="listbox" tabindex="-1">
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="A-D200-I6">D200 AWD AUTOMATIC</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-D250">D250 AWD AUTOMATIC</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-D300">D300 AWD AUTOMATIC</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-P300">P300 AWD AUTOMATIC</a>
-                        </li>
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-id="A-P400">P400 AWD AUTOMATIC</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack" data-id="SP0" data-title="DEFENDER">
-                  <div class="dxDropdown">
-                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-4">
-                        <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:specDropDownTitle"} -->SELECT SPECIFICATION
-                     </span>
-                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-4 dxDropdown__button-4" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-4" aria-expanded="false">DEFENDER</button>
-                     <ul aria-labelledby="dxDropdown__heading-4" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-4" role="listbox" tabindex="-1">
-                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-4-1" role="option">
-                           <a class="dxDropdown__list-item-link fontEmissionsDetails dxDropdown__list-item-link--active" href="#" data-id="SP0">DEFENDER</a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="RulesEngineDropdown__submit">
-            <button aria-labelledby="RulesEngineDropdown__submit-button dxDropdown__button-1 dxDropdown__button-2 dxDropdown__button-3 dxDropdown__button-4" class="RulesEngineDropdown__submit-button primaryLinkWithStyle" id="RulesEngineDropdown__submit-button">
-               <!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:dropDownSelectButtonText"} -->VIEW SPECIFICATIONS
-            </button>
+            <button aria-labelledby="RulesEngineDropdown__submit-button dxDropdown__button-1 dxDropdown__button-2 dxDropdown__button-3 dxDropdown__button-4" class="RulesEngineDropdown__submit-button primaryLinkWithStyle" id="RulesEngineDropdown__submit-button"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:dropDownSelectButtonText"} -->VIEW SPECIFICATIONS</button>
          </div>
       </div>
    </section>
-   <div class="VehicleSpecsRulesEngine__specs">
-      <script id="VehicleSpecsRulesEngineCms" type="application/json">{"accordionTitle":"DEFAULT","format":"€ ###.##0","table":[{"key":"GROSS","text":"DEFAULT","caveat":"^"}]}</script>
-      <div class="VehicleSpecsRulesEngine__specs-heading">
-         <h2 class="VehicleSpecsRulesEngine__specs-title fontH1 heading headingH2 headingCentre">DEFENDER 90 | DEFENDER</h2>
-         <p class="VehicleSpecsRulesEngine__specs-engine fontBodyCopyLarge">D200 AWD 3.0 Liter 6‑Zylinder MHEV Turbodiesel 147 kW (200 PS) | DEFAULT und CO₂‑Emissionen (jeweils kombiniert): 7,7‑7,6 l/100 km; 204‑199 g/km</p>
+   <div class="VehicleSpecsRulesEngine__error hidden">
+      <div class="Snippet shelfComponent" data-theme="light" id="295-722315">
+         <p class="copy fontBodyCopyLarge"><!-- Start Component Field: {"XPath":"tcm:Content/custom:snippet/custom:body"} -->We’re sorry, the information on this page is currently unavailable.
+            </br>
+            </br>
+            Please check back later.</p>
       </div>
-      <div class="dxAccordion VehicleSpecsRulesEngine__specs-accordion">
-         <div class="dxAccordion__section dxAccordion__section--active">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--0" aria-expanded="true" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--0">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--0" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--0" role="region">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row" rule-engine-price-type="GROSS">
-                        <th class="TechSpecsTable__heading" scope="row">Preis ab</th>
-                        <td class="TechSpecsTable__cell">€ 50.000^</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
+   </div>
+   <div class="VehicleSpecsRulesEngine__specs VehicleSpecsRulesEngine__specs--hide">
+
+      <script id="VehicleSpecsRulesEngineCms" type="application/json">{"accordionTitle":"PRICING","format":"£###,##0.00","table":[{"key":"NET","text":"Retail Price (inc VAT and Delivery)","caveat":null},{"key":"RETAIL","text":"On the Road Price","caveat":null}]}</script>
+
+      <div class="VehicleSpecsRulesEngine__specs-heading hidden">
+         <h2 class="VehicleSpecsRulesEngine__specs-title fontH1 heading headingH2 headingCentre"></h2>
+         <p class="VehicleSpecsRulesEngine__specs-engine fontBodyCopyLarge"></p>
+      </div>
+
+      <div class="dxAccordion VehicleSpecsRulesEngine__specs-accordion hidden">
          <div class="dxAccordion__section">
             <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--1" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--1">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
+               <button aria-controls="dxAccordion__panel--1" aria-expanded="false" class="dxAccordion__trigger" id="dxAccordion--1">
+                  <span class="dxAccordion__title fontH4 heading headingH5"></span>
                </button>
             </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--1" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--1" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Höchstgeschwindigkeit km/h (mph)</th>
-                        <td class="TechSpecsTable__cell">175</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Beschleunigung 0–100 km/h (Sek.)</th>
-                        <td class="TechSpecsTable__cell">9,8</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--2" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--2">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--2" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--2" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">NEFZ-Äquivalent (NEFZ2) – Kombiniert (l/100 km)</th>
-                        <td class="TechSpecsTable__cell">7,6†</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">NEFZ-Äquivalent (NEFZ2) CO₂-Emissionen – Kombiniert (g/km)</th>
-                        <td class="TechSpecsTable__cell">199†</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Combined WLTP Consumption - l/100km (mpg)</th>
-                        <td class="TechSpecsTable__cell">8,6 - 9,3 (32,8 - 30,4)††</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Combined WLTP CO₂ Emissions - g/km</th>
-                        <td class="TechSpecsTable__cell">226 - 244††</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Combined EV Range Class A (NEDC2) km (miles)</th>
-                        <td class="TechSpecsTable__cell">N/A</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Combined WLTP EV Range km (miles)</th>
-                        <td class="TechSpecsTable__cell">N/A</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Tankinhalt (Liter, ca.)</th>
-                        <td class="TechSpecsTable__cell">89</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--3" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--3">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--3" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--3" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Hubraum (cm³)</th>
-                        <td class="TechSpecsTable__cell">2 996</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Leistung (kW(PS/U/min)</th>
-                        <td class="TechSpecsTable__cell">200 / 147 / 4 000</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Drehmoment (Nm/U/min)</th>
-                        <td class="TechSpecsTable__cell">500 / 1 250 - 2 500</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Getriebe</th>
-                        <td class="TechSpecsTable__cell">Automatikgetriebe</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--4" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--4">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--4" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--4" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Leergewicht (EU) (kg)</th>
-                        <td class="TechSpecsTable__cell">2 303△</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Leergewicht (DIN) (kg)</th>
-                        <td class="TechSpecsTable__cell">2 228▲</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Zulässiges Gesamtgewicht (kg)</th>
-                        <td class="TechSpecsTable__cell">2 970</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--5" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--5">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--5" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--5" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Ungebremst (kg)</th>
-                        <td class="TechSpecsTable__cell">750</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Anhängelast (kg)</th>
-                        <td class="TechSpecsTable__cell">3 500</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Stützlast (kg)</th>
-                        <td class="TechSpecsTable__cell">150</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. zulässiges Gesamtgewicht von Fahrzeug mit Anhänger (kg)</th>
-                        <td class="TechSpecsTable__cell">6 470</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--6" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--6">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--6" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--6" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Dachlast (inkl. Dachquerträger) (kg)</th>
-                        <td class="TechSpecsTable__cell">80 / 118◇</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--7" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--7">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--7" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--7" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Höhe (mm)</th>
-                        <td class="TechSpecsTable__cell">1 974 (Stahlfederung) | 1 969 (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Länge (mm)</th>
-                        <td class="TechSpecsTable__cell">4 323  | 4 583</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Breite mit eingeklappten Außenspiegeln (mm)</th>
-                        <td class="TechSpecsTable__cell">2 008</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Breite mit ausgeklappten Außenspiegeln (mm)</th>
-                        <td class="TechSpecsTable__cell">2 105</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Spurweite vorne (mm)</th>
-                        <td class="TechSpecsTable__cell">1 704,1 (Stahlfederung) | 1 706,2 (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Spurweite hinten (mm)</th>
-                        <td class="TechSpecsTable__cell">1 699,7 (Stahlfederung) | 1 701,8 (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Radstand (mm)</th>
-                        <td class="TechSpecsTable__cell">2 587</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--8" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--8">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--8" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--8" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Kopffreiheit vorne/hinten mit Metalldach (mm)</th>
-                        <td class="TechSpecsTable__cell">1 030 / 980</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Kopffreiheit vorne/hinten mit Panoramadach (mm)</th>
-                        <td class="TechSpecsTable__cell">1 030 / 946</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--9" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--9">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--9" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--9" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Max. Beinfreiheit vorne/hinten (mm)</th>
-                        <td class="TechSpecsTable__cell">993 / 929</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--10" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--10">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--10" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--10" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Höhe (mm)</th>
-                        <td class="TechSpecsTable__cell">904</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Breite (mm)</th>
-                        <td class="TechSpecsTable__cell">1 183</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Breite zwischen den Radkästen (mm)</th>
-                        <td class="TechSpecsTable__cell">1 124</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumtiefe bei umgelegten Rücksitzen</th>
-                        <td class="TechSpecsTable__cell">1 313</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumvolumen bei umgelegten Rücksitzen – nach VDA-Norm (Liter)</th>
-                        <td class="TechSpecsTable__cell">1 263✧</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumvolumen bei umgelegten Rücksitzen – Gesamtvolumen (Liter)</th>
-                        <td class="TechSpecsTable__cell">1 563✦</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumtiefe bei aufrechten Rücksitzen</th>
-                        <td class="TechSpecsTable__cell">460</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumvolumen bei aufrechten Rücksitzen – nach VDA-Norm (Liter)</th>
-                        <td class="TechSpecsTable__cell">297✧</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumvolumen bei aufrechten Rücksitzen – Gesamtvolumen (Liter)</th>
-                        <td class="TechSpecsTable__cell">397✦</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumtiefe bei dritten Rücksitzen</th>
-                        <td class="TechSpecsTable__cell">N/A</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumvolumen bei dritten aufrechten Rücksitzen – nach VDA-Norm (Liter)</th>
-                        <td class="TechSpecsTable__cell">N/A</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Laderaumvolumen bei dritten aufrechten Rücksitzen – Gesamtvolumen (Liter)</th>
-                        <td class="TechSpecsTable__cell">N/A</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--11" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--11">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--11" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--11" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Höhe (mm)</th>
-                        <td class="TechSpecsTable__cell">225 (Stahlfederung) | 216 (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Böschungswinkel vorne</th>
-                        <td class="TechSpecsTable__cell">31,0° (Stahlfederung) | 30,1° (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Böschungswinkel hinten</th>
-                        <td class="TechSpecsTable__cell">37,9° (Stahlfederung) | 37,6° (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Rampenwinkel</th>
-                        <td class="TechSpecsTable__cell">25,0° (Stahlfederung) | 24,2° (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--12" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--12">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--12" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--12" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Höhe (mm)</th>
-                        <td class="TechSpecsTable__cell">226 (Stahlfederung) | 291 (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Böschungswinkel vorne</th>
-                        <td class="TechSpecsTable__cell">31,5° (Stahlfederung) | 37,5° (Elektronisch geregelte Luftfederung)**</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Böschungswinkel hinten</th>
-                        <td class="TechSpecsTable__cell">35,5° (Stahlfederung) | 40,0° (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Rampenwinkel</th>
-                        <td class="TechSpecsTable__cell">25,5° (Stahlfederung) | 31,0° (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--13" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--13">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--13" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--13" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Maximale Wattiefe (mm)</th>
-                        <td class="TechSpecsTable__cell">850 (Stahlfederung) | 900 (Elektronisch geregelte Luftfederung)</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
-            </div>
-         </div>
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="VehicleSpecsRulesEngine__specs-accordion-panel--14" aria-expanded="false" class="dxAccordion__trigger" id="VehicleSpecsRulesEngine__specs-accordion-button--14">
-               <span class="dxAccordion__title fontH4 heading headingH5">DEFAULT</span>
-               </button>
-            </h3>
-            <div aria-labelledby="VehicleSpecsRulesEngine__specs-accordion-button--14" class="dxAccordion__panel" id="VehicleSpecsRulesEngine__specs-accordion-panel--14" role="region" hidden="">
-               <div class="TechSpecsTable__container">
-                  <table class="TechSpecsTable">
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Am Reifen gemessen (m)</th>
-                        <td class="TechSpecsTable__cell">11,3</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Mit Karosserieüberhängen (m)</th>
-                        <td class="TechSpecsTable__cell">12,0</td>
-                     </tr>
-                     <tr class="TechSpecsTable__row">
-                        <th class="TechSpecsTable__heading" scope="row">Lenkradumdrehungen</th>
-                        <td class="TechSpecsTable__cell">2,7</td>
-                     </tr>
-                  </table>
-                  <div class="TechSpecsTable__caveats"></div>
-               </div>
+            <div aria-labelledby="dxAccordion--1" class="dxAccordion__panel" id="dxAccordion__panel--1" role="region">
+
             </div>
          </div>
       </div>
-      <div class="VehicleSpecsRulesEngine__specs-cta">
-         <a class="primaryLinkWithStyle primaryLinkWithStyle icon-ignite-configure TargetLinks" href="https://buildyour.landrover.de/lr2/r/bodystyle/_/de_de/l663/" data-link-desktop="https://buildyour.landrover.de/lr2/r/bodystyle/_/de_de/l663/" aria-label="DEFENDER<br/>TECHNISCHE DATEN: KONFIGURATOR" data-target="current" data-tracking-id="VehicleSpecsRulesEngine:KONFIGURATOR:https://buildyour.landrover.de/lr2/r/bodystyle/_/de_de/l663/" data-aria-title="">LINK</a>
-      </div>
+
+
+
+   </div>
+   <div class="VehicleSpecsRulesEngine__specs-cta linkContainer">
+      <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
+         <sly data-sly-test="${cta.text}">
+	          <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
+                <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
+                 <span aria-hidden="true">${cta.text @context='html'}</span>
+                </a>
+              </span>
+         </sly>
+      </sly>
+
+
+      <!--<a class="primaryLinkWithStyle primaryLinkWithStyle icon-ignite-configure TargetLinks" href="https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" data-link-desktop="https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" aria-label="RANGE ROVER: BUILD YOUR OWN" data-target="current" data-tracking-id="VehicleSpecsRulesEngine:BUILD YOUR OWN:https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" data-aria-title="">BUILD YOUR OWN</a>-->
    </div>
 </section>
