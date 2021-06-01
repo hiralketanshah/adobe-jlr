@@ -14,17 +14,17 @@
 	  <div class="Derivative__intro">
 		<div class="Derivative__full-derivative-name-wrapper">
 		  <div class="Derivative__logo"></div>
-		  <h2 class="Derivative__full-derivative-name fontH1 heading headingH2">${card.headerCopy @context='html'}</h2>
+		  <h2 data-sly-test="${card.headerCopy}" class="Derivative__full-derivative-name fontH1 heading headingH2">${card.headerCopy @context='html'}</h2>
 		</div>
-		<div class="Derivative__strapline">${card.copy @context='html'}</div>
-		<div class="Derivative__caveat">
+		<div data-sly-test="${card.copy}" class="Derivative__strapline">${card.copy @context='html'}</div>
+		<div data-sly-test="${card.caveat}" class="Derivative__caveat">
 			${card.caveat @context='html'}
 		</div>
 		<div class="Derivative__price">
-			<div class="Derivative__price-label">
+			<div data-sly-test="${card.priceConfigValue}" class="Derivative__price-label">
 				${card.priceConfigValue}
 			</div>
-			<div class="Derivative__from-price">${card.price}</div>
+			<div data-sly-test="${card.price}" class="Derivative__from-price">${card.price}</div>
 		</div>
 		<p class="Derivative__lease"></p>
 		<div class="Derivative__emissions-wrapper"></div>
@@ -43,17 +43,15 @@
 	  <div class="Derivative__specs">
 		<h3 class="Derivative__accordion-label Derivative__accordion-label--specs fontButtonFont">
 		  ${card.override ? card.specsAtaGlanceHeading : specsHeader @context='html'}</h3>
-		<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-2"
-		  data-labelledby="DerivativesOverview__accordion-button-296-740370-2" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-2">
-		  <div class="Derivative__spec-wrapper">
+		<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id=""
+		  data-labelledby="1" style="display: none;" aria-labelledby="">
+		  <div data-sly-test="${card.engineNames}" class="Derivative__spec-wrapper">
 			<div class="Derivative__spec-group" style="height: 327px;">
-			  <div class="Derivative__spec-wrapper">
-				<div class="Derivative__spec-group" style="height: 268px;">
 				  <div class="Derivative__spec-title " data-sly-repeat.engineNames="${card.engineNames}">
 					${engineNames @context='html'}
 				  </div>
 				  <div class="Derivative__spec" data-sly-repeat="${card.engineDataList}" style="display: block;">
-					<div class="Derivative__engine-data"  data-attribute-total="3">
+					<div class="Derivative__engine-data"  data-attribute-total="${item}">
 					  <div class="Derivative__engine-wrapper" data-sly-repeat.test="${card.engineDataList[item]}">
 						<h4 class="Derivative__engine-attribute-label fontBodyCopy" style="height: 16px; width: 105px;">${test @context='html'}
 						</h4>
@@ -70,27 +68,23 @@
 					  </div>
 					</div>
 				  </div>
-				</div>
-			  </div>
 			</div>
 		  </div>
 
-		  <div class="Derivative__text-cta Derivative__cta-standardFeatures">
-			<a class="primaryLinkWithStyle icon-arrow-right TargetLinks" href="/vehicles/range-rover/specifications.html" target="_self"
-			  data-link-desktop="/vehicles/range-rover/specifications.html" data-target="current" data-tracking-id="DerivativesOverview:VIEW SPECIFICATIONS:/vehicles/range-rover/specifications.html"
-			  data-aria-title="">
-			  <span>VIEW SPECIFICATIONS</span>
+		  <div data-sly-test="${card.text}" class="Derivative__text-cta Derivative__cta-standardFeatures">
+            <a class="${card.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${card.target=='overlay' ? '' : card.icon} TargetLinks" aria-label="${card.ariaLabel}" href="${card.link}" data-link-desktop="${card.link}" target="${card.target}" data-target="${card.target}" data-aria-title="${card.text}">
+			   <span aria-hidden="true">${card.text}</span>
 			</a>
-		  </div>
+          </div>
 
 		</div>
 
 	  </div>
-	  <div class="Derivative__features">
+	  <div data-sly-test="${card.leftColumn || card.rightColumn}" class="Derivative__features">
 		<h3 class="Derivative__accordion-label Derivative__accordion-label--features fontButtonFont">
 		  KEY FEATURES</h3>
-		<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-3"
-		  data-labelledby="DerivativesOverview__accordion-button-296-740370-3" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-3">
+		<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id=""
+		  data-labelledby="" style="display: none;" aria-labelledby="">
 		  <p class="Derivative__features-intro fontButtonFont"></p>
 		  <div class="Derivative__grouped-features-wrapper" data-feature-count="6">
 			<div class="Derivative__grouped-features">

@@ -1,22 +1,28 @@
-<sly data-sly-use.model="${'com.jlr.core.models.DerivativeContainerModel'  @ key='hero.tco.from.txt'}" data-sly-call="${render @ model=model}" />
+<sly data-sly-use.model="${'com.jlr.core.models.DerivativeContainerModel'  @ key='hero.tco.from.txt'}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}" data-sly-call="${render @ model=model, config=config}" />
 
-<template data-sly-template.render="${ @ model }">
+<template data-sly-template.render="${ @ model,config }">
 	<div data-sly-test="${!model.id}" class="cq-placeholder"
 	 data-emptytext="Derivative Container Component"></div>
-	<div class="cmp-derivativesOverview js" id="296-740370" data-template="${model.layout}">
+	<div class="cmp-derivativesOverview js" id="${model.id}" data-template="${model.layout}">
 		<div class="cmp-derivative__range  light" data-initial-tab="0">
 			<div class="cmp-derivative__copy">
-				<h2 class="heading headingThick">
+				<h2 data-sly-test="${model.headerCopy}" class="heading headingThick">
 				  <span class="headingWrapper">
 					<p>${model.headerCopy @context='html'}</p>
 				  </span>
 				</h2>
-				<div class="copy fontBodyCopyLarge">
+	
+	<div data-sly-test="${model.enablePricing}" class="Snippet__MarketRegionalPricing">
+         <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+      </div>
+				
+				
+				<div data-sly-test="${model.copy}" class="copy fontBodyCopyLarge">
 				  <p>${model.copy @context='html'}</p>
 				</div>
 
 				
-				<div class"linkContainer">
+				<div data-sly-test="${model.text}" class="linkContainer">
 					<div class="${model.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
 					  <a class="${model.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${model.target=='overlay' ? '' : model.icon} TargetLinks" aria-label="${model.ariaLabel}" href="${model.link}" data-link-desktop="${model.link}" target="${model.target}" data-target="${model.target}" data-aria-title="${model.text}">
 					   <span aria-hidden="true">${model.text}</span>
@@ -24,14 +30,14 @@
 					</div>
 				</div>
 			</div>
-			<div data-sly-test="${model.layout == 'tab'}" class="DxTabs DerivativesOverview--controls-container DxTabs__theme--default" data-dxtabs-id="296-740370">
+			<div data-sly-test="${model.layout == 'tab'}" class="DxTabs DerivativesOverview--controls-container DxTabs__theme--default" data-dxtabs-id="">
 				<div aria-orientation="horizontal" class="DxTabs__tablist DerivativesOverview__control-list DxTabs__tablist--visible DxTabs__tablist--overflow"
 				  role="tablist">
 				  <sly data-sly-list.item="${model.tabHeadings}">
-					  <button class="DxTabs__tab DerivativesOverview__control-item ${itemList.first ? 'DxTabs__tab--active': '' }" role="tab" tabindex="0" aria-selected="true"	id="DxTabs_296-740370_tab_0" aria-controls="DxTabs_296-740370_panel_0" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
+					  <button class="DxTabs__tab DerivativesOverview__control-item ${item == model.selector? 'DxTabs__tab--active': ''}" role="tab" tabindex="0" aria-selected="true"	id="" aria-controls="" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
 						<span class="DxTabs__tab-text">
 						  <span class="DxTabs__tab-inner DerivativesOverview__control-text" data-value="${item @context='html'}">
-							${item @context='html'} </span>
+							${item @context='html'}</span>
 						</span>
 					  </button>
 				  <sly>
@@ -79,7 +85,7 @@
 			</form>
 		</div>
 		<div class="Derivative__toggle-content">
-			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="296-740370">
+			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="">
 				<sly data-sly-list="${model.listOfTabs}">
 					<div data-sly-test.card="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0" style="opacity: 0; display: block;">
 						<div class="Derivative" id="">

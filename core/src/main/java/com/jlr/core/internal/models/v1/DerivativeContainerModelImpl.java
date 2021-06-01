@@ -112,10 +112,12 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     List<String> tabHeadings = new ArrayList<>();
     List<String> firstDropdownList = new ArrayList<>();
     Map<String, Map<String, DerivativeCardModel>> listOfDropdown = new LinkedHashMap<>();
+    String selector;
 
     @PostConstruct
     public void init() {
         if (("tab").equalsIgnoreCase(layout)) {
+            selector = request.getRequestPathInfo().getSelectorString();
             Iterator<Resource> tabResources = tabList.listChildren();
             while (tabResources.hasNext()) {
                 Resource tab = tabResources.next();
@@ -129,6 +131,7 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 }
 
             }
+
         } else if (("dropdown").equalsIgnoreCase(layout)) {
             Iterator<Resource> iterator = dropdownList.listChildren();
             while (iterator.hasNext()) {
@@ -246,5 +249,9 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     @Override
     public String getSecondDropdownHeading() {
         return secondDropdownHeading;
+    }
+
+    public String getSelector() {
+        return selector;
     }
 }
