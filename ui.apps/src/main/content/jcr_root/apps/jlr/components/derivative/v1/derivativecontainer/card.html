@@ -1,4 +1,4 @@
-<template data-sly-template.render="${@ card}" >
+<template data-sly-template.render="${@ card,specsHeader}" >
 	<div class="Derivative__group Derivative__group--image">
 	  <div class="Derivative__image">
 		<div class="Derivative__carousel">
@@ -42,7 +42,7 @@
 	<div class="Derivative__group Derivative__group--data">
 	  <div class="Derivative__specs">
 		<h3 class="Derivative__accordion-label Derivative__accordion-label--specs fontButtonFont">
-		  ${card.override ? card.specsAtaGlanceHeading : model.specsAtaGlanceHeading @context='html'}</h3>
+		  ${card.override ? card.specsAtaGlanceHeading : specsHeader @context='html'}</h3>
 		<div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-2"
 		  data-labelledby="DerivativesOverview__accordion-button-296-740370-2" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-2">
 		  <div class="Derivative__spec-wrapper">
@@ -50,7 +50,7 @@
 			  <div class="Derivative__spec-wrapper">
 				<div class="Derivative__spec-group" style="height: 268px;">
 				  <div class="Derivative__spec-title " data-sly-repeat.engineNames="${card.engineNames}">
-					${engineNames}
+					${engineNames @context='html'}
 				  </div>
 				  <div class="Derivative__spec" data-sly-repeat="${card.engineDataList}" style="display: block;">
 					<div class="Derivative__engine-data"  data-attribute-total="3">

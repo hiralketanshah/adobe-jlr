@@ -84,7 +84,7 @@
 					<div data-sly-test.card="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0" style="opacity: 0; display: block;">
 						<div class="Derivative" id="">
 							<sly data-sly-use.cardRenderer="card.html">
-									<sly data-sly-call="${cardRenderer.render @ card=card}"/>
+									<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
 							</sly>
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 						<sly data-sly-list.derivativeList="${model.listOfDropdown[item]}">
 							<div data-sly-test.card="${model.listOfDropdown[item][derivativeList]}" class="Derivative" data-model="${derivativeList @context='html'}" id="">
 								<sly data-sly-use.cardRenderer="card.html">
-										<sly data-sly-call="${cardRenderer.render @ card=card}"/>
+										<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
 								</sly>
 							</div>
 						</sly>			
