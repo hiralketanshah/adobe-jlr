@@ -10,10 +10,6 @@
     margin-bottom: 90px;
     position: relative;
 }
-/* .derivativecard{
-    margin-bottom: 90px;
-    position: relative;
-} */
 .Derivative:last-child {
     margin-bottom: 0;
 }
@@ -196,7 +192,6 @@ width: 760px;
 }
 .Derivative__features-intro {
     font-weight: 400;
-    /* margin-bottom: 17px; */
     color: #000;
 }
 .js .Derivative__group {
@@ -420,7 +415,6 @@ width: 760px;
 }
 .Derivative__engine-wrapper {
     margin-top: 25px;
-    /* min-width: 25%; */
     min-width: 43%;     
 }
 .Derivative__engine-wrapper:first-child {
@@ -566,12 +560,11 @@ width: 760px;
     justify-content: center;
     z-index: 10;
 }
-.cmp-derivativesOverview {
-}
+
 .derivativecard:after,
 .Derivative:after {
     background: #F8F9F9;
-    bottom: -30px;
+    bottom: -90px;
     content: "";
     display: block;
     height: 30px;
@@ -584,9 +577,6 @@ width: 760px;
 .Derivative:last-child:after {
     display: none;
 }
-.Derivative__main-title-wrapper {
-   
-}
 
 .Derivative__control-dropdown .dxDropdown__heading {
     color: #4a4f54;
@@ -595,19 +585,12 @@ width: 760px;
     line-height: 1.3;
     font-weight: 600;
 }
-.Derivative__toggle-content {
-    /* padding-top: 49px; */
-}
+
 .Derivative__group-text {
     
     margin-bottom: 20px;
 }
-.Derivative__group-text-mask {
-   
-}
-.Derivative__intro {
-    
-}
+
 .Derivative__strapline {
     line-height: 2.3rem;
 }
@@ -729,7 +712,6 @@ padding-bottom: 20px;
 .cmp-derivativesOverview .DxTabs__tab:not(.DxTabs__tab--active){
     background-color: #ffffff00;
     color: #0C121C;
-    /* border-bottom: 2px solid #ffffff00;  */
     border-right: 0;
     outline: none;
     box-shadow: unset;
@@ -820,7 +802,8 @@ padding-bottom: 20px;
 /* overlap fix */
 .cmp-derivative__copy .linkContainer,
 .cmp-derivative__copy .secondaryLinkContainer{
-float: none;
+    float: none;
+    display: inline-block;
 }
 .cmp-derivative__copy .secondaryLinkContainer .secondaryLinkWithStyle{
     margin-top: 24px;
@@ -989,8 +972,7 @@ float: none;
         width: inherit;
         min-height: auto;
     }
-    .js .Derivative {
-    }
+    
     .Derivative__main-title-wrapper {
         padding: 37px 40px 3px;
     }
@@ -1050,9 +1032,7 @@ float: none;
         flex-direction: column;
         flex: 1 0 auto;
     }
-    .js .Derivative__features-intro {
-        /* margin-top: -6px; */
-    }
+   
     .js .Derivative__group {
         order: 2;
         display: flex;
@@ -1079,9 +1059,7 @@ float: none;
     .js .Derivative__text-cta.Derivative__cta-standardFeatures .secondaryLinkWithStyle {
         margin-top: 25px;
     }
-    .js .Derivative__spec-wrapper {
-        /* flex: 1 0 auto; */
-    }
+   
     .js .Derivative__spec-title {
         margin-top: 0;
         padding-top: 0;

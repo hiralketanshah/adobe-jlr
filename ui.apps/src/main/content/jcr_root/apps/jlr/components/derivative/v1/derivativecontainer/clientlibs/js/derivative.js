@@ -2836,7 +2836,7 @@
             value: function _keyFeatureHandleColumnSplit() {
               this._columnableFeatures.forEach(function (elem) {
                 var accordionElem = elem.closest('.Derivative__accordion-content');
-                accordionElem.classList.add('Derivative__accordion-content--force-open');
+                //accordionElem.classList.add('Derivative__accordion-content--force-open');
 
                 var groupedFeatures = elem.querySelectorAll('.Derivative__grouped-feature');
                 var groupedFeaturesBalanced = (0, _index.balanceElementHeight)(groupedFeatures, 30);
@@ -3108,8 +3108,8 @@
                     var titleWidth = title.nextElementSibling.querySelector('.Derivative__engine-attribute-wrapper').offsetWidth - 5;
                     var titleMinWidth = 105;
                     var objectKey = parseInt(title.getBoundingClientRect().top, 10);
-                    DerivativesOverview.setCSS(title, 'height', 'auto');
-                    DerivativesOverview.setCSS(title, 'width', titleWidth > titleMinWidth ? titleWidth + 'px' : titleMinWidth + 'px');
+                    //DerivativesOverview.setCSS(title, 'height', 'auto');
+                    //DerivativesOverview.setCSS(title, 'width', titleWidth > titleMinWidth ? titleWidth + 'px' : titleMinWidth + 'px');
                     if (!heights[objectKey]) {
                       heights[objectKey] = {
                         highest: 0,
@@ -3425,6 +3425,21 @@
             value: function _controlDropdowns() {
               var _this8 = this;
 
+              // set first panel 
+              var dropdownData = this.element.querySelector('.Derivative__dropdown-filters').getAttribute('data-dropdownvalues');
+
+              dropdownData = JSON.parse(dropdownData);
+              let dropdownDataKey = Object.keys(dropdownData);
+              if (dropdownDataKey.length > 0) {
+                let firstPrimaryBtn = dropdownDataKey[0];
+                let firstSecondaryBtn = dropdownData[dropdownDataKey[0]][0];
+
+                $('#bodystyle_dropdown_button').html(firstPrimaryBtn);
+                $('#model_dropdown_button').html(firstSecondaryBtn);
+                $('#Derivative__controls-form-submit').attr('data-bodystyle', firstPrimaryBtn);
+                $('#Derivative__controls-form-submit').attr('data-model', firstSecondaryBtn);
+              }
+
               // set first panel to be active
               var firstPanel = this.element.querySelector('.Derivative__dropdown-panel');
               firstPanel.classList.add(_classes.classes.panelActive);
@@ -3439,6 +3454,10 @@
                 this._hideDerivatives(initialSelectedModel);
               }
 
+
+
+              //  $('#Derivative__controls-form-submit').trigger("click");
+
               controlDropdowns.forEach(function (dropdown) {
                 var controlDropdown = new _DxDropdown2.default(dropdown);
                 var dropDownElement = controlDropdown.DxDropdown('getElement');
@@ -3448,6 +3467,7 @@
 
                   if (currentDropdown.classList.contains(_classes.classes.bodystyleDropdown)) {
                     submitButton.setAttribute('data-bodystyle', selectedControl);
+
                     if (!_this8.modelsDropdownHidden) {
                       _this8._rebuildModelDropdown(selectedControl, submitButton);
                     }
@@ -4215,15 +4235,17 @@
                 var panelId = 'DxTabs_' + id + '_panel_' + index;
                 var panel = _this.panels[index];
 
+
                 tab.setAttribute('tabindex', '-1');
                 tab.setAttribute('aria-selected', 'false');
                 tab.setAttribute('id', tabId);
                 tab.setAttribute('aria-controls', panelId);
-
-                panel.setAttribute('tabindex', '0');
-                panel.setAttribute('data-index', index);
-                panel.setAttribute('id', panelId);
-                panel.setAttribute('aria-labelledby', tabId);
+                if (panel) {
+                  panel.setAttribute('tabindex', '0');
+                  panel.setAttribute('data-index', index);
+                  panel.setAttribute('id', panelId);
+                  panel.setAttribute('aria-labelledby', tabId);
+                }
               });
               (0, _index.tablistNavigation)(this.element);
               this.collapseWhitespaceBetweenTabs();
@@ -4395,6 +4417,8 @@
             value: function tabClickHandler(event) {
               event.preventDefault();
               var active = event.currentTarget;
+
+
               if (this.animating || !active || active.classList.contains(DxTabs.classes.tabActive)) {
                 return;
               }
@@ -4402,6 +4426,8 @@
               this.unsetActiveTabs();
               DxTabs.setActiveTab(active);
               this.switchTabPanels(previous, active);
+              //location.href = location.href + 'asdasdasdd';
+              //window.location.hash = 'custom-update' + $(active).data('tab-index');
             }
           }, {
             key: 'setInitialState',
@@ -4445,16 +4471,18 @@
 
               this.animating = true;
               var selectedPanel = this.getPanelFromTab(selectedTab);
-              selectedPanel.style.opacity = 0;
-              selectedPanel.style.display = 'block';
-              var finish = function finish() {
-                _this5.fireEvent('DxTabs:fadein');
-                _this5.animating = false;
-              };
-              window.requestAnimationFrame(function () {
-                _this5.fireEvent('DxTabs:beforefadein', { selectedTab: selectedTab, selectedPanel: selectedPanel });
-                DxTabs.doAnimation(selectedPanel, _this5.options.fadeInKeyframes, _this5.options.timingFadeIn, finish);
-              });
+              if (selectedPanel) {
+                selectedPanel.style.opacity = 0;
+                selectedPanel.style.display = 'block';
+                var finish = function finish() {
+                  _this5.fireEvent('DxTabs:fadein');
+                  _this5.animating = false;
+                };
+                window.requestAnimationFrame(function () {
+                  _this5.fireEvent('DxTabs:beforefadein', { selectedTab: selectedTab, selectedPanel: selectedPanel });
+                  DxTabs.doAnimation(selectedPanel, _this5.options.fadeInKeyframes, _this5.options.timingFadeIn, finish);
+                });
+              }
             }
           }, {
             key: 'getPanelFromTab',
@@ -6290,6 +6318,7 @@
           var isVertical = orientation && orientation === 'vertical';
           var tabs = tablist.querySelectorAll('[role="tab"]');
           var keys = _aria.KeyCode;
+
 
           var focusFirstTab = function focusFirstTab() {
             return tabs[0].focus();

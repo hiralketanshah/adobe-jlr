@@ -12,11 +12,10 @@
 				  </span>
 				</h2>
 	
-	<div data-sly-test="${model.enablePricing}" class="Snippet__MarketRegionalPricing">
-         <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
-      </div>
-				
-				
+	            <div data-sly-test="${model.enablePricing}" class="Snippet__MarketRegionalPricing">
+                    <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+                </div>
+
 				<div data-sly-test="${model.copy}" class="copy fontBodyCopyLarge">
 				  <p>${model.copy @context='html'}</p>
 				</div>
@@ -49,7 +48,7 @@
 				  <div class="dxDropdown Derivative__dropdown-primary Derivative__control-dropdown Derivative__control-dropdown--bodystyle DerivativesOverview--controls-container">
 					<span class="dxDropdown__heading heading fontH5" id="bodystyle_dropdown_heading">${model.firstDropdownHeading @context='html'} </span>
 					<button aria-expanded="false" aria-haspopup="listbox" aria-labelledby="bodystyle_dropdown_heading bodystyle_dropdown_button"
-					  class="dxDropdown__button Derivative__control-button fontEmissionsDetails icon-chevron-down" id="bodystyle_dropdown_button">DEFENDER 90
+					  class="dxDropdown__button Derivative__control-button fontEmissionsDetails icon-chevron-down" id="bodystyle_dropdown_button">
 					</button>
 					<ul aria-labelledby="bodystyle_dropdown_heading" class="dxDropdown__list DerivativesOverview__control-list" id="dxDropdown__list"
 					  role="listbox" tabindex="-1">
@@ -63,7 +62,7 @@
 				  <div class="dxDropdown Derivative__dropdown-secondary Derivative__control-dropdown Derivative__control-dropdown--model DerivativesOverview--controls-container">
 					<span class="dxDropdown__heading heading fontH5" id="model_dropdown_heading">${model.secondDropdownHeading @context='html'}</span>
 					<button aria-expanded="false" aria-haspopup="listbox" aria-labelledby="model_dropdown_heading model_dropdown_button" class="dxDropdown__button Derivative__control-button fontEmissionsDetails icon-chevron-down"
-					  id="model_dropdown_button">DEFENDER</button>
+					  id="model_dropdown_button"></button>
 					<ul aria-labelledby="model_dropdown_heading" class="dxDropdown__list DerivativesOverview__control-list" id="dxDropdown__list"
 					  role="listbox" tabindex="-1">
 						<sly data-sly-list.secondDropdownLabels="${model.secondDropdownLabels}">
@@ -76,7 +75,7 @@
 				  </div>
 				  <div class="Derivative__controls-form-submit-container">
 					<button aria-labelledby="Derivative__controls-form-submit bodystyle_dropdown_button model_dropdown_button" class="Derivative__controls-form-submit primaryLinkWithStyle"
-					  id="Derivative__controls-form-submit" type="submit" data-bodystyle="DEFENDER 90" data-model="DEFENDER">
+					  id="Derivative__controls-form-submit" type="submit" data-bodystyle="" data-model="">
 					  <span class="Derivative__controls-submit-label">
 						SUBMIT</span>
 					</button>
@@ -87,7 +86,7 @@
 		<div class="Derivative__toggle-content">
 			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="">
 				<sly data-sly-list="${model.listOfTabs}">
-					<div data-sly-test.card="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0" style="opacity: 0; display: block;">
+					<div data-sly-test.card="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0">
 						<div class="Derivative" id="">
 							<sly data-sly-use.cardRenderer="card.html">
 									<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
