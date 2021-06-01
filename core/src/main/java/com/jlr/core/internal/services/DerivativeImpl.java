@@ -1,5 +1,9 @@
 package com.jlr.core.internal.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -28,52 +32,48 @@ public class DerivativeImpl implements Derivative {
     @Override
     public String getListOfDerivativeDropdown(SlingHttpServletRequest request, String path) {
         ResourceResolver resolver = null;
-        DerivativeCardModelImpl card;
         String dropdownName = StringUtils.EMPTY;
         resolver = request.getResourceResolver();
         Resource derivativeCardResource = resolver.getResource(path);
         if (null != derivativeCardResource) {
             Resource container = derivativeCardResource
                     .getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_ROOT
-                            + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER);
+                            + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER + "/cardcontainer");
             if (null != container) {
-                Resource derivativeCardContainerResource = container.getChild("cardcontainer");
-                if (null != derivativeCardContainerResource) {
-                    ValueMap prop = derivativeCardContainerResource.adaptTo(ValueMap.class);
-                    if (null != prop && prop.containsKey("dropdownName")) {
-                        dropdownName = prop.get("dropdownName", String.class);
-                    }
-                    Resource parsys = derivativeCardContainerResource.getChild("parsys");
-                    if (null != parsys) {
-                        Resource derivativecard = parsys.getChild("derivativecard");
-                        if (null != derivativecard) {
-                            card = derivativecard.adaptTo(DerivativeCardModelImpl.class);
-                        }
-                    }
+                ValueMap prop = container.adaptTo(ValueMap.class);
+                if (null != prop && prop.containsKey("dropdownName")) {
+                    dropdownName = prop.get("dropdownName", String.class);
                 }
             }
+
         }
 
         return dropdownName;
     }
 
     @Override
-    public DerivativeCardModelImpl getDerivativeCard(SlingHttpServletRequest request, String path) {
+    public List<DerivativeCardModelImpl> getDerivativeCard(SlingHttpServletRequest request, String path) {
         ResourceResolver resolver = request.getResourceResolver();
-        DerivativeCardModelImpl card = new DerivativeCardModelImpl();
+        List<DerivativeCardModelImpl> listOfCards = new ArrayList<>();
         Resource derivativeCardResource = resolver.getResource(path);
         if (null != derivativeCardResource) {
-            Resource cardResource = derivativeCardResource
-                    .getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_ROOT
-                            + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER
-                            + CommonConstants.FORWARD_SLASH + "cardcontainer/parsys/derivativecard");
+            Resource containerResource = derivativeCardResource.getChild(JcrConstants.JCR_CONTENT
+                    + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_ROOT + CommonConstants.FORWARD_SLASH
+                    + CommonConstants.JLR_CONTAINER + CommonConstants.FORWARD_SLASH + "cardcontainer/parsys");
+            if (null != containerResource) {
+                Iterator<Resource> containerResourceIterator = containerResource.listChildren();
+                while (containerResourceIterator.hasNext()) {
+                    Resource cardResource = containerResourceIterator.next();
+                    if (null != cardResource) {
+                        DerivativeCardModelImpl card = cardResource.adaptTo(DerivativeCardModelImpl.class);
+                        listOfCards.add(card);
+                    }
+                }
 
-            if (null != cardResource) {
-                card = cardResource.adaptTo(DerivativeCardModelImpl.class);
             }
 
         }
-        return card;
+        return listOfCards;
     }
 
 }

@@ -20,6 +20,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
+import com.jlr.core.utils.DerivativeUtils;
 
 /**
  * The Class DerivativeCardModelImpl.
@@ -86,29 +87,12 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
                 if (null != properties) {
                     String engineName = properties.get("name", String.class);
                     engineNames.add(engineName);
-                    Map<String, String> dataMap = getDataMap(engine);
+                    Map<String, String> dataMap = DerivativeUtils.getDataMap(engine);
                     engineDataList.put(String.valueOf(dataMap.size()), dataMap);
                 }
 
             }
         }
-
-    }
-
-    private Map<String, String> getDataMap(Resource engine) {
-        Map<String, String> mapOfData = new LinkedHashMap<>();
-
-        Resource dataListResource = engine.getChild("dataList");
-        if (null != dataListResource) {
-            Iterator<Resource> data = dataListResource.listChildren();
-            while (data.hasNext()) {
-                Resource dataResource = data.next();
-                ValueMap properties = dataResource.adaptTo(ValueMap.class);
-                mapOfData.put(properties.get("heading", String.class), properties.get("data", String.class));
-            }
-        }
-
-        return mapOfData;
 
     }
 

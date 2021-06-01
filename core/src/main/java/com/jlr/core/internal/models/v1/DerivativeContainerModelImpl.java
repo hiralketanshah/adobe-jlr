@@ -27,7 +27,6 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.google.gson.Gson;
-import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.models.DerivativeContainerModel;
 import com.jlr.core.services.Derivative;
 import com.jlr.core.services.TcoService;
@@ -108,10 +107,10 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     @Via("resource")
     private String layout;
 
-    Map<String, DerivativeCardModel> listOfTabs = new LinkedHashMap<>();
+    Map<String, List<DerivativeCardModelImpl>> listOfTabs = new LinkedHashMap<>();
     List<String> tabHeadings = new ArrayList<>();
     List<String> firstDropdownList = new ArrayList<>();
-    Map<String, Map<String, DerivativeCardModel>> listOfDropdown = new LinkedHashMap<>();
+    Map<String, Map<String, List<DerivativeCardModelImpl>>> listOfDropdown = new LinkedHashMap<>();
     String selector;
 
     @PostConstruct
@@ -124,10 +123,10 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 ValueMap properties = tab.adaptTo(ValueMap.class);
                 if (null != properties) {
                     tabHeadings.add(properties.get("tabHeading", String.class));
-                    DerivativeCardModel card = derivativeService.getDerivativeCard(request,
+                    List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request,
                             properties.get("link", String.class));
-                    evaluatePrice(card);
-                    listOfTabs.put(properties.get("urlPath", String.class), card);
+                    evaluatePrice(cardList);
+                    listOfTabs.put(properties.get("urlPath", String.class), cardList);
                 }
 
             }
@@ -137,7 +136,7 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
             while (iterator.hasNext()) {
                 Resource resource = iterator.next();
                 ValueMap properties = resource.adaptTo(ValueMap.class);
-                if (null != properties) {
+                if (null != properties && properties.containsKey("label")) {
                     firstDropdownList.add(properties.get("label", String.class));
                     listOfDropdown.put(properties.get("label", String.class), getListOfDerivatives(resource));
 
@@ -148,18 +147,21 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     }
 
-    private DerivativeCardModel evaluatePrice(DerivativeCardModel card) {
-        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
-                pageProperties, card.getPrice(), key);
-        modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
-            card.setPriceConfigValue(entry.getKey());
-            card.setPrice(entry.getValue());
-        });
-        return card;
+    private List<DerivativeCardModelImpl> evaluatePrice(List<DerivativeCardModelImpl> cardList) {
+        for (DerivativeCardModelImpl card : cardList) {
+            Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                    pageProperties, card.getPrice(), key);
+            modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
+                card.setPriceConfigValue(entry.getKey());
+                card.setPrice(entry.getValue());
+            });
+        }
+
+        return cardList;
     }
 
-    private Map<String, DerivativeCardModel> getListOfDerivatives(Resource resource) {
-        Map<String, DerivativeCardModel> listOfDerivatives = new LinkedHashMap<>();
+    private Map<String, List<DerivativeCardModelImpl>> getListOfDerivatives(Resource resource) {
+        Map<String, List<DerivativeCardModelImpl>> listOfDerivatives = new LinkedHashMap<>();
         Resource derivativeListResource = resource.getChild("derivativeList");
         Iterator<Resource> derivativeIterator = derivativeListResource.listChildren();
         while (derivativeIterator.hasNext()) {
@@ -168,9 +170,9 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
             if (null != prop) {
                 String path = prop.get("link", String.class);
                 String dropdownName = derivativeService.getListOfDerivativeDropdown(request, path);
-                DerivativeCardModel card = derivativeService.getDerivativeCard(request, path);
-                evaluatePrice(card);
-                listOfDerivatives.put(dropdownName, card);
+                List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request, path);
+                evaluatePrice(cardList);
+                listOfDerivatives.put(dropdownName, cardList);
             }
         }
         return listOfDerivatives;
@@ -189,8 +191,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     public String getJson() {
         Map<String, Set<String>> jsonMap = new LinkedHashMap<>();
 
-        for (Entry<String, Map<String, DerivativeCardModel>> firstLabel : listOfDropdown.entrySet()) {
-            Map<String, DerivativeCardModel> innerMap = firstLabel.getValue();
+        for (Entry<String, Map<String, List<DerivativeCardModelImpl>>> firstLabel : listOfDropdown.entrySet()) {
+            Map<String, List<DerivativeCardModelImpl>> innerMap = firstLabel.getValue();
             Set<String> secondDropdownLabels = new LinkedHashSet<>();
             for (String secondLabel : innerMap.keySet()) {
                 secondDropdownLabels.add(secondLabel);
@@ -207,8 +209,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     @Override
     public Set<String> getSecondDropdownLabels() {
         Set<String> secondDropdownLabels = new LinkedHashSet<>();
-        for (Entry<String, Map<String, DerivativeCardModel>> firstLabel : listOfDropdown.entrySet()) {
-            Map<String, DerivativeCardModel> innerMap = firstLabel.getValue();
+        for (Entry<String, Map<String, List<DerivativeCardModelImpl>>> firstLabel : listOfDropdown.entrySet()) {
+            Map<String, List<DerivativeCardModelImpl>> innerMap = firstLabel.getValue();
             for (String secondLabel : innerMap.keySet()) {
                 secondDropdownLabels.add(secondLabel);
             }
@@ -217,12 +219,12 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     }
 
     @Override
-    public Map<String, DerivativeCardModel> getListOfTabs() {
+    public Map<String, List<DerivativeCardModelImpl>> getListOfTabs() {
         return listOfTabs;
     }
 
     @Override
-    public Map<String, Map<String, DerivativeCardModel>> getListOfDropdown() {
+    public Map<String, Map<String, List<DerivativeCardModelImpl>>> getListOfDropdown() {
         return listOfDropdown;
     }
 

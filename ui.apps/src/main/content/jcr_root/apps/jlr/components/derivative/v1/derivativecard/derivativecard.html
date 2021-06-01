@@ -1,153 +1,40 @@
 <sly data-sly-use.model="com.jlr.core.models.DerivativeCardModel" data-sly-call="${render @ model=model}"/>
 <template data-sly-template.render="${ @ model }">
 
-<div class="cq-placeholder"
-	 data-emptytext="Derivative Card Component"></div>
+<u> Image </u><br/>
+Image Path : ${model.fileReference} <br/>
+Image Alt Text : ${model.imageAlt} <br/>
 
 
-                <div class="Derivative__group Derivative__group--image">
+<u> Copy </u><br/>
+Header Copy : ${model.headerCopy @context='html'} <br/>
+Copy/Summary : ${model.copy @context='html'} <br/>
+Caveat : ${model.caveat @context='html'} <br/>
+Price/Price Macro : ${model.price} <br/>
+<sly data-sly-list.cta="${model.ctaList}">
+CTA Text : ${cta.text} <br/>
+CTA LinkType : ${cta.linkType} <br/>
+CTA Icon : ${cta.icon} <br/>
+CTA Aria-label: ${cta.ariaLabel} <br/>
+CTA href : ${cta.link} <br/>
+CTA Target : "${cta.target} <br/>
+</sly>
 
-                  <!-- Derivative__image: start -->
-                  <div class="Derivative__image">
-
-                    <div class="Derivative__carousel">
-                      <div class="Derivative__carousel__item">
-
-                        <picture class="Derivative__picture Picture Picture--background" data-align="center">
-                          <img alt="${model.imageAlt}" class="Picture__img lazyloaded" data-object-fit="" src="${model.fileReference}" data-srcset="${model.fileReference}" srcset="${model.fileReference}">
-                        </picture>
-
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <!-- Derivative__image: end -->
-
-                </div>
-                <div class="Derivative__group Derivative__group--copy">
-
-                  <!-- Derivative__intro: start -->
-                  <div class="Derivative__intro">
-                    <div class="Derivative__full-derivative-name-wrapper">
-                      <div class="Derivative__logo"></div>
-                      <h2 class="Derivative__full-derivative-name fontH1 heading headingH2">${model.headerCopy @context='html'}</h2>
-                    </div>
-
-                    <div class="Derivative__strapline">${model.copy @context='html'}</div>
-					<div class="Derivative__caveat"> 
-						${model.caveat @context='html'}
-					</div>
-                    <div class="Derivative__price">
-						<div class="Derivative__price-label">
-							Drive Away Price for SA from
-						</div>
-						<div class="Derivative__from-price">${model.price}</div>
-					</div>
-                    <p class="Derivative__lease">
-
-
-                    </p>
-                    <div class="Derivative__emissions-wrapper">
-
-                    </div>
-                    <div class="Derivative__links">
-					<sly data-sly-list.cta="${model.ctaList}">
-						<div data-sly-test="${cta.text}" class="Derivative__links-primary Derivative__cta-configurator">
-                        <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon} TargetLinks" aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
-					   <span aria-hidden="true">${cta.text}</span>
-					  </a>
-                      </div>
-					</sly>
-                    </div>			
-                  </div>
-                  <!-- Derivative__intro: end -->
-
-                </div>
-                <div class="Derivative__group Derivative__group--data">
-
-                  <!-- Derivative__specs: start -->
-
-
-                  <div class="Derivative__specs">
-                    <h3 class="Derivative__accordion-label Derivative__accordion-label--specs fontButtonFont">
-                      ${model.specsAtaGlanceHeading @context='html'}</h3>
-                    <div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-2"
-                      data-labelledby="DerivativesOverview__accordion-button-296-740370-2" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-2">
-
-                      <div class="Derivative__spec-wrapper">
-                        <div class="Derivative__spec-group" style="height: 327px;">
-                          <div class="Derivative__spec-wrapper">
-                            <div class="Derivative__spec-group" style="height: 268px;">
-                              <div class="Derivative__spec-title " data-sly-repeat.engineNames="${model.engineNames}">
-                                ${engineNames}
-                              </div>
-                              <div class="Derivative__spec" data-sly-repeat="${model.engineDataList}" style="display: block;">
-								 
-
-                                <div class="Derivative__engine-data"  data-attribute-total="3">
-
-                                  <div class="Derivative__engine-wrapper" data-sly-repeat.test="${model.engineDataList[item]}">
-                                    <h4 class="Derivative__engine-attribute-label fontBodyCopy" style="height: 16px; width: 105px;">${test @context='html'}
-                                    </h4>
-
-                                    <div class="Derivative__engine-body">
-                                      <span class="Derivative__engine-attribute-wrapper">
-                                        <span class="Derivative__engine-attribute-value">
-                                          <span class="Derivative__engine-attribute-primary-value">${model.engineDataList[item][test] @context='html'}</span>
-                                        </span>
-                                      </span>
-                                    </div>
-
-                                    <div class="Derivative__modal Derivative__modal--engine" data-modal-content="">
-
-
-                                    </div>
-                                  </div>
-
-                                </div>
-                              </div>
-                              
-
-                            </div>
-                          </div>
-                        </div>
+<u> Group Data </u><br/>
+Specs At A Glance Header : ${model.specsAtaGlanceHeading @context='html'} <br/>
+Engine Names: <div data-sly-repeat.engineNames="${model.engineNames}">${engineNames}</div>
+Spec CTA Text : ${model.text} <br/>
+Spec CTA LinkType : ${model.linkType} <br/>
+Spec CTA Icon : ${model.icon} <br/>
+Spec CTA Aria-label: ${model.ariaLabel} <br/>
+Spec CTA href : ${model.link} <br/>
+Spec CTA Target : "${model.target} <br/>
+<br/>
+Key Features Left Column : <br/>
+${model.leftColumn @context='html'}<br/>
+Key Features Right Column : <br/>
+${model.rightColumn @context='html'}<br/>
 
 
 
-                      </div>
-
-                      <div class="Derivative__text-cta Derivative__cta-standardFeatures">
-                        <a class="primaryLinkWithStyle icon-arrow-right TargetLinks" href="/vehicles/range-rover/specifications.html" target="_self"
-                          data-link-desktop="/vehicles/range-rover/specifications.html" data-target="current" data-tracking-id="DerivativesOverview:VIEW SPECIFICATIONS:/vehicles/range-rover/specifications.html"
-                          data-aria-title="">
-                          <span>VIEW SPECIFICATIONS</span>
-                        </a>
-                      </div>
-
-                    </div>
-
-                  </div>
-                  <div class="Derivative__features">
-                    <h3 class="Derivative__accordion-label Derivative__accordion-label--features fontButtonFont">
-                      KEY FEATURES</h3>
-                    <div class="Derivative__accordion-content" role="region" data-has-ctas="true" id="DerivativesOverview__accordion-content-296-740370-3"
-                      data-labelledby="DerivativesOverview__accordion-button-296-740370-3" style="display: none;" aria-labelledby="DerivativesOverview__accordion-button-296-740370-3">
-                      <p class="Derivative__features-intro fontButtonFont"></p>
-                      <div class="Derivative__grouped-features-wrapper" data-feature-count="6">
-                        <div class="Derivative__grouped-features">
-                          <div data-sly-test="${model.leftColumn}" class="Derivative__grouped-feature-column">
-                            ${model.leftColumn @context='html'}
-                          </div>
-                          <div data-sly-test="${model.rightColumn}" class="Derivative__grouped-feature-column">
-                            ${model.rightColumn @context='html'}
-                          </div>
-                        </div>
-                      </div>
-
-
-                    </div>
-                  </div>
-                </div>
-
-            </template>
+</template>

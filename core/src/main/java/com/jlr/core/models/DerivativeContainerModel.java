@@ -10,6 +10,8 @@ import java.util.Set;
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
+import com.jlr.core.internal.models.v1.DerivativeCardModelImpl;
+
 /**
  * The Interface DerivativeContainerModel.
  *
@@ -50,11 +52,11 @@ public interface DerivativeContainerModel {
         return new HashSet<>();
     }
 
-    default Map<String, DerivativeCardModel> getListOfTabs() {
+    default Map<String, List<DerivativeCardModelImpl>> getListOfTabs() {
         return new HashMap<>();
     }
 
-    default Map<String, Map<String, DerivativeCardModel>> getListOfDropdown() {
+    default Map<String, Map<String, List<DerivativeCardModelImpl>>> getListOfDropdown() {
         return new HashMap<>();
     }
 }

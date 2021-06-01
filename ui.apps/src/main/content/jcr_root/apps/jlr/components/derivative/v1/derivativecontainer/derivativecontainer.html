@@ -1,4 +1,4 @@
-<sly data-sly-use.model="${'com.jlr.core.models.DerivativeContainerModel'  @ key='hero.tco.from.txt'}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}" data-sly-call="${render @ model=model, config=config}" />
+<sly data-sly-use.model="${'com.jlr.core.models.DerivativeContainerModel'  @ key='hero.tco.from.txt'}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,derivative.label.submit'}" data-sly-call="${render @ model=model, config=config}" />
 
 <template data-sly-template.render="${ @ model,config }">
 	<div data-sly-test="${!model.id}" class="cq-placeholder"
@@ -77,7 +77,7 @@
 					<button aria-labelledby="Derivative__controls-form-submit bodystyle_dropdown_button model_dropdown_button" class="Derivative__controls-form-submit primaryLinkWithStyle"
 					  id="Derivative__controls-form-submit" type="submit" data-bodystyle="" data-model="">
 					  <span class="Derivative__controls-submit-label">
-						SUBMIT</span>
+						${config.configMap['derivative.label.submit']}</span>
 					</button>
 				  </div>
 				</div>
@@ -86,10 +86,10 @@
 		<div class="Derivative__toggle-content">
 			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="">
 				<sly data-sly-list="${model.listOfTabs}">
-					<div data-sly-test.card="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0">
-						<div class="Derivative" id="">
+					<div data-sly-list.cardList="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0">
+						<div class="Derivative" data-sly-test.card="${cardList}" id="">
 							<sly data-sly-use.cardRenderer="card.html">
-									<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
+								<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
 							</sly>
 						</div>
 					</div>
@@ -100,11 +100,13 @@
 				<sly data-sly-list="${model.listOfDropdown}">
 					<div class="Derivative__dropdown-panel Derivative__panel " data-bodystyle="${item}">
 						<sly data-sly-list.derivativeList="${model.listOfDropdown[item]}">
-							<div data-sly-test.card="${model.listOfDropdown[item][derivativeList]}" class="Derivative" data-model="${derivativeList @context='html'}" id="">
-								<sly data-sly-use.cardRenderer="card.html">
-										<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
-								</sly>
-							</div>
+                        	<sly data-sly-list.cardList="${model.listOfDropdown[item][derivativeList]}">
+								<div data-sly-test.card="${cardList}" class="Derivative" data-model="${derivativeList @context='html'}" id="">
+									<sly data-sly-use.cardRenderer="card.html">
+											<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
+									</sly>
+								</div>
+                            </sly>
 						</sly>			
 					</div>
 				<sly>
