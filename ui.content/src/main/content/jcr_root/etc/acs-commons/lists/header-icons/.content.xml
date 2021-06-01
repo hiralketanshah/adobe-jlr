@@ -12,8 +12,8 @@
         <list jcr:primaryType="nt:unstructured">
             <item0
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Accessories"
-                value="Accessories"/>
+                jcr:title="Arrow Right"
+                value="Arrow_Right"/>
             <item1
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Approved Used"
@@ -68,8 +68,8 @@
                 value="Vehicle_Add"/>
             <item14
                 jcr:primaryType="nt:unstructured"
-                jcr:title="Arrow Right"
-                value="Arrow_Right"/>
+                jcr:title="Accessories"
+                value="Accessories"/>
             <item15
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Chevron Right"
@@ -90,6 +90,34 @@
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Capacity"
                 value="Capacity"/>
+            <item20
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Show_Prices"
+                value="Show_Prices"/>
+            <item21
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Close"
+                value="Close"/>
+            <item22
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Directional_Right"
+                value="Directional_Right"/>
+            <item23
+                jcr:primaryType="nt:unstructured"
+                jcr:title="SVO"
+                value="SVO"/>
+            <item24
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Location"
+                value="Location"/>
+            <item25
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Login"
+                value="Login"/>
+            <item26
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Arrow_Left"
+                value="Arrow_Left"/>
         </list>
     </jcr:content>
 </jcr:root>

@@ -12,14 +12,16 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.PrimaryNavigationModel;
 import com.jlr.core.models.VehicleCategoryModel;
 import com.jlr.core.models.VehicleFamilyModel;
-import com.jlr.core.models.VehiclePageLinkList;
+import com.jlr.core.models.VehiclePageLinkListModel;
 import com.jlr.core.pojos.QuickLinks;
+import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.LinkUtils;
 
 /**
@@ -30,6 +32,9 @@ import com.jlr.core.utils.LinkUtils;
 @Model(adaptables = Resource.class, adapters = {
 		PrimaryNavigationModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
+	
+	@ScriptVariable
+	protected com.day.cq.wcm.api.Page currentPage;
 
     /** The nav page path one. */
     @Inject
@@ -249,7 +254,7 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
             Resource categoryRes = childitr.next();
             VehicleCategoryModel category = categoryRes.adaptTo(VehicleCategoryModel.class);
             for (VehicleFamilyModel vehiclefamily : category.getVehicleFamily()) {
-                for (VehiclePageLinkList vehiclePageLink : vehiclefamily.getVehiclesList()) {
+                for (VehiclePageLinkListModel vehiclePageLink : vehiclefamily.getVehiclesList()) {
                     list.add(vehiclePageLink.getVehicleCardLink());
                 }
             }
@@ -314,6 +319,7 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
      */
     @Override
     public String getLogoImageLink() {
+    	logoImageLink = CommonUtils.getSiteRootPath(currentPage);
         return logoImageLink;
     }
 

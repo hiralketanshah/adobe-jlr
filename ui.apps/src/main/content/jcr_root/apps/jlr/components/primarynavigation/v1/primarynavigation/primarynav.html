@@ -1,6 +1,6 @@
 <template data-sly-template.primaryNavigation="${@ model, pageConfig}">
    <sly
-      data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,navigation.shared.vehicleDropdownFromText,navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown'}"
+      data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,navigation.shared.vehicleDropdownFromText,navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown,navigation.shared.search.prompt.desktop,navigation.shared.search.prompt.mobile,navigation.shared.search.see-all-results,navigation.shared.search.suggestions,navigation.shared.search.error.link,navigation.shared.search.error.message,navigation.retailer.your.retailer,navigation.retailer.retailers,navigation.profile,navigation.retailer.last.visited.retailer,navigation.retailer.view.your.retailer,navigation.retailer.view.all.retailers,navigation.shared.search.related-searches,navigation.shared.search.pagination.aria-label,navigation.shared.search.results.aria-label,search.next,search.previous'}"
       data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" id="${component.id}"></sly>
    <div class="dxnav__primary">
       <div class="dxnav__background--desktop"></div>
@@ -112,10 +112,10 @@
                      <svg class="dxnav-icon">
                         <use xlink:href="#Search"></use>
                      </svg>
-                     <span class="dxnav__item-search-label dxnav-hide-desktop">SEARCH</span>
+                     <span class="dxnav__item-search-label dxnav-hide-desktop">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
                   </a>
                </li>
-               <li class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="YOUR RETAILER">
+               <li class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="${config.configMap['navigation.retailer.your.retailer']}">
                   <a href="${model.retailerLink}" aria-label="${model.retailerAriaLabel}" target="_self"
                      class="dxnav__item-retailer--link">
                      <svg class="dxnav-icon dxnav-icon__retailer">
@@ -124,7 +124,7 @@
                      <svg class="dxnav-icon dxnav-icon__your-retailer dxnav-hide">
                         <use xlink:href="#Search"></use>
                      </svg>
-                     <span class="dxnav__item-retailer-label dxnav-hide-desktop">RETAILERS</span>
+                     <span class="dxnav__item-retailer-label dxnav-hide-desktop">${config.configMap['navigation.retailer.retailers']}</span>
                   </a>
                </li>
                <li class="dxnav__item dxnav__item--mobile-only">
@@ -153,7 +153,7 @@
                   <svg class="dxnav-icon">
                      <use xlink:href="#Profile"></use>
                   </svg>
-                  <span class="dxnav__item-profile dxnav-hide-desktop">PROFILE</span>
+                  <span class="dxnav__item-profile dxnav-hide-desktop">${config.configMap['navigation.profile']}</span>
                   </a>
                </li>
 
@@ -498,20 +498,20 @@
             </div>
             <form id="dxnav__search-form" accept-charset="ISO-8859-15">
                <input name="iehack" type="hidden" value="☠">
-               <label class="dxnav-visuallyHidden" for="dxnav-searchInput">SEARCH</label>
+               <label class="dxnav-visuallyHidden" for="dxnav-searchInput">${config.configMap['navigation.shared.search.prompt.desktop']}</label>
                <input id="dxnav-searchInput" type="text" class="dxnav-search-input" autocomplete="off"
-                  inputmode="search" placeholder="SEARCH">
+                  inputmode="search" placeholder="${config.configMap['navigation.shared.search.prompt.desktop']}">
                <button class="dxnav-cta-primary dxnav-search__submit-button" type="submit" disabled="">
                   <div class="dxnav-search__submit-button__mobile-icon">
                      <svg class="dxnav-icon">
                         <use xlink:href="#Search"></use>
                      </svg>
                   </div>
-                  <span class="dxnav-search__submit-button__desktop-text">SEARCH</span>
+                  <span class="dxnav-search__submit-button__desktop-text">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
                </button>
             </form>
-            <span class="dxnav-search-prompt-desktop">SEARCH</span>
-            <span class="dxnav-search-prompt-mobile">SEARCH</span>
+            <span class="dxnav-search-prompt-desktop">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
+            <span class="dxnav-search-prompt-mobile">${config.configMap['navigation.shared.search.prompt.mobile']}</span>
             <button id="dxnav-close-search" aria-label="Close item" class="dxnav-search-close">
                <svg class="dxnav-icon">
                   <use xlink:href="#Close"></use>
@@ -521,27 +521,24 @@
          <div class="dxnav-search-results-container">
             <div class="dxnav-search-status"></div>
             <div class="dxnav-suggestions" role="alert" aria-atomic="true">
-               <a class="dxnav-see-all" href=""><span>SEE ALL SEARCH RESULTS</span></a>
+               <a class="dxnav-see-all" href=""><span>${config.configMap['navigation.shared.search.see-all-results']}</span></a>
                <!-- h2 class="dxnav-suggestions__title" th:text="#{navigation.shared.search.suggestions}">SUGGESTIONS</h2 -->
                <ul class="dxnav-suggestions__results"></ul>
             </div>
             <div class="dxnav-no__results">
-               <h2 class="dxnav-suggestions__title">SUGGESTIONS:
-                  Make sure all words are spelled correctly.
-                  Try different keywords.
-                  Try more general keywords.
+               <h2 class="dxnav-suggestions__title">${config.configMap['navigation.shared.search.suggestions']}
                </h2>
             </div>
             <div class="dxnav-search__error" role="alert" aria-atomic="true">
-               <p class="dxnav-search__error-message">An error has occurred -</p>
-               <a href="" class="dxnav-search__error-link">Please search again</a>
+               <p class="dxnav-search__error-message">${config.configMap['navigation.shared.search.error.message']}</p>
+               <a href="" class="dxnav-search__error-link">${config.configMap['navigation.shared.search.error.link']}</a>
             </div>
             <div class="dxnav-search__results">
                <div class="dxnav-search__results-title" role="status" aria-live="polite">
                   <h2 class="dxnav-results-count"></h2>
                </div>
                <div class="dxnav-search__results-content" aria-busy="false" aria-live="polite" tab-index="-1"
-                  aria-label="Search results">
+                  aria-label="${config.configMap['navigation.shared.search.results.aria-label']}">
                   <div class="dxnav-search-results">
                      <div class="dxnav-loader">
                         <div class="dxnav-icon__holder">
@@ -553,7 +550,7 @@
                      <div id="dxnav-search-result" class="dxnav-search-result"></div>
                   </div>
                   <!-- div class="dxnav-related-search-results">
-                           <h3 class="dxnav-related-searches-title" th:text="#{navigation.shared.search.related-searches}">RELATED SEARCHES</h3>
+                           <h3 class="dxnav-related-searches-title" th:text="#{navigation.shared.search.related-searches}">${config.configMap['navigation.shared.search.related-searches']}</h3>
                            <div class="dxnav-related-search-term-container"></div>
                            </div -->
                </div>
@@ -567,17 +564,17 @@
                              <svg class="dxnav-icon"><use xlink:href="/icons-sprite-landrover.svg#Close" nav:icon="Chevron_Right"></use></svg>
                            </button>
                            </div> -->
-                  <nav role="navigation" class="dxnav-search__results-pagination" aria-label="Search results pagination"
+                  <nav role="navigation" class="dxnav-search__results-pagination" aria-label="${config.configMap['navigation.shared.search.pagination.aria-label']}"
                      data-button-label="??navigation.shared.search.pagination.button.label_en_AU??"
                      data-first-label="??navigation.shared.search.pagination.first-button.label_en_AU??"
                      data-last-label="??navigation.shared.search.pagination.last-button.label_en_AU??">
-                     <button class="dxnav-search__prev" aria-label="Previous">
+                     <button class="dxnav-search__prev" aria-label="${config.configMap['search.previous']}">
                         <svg class="dxnav-icon">
                            <use xlink:href="#Chevron_Left"></use>
                         </svg>
                      </button>
                      <ul class="dxnav-search__pagination-list"></ul>
-                     <button class="dxnav-search__next" aria-label="Next">
+                     <button class="dxnav-search__next" aria-label="${config.configMap['search.next']}">
                         <svg class="dxnav-icon">
                            <use xlink:href="#Chevron_Right"></use>
                         </svg>
@@ -598,13 +595,13 @@
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
                </svg>
-               YOUR RETAILER
+               ${config.configMap['navigation.retailer.your.retailer']}
             </button>
             <button class="dxnav-dropdown__close-button dxnav-retailer__non-menu-close" aria-label="close dialog">
                <svg class="dxnav-icon">
                   <use xlink:href="#Close"></use>
                </svg>
-               YOUR RETAILER
+               ${config.configMap['navigation.retailer.your.retailer']}
             </button>
             <button class="dxnav-retailer__close dxnav-links-dropdown__desktop-close" aria-label="close dialog">
                <svg class="dxnav-icon">
@@ -612,16 +609,15 @@
                </svg>
             </button>
             <div class="dxnav-retailer__content">
-               <p class="dxnav-retailer__slug">LAST VISITED RETAILER</p>
+               <p class="dxnav-retailer__slug">${config.configMap['navigation.retailer.last.visited.retailer']}</p>
                <p class="dxnav-retailer__title">xxx</p>
-               <a href="#" class="dxnav-cta-primary"> <span> <span class="dxnav-retailer__cta-text">VIEW YOUR
-                        RETAILER</span> </span> </a>
+               <a href="#" class="dxnav-cta-primary"> <span> <span class="dxnav-retailer__cta-text">${config.configMap['navigation.retailer.view.your.retailer']}</span> </span> </a>
                <a href="https://www.landrover.com.au/national-dealer-locator.html" class="dxnav-cta-secondary"
                   target="_self">
                   <svg class="dxnav-icon">
                      <use xlink:href="#Directional_Right"></use>
                   </svg>
-                  <span class="dxnav-link">VIEW ALL RETAILERS</span>
+                  <span class="dxnav-link">${config.configMap['navigation.retailer.view.all.retailers']}</span>
                </a>
             </div>
          </div>
