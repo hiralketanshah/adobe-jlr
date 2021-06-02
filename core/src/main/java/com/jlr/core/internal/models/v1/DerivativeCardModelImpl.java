@@ -61,6 +61,10 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String price;
 
+    /** The featureLabel. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String featureLabel;
+
     /** The cta list. */
     @Inject
     @Optional
@@ -162,5 +166,10 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
     @Override
     public void setPriceConfigValue(String priceConfigValue) {
         this.priceConfigValue = priceConfigValue;
+    }
+
+    @Override
+    public String getFeatureLabel() {
+        return featureLabel;
     }
 }

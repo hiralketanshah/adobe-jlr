@@ -86,4 +86,8 @@ public interface DerivativeCardModel {
     void setPriceConfigValue(String priceConfigValue);
 
     void setPrice(String price);
+
+    default String getFeatureLabel() {
+        return StringUtils.EMPTY;
+    }
 }

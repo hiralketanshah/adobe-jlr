@@ -33,7 +33,7 @@
 				<div aria-orientation="horizontal" class="DxTabs__tablist DerivativesOverview__control-list DxTabs__tablist--visible DxTabs__tablist--overflow"
 				  role="tablist">
 				  <sly data-sly-list.item="${model.tabHeadings}">
-					  <button class="DxTabs__tab DerivativesOverview__control-item ${item == model.selector? 'DxTabs__tab--active': ''}" role="tab" tabindex="0" aria-selected="true"	id="" aria-controls="" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
+					  <button class="DxTabs__tab DerivativesOverview__control-item ${model.tabHeadings[item] == model.selector? 'DxTabs__tab--active': ''}" data-dynamic-url="${model.tabHeadings[item]}" role="tab" tabindex="0" aria-selected="true"	id="" aria-controls="" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
 						<span class="DxTabs__tab-text">
 						  <span class="DxTabs__tab-inner DerivativesOverview__control-text" data-value="${item @context='html'}">
 							${item @context='html'}</span>

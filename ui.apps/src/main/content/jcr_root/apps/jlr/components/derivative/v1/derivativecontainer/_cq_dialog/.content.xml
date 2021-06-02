@@ -215,7 +215,9 @@
                                                                 </cui>
                                                             </uiSettings>
                                                             <htmlRules jcr:primaryType="nt:unstructured">
-                                                                <blockHandling jcr:primaryType="nt:unstructured" removeSingleParagraphContainer="{Boolean}true" />
+                                                                <blockHandling
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    removeSingleParagraphContainer="{Boolean}true"/>
                                                             </htmlRules>
                                                         </tabHeading>
                                                         <metatitle

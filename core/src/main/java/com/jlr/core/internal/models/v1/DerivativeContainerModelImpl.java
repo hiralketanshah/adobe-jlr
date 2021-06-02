@@ -108,7 +108,7 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     private String layout;
 
     Map<String, List<DerivativeCardModelImpl>> listOfTabs = new LinkedHashMap<>();
-    List<String> tabHeadings = new ArrayList<>();
+    Map<String, String> tabHeadings = new LinkedHashMap<>();
     List<String> firstDropdownList = new ArrayList<>();
     Map<String, Map<String, List<DerivativeCardModelImpl>>> listOfDropdown = new LinkedHashMap<>();
     String selector;
@@ -122,7 +122,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 Resource tab = tabResources.next();
                 ValueMap properties = tab.adaptTo(ValueMap.class);
                 if (null != properties) {
-                    tabHeadings.add(properties.get("tabHeading", String.class));
+                    tabHeadings.put(properties.get("tabHeading", String.class),
+                            properties.get("urlPath", String.class));
                     List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request,
                             properties.get("link", String.class));
                     evaluatePrice(cardList);
@@ -179,7 +180,7 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     }
 
     @Override
-    public List<String> getTabHeadings() {
+    public Map<String, String> getTabHeadings() {
         return tabHeadings;
     }
 

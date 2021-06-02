@@ -231,8 +231,8 @@
                         </specsglance>
                         <derivative jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
-                                <derivativecardcontainer
-                                    cq:policy="jlr/components/derivative/v1/derivativecardcontainer/policy_1621876679634"
+                                <cardcontainer
+                                    cq:policy="jlr/components/derivative/v1/cardcontainer/policy_1621876679634"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>

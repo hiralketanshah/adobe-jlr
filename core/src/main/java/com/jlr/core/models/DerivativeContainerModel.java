@@ -40,8 +40,8 @@ public interface DerivativeContainerModel {
         return StringUtils.EMPTY;
     }
 
-    default List<String> getTabHeadings() {
-        return new ArrayList<>();
+    default Map<String, String> getTabHeadings() {
+        return new HashMap<>();
     }
 
     default List<String> getDropdownLabels() {
