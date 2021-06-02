@@ -44,6 +44,9 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
 	private String specHeader;
 
+	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	private boolean enablePrice;
+
 	/** The cta list. */
 	@Inject
 	@Optional
@@ -67,6 +70,10 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 
 	public String getSpecHeader() {
 		return specHeader;
+	}
+
+	public boolean isEnablePrice() {
+		return enablePrice;
 	}
 
 	/**

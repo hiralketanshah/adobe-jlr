@@ -3,7 +3,7 @@
    <div data-emptytext="${component.title}" class="cq-placeholder"></div>
 </sly>
 
-<section class="cmp-vehicleSpecsRulesEngine stack VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/en_GB/l405_k215/_/" data-lang="en">
+<section class="cmp-vehicleSpecsRulesEngine stack VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-price-enable="${vehicleSpecs.enablePrice @ context='html'}" data-specs-url="https://rules.config.landrover.com/rc/lr2/en_GB/l405_k215/_/" data-lang="en">
 
    <section class="RulesEngineDropdown">
       <div class="RulesEngineDropdown__dropdowns-container">
@@ -65,10 +65,8 @@
    </section>
    <div class="VehicleSpecsRulesEngine__error hidden">
       <div class="Snippet shelfComponent" data-theme="light" id="295-722315">
-         <p class="copy fontBodyCopyLarge" data-sly-use.vehicleconfig="${'com.jlr.core.models.SiteConfigModel' @ key=''}"><!-- Start Component Field: {"XPath":"tcm:Content/custom:snippet/custom:body"} -->We’re sorry, the information on this page is currently unavailable.${vehicleconfig.configValue}
-            </br>
-            </br>
-            Please check back later.</p>
+         <p class="copy fontBodyCopyLarge" data-sly-use.vehicleconfig="${'com.jlr.core.models.SiteConfigModel' @ key='vehiclespecificationv2.errormessage'}" ><!-- Start Component Field: {"XPath":"tcm:Content/custom:snippet/custom:body"} -->${vehicleconfig.configValue}</p>
+
       </div>
    </div>
    <div class="VehicleSpecsRulesEngine__specs VehicleSpecsRulesEngine__specs--hide">

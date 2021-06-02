@@ -12,6 +12,7 @@ public interface VehicleSpecsModel {
 	public String getModelHeader();
 	public String getEngineHeader();
 	public String getSpecHeader();
+	public boolean isEnablePrice();
 	default List<CTAPojo> getCtaList() {
 		return new ArrayList<>();
 	}
