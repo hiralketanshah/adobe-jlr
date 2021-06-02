@@ -1,3 +1,7 @@
+
+.VehicleSpecsRulesEngine__specs-heading{
+  background-color: #F8F9F9;
+}
 .VehicleSpecsRulesEngine__specs-engine {
   text-align: left;
   font-family: "AvenirNext", "arial", "helvetica", sans-serif;
@@ -154,35 +158,6 @@
 .TechSpecsTable__caveat {
   font-size: 1rem;
   letter-spacing: 0.15rem;
-}
-.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__dropdowns {
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 1000px;
-}
-.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__dropdown {
-  max-width: 100%;
-  width: 100%;
-  padding-left: 0;
-  padding-right: 0;
-}
-.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__dropdown-button {
-  overflow: unset;
-  white-space: unset;
-}
-.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__engine {
-  display: block;
-  pointer-events: none;
-}
-.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__engine-label {
-  display: block;
-  font-weight: 800;
-  pointer-events: none;
-}
-.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__engine-consumption {
-  display: block;
-  font-weight: 400;
-  pointer-events: none;
 }
 .VehicleSpecsRulesEngine__specs {
   padding: 30px 0;
@@ -426,7 +401,6 @@ h2.heading,
     .RulesEngineDropdown__submit {
       margin-top: 11px;
       height: 45px;
-      margin-bottom: 80px;
       padding-top: 0px;
   }
     .RulesEngineDropdown__submit-button{
@@ -438,6 +412,9 @@ h2.heading,
   }
   }
   @media screen and (min-width: 1280px) {
+    .RulesEngineDropdown__dropdown{
+      margin-bottom: 24px;
+    }
     .VehicleSpecsRulesEngine__specs-heading{
       padding-top: 60px;
       padding-bottom: 81px;
@@ -462,6 +439,13 @@ h2.heading,
           flex-wrap: wrap;
           flex: 1;
         }
+      .cmp-vehicleSpecsRulesEngine.stack  .RulesEngineDropdown__dropdowns{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex: 1;
+        width: 760px;
+      }
       .VehicleSpecsRulesEngine__specs {
           padding: 0px 60px 15px 60px;
       }
@@ -479,21 +463,156 @@ h2.heading,
           padding-right: 0px;
       }
     }
-    @media screen and (min-width: 1920px) {
-      .RulesEngineDropdown__dropdowns-container {
-        padding-top: 80px;
-        padding-left: 290px;
-        padding-right: 290px;
-        padding-bottom: 0p;
-        margin-bottom: 90px;
+  @media screen and (min-width: 1920px) {
+    .cmp-vehicleSpecsRulesEngine.stack  .RulesEngineDropdown__dropdowns{
+      width: 880px;
+    }
+    .RulesEngineDropdown__dropdowns-container {
+      padding-top: 80px;
+      padding-left: 290px;
+      padding-right: 290px;
+      padding-bottom: 0p;
+      margin-bottom: 90px;
+    }
+    .VehicleSpecsRulesEngine__specs-cta{
+      padding-left: 290px;
+    }
+    .VehicleSpecsRulesEngine__specs {
+      padding: 0px 290px 15px 290px;
+  }
+}
+/* Common */
+  .RulesEngineDropdown__submit-button{
+  width: auto;
+  }
+  .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+    border-bottom-color: #0C121C26;
+  }
+  .VehicleSpecsRulesEngine .primaryLinkWithStyle span{
+      font-family: "AvenirNext-DemiBold";
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 10px;
+      line-height: 14px;
+  }
+        /* drodown text inside */
+     .RulesEngineDropdown__dropdown-button{
+       font-family: 'AvenirNext';
+       text-align: left;
+       font-size: 11px;
+       letter-spacing: 0.45px;
+       color: #0C121CCC;
+       text-transform: uppercase;
+       line-height: 19px;
+     }
+    /* table coloumn  */
+    .TechSpecsTable__heading,.TechSpecsTable__cell{
+      font-family: 'AvenirNext';
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.99px;
+      color: #333333;
+      line-height: 12px;
+    }  
+    /* FONT */
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+      /* vechicle title  */
+      .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
+        font-size: 30px;
+        text-align: left;
+        font-family: 'LandRoverWeb-Bold';
+        letter-spacing: 1.5px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 30px;
       }
-      .VehicleSpecsRulesEngine__specs-cta{
-        padding-left: 290px;
+      
+      .VehicleSpecsRulesEngine__specs-engine{
+        letter-spacing: 0.2px;
+        text-align: left;
+        font-family: 'AvenirNext';
+        font-weight: normal;
+        line-height: 14px;
+        color: #4A4F54;
+        line-height: 19px;
       }
-      .VehicleSpecsRulesEngine__specs {
-        padding: 0px 290px 15px 290px;
+      /* Accordian title */
+      .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+        font-family: 'AvenirNext';
+        text-align: left;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0.17px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 24px;
+      }
     }
+    @media screen and (max-width: 768px){
+      /* vechicle title  */
+      .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
+        font-size: 26px;
+        text-align: left;
+        font-family: 'LandRoverWeb-Bold';
+        letter-spacing: 1.3px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 26px;
+      }
+      
+      .VehicleSpecsRulesEngine__specs-engine{
+        letter-spacing: 0.2px;
+        text-align: left;
+        font-family: 'AvenirNext';
+        font-weight: normal;
+        line-height: 14px;
+        color: #4A4F54;
+        line-height: 19px;
+      }
+      /* Accordian title */
+      .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+        font-family: 'AvenirNext';
+        text-align: left;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0.17px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 24px;
+      } 
     }
-    .RulesEngineDropdown__submit-button{
-      width: auto;
-    }
+    @media screen and (min-width: 1280px){
+
+     /* vechicle title  */
+     .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
+       font-size: 38px;
+       text-align: left;
+       font-family: 'LandRoverWeb-Bold';
+       letter-spacing: 1.9px;
+       color: #0C121C;
+       text-transform: uppercase;
+       line-height: 39px;
+     }
+     
+     .VehicleSpecsRulesEngine__specs-engine{
+       letter-spacing: 0.2px;
+       text-align: left;
+       font-family: 'AvenirNext';
+       font-weight: normal;
+       line-height: 18px;
+       color: #4A4F54;
+       line-height: 24px;
+     }
+     /* Accordian title */
+     .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+       font-family: 'AvenirNext';
+       text-align: left;
+       font-size: 15px;
+       font-weight: bold;
+       letter-spacing: 0.17px;
+       color: #0C121C;
+       text-transform: uppercase;
+       line-height: 24px;
+     }
+  
+   }
