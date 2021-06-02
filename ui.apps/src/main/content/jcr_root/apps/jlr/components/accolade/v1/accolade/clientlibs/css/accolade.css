@@ -2,6 +2,9 @@
 .slateblue .cmp-accolades__img .Picture__img{
   filter: invert(1);
 }
+.cmp-carousel.cmp-accolades-carousel .carousel .cmp-carousel__slide {
+  display: block;
+}
 .cmp-accolades {
     *zoom: 1;
     text-align: center;
@@ -133,14 +136,14 @@
   }
   
   /* NEW DEVELOPMENT */
-  
+
   .grey .fontQuote{
     color: black;
   }
-  .specialColor .fontQuote p{
+  .grey .fontQuote p,.light .fontQuote p,.white .fontQuote p{
     color: #005A2B !important;
   }
-  .slateblue .fontQuote{
+  .slateblue .fontQuote p{
     color: white !important;
   }
   
@@ -196,14 +199,14 @@
   }
   .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
     margin-top: 17px;
-    margin-bottom: 0px;
+    margin-bottom: 24px;
   }
   .cmp-accolades__copy--secondary, .cmp-accolades__copy a {
     margin-bottom: 0px;
     margin-top: 17px;
   }
   .cmp-accolades__copy--tertiary{
-    margin-top:17px;
+    margin-top:0px;
     margin-bottom: 0px;
   }
   .cmp-carousel__controls.cmp-accolades_pagination {
@@ -218,7 +221,7 @@
   }
   }
   /* TABLET ACCOLADES WITH LOGO - START*/
-  @media screen and (min-width: 768px) and (max-width: 1280px) {
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
     .cmp-onlyCopy .cmp-accolades__copy{
       padding-top: 0px;
       min-width: 708px;
@@ -246,8 +249,12 @@
   }
   .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
     margin-top: 17px;
-    margin-bottom: 0px;
+    margin-bottom: 24px;
   }
+  .cmp-accolades__copy--link{
+    width: 100%;
+  }
+  .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary
   .cmp-accolades__copy--secondary, .cmp-accolades__copy a {
     margin-bottom: 0px;
     margin-top: 17px;
@@ -406,6 +413,10 @@
     }
   }
   @media screen and (min-width: 1280px)   {
+    .cmp-accolades{
+      padding-bottom: 80px;
+    }
+ 
     .cmp-accolades__img .Picture__img {
       width: 260px;
       height: 146px;
@@ -461,18 +472,8 @@
   
     min-height:425px!important;
 }
-
-
-.cmp-accolades_pagination .Pagination__controls {
-    margin-top: -12%;
-}
-
 .cmp-accolades__copy--tertiary{
 	color:#0C121C ;
-}
-
-.specialColor .fontQuote p{
-color:#0C121C!important ;
 }
 
 @media screen and (min-width: 1px) and (max-width: 900px){
@@ -480,13 +481,7 @@ color:#0C121C!important ;
     min-height: 320px;
 }
 }
-@media screen and (min-width: 768px) and (max-width: 1280px){
-.cmp-accolades {
-    padding-bottom: 60px;
- }
- }
-
-@media screen and (min-width: 200px) and (max-width: 768px){
+@media screen and (min-width: 200px) and (max-width: 767px){
 .cmp-accolades {
     padding-top: 30px;
     padding-left: 25px;
@@ -500,6 +495,20 @@ color:#0C121C!important ;
     margin-top: -25%;
 }
  }
+ @media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-accolades {
+      padding-top: 30px;
+      padding-left: 25px;
+    padding-bottom:40px;
+                      }
+  .cmp-carousel__slider{
+    
+      min-height:415px!important;
+                  }
+  .cmp-accolades_pagination .Pagination__controls {
+      margin-top: -25%;
+  }
+   }
 
  @media screen and (max-width: 767px) and (max-height: 850px){
    .cmp-accolades {
@@ -524,25 +533,57 @@ color:#0C121C!important ;
   min-height:425px!important;
 }
 
-.cmp-accolades_pagination .Pagination__controls {
-  margin-top: -12%;
-}
-
 .cmp-accolades__copy--tertiary{
 color:#0C121C ;
 }
 
-.specialColor .fontQuote p{
-color:#0C121C!important ;
-}
 
 @media screen and (min-width: 1px) and (max-width: 900px){
 .cmp-carousel .carousel {
   min-height: 320px;
 }
 }
-@media screen and (min-width: 768px) and (max-width: 1280px){
+@media screen and (min-width: 768px) and (max-width: 1279px){
 .cmp-accolades {
   padding-bottom: 60px;
 }
+}
+/* ---code fix for 564--- */
+.cmp-accolades__copy--tertiary{
+    color:#0C121C ;
+}
+@media screen and (min-width: 200px) and (max-width: 768px){
+.cmp-accolades {
+    padding-top: 30px;
+    padding-left: 25px;
+    padding-bottom:40px;
+  }
+ }
+/*---code fix for 564----*/
+.cmp-accolades .cmp-accolades__copy--tertiary {color:rgba(12, 18, 28, .6);}
+/*---code fix for 564----*/
+
+
+@media screen and (min-width: 1290px){
+  .cmp-accolades{
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-accolades{
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+}
+@media screen and (max-width: 767px){
+  .cmp-accolades{
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-right: 25px;
+  }
+  .cmp-carousel.cmp-accolades-carousel{
+    margin-bottom: 40px
+  }
+  
 }
