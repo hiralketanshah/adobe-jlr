@@ -8,7 +8,7 @@
    <section class="RulesEngineDropdown">
       <div class="RulesEngineDropdown__dropdowns-container">
          <div class="RulesEngineDropdown__dropdowns">
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle">
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle" data-sly-test=${vehicleSpecs.bodyStyleHeader}>
                <div class="dxDropdown">
                   <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-1"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:bodystyleDropDownTitle"} --> ${vehicleSpecs.bodyStyleHeader @context='html'}</span>
                   <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-1 dxDropdown__button-1" class="RulesEngineDropdown__dropdown-button dxDropdown__button  fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-1"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:bodystyleDropDownTitle"} -->SELECT BODYSTYLE</button>
@@ -21,7 +21,7 @@
                </div>
             </div>
 
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model">
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model" data-sly-test=${vehicleSpecs.modelHeader}>
                <div class="dxDropdown">
                   <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-2"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:modelDropDownTitle"} -->${vehicleSpecs.modelHeader @context='html'}</span>
                   <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-2 dxDropdown__button-2" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-2"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:modelDropDownTitle"} -->MODELL AUSWÄHLEN</button>
@@ -33,7 +33,7 @@
                </div>
             </div>
 
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine">
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine" data-sly-test=${vehicleSpecs.engineHeader}>
                <div class="dxDropdown">
                   <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropown__heading" id="dxDropdown__heading-3"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:engineDropDownTitle"} -->${vehicleSpecs.engineHeader @context='html'}</span>
                   <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-3 dxDropdown__button-3" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-3"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:engineDropDownTitle"} -->SELECT ENGINE</button>
@@ -45,7 +45,7 @@
                </div>
             </div>
 
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack">
+            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack" data-sly-test=${vehicleSpecs.specHeader}>
                <div class="dxDropdown">
                   <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-4"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:specDropDownTitle"} -->${vehicleSpecs.specHeader @context='html'}</span>
                   <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-4 dxDropdown__button-4" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-4"><!-- Start Component Field: {"XPath":"tcm:Content/custom:vehicleSpecsRulesEngine/custom:specDropDownTitle"} -->SELECT SPECIFICATION</button>
@@ -65,7 +65,7 @@
    </section>
    <div class="VehicleSpecsRulesEngine__error hidden">
       <div class="Snippet shelfComponent" data-theme="light" id="295-722315">
-         <p class="copy fontBodyCopyLarge"><!-- Start Component Field: {"XPath":"tcm:Content/custom:snippet/custom:body"} -->We’re sorry, the information on this page is currently unavailable.
+         <p class="copy fontBodyCopyLarge" data-sly-use.vehicleconfig="${'com.jlr.core.models.SiteConfigModel' @ key=''}"><!-- Start Component Field: {"XPath":"tcm:Content/custom:snippet/custom:body"} -->We’re sorry, the information on this page is currently unavailable.${vehicleconfig.configValue}
             </br>
             </br>
             Please check back later.</p>
@@ -96,18 +96,18 @@
 
 
    </div>
-   <div class="VehicleSpecsRulesEngine__specs-cta linkContainer">
+   <div class="VehicleSpecsRulesEngine__specs-cta">
       <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
          <sly data-sly-test="${cta.text}">
 	          <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
-                <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
+                 <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'}" ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
                  <span aria-hidden="true">${cta.text @context='html'}</span>
-                </a>
+                 </a>
               </span>
          </sly>
       </sly>
 
 
-      <!--<a class="primaryLinkWithStyle primaryLinkWithStyle icon-ignite-configure TargetLinks" href="https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" data-link-desktop="https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" aria-label="RANGE ROVER: BUILD YOUR OWN" data-target="current" data-tracking-id="VehicleSpecsRulesEngine:BUILD YOUR OWN:https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" data-aria-title="">BUILD YOUR OWN</a>-->
+      <!-- <a class="primaryLinkWithStyle primaryLinkWithStyle icon-ignite-configure TargetLinks" href="https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" data-link-desktop="https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" aria-label="RANGE ROVER: BUILD YOUR OWN" data-target="current" data-tracking-id="VehicleSpecsRulesEngine:BUILD YOUR OWN:https://buildyour.landrover.co.uk/lr2/r/bodystyle/_/en_gb/l405/" data-aria-title="">BUILD YOUR OWN</a>-->
    </div>
 </section>
