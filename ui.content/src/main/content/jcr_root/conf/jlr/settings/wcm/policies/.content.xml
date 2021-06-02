@@ -1402,7 +1402,7 @@
             </seatslider>
             <derivative jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
-                    <derivativecardcontainer jcr:primaryType="nt:unstructured">
+                    <cardcontainer jcr:primaryType="nt:unstructured">
                         <policy_1621876679634
                             jcr:primaryType="nt:unstructured"
                             jcr:title="Derivative Card Container"
@@ -1410,7 +1410,7 @@
                             components="/apps/jlr/components/derivative/v1/derivativecard">
                             <jcr:content jcr:primaryType="nt:unstructured"/>
                         </policy_1621876679634>
-                    </derivativecardcontainer>
+                    </cardcontainer>
                 </v1>
             </derivative>            
         </components>

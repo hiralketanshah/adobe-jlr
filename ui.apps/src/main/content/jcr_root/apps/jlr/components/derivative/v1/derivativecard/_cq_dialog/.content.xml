@@ -232,6 +232,12 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+                            <featureLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="This label will be displayed as the feature heading"
+                                fieldLabel="Feature Label"
+                                name="./featureLabel"/>
                             <leftcolumn
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
@@ -654,7 +660,7 @@
                                                     </field>
                                                     <granite:data
                                                         jcr:primaryType="nt:unstructured"
-                                                        maxlimit="4"
+                                                        max-items="{Long}4"
                                                         min-items="{Long}3"/>
                                                 </data>
                                             </items>

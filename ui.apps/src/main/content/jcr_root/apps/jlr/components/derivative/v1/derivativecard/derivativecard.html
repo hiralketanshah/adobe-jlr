@@ -1,1 +1,40 @@
-Derivative Component
+<sly data-sly-use.model="com.jlr.core.models.DerivativeCardModel" data-sly-call="${render @ model=model}"/>
+<template data-sly-template.render="${ @ model }">
+
+<u> Image </u><br/>
+Image Path : ${model.fileReference} <br/>
+Image Alt Text : ${model.imageAlt} <br/>
+
+
+<u> Copy </u><br/>
+Header Copy : ${model.headerCopy @context='html'} <br/>
+Copy/Summary : ${model.copy @context='html'} <br/>
+Caveat : ${model.caveat @context='html'} <br/>
+Price/Price Macro : ${model.price} <br/>
+<sly data-sly-list.cta="${model.ctaList}">
+CTA Text : ${cta.text} <br/>
+CTA LinkType : ${cta.linkType} <br/>
+CTA Icon : ${cta.icon} <br/>
+CTA Aria-label: ${cta.ariaLabel} <br/>
+CTA href : ${cta.link} <br/>
+CTA Target : "${cta.target} <br/>
+</sly>
+
+<u> Group Data </u><br/>
+Specs At A Glance Header : ${model.specsAtaGlanceHeading @context='html'} <br/>
+Engine Names: <div data-sly-repeat.engineNames="${model.engineNames}">${engineNames}</div>
+Spec CTA Text : ${model.text} <br/>
+Spec CTA LinkType : ${model.linkType} <br/>
+Spec CTA Icon : ${model.icon} <br/>
+Spec CTA Aria-label: ${model.ariaLabel} <br/>
+Spec CTA href : ${model.link} <br/>
+Spec CTA Target : "${model.target} <br/>
+<br/>
+Key Features Left Column : <br/>
+${model.leftColumn @context='html'}<br/>
+Key Features Right Column : <br/>
+${model.rightColumn @context='html'}<br/>
+
+
+
+</template>

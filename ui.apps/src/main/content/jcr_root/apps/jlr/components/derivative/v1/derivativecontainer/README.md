@@ -1,5 +1,5 @@
 <!-- Jaguar Component -->
-Accolade (v1)
+Derivative Container (v1)
 ====
 Accolade component written in HTL.
 
