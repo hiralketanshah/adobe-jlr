@@ -637,12 +637,13 @@ width: 760px;
 }
 .Derivative__engine-attribute-wrapper,
 .Derivative__engine-attribute-value {
-    color: #4a4f54;
+    color: #0C121C;
     font-family: "lr_ot4", "arial", "helvetica", sans-serif;
     font-size: 3.8rem;
     line-height: 1.9rem;
     letter-spacing: 0;
     font-weight: 500;
+    margin-left: -1px;
 }
 .Derivative__engine-attribute-wrapper:hover,
 .Derivative__engine-attribute-value:hover {
@@ -755,8 +756,10 @@ padding-bottom: 20px;
     text-overflow: inherit;
     letter-spacing: 0.45px;
     font-size: 11px;
-    line-height: 14px; 
-    text-transform: uppercase;   
+    line-height: 14px;       
+}
+.Derivative__controls-form .dxDropdown__button{
+text-transform: uppercase;
 }
 .cmp-derivativesOverview .dxDropdown--active .dxDropdown__button {
     background-color: #F0F0F04D;
@@ -1143,6 +1146,9 @@ text-transform: uppercase;
     }
 }
 @media screen and (min-width: 1px) and (max-width: 900px) {
+    .cmp-derivativesOverview .DxTabs {
+        padding-top: 50px;
+    }
     .cmp-derivative__range{
         padding: 40px 30px;
     }
@@ -1244,7 +1250,7 @@ text-transform: uppercase;
         margin-bottom: 20px;
     }
     .js .Derivative__engine-data{
-        width: 524px;
+        width: 100%;
         flex-direction: row;
         display: flex;
         flex-wrap: wrap;
@@ -1260,6 +1266,10 @@ text-transform: uppercase;
     }
     .Derivative__controls-form-submit{
         margin: 0;
+    }
+    .cmp-derivative__range .linkContainer .primaryLinkWithStyle{
+        margin-top: 24px;
+        margin-bottom: 0px;
     }
 }
 @media screen and (min-width: 901px) {
