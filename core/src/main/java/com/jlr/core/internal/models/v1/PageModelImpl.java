@@ -56,7 +56,7 @@ public class PageModelImpl implements PageModel {
     private final String DE_RETAILER_NAAS_URL = "content/nav/naasconfig/de_de.html";
 
     private static final String RT_CAROUSEL = "jlr/components/carousel/v1/carousel";
-    private static final String RT_HERO_COMPONENT = "jlr/components/herotitlebanner/v1/herotitlebanner";
+    private static final String RT_HERO_COMPONENT = "jlr/components/heroitem/v1/heroitem";
     private static final String RT_HERO_TITLE_BANNER_COMPONENT = "jlr/components/herotitlebanner/v1/herotitlebanner";
 
 
