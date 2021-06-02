@@ -179,6 +179,15 @@
 .VehicleSpecsRulesEngine__error.hidden {
   display: none;
 }
+.VehicleSpecsRulesEngine__error p{
+  text-align:  center;
+}
+.VehicleSpecsRulesEngine__error .shelfComponent {
+  display: block;
+  padding: 80px 90px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 @media screen and (min-width: 1280px) {
   .VehicleSpecsRulesEngine__specs {
     padding: 47px 90px 76px;
