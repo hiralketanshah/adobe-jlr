@@ -157,9 +157,11 @@ ${additionalPage.schema @ context='scriptRegExp'}
 
 
 <sly data-sly-test="${properties.enableImageSchema =='true'}">
-<script type="application/ld+json">
-${additionalPage.imageSchema @ context='scriptRegExp'} 
-</script>
+  <sly data-sly-list.imgSchema="${additionalPage.imageSchema}">
+    <script type="application/ld+json">
+       ${imgSchema @ context='scriptRegExp'} 
+   </script>
+  </sly>
 </sly>
 
 <sly data-sly-test.scheme="${request.scheme}"/>
