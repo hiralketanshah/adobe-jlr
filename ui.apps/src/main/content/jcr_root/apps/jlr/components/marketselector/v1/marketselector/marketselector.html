@@ -60,12 +60,14 @@
 <div class="dxDropdown__country-list-wrapper" data-sly-list.regions="${market.marketList}">
           <ul aria-label="${marketconfig.configValue}
 " class="dxDropdown__list dxDropdown__list-country" role="listbox" tabindex="-1" data-region="${regions.region}">
-            <li class="dxDropdown__list-item" role="option" data-sly-list.countries="${regions.countryList}">
+<sly data-sly-list.countries="${regions.countryList}">
+            <li class="dxDropdown__list-item" role="option">
               <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#" data-country="country-${countries.countryCode}">
                 <span class="dxDropdown__list-item-link-inner">${countries.countryName}</span>
                 <div class="MarketSelector__flag spriteFlag-${countries.countryCode}"></div>
               </a>
             </li>
+			</sly>
 			</ul>
 			</div>
 </div>

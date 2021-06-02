@@ -1,7 +1,7 @@
 <sly data-sly-use.model="com.jlr.core.models.PrimaryNavigationModel"
 data-sly-use.pageConfig="com.jlr.core.models.PageModel"
 data-sly-use.primarynav="primarynav.html">
-<header class="dxnav-header" data-locale="${pageConfig.locale}"  data-naas-js-url="/etc.clientlibs/jlr/clientlibs/clientlib-naas.js" data-naas-url="${pageConfig.naasUrl}"  data-yourretailer-allowed="${model.enableLastVisited}" data-retailer-expiry-period="7">
+<header class="dxnav-header" data-locale="${pageConfig.locale}"  data-naas-js-url="${pageConfig.domainUrl}/etc.clientlibs/jlr/clientlibs/clientlib-naas.js" data-naas-url="${pageConfig.domainUrl}${pageConfig.naasUrl}"  data-yourretailer-allowed="${model.enableLastVisited}" data-retailer-expiry-period="7">
    <nav id="dxnav-unique-nav" class="dxnav-unique-nav">
 	   <sly data-sly-call="${primarynav.primaryNavigation @ model = model, pageConfig = pageConfig }"></sly>
 	   <sly data-sly-include="secondarynav.html"/>

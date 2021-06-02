@@ -753,31 +753,6 @@
                     </carousel>
                 </v1>
             </carousel>
-            <accolade jcr:primaryType="nt:unstructured">
-                <v1 jcr:primaryType="nt:unstructured">
-                    <accolade jcr:primaryType="nt:unstructured">
-                        <policy_1617788181626
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Accolade"
-                            sling:resourceType="wcm/core/components/policy/policy">
-                            <jcr:content jcr:primaryType="nt:unstructured"/>
-                            <cq:styleGroups jcr:primaryType="nt:unstructured">
-                                <item0
-                                    cq:styleGroupLabel="Special Color"
-                                    jcr:primaryType="nt:unstructured">
-                                    <cq:styles jcr:primaryType="nt:unstructured">
-                                        <item0
-                                            cq:styleClasses="specialColor"
-                                            cq:styleId="1617788194443"
-                                            cq:styleLabel="Green"
-                                            jcr:primaryType="nt:unstructured"/>
-                                    </cq:styles>
-                                </item0>
-                            </cq:styleGroups>
-                        </policy_1617788181626>
-                    </accolade>
-                </v1>
-            </accolade>
             <dualframeslider jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
                     <dualframeslider jcr:primaryType="nt:unstructured">

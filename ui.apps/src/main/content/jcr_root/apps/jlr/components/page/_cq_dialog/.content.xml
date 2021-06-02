@@ -212,6 +212,18 @@
                                                     allowBulkEdit="{Boolean}true"
                                                     cq-msm-lockable="noFollow"/>
                                             </noFollow>
+                                            <imageSchema
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}false"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to enable image schema for Hero Carousel and Hero Title Banner."
+                                                fieldLabel="Enable image schema?"
+                                                name="./enableImageSchema"
+                                                text="Enable image schema?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                            </imageSchema>
                                         </items>
                                     </seo>
                                     <datalayer
@@ -633,7 +645,7 @@
                                                         value="retail"/>
                                                 </items>
                                             </fallbackPriceType>
-                                            <suppressPrice
+                                            <pricingSuppression
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/foundation/form/radiogroup"
                                                 text="Pricing Suppression"
@@ -649,11 +661,10 @@
                                                     <false
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/foundation/form/radio"
-                                                        checked="{Boolean}true"
                                                         text="False"
-                                                        value="False"/>
+                                                        value="false"/>
                                                 </items>
-                                            </suppressPrice>
+                                            </pricingSuppression>
                                         </items>
                                     </pricing>
                                 </items>

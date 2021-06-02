@@ -81,7 +81,8 @@ public class TcoServiceImpl implements TcoService {
                         ? Boolean.valueOf((boolean) request.getAttribute(PricingConstants.PRICING_SUPPRESSION))
                         : true;
         if (!mrp || Boolean.valueOf(pageProperties.getInherited(PRICING_SUPPRESSION, String.class))) {
-            return Collections.emptyMap();
+            modelPriceMap.put(StringUtils.EMPTY, StringUtils.EMPTY);
+            return modelPriceMap;
         }
 
         if (StringUtils.isNotEmpty(priceMacro)) {

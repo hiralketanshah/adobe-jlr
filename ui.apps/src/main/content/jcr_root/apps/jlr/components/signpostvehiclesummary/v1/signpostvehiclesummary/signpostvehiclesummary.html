@@ -1,4 +1,7 @@
-<sly data-sly-use.model="${'com.jlr.core.models.VehicleSummaryModel' @ key='hero.tco.from.txt'}" data-sly-call="${renderModel @ model=model}" />
+<sly data-sly-use.model="${'com.jlr.core.models.VehicleSummaryModel' @ key='hero.tco.from.txt'}" data-sly-call="${renderModel @ model=model}"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+	data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+	data-sly-test.hasContent="${model.headerCopy}"/>
 <template data-sly-template.renderModel="${ @ model}">
   <div class="cmp-vehicleSummaryGridContext clearfix" id="${model.id}">
     <div class="summaryItemImage cmp-vehicleSummary__image">
@@ -67,3 +70,4 @@
 	</div>
     </div>
 </template>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

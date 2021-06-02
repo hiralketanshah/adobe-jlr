@@ -36,9 +36,6 @@
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
                         </items>
-                        <granite:data
-                            jcr:primaryType="nt:unstructured"
-                            full-frame-component="true"/>
                     </general>
                     <imagevideo
                         jcr:primaryType="nt:unstructured"
