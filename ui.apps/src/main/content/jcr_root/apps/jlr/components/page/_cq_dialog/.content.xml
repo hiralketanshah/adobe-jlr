@@ -212,6 +212,18 @@
                                                     allowBulkEdit="{Boolean}true"
                                                     cq-msm-lockable="noFollow"/>
                                             </noFollow>
+                                            <imageSchema
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}false"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to enable image schema for Hero Carousel and Hero Title Banner."
+                                                fieldLabel="Enable image schema?"
+                                                name="./enableImageSchema"
+                                                text="Enable image schema?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                            </imageSchema>
                                         </items>
                                     </seo>
                                     <datalayer
