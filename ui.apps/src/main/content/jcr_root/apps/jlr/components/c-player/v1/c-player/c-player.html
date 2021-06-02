@@ -38,11 +38,15 @@ data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
 			</div>
 		</div>
 		<div class="col span_2_of_3 cplayerImageDiv">
-			<div class="cplayerImage">
-				<picture class="Picture Picture--background">
-                </picture>
-              </div>
+			<div class="ConfiguratorPrompt fontSmooth">
+			<div class="ConfiguratorPrompt__image">
+				<div class="canvas-container">
+				</div>
+			</div>
+			<div class="ConfiguratorPrompt__saved-build-data" data-cplayer-api-key="DXlive8ApPc9JQrZajavktj74ZKByExdWBxhEu"></div>
+		  </div>
 		</div>
 	</div>
-	<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"/>
+	
 </sly>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"/>

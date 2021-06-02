@@ -138,14 +138,21 @@
 	}
 }
 
-/* code fix for defect 570*/
+/*code fix for 570*/
 @media screen and (min-width: 767px) and (max-width: 1278px){
-	.caveat {
+	.caveat.cmp-caveat--white  {
 		padding-top: 0; 
 		width: 400px;
 		margin-left:0;
 		text-align: left;
-	}}
+	}
+	.caveat.cmp-caveat--light  {
+		padding-top: 0; 
+		width: 400px;
+		margin-left:0;
+		text-align: left;
+	}
+	}
 	
 	.caveat a{
 	color: #4a4f54;
@@ -157,6 +164,11 @@
 	font-weight:normal;
 	}
 	
-	sub{line-height:0;}
+	.caveat sup{line-height:0;}
+	.caveat sub{line-height:0}
 	
-/* code fix for defect 570*/
+	.caveat.grey p, .caveat.light p, .caveat.white p
+	{color: rgba(12,18,28,.6);line-height:16px;
+	}
+	
+	/*code fix for 570*/

@@ -4,18 +4,31 @@ import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
 import static com.jlr.core.constants.PricingConstants.PN_YYY;
 import java.text.DecimalFormat;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.pojos.PricingPojo;
 
 public class TcoUtils {
 
     public static final String BASE_PATH = "/var/jlr/pricing/";
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(TcoUtils.class);
+
     public static String currencyFormat(String pattern, Double value) {
         if (StringUtils.isBlank(pattern)) {
             return StringUtils.EMPTY;
         }
-        DecimalFormat currencyFormatter = new DecimalFormat(pattern);
+        DecimalFormat currencyFormatter = null;
+        try {
+            currencyFormatter = new DecimalFormat(pattern);
+        } catch (IllegalArgumentException e) {
+            LOGGER.error("Invalid currency pattern {} detected!", pattern);
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                            ErrorUtilsConstants.MODULE_SERVICE, "TcoUtils", e));
+            return StringUtils.EMPTY;
+        }
         String currencyString = StringUtils.EMPTY;
         if (value.intValue() != 0) {
             currencyString = currencyFormatter.format(value);

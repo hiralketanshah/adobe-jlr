@@ -18,17 +18,18 @@
 
         // is checkbox checked?
         var checked = el.prop('checked');
+        var parent = $('.fields-hide-show').parent();
 
         if(checked){
-			 $('.fields-hide-show').show();
-             $('.fields-hide-show').siblings('label').show();
-             $('.fields-hide-show').siblings('coral-icon').show();
+			 parent.show();
+             parent.siblings('label').show();
+             parent.siblings('coral-icon').show();
         }
         else{
 
-			$('.fields-hide-show').hide();
-            $('.fields-hide-show').siblings('label').hide();
-            $('.fields-hide-show').siblings('coral-icon').hide();
+			parent.hide();
+            parent.siblings('label').hide();
+            parent.siblings('coral-icon').hide();
         }
 
    }

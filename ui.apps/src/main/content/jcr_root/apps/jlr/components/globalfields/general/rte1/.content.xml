@@ -43,9 +43,12 @@
         accolades-header="true"
         hero-item-header="true"
         faq-header="true"
+        c-player-header="true"
         vertical-slider-header="true"
-        full-frame-header="true"
         dual-frame-header="true"
+        seat-slider-header="true"
         specs-glance-header="true"
-        hero-title-banner-header="true"/>
+        hero-title-banner-header="true"
+        derivative-container-header="true"
+        derivative-header="true"/>
 </jcr:root>
