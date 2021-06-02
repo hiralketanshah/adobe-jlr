@@ -43,6 +43,7 @@ width: 760px;
 .cmp-derivative__range .cmp-derivative__copy .fontBodyCopyLarge{
     font-size: 18px;
     line-height: 24px;
+    padding-right: 0;
     }
 
 .Derivative__range--extended {
@@ -177,7 +178,6 @@ width: 760px;
     margin: 0;
 }
 .Derivative__links .primaryLinkWithStyle {
-    margin: 17px 0 0;
     margin-right: 25px;
 }
 .Derivative__links .secondaryLinkWithStyle {
@@ -412,6 +412,7 @@ width: 760px;
 }
 [data-attribute-total|="3"] .Derivative__engine-wrapper{
     min-width: 29%;
+    width: 29%;
 }
 .Derivative__engine-wrapper {
     margin-top: 25px;
@@ -754,7 +755,8 @@ padding-bottom: 20px;
     text-overflow: inherit;
     letter-spacing: 0.45px;
     font-size: 11px;
-    line-height: 14px;    
+    line-height: 14px; 
+    text-transform: uppercase;   
 }
 .cmp-derivativesOverview .dxDropdown--active .dxDropdown__button {
     background-color: #F0F0F04D;
@@ -807,6 +809,33 @@ padding-bottom: 20px;
 }
 .cmp-derivative__copy .secondaryLinkContainer .secondaryLinkWithStyle{
     margin-top: 24px;
+    line-height: 12.5px;
+}
+.cmp-derivative__copy .linkContainer {
+    text-transform: uppercase;
+    padding: 0;
+}
+.js .Derivative__strapline p::first-letter,
+.fontBodyCopyLarge p::first-letter,
+.Derivative__caveat p::first-letter,
+.Derivative__grouped-feature-column ul li::first-letter {
+    text-transform: uppercase;
+}
+.DerivativesOverview__control-text p,
+.DerivativesOverview__control-item,
+.Derivative__cta-configurator,
+.Derivative__cta-standardFeatures{
+text-transform: uppercase;
+}
+.js .Derivative__engine-attribute-label{
+    width: 100% !important;
+}
+#landrover .Derivative__links .secondaryLinkWithStyle{
+    margin-top: 14px;
+    margin-bottom: 20px;
+}
+.Derivative__links-primary .primaryLinkWithStyle{
+    margin-top: 0;
 }
 @media screen and (min-width: 769px) {
     .cmp-derivativesOverview .toggleLinksItem {
@@ -869,6 +898,7 @@ padding-bottom: 20px;
         line-height: 19px;
         letter-spacing: 0.2px;
     }
+    
     .js .Derivative__caveat{
         margin-top: 15px;
         font-size: 11px;
@@ -1016,9 +1046,7 @@ padding-bottom: 20px;
         flex-wrap: wrap;
         align-items: center;
     }
-    .js .Derivative__links > :first-child {
-        margin-right: 28px;
-    }
+   
     .js .Derivative__specs {
         display: flex;
         flex-direction: column;
@@ -1128,6 +1156,7 @@ padding-bottom: 20px;
     .cmp-derivative__range .cmp-derivative__copy .fontBodyCopyLarge{
         font-size: 14px;
         line-height: 19px;
+        margin: 0;
     }
     .cmp-derivativesOverview .DxTabs__tab{
         font-size: 11px;
@@ -1170,6 +1199,67 @@ padding-bottom: 20px;
     }
     .Derivative__controls-form-submit{
         width: auto;
+    }
+    #landrover .cmp-derivative__copy .secondaryLinkWithStyle{
+        margin-bottom: 0;
+        margin-top: 24px;
+    }
+    .js .Derivative__image {
+        height: calc(103.7vw / 2);
+    }
+    .Derivative__full-derivative-name-wrapper{
+        width: 460px;
+    }
+    .Derivative__strapline{
+        line-height: 19px;
+    }
+    .Derivative__caveat{
+        margin-top: 17px;
+        font-size: 11px;
+        letter-spacing: 0.45px;
+        line-height: 15px;
+    }
+    .Derivative__strapline,
+    .Derivative__caveat{
+        width: 432px;
+    }
+    .Derivative__price{
+        width: 196px;
+    }
+    .Derivative__from-price{
+        font-family: "lr_ot4", "arial", "helvetica", sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.9px;
+        line-height: 20px;
+    }
+    .Derivative__lease{
+        margin: 0;
+    }
+    .Derivative__cta-configurator{
+        margin-top: 16px;
+    }
+    .Derivative__engine-wrapper{
+        margin-top: 0;
+        min-width: 50%;
+        margin-bottom: 20px;
+    }
+    .js .Derivative__engine-data{
+        width: 524px;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    [data-attribute-total|="3"] .Derivative__engine-wrapper{
+        min-width: 33.33%;
+    }
+    .Derivative__text-cta{
+        display: inline-block;
+    }
+     #landrover .Derivative__text-cta .secondaryLinkWithStyle{
+        margin-top: 25px;
+    }
+    .Derivative__controls-form-submit{
+        margin: 0;
     }
 }
 @media screen and (min-width: 901px) {
@@ -1222,11 +1312,8 @@ padding-bottom: 20px;
     .cmp-derivativesOverview .DxTabs{
         padding-top: 50px;
     }
-    .Derivative__image{
-        height: 48.8vw;
-    }
     .js .Derivative__intro {
-        padding: 17px 25px 25px;
+        padding: 17px 25px 9px;
     }
     .Derivative__accordion-label{
         padding: 40px 20px 24px 25px;
@@ -1250,7 +1337,7 @@ padding-bottom: 20px;
     }
     
     .Derivative__group--image{
-        padding: 15px 30px 10px;
+        padding: 15px 25px 10px;
     }
     .Derivative__strapline, .Derivative__emissions, .Derivative__price, .Derivative__lease{
         margin: 9px 0 0;
@@ -1263,7 +1350,7 @@ padding-bottom: 20px;
         letter-spacing: 0.14px;
     }
     .Derivative__price{
-    margin-top: 0;
+        margin-top: 17px;
     font-size: 18px;
     letter-spacing: 0.9px;
     line-height: 20px;
@@ -1280,5 +1367,37 @@ padding-bottom: 20px;
     .cmp-derivative__copy .secondaryLinkContainer .secondaryLinkWithStyle{
         margin-top: 24px !important;
         margin-bottom: 0!important;
+    }
+    .Derivative__full-derivative-name-wrapper{
+        width: 100%;
+    }
+    .Derivative__strapline,
+    .Derivative__caveat{
+        width: 100%;
+    }
+    .Derivative__price{
+        width: 100%;
+    }
+    .js .Derivative__engine-data{
+        width: 100%;
+        flex-direction: column;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    [data-attribute-total|="3"] .Derivative__engine-wrapper{
+        min-width: 40%;
+    }
+    #landrover .Derivative__links .secondaryLinkWithStyle{
+        margin-top: 0;
+    }
+    .cmp-derivative__copy .linkContainer{
+        margin-top: 0;
+    }
+    .js .Derivative__image {
+        height: calc(97.7vw / 2);
+    }
+    .Derivative__engine-wrapper{
+        min-width: 40%;
+    width: 40%;
     }
 }
