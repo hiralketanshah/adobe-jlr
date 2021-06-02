@@ -17,6 +17,7 @@ import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
+import com.jlr.core.constants.DerivativeConstants;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
@@ -89,7 +90,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
                 Resource engine = engineListResources.next();
                 ValueMap properties = engine.adaptTo(ValueMap.class);
                 if (null != properties) {
-                    String engineName = properties.get("name", String.class);
+                    String engineName = properties.get(DerivativeConstants.PN_ENGINE_NAME, String.class);
                     engineNames.add(engineName);
                     Map<String, String> dataMap = DerivativeUtils.getDataMap(engine);
                     engineDataList.put(String.valueOf(dataMap.size()), dataMap);

@@ -12,6 +12,7 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -27,6 +28,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.google.gson.Gson;
+import com.jlr.core.constants.DerivativeConstants;
 import com.jlr.core.models.DerivativeContainerModel;
 import com.jlr.core.services.Derivative;
 import com.jlr.core.services.TcoService;
@@ -115,31 +117,34 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     @PostConstruct
     public void init() {
-        if (("tab").equalsIgnoreCase(layout)) {
+        if ((DerivativeConstants.LAYOUT_TAB).equalsIgnoreCase(layout)) {
             selector = request.getRequestPathInfo().getSelectorString();
             Iterator<Resource> tabResources = tabList.listChildren();
             while (tabResources.hasNext()) {
                 Resource tab = tabResources.next();
                 ValueMap properties = tab.adaptTo(ValueMap.class);
                 if (null != properties) {
-                    tabHeadings.put(properties.get("tabHeading", String.class),
-                            properties.get("urlPath", String.class));
+                    String dynamicUrlPath = properties.containsKey(DerivativeConstants.PN_TAB_HEADING)
+                            ? properties.get(DerivativeConstants.PN_TAB_HEADING, String.class)
+                            : StringUtils.EMPTY;
+                    tabHeadings.put(properties.get(DerivativeConstants.PN_TAB_HEADING, String.class), dynamicUrlPath);
                     List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request,
-                            properties.get("link", String.class));
+                            properties.get(DerivativeConstants.PN_LINK, String.class));
                     evaluatePrice(cardList);
-                    listOfTabs.put(properties.get("urlPath", String.class), cardList);
+                    listOfTabs.put(dynamicUrlPath, cardList);
                 }
 
             }
 
-        } else if (("dropdown").equalsIgnoreCase(layout)) {
+        } else if ((DerivativeConstants.LAYOUT_DROPDOWN).equalsIgnoreCase(layout)) {
             Iterator<Resource> iterator = dropdownList.listChildren();
             while (iterator.hasNext()) {
                 Resource resource = iterator.next();
                 ValueMap properties = resource.adaptTo(ValueMap.class);
-                if (null != properties && properties.containsKey("label")) {
-                    firstDropdownList.add(properties.get("label", String.class));
-                    listOfDropdown.put(properties.get("label", String.class), getListOfDerivatives(resource));
+                if (null != properties && properties.containsKey(DerivativeConstants.PN_DROPDOWN_LABEL)) {
+                    firstDropdownList.add(properties.get(DerivativeConstants.PN_DROPDOWN_LABEL, String.class));
+                    listOfDropdown.put(properties.get(DerivativeConstants.PN_DROPDOWN_LABEL, String.class),
+                            getListOfDerivatives(resource));
 
                 }
 
@@ -163,13 +168,13 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     private Map<String, List<DerivativeCardModelImpl>> getListOfDerivatives(Resource resource) {
         Map<String, List<DerivativeCardModelImpl>> listOfDerivatives = new LinkedHashMap<>();
-        Resource derivativeListResource = resource.getChild("derivativeList");
+        Resource derivativeListResource = resource.getChild(DerivativeConstants.NN_DERIVATIVE_LIST);
         Iterator<Resource> derivativeIterator = derivativeListResource.listChildren();
         while (derivativeIterator.hasNext()) {
             Resource res = derivativeIterator.next();
             ValueMap prop = res.adaptTo(ValueMap.class);
             if (null != prop) {
-                String path = prop.get("link", String.class);
+                String path = prop.get(DerivativeConstants.PN_LINK, String.class);
                 String dropdownName = derivativeService.getListOfDerivativeDropdown(request, path);
                 List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request, path);
                 evaluatePrice(cardList);
@@ -191,7 +196,6 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     public String getJson() {
         Map<String, Set<String>> jsonMap = new LinkedHashMap<>();
-
         for (Entry<String, Map<String, List<DerivativeCardModelImpl>>> firstLabel : listOfDropdown.entrySet()) {
             Map<String, List<DerivativeCardModelImpl>> innerMap = firstLabel.getValue();
             Set<String> secondDropdownLabels = new LinkedHashSet<>();
@@ -200,11 +204,8 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
             }
             jsonMap.put(firstLabel.getKey(), secondDropdownLabels);
         }
-
         Gson gson = new Gson();
-
         return gson.toJson(jsonMap);
-
     }
 
     @Override
