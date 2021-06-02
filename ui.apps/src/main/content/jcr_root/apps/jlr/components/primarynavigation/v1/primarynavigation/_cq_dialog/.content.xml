@@ -109,6 +109,13 @@
                                 fieldDescription="Specify the Aria Label for Customer Portal."
                                 fieldLabel="Customer Portal Aria Label"
                                 name="./custPortalAriaLabel"/>
+                            <custPortalIcon
+                                granite:class="primary-nav-cp-icon"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Specify Icon to a customer portal."
+                                fieldLabel="Customer Portal Icon"
+                                name="./custPortalIcon"/>
                             <retailerheading
                                 granite:class="coral-Heading coral-Heading--4"
                                 jcr:primaryType="nt:unstructured"

@@ -187,6 +187,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                 if (VehicleCardConstants.PRIMARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                     vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else if (VehicleCardConstants.SECONDARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
+                	ctaPojo.setIcon("Chevron_Right");
                     secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else {
                     extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));

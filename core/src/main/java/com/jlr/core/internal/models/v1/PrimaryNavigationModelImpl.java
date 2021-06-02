@@ -7,12 +7,16 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.jlr.core.constants.CommonConstants;
@@ -29,72 +33,96 @@ import com.jlr.core.utils.LinkUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { SlingHttpServletRequest.class, Resource.class}, adapters = {
 		PrimaryNavigationModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
 	
+	/** The current page. */
 	@ScriptVariable
-	protected com.day.cq.wcm.api.Page currentPage;
+    protected com.day.cq.wcm.api.Page currentPage;
 
     /** The nav page path one. */
     @Inject
+    @Via("resource")
     private String navPagePathOne;
 
     /** The nav page path two. */
     @Inject
+    @Via("resource")
     private String navPagePathTwo;
 
     /** The nav page path three. */
     @Inject
+    @Via("resource")
     private String navPagePathThree;
 
     /** The logo image alt. */
     @Inject
+    @Via("resource")
     private String logoImageAlt;
 
     /** The logo image link. */
     @Inject
+    @Via("resource")
     private String logoImageLink;
 
     /** The vehicle nav page path. */
     @Inject
+    @Via("resource")
     private String vehicleNavPagePath;
 
     /** The enable last visited. */
     @Inject
+    @Via("resource")
     private String enableLastVisited;
 
     /** The enable cust portal. */
     @Inject
+    @Via("resource")
     private String enableCustPortal;
 
     /** The cust portal link. */
     @Inject
+    @Via("resource")
     private String custPortalLink;
 
+    /** The cust portal icon. */
+    @Inject
+    @Via("resource")
+    private String custPortalIcon;
+    
     /** The cust portal aria label. */
     @Inject
+    @Via("resource")
     private String custPortalAriaLabel;
 
     /** The retailer link. */
     @Inject
+    @Via("resource")
     private String retailerLink;
 
     /** The retailer aria label. */
     @Inject
+    @Via("resource")
     private String retailerAriaLabel;
 
     /** The search aria label. */
     @Inject
+    @Via("resource")
     private String searchAriaLabel;
 
     /** The mobile burger aria label. */
     @Inject
+    @Via("resource")
     private String mobileBurgerAriaLabel;
 
     /** The resource resolver. */
     @Inject
+    @Via("resource")
     private ResourceResolver resourceResolver;
+    
+    /** The logger. */
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /** The Constant RT_MEGADROPDOWN. */
     static final String RT_MEGADROPDOWN = "jlr/components/primarynavigation/v1/megadropdown";
@@ -362,6 +390,16 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
     public String getCustPortalAriaLabel() {
         return custPortalAriaLabel;
     }
+    
+    /**
+     * Gets the cust portal icon.
+     *
+     * @return the cust portal icon
+     */
+    @Override
+    public String getCustPortalIcon() {
+        return custPortalIcon;
+    }
 
     /**
      * Gets the retailer link.
@@ -469,6 +507,7 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
      * @return the nav page title one
      */
     @Override
+    @Via("resource")
     public List<String> getNavPageTitleOne() {
         return getNavPage(navPagePathOne, CommonConstants.PN_PRIMARY_NAV_TITLE);
     }

@@ -190,9 +190,11 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
         if (status) {
             $(el).parent().parent().find(".primary-nav-cp-link").parent().show();
             $(el).parent().parent().find(".primary-nav-cp-aria").parent().show();
+            $(el).parent().parent().find(".primary-nav-cp-icon").parent().show();
         } else {
             $(el).parent().parent().find(".primary-nav-cp-link").parent().hide();
             $(el).parent().parent().find(".primary-nav-cp-aria").parent().hide();
+            $(el).parent().parent().find(".primary-nav-cp-icon").parent().hide();
         }
     }
 });
@@ -203,9 +205,11 @@ $(window).on("dialog-ready", function() {
         if (status) {
             $(this).parent().parent().find(".primary-nav-cp-link").parent().show();
             $(this).parent().parent().find(".primary-nav-cp-aria").parent().show();
+            $(this).parent().parent().find(".primary-nav-cp-icon").parent().show();
         } else {
             $(this).parent().parent().find(".primary-nav-cp-link").parent().hide();
             $(this).parent().parent().find(".primary-nav-cp-aria").parent().hide();
+            $(this).parent().parent().find(".primary-nav-cp-icon").parent().hide();
         }
     });
 });
