@@ -102,6 +102,9 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 		return list;
 	}
 
+	/**
+	 * Gets the Nameplate details from site-wide setting.
+	 */
 	public String getNameplateDetails() {
 		String jcrContentPath= currentPage.getPath();
 		ValueMap properties = resourceResolver.getResource(jcrContentPath+"/jcr:content/nameplateDetails/item0").getValueMap();

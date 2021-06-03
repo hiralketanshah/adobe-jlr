@@ -7,7 +7,7 @@ Vehicle Specs component written in HTL.
 * Vehicle Specs component used for presenting vechicle specification on DX.
 
 ### Use Object
-Vehicle Specs component component uses the `com.jlr.core.models.SpecsGlanceModel.java` Sling model as its Use-object.
+Vehicle Specs component component uses the `com.jlr.core.models.VehicleSpecsModel.java` and 'com.jlr.core.models.PageModel' Sling model as its Use-object.
 
 ### Edit Dialog Properties
 The following properties are written to JCR for this Content Card component and are expected to be available as `Resource` properties:
