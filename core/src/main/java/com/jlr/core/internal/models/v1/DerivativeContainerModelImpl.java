@@ -12,7 +12,6 @@ import java.util.Set;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -124,9 +123,9 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 Resource tab = tabResources.next();
                 ValueMap properties = tab.adaptTo(ValueMap.class);
                 if (null != properties) {
-                    String dynamicUrlPath = properties.containsKey(DerivativeConstants.PN_TAB_HEADING)
-                            ? properties.get(DerivativeConstants.PN_TAB_HEADING, String.class)
-                            : StringUtils.EMPTY;
+                    String dynamicUrlPath = properties.containsKey(DerivativeConstants.PN_URL_PATH)
+                            ? properties.get(DerivativeConstants.PN_URL_PATH, String.class)
+                            : properties.get(DerivativeConstants.PN_TAB_HEADING, String.class);
                     tabHeadings.put(properties.get(DerivativeConstants.PN_TAB_HEADING, String.class), dynamicUrlPath);
                     List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request,
                             properties.get(DerivativeConstants.PN_LINK, String.class));
