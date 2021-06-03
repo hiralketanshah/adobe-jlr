@@ -8,7 +8,7 @@
                   <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}" />
                 </picture>
 				<div data-sly-test="${model.assetType == 'video' && model.videoId && !model.videoPath}" class="videoCustom">
-                    <img>
+                    <img src="${model.posterImage}">
                      <!-- <iframe width="100%" height="100%" src="${model.videoId}" frameborder="0" allowfullscreen></iframe> -->
                 </div>
 				
