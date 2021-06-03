@@ -496,6 +496,10 @@
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                                 path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                            <posterImage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/video/posterImage"/>
                                         </items>
                                     </well>
                                 </items>

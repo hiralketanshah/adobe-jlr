@@ -1,14 +1,13 @@
 package com.jlr.core.models;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.pojos.DerivativeEnginePojo;
 
 /**
  * The Interface DerivativeCardModel.
@@ -53,8 +52,8 @@ public interface DerivativeCardModel {
         return new ArrayList<>();
     }
 
-    default Map<String, Map<String, String>> getEngineDataList() {
-        return new LinkedHashMap<>();
+    default List<DerivativeEnginePojo> getEngineDataList() {
+        return new ArrayList<>();
     }
 
     default String getSpecsAtaGlanceHeading() {
