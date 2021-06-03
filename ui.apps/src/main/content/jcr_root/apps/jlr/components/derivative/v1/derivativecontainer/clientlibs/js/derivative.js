@@ -3786,7 +3786,6 @@
               let urlFileName = $(location).attr('pathname').split('/').pop();
               let fileName = urlFileName.split('.').shift();
               let fileExtension = urlFileName.split('.').pop();
-              url = $(url).text();
               let newUrl = `${fileName}.${url}.${fileExtension}`;
               window.history.pushState({}, '', newUrl);
             };
@@ -7192,4 +7191,3 @@
     
         /******/
       });
-    
