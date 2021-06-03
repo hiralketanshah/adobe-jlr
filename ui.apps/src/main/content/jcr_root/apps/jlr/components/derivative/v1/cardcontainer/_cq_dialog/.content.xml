@@ -19,10 +19,6 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <id
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                path="/mnt/overlay/jlr/components/globalfields/general/id"/>
                             <dropdownname
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
