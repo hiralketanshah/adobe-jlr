@@ -51,15 +51,15 @@
 					${engineNames @context='html'}
 				  </div>
 				  <div class="Derivative__spec" data-sly-repeat="${card.engineDataList}" style="display: block;">
-					<div class="Derivative__engine-data"  data-attribute-total="${item}">
-					  <div class="Derivative__engine-wrapper" data-sly-repeat.test="${card.engineDataList[item]}">
-						<h4 class="Derivative__engine-attribute-label fontBodyCopy" style="height: 16px; width: 105px;">${test @context='html'}
+					<div class="Derivative__engine-data"  data-attribute-total="${item.count}">
+					  <div class="Derivative__engine-wrapper" data-sly-repeat.engineData="${item.engineData}">
+						<h4 class="Derivative__engine-attribute-label fontBodyCopy" style="height: 16px; width: 105px;">${engineData @context='html'}
 						</h4>
 
 						<div class="Derivative__engine-body">
 						  <span class="Derivative__engine-attribute-wrapper">
 							<span class="Derivative__engine-attribute-value">
-							  <span class="Derivative__engine-attribute-primary-value">${card.engineDataList[item][test] @context='html'}</span>
+							  <span class="Derivative__engine-attribute-primary-value">${item.engineData[engineData] @context='html'}</span>
 							</span>
 						  </span>
 						</div>

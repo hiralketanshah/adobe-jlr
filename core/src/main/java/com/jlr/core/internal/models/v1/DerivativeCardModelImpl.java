@@ -2,7 +2,6 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,6 +19,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.constants.DerivativeConstants;
 import com.jlr.core.models.DerivativeCardModel;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.pojos.DerivativeEnginePojo;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.DerivativeUtils;
 
@@ -78,7 +78,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
 
     private List<CTAPojo> list = new ArrayList<>();
     private List<String> engineNames = new ArrayList<>();
-    private Map<String, Map<String, String>> engineDataList = new LinkedHashMap<>();
+    private List<DerivativeEnginePojo> engineDataList = new ArrayList<>();
     private String priceConfigValue;
 
     @PostConstruct
@@ -93,7 +93,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
                     String engineName = properties.get(DerivativeConstants.PN_ENGINE_NAME, String.class);
                     engineNames.add(engineName);
                     Map<String, String> dataMap = DerivativeUtils.getDataMap(engine);
-                    engineDataList.put(String.valueOf(dataMap.size()), dataMap);
+                    engineDataList.add(new DerivativeEnginePojo(String.valueOf(dataMap.size()), dataMap));
                 }
 
             }
@@ -107,7 +107,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
     }
 
     @Override
-    public Map<String, Map<String, String>> getEngineDataList() {
+    public List<DerivativeEnginePojo> getEngineDataList() {
         return engineDataList;
     }
 
