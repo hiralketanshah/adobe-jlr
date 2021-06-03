@@ -285,8 +285,13 @@ h2.heading,
 /* .grey .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
   background-color: #F8F9F9;
 } */
-.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+/* .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
   background-color: #F8F9F9;
+} */
+.VehicleSpecsRulesEngine__specs{
+  background-clip: padding-box;
+  background-color: #F8F9F9;
+
 }
 .white .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
   background-color: #FFFFFF;
