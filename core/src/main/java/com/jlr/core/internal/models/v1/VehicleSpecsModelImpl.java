@@ -31,6 +31,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 
 	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/vehiclespecs/v1/vehiclespecs";
+	public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
 
 	/** The current page. */
 	@Inject
@@ -107,7 +108,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	public String getNameplateDetails() {
 		String jcrContentPath= currentPage.getPath();
-		ValueMap properties = resourceResolver.getResource(jcrContentPath+"/jcr:content/nameplateDetails/item0").getValueMap();
+		ValueMap properties = resourceResolver.getResource(jcrContentPath+NAMEPLATE_PATH).getValueMap();
 		return properties.get("nameplate",String.class)+"_"+properties.get("modelYear",String.class);
 	}
 }

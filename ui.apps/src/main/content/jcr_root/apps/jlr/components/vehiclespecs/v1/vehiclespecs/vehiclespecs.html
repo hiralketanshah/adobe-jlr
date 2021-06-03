@@ -1,116 +1,119 @@
-<sly data-sly-use.vehicleSpecs="${'com.jlr.core.models.VehicleSpecsModel'}"></sly>
-<sly data-sly-use.pageConfig="${'com.jlr.core.models.PageModel'}"></sly>
-<sly data-sly-test="${wcmmode.edit}">
-   <div data-emptytext="${component.title}" class="cq-placeholder"></div>
-</sly>
+   <sly data-sly-use.vehicleSpecs="${'com.jlr.core.models.VehicleSpecsModel'}"></sly>
+   <sly data-sly-use.pageConfig="${'com.jlr.core.models.PageModel'}"></sly>
+   <!--/*<sly data-sly-test="${wcmmode.edit}">
+      <div data-emptytext="${component.title}" class="cq-placeholder"></div>
+   </sly>*/-->
+   <sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
+        data-sly-test.text="${vehicleSpecs.bodyStyleHeader}"/>
+   <sly data-sly-call="${templates.placeholder @ isEmpty = !text, classAppend='cmp-vehicleSpecsRulesEngine'}"></sly>
 
-<section class="cmp-vehicleSpecsRulesEngine stack VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="en">
+   <section class="cmp-vehicleSpecsRulesEngine stack VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="en">
 
-   <section class="RulesEngineDropdown">
-      <div class="RulesEngineDropdown__dropdowns-container">
-         <div class="RulesEngineDropdown__dropdowns">
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle" data-sly-test=${vehicleSpecs.bodyStyleHeader}>
-               <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-1">${vehicleSpecs.bodyStyleHeader @context='html'}</span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-1 dxDropdown__button-1" class="RulesEngineDropdown__dropdown-button dxDropdown__button  fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-1">${vehicleSpecs.bodyStyleHeader @context='html'}</button>
-                  <ul aria-labelledby="dxDropdown__heading-1" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-1" role="listbox" tabindex="-1">
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
-                     </li>
+      <section class="RulesEngineDropdown">
+         <div class="RulesEngineDropdown__dropdowns-container">
+            <div class="RulesEngineDropdown__dropdowns">
+               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle" data-sly-test=${vehicleSpecs.bodyStyleHeader}>
+                  <div class="dxDropdown">
+                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-1">${vehicleSpecs.bodyStyleHeader @context='html'}</span>
+                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-1 dxDropdown__button-1" class="RulesEngineDropdown__dropdown-button dxDropdown__button  fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-1">${vehicleSpecs.bodyStyleHeader @context='html'}</button>
+                     <ul aria-labelledby="dxDropdown__heading-1" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-1" role="listbox" tabindex="-1">
+                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" role="option">
+                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
+                        </li>
 
-                  </ul>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model" data-sly-test=${vehicleSpecs.modelHeader}>
+                  <div class="dxDropdown">
+                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-2">${vehicleSpecs.modelHeader @context='html'}</span>
+                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-2 dxDropdown__button-2" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-2">${vehicleSpecs.modelHeader @context='html'}</button>
+                     <ul aria-labelledby="dxDropdown__heading-2" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-2" role="listbox" tabindex="-1">
+                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
+                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine" data-sly-test=${vehicleSpecs.engineHeader}>
+                  <div class="dxDropdown">
+                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropown__heading" id="dxDropdown__heading-3">${vehicleSpecs.engineHeader @context='html'}</span>
+                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-3 dxDropdown__button-3" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-3">${vehicleSpecs.engineHeader @context='html'}</button>
+                     <ul aria-labelledby="dxDropdown__heading-3" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-3" role="listbox" tabindex="-1">
+                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
+                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack" data-sly-test=${vehicleSpecs.specHeader}>
+                  <div class="dxDropdown">
+                     <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-4">${vehicleSpecs.specHeader @context='html'}</span>
+                     <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-4 dxDropdown__button-4" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-4">${vehicleSpecs.specHeader @context='html'}</button>
+                     <ul aria-labelledby="dxDropdown__heading-4" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-4" role="listbox" tabindex="-1">
+                        <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-4-1" role="option">
+                           <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
+                        </li>
+                     </ul>
+                  </div>
                </div>
             </div>
 
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--model" data-feature="model" data-sly-test=${vehicleSpecs.modelHeader}>
-               <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-2">${vehicleSpecs.modelHeader @context='html'}</span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-2 dxDropdown__button-2" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-2">${vehicleSpecs.modelHeader @context='html'}</button>
-                  <ul aria-labelledby="dxDropdown__heading-2" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-2" role="listbox" tabindex="-1">
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-2-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
-                     </li>
-                  </ul>
-               </div>
+            <div class="RulesEngineDropdown__submit">
+               <button aria-labelledby="RulesEngineDropdown__submit-button dxDropdown__button-1 dxDropdown__button-2 dxDropdown__button-3 dxDropdown__button-4" class="RulesEngineDropdown__submit-button primaryLinkWithStyle" id="RulesEngineDropdown__submit-button">VIEW SPECIFICATIONS</button>
             </div>
+         </div>
+      </section>
+      <div class="VehicleSpecsRulesEngine__error hidden">
+         <div class="Snippet shelfComponent" data-theme="light" id="295-722315">
+            <p class="copy fontBodyCopyLarge" data-sly-use.vehicleconfig="${'com.jlr.core.models.SiteConfigModel' @ key='vehiclespecificationv2.errormessage'}" >${vehicleconfig.configValue}</p>
 
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--engine" data-feature="engine" data-sly-test=${vehicleSpecs.engineHeader}>
-               <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropown__heading" id="dxDropdown__heading-3">${vehicleSpecs.engineHeader @context='html'}</span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-3 dxDropdown__button-3" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-3">${vehicleSpecs.engineHeader @context='html'}</button>
-                  <ul aria-labelledby="dxDropdown__heading-3" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-3" role="listbox" tabindex="-1">
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-3-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
+         </div>
+      </div>
+      <div class="VehicleSpecsRulesEngine__specs VehicleSpecsRulesEngine__specs--hide">
+         <sly data-sly-test.ispriceEnable="${vehicleSpecs.enablePrice @ context='html'}">
+            <script id="VehicleSpecsRulesEngineCms" type="application/json">
+               {"accordionTitle":"PRICING","format":"£###,##0.00","table":[{"key":"NET","text":"Retail Price (inc VAT and Delivery)","caveat":null},{"key":"RETAIL","text":"On the Road Price","caveat":null}]}
+            </script>
+         </sly>
+         <sly data-sly-test="${!ispriceEnable}">
+            <script id="VehicleSpecsRulesEngineCms" type="application/json">
+               {}
+            </script>
+         </sly>
+         <div class="VehicleSpecsRulesEngine__specs-heading hidden">
+            <h2 class="VehicleSpecsRulesEngine__specs-title fontH1 heading headingH2 headingCentre"></h2>
+            <p class="VehicleSpecsRulesEngine__specs-engine fontBodyCopyLarge"></p>
+         </div>
 
-            <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--specpack" data-feature="specpack" data-sly-test=${vehicleSpecs.specHeader}>
-               <div class="dxDropdown">
-                  <span class="RulesEngineDropdown__dropdown-heading fontH5 dxDropdown__heading" id="dxDropdown__heading-4">${vehicleSpecs.specHeader @context='html'}</span>
-                  <button aria-haspopup="listbox" aria-labelledby="dxDropdown__heading-4 dxDropdown__button-4" class="RulesEngineDropdown__dropdown-button dxDropdown__button fontEmissionsDetails icon-chevron-down" id="dxDropdown__button-4">${vehicleSpecs.specHeader @context='html'}</button>
-                  <ul aria-labelledby="dxDropdown__heading-4" class="RulesEngineDropdown__dropdown-list dxDropdown__list" id="dxDropdown__list-4" role="listbox" tabindex="-1">
-                     <li class="RulesEngineDropdown__dropdown-item dxDropdown__list-item" id="dxDropdown__list-4-1" role="option">
-                        <a class="dxDropdown__list-item-link fontEmissionsDetails" href="#">Option 1</a>
-                     </li>
-                  </ul>
+         <div class="dxAccordion VehicleSpecsRulesEngine__specs-accordion hidden">
+            <div class="dxAccordion__section">
+               <h3 class="dxAccordion__section-title">
+                  <button aria-controls="dxAccordion__panel--1" aria-expanded="false" class="dxAccordion__trigger" id="dxAccordion--1">
+                     <span class="dxAccordion__title fontH4 heading headingH5"></span>
+                  </button>
+               </h3>
+               <div aria-labelledby="dxAccordion--1" class="dxAccordion__panel" id="dxAccordion__panel--1" role="region">
+
                </div>
             </div>
          </div>
 
-         <div class="RulesEngineDropdown__submit">
-            <button aria-labelledby="RulesEngineDropdown__submit-button dxDropdown__button-1 dxDropdown__button-2 dxDropdown__button-3 dxDropdown__button-4" class="RulesEngineDropdown__submit-button primaryLinkWithStyle" id="RulesEngineDropdown__submit-button">VIEW SPECIFICATIONS</button>
-         </div>
+
+
+      </div>
+      <div class="VehicleSpecsRulesEngine__specs-cta">
+         <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
+            <sly data-sly-test="${cta.text}">
+                 <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
+                    <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'}" ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
+                    <span aria-hidden="true">${cta.text @context='html'}</span>
+                    </a>
+                 </span>
+            </sly>
+         </sly>
       </div>
    </section>
-   <div class="VehicleSpecsRulesEngine__error hidden">
-      <div class="Snippet shelfComponent" data-theme="light" id="295-722315">
-         <p class="copy fontBodyCopyLarge" data-sly-use.vehicleconfig="${'com.jlr.core.models.SiteConfigModel' @ key='vehiclespecificationv2.errormessage'}" >${vehicleconfig.configValue}</p>
-
-      </div>
-   </div>
-   <div class="VehicleSpecsRulesEngine__specs VehicleSpecsRulesEngine__specs--hide">
-      <sly data-sly-test.ispriceEnable="${vehicleSpecs.enablePrice @ context='html'}">
-         <script id="VehicleSpecsRulesEngineCms" type="application/json">
-            {"accordionTitle":"PRICING","format":"£###,##0.00","table":[{"key":"NET","text":"Retail Price (inc VAT and Delivery)","caveat":null},{"key":"RETAIL","text":"On the Road Price","caveat":null}]}
-         </script>
-      </sly>
-      <sly data-sly-test="${!ispriceEnable}">
-         <script id="VehicleSpecsRulesEngineCms" type="application/json">
-            {}
-         </script>
-      </sly>
-      <div class="VehicleSpecsRulesEngine__specs-heading hidden">
-         <h2 class="VehicleSpecsRulesEngine__specs-title fontH1 heading headingH2 headingCentre"></h2>
-         <p class="VehicleSpecsRulesEngine__specs-engine fontBodyCopyLarge"></p>
-      </div>
-
-      <div class="dxAccordion VehicleSpecsRulesEngine__specs-accordion hidden">
-         <div class="dxAccordion__section">
-            <h3 class="dxAccordion__section-title">
-               <button aria-controls="dxAccordion__panel--1" aria-expanded="false" class="dxAccordion__trigger" id="dxAccordion--1">
-                  <span class="dxAccordion__title fontH4 heading headingH5"></span>
-               </button>
-            </h3>
-            <div aria-labelledby="dxAccordion--1" class="dxAccordion__panel" id="dxAccordion__panel--1" role="region">
-
-            </div>
-         </div>
-      </div>
-
-
-
-   </div>
-   <div class="VehicleSpecsRulesEngine__specs-cta">
-      <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
-         <sly data-sly-test="${cta.text}">
-	          <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
-                 <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'}" ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
-                 <span aria-hidden="true">${cta.text @context='html'}</span>
-                 </a>
-              </span>
-         </sly>
-      </sly>
-   </div>
-</section>
