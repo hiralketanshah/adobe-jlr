@@ -5,10 +5,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import com.day.cq.wcm.api.Page;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -21,35 +25,46 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {VehicleSpecsModel.class}, resourceType = VehicleSpecsModelImpl.RESOURCE_TYPE)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {VehicleSpecsModel.class}, resourceType = VehicleSpecsModelImpl.RESOURCE_TYPE)
 public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpecsModel {
 
 
 	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/vehiclespecs/v1/vehiclespecs";
 
+	/** The current page. */
+	@Inject
+	private Page currentPage;
+
+
 	/** The resource resolver. */
 	@Inject
 	private ResourceResolver resourceResolver;
 
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	@Via("resource")
 	private String bodyStyleHeader;
 
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	@Via("resource")
 	private String modelHeader;
 
-	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+		@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	@Via("resource")
 	private String engineHeader;
 
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	@Via("resource")
 	private String specHeader;
 
 	@ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+	@Via("resource")
 	private boolean enablePrice;
 
 	/** The cta list. */
 	@Inject
 	@Optional
+	@Via("resource")
 	private Resource ctaList;
 
 	/** The list. */
@@ -85,5 +100,11 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 			list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
 		}
 		return list;
+	}
+
+	public String getNameplateDetails() {
+		String jcrContentPath= currentPage.getPath();
+		ValueMap properties = resourceResolver.getResource(jcrContentPath+"/jcr:content/nameplateDetails/item0").getValueMap();
+		return properties.get("nameplate",String.class)+"_"+properties.get("modelYear",String.class);
 	}
 }

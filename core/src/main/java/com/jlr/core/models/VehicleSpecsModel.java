@@ -16,4 +16,5 @@ public interface VehicleSpecsModel {
 	default List<CTAPojo> getCtaList() {
 		return new ArrayList<>();
 	}
+	public String getNameplateDetails();
 }
