@@ -214,3 +214,23 @@
         height:15px; 
     }
 }
+/*--------------- code fix --------------*/
+@media screen and (min-width: 1280px) and (max-width:1920px){
+    .cmp-quote .cmp-quote__content{width:1340px;}
+
+}
+@media screen and (min-width: 1024px) and (max-width:1279px){
+    .cmp-quote .cmp-quote__content{width:1160px;}
+
+}
+@media screen and (min-width: 768px) and (max-width:990px){
+    .cmp-quote .cmp-quote__content{width:708px;}
+
+}
+@media screen and (min-width: 1px) and (max-width:640px){
+    .cmp-quote .cmp-quote__content{width:325px;}
+
+}
+
+
+/*--------------- code fix --------------*/
