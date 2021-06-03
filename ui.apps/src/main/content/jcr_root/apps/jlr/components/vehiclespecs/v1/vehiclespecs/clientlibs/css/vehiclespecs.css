@@ -282,7 +282,10 @@ h2.heading,
 .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger {
   background-color: #FFFFFF;
 }
-.grey .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+/* .grey .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+  background-color: #F8F9F9;
+} */
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
   background-color: #F8F9F9;
 }
 .white .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
