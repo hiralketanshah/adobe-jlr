@@ -3280,9 +3280,9 @@
     
                       var dynamicURL = (0, _dynamicUrl.tabHasDynamicURL)(selectedTab);
     
-    
                       if (dynamicURL) {
                         var formattedURL = (0, _dynamicUrl.removeSSLFromLocalURL)(dynamicURL);
+    
                         (0, _dynamicUrl.pushDynamicURLToHistory)(formattedURL);
                       }
                     }
@@ -3782,7 +3782,13 @@
             };
     
             var pushDynamicURLToHistory = exports.pushDynamicURLToHistory = function pushDynamicURLToHistory(url) {
-              window.history.pushState({}, '', url);
+    
+              let urlFileName = $(location).attr('pathname').split('/').pop();
+              let fileName = urlFileName.split('.').shift();
+              let fileExtension = urlFileName.split('.').pop();
+              url = $(url).text();
+              let newUrl = `${fileName}.${url}.${fileExtension}`;
+              window.history.pushState({}, '', newUrl);
             };
     
             var getPanelFromURL = exports.getPanelFromURL = function getPanelFromURL(element, url) {
