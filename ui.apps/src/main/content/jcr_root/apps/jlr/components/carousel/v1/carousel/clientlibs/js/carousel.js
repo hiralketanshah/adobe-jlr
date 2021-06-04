@@ -12611,29 +12611,40 @@
     carousalElements.forEach((el)=>{
       el.classList.add('cmp-accolades-carousel');
       let accolades = el.querySelector('.cmp-accolades');
+      el.querySelectorAll('.cmp-accolades').forEach((el)=>{
+        let onlyCopy = el.querySelector('.cmp-onlyCopy');
+        let handleOnlyCopy = ()=>{
+          let onlyCopy = el.querySelector('.cmp-onlyCopy');
+          onlyCopy.style.paddingRight="0px";
+          el.style.display ="block";
+          let img = el.querySelector('.cmp-accolades__img');
+          if(img){
+            img.style.display="none";
+          }
+          if(window.innerWidth>=1280){
+            el.style.paddingTop = "60px";
+            el.style.paddingBottom = "80px";
+          }
+         
+          if(window.innerWidth>=768 && window.innerWidth<=1279 ){
+            el.style.paddingTop = "40px";
+            el.style.paddingBottom = "60px";
+          }
+          if(window.innerWidth<=767){
+            el.style.paddingTop = "30px";
+            el.style.paddingBottom = "40px";
+          }
+        }
+        if(onlyCopy){
+          handleOnlyCopy();
+          $(el).resize(()=>{
+            handleOnlyCopy();
+          });
+      
+         
+        }
+      })
       if(accolades){
-        let onlyCopy = accolades.querySelector('.cmp-onlyCopy');
-    
-            if(onlyCopy){
-              accolades.style.display ="block";
-              let img = accolades.querySelector('.cmp-accolades__img');
-              if(img){
-                img.style.display="none";
-              }
-              if(window.innerWidth>=1280){
-                accolades.style.paddingBottom = "80px";
-              }
-             
-              if(window.innerWidth>=768 && window.innerWidth<=1279 ){
-                accolades.style.paddingTop = "40px";
-                accolades.style.paddingBottom = "60px";
-              }
-              if(window.innerWidth<=767){
-                accolades.style.paddingTop = "30px";
-                accolades.style.paddingBottom = "40px";
-              }
-             
-            }
         let controls = el.querySelector('.cmp-carousel__controls');
         controls.classList.add('cmp-accolades_pagination');
         FullFrameCarouselInit(jQuery, window,"Accolades",isBlack);
