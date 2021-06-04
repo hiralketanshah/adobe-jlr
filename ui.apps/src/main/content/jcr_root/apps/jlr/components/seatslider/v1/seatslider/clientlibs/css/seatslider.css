@@ -75,7 +75,8 @@
 }
 
 .cmp-interactiveSlider:not(.old) .infoContainer .content {
-	text-align: left
+	text-align: left; 
+	opacity :1 !important;
 }
 
 .cmp-interactiveSlider:not(.old) .infoContainer .content.noOdo .copy {
