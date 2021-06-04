@@ -45,6 +45,12 @@ public class ErrorUtilsConstants {
 
     /** The Constant AEM_EMAIL_MESSAGING_EXCEPTION. */
     public static final String AEM_EMAIL_MESSAGING_EXCEPTION = "008 - AEM_EMAIL_MESSAGING_EXCEPTION";
+    /** The Constant AEM_WCM_EXCEPTION. */
+    public static final String AEM_WCM_EXCEPTION = "009 - AEM_WCM_EXCEPTION";
+    /** The Constant AEM_WCM_EXCEPTION. */
+    public static final String AEM_TASK_MANAGER_EXCEPTION = "010 - AEM_TASK_MANAGER_EXCEPTION";
+    /** The Constant AEM_REPLICATION_EXCEPTION. */
+    public static final String AEM_REPLICATION_EXCEPTION = "011 - AEM_REPLICATION_EXCEPTION";
 
 
     /** Type. */

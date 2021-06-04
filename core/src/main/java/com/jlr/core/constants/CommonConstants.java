@@ -333,4 +333,7 @@ public class CommonConstants {
      * The constant JLR_LOCALE_PRICING.
      */
     public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
+
+    /** The Constant JLR_WORKFLOW_SUBSERVICE. */
+    public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
 }
