@@ -18,7 +18,7 @@ window.onclick = function (event) {
     if (event.target == modal) {
         $('.contentCardVideo').each(function () {
             var el_src = $(this).attr("src");
-            $(this).attr("src", el_src);
+            $(this).attr("src", "");
         });
         modal.style.display = "none";
     }
