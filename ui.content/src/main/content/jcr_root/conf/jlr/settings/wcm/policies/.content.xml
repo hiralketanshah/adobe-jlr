@@ -1362,7 +1362,8 @@
                                         <item1
                                             cq:styleClasses="large"
                                             cq:styleId="1621447007996"
-                                            cq:styleLabel="Large"/>
+                                            cq:styleLabel="Large"
+                                            jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item1>
                             </cq:styleGroups>
