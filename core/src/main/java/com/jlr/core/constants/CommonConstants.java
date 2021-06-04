@@ -333,4 +333,9 @@ public class CommonConstants {
      * The constant JLR_LOCALE_PRICING.
      */
     public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
+
+    /**
+     * The constant NAMEPLATE_PATH.
+     */
+    public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
 }

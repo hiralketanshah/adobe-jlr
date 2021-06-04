@@ -11783,10 +11783,10 @@
   }
   // Accolades End
   // Full frame start
-  const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel") => {
+  const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel",isBlack=false) => {
+    
     const FullFrameCarousel = {
       _defaults: {},
-  
       uiSelectors: {
         fullFrameItems: '.cmp-genericItem',
         videoPlayers: '.VideoPlayer',
@@ -11822,12 +11822,14 @@
       __autoPlay:true,
       _autoPlayduration:6000,
       _sliderSpeed:600,
+      _isBlack:false,
   
       init_rtl() {
         this._direction = 'slideFromLeft';
       },
   
       init() {
+        this._isBlack = isBlack;
         const sliderElement = this.element.querySelector('.cmp-carousel__slider');
         if(sliderElement){
           sliderElement.insertAdjacentHTML('beforeend', `
@@ -11869,7 +11871,6 @@
         let videomp4List = this.element.querySelectorAll('video');  
           videomp4List.forEach((videomp4)=>{
             if(cmp_name!="HeroCarousel" && cmp_name!="HeroTitleBanner"){
-              console.log(cmp_name);
               videomp4.removeAttribute("controls");
             }
             setInterval(function() {
@@ -12143,10 +12144,9 @@
         if (this._direction === 'slideFromLeft') {
           startingSlideId = this.$element.data('total') - 1;
         }
-  
         const labels = this._getLabels();
         const paginationOptions = {
-          isBlack:false,
+          isBlack:this._isBlack,
           labels,
           numberOfPips: this._total,
           defaultSelected: startingSlideId,
@@ -12609,11 +12609,81 @@
   const carousalElements = document.querySelectorAll('.cmp-carousel');
   if (carousalElements.length) {
     carousalElements.forEach((el)=>{
+      el.classList.add('cmp-accolades-carousel');
       let accolades = el.querySelector('.cmp-accolades');
       if(accolades){
+        let onlyCopy = el.querySelector('.cmp-onlyCopy');
+    
+            if(onlyCopy){
+              accolades.style.display ="block";
+              let img = el.querySelector('.cmp-accolades__img');
+              if(img){
+                img.style.display="none";
+              }
+              if(window.innerWidth>=1280){
+                accolades.style.paddingBottom = "80px";
+              }
+             
+              if(window.innerWidth>=768 && window.innerWidth<=1279 ){
+                accolades.style.paddingTop = "40px";
+                accolades.style.paddingBottom = "60px";
+              }
+              if(window.innerWidth<=767){
+                accolades.style.paddingTop = "30px";
+                accolades.style.paddingBottom = "40px";
+              }
+             
+            }
         let controls = el.querySelector('.cmp-carousel__controls');
         controls.classList.add('cmp-accolades_pagination');
-        new Accolades(el,isBlack)
+        FullFrameCarouselInit(jQuery, window,"Accolades",isBlack);
+        const comp = $(el);
+        if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
+          comp.Accolades();
+        }
+        setTimeout(()=>{
+          let controls = el.querySelector('.cmp-carousel__controls');
+          if(controls)
+          if(el.querySelectorAll(".cmp-accolades__copy").length>0){
+            //pagination enabled
+            let controls = el.querySelector('.cmp-accolades_pagination');
+            if(controls){
+              $(el).resize(()=>{
+                if(window.innerWidth <=1279){
+                  let controlsFFC = el.querySelector('.cmp-accolades_pagination');
+                  let height = accolades.clientHeight ;      
+                   controlsFFC.style.top = "0px";
+                   controlsFFC.style.top = (height-11)+"px";      
+                  accolades.style.marginBottom="50px";
+                } 
+                if(window.innerWidth >=1280){
+                  let controlsFFC = el.querySelector('.cmp-accolades_pagination');
+                  let height = accolades.clientHeight ;
+                  
+                  controlsFFC.style.top = "0px";
+                  controlsFFC.style.top = (height+7)+"px";
+                  accolades.style.marginBottom="70px";
+                }   
+              });    
+              if(window.innerWidth <=1279){
+                let controlsFFC = el.querySelector('.cmp-accolades_pagination');
+                let height = accolades.clientHeight ;      
+                 controlsFFC.style.top = "0px";
+                 controlsFFC.style.top = (height)+"px";      
+                accolades.style.marginBottom="50px";
+              } 
+              if(window.innerWidth >=1280){
+                let controlsFFC = el.querySelector('.cmp-accolades_pagination');
+                let height = accolades.clientHeight ;
+                
+                controlsFFC.style.top = "0px";
+                controlsFFC.style.top = (height+7)+"px";
+               accolades.style.marginBottom="70px";
+              }     
+            }
+        };
+        },200);
+        //new Accolades(el,isBlack)
       }
     });
   }
