@@ -7,19 +7,23 @@ $('.ContentCard__Youtube').click(function () {
     $('.contentCardVideo').attr('src', url);
     modal.style.display = "block";
 });
-closeBtn.onclick = function () {
-    $('.contentCardVideo').each(function () {
-        var el_src = $(this).attr("src");
-        $(this).attr("src", el_src);
-    });
-    modal.style.display = "none";
-}
-window.onclick = function (event) {
-    if (event.target == modal) {
+if (closeBtn) {
+    closeBtn.onclick = function () {
         $('.contentCardVideo').each(function () {
             var el_src = $(this).attr("src");
             $(this).attr("src", "");
         });
         modal.style.display = "none";
+    }
+}
+window.onclick = function (event) {
+    if (modal) {
+        if (event.target == modal) {
+            $('.contentCardVideo').each(function () {
+                var el_src = $(this).attr("src");
+                $(this).attr("src", el_src);
+            });
+            modal.style.display = "none";
+        }
     }
 }
