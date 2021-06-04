@@ -195,13 +195,10 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
-                                        <galleryLink
+                                        <videoId
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                            fieldDescription="Link to a video gallery page."
-                                            fieldLabel="Video Gallery Link"
-                                            name="./galleryLink"
-                                            rootPath="/content/landrover/global"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
                                         <target
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"

@@ -45,10 +45,6 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
     @Inject
     private String price;
 
-    /** The gallery link. */
-    @Inject
-    private String galleryLink;
-
     /** The cta list. */
     @Inject
     private Resource ctaList;
@@ -141,16 +137,6 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
     @Override
     public void setPriceConfigValue(String priceConfigValue) {
         this.priceConfigValue = priceConfigValue;
-    }
-
-    /**
-     * Gets the gallery link.
-     *
-     * @return the gallery link
-     */
-    @Override
-    public String getGalleryLink() {
-        return LinkUtils.appendLinkExtension(galleryLink, resourceResolver);
     }
 
 }
