@@ -1,6 +1,7 @@
 package com.jlr.core.models;
 
 import com.jlr.core.pojos.CTAPojo;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,35 +18,45 @@ public interface VehicleSpecsModel {
 	 *
 	 * @return the bodyStyleHeader
 	 */
-	public String getBodyStyleHeader();
+	public default String getBodyStyleHeader() {
+		return StringUtils.EMPTY;
+	}
 
 	/**
 	 * Gets modelHeader.
 	 *
 	 * @return the modelHeader
 	 */
-	public String getModelHeader();
+	public default String getModelHeader() {
+		return StringUtils.EMPTY;
+	}
 
 	/**
 	 * Gets engineHeader.
 	 *
 	 * @return the engineHeader
 	 */
-	public String getEngineHeader();
+	public default String getEngineHeader() {
+		return StringUtils.EMPTY;
+	}
 
 	/**
 	 * Gets specHeader.
 	 *
 	 * @return the specHeader
 	 */
-	public String getSpecHeader();
+	public default String getSpecHeader() {
+		return StringUtils.EMPTY;
+	}
 
 	/**
 	 * Gets enablePrice.
 	 *
 	 * @return the enablePrice
 	 */
-	public boolean isEnablePrice();
+	public default boolean isEnablePrice() {
+		return false;
+	}
 
 	/**
 	 * Gets the cta list.
@@ -61,5 +72,7 @@ public interface VehicleSpecsModel {
 	 *
 	 * @return the nameplateDetails
 	 */
-	public String getNameplateDetails();
+	public default String getNameplateDetails() {
+		return StringUtils.EMPTY;
+	}
 }

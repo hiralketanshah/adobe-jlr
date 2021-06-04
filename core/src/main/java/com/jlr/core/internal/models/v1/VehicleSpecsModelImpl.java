@@ -6,6 +6,8 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.constants.CommonConstants;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -31,7 +33,6 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 
 	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/vehiclespecs/v1/vehiclespecs";
-	public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
 
 	/** The current page. */
 	@Inject
@@ -71,23 +72,52 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	/** The list. */
 	List<CTAPojo> list = new ArrayList<>();
 
+	/**
+	 * Gets bodyStyleHeader.
+	 *
+	 * @return the bodyStyleHeader
+	 */
 	@Override
 	public String getBodyStyleHeader() {
 		return bodyStyleHeader;
 	}
 
+	/**
+	 * Gets modelHeader.
+	 *
+	 * @return the modelHeader
+	 */
+	@Override
 	public String getModelHeader() {
 		return modelHeader;
 	}
 
+	/**
+	 * Gets engineHeader.
+	 *
+	 * @return the engineHeader
+	 */
+	@Override
 	public String getEngineHeader() {
 		return engineHeader;
 	}
 
+	/**
+	 * Gets specHeader.
+	 *
+	 * @return the specHeader
+	 */
+	@Override
 	public String getSpecHeader() {
 		return specHeader;
 	}
 
+	/**
+	 * Gets enablePrice.
+	 *
+	 * @return the enablePrice
+	 */
+	@Override
 	public boolean isEnablePrice() {
 		return enablePrice;
 	}
@@ -108,7 +138,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	public String getNameplateDetails() {
 		String jcrContentPath= currentPage.getPath();
-		ValueMap properties = resourceResolver.getResource(jcrContentPath+NAMEPLATE_PATH).getValueMap();
+		ValueMap properties = resourceResolver.getResource( jcrContentPath + CommonConstants.NAMEPLATE_PATH).getValueMap();
 		return properties.get("nameplate",String.class)+"_"+properties.get("modelYear",String.class);
 	}
 }

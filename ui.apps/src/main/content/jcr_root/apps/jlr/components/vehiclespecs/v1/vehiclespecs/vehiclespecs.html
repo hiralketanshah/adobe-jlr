@@ -1,12 +1,7 @@
-   <sly data-sly-use.vehicleSpecs="${'com.jlr.core.models.VehicleSpecsModel'}"></sly>
-   <sly data-sly-use.pageConfig="${'com.jlr.core.models.PageModel'}"></sly>
-   <!--/*<sly data-sly-test="${wcmmode.edit}">
-      <div data-emptytext="${component.title}" class="cq-placeholder"></div>
-   </sly>*/-->
-   <sly data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
-        data-sly-test.text="${vehicleSpecs.bodyStyleHeader}"/>
-   <sly data-sly-call="${templates.placeholder @ isEmpty = !text, classAppend='cmp-vehicleSpecsRulesEngine'}"></sly>
-
+   <sly data-sly-use.vehicleSpecsModel="${'com.jlr.core.models.VehicleSpecsModel'}"
+        data-sly-use.pageConfigModel="${'com.jlr.core.models.PageModel'}"
+        data-sly-call="${renderVehicleSpec @ vehicleSpecs=vehicleSpecsModel, pageConfig=pageConfigModel}"/>
+   <template data-sly-template.renderVehicleSpec="${ @ vehicleSpecs, pageConfig }">
    <section class="cmp-vehicleSpecsRulesEngine stack VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="en">
 
       <section class="RulesEngineDropdown">
@@ -117,3 +112,4 @@
          </sly>
       </div>
    </section>
+   </template>
