@@ -12612,11 +12612,11 @@
       el.classList.add('cmp-accolades-carousel');
       let accolades = el.querySelector('.cmp-accolades');
       if(accolades){
-        let onlyCopy = el.querySelector('.cmp-onlyCopy');
+        let onlyCopy = accolades.querySelector('.cmp-onlyCopy');
     
             if(onlyCopy){
               accolades.style.display ="block";
-              let img = el.querySelector('.cmp-accolades__img');
+              let img = accolades.querySelector('.cmp-accolades__img');
               if(img){
                 img.style.display="none";
               }
