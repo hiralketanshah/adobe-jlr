@@ -112,8 +112,7 @@
     </uiSettings>
     <granite:data
        jcr:primaryType="nt:unstructured"
-       vehiclesummary-maxlength="{Long}500"
-        c-player-summary="true"
+       c-player-summary="true"
        faq-text="true"
        seat-slider-summary="true"
        vertical-slider-header="true"/>
