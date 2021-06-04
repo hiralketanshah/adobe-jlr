@@ -1,0 +1,635 @@
+
+.VehicleSpecsRulesEngine__specs-heading{
+  background-color: #F8F9F9;
+}
+.VehicleSpecsRulesEngine__specs-engine {
+  text-align: left;
+  font-family: "AvenirNext", "arial", "helvetica", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.RulesEngineDropdown__heading {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #0c121c;
+}
+.RulesEngineDropdown__heading-section {
+  padding: 23px 10px;
+}
+.RulesEngineDropdown__dropdown-heading {
+  color: #4a4f54;
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+.RulesEngineDropdown__dropdown-button,
+.RulesEngineDropdown__dropdown-list-item-link {
+  color: #4a4f54;
+}
+.RulesEngineDropdown {
+  position: relative;
+}
+.RulesEngineDropdown__bgImage {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.RulesEngineDropdown__heading {
+  margin: 0;
+  display: inline-block;
+  padding: 16px 24px;
+}
+.RulesEngineDropdown__heading-section {
+  position: relative;
+}
+.RulesEngineDropdown__heading-container {
+  text-align: center;
+  margin: 0;
+}
+.RulesEngineDropdown__dropdowns-container {
+  background-color: #fff;
+  padding: 30px;
+}
+.RulesEngineDropdown__dropdown {
+  margin-bottom: 24px;
+}
+.RulesEngineDropdown__dropdown-heading {
+  margin: 0 0 14px;
+  display: block;
+}
+.RulesEngineDropdown__submit {
+  padding-top: 16px;
+}
+.RulesEngineDropdown__submit-button {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0;
+}
+@media screen and (min-width: 1280px) {
+  /* .RulesEngineDropdown__dropdowns {
+    justify-content: center;
+  } */
+  .RulesEngineDropdown__dropdowns-section {
+    padding: 47px 90px 76px;
+  }
+  .RulesEngineDropdown__dropdowns-container {
+    padding: 48px;
+  }
+  .RulesEngineDropdown__dropdown {
+    margin-top: 0px;
+    margin-right: 26px;
+    margin-bottom: 45px;
+    margin-left: 0px;
+    flex: 1 1 0;
+    /* max-width: 330px; */
+  }
+  .RulesEngineDropdown__dropdown:nth-of-type(even) {
+    padding-left: 0;
+  }
+  .RulesEngineDropdown__dropdown:nth-of-type(odd) {
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .ie .RulesEngineDropdown__dropdowns {
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ie .RulesEngineDropdown__dropdowns[data-items="2"] {
+    max-width: calc(330px * 2);
+  }
+  .ie .RulesEngineDropdown__dropdowns[data-items="3"] {
+    max-width: calc(330px * 3);
+  }
+  .ie .RulesEngineDropdown__dropdowns[data-items="4"] {
+    max-width: calc(330px * 4);
+  }
+  .ie .RulesEngineDropdown__dropdown {
+    flex: 1 1;
+    width: auto;
+    max-width: none;
+  }
+}
+.VehicleSpecsRulesEngine__specs-engine {
+  font-family: "AvenirNext", "arial", "helvetica", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.TechSpecsTable {
+  width: 100%;
+  text-align: left;
+}
+.TechSpecsTable__heading,
+.TechSpecsTable__cell {
+  text-align: left;
+  padding: 10px;
+  vertical-align: middle;
+}
+.TechSpecsTable__cell {
+  width: 40%;
+}
+/* .TechSpecsTable__caveats {
+  padding-top: 24px;
+} */
+
+@media screen and (min-width: 1280px) {
+  .TechSpecsTable__cell {
+    width: 30%;
+  }
+}
+.TechSpecsTable {
+  border: 1px solid #a4a7a9;
+}
+.TechSpecsTable__row {
+  border-bottom: 1px solid #a4a7a9;
+}
+.TechSpecsTable__heading {
+  background-color: #e4e8e8;
+}
+.TechSpecsTable__caveat {
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+}
+.VehicleSpecsRulesEngine__specs {
+  padding: 30px 0;
+}
+.VehicleSpecsRulesEngine__specs-heading {
+  padding: 0 30px 30px 0;
+  text-align: center;
+}
+.VehicleSpecsRulesEngine__specs-title {
+  margin-bottom: 16px;
+}
+.VehicleSpecsRulesEngine__specs-cta {
+  text-align: center;
+}
+.VehicleSpecsRulesEngine__specs .hidden,
+.VehicleSpecsRulesEngine__specs--hide {
+  display: none;
+}
+.VehicleSpecsRulesEngine__error.hidden {
+  display: none;
+}
+.VehicleSpecsRulesEngine__error p{
+  text-align:  center;
+}
+.VehicleSpecsRulesEngine__error .shelfComponent {
+  display: block;
+  padding: 80px 90px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+@media screen and (min-width: 1280px) {
+  .VehicleSpecsRulesEngine__specs {
+    padding: 47px 90px 76px;
+  }
+}
+.VehicleSpecsRulesEngine__specs {
+  background-color: #FFFFFF;
+}
+.VehicleSpecsRulesEngine__specs-engine {
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  letter-spacing: 0.02rem;
+  font-weight: 400;
+}
+@media screen and (min-width: 1280px) {
+  .VehicleSpecsRulesEngine__specs-engine {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    letter-spacing: 0.02rem;
+    font-weight: 400;
+  }
+}
+.RulesEngineDropdown__heading-section h1 {
+  float: left;
+  clear: both;
+  text-align: left;
+  padding-top: 79px;
+  padding-bottom: 0;
+}
+.RulesEngineDropdown__dropdowns-container {
+  clear: both;
+  padding-left: 0;
+}
+.RulesEngineDropdown__heading-section {
+  padding: 0px 90px 85px 39px;
+}
+.RulesEngineDropdown__heading {
+  padding: 24px 30px 24px 0px;
+  background-color: #fff;
+}
+body {
+  background-color: #fff;
+}
+.logo_comp {
+  width: 508px;
+  height: 266px;
+  background-color: #4a4f54;
+  float: right;
+}
+.VehicleSpecsRulesEngine--stack .RulesEngineDropdown__dropdowns {
+  margin-left: 33px;
+  max-width: 847px;
+}
+#landrover .primaryLinkWithStyle {
+  margin-left: 46px;
+}
+.VehicleSpecsRulesEngine__specs-cta .primaryLinkWithStyle {
+  margin-left: 0;
+}
+.VehicleSpecsRulesEngine__specs-cta {
+  text-align: left;
+}
+.VehicleSpecsRulesEngine__specs-cta a {
+  margin-left: 0;
+}
+.VehicleSpecsRulesEngine__specs {
+  padding: 47px 90px 57px 46px;
+}
+h2.heading,
+.heading.headingH2 {
+  text-align: left;
+}
+.VehicleSpecsRulesEngine__specs-cta a {
+  margin-left: 0 !important;
+}
+.RulesEngineDropdown__dropdowns_horiz {
+  flex: 1 1 0;
+  margin-left: 36px;
+  display: flex;
+  flex-direction: row !important  ;
+  padding-bottom: 0;
+}
+.RulesEngineDropdown__dropdowns-container_horz {
+  padding-bottom: 0;
+}
+.RuleEngine_Horizontal_dropdown {
+  display: none;
+}
+
+
+/* NEW DEV */
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger {
+  background-color: #FFFFFF;
+}
+/* .grey .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+  background-color: #F8F9F9;
+} */
+/* .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+  background-color: #F8F9F9;
+} */
+.VehicleSpecsRulesEngine__specs{
+  background-clip: padding-box;
+  background-color: #F8F9F9;
+
+}
+.white .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+  background-color: #FFFFFF;
+}
+
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+    color: #0C121C;
+}
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger:after{
+    color: #0C121C;
+}
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger:hover{
+    background-color: #E9ECEC;
+}
+.VehicleSpecsRulesEngine .dxAccordion [aria-expanded="true"]{
+    background-color: #E9ECEC;
+}
+
+
+
+  @media screen and (max-width: 768px) {
+    .vehiclespecs{
+      margin-bottom: 112px;
+    }
+    .vehiclespecs .primaryLinkWithStyle{
+      margin-bottom: 0px;
+    }
+    .VehicleSpecsRulesEngine__specs-cta{
+      margin-left: 30px;
+    }
+    .dxAccordion.VehicleSpecsRulesEngine__specs-accordion{
+      margin-bottom: 35px;
+    }
+    .VehicleSpecsRulesEngine .dxAccordion__panel {
+      padding-top:16px;
+      padding-bottom: 25px;
+      padding-left: 9px;
+      padding-right: 9px;
+  }
+    .RulesEngineDropdown__dropdowns-container {
+      padding-top: 0px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+      display: flex;
+      flex-direction: column;
+    }
+    .VehicleSpecsRulesEngine__specs-heading{
+      padding-top: 25px;
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 21px;
+    }
+    .TechSpecsTable__heading,
+    .TechSpecsTable__cell {
+      padding: 20px;
+    }
+     #landrover .RulesEngineDropdown__submit .primaryLinkWithStyle{
+      margin-left: 0px;
+      margin-bottom: 0px;
+    }
+    .RulesEngineDropdown__submit {
+      margin-top: 11px;
+      height: 45px;
+      margin-bottom: 78px;
+      padding-top: 0px;
+  }
+    .RulesEngineDropdown__submit-button{
+      margin-left: 0px;
+      width: auto;
+    }
+    .VehicleSpecsRulesEngine__specs {
+      padding: 0px;
+  }
+  }
+  @media screen and (min-width: 768px) and (max-width: 1280px)  {
+    .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+      padding-left: 30px;
+      padding-top: 18px;
+      padding-bottom: 16px;
+    }
+    .vehiclespecs{
+      margin-bottom: 72px;
+    }
+    .vehiclespecs .primaryLinkWithStyle{
+      margin-bottom: 0px;
+    }
+    .VehicleSpecsRulesEngine__specs-cta{
+      margin-left: 30px;
+    }
+    .dxAccordion.VehicleSpecsRulesEngine__specs-accordion{
+      margin-bottom: 35px;
+    }
+    .VehicleSpecsRulesEngine .dxAccordion__panel {
+      padding-top:24px;
+      padding-bottom: 43px;
+      padding-left: 30px;
+      padding-right: 30px;
+  }
+    .RulesEngineDropdown__dropdowns-container {
+      padding-top: 0px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+      display: flex;
+      flex-direction: column;
+    }
+    .VehicleSpecsRulesEngine__specs-heading{
+      padding-top: 40px;
+      padding-left: 30px;
+      /* padding-right: 25px; */
+      padding-bottom: 60px;
+    }
+    .TechSpecsTable__heading,
+    .TechSpecsTable__cell {
+      padding: 20px;
+    }
+     #landrover .RulesEngineDropdown__submit .primaryLinkWithStyle{
+      margin-left: 0px;
+      margin-bottom: 0px;
+    }
+    .RulesEngineDropdown__submit {
+      margin-top: 11px;
+      height: 45px;
+      padding-top: 0px;
+  }
+    .RulesEngineDropdown__submit-button{
+      margin-left: 0px;
+      width: auto;
+    }
+    .VehicleSpecsRulesEngine__specs {
+      padding: 0px;
+  }
+  }
+  @media screen and (min-width: 1280px) {
+    .RulesEngineDropdown__dropdown{
+      margin-bottom: 24px;
+    }
+    .VehicleSpecsRulesEngine__specs-heading{
+      padding-top: 60px;
+      padding-bottom: 81px;
+    }
+    .vehiclespecs{
+      margin-bottom: 80px;
+    }
+    .VehicleSpecsRulesEngine__specs-cta{
+      padding-left: 60px;
+    }
+    .RulesEngineDropdown__submit-button{
+      width: auto;
+    }
+     .VehicleSpecsRulesEngine .dxAccordion__panel {
+         padding-top: 24px;
+         padding-right: 24px;
+         padding-left: 24px;
+         padding-bottom: 43px;
+      }
+      .RulesEngineDropdown__dropdowns {
+          display: flex;
+          flex-wrap: wrap;
+          flex: 1;
+        }
+      .cmp-vehicleSpecsRulesEngine.stack  .RulesEngineDropdown__dropdowns{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex: 1;
+        width: 760px;
+      }
+      .VehicleSpecsRulesEngine__specs {
+          padding: 0px 60px 15px 60px;
+      }
+      .RulesEngineDropdown__dropdowns-container {
+        padding-top: 80px;
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-bottom: 0p;
+        margin-bottom: 80px;
+      }
+      #landrover .RulesEngineDropdown .primaryLinkWithStyle {
+          margin-left: 0px;
+      }
+      .RulesEngineDropdown .dxDropdown__button{
+          padding-right: 0px;
+      }
+    }
+  @media screen and (min-width: 1920px) {
+    .cmp-vehicleSpecsRulesEngine.stack  .RulesEngineDropdown__dropdowns{
+      width: 880px;
+    }
+    .RulesEngineDropdown__dropdowns-container {
+      padding-top: 80px;
+      padding-left: 290px;
+      padding-right: 290px;
+      padding-bottom: 0p;
+      margin-bottom: 90px;
+    }
+    .VehicleSpecsRulesEngine__specs-cta{
+      padding-left: 290px;
+    }
+    .VehicleSpecsRulesEngine__specs {
+      padding: 0px 290px 15px 290px;
+  }
+}
+/* Common */
+  .RulesEngineDropdown__submit-button{
+  width: auto;
+  }
+  .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+    border-bottom-color: #0C121C26;
+  }
+  .VehicleSpecsRulesEngine .primaryLinkWithStyle span{
+      font-family: "AvenirNext-DemiBold";
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 10px;
+      line-height: 14px;
+  }
+        /* drodown text inside */
+     .RulesEngineDropdown__dropdown-button{
+       font-family: 'AvenirNext';
+       text-align: left;
+       font-size: 11px;
+       letter-spacing: 0.45px;
+       color: #0C121CCC;
+       text-transform: uppercase;
+       line-height: 19px;
+     }
+    /* table coloumn  */
+    .TechSpecsTable__heading,.TechSpecsTable__cell{
+      font-family: 'AvenirNext';
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: 0.99px;
+      color: #333333;
+      line-height: 12px;
+    }  
+    /* FONT */
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+      /* vechicle title  */
+      .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
+        font-size: 30px;
+        text-align: left;
+        font-family: 'LandRoverWeb-Bold';
+        letter-spacing: 1.5px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 30px;
+      }
+      
+      .VehicleSpecsRulesEngine__specs-engine{
+        letter-spacing: 0.2px;
+        text-align: left;
+        font-family: 'AvenirNext';
+        font-weight: normal;
+        line-height: 14px;
+        color: #4A4F54;
+        line-height: 19px;
+      }
+      /* Accordian title */
+      .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+        font-family: 'AvenirNext';
+        text-align: left;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0.17px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 24px;
+      }
+    }
+    @media screen and (max-width: 768px){
+      /* vechicle title  */
+      .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
+        font-size: 26px;
+        text-align: left;
+        font-family: 'LandRoverWeb-Bold';
+        letter-spacing: 1.3px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 26px;
+      }
+      
+      .VehicleSpecsRulesEngine__specs-engine{
+        letter-spacing: 0.2px;
+        text-align: left;
+        font-family: 'AvenirNext';
+        font-weight: normal;
+        line-height: 14px;
+        color: #4A4F54;
+        line-height: 19px;
+      }
+      /* Accordian title */
+      .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+        font-family: 'AvenirNext';
+        text-align: left;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0.17px;
+        color: #0C121C;
+        text-transform: uppercase;
+        line-height: 24px;
+      } 
+    }
+    @media screen and (min-width: 1280px){
+
+     /* vechicle title  */
+     .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
+       font-size: 38px;
+       text-align: left;
+       font-family: 'LandRoverWeb-Bold';
+       letter-spacing: 1.9px;
+       color: #0C121C;
+       text-transform: uppercase;
+       line-height: 39px;
+     }
+     
+     .VehicleSpecsRulesEngine__specs-engine{
+       letter-spacing: 0.2px;
+       text-align: left;
+       font-family: 'AvenirNext';
+       font-weight: normal;
+       line-height: 18px;
+       color: #4A4F54;
+       line-height: 24px;
+     }
+     /* Accordian title */
+     .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+       font-family: 'AvenirNext';
+       text-align: left;
+       font-size: 15px;
+       font-weight: bold;
+       letter-spacing: 0.17px;
+       color: #0C121C;
+       text-transform: uppercase;
+       line-height: 24px;
+     }
+  
+   }
