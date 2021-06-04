@@ -2,7 +2,7 @@
         data-sly-use.pageConfigModel="${'com.jlr.core.models.PageModel'}"
         data-sly-call="${renderVehicleSpec @ vehicleSpecs=vehicleSpecsModel, pageConfig=pageConfigModel}"/>
    <template data-sly-template.renderVehicleSpec="${ @ vehicleSpecs, pageConfig }">
-   <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.locale=='de_DE'?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="en">
+   <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.locale=='de_DE'?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${pageConfig.locale=='de_DE'?'de' : 'en'}">
 
       <section class="RulesEngineDropdown">
          <div class="RulesEngineDropdown__dropdowns-container">
@@ -57,7 +57,7 @@
                </div>
             </div>
 
-            <div class="RulesEngineDropdown__submit" data-sly-use.vehicleconfigbutton="${'com.jlr.core.models.SiteConfigModel' @ key='vehiclespecificationv2.viewspecbutton'}>
+            <div class="RulesEngineDropdown__submit" data-sly-use.vehicleconfigbutton="${'com.jlr.core.models.SiteConfigModel' @ key='vehiclespecificationv2.viewspecbutton'}">
                <button aria-labelledby="RulesEngineDropdown__submit-button dxDropdown__button-1 dxDropdown__button-2 dxDropdown__button-3 dxDropdown__button-4" class="RulesEngineDropdown__submit-button primaryLinkWithStyle" id="RulesEngineDropdown__submit-button">${vehicleconfigbutton.configValue}</button>
             </div>
          </div>
@@ -71,7 +71,7 @@
       <div class="VehicleSpecsRulesEngine__specs VehicleSpecsRulesEngine__specs--hide">
          <sly data-sly-test.ispriceEnable="${vehicleSpecs.enablePrice @ context='html'}">
             <script id="VehicleSpecsRulesEngineCms" type="application/json">
-               {"accordionTitle":"PRICING","format":"£###,##0.00","table":[{"key":"NET","text":"Retail Price (inc VAT and Delivery)","caveat":null},{"key":"RETAIL","text":"On the Road Price","caveat":null}]}
+               {"accordionTitle":"PREIS","format":"€ ###.##0","table":[{"key":"GROSS","text":"Preis ab","caveat":"^"}]}</script>
             </script>
          </sly>
          <sly data-sly-test="${!ispriceEnable}">
