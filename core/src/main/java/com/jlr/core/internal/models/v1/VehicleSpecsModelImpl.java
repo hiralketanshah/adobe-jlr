@@ -137,8 +137,9 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 * Gets the Nameplate details from page properties setting.
 	 */
 	public String getNameplateDetails() {
+
 		String jcrContentPath= currentPage.getPath();
-		ValueMap properties = resourceResolver.getResource( jcrContentPath + CommonConstants.NAMEPLATE_PATH).getValueMap();
-		return properties.get("nameplate",String.class)+"_"+properties.get("modelYear",String.class);
+		ValueMap properties = resourceResolver.getResource( jcrContentPath.concat(CommonConstants.NAMEPLATE_PATH)).getValueMap();
+		return properties.get("nameplate").toString().concat(CommonConstants.UNDERSCORE).concat(properties.get("modelYear",String.class).toString());
 	}
 }
