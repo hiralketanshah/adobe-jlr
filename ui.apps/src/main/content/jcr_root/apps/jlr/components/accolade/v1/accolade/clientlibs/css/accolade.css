@@ -496,5 +496,10 @@ color:#0C121C ;
   margin-left: 0px;
   margin-right: 0px;
 }
+@media screen and (max-width: 1279px){
+  .cmp-accolades-carousel .cmp-carousel__controls {	
+    position: sticky;
+  }
+}
 
 
