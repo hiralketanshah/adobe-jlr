@@ -11,13 +11,12 @@
         sling:resourceType="acs-commons/components/utilities/genericlist">
         <list jcr:primaryType="nt:unstructured">
             <item0
-                jcr:primaryType="nt:unstructured"
-                jcr:title="Default"
-                value="icon-arrow-right"/>
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="None"/>
             <item1
-                jcr:primaryType="nt:unstructured"
-                jcr:title="360"
-                value="icon-360-view"/>
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Default"
+                    value="icon-arrow-right"/>
             <item2
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Accessories"
@@ -491,8 +490,9 @@
                 jcr:title="CO2"
                 value="icon-CO2"/>
             <item120
-                jcr:primaryType="nt:unstructured"
-                jcr:title="None"/>
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="360"
+                    value="icon-360-view"/>
         </list>
     </jcr:content>
 </jcr:root>

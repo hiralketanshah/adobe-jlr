@@ -775,20 +775,31 @@ height: 493px;
         width: 100%;
     }
 }
-
 /*--------code fix for bug 566-----------*/
-.cmp-vehicleSummary.grey p,  .cmp-vehicleSummary.light p,  .cmp-vehicleSummary.white p {
+
+.cmp-vehicleSummary .plwsLight:hover, .primaryLinkWithStyle:hover{background-color: #fff!important;
+    color: #0c121c!important;
+    box-shadow: 0 0 0 1px #0c121c inset!important;}
+.cmp-vehicleSummary .plwsLight:focus, .primaryLinkWithStyle:focus{background-color: #fff!important;
+    color: #0c121c!important;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2!important;}
+.cmp-vehicleSummary .secondaryLinkContainer{clear:both;}
+.cmp-vehicleSummary .price{color:#4A4F54!important;}
+ .cmp-vehicleSummary.grey p,  .cmp-vehicleSummary.light p,  .cmp-vehicleSummary.white p {
     color: #4A4F54;
 }
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
 
-
+.cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px;}
     .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px;}
  .cmp-vehicleSummary .headingWrapper{
 	font-size:24px; 
 	line-height:24px;
+        color: #0C121C;
+    font-family: LandRoverWeb-Bold;
             }
+
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
     margin-top: 8px;
     text-transform: capitalize;
@@ -809,11 +820,13 @@ height: 493px;
 }
 .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;margin-top:5px}
 .cmp-vehicleSummary .primaryLinkWithStyle{margin-top:0!important; line-height:14px;}
-.cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px;}
-.cmp-vehicleSummary .secondaryLinkContainer{clear:both;}
+.cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
+
         }
 
 @media screen and (min-width: 1px) and (max-width: 1025px){
+    .cmp-vehicleSummary.left .cmp-vehicleSummary__content{padding-left:0!important;}
+    .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
 .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
     min-height: 426px;
     display: block;
@@ -834,6 +847,8 @@ height: 493px;
  .cmp-vehicleSummary .headingWrapper{
 	font-size:21px; 
 	line-height:21px;
+    color: #0C121C;
+    font-family: LandRoverWeb-Bold;
 }
   .cmp-vehicleSummary .cmp-vehicleSummary__content {
     width: 100%;
@@ -848,20 +863,27 @@ height: 493px;
     margin-bottom: 24px!important;
 }
 .cmp-vehicleSummary .linkContainer{padding-top:0}
-.cmp-vehicleSummary .primaryLinkWithStyle {margin-top:0!important; margin-bottom:23px;}
+.cmp-vehicleSummary .primaryLinkWithStyle {margin-top:0!important; margin-bottom:0px!important;}
 
 }
-@media screen and (min-width: 320px) and (max-width: 768px){
+@media screen and (min-width: 320px) and (max-width: 767px){
     .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
 .cmp-vehicleSummary .cmp-vehicleSummary__content {
 
     margin-top: 16px;
 
 }
+ .cmp-vehicleSummary .headingWrapper{
+	font-size:20px; 
+	line-height:20px;
+    color: #0C121C;
+    font-family: LandRoverWeb-Bold;
+}
+        .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
 .cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
 .cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px;}
 .cmp-vehicleSummary ul{margin-top:12px; margin-bottom:24px;}
-.cmp-vehicleSummary .primaryLinkWithStyle {margin-top:0!important; margin-bottom:23px;}
+.cmp-vehicleSummary .primaryLinkWithStyle {margin-top:0!important; margin-bottom:0!important;}
 .cmp-vehicleSummary .linkContainer{padding-top:0;margin-top:0;}
   }
 
@@ -877,24 +899,27 @@ height: 493px;
 }
 @media screen and (min-width: 1280px) and (max-width: 2560px){
     .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
-.cmp-signPost .primaryLinkWithStyle{margin-top:24px!important;}
+	.cmp-signPost .primaryLinkWithStyle{margin-top:24px!important; line-height:14px;}
     .cmp-signPost .cmp-signPost__image{
      width:50%;
      height: auto;
      min-height: 315px;
 
    }
-            .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+  .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
+.cmp-signPost .cmp-signPost__center{
 
+    top:0;
+    transform:none;
+
+    }
  .cmp-signPost .cmp-signPost__picture {
     width: 100%!important;
     height: 100%;
     margin-top:4px;
 }
- .cmp-signPost .cmp-signPost__center{
-	top:24%;
 
-    }
  .cmp-signPost .cmp-signPost__content .fontBodyCopy{
 	margin-top:16px;
    }
@@ -906,16 +931,24 @@ margin-bottom:10px;
 }
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
+    .cmp-signPost .cmp-signPost__center{
+
+    top:0;
+    transform:none;
+
+    }
     .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
-    .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important;}
+    .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important; line-height:14px;}
 .cmp-signPost .cmp-signPost__image{width:50%; height: auto;
      min-height:240px;}
  .cmp-signPost .cmp-signPost__picture {
     width: 100%!important;
     height: 100%;
+    margin-top:5px;
 }
-     .cmp-signPost .cmp-signPost__center{
-	top:54%;
+.cmp-signPost p{font-size:14px; line-height:19px; letter-spacing:0.2px;}
+.cmp-signPost .cmp-signPost__center{
+		top:0%;
 
     }
  .cmp-signPost .Picture--background .Picture__img{
@@ -927,13 +960,17 @@ object-fit: unset;
  .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important;}
         }
 @media screen and (min-width: 300px) and (max-width: 766px){
-    .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important;}
+.cmp-signPost .headingWrapper{font-family:LandRoverWeb-Bold; font-size:20px; line-height:24px; letter-spacing:0.9px;}
+     .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
+    .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important; line-height:14px; letter-spacing:3px;}
 .cmp-signPost .linkContainer {
     margin-top: 0;
 }
 .cmp-signPost.left .cmp-signPost__center{padding-left:0;}
-
+.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:11px;}
+.cmp-signPost .fontBodyCopy{margin-top:0;}
     }
+
 .cmp-signPost .Picture--background .Picture__img{
 object-fit: unset;
   }
