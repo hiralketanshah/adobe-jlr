@@ -1,42 +1,28 @@
-<sly data-sly-use.cookienotification="${'com.jlr.core.models.CookieNotificationModel'}"></sly>
-<sly data-sly-test="${wcmmode.edit}">
-   <div data-emptytext="${component.title}" class="cq-placeholder"></div>
-</sly>
+<sly data-sly-use.cookieNotificationModel="${'com.jlr.core.models.CookieNotificationModel'}"
+        data-sly-call="${renderCookieNotification @ cookieNotification=cookieNotificationModel}"/>
 
-<div class="notificationBars fontSmooth">
-${cookienotification.header @ content='html'}
-	<div class="NotificationBar dark generalNotification" data-expires="30" id="296-89154" style="display: block;">
-		<div class="notificationContainer">
-			<div class="top"><div class="inner"><div class="left"><h2 class="heading headingH5 headingLight notificationHeader"><!-- Start Component Field: {"XPath":"tcm:Content/custom:siteNotification/custom:title"} -->COOKIE POLICY</h2><p><!-- Start Component Field: {"XPath":"tcm:Content/custom:siteNotification/custom:notification"} -->Land Rover would like to use cookies to store information on your computer to improve our website and to enable us to advertise to you those products and services which we believe may be of interest to you. One of the cookies we use is essential for parts of the site to work and has already been sent. You may delete and block all cookies from this site but some elements may not work correctly. To find out more about online behavioural advertising or about the cookies we use and how to delete them, please refer to our <a href="https://www.landrover.com/privacy-policy/index.html">Privacy Policy</a>. By closing, you're agreeing to cookies being used in line with our <a href="https://www.landrover.com/cookie-policy/index.html">Cookie Policy</a>.</p></div><div class="right"></div></div>
-        
-			</div>
-			<div class="bottom">
-				
-        
-        
-			</div>
-		<div class="NotificationBar__close-wrapper">
-          <button class="NotificationBar__close-button primaryLinkWithStyle">ACCEPT</button>
-        </div></div>
-	</div>
-
-	
-
-
-
-	<div class="NotificationBar dark browserUpgradeNotification" id="296-88445" style="">
-		<div class="notificationContainer">
-			<div class="top"><div class="inner"><div class="left"><h2 class="heading headingH5 headingLight notificationHeader"><!-- Start Component Field: {"XPath":"tcm:Content/custom:siteNotification/custom:title"} -->BROWSER UPGRADE</h2><p><!-- Start Component Field: {"XPath":"tcm:Content/custom:siteNotification/custom:notification"} -->We've detected you're not using the most up-to-date version of your browser. By upgrading to the latest version of Internet Explorer you'll see and be able to use this site in the way we intended and your general internet browsing will be more secure as it will have been upgraded to take into account the latest security standards.</p></div><div class="right"><a class="primaryLinkWithStyle icon-arrow-right TargetLinks" href="http://windows.microsoft.com/ie" data-link-desktop="http://windows.microsoft.com/ie" aria-label="BROWSER UPGRADE: UPGRADE YOUR BROWSER" data-target="new" data-tracking-id="NotificationBar:UPGRADE YOUR BROWSER:http://windows.microsoft.com/ie" data-aria-title=""><span aria-hidden="true">UPGRADE YOUR BROWSER</span></a></div></div>
-        
-			</div>
-			<div class="bottom">
-				
-        
-        
+<template data-sly-template.renderCookieNotification="${ @ cookieNotification }">
+	<div class="sharedNavigation" data-fallback-status="None" data-response-status-code="200">
+		<div class="notificationBarsWrapper">
+			<div class="notificationBars fontSmooth">
+				<div class="NotificationBar dark generalNotification" data-expires="${cookieNotification.expiry}" id="296-89154">
+					<div class="notificationContainer">
+						<div class="top">
+							<h2 class="heading headingH5 headingLight notificationHeader">${cookienotification.header @ context='html'}</h2>
+						</div>
+						<div class="bottom">
+							<p>${cookienotification.summary @ context='html'}<p>
+							<div class="NotificationBar__close-wrapper">
+								<sly data-sly-list.cta="${cookienotification.ctaList}">
+									<sly data-sly-test="${cta.text}">
+										<button class="NotificationBar__close-button primaryLinkWithStyle">${cta.text @context='html'}</button>
+									</sly>
+								</sly>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-
-	
-
-</div>
+</template>

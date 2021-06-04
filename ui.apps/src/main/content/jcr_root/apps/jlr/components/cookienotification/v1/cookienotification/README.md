@@ -1,16 +1,16 @@
-Vehicle Specs(v1)
+Cookie Notifiction(v1)
 ====
-Vehicle Specs component written in HTL.
+Cookie Notifiction component written in HTL.
 
 ## Features
 
-* Vehicle Specs component used for presenting vechicle specification on DX.
+* Cookie Notifiction component used for presenting Cookie Policy.
 
 ### Use Object
-Vehicle Specs component component uses the `com.jlr.core.models.SpecsGlanceModel.java` Sling model as its Use-object.
+Cookie Notifiction component uses the `com.jlr.core.models.CookieNotificationModel.java` Sling model as its Use-object.
 
 ### Edit Dialog Properties
-The following properties are written to JCR for this Content Card component and are expected to be available as `Resource` properties:
+The following properties written to JCR for this Content Card component and are expected to be available as `Resource` properties:
 
 
 The edit dialog allows the page to be refreshed after editing the component

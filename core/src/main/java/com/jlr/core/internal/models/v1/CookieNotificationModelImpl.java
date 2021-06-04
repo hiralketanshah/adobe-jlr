@@ -36,6 +36,9 @@ public class CookieNotificationModelImpl extends GlobalModelImpl implements Cook
     @ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
     private String summary;
 
+    @ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+    private Integer expiry;
+
    /** The cta list. */
     @Inject
     @Optional
@@ -44,11 +47,21 @@ public class CookieNotificationModelImpl extends GlobalModelImpl implements Cook
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
 
+    /**
+     * Gets Header.
+     *
+     * @return the Header
+     */
     @Override
     public String getHeader() {
         return header;
     }
 
+    /**
+     * Gets Summary.
+     *
+     * @return the Summary
+     */
     @Override
     public String getSummary() {
         return summary;
@@ -64,5 +77,10 @@ public class CookieNotificationModelImpl extends GlobalModelImpl implements Cook
         }
         return list;
     }
-
+    /**
+     * Gets the Expiry.
+     *
+     * @return the Expiry
+     */
+    public Integer getExpiry() { return expiry ;}
 }
