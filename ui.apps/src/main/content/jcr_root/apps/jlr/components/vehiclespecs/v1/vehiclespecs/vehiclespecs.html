@@ -71,7 +71,7 @@
       <div class="VehicleSpecsRulesEngine__specs VehicleSpecsRulesEngine__specs--hide">
          <sly data-sly-test.ispriceEnable="${vehicleSpecs.enablePrice @ context='html'}">
             <script id="VehicleSpecsRulesEngineCms" type="application/json">
-               {"accordionTitle":"PRICING","format":"£###,##0.00","table":[{"key":"NET","text":"Retail Price (inc VAT and Delivery)","caveat":null},{"key":"RETAIL","text":"On the Road Price","caveat":null}]}
+               {"accordionTitle":"PREIS","format":"€ ###.##0","table":[{"key":"GROSS","text":"Preis ab","caveat":"^"}]}</script>
             </script>
          </sly>
          <sly data-sly-test="${!ispriceEnable}">
