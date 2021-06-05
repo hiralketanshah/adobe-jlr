@@ -12664,8 +12664,8 @@
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
                   let height = accolades.clientHeight ;      
                    controlsFFC.style.top = "0px";
-                   controlsFFC.style.top = (height-11)+"px";      
-                  accolades.style.marginBottom="50px";
+                   controlsFFC.style.top = (height)+"px";      
+                  // accolades.style.marginBottom="50px";
                 } 
                 if(window.innerWidth >=1280){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
@@ -12681,7 +12681,7 @@
                 let height = accolades.clientHeight ;      
                  controlsFFC.style.top = "0px";
                  controlsFFC.style.top = (height)+"px";      
-                accolades.style.marginBottom="50px";
+                // accolades.style.marginBottom="50px";
               } 
               if(window.innerWidth >=1280){
                 let controlsFFC = el.querySelector('.cmp-accolades_pagination');
