@@ -2,10 +2,11 @@ package com.jlr.core.servlets;
 
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.services.ContentApprovalService;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.WorkflowUtils;
+import org.apache.commons.lang.CharEncoding;
+import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.*;
@@ -18,6 +19,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.Servlet;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 @Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "= JLR Content Approval Servlet",
         "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.extensions=json",
@@ -35,24 +38,24 @@ public class ContentApprovalServlet extends SlingSafeMethodsServlet {
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         String approvalStatus = request.getParameter("approvalStatus");
         String activateNowLater = request.getParameter("activateNowLater");
-        String scheduledReplicationDate = request.getParameter("scheduledReplicationDate");
+        String contentPublishingDate = request.getParameter("contentPublishingDate");
         String embargoLiftDate = request.getParameter("embargoLiftDate");
+        String path = request.getParameter("path");
 
         try (ResourceResolver resourceResolver = CommonUtils.getServiceResolver(resolverFactory, "jlrworkflow")) {
-            if(request.getResource() != null) {
-                Resource resource = resourceResolver.getResource(request.getResource(), request.getResource().getPath());
-                if(resource != null) {
-                    Page page = resource.adaptTo(Page.class);
-                    if(page != null) {
-                        WorkflowUtils.lockUnlockResources(page, "unlock");
-                        WorkflowUtils.processMetadata(approvalStatus, activateNowLater, scheduledReplicationDate, embargoLiftDate, page, resourceResolver);
-                        WorkflowUtils.lockUnlockResources(page, "lock");
-                        if(resourceResolver.hasChanges()) {
-                            resourceResolver.commit();
-                        }
-                    }
+            Resource resource = resourceResolver.getResource(path);
+            if (resource != null) {
+                Page page = resource.adaptTo(Page.class);
+                if (page != null) {
+                    WorkflowUtils.lockUnlockResources(page, "unlock");
+                    saveChanges(resourceResolver);
+                    WorkflowUtils.processMetadata(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, page, null, resourceResolver);
+                    saveChanges(resourceResolver);
+                    WorkflowUtils.lockUnlockResources(page, "lock");
+                    saveChanges(resourceResolver);
                 }
             }
+            sendResponseStatus(response, HttpStatus.SC_OK, "Success");
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_SERVLET, "ContentApprovalServlet", e));
@@ -61,5 +64,25 @@ public class ContentApprovalServlet extends SlingSafeMethodsServlet {
                     ErrorUtilsConstants.MODULE_SERVLET, "ContentApprovalServlet", e));
         }
 
+    }
+
+    private void saveChanges(ResourceResolver resourceResolver) throws PersistenceException {
+        if (resourceResolver.hasChanges()) {
+            resourceResolver.commit();
+        }
+    }
+
+    private void sendResponseStatus(SlingHttpServletResponse response, int statusCode, String message) {
+        try {
+            response.setContentType("application/json");
+            response.setCharacterEncoding(CharEncoding.UTF_8);
+            response.setStatus(statusCode);
+            response.sendError(statusCode, message);
+            PrintWriter printOut = response.getWriter();
+            printOut.flush();
+        } catch (IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+        }
     }
 }

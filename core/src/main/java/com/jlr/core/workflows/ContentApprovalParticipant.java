@@ -18,12 +18,10 @@ public class ContentApprovalParticipant implements ParticipantStepChooser {
         WorkflowData workflowData = workItem.getWorkflowData();
         if (workflowData.getPayloadType().equals(TYPE_JCR_PATH)) {
             String path = workflowData.getPayload().toString();
-            if (path.contains("aus/") || path.contains("en_au")) {
-                //TODO: create a group of Admins, Global Leads, Global QA, Local AU
-                return "au_authors";
-            } else if (path.contains("deu/") || path.contains("de_de")){
-                //TODO: create a group of Admins, Global Leads, Global QA, Local DE
-                return "de_authors";
+            if (path.contains("aus/") || path.contains("en_au") || path.contains("australia/")) {
+                return "au-content-approvals";
+            } else if (path.contains("deu/") || path.contains("de_de") || path.contains("germany/")){
+                return "de-content-approvals";
             } else {
                 return "admin";
             }

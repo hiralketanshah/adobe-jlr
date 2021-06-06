@@ -46,7 +46,12 @@
 
   - jlr-workflow-service:
 
-      - path: /content/landrover
+      - path: /content
         permission: allow
+        privileges: jcr:all,jcr:readAccessControl,jcr:modifyAccessControl,jcr:versionManagement
         actions: read,create,modify,delete,replicate
 
+      - path: /var/workflow
+        permission: allow
+        privileges: jcr:all,jcr:readAccessControl,jcr:modifyAccessControl,jcr:versionManagement
+        actions: read,create,modify,delete,replicate

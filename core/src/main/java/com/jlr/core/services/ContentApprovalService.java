@@ -12,10 +12,10 @@ public interface ContentApprovalService {
      *
      * @param approvalStatus           the approval status
      * @param activateNowLater         the activate now later
-     * @param scheduledReplicationDate the scheduled replication date
+     * @param contentPublishingDate the content publishing date
      * @param embargoLiftDate          the embargo lift date
      * @param page                     the page
      * @param resourceResolver         the resource resolver
      */
-    void processMetadata(String approvalStatus, String activateNowLater, String scheduledReplicationDate, String embargoLiftDate, Page page, ResourceResolver resourceResolver);
+    void processMetadata(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Page page, ResourceResolver resourceResolver);
 }

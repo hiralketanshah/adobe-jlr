@@ -16,6 +16,10 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import javax.jcr.lock.LockManager;
+
 import static com.jlr.core.utils.WorkflowUtils.*;
 
 /**
@@ -72,6 +76,8 @@ public class JLRReplicationPreProcessor implements Preprocessor {
             }
         } catch (LoginException e) {
             throw new ReplicationException(e);
+        } catch (RepositoryException e) {
+            e.printStackTrace();
         } finally {
             if (resourceResolver != null && resourceResolver.isLive()) {
                 // Always close resource resolver you open
@@ -89,12 +95,22 @@ public class JLRReplicationPreProcessor implements Preprocessor {
      * @param resourceResolver
      * @return the boolean
      */
-    private Boolean isResourceApproved(Resource resource, ResourceResolver resourceResolver) {
+    private Boolean isResourceApproved(Resource resource, ResourceResolver resourceResolver) throws
+            RepositoryException {
         if(isValidResourceForReplication(resource)) {
+            LockManager lockManager = resourceResolver.adaptTo(Session.class).getWorkspace().getLockManager();
+            lockManager.unlock(resource.getPath());
             Page page = resource.adaptTo(Page.class);
             if(page != null) {
                 lockUnlockResources(page, "unlock");
                 removeMetadata(page, resourceResolver);
+                saveChanges(resourceResolver);
+                return true;
+            } else {
+                Resource asset = resource.getChild("jcr:content");
+                ModifiableValueMap properties = asset.adaptTo(ModifiableValueMap.class);
+                removeProperties(properties);
+                saveChanges(resourceResolver);
                 return true;
             }
         }
