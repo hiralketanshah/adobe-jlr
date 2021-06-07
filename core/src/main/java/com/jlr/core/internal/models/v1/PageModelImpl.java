@@ -95,6 +95,10 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("marketRegionPath")
     private String marketRegionPath;
 
+    /** The cookie notification config page path. */
+    @HierarchicalPageProperty("cookieNotificationPath")
+    private String cookieNotificationPath;
+
     /** The header path. */
     @HierarchicalPageProperty("headerPath")
     private String headerPath;
@@ -244,6 +248,15 @@ public class PageModelImpl implements PageModel {
      */
     public String getMarketRegionPath() {
         return marketRegionPath;
+    }
+
+    /**
+     * Gets the cookie notification config page path.
+     *
+     * @return the cookie notification config page path
+     */
+    public String getCookieNotificationPath() {
+        return cookieNotificationPath;
     }
 
     /**
