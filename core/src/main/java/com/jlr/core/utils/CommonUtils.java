@@ -161,10 +161,6 @@ public final class CommonUtils {
     public static String getOnlyTextFromHTML(String text) {
         return StringUtils.isBlank(text) ? StringUtils.EMPTY : Jsoup.clean(text, Whitelist.none().addTags("sup"));
     }
-    
-    public static String getOnlyTextForVehicleCard(String text) {
-        return StringUtils.isBlank(text) ? StringUtils.EMPTY : Jsoup.clean(text, Whitelist.none().addTags("sup").addTags("br/").addTags("br/"));
-    }
 
     public static List<FooterPojo> createFooterList(Resource footerList) {
         List<FooterPojo> list = new ArrayList<>();
