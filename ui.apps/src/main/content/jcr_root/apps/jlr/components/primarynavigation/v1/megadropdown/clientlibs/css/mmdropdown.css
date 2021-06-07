@@ -3737,6 +3737,13 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	}
 }
 
+@media screen and (max-width:376px) {
+    .dxnav-unique-nav .dxnav__breadcrumb-prev-text{
+        letter-spacing: 0.62px !important;
+    	font-weight: 700 !important;            
+    }
+}
+
 @media screen and (min-width:1px) and (max-width:1020px) {
 	.dxnav__primary {
 		box-shadow: none;
@@ -4468,8 +4475,8 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		position: absolute;
 		left: 16px;
 		top: 50%;
-		width: 14px;
-		height: 14px
+		width: 7px;
+		height: 12px
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-prev-text {
 		font-size: 1.3em;
