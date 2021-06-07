@@ -48,4 +48,15 @@ public class DerivativeUtils {
         return container;
     }
 
+    public static String getDynamicUrlPath(String dynamicPath) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(DerivativeConstants.DYNAMIC_STATIC_PATH).append(CommonConstants.HYPHEN);
+        if (null != dynamicPath && !dynamicPath.isEmpty()) {
+            builder.append(
+                    dynamicPath.replaceAll(DerivativeConstants.REGEX_REPLACE_DYNAMIC_URL, CommonConstants.HYPHEN));
+
+        }
+        return builder.toString().toLowerCase();
+    }
+
 }
