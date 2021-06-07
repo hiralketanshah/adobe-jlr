@@ -12777,11 +12777,11 @@
               // paginationPrev.style.top = "0";
               // paginationNext.style.top = height/2+"px !important";
               // paginationPrev.style.top = height/2+"px !important";
-              if(window.innerWidth >=300 && window.innerWidth<=767){
+              if(window.innerWidth<=767){
                 let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
                 let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
                 elm.forEach((e)=>{
-                  e.style.marginBottom="50px";
+                  e.style.marginBottom="60px";
                 })
                 controlsFFC.style.top = offsetheight+25+"px";
               }   
@@ -12789,7 +12789,7 @@
                 let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
                 let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
                 elm.forEach((e)=>{
-                  e.style.marginBottom="50px";
+                  e.style.marginBottom="70px";
                 })
                 controlsFFC.style.top = offsetheight+25+"px";
               }   
