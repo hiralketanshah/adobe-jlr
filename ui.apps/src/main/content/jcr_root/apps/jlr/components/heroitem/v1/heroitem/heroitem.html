@@ -6,12 +6,12 @@
   <div class="cmp-hero" id="${heroCarousel.id}">
     <div class="cmp-genericItem__element-poster">
       <div
-        data-sly-test="${heroCarousel.assetType == 'video' && heroCarousel.videoId && !(heroCarousel.videoPath)}"
-        class="videoCustom"
-      >
-      <img src="${heroCarousel.posterImage}">
-        <!-- <iframe width="100%" height="100%" src="${heroCarousel.videoId}" frameborder="0" allowfullscreen></iframe> -->
-      </div>
+      data-sly-test="${heroCarousel.assetType == 'video' && heroCarousel.videoId && !(heroCarousel.videoPath)}"
+      class="videoCustom"
+    >
+    <img src="${heroCarousel.posterImage}">
+      <!-- <iframe width="100%" height="100%" src="${heroCarousel.videoId}" frameborder="0" allowfullscreen></iframe> -->
+    </div>
       <picture
         data-sly-test="${heroCarousel.assetType == 'image'}"
         class="Picture Picture--background cmp-carousel__bgImage"
@@ -53,55 +53,58 @@
        
         </div>
         <div class="contentClass">
-          <div class="pricing">
-            <p data-sly-test="${heroCarousel.price}">
-              ${heroCarousel.priceConfigValue}
-            </p>
-            <p><strong> ${heroCarousel.price}</strong></p>
-          </div>
-          <div class="linkContainer">
-            <sly data-sly-list="${heroCarousel.ctaList}">
-              <sly data-sly-test="${itemList}">
-                <div
-                  class="
-                    ${item.linkType
-                    ==
-                    'primary'
-                    ?
-                    'primaryLinkContainer'
-                    :
-                    'secondaryLinkContainer'}
-                  "
-                >
-                  <a
+          <div class="priceAndCta">
+            <div class="pricing">
+              <p data-sly-test="${heroCarousel.price}">
+                ${heroCarousel.priceConfigValue}
+              </p>
+              <p><strong> ${heroCarousel.price}</strong></p>
+            </div>
+            <div class="linkContainer">
+              <sly data-sly-list="${heroCarousel.ctaList}">
+                <sly data-sly-test="${itemList}">
+                  <div
                     class="
                       ${item.linkType
                       ==
                       'primary'
                       ?
-                      'primaryLinkWithStyle
-                      plwsLight'
+                      'primaryLinkContainer'
                       :
-                      'secondaryLinkWithStyle'}
-                      ${item.target=='overlay'
-                      ?
-                      ''
-                      :
-                      item.icon}
+                      'secondaryLinkContainer'}
                     "
-                    aria-label="${item.ariaLabel}"
-                    href="${item.link}"
-                    data-link-desktop="${item.link}"
-                    target="${item.target}"
-                    data-target="${item.target}"
-                    data-aria-title="${item.text}"
                   >
-                    <span aria-hidden="true">${item.text}</span>
-                  </a>
-                </div>
+                    <a
+                      class="
+                        ${item.linkType
+                        ==
+                        'primary'
+                        ?
+                        'primaryLinkWithStyle
+                        plwsLight'
+                        :
+                        'secondaryLinkWithStyle'}
+                        ${item.target=='overlay'
+                        ?
+                        ''
+                        :
+                        item.icon}
+                      "
+                      aria-label="${item.ariaLabel}"
+                      href="${item.link}"
+                      data-link-desktop="${item.link}"
+                      target="${item.target}"
+                      data-target="${item.target}"
+                      data-aria-title="${item.text}"
+                    >
+                      <span aria-hidden="true">${item.text}</span>
+                    </a>
+                  </div>
+                </sly>
               </sly>
-            </sly>
+            </div>
           </div>
+         
         </div>
       </div>
       <div class="heroFooterSection">
