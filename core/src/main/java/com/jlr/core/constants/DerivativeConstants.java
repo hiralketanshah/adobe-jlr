@@ -9,6 +9,8 @@ public class DerivativeConstants {
 
     public static final String PN_TAB_HEADING = "tabHeading";
 
+    public static final String DYNAMIC_STATIC_PATH = "dr";
+
     public static final String PN_URL_PATH = "urlPath";
 
     public static final String PN_LINK = "link";
@@ -34,5 +36,7 @@ public class DerivativeConstants {
     public static final String NN_CARD_CONTAINER = "cardcontainer";
 
     public static final String NN_PARSYS = "parsys";
+
+    public static final String REGEX_REPLACE_DYNAMIC_URL = "[\\s\\.]";
 
 }

@@ -31,6 +31,7 @@ import com.jlr.core.constants.DerivativeConstants;
 import com.jlr.core.models.DerivativeContainerModel;
 import com.jlr.core.services.Derivative;
 import com.jlr.core.services.TcoService;
+import com.jlr.core.utils.DerivativeUtils;
 
 /**
  * The Class DerivativeContainerModelImpl.
@@ -124,8 +125,10 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
                 ValueMap properties = tab.adaptTo(ValueMap.class);
                 if (null != properties) {
                     String dynamicUrlPath = properties.containsKey(DerivativeConstants.PN_URL_PATH)
-                            ? properties.get(DerivativeConstants.PN_URL_PATH, String.class)
-                            : properties.get(DerivativeConstants.PN_TAB_HEADING, String.class);
+                            ? DerivativeUtils
+                                    .getDynamicUrlPath(properties.get(DerivativeConstants.PN_URL_PATH, String.class))
+                            : DerivativeUtils.getDynamicUrlPath(
+                                    properties.get(DerivativeConstants.PN_TAB_HEADING, String.class));
                     tabHeadings.put(properties.get(DerivativeConstants.PN_TAB_HEADING, String.class), dynamicUrlPath);
                     List<DerivativeCardModelImpl> cardList = derivativeService.getDerivativeCard(request,
                             properties.get(DerivativeConstants.PN_LINK, String.class));

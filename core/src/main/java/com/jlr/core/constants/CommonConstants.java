@@ -13,6 +13,9 @@ public class CommonConstants {
     /** The Constant FORWARD_SLASH. */
     public static final String FORWARD_SLASH = "/";
 
+    /** The Constant HYPHEN. */
+    public static final String HYPHEN = "-";
+
     /** The Constant PIPE_CHARACTER. */
     public static final String PIPE_CHARACTER = "|";
 
