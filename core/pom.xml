@@ -234,5 +234,11 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
             <artifactId>acs-aem-commons-bundle</artifactId>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-imaging</artifactId>
+            <version>1.0-R1534292</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 </project>

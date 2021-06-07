@@ -334,6 +334,11 @@ public class CommonConstants {
      */
     public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
 
+    /**
+     * The constant NAMEPLATE_PATH.
+     */
+    public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
+
     /** The Constant JLR_WORKFLOW_SUBSERVICE. */
     public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
 }

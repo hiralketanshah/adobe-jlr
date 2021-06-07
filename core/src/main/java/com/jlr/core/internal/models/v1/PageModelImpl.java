@@ -48,14 +48,20 @@ import com.jlr.core.utils.NavigationUtils;
                 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class PageModelImpl implements PageModel {
 
+
     private final String AU_LOCALE = "en_AU";
     private final String DE_LOCALE = "de_DE";
 
     private final String AU_RETAILER_NAAS_URL = "content/nav/naasconfig/en_au.html";
     private final String DE_RETAILER_NAAS_URL = "content/nav/naasconfig/de_de.html";
 
-    private final String RT_CAROUSEL = "jlr/components/carousel/v1/carousel";
-    private final String RT_HERO_COMPONENT = "jlr/components/herotitlebanner/v1/herotitlebanner";
+    private static final String RT_CAROUSEL = "jlr/components/carousel/v1/carousel";
+    private static final String RT_HERO_COMPONENT = "jlr/components/heroitem/v1/heroitem";
+    private static final String RT_HERO_TITLE_BANNER_COMPONENT = "jlr/components/herotitlebanner/v1/herotitlebanner";
+
+
+
+    List<String> imageSchemaAsJson = new ArrayList<>();
 
     /** The current page. */
     @ScriptVariable
@@ -110,47 +116,52 @@ public class PageModelImpl implements PageModel {
         getLocale();
         getState();
         getDomainUrl();
-        getImageSchema();
+
     }
 
-    public String getImageSchema() {
+    public List<String> getImageSchema() {
+
         if (pageProperties.get("enableImageSchema", CommonConstants.FALSE).equalsIgnoreCase(CommonConstants.TRUE)) {
-            List<String> heroImageList = new ArrayList<>();
+
             Resource pageContainer = resourceResolver.getResource(currentPage.getPath().concat("/jcr:content/root/container"));
             if (null != pageContainer) {
-                LOGGER.info(" pageContainer ");
+
                 Iterator<Resource> childResources = pageContainer.listChildren();
                 while (childResources.hasNext()) {
                     Resource child = childResources.next();
                     ValueMap properties = child.adaptTo(ValueMap.class);
                     if (StringUtils.compare(RT_CAROUSEL, properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
-                        LOGGER.info(" Carousel container ");
                         Iterator<Resource> heroItemChildResources = child.listChildren();
+                        List<String> heroImageList = new ArrayList<>();
                         while (heroItemChildResources.hasNext()) {
                             Resource heroItems = heroItemChildResources.next();
                             ValueMap heroItemProperties = heroItems.adaptTo(ValueMap.class);
                             if (StringUtils.compare(RT_HERO_COMPONENT,
-                                            heroItemProperties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
+                                            heroItemProperties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0
+                                            || StringUtils.compare(RT_HERO_TITLE_BANNER_COMPONENT,
+                                                            heroItemProperties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class)) == 0) {
                                 String image = heroItemProperties.get("fileReference", String.class);
                                 if (StringUtils.isNotBlank(image)) {
                                     heroImageList.add(image);
+                                    buildImageSchemaJSON(heroImageList);
+                                    heroImageList.clear();
                                     break;
                                 }
                             }
                         }
-                        break;
-                    }
 
+                    }
+                    // Break here to get only the first node of carousel
+                    break;
                 }
-                return buildImageSchemaJSON(heroImageList);
             }
         }
-        return StringUtils.EMPTY;
+        return imageSchemaAsJson;
 
 
     }
 
-    private String buildImageSchemaJSON(List<String> heroImageList) {
+    private void buildImageSchemaJSON(List<String> heroImageList) {
         JsonObject root = new JsonObject();
         root.addProperty("@type", "http://schema.org/ImageObject");
 
@@ -175,10 +186,17 @@ public class PageModelImpl implements PageModel {
 
         JsonArray imgArray = new JsonArray();
         heroImageList.stream().forEach((c) -> imgArray.add(NavigationUtils.getBaseUrl(resourceResolver).concat(c.substring(1))));
-        root.addProperty("uploadDate", StringUtils.EMPTY);
+
+        root.addProperty("uploadDate", getCreatedDate(heroImageList.get(0)));
         root.add("contentUrl", imgArray);
-        LOGGER.info("Json path {}", root.toString());
-        return root.toString();
+
+        imageSchemaAsJson.add(root.toString());
+    }
+
+    private String getCreatedDate(String damAssetPath) {
+        Resource damAssetResource = resourceResolver.getResource(damAssetPath);
+        ValueMap assetProperties = damAssetResource.adaptTo(ValueMap.class);
+        return assetProperties.get(JcrConstants.JCR_CREATED, StringUtils.EMPTY);
     }
 
     @Override

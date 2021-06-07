@@ -212,6 +212,118 @@
                                                     allowBulkEdit="{Boolean}true"
                                                     cq-msm-lockable="noFollow"/>
                                             </noFollow>
+                                            <imageSchema
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="{Boolean}false"
+                                                defaultChecked="{Boolean}false"
+                                                fieldDescription="Select to enable image schema for Hero Carousel and Hero Title Banner."
+                                                fieldLabel="Enable image schema?"
+                                                name="./enableImageSchema"
+                                                text="Enable image schema?"
+                                                uncheckedValue="false"
+                                                value="true">
+                                            </imageSchema>
+                                            <seoFrequency
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Page change frequency for sitemap.xml"
+                                                fieldLabel="Sitemap page update frequency"
+                                                maxlengthlong="{Long}160"
+                                                name="./seoFrequency">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="seoFrequency"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <never
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Never"
+                                                        value="never"/>
+                                                     <yearly
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Yearly"
+                                                        value="yearly"/>
+                                                    <monthly
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Monthly"
+                                                        value="monthly"/>
+                                                     <weekly
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Weekly"
+                                                        value="weekly"/>     
+                                                     <daily
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Daily"
+                                                        value="daily"/>
+                                                    <hourly
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Hourly"
+                                                        value="hourly"/>
+                                                     <always
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Always"
+                                                        value="always"/>                                                                                                           
+                                                </items>
+                                            </seoFrequency>
+                                            <seoPriority
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Page priority for sitemap.xml. Greater value has higher priority."
+                                                fieldLabel="Sitemap page priority"
+                                                maxlengthlong="{Long}160"
+                                                name="./seoPriority">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    allowBulkEdit="{Boolean}true"
+                                                    cq-msm-lockable="seoPriority"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <one
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="1.0"
+                                                        value="1"/>
+                                                     <pointnine
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.9"
+                                                        value="0.9"/>
+                                                    <pointeight
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.8"
+                                                        value="0.8"/>
+                                                     <pointseven
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.7"
+                                                        value="0.7"/>     
+                                                     <pointsix
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.6"
+                                                        value="0.6"/>
+                                                    <pointfive
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.5"
+                                                        value="0.5"/>
+                                                     <pointfour
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.4"
+                                                        value="0.4"/>
+                                                     <pointthree
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.3"
+                                                        value="0.3"/>     
+                                                     <pointtwo
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.2"
+                                                        value="0.2"/>
+                                                    <pointone
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.1"
+                                                        value="0.1"/>
+                                                     <zero
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="0.0"
+                                                        value="0.0"/>                                                                                                                                                                    
+                                                </items>                                                    
+                                            </seoPriority>
                                         </items>
                                     </seo>
                                     <datalayer
@@ -655,6 +767,21 @@
                                             </pricingSuppression>
                                         </items>
                                     </pricing>
+                                    <serp
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="SEO config"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <robotsText
+                                                cq:showOnCreate="{Boolean}false"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="Enter the contents of Robots.txt for the specific market."
+                                                fieldLabel="Robots.txt contents"
+                                                name="./robotsTxtContents"
+                                                text="Robots.txt content specific to the market"/>
+                                        </items>
+                                    </serp>
                                 </items>
                             </column>
                         </items>

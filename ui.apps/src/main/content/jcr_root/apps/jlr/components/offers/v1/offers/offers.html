@@ -3,6 +3,11 @@
     data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='offers.terms.cta,overlay.close'}"
     data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
 
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-test="${wcmmode.disabled||wcmmode.preview}">
+        <sly data-sly-call="${clientlib.css @ categories='jlr.components.offers.preview.v1'}" />
+    </sly>
+</sly>
 <div class="cmp-offersContainer fontSmooth">
     <!-- Page Wrapper dummy for overlay -->
     <div class="pageWrapper">
@@ -17,11 +22,11 @@
                     <source data-dimensions="1600x696" media="(min-width: 1201px)"
                         srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                     <source data-dimensions="900x387" media="(min-width: 501px)"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}"/>
+                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                     <source data-dimensions="500x216" media="(min-width: 0px)"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}"/>
+                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                     <img alt="" class="Picture__img" data-dimensions="1600x696"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}"/>
+                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                 </picture>
             </div>
             <!--/* Block with offer description */-->
@@ -30,10 +35,10 @@
                     <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
                 </div>
                 <sly data-sly-test="${model.price}">
-                <div class="offerPrice">
-                    <p class="Offers__price heading price">${model.priceConfigValue} ${model.price}</p>
-                </div>
-            </sly>
+                    <div class="offerPrice">
+                        <p class="Offers__price heading price">${model.priceConfigValue} ${model.price}</p>
+                    </div>
+                </sly>
                 <div class="offerBody">
                     ${model.copy @context='html'}
                 </div>
@@ -112,8 +117,8 @@
                                 </span>
                             </div>
                             <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
-                                class="offerDetailsLink button-tertiary" data-close-label="${config.configMap['overlay.close']}"
-                                data-modal-trigger="">
+                                class="offerDetailsLink button-tertiary"
+                                data-close-label="${config.configMap['overlay.close']}" data-modal-trigger="">
                                 <span>${config.configMap['offers.terms.cta']}</span>
                             </button>
                             <div class="offerDetails offerFinanceDetails" data-modal-content="">
