@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:OsgiConfig"
-    externalizer.domains="[local http://localhost:4502,author http://localhost:4502,publish http://localhost:4503,publish-au http://localhost:4503,publish-de http://localhost:4503]"/>
+    externalizer.domains="[local http://localhost:4502,author http://localhost:4502,publish http://localhost:4503,publish-au https://www.landrover.com.au,publish-de https://www.landrover.de]"/>
