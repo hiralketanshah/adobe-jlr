@@ -3262,6 +3262,17 @@
     
                   var dynamicURLInitialTab = this.element.querySelector('.cmp-derivative__range').getAttribute('data-initial-tab');
     
+                  let DyUrls = $('.DerivativesOverview__control-item');
+                  let urlFileName = $(location).attr('pathname').split('/').pop();
+                  let fileName = urlFileName.split('.');
+                  let initialTabUrl = 0;
+                  DyUrls.each(function (e) {
+                    if ($(DyUrls[e]).attr("data-dynamic-url") == fileName[1]) {
+                      initialTabUrl = e;
+                    }
+                  });
+                  //this.options.initialTab = initialTabUrl;
+                  dynamicURLInitialTab = initialTabUrl;
                   this._dxTabs = new _DxTabs2.default(this.element.querySelector('.DxTabs'), {
                     initialTab: dynamicURLInitialTab || 0
                   });
@@ -3786,7 +3797,6 @@
               let urlFileName = $(location).attr('pathname').split('/').pop();
               let fileName = urlFileName.split('.').shift();
               let fileExtension = urlFileName.split('.').pop();
-              url = $(url).text();
               let newUrl = `${fileName}.${url}.${fileExtension}`;
               window.history.pushState({}, '', newUrl);
             };
@@ -4203,6 +4213,7 @@
                 this.panels = [].concat((0, _toConsumableArray3.default)(this.panelsContainer.querySelectorAll('[role="tabpanel"]')));
                 this.animating = false;
                 this.init();
+    
               }
     
               (0, _createClass3.default)(DxTabs, [{
@@ -4215,6 +4226,7 @@
                       this.panels[0].style.display = 'block';
                       this.panels[0].style.opacity = 1;
                     }
+    
                     this.element.parentNode.removeChild(this.element);
                     return;
                   }
