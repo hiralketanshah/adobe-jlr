@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+  xmlns:jcr="http://www.jcp.org/jcr/1.0" jcr:primaryType="sling:OsgiConfig"
+  alloworiginregexp="[https://de.landrover.preview.dev.jlr-dev.com,http://myadobe:5600,https://de.landrover.preview.qa.jlr-dev.com,https://au.landrover.preview.dev.jlr-dev.com,https://au.landrover.preview.qa.jlr-dev.com]" 
+  supportedmethods="[GET]" 
+  supportscredentials="{Boolean}true"
+  supportedheaders="[Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers]"
+  maxage="1800"/>

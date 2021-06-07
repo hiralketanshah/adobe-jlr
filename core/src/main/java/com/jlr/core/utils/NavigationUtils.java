@@ -4,14 +4,20 @@ import java.util.Calendar;
 import java.util.Date;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpHeaders;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.day.cq.commons.Externalizer;
 
 public class NavigationUtils {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(NavigationUtils.class);
+
     public static void changeAttributeValue(String attributeKey, String attributeValue, Elements header) {
         if (StringUtils.isNotEmpty(attributeValue)) {
             header.attr(attributeKey, attributeValue);
@@ -20,7 +26,7 @@ public class NavigationUtils {
         }
     }
 
-    public static void setCacheHeaderResponse(SlingHttpServletResponse response, Boolean cache, Elements header) {
+    public static void setCacheHeaderResponse(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean cache, Elements header) {
         if (cache) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(new Date());
@@ -33,8 +39,22 @@ public class NavigationUtils {
             response.setHeader(HttpHeaders.CACHE_CONTROL, "max-age=0");
             response.setDateHeader("Expires", new Date().getTime());
         }
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Credentials", "true");
+
+        String clientOrigin = request.getHeader("Origin");
+
+        if (null != clientOrigin) {
+            if (clientOrigin.contains("myadobe") || clientOrigin.contains("jlr-dev.com")) {
+                LOGGER.debug("Origin Match found: {}", clientOrigin);
+                response.setHeader("Access-Control-Allow-Origin", clientOrigin);
+                response.setHeader("Access-Control-Allow-Credentials", "true");
+            } else {
+                LOGGER.debug("Origin No Match found: {}", clientOrigin);
+                response.setHeader("Access-Control-Allow-Origin", "*");
+            }
+        } else {
+            LOGGER.trace("Origin No Match found: {}", clientOrigin);
+            response.setHeader("Access-Control-Allow-Origin", "*");
+        }
     }
 
     public static void processUrls(Document document) {
