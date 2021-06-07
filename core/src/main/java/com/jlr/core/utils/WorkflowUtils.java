@@ -119,11 +119,13 @@ public class WorkflowUtils {
             if(lastModifiedDate == null) {
                 lastModifiedDate = valueMap.get(WorkflowConstants.JCR_LAST_MODIFIED, Date.class);
             }
-            SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM);
+            SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         try {
-            Date approvedDate = dateFormat.parse(date);
-            if((lastModifiedDate != null && lastModifiedDate.before(approvedDate))) {
-                return  APPROVE.equalsIgnoreCase(approvalStatus) && approvedDate != null && (approvedDate.equals(new Date()) || approvedDate.before(new Date()));
+            if(StringUtils.isNotEmpty(date)) {
+                Date approvedDate = dateFormat.parse(date);
+                if((lastModifiedDate != null && lastModifiedDate.before(approvedDate))) {
+                    return  APPROVE.equalsIgnoreCase(approvalStatus) && approvedDate != null && (approvedDate.equals(new Date()) || approvedDate.before(new Date()));
+                }
             }
         } catch (ParseException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PARSE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
@@ -144,10 +146,15 @@ public class WorkflowUtils {
             Date contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, Date.class);
             Date embargoLiftDate = valueMap.get(EMBARGO_LIFT_DATE, Date.class);
             if(isInitiallyApproved(valueMap)) {
-                if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
+                String activateNowLater = valueMap.get(ACTIVATE_NOW_LATER, String.class);
+                if(ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
                     return true;
-                } else if(embargoLiftDate != null && (embargoLiftDate.equals(new Date()) || embargoLiftDate.before(new Date()))) {
-                    return true;
+                } else if(ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)){
+                    if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
+                        return true;
+                    } else if(embargoLiftDate != null && (embargoLiftDate.equals(new Date()) || embargoLiftDate.before(new Date()))) {
+                        return true;
+                    }
                 }
             }
         }
@@ -202,7 +209,7 @@ public class WorkflowUtils {
             properties.remove(ACTIVATE_NOW_LATER);
             properties.remove(CONTENT_PUBLISHING_DATE);
             properties.remove(EMBARGO_LIFT_DATE);
-            properties.remove(WorkflowConstants.APPROVED_DATE);
+            properties.remove(APPROVED_DATE);
             properties.remove(APPROVED_BY);
         }
     }
@@ -273,7 +280,7 @@ public class WorkflowUtils {
         if(StringUtils.isNotEmpty(embargoLiftDate)) {
             properties.put(EMBARGO_LIFT_DATE, embargoLiftDate);
         }
-        SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         properties.put(WorkflowConstants.APPROVED_DATE, dateFormat.format(new Date()));
         if(properties.get(CQ_LAST_MODIFIED) != null){
             properties.put(APPROVED_BY, properties.get(CQ_LAST_MODIFIED));

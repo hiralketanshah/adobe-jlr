@@ -47,9 +47,9 @@ public class WorkflowConstants {
      */
     public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/scheduled_activation";
     /**
-     * The constant YYYY_MM_DD_T_HH_MM.
+     * The constant YYYY_MM_DD_T_HH_MM_SS.
      */
-    public static final String YYYY_MM_DD_T_HH_MM = "yyyy-MM-dd'T'HH:mm";
+    public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
     /**
      * The constant JCR_PATH.
      */
