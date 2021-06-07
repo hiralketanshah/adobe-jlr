@@ -979,3 +979,7 @@
 .cmp-article .secondaryLinkContainer{clear:both;}
 
 /*----------code fix for defect 568---------*/
+
+.grey .cmp-article p, .light .cmp-article p, .white .cmp-article p {
+    color: #4A4F54;
+}
