@@ -998,10 +998,10 @@ Bundle-DocURL:
                 <version>${biz.netcentric.cq.tools.accesscontroltool.version}</version>
             </dependency>
             <dependency>
-                            <groupId>org.apache.sling</groupId>
-                            <artifactId>dynamic-include</artifactId>
-                            <version>3.2.0</version>
-                    </dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>dynamic-include</artifactId>
+                <version>3.2.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
