@@ -33,6 +33,15 @@ public interface ContentCardListModel extends GlobalModel {
     }
 	
 	/**
+	 * Gets the poster image.
+	 *
+	 * @return the poster image
+	 */
+	default String getPosterImage() {
+        return StringUtils.EMPTY;
+    }
+	
+	/**
 	 * Gets the first cta link.
 	 *
 	 * @return the first cta link
