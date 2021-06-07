@@ -6,26 +6,27 @@ import com.adobe.granite.workflow.exec.ParticipantStepChooser;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.adobe.granite.workflow.exec.WorkflowData;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
+import com.jlr.core.constants.WorkflowConstants;
 import org.osgi.service.component.annotations.Component;
+
+import static com.jlr.core.constants.WorkflowConstants.TYPE_JCR_PATH;
 
 @Component(service = ParticipantStepChooser.class, property = { "chooser.label=" + "Content Approval Participant" })
 public class ContentApprovalParticipant implements ParticipantStepChooser {
-
-    private static final String TYPE_JCR_PATH = "JCR_PATH";
 
     public String getParticipant(WorkItem workItem, WorkflowSession workflowSession, MetaDataMap args) throws
             WorkflowException {
         WorkflowData workflowData = workItem.getWorkflowData();
         if (workflowData.getPayloadType().equals(TYPE_JCR_PATH)) {
             String path = workflowData.getPayload().toString();
-            if (path.contains("aus/") || path.contains("en_au") || path.contains("australia/")) {
-                return "au-content-approvals";
-            } else if (path.contains("deu/") || path.contains("de_de") || path.contains("germany/")){
-                return "de-content-approvals";
+            if (path.contains(WorkflowConstants.AUS) || path.contains(WorkflowConstants.EN_AU) || path.contains(WorkflowConstants.AUSTRALIA)) {
+                return WorkflowConstants.AU_CONTENT_APPROVALS;
+            } else if (path.contains(WorkflowConstants.DEU) || path.contains(WorkflowConstants.DE_DE) || path.contains(WorkflowConstants.GERMANY)){
+                return WorkflowConstants.DE_CONTENT_APPROVALS;
             } else {
-                return "admin";
+                return WorkflowConstants.ADMIN;
             }
         }
-        return "administrators";
+        return WorkflowConstants.ADMINISTRATORS;
     }
 }

@@ -24,6 +24,7 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
+import static com.jlr.core.constants.WorkflowConstants.*;
 import static com.jlr.core.utils.WorkflowUtils.saveChanges;
 
 /**
@@ -53,25 +54,23 @@ public class ContentMetaDataProcess implements WorkflowProcess {
                 final List<HistoryItem> histories = workflowSession.getHistory(workItem.getWorkflow());
                 HistoryItem historyItem = null;
                 if(CollectionUtils.isNotEmpty(histories)) {
-                    historyItem = histories.stream().filter(history -> history.getWorkItem().getNode().getId().equals("node2")).findFirst().get();
+                    historyItem = histories.stream().filter(history -> history.getWorkItem().getNode().getId().equals(NODE_2)).findFirst().get();
                 }
                 MetaDataMap dataMap = historyItem.getWorkItem().getMetaDataMap();
                 if (page != null) {
-                    WorkflowUtils.lockUnlockPage(page, "unlock");
+                    WorkflowUtils.lockUnlockPage(page, UNLOCK);
+                    WorkflowUtils.processMetadata(dataMap.get(APPROVAL_STATUS, String.class), dataMap.get(ACTIVATE_NOW_LATER, String.class), dataMap.get(CONTENT_PUBLISHING_DATE, String.class), dataMap.get(EMBARGO_LIFT_DATE, String.class), page, null, resourceResolver);
                     saveChanges(resourceResolver);
-                    WorkflowUtils.processMetadata(dataMap.get("approvalStatus", String.class), dataMap.get("activateNowLater", String.class), dataMap.get("contentPublishingDate", String.class), dataMap.get("embargoLiftDate", String.class), page, null, resourceResolver);
-                    saveChanges(resourceResolver);
-                    WorkflowUtils.lockUnlockPage(page, "lock");
-                    saveChanges(resourceResolver);
+                    WorkflowUtils.lockUnlockPage(page, LOCK);
                 } else {
-                    Resource asset = resource.getChild("jcr:content");
-                    WorkflowUtils.processMetadata(dataMap.get("approvalStatus", String.class), dataMap.get("activateNowLater", String.class), dataMap.get("contentPublishingDate", String.class), dataMap.get("embargoLiftDate", String.class), null, asset, resourceResolver);
+                    Resource asset = resource.getChild(JCR_CONTENT);
+                    WorkflowUtils.processMetadata(dataMap.get(APPROVAL_STATUS, String.class), dataMap.get(ACTIVATE_NOW_LATER, String.class), dataMap.get(CONTENT_PUBLISHING_DATE, String.class), dataMap.get(EMBARGO_LIFT_DATE, String.class), null, asset, resourceResolver);
                     saveChanges(resourceResolver);
                 }
             }
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "ContentMetaDataProcess", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_META_DATA_PROCESS, e));
         }
 
     }

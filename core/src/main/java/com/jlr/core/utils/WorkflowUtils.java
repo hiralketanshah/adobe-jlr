@@ -8,8 +8,8 @@ import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.DamConstants;
 import com.day.cq.dam.commons.util.AssetReferenceSearch;
 import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.WCMException;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.WorkflowConstants;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.*;
@@ -23,6 +23,7 @@ import java.util.Date;
 import java.util.Map;
 
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
+import static com.jlr.core.constants.WorkflowConstants.*;
 
 /**
  * The type Workflow utils.
@@ -76,7 +77,7 @@ public class WorkflowUtils {
                     .sendInboxNotification(resourceResolver, notification);
         }  catch (TaskManagerException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_TASK_MANAGER_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, WORKFLOW_UTILS, e));
         }
     }
 
@@ -85,13 +86,13 @@ public class WorkflowUtils {
            return resourceResolver;
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, WORKFLOW_UTILS, e));
         }
         return null;
     }
 
     public static void lockUnlockPage(Page page, String lockUnlockState) {
-        if(page != null) {
+        /*if(page != null) {
             try{
                 if("lock".equals(lockUnlockState) && !page.isLocked()) {
                     page.lock();
@@ -102,7 +103,7 @@ public class WorkflowUtils {
                 LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WCM_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                         ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
             }
-        }
+        } */
     }
 
     /**
@@ -112,15 +113,21 @@ public class WorkflowUtils {
      * @return the boolean
      */
     public static boolean isInitiallyApproved(ValueMap valueMap) {
-            String approvalStatus =  valueMap.get("approvalStatus", String.class);
-            String date = valueMap.get("approvedDate", String.class);
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String approvalStatus =  valueMap.get(APPROVAL_STATUS, String.class);
+            String date = valueMap.get(WorkflowConstants.APPROVED_DATE, String.class);
+            Date lastModifiedDate = valueMap.get(WorkflowConstants.CQ_LAST_MODIFIED, Date.class);
+            if(lastModifiedDate == null) {
+                lastModifiedDate = valueMap.get(WorkflowConstants.JCR_LAST_MODIFIED, Date.class);
+            }
+            SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM);
         try {
             Date approvedDate = dateFormat.parse(date);
-            return  "approve".equalsIgnoreCase(approvalStatus) && approvedDate != null && (approvedDate.equals(new Date()) || approvedDate.before(new Date()));
+            if((lastModifiedDate != null && lastModifiedDate.before(approvedDate))) {
+                return  APPROVE.equalsIgnoreCase(approvalStatus) && approvedDate != null && (approvedDate.equals(new Date()) || approvedDate.before(new Date()));
+            }
         } catch (ParseException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PARSE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, WORKFLOW_UTILS, e));
         }
         return false;
     }
@@ -132,10 +139,10 @@ public class WorkflowUtils {
      * @return the boolean
      */
     public static boolean isValidResourceForReplication(Resource resource) {
-        ValueMap valueMap = resource.getChild("jcr:content").getValueMap();
+        ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
         if(valueMap!= null) {
-            Date contentPublishingDate = valueMap.get("contentPublishingDate", Date.class);
-            Date embargoLiftDate = valueMap.get("embargoLiftDate", Date.class);
+            Date contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, Date.class);
+            Date embargoLiftDate = valueMap.get(EMBARGO_LIFT_DATE, Date.class);
             if(isInitiallyApproved(valueMap)) {
                 if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
                     return true;
@@ -164,7 +171,7 @@ public class WorkflowUtils {
                 resourceResolver.commit();
             } catch (PersistenceException e) {
                 LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PERSISTENCE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                        ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
+                        ErrorUtilsConstants.MODULE_WORKFLOW, WORKFLOW_UTILS, e));
             }
         }
     }
@@ -181,7 +188,8 @@ public class WorkflowUtils {
         if(MapUtils.isNotEmpty(assetMap)) {
             assetMap.entrySet().stream().forEach(entry -> {
                 Asset asset = entry.getValue();
-                Map<String, Object> properties = asset.getMetadata();
+                Resource resource = resourceResolver.getResource(asset.getPath());
+                ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
                 removeProperties(properties);
             });
         }
@@ -190,12 +198,12 @@ public class WorkflowUtils {
 
     public static void removeProperties(Map<String, Object> properties) {
         if(MapUtils.isNotEmpty(properties)) {
-            properties.remove("approvalStatus");
-            properties.remove("activateNowLater");
-            properties.remove("contentPublishingDate");
-            properties.remove("embargoLiftDate");
-            properties.remove("approvedDate");
-            properties.remove("approvedBy");
+            properties.remove(APPROVAL_STATUS);
+            properties.remove(ACTIVATE_NOW_LATER);
+            properties.remove(CONTENT_PUBLISHING_DATE);
+            properties.remove(EMBARGO_LIFT_DATE);
+            properties.remove(WorkflowConstants.APPROVED_DATE);
+            properties.remove(APPROVED_BY);
         }
     }
 
@@ -241,7 +249,7 @@ public class WorkflowUtils {
             assetMap.entrySet().stream().forEach(entry -> {
                 Asset asset = entry.getValue();
                 Resource resource = resourceResolver.getResource(asset.getPath());
-                ModifiableValueMap properties = resource.getChild("jcr:content").adaptTo(ModifiableValueMap.class);
+                ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
                 addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, properties);
             });
         }
@@ -254,23 +262,23 @@ public class WorkflowUtils {
 
     private static void addProperties(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Map<String, Object> properties) {
         if(StringUtils.isNotEmpty(approvalStatus)) {
-            properties.put("approvalStatus", approvalStatus);
+            properties.put(APPROVAL_STATUS, approvalStatus);
         }
         if(StringUtils.isNotEmpty(activateNowLater)) {
-            properties.put("activateNowLater", activateNowLater);
+            properties.put(ACTIVATE_NOW_LATER, activateNowLater);
         }
         if(StringUtils.isNotEmpty(contentPublishingDate)) {
-            properties.put("contentPublishingDate", contentPublishingDate);
+            properties.put(CONTENT_PUBLISHING_DATE, contentPublishingDate);
         }
         if(StringUtils.isNotEmpty(embargoLiftDate)) {
-            properties.put("embargoLiftDate", embargoLiftDate);
+            properties.put(EMBARGO_LIFT_DATE, embargoLiftDate);
         }
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        properties.put("approvedDate", dateFormat.format(new Date()));
-        if(properties.get("cq:lastModifiedBy") != null){
-            properties.put("approvedBy", properties.get("cq:lastModifiedBy"));
+        SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM);
+        properties.put(WorkflowConstants.APPROVED_DATE, dateFormat.format(new Date()));
+        if(properties.get(CQ_LAST_MODIFIED) != null){
+            properties.put(APPROVED_BY, properties.get(CQ_LAST_MODIFIED));
         } else {
-            properties.put("approvedBy", properties.get("jcr:lastModifiedBy"));
+            properties.put(APPROVED_BY, properties.get(JCR_LAST_MODIFIED));
         }
     }
 

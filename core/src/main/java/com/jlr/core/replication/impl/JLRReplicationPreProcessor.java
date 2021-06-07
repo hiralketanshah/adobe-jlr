@@ -17,8 +17,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import javax.jcr.lock.LockManager;
 
 import static com.jlr.core.utils.WorkflowUtils.*;
 
@@ -34,7 +32,7 @@ public class JLRReplicationPreProcessor implements Preprocessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(JLRReplicationPreProcessor.class);
 
     /** The Constant RESOURCE_UNAPPROVED_MESSAGE. */
-    private static final String RESOURCE_UNAPPROVED_MESSAGE = "Page/Asset is not approved or scheduled deployment time not met!";
+    private static final String RESOURCE_UNAPPROVED_MESSAGE = "Page/Asset is not approved or scheduled deployment time not met or Page/Asset has been modified after workflow creation!";
 
     /** The resource resolver factory. */
     @Reference
@@ -76,8 +74,6 @@ public class JLRReplicationPreProcessor implements Preprocessor {
             }
         } catch (LoginException e) {
             throw new ReplicationException(e);
-        } catch (RepositoryException e) {
-            e.printStackTrace();
         } finally {
             if (resourceResolver != null && resourceResolver.isLive()) {
                 // Always close resource resolver you open
@@ -95,11 +91,8 @@ public class JLRReplicationPreProcessor implements Preprocessor {
      * @param resourceResolver
      * @return the boolean
      */
-    private Boolean isResourceApproved(Resource resource, ResourceResolver resourceResolver) throws
-            RepositoryException {
+    private Boolean isResourceApproved(Resource resource, ResourceResolver resourceResolver) {
         if(isValidResourceForReplication(resource)) {
-            LockManager lockManager = resourceResolver.adaptTo(Session.class).getWorkspace().getLockManager();
-            lockManager.unlock(resource.getPath());
             Page page = resource.adaptTo(Page.class);
             if(page != null) {
                 lockUnlockPage(page, "unlock");

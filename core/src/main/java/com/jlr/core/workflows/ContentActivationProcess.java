@@ -8,12 +8,16 @@ import com.adobe.granite.workflow.exec.WorkflowData;
 import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
 import com.adobe.granite.workflow.model.WorkflowModel;
+import com.day.cq.dam.api.Asset;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationException;
 import com.day.cq.replication.Replicator;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.WorkflowConstants;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
+import org.apache.commons.collections.MapUtils;
 import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -24,9 +28,11 @@ import javax.jcr.Session;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
-import static com.jlr.core.utils.WorkflowUtils.notifyInitiatorOfRejection;
+import static com.jlr.core.constants.WorkflowConstants.*;
+import static com.jlr.core.utils.WorkflowUtils.*;
 
 /**
  * The component that activates the selected content now or a later date.
@@ -58,44 +64,81 @@ public class ContentActivationProcess implements WorkflowProcess {
             String contentPath = workItem.getContentPath();
             Resource resource = resourceResolver.getResource(contentPath);
             if(resource != null) {
-                ValueMap valueMap = resource.getChild("jcr:content").getValueMap();
-                String approvalStatus = valueMap.get("approvalStatus", String.class);
-                if("approve".equalsIgnoreCase(approvalStatus)) {
-                    String activateNowLater = valueMap.get("activateNowLater", String.class);
-                    if ("activateNow".equalsIgnoreCase(activateNowLater)) {
+                Page page = resource.adaptTo(Page.class);
+                ValueMap valueMap = resource.getChild(WorkflowConstants.JCR_CONTENT).getValueMap();
+                String approvalStatus = valueMap.get(WorkflowConstants.APPROVAL_STATUS, String.class);
+                if(WorkflowConstants.APPROVE.equalsIgnoreCase(approvalStatus)) {
+                    String activateNowLater = valueMap.get(WorkflowConstants.ACTIVATE_NOW_LATER, String.class);
+                    if(page != null) {
+                        replicateRelatedAssets(workflowSession, resourceResolver, page);
+                    }
+                    if (ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
                         replicator.replicate(resourceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, contentPath);
-                    } else if ("activateLater".equalsIgnoreCase(activateNowLater)) {
-                        String contentPublishingDate = valueMap.get("contentPublishingDate", String.class);
-                        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm");
-                        Date date = dateFormat.parse(contentPublishingDate);
-                        try {
-                            final String model = "/var/workflow/models/scheduled_activation";
-                            final WorkflowModel workflowModel = workflowSession.getModel(model);
-                            final WorkflowData workflowData = workflowSession.newWorkflowData("JCR_PATH", contentPath);
-                            workflowModel.setTitle("content activation scheduled on " + dateFormat.format(date));
-                            workflowData.getMetaDataMap().put("absoluteTime", date.getTime());
-                            workflowSession.startWorkflow(workflowModel, workflowData);
-                            LOGGER.info("Workflow: {} started", model);
-                        } catch (WorkflowException e) {
-                            LOGGER.error(e.getMessage(), e);
-                        }
+                    } else if (ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)) {
+                        scheduleActivationLater(workflowSession, contentPath, valueMap);
                     }
                 } else {
                     notifyInitiatorOfRejection(workItem, resourceResolver, inboxNotificationSender);
+                    removeMetadata(page, resourceResolver);
+                    saveChanges(resourceResolver);
                 }
             }
 
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "ContentActivationProcess", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
         } catch (ReplicationException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPLICATION_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "ContentActivationProcess", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
         } catch (ParseException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PARSE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "ContentActivationProcess", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
         }
 
+    }
+
+    private void scheduleActivationLater(WorkflowSession workflowSession, String contentPath, ValueMap valueMap) throws
+            ParseException {
+        String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM);
+        Date date = dateFormat.parse(contentPublishingDate);
+        try {
+            final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
+            final WorkflowModel workflowModel = workflowSession.getModel(model);
+            final WorkflowData workflowData = workflowSession.newWorkflowData(JCR_PATH, contentPath);
+            workflowModel.setTitle(CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
+            workflowData.getMetaDataMap().put(ABSOLUTE_TIME, date.getTime());
+            workflowSession.startWorkflow(workflowModel, workflowData);
+        } catch (WorkflowException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WORKFLOW_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                    ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
+        }
+    }
+
+    private void replicateRelatedAssets(WorkflowSession workflowSession, ResourceResolver resourceResolver, Page page) {
+        Map<String, Asset> assetMap = getAssetMapOfPage(page, resourceResolver);
+        if(MapUtils.isNotEmpty(assetMap)) {
+            assetMap.entrySet().stream().forEach(entry -> {
+                String path = entry.getKey();
+                Asset asset = entry.getValue();
+                Resource resource = resourceResolver.getResource(asset.getPath());
+                ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
+                String activateNowLater = properties.get(ACTIVATE_NOW_LATER, String.class);
+                try {
+                    if(ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
+                        replicator.replicate(resourceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, path);
+                    } else if (ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)) {
+                        scheduleActivationLater(workflowSession, path, properties);
+                    }
+                } catch (ReplicationException e) {
+                    LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPLICATION_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                            ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
+                } catch (ParseException e) {
+                    LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PARSE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                            ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
+                }
+            });
+        }
     }
 
 }

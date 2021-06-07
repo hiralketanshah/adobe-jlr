@@ -7,6 +7,7 @@ import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.WorkflowConstants;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.WorkflowUtils;
@@ -20,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
+import static com.jlr.core.constants.WorkflowConstants.UNLOCK;
 import static com.jlr.core.utils.WorkflowUtils.removeMetadata;
 import static com.jlr.core.utils.WorkflowUtils.saveChanges;
 
@@ -50,13 +52,11 @@ public class ContentUnlockProcess implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(contentPath);
             if (resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                WorkflowUtils.lockUnlockPage(page, "unlock");
-                removeMetadata(page, resourceResolver);
-                saveChanges(resourceResolver);
+                WorkflowUtils.lockUnlockPage(page, UNLOCK);
             }
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "ContentUnlockProcess", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, WorkflowConstants.CONTENT_UNLOCK_PROCESS, e));
         }
     }
 

@@ -7,6 +7,7 @@ import com.adobe.granite.workflow.exec.WorkflowProcess;
 import com.adobe.granite.workflow.metadata.MetaDataMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.WorkflowConstants;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.WorkflowUtils;
@@ -46,11 +47,11 @@ public class ContentLockProcess implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(contentPath);
             if (resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                WorkflowUtils.lockUnlockPage(page, "lock");
+                WorkflowUtils.lockUnlockPage(page, WorkflowConstants.LOCK);
             }
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "ContentLockProcess", e));
+                    ErrorUtilsConstants.MODULE_WORKFLOW, WorkflowConstants.CONTENT_LOCK_PROCESS, e));
         }
 
     }
