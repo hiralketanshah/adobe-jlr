@@ -47,11 +47,11 @@ public class ContentApprovalServlet extends SlingSafeMethodsServlet {
             if (resource != null) {
                 Page page = resource.adaptTo(Page.class);
                 if (page != null) {
-                    WorkflowUtils.lockUnlockResources(page, "unlock");
+                    WorkflowUtils.lockUnlockPage(page, "unlock");
                     saveChanges(resourceResolver);
                     WorkflowUtils.processMetadata(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, page, null, resourceResolver);
                     saveChanges(resourceResolver);
-                    WorkflowUtils.lockUnlockResources(page, "lock");
+                    WorkflowUtils.lockUnlockPage(page, "lock");
                     saveChanges(resourceResolver);
                 }
             }

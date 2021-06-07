@@ -90,39 +90,18 @@ public class WorkflowUtils {
         return null;
     }
 
-    /**
-     * Lock child resource.
-     *
-     * @param page            the page
-     * @param lockUnlockState the lock unlock state
-     * @throws WCMException the wcm exception
-     */
-    public static void lockUnlockResources(Page page, String lockUnlockState) {
-        if (page != null) {
-            if(page.listChildren() != null && page.listChildren().hasNext()) {
-                while (page.listChildren().hasNext()) {
-                    Page childPage = page.listChildren().next();
-                    if (childPage != null) {
-                        if (childPage != null && childPage.listChildren() != null && childPage.listChildren().hasNext()) {
-                            lockUnlockResources(childPage, lockUnlockState);
-                        }
-                    }
+    public static void lockUnlockPage(Page page, String lockUnlockState) {
+        if(page != null) {
+            try{
+                if("lock".equals(lockUnlockState) && !page.isLocked()) {
+                    page.lock();
+                } else if("unlock".equals(lockUnlockState) && page.isLocked() && page.canUnlock()){
+                    page.unlock();
                 }
+            } catch (WCMException e) {
+                LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WCM_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                        ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
             }
-            lockUnlockPage(page, lockUnlockState);
-        }
-    }
-
-    private static void lockUnlockPage(Page page, String lockUnlockState) {
-        try{
-            if("lock".equals(lockUnlockState) && !page.isLocked()) {
-                page.lock();
-            } else if("unlock".equals(lockUnlockState) && page.isLocked() && page.canUnlock()){
-                page.unlock();
-            }
-        } catch (WCMException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WCM_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
         }
     }
 
@@ -175,14 +154,6 @@ public class WorkflowUtils {
      * @param resourceResolver the resource resolver
      */
     public static void removeMetadata(Page page, ResourceResolver resourceResolver){
-        if(page.listChildren() != null) {
-            while(page.listChildren().hasNext()) {
-                Page child = page.listChildren().next();
-                if(child != null) {
-                    removeMetadata(child, resourceResolver);
-                }
-            }
-        }
         removeMetadataFromPage(page);
         removeMetadataOfAssets(page, resourceResolver);
     }
@@ -254,14 +225,6 @@ public class WorkflowUtils {
      */
     public static void processMetadata(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Page page, Resource asset, ResourceResolver resourceResolver) {
         if(page != null) {
-            if(page.listChildren() != null) {
-                while(page.listChildren().hasNext()) {
-                    Page child = page.listChildren().next();
-                    if(child != null) {
-                        processMetadata(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, child, null, resourceResolver);
-                    }
-                }
-            }
             addMetadataToPage(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, page);
             fetchAssetsOfPage(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, page, resourceResolver);
         }

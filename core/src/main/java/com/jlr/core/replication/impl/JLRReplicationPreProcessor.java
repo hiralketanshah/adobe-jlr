@@ -102,7 +102,7 @@ public class JLRReplicationPreProcessor implements Preprocessor {
             lockManager.unlock(resource.getPath());
             Page page = resource.adaptTo(Page.class);
             if(page != null) {
-                lockUnlockResources(page, "unlock");
+                lockUnlockPage(page, "unlock");
                 removeMetadata(page, resourceResolver);
                 saveChanges(resourceResolver);
                 return true;

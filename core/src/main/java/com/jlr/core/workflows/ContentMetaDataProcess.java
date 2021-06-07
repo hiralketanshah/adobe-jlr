@@ -57,11 +57,11 @@ public class ContentMetaDataProcess implements WorkflowProcess {
                 }
                 MetaDataMap dataMap = historyItem.getWorkItem().getMetaDataMap();
                 if (page != null) {
-                    WorkflowUtils.lockUnlockResources(page, "unlock");
+                    WorkflowUtils.lockUnlockPage(page, "unlock");
                     saveChanges(resourceResolver);
                     WorkflowUtils.processMetadata(dataMap.get("approvalStatus", String.class), dataMap.get("activateNowLater", String.class), dataMap.get("contentPublishingDate", String.class), dataMap.get("embargoLiftDate", String.class), page, null, resourceResolver);
                     saveChanges(resourceResolver);
-                    WorkflowUtils.lockUnlockResources(page, "lock");
+                    WorkflowUtils.lockUnlockPage(page, "lock");
                     saveChanges(resourceResolver);
                 } else {
                     Resource asset = resource.getChild("jcr:content");

@@ -50,7 +50,7 @@ public class ContentUnlockProcess implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(contentPath);
             if (resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                WorkflowUtils.lockUnlockResources(page, "unlock");
+                WorkflowUtils.lockUnlockPage(page, "unlock");
                 removeMetadata(page, resourceResolver);
                 saveChanges(resourceResolver);
             }
