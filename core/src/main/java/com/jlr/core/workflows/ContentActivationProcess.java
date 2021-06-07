@@ -100,7 +100,7 @@ public class ContentActivationProcess implements WorkflowProcess {
     private void scheduleActivationLater(WorkflowSession workflowSession, String contentPath, ValueMap valueMap) throws
             ParseException {
         String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
-        SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         Date date = dateFormat.parse(contentPublishingDate);
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
