@@ -3453,10 +3453,10 @@
                   var controlDropdowns = [].concat((0, _toConsumableArray3.default)(this.element.querySelectorAll('.' + _classes.classes.controlDropdowns + ':not(.' + _classes.classes.controlDropdowns + '--hidden)')));
                   var submitButton = this.element.querySelector('.Derivative__controls-form-submit');
     
-                  // if (!this.modelsDropdownHidden) {
-                  //   var initialSelectedModel = submitButton.getAttribute('data-model');
-                  //   this._hideDerivatives(initialSelectedModel);
-                  // }
+                  if (!this.modelsDropdownHidden) {
+                    var initialSelectedModel = submitButton.getAttribute('data-model');
+                    this._hideDerivatives(initialSelectedModel);
+                  }
     
     
     
@@ -3486,17 +3486,17 @@
                     var previous = _this8.element.querySelector('.' + _classes.classes.panelActive) || null;
                     var bodystyle = event.currentTarget.getAttribute('data-bodystyle');
                     _this8.selectedModel = event.currentTarget.getAttribute('data-model');
-                    console.log(bodystyle);
-                    console.log(_this8.selectedModel);
+                    //console.log(bodystyle);
+                    //console.log(_this8.selectedModel);
     
                     // set active panel
                     (0, _controlDropdowns2.switchPanels)(_this8.element, previous, bodystyle);
                   });
     
                   this.element.addEventListener('Derivative:before-dropdown-in', function () {
-                    // if (!_this8.modelsDropdownHidden) {
-                    //   _this8._hideDerivatives(_this8.selectedModel);
-                    // }
+                    if (!_this8.modelsDropdownHidden) {
+                      _this8._hideDerivatives(_this8.selectedModel);
+                    }
                     _this8._resize();
                     _this8._carouselUpdate();
                     (0, _index.dxSetTimeout)(function () {
@@ -3786,6 +3786,7 @@
               let urlFileName = $(location).attr('pathname').split('/').pop();
               let fileName = urlFileName.split('.').shift();
               let fileExtension = urlFileName.split('.').pop();
+              url = $(url).text();
               let newUrl = `${fileName}.${url}.${fileExtension}`;
               window.history.pushState({}, '', newUrl);
             };
@@ -7191,3 +7192,4 @@
     
         /******/
       });
+    

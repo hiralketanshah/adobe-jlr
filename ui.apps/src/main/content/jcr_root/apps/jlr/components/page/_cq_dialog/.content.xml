@@ -767,6 +767,21 @@
                                             </pricingSuppression>
                                         </items>
                                     </pricing>
+                                    <serp
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="SEO config"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <robotsText
+                                                cq:showOnCreate="{Boolean}false"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                fieldDescription="Enter the contents of Robots.txt for the specific market."
+                                                fieldLabel="Robots.txt contents"
+                                                name="./robotsTxtContents"
+                                                text="Robots.txt content specific to the market"/>
+                                        </items>
+                                    </serp>
                                 </items>
                             </column>
                         </items>
