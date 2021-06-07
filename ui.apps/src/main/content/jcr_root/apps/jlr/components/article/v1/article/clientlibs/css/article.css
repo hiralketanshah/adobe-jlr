@@ -1,15 +1,33 @@
 .cmp-article .Article__heading {
     text-transform: uppercase;
 }
-.cmp-article .richText,
 .cmp-article .imageCaption {
     text-transform: capitalize;
 }
 .cmp-article__videoframe {
     position: relative;
-    max-width: 600px;
+    max-width: 760px;
     margin: 0 auto;
   }
+
+@media screen and (max-width: 375px) {
+    .cmp-article__videoframe {
+        max-width: 325px;
+    }
+}
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+    .cmp-article__videoframe {
+        max-width: 708px;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .cmp-article__videoframe {
+        max-width: 880px;
+    }
+}
+
 .cmp-article__video-container {
     position: relative;
     padding-bottom: 56.25%;
@@ -18,6 +36,7 @@
     overflow: hidden;
     width: 100%;
     height: 100%;
+	margin-bottom: 30px;
   }
   .cmp-article__video-container iframe,
   .cmp-article__video-container object,

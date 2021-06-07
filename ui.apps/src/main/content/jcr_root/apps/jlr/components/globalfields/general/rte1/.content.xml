@@ -3,7 +3,6 @@
     jcr:primaryType="nt:unstructured"
     sling:resourceType="cq/gui/components/authoring/dialog/richtext"
     fieldDescription="The Header copy to be displayed."
-    fieldLabel="Header Copy"
     name="./headerCopy"
     dfs-required="true"
     useFixedInlineToolbar="{Boolean}true">

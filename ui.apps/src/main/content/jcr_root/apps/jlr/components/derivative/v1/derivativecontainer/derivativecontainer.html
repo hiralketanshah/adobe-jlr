@@ -33,7 +33,7 @@
 				<div aria-orientation="horizontal" class="DxTabs__tablist DerivativesOverview__control-list DxTabs__tablist--visible DxTabs__tablist--overflow"
 				  role="tablist">
 				  <sly data-sly-list.item="${model.tabHeadings}">
-					  <button class="DxTabs__tab DerivativesOverview__control-item ${model.tabHeadings[item] == model.selector? 'DxTabs__tab--active': ''}" data-dynamic-url="${model.tabHeadings[item]}" role="tab" tabindex="0" aria-selected="true"	id="" aria-controls="" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
+					  <button class="DxTabs__tab DerivativesOverview__control-item" data-dynamic-url="${model.tabHeadings[item]}" role="tab" tabindex="0" aria-selected="true"	id="" aria-controls="" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
 						<span class="DxTabs__tab-text">
 						  <span class="DxTabs__tab-inner DerivativesOverview__control-text" data-value="${item @context='html'}">
 							${item @context='html'}</span>
@@ -87,7 +87,7 @@
 			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="">
 				<sly data-sly-list="${model.listOfTabs}">
 					<div data-sly-list.cardList="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0">
-						<div class="Derivative" data-sly-test.card="${cardList}" id="">
+						<div class="Derivative" data-sly-test.card="${cardList}" id="${card.id}">
 							<sly data-sly-use.cardRenderer="card.html">
 								<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
 							</sly>
@@ -101,7 +101,7 @@
 					<div class="Derivative__dropdown-panel Derivative__panel " data-bodystyle="${item}">
 						<sly data-sly-list.derivativeList="${model.listOfDropdown[item]}">
                         	<sly data-sly-list.cardList="${model.listOfDropdown[item][derivativeList]}">
-								<div data-sly-test.card="${cardList}" class="Derivative" data-model="${derivativeList @context='html'}" id="">
+								<div data-sly-test.card="${cardList}" class="Derivative" data-model="${derivativeList @context='html'}" id="${card.id}">
 									<sly data-sly-use.cardRenderer="card.html">
 											<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
 									</sly>

@@ -3262,6 +3262,17 @@
     
                   var dynamicURLInitialTab = this.element.querySelector('.cmp-derivative__range').getAttribute('data-initial-tab');
     
+                  let DyUrls = $('.DerivativesOverview__control-item');
+                  let urlFileName = $(location).attr('pathname').split('/').pop();
+                  let fileName = urlFileName.split('.');
+                  let initialTabUrl = 0;
+                  DyUrls.each(function (e) {
+                    if ($(DyUrls[e]).attr("data-dynamic-url") == fileName[1]) {
+                      initialTabUrl = e;
+                    }
+                  });
+                  //this.options.initialTab = initialTabUrl;
+                  dynamicURLInitialTab = initialTabUrl;
                   this._dxTabs = new _DxTabs2.default(this.element.querySelector('.DxTabs'), {
                     initialTab: dynamicURLInitialTab || 0
                   });
@@ -3453,10 +3464,10 @@
                   var controlDropdowns = [].concat((0, _toConsumableArray3.default)(this.element.querySelectorAll('.' + _classes.classes.controlDropdowns + ':not(.' + _classes.classes.controlDropdowns + '--hidden)')));
                   var submitButton = this.element.querySelector('.Derivative__controls-form-submit');
     
-                  // if (!this.modelsDropdownHidden) {
-                  //   var initialSelectedModel = submitButton.getAttribute('data-model');
-                  //   this._hideDerivatives(initialSelectedModel);
-                  // }
+                  if (!this.modelsDropdownHidden) {
+                    var initialSelectedModel = submitButton.getAttribute('data-model');
+                    this._hideDerivatives(initialSelectedModel);
+                  }
     
     
     
@@ -3486,17 +3497,17 @@
                     var previous = _this8.element.querySelector('.' + _classes.classes.panelActive) || null;
                     var bodystyle = event.currentTarget.getAttribute('data-bodystyle');
                     _this8.selectedModel = event.currentTarget.getAttribute('data-model');
-                    console.log(bodystyle);
-                    console.log(_this8.selectedModel);
+                    //console.log(bodystyle);
+                    //console.log(_this8.selectedModel);
     
                     // set active panel
                     (0, _controlDropdowns2.switchPanels)(_this8.element, previous, bodystyle);
                   });
     
                   this.element.addEventListener('Derivative:before-dropdown-in', function () {
-                    // if (!_this8.modelsDropdownHidden) {
-                    //   _this8._hideDerivatives(_this8.selectedModel);
-                    // }
+                    if (!_this8.modelsDropdownHidden) {
+                      _this8._hideDerivatives(_this8.selectedModel);
+                    }
                     _this8._resize();
                     _this8._carouselUpdate();
                     (0, _index.dxSetTimeout)(function () {
@@ -3786,7 +3797,6 @@
               let urlFileName = $(location).attr('pathname').split('/').pop();
               let fileName = urlFileName.split('.').shift();
               let fileExtension = urlFileName.split('.').pop();
-              url = $(url).text();
               let newUrl = `${fileName}.${url}.${fileExtension}`;
               window.history.pushState({}, '', newUrl);
             };
@@ -4203,6 +4213,7 @@
                 this.panels = [].concat((0, _toConsumableArray3.default)(this.panelsContainer.querySelectorAll('[role="tabpanel"]')));
                 this.animating = false;
                 this.init();
+    
               }
     
               (0, _createClass3.default)(DxTabs, [{
@@ -4215,6 +4226,7 @@
                       this.panels[0].style.display = 'block';
                       this.panels[0].style.opacity = 1;
                     }
+    
                     this.element.parentNode.removeChild(this.element);
                     return;
                   }
