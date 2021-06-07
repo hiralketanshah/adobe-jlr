@@ -173,6 +173,8 @@
                                         <assestType
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/foundation/form/select"
+                                            class="cq-dialog-dropdown-showhide"
+                                            cq-dialog-dropdown-showhide-target=".image-video-hide-show"
                                             fieldDescription="Select Content Type as Video or Image"
                                             fieldLabel="Choose Image or Video assest"
                                             name="./assestType">
@@ -187,30 +189,68 @@
                                                     value="video"/>
                                             </items>
                                         </assestType>
-                                        <imagePathHeading
+                                        <image
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/text"
-                                            text="Image"/>
-                                        <imagePath
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            class="hide image-video-hide-show"
+                                            showhidetargetvalue="image">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <well
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <imagePathHeading
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                                            text="Image"/>
+                                                        <imagePath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                                                        <decorative
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
+                                                        <imgAlt
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </image>
+                                        <video
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
-                                        <videoId
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            class="hide image-video-hide-show"
+                                            showhidetargetvalue="video">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <well
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <videoId
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                                        <posterImage
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                            allowUpload="{Boolean}false"
+                                                            fieldDescription="Select an Image to be displayed as Youtube Poster Image."
+                                                            fieldLabel="Poster Image"
+                                                            fileReferenceParameter="./posterImage"
+                                                            mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                            multiple="{Boolean}false"
+                                                            name="./file"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </video>
                                         <target
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
-                                        <decorative
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
-                                        <imgAlt
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
                                         <ctaList
                                             granite:class="horizontal-line"
                                             jcr:primaryType="nt:unstructured"
