@@ -117,5 +117,6 @@
         c-player-summary="true"
        faq-text="true"
        seat-slider-summary="true"
+	    legacy-browser-summary="true"
        vertical-slider-header="true"/>
 </jcr:root>
