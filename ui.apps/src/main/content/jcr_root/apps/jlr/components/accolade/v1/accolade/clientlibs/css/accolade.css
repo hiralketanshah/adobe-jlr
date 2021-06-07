@@ -40,7 +40,6 @@
     margin: 0 auto;
   }
   .cmp-accolades__copy {
-    margin: 32px auto 0;
     text-align: left;
   }
   .cmp-accolades__copy--primary + a {
@@ -130,7 +129,7 @@
       height: 83px;
     }
     .cmp-onlyCopy {
-      min-width: 325px;
+      width: 100%;
     }
     .cmp-accolades{
       padding-bottom: 30px;
@@ -175,8 +174,7 @@
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     .cmp-onlyCopy .cmp-accolades__copy{
       padding-top: 0px;
-      min-width: 708px;
-      max-width: 100%;
+      width: 100%;
       /* min-height: 177px; */
     }
     .cmp-accolades .fontQuote{
@@ -226,7 +224,7 @@
   }
   .cmp-onlyCopy .fontQuote,.cmp-onlyCopy .secondaryLinkWithStyle{
     padding-top: 0px;
-    min-width: 708px;
+    width: 100%;
   }
   }
   /* TABLET ACCOLADES WITH LOGO - END*/
@@ -241,7 +239,7 @@
       flex-direction: row-reverse;
   }
     .cmp-accolades__copy {
-      min-width: 708px;
+      width: 100%;
       max-height: 278px;
       padding-bottom: 0px;
     }
@@ -274,7 +272,7 @@
   }
   .cmp-onlyCopy .fontQuote,.cmp-onlyCopy .cmp-accolades__copy--secondary{
     padding-top: 0px;
-    min-width: 1160px;
+    width: 100%;
   }
   .cmp-carousel__controls.cmp-accolades_pagination{
     position: absolute;
@@ -302,8 +300,7 @@
   }
   .cmp-accolades__copy{
     padding-top: 60px;
-    max-width: 880px;
-    min-width: 760px;
+    width: 100%;
     /* min-height: 177px; */
   }
   .cmp-accolades .fontQuote{
@@ -314,8 +311,7 @@
     width: 767px;
   }
   .cmp-onlyCopy .fontQuote,.cmp-onlyCopy .cmp-accolades__copy--secondary{
-    min-width: 1160px;
-    max-width: 1340px;
+    width:100%;
   }
   .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
     margin-top: 0px;
@@ -470,6 +466,9 @@ color:#0C121C ;
   }  
 }
 @media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-accolades__copy--secondary{
+    max-width: 524px;
+  }
   .cmp-accolades .cmp-accolades__img{
     width: 156px;
     height: 88px;
@@ -492,6 +491,15 @@ color:#0C121C ;
     display: none;
   }
 
+}
+.cmp-accolades__img{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+@media screen and (max-width: 1279px){
+  .cmp-accolades-carousel .cmp-carousel__controls {	
+    position: sticky;
+  }
 }
 
 

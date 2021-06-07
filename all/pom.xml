@@ -93,6 +93,11 @@
                             <target>/apps/jlr-vendor-packages/application/install</target>
                         </embedded>
                         <embedded>
+						    <groupId>org.apache.sling</groupId>
+						    <artifactId>org.apache.sling.dynamic-include</artifactId>
+                            <target>/apps/jlr-vendor-packages/application/install</target>
+						</embedded>
+                        <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.config</artifactId>
                             <type>zip</type>
@@ -276,6 +281,11 @@
 		    <groupId>biz.netcentric.cq.tools.accesscontroltool</groupId>
 		    <artifactId>accesscontroltool-oakindex-package</artifactId>
 		    <type>zip</type>
+		</dependency>
+        <dependency>
+		    <groupId>org.apache.sling</groupId>
+		    <artifactId>org.apache.sling.dynamic-include</artifactId>
+		    <version>3.2.0</version>
 		</dependency>
     </dependencies>
 </project>
