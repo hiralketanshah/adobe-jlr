@@ -2,27 +2,26 @@
         data-sly-call="${renderCookieNotification @ cookieNotification=cookieNotificationModel}"/>
 
 <template data-sly-template.renderCookieNotification="${ @ cookieNotification }">
-	<div class="sharedNavigation" data-fallback-status="None" data-response-status-code="200">
-		<div class="notificationBarsWrapper">
-			<div class="notificationBars fontSmooth">
-				<div class="NotificationBar dark generalNotification" data-expires="${cookieNotification.expiry}" >
-					<div class="notificationContainer">
-						<div class="top">
-							<h2 class="heading headingH5 headingLight notificationHeader">${cookienotification.header @ context='html'}</h2>
-						</div>
-						<div class="bottom">
-							<p>${cookienotification.summary @ context='html'}<p>
-							<div class="NotificationBar__close-wrapper">
-								<sly data-sly-list.cta="${cookienotification.ctaList}">
-									<sly data-sly-test="${cta.text}">
-										<button class="NotificationBar__close-button primaryLinkWithStyle">${cta.text @context='html'}</button>
-									</sly>
+	<div class="notificationBarsWrapper">
+		<div class="notificationBars fontSmooth">
+			<div class="NotificationBar dark generalNotification" data-expires="${cookieNotification.expiry}" >
+				<div class="notificationContainer">
+					<div class="top">
+						<h2 class="heading headingH5 headingLight notificationHeader">${cookienotification.header @ context='html'}</h2>
+					</div>
+					<div class="bottom">
+						<p>${cookienotification.summary @ context='html'}<p>
+						<div class="NotificationBar__close-wrapper">
+							<sly data-sly-list.cta="${cookienotification.ctaList}">
+								<sly data-sly-test="${cta.text}">
+									<button class="NotificationBar__close-button primaryLinkWithStyle">${cta.text @context='html'}</button>
 								</sly>
-							</div>
+							</sly>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
 </template>
