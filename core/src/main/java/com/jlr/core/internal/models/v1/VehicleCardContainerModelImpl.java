@@ -197,7 +197,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         vehicleCard.setExtraSecondaryLinks(extraSecondaryLinks);
         vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink());
         vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink());
-        vehicleCard.setDisclaimer(CommonUtils.getOnlyTextFromHTML(vehicleCardModel.getDisclaimer()));
+        vehicleCard.setDisclaimer(CommonUtils.getOnlyTextForVehicleCard(vehicleCardModel.getDisclaimer()));
         vehicleCard.setImage(VehicleCardUtils.setImageToVehicleLink(vehicleCardModel.getFileReference(), vehicleCardModel.getImageAlt()));
         vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink());
         vehicleCard.setFeatures(VehicleCardUtils.addFeaturesToVehicleCard(vehicleCardModel.getFeatures()));
