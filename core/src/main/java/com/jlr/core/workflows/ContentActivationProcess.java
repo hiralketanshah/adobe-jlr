@@ -79,7 +79,12 @@ public class ContentActivationProcess implements WorkflowProcess {
                     }
                 } else {
                     notifyInitiatorOfRejection(workItem, resourceResolver, inboxNotificationSender);
-                    removeMetadata(page, resourceResolver);
+                    if(page != null) {
+                        removeMetadata(page, resourceResolver);
+                    } else {
+                        ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
+                        removeProperties(properties);
+                    }
                     saveChanges(resourceResolver);
                 }
             }
