@@ -517,7 +517,6 @@ label {
   margin-left: 0px;
 }
 @media screen and (min-width: 768px) and (max-width: 1279px){
-
   .cmp-hero .headerClass{
     display: flex;
     flex-direction: column;
@@ -602,6 +601,13 @@ label {
 .light .cmp-hero .caveat p,
 .white .cmp-hero .caveat p{
   color: #0C121C99;
+}
+.cmp-hero .cmp-genericItem__element-poster .videoCustom,.cmp-hero .cmp-genericItem__element-poster .videoCustom img {
+  object-fit: cover;
+}
+.cmp-hero .cmp-genericItem__element-poster .videoCustom{
+position:unset;
+padding-bottom: 0%;
 }
 @media screen and (min-width: 1280px){
   .cmp-hero .priceAndCta{
@@ -737,6 +743,7 @@ label {
   }
 }
 @media screen and (max-width: 767px){
+
   /* MAIN HEADING */
   .cmp-hero .heading .headingWrapper p{
     text-align: left;
@@ -846,4 +853,22 @@ label {
     border: 2px solid #000;
     background-color: transparent;
 }
+}
+@media screen and (max-width: 767px){
+  .cmp-hero .videoCustom:after{
+    top: 35%;
+    left: 43%;
+  }
+}
+@media screen and (max-width: 600px){
+  .cmp-hero .videoCustom:after{
+    top: 20%;
+    left: 40%;
+  }
+}
+@media screen and (max-width: 450px){
+  .cmp-hero .videoCustom:after{
+    top: 17%;
+    left: 35%;
+  }
 }
