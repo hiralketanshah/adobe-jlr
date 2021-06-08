@@ -79,12 +79,6 @@
                                 text="Enable Last Visited"
                                 uncheckedValue="false"
                                 value="{Boolean}true"/>
-                            <custPortalheading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Customer Portal"/>
                             <enableCustPortal
                                 granite:class="primary-nav-cp"
                                 jcr:primaryType="nt:unstructured"
@@ -109,12 +103,6 @@
                                 fieldDescription="Specify the Aria Label for Customer Portal."
                                 fieldLabel="Customer Portal Aria Label"
                                 name="./custPortalAriaLabel"/>
-                            <retailerheading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Retailer Option"/>
                             <retailerlLink
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
@@ -129,12 +117,6 @@
                                 fieldLabel="Retailer Locator Aria Label"
                                 name="./retailerAriaLabel"
                                 required="true"/>
-                            <Searchheading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Search Option"/>
                             <searchAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -142,12 +124,6 @@
                                 fieldLabel="Search Aria Label"
                                 name="./searchAriaLabel"
                                 required="true"/>
-                            <mobileBurgerHeading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Mobile Burger Option"/>
                             <mobileBurgerAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

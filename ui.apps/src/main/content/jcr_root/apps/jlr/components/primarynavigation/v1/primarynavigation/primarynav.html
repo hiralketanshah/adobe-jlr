@@ -30,7 +30,7 @@
                   <use xlink:href="#Search"></use>
                </svg>
             </a>
-            <a href="${model.retailerLink}" class="dxnav__mobile-icons-retailer" aria-label="${model.retailerAriaLabel}"
+            <a data-sly-test="${model.retailerLink}" href="${model.retailerLink}" class="dxnav__mobile-icons-retailer" aria-label="${model.retailerAriaLabel}"
                target="_self">
                <svg class="dxnav-icon">
                   <use xlink:href="#Location"></use>
@@ -115,7 +115,7 @@
                      <span class="dxnav__item-search-label dxnav-hide-desktop">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
                   </a>
                </li>
-               <li class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="${config.configMap['navigation.retailer.your.retailer']}">
+               <li  data-sly-test="${model.retailerLink}" class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="${config.configMap['navigation.retailer.your.retailer']}">
                   <a href="${model.retailerLink}" aria-label="${model.retailerAriaLabel}" target="_self"
                      class="dxnav__item-retailer--link">
                      <svg class="dxnav-icon dxnav-icon__retailer">
