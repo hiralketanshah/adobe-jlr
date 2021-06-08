@@ -20,11 +20,11 @@ public class ContentApprovalParticipant implements ParticipantStepChooser {
         if (workflowData.getPayloadType().equals(TYPE_JCR_PATH)) {
             String path = workflowData.getPayload().toString();
             if (path.contains(WorkflowConstants.AUS) || path.contains(WorkflowConstants.EN_AU) || path.contains(WorkflowConstants.AUSTRALIA)) {
-                return WorkflowConstants.AU_CONTENT_APPROVALS;
+                return WorkflowConstants.AU_CONTENT_APPROVERS;
             } else if (path.contains(WorkflowConstants.DEU) || path.contains(WorkflowConstants.DE_DE) || path.contains(WorkflowConstants.GERMANY)){
-                return WorkflowConstants.DE_CONTENT_APPROVALS;
+                return WorkflowConstants.DE_CONTENT_APPROVERS;
             } else {
-                return WorkflowConstants.ADMIN;
+                return WorkflowConstants.GLOBAL_APPROVERS;
             }
         }
         return WorkflowConstants.ADMINISTRATORS;
