@@ -173,8 +173,9 @@ public class FetchPriceImpl implements FetchPrice {
         try {
             Session session = resolver.adaptTo(Session.class);
             HttpClient httpClient = new HttpClient();
-            httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(5000);
-            httpClient.getHttpConnectionManager().getParams().setSoTimeout(5000);
+            httpClient.getHttpConnectionManager().getParams()
+                    .setConnectionTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+            httpClient.getHttpConnectionManager().getParams().setSoTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
             GetMethod method = new GetMethod(endpoint);
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 method.setRequestHeader(entry.getKey(), entry.getValue());

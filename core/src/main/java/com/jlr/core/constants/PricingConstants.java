@@ -122,4 +122,9 @@ public class PricingConstants {
      * The Pricing read sub service
      */
     public static final String PRICING_READ_SUBSERVICE = "jlrreadpricing";
+
+    /**
+     * The constant HTTP_CLIENT_TIMEOUT
+     */
+    public static final int HTTP_CLIENT_TIMEOUT = 5000;
 }
