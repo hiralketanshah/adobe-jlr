@@ -70,7 +70,7 @@ public class FetchPriceImpl implements FetchPrice {
     private Map<String, String> destinationPaths;
     private Map<String, String> header = new HashMap<>();
     private String[] listOfStates;
-    private String destinationPath;
+    private String replicationPath;
 
     @Activate
     public void activate(PricingConfig config) {
@@ -83,7 +83,7 @@ public class FetchPriceImpl implements FetchPrice {
         staticUrl = PricingUtils.getMapOfConfigFields(config.listOfStaticUrl());
         configPages = PricingUtils.getMapOfConfigFields(config.listOfConfigPages());
         listOfStates = config.listOfStates();
-        destinationPath = config.destinationPath();
+        replicationPath = config.replicationPath();
 
     }
 
@@ -173,6 +173,9 @@ public class FetchPriceImpl implements FetchPrice {
         try {
             Session session = resolver.adaptTo(Session.class);
             HttpClient httpClient = new HttpClient();
+            httpClient.getHttpConnectionManager().getParams()
+                    .setConnectionTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+            httpClient.getHttpConnectionManager().getParams().setSoTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
             GetMethod method = new GetMethod(endpoint);
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 method.setRequestHeader(entry.getKey(), entry.getValue());
