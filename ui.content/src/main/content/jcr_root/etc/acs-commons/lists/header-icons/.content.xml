@@ -142,11 +142,15 @@
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Star Filled"
                 value="Star_Filled"/>
-            <item33
+			<item33
+                jcr:primaryType="nt:unstructured"
+                jcr:title="SVO"
+                value="SVO"/>
+            <item34
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle"
                 value="Vehicle"/>
-            <item34
+            <item35
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle Add"
                 value="Vehicle_Add"/>
