@@ -1,6 +1,7 @@
 package com.jlr.core.internal.services;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +23,12 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.adobe.acs.commons.fam.ThrottledTaskRunner;
+import com.adobe.acs.commons.replication.AgentIdsAgentFilter;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationException;
+import com.day.cq.replication.ReplicationOptions;
 import com.day.cq.replication.Replicator;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -59,6 +63,9 @@ public class FetchPriceImpl implements FetchPrice {
 
     @Reference
     private Replicator replicator;
+
+    @Reference
+    private ThrottledTaskRunner throttledTaskRunner;
 
     @Reference
     private SlingSettingsService slingSettingsService;
@@ -110,7 +117,7 @@ public class FetchPriceImpl implements FetchPrice {
                     responseBuilder.append(getPrices(resolver, listOfEndpoints, header,
                             destinationPaths.get(CommonConstants.RUNMODE_STAGE), listOfStates));
                 }
-                /* replicate(resolver, destinationPath); */
+                replicate(resolver, replicationPath);
             }
 
         } catch (LoginException e) {
@@ -268,6 +275,10 @@ public class FetchPriceImpl implements FetchPrice {
     public void replicate(ResourceResolver resolver, String pricingDestinationPath) {
 
         if (null != pricingDestinationPath && !pricingDestinationPath.isEmpty()) {
+            ReplicationOptions replicationOptions = new ReplicationOptions();
+            replicationOptions.setSynchronous(Boolean.TRUE);
+            List<String> agents = Arrays.asList(StringUtils.split("youtube", ","));
+            replicationOptions.setFilter(new AgentIdsAgentFilter(agents));
 
             try {
                 LOGGER.debug("Replication started");
@@ -275,12 +286,12 @@ public class FetchPriceImpl implements FetchPrice {
                 parameters.put(CommonConstants.QUERY_PATH, pricingDestinationPath);
                 parameters.put(CommonConstants.QUERY_TYPE, JcrConstants.NT_UNSTRUCTURED);
                 parameters.put(CommonConstants.QUERY_ORDERBY, CommonConstants.QUERY_PATH);
-                parameters.put(CommonConstants.QUERY_LIMIT, "1000");
+                parameters.put(CommonConstants.QUERY_LIMIT, "10000");
 
                 Query query = builder.createQuery(PredicateGroup.create(parameters), resolver.adaptTo(Session.class));
                 SearchResult result = query.getResult();
                 for (Hit hit : result.getHits()) {
-                    activate(replicator, resolver.adaptTo(Session.class), hit.getPath());
+                    activate(replicator, replicationOptions, resolver.adaptTo(Session.class), hit.getPath());
                 }
                 LOGGER.debug("Replication Completed");
 
@@ -296,10 +307,11 @@ public class FetchPriceImpl implements FetchPrice {
 
     }
 
-    private void activate(Replicator replicator, Session session, String path) {
+    private void activate(Replicator replicator, ReplicationOptions replicationOptions, Session session, String path) {
         try {
-            replicator.replicate(session, ReplicationActionType.ACTIVATE, path);
-        } catch (ReplicationException e) {
+            throttledTaskRunner.waitForLowCpuAndLowMemory();
+            replicator.replicate(session, ReplicationActionType.ACTIVATE, path, replicationOptions);
+        } catch (ReplicationException | InterruptedException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
                     ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
                     this.getClass().getSimpleName(), e));
