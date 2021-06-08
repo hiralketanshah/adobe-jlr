@@ -103,13 +103,17 @@ public class WorkflowConstants {
      */
     public static final String AUSTRALIA = "australia/";
     /**
-     * The constant AU_CONTENT_APPROVALS.
+     * The constant AU_CONTENT_APPROVERS.
      */
-    public static final String AU_CONTENT_APPROVALS = "au-content-approvals";
+    public static final String AU_CONTENT_APPROVERS = "au-content-approvers";
     /**
-     * The constant DE_CONTENT_APPROVALS.
+     * The constant DE_CONTENT_APPROVERS.
      */
-    public static final String DE_CONTENT_APPROVALS = "de-content-approvals";
+    public static final String DE_CONTENT_APPROVERS = "de-content-approvers";
+    /**
+     * The constant GLOBAL_APPROVERS.
+     */
+    public static final String GLOBAL_APPROVERS = "global-approvers";
     /**
      * The constant ADMIN.
      */
