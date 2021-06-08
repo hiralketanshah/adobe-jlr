@@ -767,7 +767,17 @@
                                             </pricingSuppression>
                                         </items>
                                     </pricing>
-                                    <cookienotification
+									                  <legacyBrowser
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Legacy Browser Notification"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Select the Legacy browser notification config page."
+                                        fieldLabel="Legacy Browser Notification"
+                                        name="./legacyBrowser"
+                                        rootPath="/content/landrover"
+                                        text="Enable Legacy Browser Notification"/>
+                                       <cookienotification
                                             jcr:primaryType="nt:unstructured"
                                             jcr:title="Cookie Notification Setting"
                                             sling:orderBefore="moretitles"

@@ -147,6 +147,14 @@ public class WorkflowConstants {
      */
     public static final String JCR_LAST_MODIFIED = "jcr:lastModified";
     /**
+     * The constant CQ_LAST_MODIFIED.
+     */
+    public static final String CQ_LAST_MODIFIED_BY = "cq:lastModifiedBy";
+    /**
+     * The constant JCR_LAST_MODIFIED.
+     */
+    public static final String JCR_LAST_MODIFIED_BY = "jcr:lastModifiedBy";
+    /**
      * The constant WORKFLOW_UTILS.
      */
     public static final String WORKFLOW_UTILS = "WorkflowUtils";
