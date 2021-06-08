@@ -105,15 +105,6 @@ public interface PrimaryNavigationModel {
     }
 	
 	/**
-	 * Gets the cust portal icon.
-	 *
-	 * @return the cust portal icon
-	 */
-	default String getCustPortalIcon() {
-        return StringUtils.EMPTY;
-    }
-	
-	/**
 	 * Gets the retailer link.
 	 *
 	 * @return the retailer link

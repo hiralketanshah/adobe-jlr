@@ -85,11 +85,6 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
     @Inject
     @Via("resource")
     private String custPortalLink;
-
-    /** The cust portal icon. */
-    @Inject
-    @Via("resource")
-    private String custPortalIcon;
     
     /** The cust portal aria label. */
     @Inject
@@ -391,15 +386,6 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
         return custPortalAriaLabel;
     }
     
-    /**
-     * Gets the cust portal icon.
-     *
-     * @return the cust portal icon
-     */
-    @Override
-    public String getCustPortalIcon() {
-        return custPortalIcon;
-    }
 
     /**
      * Gets the retailer link.
