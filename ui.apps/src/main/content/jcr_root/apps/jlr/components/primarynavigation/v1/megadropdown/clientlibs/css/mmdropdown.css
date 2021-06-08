@@ -2775,7 +2775,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 }
 
 .dxnav-unique-nav .dxnav__breadcrumb-text {
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 	overflow: hidden;
 	ms-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -2824,7 +2824,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 
 .dxnav-unique-nav .dxnav__breadcrumb-text {
 	display: inline-block;
-	margin-right: 24px;
+	/*margin-right: 24px;*/
 	font-size: 10px;
 	letter-spacing: .173em;
 	font-weight: 600;

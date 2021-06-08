@@ -1,6 +1,7 @@
 .cmp-article .Article__heading {
     text-transform: uppercase;
 }
+.cmp-article .richText p::first-letter,
 .cmp-article .imageCaption {
     text-transform: capitalize;
 }
