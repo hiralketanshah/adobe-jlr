@@ -767,6 +767,32 @@
                                             </pricingSuppression>
                                         </items>
                                     </pricing>
+									                  <legacyBrowser
+                                        cq:showOnCreate="{Boolean}true"
+                                        jcr:primaryType="nt:unstructured"
+                                        jcr:title="Legacy Browser Notification"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldDescription="Select the Legacy browser notification config page."
+                                        fieldLabel="Legacy Browser Notification"
+                                        name="./legacyBrowser"
+                                        rootPath="/content/landrover"
+                                        text="Enable Legacy Browser Notification"/>
+                                       <cookienotification
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Cookie Notification Setting"
+                                            sling:orderBefore="moretitles"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <cookienotificationpath
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Select cookie notification config page"
+                                                    fieldLabel="Config Page Path"
+                                                    name="./cookieNotificationPath"
+                                                    rootPath="/content/landrover"/>
+                                        </items>
+                                    </cookienotification>
                                     <serp
                                         jcr:primaryType="nt:unstructured"
                                         jcr:title="SEO config"

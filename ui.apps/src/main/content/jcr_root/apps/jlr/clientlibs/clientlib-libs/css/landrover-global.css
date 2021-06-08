@@ -11200,11 +11200,6 @@ html.no-js #landrover #header {
 	}
 }
 
-@media screen and (min-width: 901px) {
-	.NotificationBar__close-button {
-		margin: 0
-	}
-}
 
 .NotificationBar .notificationContainer {
 	display: flex
