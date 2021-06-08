@@ -1,6 +1,6 @@
 <template data-sly-template.primaryNavigation="${@ model, pageConfig}">
    <sly
-      data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,navigation.shared.vehicleDropdownFromText,navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown'}"
+      data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,navigation.shared.vehicleDropdownFromText,navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown,navigation.shared.search.prompt.desktop,navigation.shared.search.prompt.mobile,navigation.shared.search.see-all-results,navigation.shared.search.suggestions,navigation.shared.search.error.link,navigation.shared.search.error.message,navigation.retailer.your.retailer,navigation.retailer.retailers,navigation.profile,navigation.retailer.last.visited.retailer,navigation.retailer.view.your.retailer,navigation.retailer.view.all.retailers,navigation.shared.search.related-searches,navigation.shared.search.pagination.aria-label,navigation.shared.search.results.aria-label,search.next,search.previous'}"
       data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" id="${component.id}"></sly>
    <div class="dxnav__primary">
       <div class="dxnav__background--desktop"></div>
@@ -30,7 +30,7 @@
                   <use xlink:href="#Search"></use>
                </svg>
             </a>
-            <a href="${model.retailerLink}" class="dxnav__mobile-icons-retailer" aria-label="${model.retailerAriaLabel}"
+            <a data-sly-test="${model.retailerLink}" href="${model.retailerLink}" class="dxnav__mobile-icons-retailer" aria-label="${model.retailerAriaLabel}"
                target="_self">
                <svg class="dxnav-icon">
                   <use xlink:href="#Location"></use>
@@ -112,10 +112,10 @@
                      <svg class="dxnav-icon">
                         <use xlink:href="#Search"></use>
                      </svg>
-                     <span class="dxnav__item-search-label dxnav-hide-desktop">SEARCH</span>
+                     <span class="dxnav__item-search-label dxnav-hide-desktop">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
                   </a>
                </li>
-               <li class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="YOUR RETAILER">
+               <li  data-sly-test="${model.retailerLink}" class="dxnav__item dxnav__item-retailer" data-retailer-nav-text="${config.configMap['navigation.retailer.your.retailer']}">
                   <a href="${model.retailerLink}" aria-label="${model.retailerAriaLabel}" target="_self"
                      class="dxnav__item-retailer--link">
                      <svg class="dxnav-icon dxnav-icon__retailer">
@@ -124,7 +124,7 @@
                      <svg class="dxnav-icon dxnav-icon__your-retailer dxnav-hide">
                         <use xlink:href="#Search"></use>
                      </svg>
-                     <span class="dxnav__item-retailer-label dxnav-hide-desktop">RETAILERS</span>
+                     <span class="dxnav__item-retailer-label dxnav-hide-desktop">${config.configMap['navigation.retailer.retailers']}</span>
                   </a>
                </li>
                <li class="dxnav__item dxnav__item--mobile-only">
@@ -153,6 +153,7 @@
                   <svg class="dxnav-icon">
                      <use xlink:href="#Profile"></use>
                   </svg>
+                  <span class="dxnav__item-profile dxnav-hide-desktop">${config.configMap['navigation.profile']}</span>
                   </a>
                </li>
 
@@ -497,20 +498,20 @@
             </div>
             <form id="dxnav__search-form" accept-charset="ISO-8859-15">
                <input name="iehack" type="hidden" value="☠">
-               <label class="dxnav-visuallyHidden" for="dxnav-searchInput">SEARCH</label>
+               <label class="dxnav-visuallyHidden" for="dxnav-searchInput">${config.configMap['navigation.shared.search.prompt.desktop']}</label>
                <input id="dxnav-searchInput" type="text" class="dxnav-search-input" autocomplete="off"
-                  inputmode="search" placeholder="SEARCH">
+                  inputmode="search" placeholder="${config.configMap['navigation.shared.search.prompt.desktop']}">
                <button class="dxnav-cta-primary dxnav-search__submit-button" type="submit" disabled="">
                   <div class="dxnav-search__submit-button__mobile-icon">
                      <svg class="dxnav-icon">
                         <use xlink:href="#Search"></use>
                      </svg>
                   </div>
-                  <span class="dxnav-search__submit-button__desktop-text">SEARCH</span>
+                  <span class="dxnav-search__submit-button__desktop-text">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
                </button>
             </form>
-            <span class="dxnav-search-prompt-desktop">SEARCH</span>
-            <span class="dxnav-search-prompt-mobile">SEARCH</span>
+            <span class="dxnav-search-prompt-desktop">${config.configMap['navigation.shared.search.prompt.desktop']}</span>
+            <span class="dxnav-search-prompt-mobile">${config.configMap['navigation.shared.search.prompt.mobile']}</span>
             <button id="dxnav-close-search" aria-label="Close item" class="dxnav-search-close">
                <svg class="dxnav-icon">
                   <use xlink:href="#Close"></use>
@@ -520,27 +521,24 @@
          <div class="dxnav-search-results-container">
             <div class="dxnav-search-status"></div>
             <div class="dxnav-suggestions" role="alert" aria-atomic="true">
-               <a class="dxnav-see-all" href=""><span>SEE ALL SEARCH RESULTS</span></a>
+               <a class="dxnav-see-all" href=""><span>${config.configMap['navigation.shared.search.see-all-results']}</span></a>
                <!-- h2 class="dxnav-suggestions__title" th:text="#{navigation.shared.search.suggestions}">SUGGESTIONS</h2 -->
                <ul class="dxnav-suggestions__results"></ul>
             </div>
             <div class="dxnav-no__results">
-               <h2 class="dxnav-suggestions__title">SUGGESTIONS:
-                  Make sure all words are spelled correctly.
-                  Try different keywords.
-                  Try more general keywords.
+               <h2 class="dxnav-suggestions__title">${config.configMap['navigation.shared.search.suggestions']}
                </h2>
             </div>
             <div class="dxnav-search__error" role="alert" aria-atomic="true">
-               <p class="dxnav-search__error-message">An error has occurred -</p>
-               <a href="" class="dxnav-search__error-link">Please search again</a>
+               <p class="dxnav-search__error-message">${config.configMap['navigation.shared.search.error.message']}</p>
+               <a href="" class="dxnav-search__error-link">${config.configMap['navigation.shared.search.error.link']}</a>
             </div>
             <div class="dxnav-search__results">
                <div class="dxnav-search__results-title" role="status" aria-live="polite">
                   <h2 class="dxnav-results-count"></h2>
                </div>
                <div class="dxnav-search__results-content" aria-busy="false" aria-live="polite" tab-index="-1"
-                  aria-label="Search results">
+                  aria-label="${config.configMap['navigation.shared.search.results.aria-label']}">
                   <div class="dxnav-search-results">
                      <div class="dxnav-loader">
                         <div class="dxnav-icon__holder">
@@ -552,7 +550,7 @@
                      <div id="dxnav-search-result" class="dxnav-search-result"></div>
                   </div>
                   <!-- div class="dxnav-related-search-results">
-                           <h3 class="dxnav-related-searches-title" th:text="#{navigation.shared.search.related-searches}">RELATED SEARCHES</h3>
+                           <h3 class="dxnav-related-searches-title" th:text="#{navigation.shared.search.related-searches}">${config.configMap['navigation.shared.search.related-searches']}</h3>
                            <div class="dxnav-related-search-term-container"></div>
                            </div -->
                </div>
@@ -566,17 +564,17 @@
                              <svg class="dxnav-icon"><use xlink:href="/icons-sprite-landrover.svg#Close" nav:icon="Chevron_Right"></use></svg>
                            </button>
                            </div> -->
-                  <nav role="navigation" class="dxnav-search__results-pagination" aria-label="Search results pagination"
+                  <nav role="navigation" class="dxnav-search__results-pagination" aria-label="${config.configMap['navigation.shared.search.pagination.aria-label']}"
                      data-button-label="??navigation.shared.search.pagination.button.label_en_AU??"
                      data-first-label="??navigation.shared.search.pagination.first-button.label_en_AU??"
                      data-last-label="??navigation.shared.search.pagination.last-button.label_en_AU??">
-                     <button class="dxnav-search__prev" aria-label="Previous">
+                     <button class="dxnav-search__prev" aria-label="${config.configMap['search.previous']}">
                         <svg class="dxnav-icon">
                            <use xlink:href="#Chevron_Left"></use>
                         </svg>
                      </button>
                      <ul class="dxnav-search__pagination-list"></ul>
-                     <button class="dxnav-search__next" aria-label="Next">
+                     <button class="dxnav-search__next" aria-label="${config.configMap['search.next']}">
                         <svg class="dxnav-icon">
                            <use xlink:href="#Chevron_Right"></use>
                         </svg>
@@ -597,13 +595,13 @@
                <svg class="dxnav-icon">
                   <use xlink:href="#Arrow_Left"></use>
                </svg>
-               YOUR RETAILER
+               ${config.configMap['navigation.retailer.your.retailer']}
             </button>
             <button class="dxnav-dropdown__close-button dxnav-retailer__non-menu-close" aria-label="close dialog">
                <svg class="dxnav-icon">
                   <use xlink:href="#Close"></use>
                </svg>
-               YOUR RETAILER
+               ${config.configMap['navigation.retailer.your.retailer']}
             </button>
             <button class="dxnav-retailer__close dxnav-links-dropdown__desktop-close" aria-label="close dialog">
                <svg class="dxnav-icon">
@@ -611,16 +609,15 @@
                </svg>
             </button>
             <div class="dxnav-retailer__content">
-               <p class="dxnav-retailer__slug">LAST VISITED RETAILER</p>
+               <p class="dxnav-retailer__slug">${config.configMap['navigation.retailer.last.visited.retailer']}</p>
                <p class="dxnav-retailer__title">xxx</p>
-               <a href="#" class="dxnav-cta-primary"> <span> <span class="dxnav-retailer__cta-text">VIEW YOUR
-                        RETAILER</span> </span> </a>
+               <a href="#" class="dxnav-cta-primary"> <span> <span class="dxnav-retailer__cta-text">${config.configMap['navigation.retailer.view.your.retailer']}</span> </span> </a>
                <a href="https://www.landrover.com.au/national-dealer-locator.html" class="dxnav-cta-secondary"
                   target="_self">
                   <svg class="dxnav-icon">
                      <use xlink:href="#Directional_Right"></use>
                   </svg>
-                  <span class="dxnav-link">VIEW ALL RETAILERS</span>
+                  <span class="dxnav-link">${config.configMap['navigation.retailer.view.all.retailers']}</span>
                </a>
             </div>
          </div>
@@ -661,9 +658,15 @@
                <path
                   d="M14 4h-.667V.667c0-.367-.3-.667-.666-.667h-4C8.3 0 8 .3 8 .667V4h-.667c-1.1 0-2 .9-2 2v.667H4c-.733 0-1.333.6-1.333 1.333v1.333h-2C.3 9.333 0 9.633 0 10v5.333C0 15.7.3 16 .667 16H14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM9.333 1.333H12V4H9.333V1.333zM4 8h2v1.333H4V8zm4.667 6.667H1.333v-4h7.333v4zm6-.667c0 .367-.3.667-.667.667h-4V10c0-.367-.3-.667-.667-.667h-2V8c0-.493-.267-.913-.667-1.147V6c0-.367.3-.667.667-.667H14c.367 0 .667.3.667.667v8z" />
             </symbol>
+            <symbol id="Chevron_Left" viewBox="0 0 16 16">
+               <path d="M4.313 9.472l6.902 6.352a.667.667 0 0 0 .904-.982L5.215 8.491a.669.669 0 0 1 0-.982l6.903-6.352a.667.667 0 0 0-.902-.981L4.313 6.528a1.997 1.997 0 0 0 0 2.944z"/>
+            </symbol>
             <symbol id="Chevron_Right" viewBox="0 0 16 16">
                <path
                   d="M11.687 6.528L4.785.176a.666.666 0 0 0-.903.982l6.903 6.352a.665.665 0 0 1 0 .981l-6.903 6.352a.667.667 0 0 0 .902.981l6.902-6.352c.397-.366.646-.89.646-1.472s-.248-1.106-.645-1.472z" />
+            </symbol>
+            <symbol id="Clock" viewBox="0 0 16 16">
+               <path d="M10.671 11.339a.663.663 0 0 1-.471-.195L7.332 8.276v-4.94a.666.666 0 1 1 1.334 0v4.387l2.476 2.477a.666.666 0 0 1-.471 1.139zM8 1.334c-3.676 0-6.667 2.99-6.667 6.666S4.323 14.667 8 14.667s6.667-2.99 6.667-6.667A6.674 6.674 0 0 0 8 1.334zM8 16c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
             </symbol>
             <symbol id="Close" viewBox="0 0 16 16">
                <path
@@ -687,6 +690,20 @@
                <path
                   d="M15.2 9.8H15l-1 .3L12.9 7c.2-.3.3-.7.3-1.2s-.1-.9-.4-1.3l-2-3.3C10.4.5 9.6 0 8.6 0c-.3 0-.6 0-.8.1l-5.9 2C.9 2.4.1 3.4.1 4.6V5l.7 3.9c.2 1 1 1.9 2 2.1l.9 2.4-3.1 1c-.3.1-.5.5-.5.8 0 .4.3.8.7.8h14.4c.4 0 .8-.6.8-1v-4.6c-.1-.3-.5-.6-.8-.6zM2.1 8.7l-.7-3.9v-.2c0-.6.4-1.1.9-1.2l5.9-2c.1 0 .3-.1.4-.1.5 0 .9.3 1.1.6l2 3.3c.1.2.2.4.2.7 0 .6-.4 1-.9 1.2L3.8 9.7c-.1.1-.3.1-.4.1-.7 0-1.2-.5-1.3-1.1zm3.3 1.8l5.3-1.9.8 2.3-5.4 1.7-.7-2.1z" />
             </symbol>
+            <symbol id="Finance_Calculator" viewBox="0 0 24 24">
+               <path d="M19 0H5a4 4 0 0 0-4 4v16a4 4 0 0 0 4 4h14a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4zm2 20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16z"/>
+               <circle cx="6" cy="11" r="1"/>
+               <circle cx="6" cy="15" r="1"/>
+               <circle cx="6" cy="19" r="1"/>
+               <circle cx="10" cy="11" r="1"/>
+               <circle cx="10" cy="15" r="1"/>
+               <circle cx="10" cy="19" r="1"/>
+               <circle cx="14" cy="11" r="1"/>
+               <circle cx="14" cy="15" r="1"/>
+               <circle cx="14" cy="19" r="1"/>
+               <circle cx="18" cy="11" r="1"/>
+               <path d="M17 19a1 1 0 1 0 2 0v-4a1 1 0 1 0-2 0M18 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h12z"/>
+            </symbol>
             <symbol id="Fuel" viewBox="0 0 16 16">
                <path
                   d="M14.931 3.487L12.853.889a.674.674 0 0 0-.939-.107.673.673 0 0 0-.107.939l2.078 2.598c.28.353.44.799.44 1.252v6.395c0 .366-.3.666-.666.666a.668.668 0 0 1-.666-.666v-3.99a2.007 2.007 0 0 0-2.005-2.005h-.659V1.329c0-.739-.6-1.339-1.332-1.339h-5.99c-.739 0-1.332.6-1.332 1.339v13.329h-.666c-.366 0-.666.3-.666.666 0 .366.3.666.666.666H11c.366 0 .666-.3.666-.666 0-.366-.3-.666-.666-.666h-.666V7.304h.653c.373 0 .673.3.673.673v3.99c0 1.099.899 1.998 1.998 1.998s1.998-.899 1.998-1.998V5.572a3.383 3.383 0 0 0-.725-2.085zM8.996 1.329v4.643H3.001V1.329h5.995zm0 13.329H3.001V7.304h5.995v7.354z" />
@@ -709,6 +726,10 @@
                <path
                   d="M8.831 11.341a.854.854 0 0 0-1.657 0l-1.469 3.735a.699.699 0 0 0 .446.924h3.698a.7.7 0 0 0 .447-.924l-1.465-3.735z" />
             </symbol>
+            <symbol id="Inventory" viewBox="0 0 16 16">
+               <path d="M13.333 8.667a.667.667 0 1 0-1.333 0V10c0 .736-.597 1.333-1.333 1.333h-8a1.333 1.333 0 0 1-1.32-1.523l.667-4.667A1.332 1.332 0 0 1 3.333 4H6a.667.667 0 1 0 0-1.333H3.333A2.667 2.667 0 0 0 .694 4.953L.027 9.619a2.646 2.646 0 0 0 .64 2.128v2.92a1.333 1.333 0 0 0 2.666 0v-2H10v2a1.333 1.333 0 0 0 2.666 0v-2.92c.41-.469.667-1.075.667-1.747V8.667z"/>
+               <path d="M15.805 6.862l-1.693-1.693a3.314 3.314 0 0 0 .555-1.836 3.333 3.333 0 1 0-3.334 3.333c.679 0 1.309-.205 1.836-.555l1.693 1.693a.662.662 0 0 0 .942.001.667.667 0 0 0 .001-.943zm-4.472-1.529a2 2 0 1 1-.001-3.999 2 2 0 0 1 .001 3.999z"/>
+            </symbol>
             <symbol id="Location" viewBox="0 0 16 19">
                <path
                   d="M3.731 12.83l1.891 1.417a3.953 3.953 0 0 1 1.587 3.17v.792a.792.792 0 0 0 1.583-.001v-.792c0-1.298.624-2.448 1.587-3.17l1.893-1.417a7.114 7.114 0 0 0 2.853-5.689v-.035A7.125 7.125 0 1 0 3.731 12.83zM8 1.583a5.542 5.542 0 0 1 2.85 10.297l-2.441 1.467a.791.791 0 0 1-.816 0L5.15 11.878A5.542 5.542 0 0 1 8 1.583z" />
@@ -723,9 +744,16 @@
                   d="M3.731 12.83l1.891 1.417a3.953 3.953 0 0 1 1.587 3.17v.792a.792.792 0 0 0 1.583-.001v-.792c0-1.298.624-2.448 1.587-3.17l1.893-1.417a7.114 7.114 0 0 0 2.853-5.689v-.035A7.125 7.125 0 1 0 3.731 12.83zM8 1.583a5.542 5.542 0 0 1 2.85 10.297l-2.441 1.467a.791.791 0 0 1-.816 0L5.15 11.878A5.542 5.542 0 0 1 8 1.583z" />
                <circle cx="8" cy="7.125" r="2.375" />
             </symbol>
+            <symbol id="Pivotal" viewBox="0 0 50 50">
+               <path d="M9.13 14.59a36.66 36.66 0 0 0-6.54-.67 24.62 24.62 0 0 1 1.9-3.21 35.55 35.55 0 0 1 5.95 2.11 40.27 40.27 0 0 1 4.65 2.55c.71.46 1.42.93 2.12 1.43-.81-.38-1.62-.74-2.45-1.06a29.72 29.72 0 0 0-5.38-1.52c-.09.12-.17.24-.25.37zm3.57-4a28.55 28.55 0 0 1 4.8 2.85c.72.53 1.42 1.08 2.1 1.67-.55-.67-1.11-1.31-1.67-1.93a40.33 40.33 0 0 0-3.84-3.67 35.76 35.76 0 0 0-5.2-3.58A24.28 24.28 0 0 0 6.23 8.5a37 37 0 0 1 6.13 2.33zM6.09 23.48a29 29 0 0 1 5.4-1.38c.88-.14 1.77-.24 2.67-.31-.86-.08-1.71-.13-2.55-.17a37.7 37.7 0 0 0-5.31.12 35.1 35.1 0 0 0-6.2 1.14C0 23.58 0 24.29 0 25c0 .54 0 1.07.06 1.6a36.83 36.83 0 0 1 6-2.68c-.01-.15.01-.3.03-.44zm1-4.85a29.06 29.06 0 0 1 5.61.08c.88.09 1.76.22 2.65.39-.81-.3-1.62-.58-2.42-.83A36.76 36.76 0 0 0 7.77 17a35.17 35.17 0 0 0-6.29-.5 25.26 25.26 0 0 0-1 3.58 36.88 36.88 0 0 1 6.49-1c.03-.17.08-.31.13-.45zm-.77 9.8a30.13 30.13 0 0 1 4.88-2.74c.82-.36 1.64-.68 2.48-1-.85.14-1.68.31-2.5.49a38.11 38.11 0 0 0-5.1 1.49A35.82 35.82 0 0 0 .39 29.4a24.19 24.19 0 0 0 .93 3.6 36.25 36.25 0 0 1 5.1-4.15c-.03-.14-.07-.28-.09-.42zm15.25-22.1a30.13 30.13 0 0 1 2.74 4.88c.36.82.68 1.64 1 2.49-.14-.85-.31-1.69-.49-2.51a38.11 38.11 0 0 0-1.49-5.1A35.82 35.82 0 0 0 20.6.39a24.19 24.19 0 0 0-3.6.93 36.25 36.25 0 0 1 4.15 5.1zM7.84 33.15a30 30 0 0 1 4-3.9c.7-.56 1.41-1.1 2.16-1.61-.79.36-1.55.74-2.3 1.13a39.09 39.09 0 0 0-4.55 2.76 35.66 35.66 0 0 0-4.79 4.09 24.64 24.64 0 0 0 1.84 3.25A36.47 36.47 0 0 1 8 33.55zM39.45 12.7a28.55 28.55 0 0 1-2.85 4.8c-.53.72-1.08 1.42-1.67 2.1.67-.55 1.31-1.11 1.93-1.67a39.17 39.17 0 0 0 3.67-3.84 35.76 35.76 0 0 0 3.58-5.2 24.28 24.28 0 0 0-2.61-2.66 37 37 0 0 1-2.33 6.13c.1.11.19.23.28.34zm4.22 8.87a30.13 30.13 0 0 1-4.88 2.74c-.82.36-1.64.68-2.49 1 .85-.14 1.69-.31 2.51-.49a38.11 38.11 0 0 0 5.1-1.49 35.82 35.82 0 0 0 5.7-2.71 24.19 24.19 0 0 0-.93-3.62 36.25 36.25 0 0 1-5.1 4.15c.03.14.07.28.09.42zm-1.51-4.72a30 30 0 0 1-4 3.9c-.7.57-1.41 1.1-2.16 1.61.79-.36 1.55-.74 2.3-1.13a37.76 37.76 0 0 0 4.55-2.76 35.66 35.66 0 0 0 4.79-4.09 24.52 24.52 0 0 0-1.83-3.24A37.58 37.58 0 0 1 42 16.46zM26.53 6.09a29.72 29.72 0 0 1 1.37 5.4c.14.88.24 1.77.31 2.67.08-.86.13-1.71.17-2.55a37.7 37.7 0 0 0-.12-5.31A35.1 35.1 0 0 0 27.12.1C26.42 0 25.71 0 25 0c-.54 0-1.07 0-1.6.06a36.54 36.54 0 0 1 2.68 6 3.42 3.42 0 0 1 .45.03zm6.67 11.12c.5-.7 1-1.41 1.43-2.12a39.46 39.46 0 0 0 2.55-4.65 35.55 35.55 0 0 0 2.11-5.95 25.8 25.8 0 0 0-3.21-1.9 36.66 36.66 0 0 1-.67 6.54l.37.25a28.93 28.93 0 0 1-1.52 5.38c-.32.83-.67 1.64-1.06 2.45zM31.37 7.1a29.06 29.06 0 0 1-.08 5.61c-.09.88-.22 1.76-.39 2.65.3-.81.58-1.62.83-2.42A38.24 38.24 0 0 0 33 7.77a36.14 36.14 0 0 0 .49-6.29 25.26 25.26 0 0 0-3.58-1A36.88 36.88 0 0 1 31 7zm1.78 35.06a30 30 0 0 1-3.9-4c-.56-.7-1.1-1.41-1.61-2.16.36.79.74 1.55 1.13 2.3a39.09 39.09 0 0 0 2.76 4.55 35.66 35.66 0 0 0 4.09 4.79 23.9 23.9 0 0 0 3.24-1.83A37.58 37.58 0 0 1 33.54 42zm-4.72 1.51a30.13 30.13 0 0 1-2.74-4.88c-.36-.82-.68-1.64-1-2.48.14.85.31 1.68.49 2.5a38.11 38.11 0 0 0 1.49 5.1 35.82 35.82 0 0 0 2.71 5.7 24.19 24.19 0 0 0 3.62-.93 36.25 36.25 0 0 1-4.15-5.1zm8.87-4.22a28.55 28.55 0 0 1-4.8-2.85c-.72-.53-1.42-1.08-2.1-1.66.55.66 1.11 1.3 1.67 1.92a40.33 40.33 0 0 0 3.84 3.67 35.76 35.76 0 0 0 5.2 3.58 24.28 24.28 0 0 0 2.66-2.61 37 37 0 0 1-6.13-2.33zm5.6-8.09c-.82.07-1.62.11-2.41.11a28 28 0 0 1-3.19-.19c-.89-.09-1.77-.21-2.65-.38.81.31 1.61.58 2.41.83A36.76 36.76 0 0 0 42.23 33a35.17 35.17 0 0 0 6.29.5 25.26 25.26 0 0 0 1-3.58A37.84 37.84 0 0 1 43 31c0 .08 0 .22-.1.36zm1.1-5.28c0 .15 0 .3-.05.45a29.72 29.72 0 0 1-5.4 1.37c-.89.13-1.78.24-2.68.31.86.08 1.71.14 2.56.17a39.27 39.27 0 0 0 5.31-.11 35.15 35.15 0 0 0 6.2-1.15c.06-.7.1-1.41.1-2.12 0-.54 0-1.07-.06-1.6A36.83 36.83 0 0 1 44 26.08zM23.48 43.91a29 29 0 0 1-1.38-5.4c-.14-.88-.24-1.77-.31-2.67-.08.86-.13 1.71-.17 2.55a37.67 37.67 0 0 0 .12 5.31 35.1 35.1 0 0 0 1.14 6.2c.7.06 1.41.1 2.12.1.54 0 1.07 0 1.6-.06a36.83 36.83 0 0 1-2.68-6zm17.14-8.13a28.93 28.93 0 0 1-5.38-1.52c-.83-.32-1.64-.67-2.45-1.06.7.5 1.41 1 2.12 1.43a40.27 40.27 0 0 0 4.65 2.55 35.55 35.55 0 0 0 5.95 2.11 26.42 26.42 0 0 0 1.9-3.2 37.59 37.59 0 0 1-6.54-.68c-.08.12-.16.25-.25.37zm-22 7.12a28.94 28.94 0 0 1 .08-5.6c.09-.89.22-1.77.39-2.66-.3.81-.58 1.62-.83 2.43A37.73 37.73 0 0 0 17 42.23a36.14 36.14 0 0 0-.49 6.29 25.26 25.26 0 0 0 3.58 1 36.88 36.88 0 0 1-1-6.49zm-8.08-5.6a29 29 0 0 1 2.85-4.8c.53-.72 1.08-1.42 1.66-2.1q-1 .83-1.92 1.68a39.07 39.07 0 0 0-3.67 3.83 35.76 35.76 0 0 0-3.58 5.2 24.28 24.28 0 0 0 2.62 2.66 37 37 0 0 1 2.33-6.13c-.1-.11-.19-.23-.28-.34zm10.69-25.59a37.76 37.76 0 0 0-2.76-4.55 35.66 35.66 0 0 0-4.09-4.79 24.52 24.52 0 0 0-3.24 1.83A37.58 37.58 0 0 1 16.46 8l.39-.2a30 30 0 0 1 3.9 4c.57.7 1.1 1.41 1.61 2.16-.36-.74-.74-1.5-1.13-2.25zM16.8 32.79c-.5.7-1 1.41-1.43 2.12a40.27 40.27 0 0 0-2.55 4.65 35.87 35.87 0 0 0-2.11 5.95 24.62 24.62 0 0 0 3.21 1.9 36.66 36.66 0 0 1 .67-6.54l-.37-.25a30 30 0 0 1 1.52-5.38c.32-.83.68-1.64 1.06-2.45z"/>
+            </symbol>
             <symbol id="Phone" viewBox="0 0 16 16">
                <path
                   d="M6.5 9.8l3.3-3.3h.1l.9.9c.3.3.7.5 1.1.5h.2c.4 0 .7-.1 1-.3l2.2-1.5c.4-.3.7-.8.7-1.4 0-.2 0-.3-.1-.5l-.4-1.6C15.1 1.1 13.7 0 12 0c-.9 0-1.8.4-2.5 1L1.1 9.1C.4 9.8 0 10.7 0 11.7c0 1.4.8 2.6 2 3.2l1.9.9c.3.1.5.2.8.2.6 0 1.1-.3 1.5-.8L7.6 13c.2-.3.3-.6.3-1v-.2c0-.4-.2-.8-.5-1.1l-.9-.9m8-4.7l-2.2 1.5s-.1 0-.1.1H12c-.1 0-.2 0-.3-.1l-.9-.9c-.5-.5-1.5-.5-2 0L5.5 8.8c-.3.3-.4.6-.4 1s.2.7.4 1l.9.9c.1.1.1.2.1.3v.1c0 .1 0 .1-.1.2l-1.5 2.2c-.1.2-.4.2-.5.2l-1.9-.9c-.8-.4-1.3-1.2-1.3-2 .1-.8.4-1.3.8-1.8l8.5-8c.4-.4 1-.6 1.6-.6 1 0 1.9.7 2.2 1.7l.4 1.6v.1s-.1.2-.2.3z" />
+            </symbol>
+            <symbol id="Quote_Sterling" viewBox="0 0 16 16">
+               <path d="M10.679 14.665H2.002a.667.667 0 0 1-.667-.667V2.002c0-.368.299-.667.667-.667h8.678A.667.667 0 1 0 10.679 0H2.002A2.004 2.004 0 0 0 0 2.002v11.997C0 15.102.898 16 2.002 16h8.678a.667.667 0 1 0-.001-1.335z"/>
+               <path d="M7.342 5.997H4.005a.667.667 0 1 0 0 1.334h3.337a.667.667 0 1 0 0-1.334zM7.342 3.327H4.005a.667.667 0 1 0 0 1.334h3.337a.667.667 0 1 0 0-1.334zM7.342 8.667H4.005a.667.667 0 1 0 0 1.334h3.337a.667.667 0 1 0 0-1.334zM7.342 11.336H4.005a.667.667 0 1 0 0 1.334h3.337a.667.667 0 1 0 0-1.334zM15.313 11.336h-3.338V8.665h1.336a.667.667 0 1 0 0-1.334h-1.336V5.997a1.335 1.335 0 0 1 2.669.001.667.667 0 1 0 1.334-.001 2.672 2.672 0 0 0-2.67-2.668 2.671 2.671 0 0 0-2.668 2.668V7.33h-.604a.667.667 0 1 0 0 1.334h.604v4.007h4.673a.667.667 0 1 0 0-1.335z"/>
             </symbol>
             <symbol id="SVO" viewBox="0 0 16 16">
                <path
@@ -749,6 +777,16 @@
             <symbol id="Star_Filled" viewBox="0 0 16 16">
                <path
                   d="M12.533 15.641a.66.66 0 0 1-.392-.128L8 12.506l-4.14 3.008a.666.666 0 1 1-1.026-.745l1.581-4.868-4.14-3.008a.665.665 0 0 1 .392-1.206h5.118L7.366.82a.666.666 0 0 1 1.268 0l1.581 4.867h5.118a.666.666 0 0 1 .392 1.206l-4.14 3.008 1.581 4.868a.666.666 0 0 1-.633.872z" />
+            </symbol>
+            <symbol id="Search" viewBox="0 0 16 16">
+               <path d="M6 12c1.2 0 2.3-.3 3.2-.9l4.5 4.5c.3.3.6.4.9.4s.7-.1.9-.4c.5-.5.5-1.4 0-1.9L11 9.2c.7-.9 1-2 1-3.2 0-3.3-2.7-6-6-6S0 2.7 0 6s2.7 6 6 6zM6 1.3c2.6 0 4.7 2.1 4.7 4.7S8.6 10.7 6 10.7 1.3 8.6 1.3 6 3.4 1.3 6 1.3z"/>
+            </symbol>
+            <symbol id="Speed" viewBox="0 0 16 16">
+               <path d="M13.659 3.414C10.538.293 5.462.293 2.341 3.414s-3.121 8.197 0 11.318a.664.664 0 1 0 .94-.94c-2.601-2.601-2.601-6.83 0-9.431s6.83-2.601 9.431 0c1.261 1.261 1.954 2.935 1.954 4.715s-.694 3.455-1.954 4.715a.664.664 0 0 0 .474 1.133c.173 0 .34-.067.474-.193A7.942 7.942 0 0 0 16 9.07a7.969 7.969 0 0 0-2.341-5.656z"/>
+               <path d="M11.051 5.075L8.704 7.422c-.034.034-.047.074-.074.107a1.668 1.668 0 0 0-2.301 1.54c0 .227.047.447.127.647-.033.027-.073.041-.107.074l-.82.82a.664.664 0 0 0 .474 1.133c.173 0 .34-.067.474-.193l.82-.82a.413.413 0 0 0 .073-.113c.193.08.407.127.627.127a1.668 1.668 0 0 0 1.54-2.301c.033-.027.08-.04.107-.073l2.348-2.348c.26-.26.26-.68 0-.94a.664.664 0 0 0-.941-.007z"/>
+            </symbol>
+            <symbol id="Spinner" viewBox="0 0 31 31">
+               <path d="M28.997 16.068l-.032.986c.004.323-.045.716-.113 1.18-.043.469-.157.995-.307 1.581-.309 1.162-.795 2.574-1.717 4.002a14.406 14.406 0 0 1-3.92 4.11 14.721 14.721 0 0 1-6.312 2.446c-.612.059-1.206.121-1.865.121-.607-.022-1.205-.008-1.867-.119-1.312-.136-2.567-.512-3.819-1.014-1.249-.507-2.417-1.246-3.518-2.095-1.085-.875-2.043-1.927-2.877-3.087-.815-1.177-1.447-2.489-1.92-3.866-.448-1.411-.67-2.797-.731-4.366-.007-1.297.16-2.928.554-4.319.419-1.413 1.007-2.776 1.791-4.017.804-1.224 1.746-2.35 2.832-3.305 1.103-.929 2.291-1.75 3.578-2.339C11.283.759 14.195.345 16.653.56c1.389.154 2.634.384 3.796.823 1.178.389 2.242.958 3.229 1.553a15.896 15.896 0 0 1 4.516 4.358c1.093 1.548 1.712 3.11 2.115 4.409.197.655.349 1.246.423 1.774.098.523.171.97.185 1.336l.081 1.122a2 2 0 1 1-3.99.29l-.004-.076-.006-.197-.026-.847c.008-.279-.036-.616-.093-1.014-.032-.402-.131-.852-.257-1.355-.262-.996-.668-2.211-1.458-3.44a12.407 12.407 0 0 0-3.357-3.55c-.755-.496-1.568-.992-2.487-1.338-.898-.4-1.923-.612-2.865-.782-.249-.045-.578-.05-.866-.077l-.449-.032-.113-.008-.056-.004-.028-.002c.025 0-.095-.004.048 0l-.202.006c-.54.021-1.093.002-1.64.099-1.108.105-2.206.434-3.284.858-1.08.432-2.089 1.07-3.046 1.797-.941.754-1.772 1.662-2.5 2.662-.708 1.016-1.257 2.149-1.674 3.337-.39 1.233-.578 2.341-.65 3.787.004 1.175.131 2.528.469 3.741.362 1.224.863 2.41 1.54 3.49.696 1.064 1.509 2.048 2.452 2.882.958.808 1.985 1.532 3.104 2.044 1.108.506 2.285.915 3.434 1.084.556.129 1.188.148 1.788.196.548.025 1.151-.007 1.712-.035a13.96 13.96 0 0 0 6.067-2.044 13.906 13.906 0 0 0 3.958-3.793c.962-1.349 1.502-2.712 1.86-3.845.174-.572.311-1.087.374-1.547.088-.456.156-.847.166-1.17l.078-.984z"/>
             </symbol>
             <symbol id="Vehicle" viewBox="0 0 16 16">
                <path
