@@ -2775,7 +2775,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 }
 
 .dxnav-unique-nav .dxnav__breadcrumb-text {
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 	overflow: hidden;
 	ms-text-overflow: ellipsis;
 	text-overflow: ellipsis;
@@ -2824,7 +2824,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 
 .dxnav-unique-nav .dxnav__breadcrumb-text {
 	display: inline-block;
-	margin-right: 24px;
+	/*margin-right: 24px;*/
 	font-size: 10px;
 	letter-spacing: .173em;
 	font-weight: 600;
@@ -3737,6 +3737,13 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	}
 }
 
+@media screen and (max-width:376px) {
+    .dxnav-unique-nav .dxnav__breadcrumb-prev-text{
+        letter-spacing: 0.62px !important;
+    	font-weight: 700 !important;            
+    }
+}
+
 @media screen and (min-width:1px) and (max-width:1020px) {
 	.dxnav__primary {
 		box-shadow: none;
@@ -4468,8 +4475,8 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		position: absolute;
 		left: 16px;
 		top: 50%;
-		width: 14px;
-		height: 14px
+		width: 7px;
+		height: 12px
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-prev-text {
 		font-size: 1.3em;

@@ -16,8 +16,8 @@ import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.jcr.RepositoryException;
-
+import static com.jlr.core.constants.WorkflowConstants.JCR_CONTENT;
+import static com.jlr.core.constants.WorkflowConstants.UNLOCK;
 import static com.jlr.core.utils.WorkflowUtils.*;
 
 /**
@@ -95,12 +95,12 @@ public class JLRReplicationPreProcessor implements Preprocessor {
         if(isValidResourceForReplication(resource)) {
             Page page = resource.adaptTo(Page.class);
             if(page != null) {
-                lockUnlockPage(page, "unlock");
+                lockUnlockPage(page, UNLOCK);
                 removeMetadata(page, resourceResolver);
                 saveChanges(resourceResolver);
                 return true;
             } else {
-                Resource asset = resource.getChild("jcr:content");
+                Resource asset = resource.getChild(JCR_CONTENT);
                 ModifiableValueMap properties = asset.adaptTo(ModifiableValueMap.class);
                 removeProperties(properties);
                 saveChanges(resourceResolver);

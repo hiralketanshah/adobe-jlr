@@ -97,6 +97,10 @@ public class PageModelImpl implements PageModel {
     /** The market region path. */
     @HierarchicalPageProperty("marketRegionPath")
     private String marketRegionPath;
+    
+    /** The legacy browser notification. */
+    @HierarchicalPageProperty("legacyBrowser")
+    private String legacyBrowser;
 
     /** The cookie notification config page path. */
     @HierarchicalPageProperty("cookieNotificationPath")
@@ -298,6 +302,14 @@ public class PageModelImpl implements PageModel {
     public String getMarketRegionPath() {
         return marketRegionPath;
     }
+    /**
+     * Gets the legacy browser notification.
+     * 
+     * @return the legacy browser notification
+     */
+    public String getLegacyBrowser() {
+		return legacyBrowser;
+	}
 
     /**
      * Gets the cookie notification config page path.

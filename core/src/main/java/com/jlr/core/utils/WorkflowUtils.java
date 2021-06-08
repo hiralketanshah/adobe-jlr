@@ -282,10 +282,10 @@ public class WorkflowUtils {
         }
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         properties.put(WorkflowConstants.APPROVED_DATE, dateFormat.format(new Date()));
-        if(properties.get(CQ_LAST_MODIFIED) != null){
-            properties.put(APPROVED_BY, properties.get(CQ_LAST_MODIFIED));
+        if(properties.get(CQ_LAST_MODIFIED_BY) != null){
+            properties.put(APPROVED_BY, properties.get(CQ_LAST_MODIFIED_BY));
         } else {
-            properties.put(APPROVED_BY, properties.get(JCR_LAST_MODIFIED));
+            properties.put(APPROVED_BY, properties.get(JCR_LAST_MODIFIED_BY));
         }
     }
 
