@@ -983,3 +983,9 @@
 .grey .cmp-article p, .light .cmp-article p, .white .cmp-article p {
     color: #4A4F54;
 }
+
+.grey .cmp-article .Article__heading p, 
+.light .cmp-article .Article__heading p, 
+.white .cmp-article .Article__heading p {
+    color: #0C121C;
+}
