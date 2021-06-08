@@ -14,6 +14,18 @@
           isMemberOf: internal-group, internal-tools-nav-group, projects-administrators
           path: ${groupPath}
 
+    - de-content-approvals:
+
+        - name: 'DE Content Approvals'
+          isMemberOf: global-leads, global-qas, administrators, de-authors
+          path: ${groupPath}
+
+    - au-content-approvals:
+
+        - name: 'AU Content Approvals'
+          isMemberOf: global-leads, global-qas, administrators, au-authors
+          path: ${groupPath}
+
 - ace_config:
 
     - au-authors:

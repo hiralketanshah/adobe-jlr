@@ -3,7 +3,10 @@
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
    data-sly-test.hasContent="${optionpicker.globalHeaderCopy || optionpicker.globalSummary}" id="${component.id}"
    class="cmp-option-picker">
-
+   <sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+      <sly data-sly-call="${clientlib.css @ categories='jlr.components.optionpicker.v1'}"/>
+  </sly>
+  
    <div class="cmp_interactiveOptionPicker cmp_interactiveOptionPicker__theme fontSmooth "
       data-json="${optionpicker.OptionListAsJson @ context='text'}" data-option-type="" data-tab-theme="">
 
@@ -63,4 +66,8 @@
       <div aria-live="polite" class="cmp_interactiveOptionPicker__aria-live visuallyHidden" tabindex="-1"></div>
    </div>
 </div>
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html">
+   <sly data-sly-call="${clientlib.js @ categories='jlr.components.optionpicker.v1'}"/>
+</sly>
+
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}">Interactive Option Picker</sly>

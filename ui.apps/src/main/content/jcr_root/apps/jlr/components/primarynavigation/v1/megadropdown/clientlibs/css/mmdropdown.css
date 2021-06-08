@@ -501,7 +501,7 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	line-height: 1.4;
 	display: inline-block;
 	vertical-align: middle;
-	border-bottom: 1px solid transparent
+	border-bottom: 1px solid transparent;
 }
 
 .dxnav-unique-nav .dxnav__item--language-select {
@@ -3338,8 +3338,8 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 .dxnav-unique-nav .dxnav__item {
 	font-family: AvenirNext, arial, helvetica, sans-serif;
 	font-size: 1em;
-	letter-spacing: 1.73px;
-	font-weight: 600;
+	letter-spacing: 1.6px;
+	font-weight: 700;
 	color: #0c121c
 }
 

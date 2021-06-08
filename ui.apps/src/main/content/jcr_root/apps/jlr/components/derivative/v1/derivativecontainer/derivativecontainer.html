@@ -1,0 +1,117 @@
+<sly data-sly-use.model="${'com.jlr.core.models.DerivativeContainerModel'  @ key='hero.tco.from.txt'}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion,derivative.label.submit'}" data-sly-call="${render @ model=model, config=config}" />
+
+<template data-sly-template.render="${ @ model,config }">
+	<div data-sly-test="${!model.id}" class="cq-placeholder"
+	 data-emptytext="Derivative Container Component"></div>
+	<div class="cmp-derivativesOverview js" id="${model.id}" data-template="${model.layout}">
+		<div class="cmp-derivative__range  light" data-initial-tab="0">
+			<div class="cmp-derivative__copy">
+				<h2 data-sly-test="${model.headerCopy}" class="heading headingThick">
+				  <span class="headingWrapper">
+					<p>${model.headerCopy @context='html'}</p>
+				  </span>
+				</h2>
+	
+	            <div data-sly-test="${model.enablePricing}" class="Snippet__MarketRegionalPricing">
+                    <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+                </div>
+
+				<div data-sly-test="${model.copy}" class="copy fontBodyCopyLarge">
+				  <p>${model.copy @context='html'}</p>
+				</div>
+
+				
+				<div data-sly-test="${model.text}" class="linkContainer">
+					<div class="${model.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
+					  <a class="${model.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${model.target=='overlay' ? '' : model.icon} TargetLinks" aria-label="${model.ariaLabel}" href="${model.link}" data-link-desktop="${model.link}" target="${model.target}" data-target="${model.target}" data-aria-title="${model.text}">
+					   <span aria-hidden="true">${model.text}</span>
+					  </a>
+					</div>
+				</div>
+			</div>
+			<div data-sly-test="${model.layout == 'tab'}" class="DxTabs DerivativesOverview--controls-container DxTabs__theme--default" data-dxtabs-id="">
+				<div aria-orientation="horizontal" class="DxTabs__tablist DerivativesOverview__control-list DxTabs__tablist--visible DxTabs__tablist--overflow"
+				  role="tablist">
+				  <sly data-sly-list.item="${model.tabHeadings}">
+					  <button class="DxTabs__tab DerivativesOverview__control-item" data-dynamic-url="${model.tabHeadings[item]}" role="tab" tabindex="0" aria-selected="true"	id="" aria-controls="" data-tab-index="0" style="height: 61px; max-width: 270px; padding-left: 57px; padding-right: 57px;">
+						<span class="DxTabs__tab-text">
+						  <span class="DxTabs__tab-inner DerivativesOverview__control-text" data-value="${item @context='html'}">
+							${item @context='html'}</span>
+						</span>
+					  </button>
+				  <sly>
+				  <span class="DxTabs__mask" style="width: 947px;"></span>
+				</div>
+			</div>
+			<form data-sly-test="${model.layout == 'dropdown'}" class="Derivative__controls-form">
+				<div class="Derivative__dropdown-filters" data-dropdownvalues="${model.json}">
+				  <div class="dxDropdown Derivative__dropdown-primary Derivative__control-dropdown Derivative__control-dropdown--bodystyle DerivativesOverview--controls-container">
+					<span class="dxDropdown__heading heading fontH5" id="bodystyle_dropdown_heading">${model.firstDropdownHeading @context='html'} </span>
+					<button aria-expanded="false" aria-haspopup="listbox" aria-labelledby="bodystyle_dropdown_heading bodystyle_dropdown_button"
+					  class="dxDropdown__button Derivative__control-button fontEmissionsDetails icon-chevron-down" id="bodystyle_dropdown_button">
+					</button>
+					<ul aria-labelledby="bodystyle_dropdown_heading" class="dxDropdown__list DerivativesOverview__control-list" id="dxDropdown__list"
+					  role="listbox" tabindex="-1">
+					  
+					  <li data-sly-repeat.dropdownLabel="${model.dropdownLabels}" class="dxDropdown__list-item DerivativesOverview__control-item" role="option">
+						<a class="dxDropdown__list-item-link DerivativesOverview__control-text fontEmissionsDetails dxDropdown__list-item-link--active"
+						  href="#" data-value="${dropdownLabel}">${dropdownLabel}</a>
+					  </li>
+					</ul>
+				  </div>
+				  <div class="dxDropdown Derivative__dropdown-secondary Derivative__control-dropdown Derivative__control-dropdown--model DerivativesOverview--controls-container">
+					<span class="dxDropdown__heading heading fontH5" id="model_dropdown_heading">${model.secondDropdownHeading @context='html'}</span>
+					<button aria-expanded="false" aria-haspopup="listbox" aria-labelledby="model_dropdown_heading model_dropdown_button" class="dxDropdown__button Derivative__control-button fontEmissionsDetails icon-chevron-down"
+					  id="model_dropdown_button"></button>
+					<ul aria-labelledby="model_dropdown_heading" class="dxDropdown__list DerivativesOverview__control-list" id="dxDropdown__list"
+					  role="listbox" tabindex="-1">
+						<sly data-sly-list.secondDropdownLabels="${model.secondDropdownLabels}">
+						  <li class="dxDropdown__list-item DerivativesOverview__control-item" role="option">
+							<a class="dxDropdown__list-item-link DerivativesOverview__control-text fontEmissionsDetails dxDropdown__list-item-link--active"
+							  href="#" data-value="${secondDropdownLabels @context='html'}">${secondDropdownLabels @context='html'}</a>
+						  </li>
+						</sly>
+					</ul>
+				  </div>
+				  <div class="Derivative__controls-form-submit-container">
+					<button aria-labelledby="Derivative__controls-form-submit bodystyle_dropdown_button model_dropdown_button" class="Derivative__controls-form-submit primaryLinkWithStyle"
+					  id="Derivative__controls-form-submit" type="submit" data-bodystyle="" data-model="">
+					  <span class="Derivative__controls-submit-label">
+						${config.configMap['derivative.label.submit']}</span>
+					</button>
+				  </div>
+				</div>
+			</form>
+		</div>
+		<div class="Derivative__toggle-content">
+			<div data-sly-test="${model.layout == 'tab'}" class="Derivative__toggle-content-wrapper DxTabs__panels DerivativesOverview__panels" data-dxtabs-panels-id="">
+				<sly data-sly-list="${model.listOfTabs}">
+					<div data-sly-list.cardList="${model.listOfTabs[item]}" class="Derivative__panel Derivative__tabpanel DxTabs__panel" role="tabpanel" tabindex="0" data-index="0">
+						<div class="Derivative" data-sly-test.card="${cardList}" id="${card.id}">
+							<sly data-sly-use.cardRenderer="card.html">
+								<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
+							</sly>
+						</div>
+					</div>
+				</sly>
+			</div>
+					
+			<div data-sly-test="${model.layout == 'dropdown'}" class="Derivative__toggle-content-wrapper Derivative__dropdown-panels DerivativesOverview__panels">
+				<sly data-sly-list="${model.listOfDropdown}">
+					<div class="Derivative__dropdown-panel Derivative__panel " data-bodystyle="${item}">
+						<sly data-sly-list.derivativeList="${model.listOfDropdown[item]}">
+                        	<sly data-sly-list.cardList="${model.listOfDropdown[item][derivativeList]}">
+								<div data-sly-test.card="${cardList}" class="Derivative" data-model="${derivativeList @context='html'}" id="${card.id}">
+									<sly data-sly-use.cardRenderer="card.html">
+											<sly data-sly-call="${cardRenderer.render @ card=card,specsHeader=model.specsAtaGlanceHeading}"/>
+									</sly>
+								</div>
+                            </sly>
+						</sly>			
+					</div>
+				<sly>
+			</div>
+		</div>
+
+	</div>
+</template>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="cq:Page">
+    <jcr:content
+            cq:designPath="/libs/settings/wcm/designs/default"
+            cq:lastModified="{Date}2021-06-07T10:27:32.705+05:30"
+            cq:lastModifiedBy="admin"
+            cq:template="/libs/cq/workflow/templates/model"
+            jcr:primaryType="cq:PageContent"
+            jcr:title="Content Approval"
+            sling:resourceType="cq/workflow/components/pages/model">
+        <flow
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/parsys">
+            <process_1408251019
+                    jcr:created="{Date}2021-06-07T10:27:17.685+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-06-07T10:27:32.702+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Lock Process"
+                    sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                        jcr:primaryType="nt:unstructured"
+                        PROCESS="com.jlr.core.workflows.ContentLockProcess"
+                        PROCESS_AUTO_ADVANCE="true"/>
+            </process_1408251019>
+            <dynamic_participant
+                    jcr:created="{Date}2021-06-01T18:26:36.184+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-06-03T18:38:18.059+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Approval"
+                    sling:resourceType="cq/workflow/components/model/dynamic_participant">
+                <metaData
+                        jcr:primaryType="nt:unstructured"
+                        DIALOG_PATH="/apps/jlr/components/workflow/contentapproval/cq:dialog"
+                        DYNAMIC_PARTICIPANT="com.jlr.core.workflows.ContentApprovalParticipant"/>
+            </dynamic_participant>
+            <process_270392023
+                    jcr:created="{Date}2021-06-06T08:50:44.659+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-06-06T08:51:04.248+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Metadata Process"
+                    sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                        jcr:primaryType="nt:unstructured"
+                        PROCESS="com.jlr.core.workflows.ContentMetaDataProcess"
+                        PROCESS_AUTO_ADVANCE="true"/>
+            </process_270392023>
+            <process
+                    jcr:created="{Date}2021-06-03T14:42:24.269+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-06-03T14:44:07.855+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Activation Process"
+                    sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                        jcr:primaryType="nt:unstructured"
+                        PROCESS="com.jlr.core.workflows.ContentActivationProcess"
+                        PROCESS_AUTO_ADVANCE="true"/>
+            </process>
+            <process_959825641
+                    jcr:created="{Date}2021-06-06T11:55:16.914+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2021-06-06T11:55:42.094+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Content Unlock Process"
+                    sling:resourceType="cq/workflow/components/model/process">
+                <metaData
+                        jcr:primaryType="nt:unstructured"
+                        PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
+                        PROCESS_AUTO_ADVANCE="true"/>
+            </process_959825641>
+        </flow>
+    </jcr:content>
+</jcr:root>

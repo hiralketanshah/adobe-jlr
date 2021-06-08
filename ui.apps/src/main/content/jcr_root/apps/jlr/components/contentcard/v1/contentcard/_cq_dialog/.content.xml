@@ -48,10 +48,18 @@
                                                 value="4"/>
                                         </items>
                                     </columnLayout>
+                                    <rte1heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Header Copy"/>
                                     <header
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
                                         path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                    <rte2heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Copy"/>
                                     <descriptionCopy
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -134,10 +142,18 @@
                                     sling:resourceType="granite/ui/components/coral/foundation/container"
                                     name="./contentCardList">
                                     <items jcr:primaryType="nt:unstructured">
+                                        <rte1heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Header Copy"/>
                                         <title
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                        <rte2heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Copy"/>
                                         <bodyCopy
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -171,17 +187,18 @@
                                                     value="video"/>
                                             </items>
                                         </assestType>
+                                        <imagePathHeading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Image"/>
                                         <imagePath
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
-                                        <galleryLink
+                                        <videoId
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                            fieldDescription="Link to a video gallery page."
-                                            fieldLabel="Video Gallery Link"
-                                            name="./galleryLink"
-                                            rootPath="/content/landrover/global"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
                                         <target
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
