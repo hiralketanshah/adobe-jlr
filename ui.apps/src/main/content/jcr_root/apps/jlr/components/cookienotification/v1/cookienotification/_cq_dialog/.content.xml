@@ -107,6 +107,7 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                         composite="{Boolean}true"
+                                        required="{Boolean}true"
                                         fieldDescription="Maximum 2 CTAs are allowed"
                                         fieldLabel="CTA List">
                                         <field
