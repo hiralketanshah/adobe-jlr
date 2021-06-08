@@ -840,6 +840,9 @@ text-transform: uppercase;
 .Derivative__links-primary .primaryLinkWithStyle{
     margin-top: 0;
 }
+.cmp-derivative__range .Snippet__MarketRegionalPricing{
+    padding-bottom: 16px;
+}
 @media screen and (min-width: 769px) {
     .cmp-derivativesOverview .toggleLinksItem {
         width: inherit;
