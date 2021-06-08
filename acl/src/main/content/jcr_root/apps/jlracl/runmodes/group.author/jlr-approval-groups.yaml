@@ -1,0 +1,18 @@
+- DEF groupPath="/home/groups/jlr"
+
+- group_config:
+
+    - de-content-approvers:
+
+        - name: 'DE Content Approvers'
+          path: ${groupPath}
+
+    - au-content-approvers:
+
+        - name: 'AU Content Approvers'
+          path: ${groupPath}
+
+    - global-approvers:
+
+        - name: 'Global Approvers'
+          path: ${groupPath}

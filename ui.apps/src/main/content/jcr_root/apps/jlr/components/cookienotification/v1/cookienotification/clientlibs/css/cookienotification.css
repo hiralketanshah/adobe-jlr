@@ -5,7 +5,9 @@
     letter-spacing: 1.28px !important;
     line-height: 24px !important;
     font-style: normal !important;
-	font-weight: 900 !important;
+	font-weight: normal !important;
+    font-family: "AvenirNext-DemiBold" !important;
+    text-transform: uppercase !important;
             }
   .sharedNavigation .NotificationBar .notificationContainer p{
 
@@ -16,8 +18,21 @@
 	font-style: normal !important;
 	font-weight: normal !important;
             }
+  .sharedNavigation .NotificationBar .notificationContainer p:first-child::first-letter{  
+      text-transform: capitalize !important;
+  }           
   .sharedNavigation .NotificationBar .notificationContainer .notificationHeader{
       margin-bottom:17px !important;
+  }
+  .sharedNavigation  .NotificationBar .notificationContainer .NotificationBar__close-wrapper .primaryLinkWithStyle
+  {
+    font-size: 10px !important;
+    letter-spacing: 3px !important;
+    line-height: 14px !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+    font-family: "AvenirNext-DemiBold" !important;
+    text-transform: uppercase !important;
   }
 
 
