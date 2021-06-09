@@ -1663,7 +1663,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   font-size: 38px;
   font-weight: bold;
   text-align: center;
-  line-height: 44px;
+  line-height: 35px;
   width: 44px;
   height: 44px;
   position: absolute;
@@ -1701,6 +1701,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 @media screen and (min-width: 1251px) and (max-width: 2000px){
   .contentCard_ModalContent iframe{
      height: 653px;
+     margin: 60px 290px 87px;
+     width: calc(100% - 580px);
   }
 }
   
@@ -1725,7 +1727,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     }
     .contentCard_ModalContent iframe{
       height: 183px;
-      margin: 60px 25px 87px;
+      margin: 70px 25px 87px;
       width: calc(100% - 50px);
     }
   .contentCardModel_Header{
