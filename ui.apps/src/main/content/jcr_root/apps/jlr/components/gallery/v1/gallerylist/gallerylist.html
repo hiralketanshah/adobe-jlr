@@ -7,7 +7,6 @@
       <div class="Fullscreen fontSmooth  Fullscreen--hasGallery">
           <div class="Fullscreen__header" data-close-target="#">
               <div class="Fullscreen__header-overlay-box"></div>
-
               <div class="Fullscreen__information-wrapper">
                   <h4 class="heading fontH3Brand Fullscreen__information-heading"></h4>
                   <p class="Fullscreen__information-text"></p>
@@ -15,7 +14,7 @@
 
               <div class="Fullscreen__buttons">
 
-                  <a aria-label="${config.configMap['gallery.seeCategories']}" class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}" title="${config.configMap['gallery.seeCategories']}"><span></span></a>
+                  <a data-sly-test="${model.previousPageLink}" aria-label="${config.configMap['gallery.seeCategories']}" class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}" title="${config.configMap['gallery.seeCategories']}"><span></span></a>
                   <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">${config.configMap['fullscreen.default.close.link.text']}</span></a>
               </div>
         </div>
@@ -41,7 +40,7 @@
                       <source media="(min-width: 0px)" srcset="${gallery.fileReference}" />
                       <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
                     </picture>
-                    <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
+                    <h4 class="Gallery__title">${gallery.headerCopy ? gallery.headerCopy : model.mainHeaderCopy @context='html'}</h4>
                     <div class="Gallery__text">${gallery.copy @context='html'}</div>
                     <div class="Gallery__link-container">
                       <span data-sly-test="${gallery.text}" class="primaryLinkContainer">
@@ -72,7 +71,7 @@
                         </div>
                       </div>
                     </div>
-                    <h4 class="Gallery__title">${gallery.headerCopy @context='html'}</h4>
+                    <h4 class="Gallery__title">${gallery.headerCopy ? gallery.headerCopy : model.mainHeaderCopy @context='html'}</h4>
                     <div class="Gallery__text">${gallery.copy @context='html'}</div>
                   </div>
                 </sly>

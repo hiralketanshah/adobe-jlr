@@ -666,8 +666,9 @@
                                                 fieldDescription="Select the Market Region Config path. This should be an experience Fragment"
                                                 fieldLabel="Market Region Path"
                                                 name="./marketRegionPath"
-                                                rootPath="/content/experience-fragments/landrover"
-                                                text="Enable Market Regional Pricing"/>
+                                                rootPath="/content/landrover"
+                                                text="Enable Market Regional Pricing">
+                                            </marketpricingpath>
                                             <skipToMainTitle
                                                 cq:showOnCreate="{Boolean}true"
                                                 jcr:primaryType="nt:unstructured"

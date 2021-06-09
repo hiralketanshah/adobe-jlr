@@ -12,15 +12,39 @@ import com.jlr.core.pojos.GalleryItem;
  */
 public interface GalleryListModel {
 
+    /**
+     * Gets the gallery list.
+     *
+     * @return the gallery list
+     */
     default List<GalleryItem> getGalleryList() {
         return new ArrayList<>();
     }
 
+    /**
+     * Gets the previous page link.
+     *
+     * @return the previous page link
+     */
     default String getPreviousPageLink() {
         return StringUtils.EMPTY;
     }
 
+    /**
+     * Gets the exit page link.
+     *
+     * @return the exit page link
+     */
     default String getExitPageLink() {
+        return StringUtils.EMPTY;
+    }
+    
+    /**
+     * Gets the main header copy.
+     *
+     * @return the main header copy
+     */
+    default String getMainHeaderCopy() {
         return StringUtils.EMPTY;
     }
 }
