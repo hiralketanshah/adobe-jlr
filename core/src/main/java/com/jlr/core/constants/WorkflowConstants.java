@@ -103,13 +103,17 @@ public class WorkflowConstants {
      */
     public static final String AUSTRALIA = "australia/";
     /**
-     * The constant AU_CONTENT_APPROVALS.
+     * The constant AU_CONTENT_APPROVERS.
      */
-    public static final String AU_CONTENT_APPROVALS = "au-content-approvals";
+    public static final String AU_CONTENT_APPROVERS = "au-content-approvers";
     /**
-     * The constant DE_CONTENT_APPROVALS.
+     * The constant DE_CONTENT_APPROVERS.
      */
-    public static final String DE_CONTENT_APPROVALS = "de-content-approvals";
+    public static final String DE_CONTENT_APPROVERS = "de-content-approvers";
+    /**
+     * The constant GLOBAL_APPROVERS.
+     */
+    public static final String GLOBAL_APPROVERS = "global-approvers";
     /**
      * The constant ADMIN.
      */
@@ -147,14 +151,6 @@ public class WorkflowConstants {
      */
     public static final String JCR_LAST_MODIFIED = "jcr:lastModified";
     /**
-     * The constant CQ_LAST_MODIFIED.
-     */
-    public static final String CQ_LAST_MODIFIED_BY = "cq:lastModifiedBy";
-    /**
-     * The constant JCR_LAST_MODIFIED.
-     */
-    public static final String JCR_LAST_MODIFIED_BY = "jcr:lastModifiedBy";
-    /**
      * The constant WORKFLOW_UTILS.
      */
     public static final String WORKFLOW_UTILS = "WorkflowUtils";
@@ -162,4 +158,8 @@ public class WorkflowConstants {
      * The constant APPROVED_BY.
      */
     public static final String APPROVED_BY = "approvedBy";
+    /**
+     * The constant WORKFLOW_TITLE.
+     */
+    public static final String WORKFLOW_TITLE = "workflowTitle";
 }

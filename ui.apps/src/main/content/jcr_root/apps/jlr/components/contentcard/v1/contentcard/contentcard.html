@@ -37,13 +37,10 @@
                                                     <div class="mediaOverlayIcon"></div>
                                                 </div>
                                         </sly>
-                                        <sly data-sly-test=${content.fileReference}>
-                                            <picture class="Picture">
-                                                <source data-dimensions="680x450" media="(min-width: 0px)" srcset="${content.fileReference}" />
-                                                <img alt="${content.isDecorative=='true' ? '': content.imageAlt}" class="Picture__img" data-dimensions="680x450" srcset="${content.fileReference}"
-                                                />
+                                            <picture data-sly-test="${content.fileReference || content.posterImage}" class="Picture">
+                                                <source data-dimensions="680x450" media="(min-width: 0px)" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}" />
+                                                <img alt="${content.isDecorative=='true' ? '': content.imageAlt}" class="Picture__img" data-dimensions="680x450" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}"/>
                                             </picture>
-                                        </sly>
                                         </a>
                                     </div>
                                     <div class="textContainer">

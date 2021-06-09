@@ -42,24 +42,55 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     /** The exitPageLink. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String exitPageLink;
+    
+    /** The main header copy. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String mainHeaderCopy;
 
+    /** The gallery list. */
     @Inject
     @Optional
     private Resource galleryList;
 
+    /** The list of gallery items. */
     List<GalleryItem> listOfGalleryItems = new ArrayList<>();
 
+    /**
+     * Gets the previous page link.
+     *
+     * @return the previous page link
+     */
     @Override
     public String getPreviousPageLink() {
         return LinkUtils.appendLinkExtension(previousPageLink, resourceResolver);
     }
 
+    /**
+     * Gets the exit page link.
+     *
+     * @return the exit page link
+     */
     @Override
     public String getExitPageLink() {
         return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
+    /**
+     * Gets the main header copy.
+     *
+     * @return the main header copy
+     */
     @Override
+    public String getMainHeaderCopy() {
+		return mainHeaderCopy;
+	}
+
+	/**
+	 * Gets the gallery list.
+	 *
+	 * @return the gallery list
+	 */
+	@Override
     public List<GalleryItem> getGalleryList() {
         if (null != galleryList && galleryList.hasChildren()) {
             Iterator<Resource> childResources = galleryList.listChildren();

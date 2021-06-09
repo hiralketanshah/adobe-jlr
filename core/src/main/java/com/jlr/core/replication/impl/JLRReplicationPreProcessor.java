@@ -2,19 +2,26 @@ package com.jlr.core.replication.impl;
 
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.dam.api.DamConstants;
-import com.day.cq.replication.Preprocessor;
-import com.day.cq.replication.ReplicationAction;
-import com.day.cq.replication.ReplicationException;
-import com.day.cq.replication.ReplicationOptions;
+import com.day.cq.replication.*;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.jackrabbit.api.security.principal.PrincipalManager;
+import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.resource.*;
+import org.apache.sling.jcr.base.util.AccessControlUtil;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.security.Principal;
 
 import static com.jlr.core.constants.WorkflowConstants.JCR_CONTENT;
 import static com.jlr.core.constants.WorkflowConstants.UNLOCK;
@@ -46,20 +53,16 @@ public class JLRReplicationPreProcessor implements Preprocessor {
     public void preprocess(final ReplicationAction replicationAction, final ReplicationOptions replicationOptions) throws ReplicationException {
         LOGGER.debug("Path of Resource being replicated is {}", replicationAction.getPath());
         LOGGER.debug("ReplicationAction is {}", replicationAction.getType());
-
         String actionPath = replicationAction.getPath();
-
-        /*if (replicationAction == null || !ReplicationActionType.ACTIVATE.equals(replicationAction.getType())
-                        || !StringUtils.contains(actionPath, CommonConstants.JLR_CONTENT_PATH)
-                        || !StringUtils.contains(actionPath, CommonConstants.JLR_DAM_PATH) || !StringUtils.contains(actionPath, CommonConstants.JLR_XF_PATH)) {
-            LOGGER.trace("Path of Resource being replicated is {}", actionPath);
-            return;
-        }*/
-
         ResourceResolver resourceResolver = null;
-
         try {
             resourceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, CommonConstants.JLR_WORKFLOW_SUBSERVICE);
+
+            if (replicationAction == null || !ReplicationActionType.ACTIVATE.equals(replicationAction.getType())
+                    || !(StringUtils.contains(actionPath, CommonConstants.JLR_CONTENT_PATH) || StringUtils.contains(actionPath, CommonConstants.JLR_DAM_PATH) || StringUtils.contains(actionPath, CommonConstants.JLR_XF_PATH)) || isAdministrator(resourceResolver, replicationAction)) {
+                LOGGER.trace("Path of Resource being replicated is {}", actionPath);
+                return;
+            }
             final Resource resource = resourceResolver.getResource(actionPath);
             if (resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(NameConstants.NT_PAGE)
                             || resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(DamConstants.NT_DAM_ASSET)) {
@@ -81,6 +84,20 @@ public class JLRReplicationPreProcessor implements Preprocessor {
             }
         }
 
+    }
+
+    private boolean isAdministrator(ResourceResolver resourceResolver, ReplicationAction replicationAction) {
+        boolean authorable = false;
+        try {
+            final UserManager userManager = AccessControlUtil.getUserManager(resourceResolver.adaptTo(Session.class));
+            final PrincipalManager principalManager = AccessControlUtil.getPrincipalManager(resourceResolver.adaptTo(Session.class));
+            Principal principal = principalManager.getPrincipal(replicationAction.getUserId());
+            authorable = CommonUtils.isUserPartOfGroup(principal, userManager, "administrators");
+        } catch (RepositoryException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                    ErrorUtilsConstants.MODULE_SERVICE, JLRReplicationPreProcessor.class.getName(), e));
+        }
+        return authorable;
     }
 
 

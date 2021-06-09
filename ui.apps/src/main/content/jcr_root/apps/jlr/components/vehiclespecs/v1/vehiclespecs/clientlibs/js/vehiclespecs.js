@@ -11611,6 +11611,7 @@
       this.dropdownSection = el.querySelector('.RulesEngineDropdown');
       this.specsSection = el.querySelector('.VehicleSpecsRulesEngine__specs');
       this.errorSection = el.querySelector('.VehicleSpecsRulesEngine__error');
+      window.errorSection = el.querySelector('.VehicleSpecsRulesEngine__error');
       this.baseUrl = el.getAttribute('data-specs-url');
       this.lang = el.getAttribute('data-lang');
     }
@@ -11652,64 +11653,74 @@
           var bodystyleDropdown, modelDropdown, engineDropdown, specDropdown, bodystyle, model, engine, spec, url, cms, pricingUrl, productData, _find2, features, pricingData, specsData, specsFeature;
   
           return _regenerator2.default.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  bodystyleDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--bodystyle');
-                  modelDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--model');
-                  engineDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--engine');
-                  specDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--specpack');
-  
-  
-                  this.setSpecsTitle(bodystyleDropdown, modelDropdown, engineDropdown, specDropdown);
-  
-                  bodystyle = bodystyleDropdown !== null ? bodystyleDropdown.getAttribute('data-id') + '_' : '';
-                  model = modelDropdown !== null ? modelDropdown.getAttribute('data-id') + '_' : '';
-                  engine = engineDropdown.getAttribute('data-id') + '_';
-                  spec = specDropdown.getAttribute('data-id');
-                  url = '' + this.baseUrl + bodystyle + model + engine + spec + '.jsonp?view=dx-specs';
-                  cms = this.element.querySelector('#VehicleSpecsRulesEngineCms').innerHTML;
-  
-  
-                  if (cms !== undefined && cms !== null && cms !== '') {
-                    cms = JSON.parse(cms);
-                  }
-  
-                  _context.prev = 12;
-                  pricingUrl = '' + this.baseUrl + bodystyle + model + engine + spec + '.jsonp?view=dx-products';
-                  _context.next = 16;
-                  return (0, _techSpecs.apiCall)(pricingUrl);
-  
-                case 16:
-                  productData = _context.sent;
-                  _find2 = (0, _find4.default)((0, _get3.default)(productData, 'feature-dictionary.feature-list'), { name: 'PRODUCT' }), features = _find2.feature;
-                  pricingData = features.filter(function (feature) {
-                    return feature.availability === 'default' || feature.availability === 'selected';
-                  });
-                  _context.next = 21;
-                  return (0, _techSpecs.apiCall)(url, cms);
-  
-                case 21:
-                  specsData = _context.sent;
-                  specsFeature = (0, _find4.default)((0, _get3.default)(specsData, 'feature-dictionary.feature-list'), { name: 'PRODUCT' });
-  
-                  specsFeature.feature = pricingData;
-  
-                  this.onSuccess(specsData, cms);
-                  _context.next = 30;
-                  break;
-  
-                case 27:
-                  _context.prev = 27;
-                  _context.t0 = _context['catch'](12);
-  
-                  this.onError();
-  
-                case 30:
-                case 'end':
-                  return _context.stop();
+            try{
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    bodystyleDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--bodystyle');
+                    modelDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--model');
+                    engineDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--engine');
+                    specDropdown = this.dropdownSection.querySelector('.RulesEngineDropdown__dropdown--specpack');
+    
+    
+                    this.setSpecsTitle(bodystyleDropdown, modelDropdown, engineDropdown, specDropdown);
+    
+                    bodystyle = bodystyleDropdown !== null ? bodystyleDropdown.getAttribute('data-id') + '_' : '';
+                    model = modelDropdown !== null ? modelDropdown.getAttribute('data-id') + '_' : '';
+                    engine = engineDropdown.getAttribute('data-id') + '_';
+                    spec = specDropdown.getAttribute('data-id');
+                    url = '' + this.baseUrl + bodystyle + model + engine + spec + '.jsonp?view=dx-specs';
+                    cms = this.element.querySelector('#VehicleSpecsRulesEngineCms').innerHTML;
+    
+    
+                    if (cms !== undefined && cms !== null && cms !== '') {
+                      cms = JSON.parse(cms);
+                    }
+    
+                    _context.prev = 12;
+                    pricingUrl = '' + this.baseUrl + bodystyle + model + engine + spec + '.jsonp?view=dx-products';
+                    _context.next = 16;
+                    return (0, _techSpecs.apiCall)(pricingUrl);
+    
+                  case 16:
+                    productData = _context.sent;
+                    _find2 = (0, _find4.default)((0, _get3.default)(productData, 'feature-dictionary.feature-list'), { name: 'PRODUCT' }), features = _find2.feature;
+                    pricingData = features.filter(function (feature) {
+                      return feature.availability === 'default' || feature.availability === 'selected';
+                    });
+                    _context.next = 21;
+                    return (0, _techSpecs.apiCall)(url, cms);
+    
+                  case 21:
+                    specsData = _context.sent;
+                    specsFeature = (0, _find4.default)((0, _get3.default)(specsData, 'feature-dictionary.feature-list'), { name: 'PRODUCT' });
+    
+                    specsFeature.feature = pricingData;
+    
+                    this.onSuccess(specsData, cms);
+                    _context.next = 30;
+                    break;
+    
+                  case 27:
+                    _context.prev = 27;
+                    _context.t0 = _context['catch'](12);
+    
+                    this.onError();
+    
+                  case 30:
+                  case 'end':
+                    return _context.stop();
+                }
               }
             }
+            catch{
+              let errorSection = window.errorSection;
+              if(errorSection){
+                errorSection.classList.remove("hidden")
+              }
+              return _context.stop();
+            }
+          
           }, _callee, this, [[12, 27]]);
         }));
   

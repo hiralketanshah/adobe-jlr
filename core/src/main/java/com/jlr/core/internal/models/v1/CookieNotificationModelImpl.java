@@ -54,7 +54,7 @@ public class CookieNotificationModelImpl extends GlobalModelImpl implements Cook
      */
     @Override
     public String getHeader() {
-        return header;
+        return header.toUpperCase();
     }
 
     /**

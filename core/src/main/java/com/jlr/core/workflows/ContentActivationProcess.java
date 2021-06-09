@@ -78,6 +78,7 @@ public class ContentActivationProcess implements WorkflowProcess {
                         scheduleActivationLater(workflowSession, contentPath, valueMap);
                     }
                 } else {
+
                     notifyInitiatorOfRejection(workItem, resourceResolver, inboxNotificationSender);
                     if(page != null) {
                         removeMetadata(page, resourceResolver);
@@ -111,8 +112,8 @@ public class ContentActivationProcess implements WorkflowProcess {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
             final WorkflowModel workflowModel = workflowSession.getModel(model);
             final WorkflowData workflowData = workflowSession.newWorkflowData(JCR_PATH, contentPath);
-            workflowModel.setTitle(CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowData.getMetaDataMap().put(ABSOLUTE_TIME, date.getTime());
+            workflowData.getMetaDataMap().put(WORKFLOW_TITLE, CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowSession.startWorkflow(workflowModel, workflowData);
         } catch (WorkflowException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WORKFLOW_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,

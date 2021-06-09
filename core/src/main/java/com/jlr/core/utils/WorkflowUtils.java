@@ -22,6 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import static com.day.cq.wcm.api.NameConstants.PN_LAST_MOD_BY;
+import static com.day.cq.wcm.api.NameConstants.PN_PAGE_LAST_MOD_BY;
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
 import static com.jlr.core.constants.WorkflowConstants.*;
 
@@ -115,15 +117,20 @@ public class WorkflowUtils {
     public static boolean isInitiallyApproved(ValueMap valueMap) {
             String approvalStatus =  valueMap.get(APPROVAL_STATUS, String.class);
             String date = valueMap.get(WorkflowConstants.APPROVED_DATE, String.class);
-            Date lastModifiedDate = valueMap.get(WorkflowConstants.CQ_LAST_MODIFIED, Date.class);
-            if(lastModifiedDate == null) {
-                lastModifiedDate = valueMap.get(WorkflowConstants.JCR_LAST_MODIFIED, Date.class);
+            String lastModified = valueMap.get(WorkflowConstants.CQ_LAST_MODIFIED, String.class);
+            if(StringUtils.isNotEmpty(lastModified)) {
+                lastModified = valueMap.get(WorkflowConstants.JCR_LAST_MODIFIED, String.class);
             }
-            SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         try {
             if(StringUtils.isNotEmpty(date)) {
+                SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
                 Date approvedDate = dateFormat.parse(date);
-                if((lastModifiedDate != null && lastModifiedDate.before(approvedDate))) {
+                if(StringUtils.isNotEmpty(lastModified)) {
+                    Date lastModifiedDate = dateFormat.parse(lastModified);
+                    if(lastModifiedDate != null && lastModifiedDate.before(approvedDate)) {
+                        return  APPROVE.equalsIgnoreCase(approvalStatus) && approvedDate != null && (approvedDate.equals(new Date()) || approvedDate.before(new Date()));
+                    }
+                } else {
                     return  APPROVE.equalsIgnoreCase(approvalStatus) && approvedDate != null && (approvedDate.equals(new Date()) || approvedDate.before(new Date()));
                 }
             }
@@ -282,10 +289,12 @@ public class WorkflowUtils {
         }
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         properties.put(WorkflowConstants.APPROVED_DATE, dateFormat.format(new Date()));
-        if(properties.get(CQ_LAST_MODIFIED_BY) != null){
-            properties.put(APPROVED_BY, properties.get(CQ_LAST_MODIFIED_BY));
+        if(properties.get(PN_PAGE_LAST_MOD_BY) != null){
+            properties.put(APPROVED_BY, properties.get(PN_PAGE_LAST_MOD_BY));
+        } else if(properties.get(PN_LAST_MOD_BY) != null){
+            properties.put(APPROVED_BY, properties.get(PN_LAST_MOD_BY));
         } else {
-            properties.put(APPROVED_BY, properties.get(JCR_LAST_MODIFIED_BY));
+            properties.put(APPROVED_BY, StringUtils.EMPTY);
         }
     }
 

@@ -57,7 +57,7 @@
     c = `JLR_${s}`;
   ! function () {
     const a = document.querySelector(".cmp-legacyBrowserNotification");
-    if (console.log("dfdsf"), !a) return;
+    if (!a) return;
 
     function u() {
        a.setAttribute("class", `${s}`), r(c, 1, a.getAttribute("data-days"))

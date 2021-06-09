@@ -23,6 +23,7 @@
     - jlr-workflow-service:
 
         - name: "System user for workflow service"
+          isMemberOf: administrators
           path: ${systemUserPath}
           isSystemUser: "true"
 
@@ -43,19 +44,3 @@
       - path: /var/jlr/pricing
         permission: allow
         actions: read
-
-  - jlr-workflow-service:
-
-      - path: /content
-        permission: allow
-        privileges: jcr:all,jcr:readAccessControl,jcr:modifyAccessControl,jcr:versionManagement
-        actions: read,create,modify,delete,replicate
-
-      - path: /var/workflow
-        permission: allow
-        privileges: jcr:all,jcr:readAccessControl,jcr:modifyAccessControl,jcr:versionManagement
-        actions: read,create,modify,delete,replicate
-
-      - path: /var/jlr
-        permission: allow
-        actions: read,modify
