@@ -25,6 +25,8 @@ import org.slf4j.LoggerFactory;
 
 import com.adobe.acs.commons.fam.ThrottledTaskRunner;
 import com.adobe.acs.commons.replication.AgentIdsAgentFilter;
+import com.adobe.granite.crypto.CryptoException;
+import com.adobe.granite.crypto.CryptoSupport;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationException;
@@ -68,6 +70,9 @@ public class FetchPriceImpl implements FetchPrice {
     private ThrottledTaskRunner throttledTaskRunner;
 
     @Reference
+    private CryptoSupport cryptoSupport;
+
+    @Reference
     private SlingSettingsService slingSettingsService;
 
     private Map<String, String> endpoints;
@@ -78,6 +83,7 @@ public class FetchPriceImpl implements FetchPrice {
     private Map<String, String> header = new HashMap<>();
     private String[] listOfStates;
     private String replicationPath;
+    private String replicationAgent;
 
     @Activate
     public void activate(PricingConfig config) {
@@ -85,13 +91,29 @@ public class FetchPriceImpl implements FetchPrice {
         endpoints = PricingUtils.getMapOfConfigFields(config.listOfProdEndpoints());
         if (!isProd()) {
             stageEndpoints = PricingUtils.getMapOfConfigFields(config.listOfStageEndpoints());
-            header.put(PricingConstants.JLR_PRICING_HEADER, config.stageApiKey());
+            String stageAPI = unProtect(config.stageApiKey());
+            header.put(PricingConstants.JLR_PRICING_HEADER, stageAPI);
         }
         staticUrl = PricingUtils.getMapOfConfigFields(config.listOfStaticUrl());
         configPages = PricingUtils.getMapOfConfigFields(config.listOfConfigPages());
         listOfStates = config.listOfStates();
         replicationPath = config.replicationPath();
+        replicationAgent = config.replicationAgent();
 
+    }
+
+    private String unProtect(String stageApiKey) {
+        try {
+            if (StringUtils.isNotBlank(stageApiKey) && this.cryptoSupport.isProtected(stageApiKey)) {
+                stageApiKey = cryptoSupport.unprotect(stageApiKey);
+            }
+        } catch (CryptoException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_CRYPTO_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
+        }
+
+        return stageApiKey;
     }
 
     private boolean isProd() {
@@ -105,19 +127,26 @@ public class FetchPriceImpl implements FetchPrice {
         try {
             resolver = CommonUtils.getServiceResolver(resourceResolverFactory, PricingConstants.RESOLVER_SUBSERVICE);
             if (this.slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
-                if (destinationPaths.containsKey(CommonConstants.RUNMODE_PROD)) {
+                if (destinationPaths.containsKey(CommonConstants.RUNMODE_PROD)
+                        && !isLocked(resolver, destinationPaths.get(CommonConstants.RUNMODE_PROD), responseBuilder)) {
+                    String prodPath = destinationPaths.get(CommonConstants.RUNMODE_PROD);
+                    lockPricingNode(resolver, prodPath);
                     List<String> listOfEndpoints = PricingUtils.formEndpointURLs(resolver, endpoints, staticUrl,
                             configPages, market);
-                    responseBuilder.append(getPrices(resolver, listOfEndpoints, header,
-                            destinationPaths.get(CommonConstants.RUNMODE_PROD), listOfStates));
+                    responseBuilder.append(getPrices(resolver, listOfEndpoints, header, prodPath, listOfStates));
+                    unlockPricingNode(resolver, prodPath);
                 }
-                if (null != stageEndpoints && destinationPaths.containsKey(CommonConstants.RUNMODE_STAGE)) {
+                if (null != stageEndpoints && destinationPaths.containsKey(CommonConstants.RUNMODE_STAGE)
+                        && !isLocked(resolver, destinationPaths.get(CommonConstants.RUNMODE_STAGE), responseBuilder)) {
+                    String stagePath = destinationPaths.get(CommonConstants.RUNMODE_STAGE);
+                    lockPricingNode(resolver, stagePath);
                     List<String> listOfEndpoints = PricingUtils.formEndpointURLs(resolver, stageEndpoints, staticUrl,
                             configPages, market);
-                    responseBuilder.append(getPrices(resolver, listOfEndpoints, header,
-                            destinationPaths.get(CommonConstants.RUNMODE_STAGE), listOfStates));
+                    responseBuilder.append(getPrices(resolver, listOfEndpoints, header, stagePath, listOfStates));
+                    unlockPricingNode(resolver, stagePath);
                 }
                 replicate(resolver, replicationPath);
+
             }
 
         } catch (LoginException e) {
@@ -132,11 +161,48 @@ public class FetchPriceImpl implements FetchPrice {
         return responseBuilder.toString();
     }
 
+    private boolean isLocked(ResourceResolver resolver, String path, StringBuilder responseBuilder) {
+        if (PricingUtils.isLocked(resolver, path)) {
+            responseBuilder
+                    .append(path.concat(" is locked. Kindly contact administrator.").concat(PricingConstants.NEW_LINE));
+            return true;
+        }
+        return false;
+    }
+
+    private void unlockPricingNode(ResourceResolver resolver, String path) {
+        try {
+            Session session = resolver.adaptTo(Session.class);
+            PricingUtils.unlockPricingNode(session, path);
+            session.save();
+        } catch (RepositoryException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
+        }
+
+    }
+
+    private void lockPricingNode(ResourceResolver resolver, String path) {
+        try {
+            Session session = resolver.adaptTo(Session.class);
+            PricingUtils.lockPricingNode(session, path);
+            session.save();
+        } catch (RepositoryException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
+        }
+
+    }
+
     private String getPrices(ResourceResolver resolver, List<String> listOfEndpoints, Map<String, String> header,
             String destinationPath, String[] listOfStates) {
         StringBuilder resp = new StringBuilder();
 
-        LOGGER.debug("Processing started {}", new java.util.Date());
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Processing started {}", new java.util.Date());
+        }
         for (String endpoint : listOfEndpoints) {
             String[] endpointSplitArray = endpoint
                     .split(CommonConstants.DOUBLE_BACKSLASHES + CommonConstants.PIPE_CHARACTER);
@@ -166,8 +232,9 @@ public class FetchPriceImpl implements FetchPrice {
             }
 
         }
-        LOGGER.debug("Processing Completed {}", new java.util.Date());
-
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Processing Completed {}", new java.util.Date());
+        }
         return resp.toString();
     }
 
@@ -187,10 +254,15 @@ public class FetchPriceImpl implements FetchPrice {
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 method.setRequestHeader(entry.getKey(), entry.getValue());
             }
-            LOGGER.debug("Started fetching response from {}. {}", endpoint, new java.util.Date());
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Started fetching response from {}. {}", endpoint, new java.util.Date());
+            }
+
             httpClient.executeMethod(method);
             String response = method.getResponseBodyAsString();
-            LOGGER.debug("Completed fetched response from {}. {}", endpoint, new java.util.Date());
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Completed fetched response from {}. {}", endpoint, new java.util.Date());
+            }
 
             JsonObject responseObject = new Gson().fromJson(response, JsonObject.class);
             if (responseObject.has(PricingConstants.JLR_PRICING_JSON_FETAURE_DICTIONARY)) {
@@ -274,14 +346,17 @@ public class FetchPriceImpl implements FetchPrice {
 
     public void replicate(ResourceResolver resolver, String pricingDestinationPath) {
 
-        if (null != pricingDestinationPath && !pricingDestinationPath.isEmpty()) {
+        if (null != pricingDestinationPath && !pricingDestinationPath.isEmpty()
+                && !PricingUtils.isLocked(resolver, pricingDestinationPath)) {
             ReplicationOptions replicationOptions = new ReplicationOptions();
             replicationOptions.setSynchronous(Boolean.TRUE);
-            List<String> agents = Arrays.asList(StringUtils.split("youtube", ","));
+            List<String> agents = Arrays.asList(StringUtils.split(replicationAgent, ","));
             replicationOptions.setFilter(new AgentIdsAgentFilter(agents));
 
             try {
-                LOGGER.debug("Replication started");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Replication started");
+                }
                 Map<String, String> parameters = new HashMap<>();
                 parameters.put(CommonConstants.QUERY_PATH, pricingDestinationPath);
                 parameters.put(CommonConstants.QUERY_TYPE, JcrConstants.NT_UNSTRUCTURED);
@@ -293,7 +368,9 @@ public class FetchPriceImpl implements FetchPrice {
                 for (Hit hit : result.getHits()) {
                     activate(replicator, replicationOptions, resolver.adaptTo(Session.class), hit.getPath());
                 }
-                LOGGER.debug("Replication Completed");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Replication Completed");
+                }
 
             } catch (RepositoryException e) {
                 LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
@@ -302,7 +379,9 @@ public class FetchPriceImpl implements FetchPrice {
             }
 
         } else {
-            LOGGER.debug("Unable to replicate.");
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Unable to replicate.");
+            }
         }
 
     }

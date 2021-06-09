@@ -55,3 +55,7 @@
         permission: allow
         privileges: jcr:all,jcr:readAccessControl,jcr:modifyAccessControl,jcr:versionManagement
         actions: read,create,modify,delete,replicate
+
+      - path: /var/jlr
+        permission: allow
+        actions: read,modify
