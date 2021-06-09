@@ -190,13 +190,14 @@
 	}
 }
 
- /* code fix for defect 567 */
- .snippet.grey p, .snippet.light p,.snippet.white p{
+/* code fix for defect 567 */
+.snippet.grey p, .snippet.light p,.snippet.white p{
 	color:#4A4F54;
  }
  .cmp-snippet .headingWrapper p{color:#0C121C;}
 
  @media screen and (min-width:1024px) and (max-width: 1920px){
+.cmp-snippet p{line-height:24px;}
 .snippet .shelfComponent{
 padding:60px;
 
@@ -206,9 +207,13 @@ padding:60px;
 	margin-top:0!important;
 }
 .cmp-snippet .linkContainer{padding-top:0;}
-.cmp-snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;}                         
+.cmp-snippet .secondaryLinkContainer{clear:both; margin-top:23px!important; }  
+.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
+.cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 }
 @media screen and (min-width: 767px) and (max-width: 1278px){
+.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
+.cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 .cmp-snippet .primaryLinkWithStyle {
     margin-top: 0;
     margin-bottom: 0px;
@@ -244,25 +249,27 @@ padding:60px;
 
   margin-top:8px;
 }
-
 }
-
 @media screen and (min-width: 300px) and (max-width: 766px){
+.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
+.cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 .snippet .cmp-snippet p {
     margin-top: 16px;
 }
- .cmp-snippet .headingWrapper p{color:#0C121C; margin-top:0}
+.cmp-snippet .headingWrapper p{color:#0C121C; margin-top:0}
 .snippet .linkContainer {
     margin-top: 0px;
 }
- .snippet .shelfComponent{
+.snippet .shelfComponent{
 padding-top:25px;
    }
  .cmp-snippet .secondaryLinkContainer{clear:both;}
  .snippet .primaryLinkContainer{clear:both;}
+.snippet .primaryLinkContainer {
+    margin-top: 24px!important;
 }
-
-
+.snippet .primaryLinkWithStyle{margin-bottom: 23px;}
+}
   /* code fix for defect 567 */
 
 
