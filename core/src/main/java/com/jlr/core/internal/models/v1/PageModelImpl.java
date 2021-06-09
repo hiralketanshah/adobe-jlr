@@ -106,6 +106,18 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("cookieNotificationPath")
     private String cookieNotificationPath;
 
+    /** Dropdown layout to be Stack. */
+    @HierarchicalPageProperty("vsreStack")
+    private boolean vsreStack;
+
+    /** The VSRE Currency Format. */
+    @HierarchicalPageProperty("vsreCurrencyFormat")
+    private String vsreCurrencyFormat;
+
+    /** The VSRE Price Type. */
+    @HierarchicalPageProperty("vsrePriceType")
+    private String vsrePriceType;
+
     /** The header path. */
     @HierarchicalPageProperty("headerPath")
     private String headerPath;
@@ -497,4 +509,17 @@ public class PageModelImpl implements PageModel {
         return true;
     }
 
+    /** Get VSRE Stack value. */
+    public boolean isVsreStack() {
+        return vsreStack;
+    }
+
+    /** Get VSRE Currency Format. */
+    public String getVsreCurrencyFormat() {
+        return vsreCurrencyFormat;
+    }
+
+    public String getVsrePriceType(){
+        return vsrePriceType;
+    }
 }
