@@ -8108,9 +8108,7 @@
 
             initDxTabs: function initDxTabs() {
               var _this2 = this;
-              console.log(this.$element.parent().height());
-              
-              console.log(this.$element.height());
+             
 
               this._dxTabsElement = this.$element.get(0).querySelector('.DxTabs');
               this._dxTabsElement.addEventListener('DxTabs:init', function () {
