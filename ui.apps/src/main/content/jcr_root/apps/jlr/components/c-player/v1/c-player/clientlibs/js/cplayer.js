@@ -1,7 +1,7 @@
 (function() {
     var cplayers = document.getElementsByClassName("cmp-cplayer");
     if(cplayers.length>0){
-        var buildItem = localStorage.getItem("ConfiguratorPrompt_jlr");
+        var buildItem = localStorage.getItem("ConfiguratorPrompt_lr");
         if(buildItem){
         var items = JSON.parse(buildItem);
         for(var j = 0;j<=cplayers.length;j++){
