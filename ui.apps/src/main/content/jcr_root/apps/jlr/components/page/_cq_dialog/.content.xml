@@ -667,7 +667,7 @@
                                                 fieldDescription="Select the Market Region Config path. This should be an experience Fragment"
                                                 fieldLabel="Market Region Path"
                                                 name="./marketRegionPath"
-                                                rootPath="/content/experience-fragments/landrover"
+                                                rootPath="/content/landrover"
                                                 text="Enable Market Regional Pricing">
                                             </marketpricingpath>
                                             <skipToMainTitle
