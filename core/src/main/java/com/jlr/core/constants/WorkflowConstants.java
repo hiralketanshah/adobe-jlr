@@ -166,4 +166,8 @@ public class WorkflowConstants {
      * The constant APPROVED_BY.
      */
     public static final String APPROVED_BY = "approvedBy";
+    /**
+     * The constant WORKFLOW_TITLE.
+     */
+    public static final String WORKFLOW_TITLE = "workflowTitle";
 }

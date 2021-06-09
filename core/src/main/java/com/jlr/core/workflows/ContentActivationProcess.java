@@ -70,12 +70,12 @@ public class ContentActivationProcess implements WorkflowProcess {
                 if(WorkflowConstants.APPROVE.equalsIgnoreCase(approvalStatus)) {
                     String activateNowLater = valueMap.get(WorkflowConstants.ACTIVATE_NOW_LATER, String.class);
                     if(page != null) {
-                        replicateRelatedAssets(workItem, workflowSession, resourceResolver, page);
+                        replicateRelatedAssets(workflowSession, resourceResolver, page);
                     }
                     if (ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
                         replicator.replicate(resourceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, contentPath);
                     } else if (ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)) {
-                        scheduleActivationLater(workItem, workflowSession, contentPath, valueMap);
+                        scheduleActivationLater(workflowSession, contentPath, valueMap);
                     }
                 } else {
 
@@ -103,7 +103,7 @@ public class ContentActivationProcess implements WorkflowProcess {
 
     }
 
-    private void scheduleActivationLater(WorkItem workItem, WorkflowSession workflowSession, String contentPath, ValueMap valueMap) throws
+    private void scheduleActivationLater(WorkflowSession workflowSession, String contentPath, ValueMap valueMap) throws
             ParseException {
         String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
@@ -112,8 +112,8 @@ public class ContentActivationProcess implements WorkflowProcess {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
             final WorkflowModel workflowModel = workflowSession.getModel(model);
             final WorkflowData workflowData = workflowSession.newWorkflowData(JCR_PATH, contentPath);
-            workItem.getWorkflow().getWorkflowModel().setTitle(CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowData.getMetaDataMap().put(ABSOLUTE_TIME, date.getTime());
+            workflowData.getMetaDataMap().put(WORKFLOW_TITLE, CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowSession.startWorkflow(workflowModel, workflowData);
         } catch (WorkflowException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WORKFLOW_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
@@ -121,7 +121,7 @@ public class ContentActivationProcess implements WorkflowProcess {
         }
     }
 
-    private void replicateRelatedAssets(WorkItem workItem, WorkflowSession workflowSession, ResourceResolver resourceResolver, Page page) {
+    private void replicateRelatedAssets(WorkflowSession workflowSession, ResourceResolver resourceResolver, Page page) {
         Map<String, Asset> assetMap = getAssetMapOfPage(page, resourceResolver);
         if(MapUtils.isNotEmpty(assetMap)) {
             assetMap.entrySet().stream().forEach(entry -> {
@@ -134,7 +134,7 @@ public class ContentActivationProcess implements WorkflowProcess {
                     if(ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
                         replicator.replicate(resourceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, path);
                     } else if (ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)) {
-                        scheduleActivationLater(workItem, workflowSession, path, properties);
+                        scheduleActivationLater(workflowSession, path, properties);
                     }
                 } catch (ReplicationException e) {
                     LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPLICATION_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
