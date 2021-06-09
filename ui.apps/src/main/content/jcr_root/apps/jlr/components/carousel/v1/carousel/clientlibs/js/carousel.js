@@ -12768,20 +12768,14 @@
             let controls = el.querySelector('.cmp-hero_pagination');
             if(controls){
               let controlsFFC = el.querySelector('.cmp-hero_pagination');
-              // let paginationPrev = el.querySelector('.cmp-carousel__previous');
-              // let paginationNext = el.querySelector('.cmp-carousel__next');
               let height = el.querySelector(".cmp-genericItem__element-poster").clientHeight;
               controlsFFC.style.top = "0px";
               controlsFFC.style.top = height-70+"px";
-              // paginationNext.style.top = "0";
-              // paginationPrev.style.top = "0";
-              // paginationNext.style.top = height/2+"px !important";
-              // paginationPrev.style.top = height/2+"px !important";
-              if(window.innerWidth >=300 && window.innerWidth<=767){
+              if(window.innerWidth<=767){
                 let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
                 let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
                 elm.forEach((e)=>{
-                  e.style.marginBottom="50px";
+                  e.style.marginBottom="60px";
                 })
                 controlsFFC.style.top = offsetheight+25+"px";
               }   
@@ -12789,7 +12783,7 @@
                 let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
                 let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
                 elm.forEach((e)=>{
-                  e.style.marginBottom="50px";
+                  e.style.marginBottom="70px";
                 })
                 controlsFFC.style.top = offsetheight+25+"px";
               }   
@@ -12807,6 +12801,37 @@
         if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
           comp.HeroTitleBanner();
         }
+        setTimeout(()=>{
+          if(el.querySelectorAll(".cmp-heroTitleBanner__image").length>0){
+            //pagination enabled
+            let controls = el.querySelector('.cmp-heroTitleBanner_pagination');
+            if(controls){
+              if(window.innerWidth<=1279){
+                let controlsFFC = el.querySelector('.cmp-heroTitleBanner_pagination');
+                let height = el.querySelector(".cmp-heroTitleBanner__image").clientHeight;
+                controlsFFC.style.top = "0px";
+                controlsFFC.style.top = height-70+"px";
+                if(window.innerWidth<=767){
+                  let offsetheight = el.querySelector(".cmp-heroTitleBanner__image").offsetHeight;
+                  let elm = el.querySelectorAll(".cmp-heroTitleBanner__image");
+                  elm.forEach((e)=>{
+                    e.style.marginBottom="60px";
+                  })
+                  controlsFFC.style.top = offsetheight+25+"px";
+                }   
+                if(window.innerWidth >=768 && window.innerWidth<=1279){
+                  let offsetheight = el.querySelector(".cmp-heroTitleBanner__image").offsetHeight;
+                  let elm = el.querySelectorAll(".cmp-heroTitleBanner__image");
+                  elm.forEach((e)=>{
+                    e.style.marginBottom="70px";
+                  })
+                  controlsFFC.style.top = offsetheight+25+"px";
+                }   
+              }
+           
+            }
+        };
+        },200);
       }
     });
   }

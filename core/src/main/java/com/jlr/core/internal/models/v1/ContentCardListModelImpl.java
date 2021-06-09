@@ -40,8 +40,12 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
     /** The assest type. */
     @Inject
     private String assestType;
+    
+    /** The poster image. */
+    @Inject
+    private String posterImage;
 
-    /** The price. */
+	/** The price. */
     @Inject
     private String price;
 
@@ -80,6 +84,16 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
     public String getAssestType() {
         return assestType;
     }
+    
+    /**
+     * Gets the poster image.
+     *
+     * @return the poster image
+     */
+    @Override
+    public String getPosterImage() {
+		return posterImage;
+	}
 
     /**
      * Gets the first cta link.

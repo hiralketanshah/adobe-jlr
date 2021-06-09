@@ -103,10 +103,10 @@
   .grey .fontQuote{
     color: black;
   }
-  .grey .fontQuote p,.light .fontQuote p,.white .fontQuote p{
+  .grey .cmp-accolades .fontQuote p,.light .cmp-accolades .fontQuote p,.white .cmp-accolades .fontQuote p{
     color: #005A2B !important;
   }
-  .slateblue .fontQuote p{
+  .slateblue .cmp-accolades .fontQuote p{
     color: white !important;
   }
   .cmp-accolades__copy--tertiary{

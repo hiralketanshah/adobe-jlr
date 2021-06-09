@@ -1,698 +1,874 @@
 .cmp-carousel.cmp-hero-carousel {
-    margin: 0 60px 80px 60px;
-    min-height: 600px;
-    max-height: 100%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cmp-hero-carousel .cmp-carousel__slider {
-    height: 100%;
-    width: 100%;
-    outline: 0;
-  }
-  .cmp-hero-carousel .cmp-carousel__bgImage {
-    display: block;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+  margin: 0 60px 80px 60px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cmp-hero .cmp-genericItem__element-poster {
+  min-height: 100%;
+}
+.cmp-hero-carousel .cmp-carousel__slider {
+  height: 100%;
+  width: 100%;
+  outline: 0;
+}
+.cmp-hero-carousel .cmp-carousel__bgImage {
+  display: block;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cmp-hero-carousel .cmp-carousel__controls {
+  z-index: 1;
+  padding: 4px 0 39px 0;
+  justify-content: ceanter;
+}
+.cmp-hero .headerClass {
+  min-width: auto;
+}
+@media screen  and (min-width: 768px) and  (max-width: 1279px) {
   .cmp-hero-carousel .cmp-carousel__controls {
-    z-index: 1;
-    padding: 4px 0 39px 0;
-    justify-content: ceanter;
+    padding: 0;
+    left: 30px;
+    right: auto;
+    bottom: 48px;
+    position: absolute;
+    justify-content: left;
   }
-  @media screen and (min-width: 741px) {
-    .cmp-hero-carousel .cmp-carousel__controls {
-      padding: 0;
-      left: 48px;
-      right: auto;
-      bottom: 48px;
-      position: absolute;
-      justify-content: left;
-    }
+}
+.cmp-carousel.cmp-hero-carousel .swiper-button {
+  display: block;
+}
+.cmp-carousel.cmp-hero-carousel .swiper-button[aria-disabled="true"] {
+  display: none;
+}
+.cmp-carousel.cmp-hero-carousel .carousel {
+  text-align: center;
+  overflow: hidden;
+  direction: ltr;
+}
+.cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #4a4f54;
+}
+@media screen and (min-width: 1280px){
+  .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
+    position: relative;
+    padding-bottom: 40.65%;
   }
-  @media screen and (min-width: 901px) {
-    .cmp-hero-carousel .cmp-carousel__controls {
-      left: 88px;
-    }
-  }
-  .cmp-carousel.cmp-hero-carousel .swiper-button {
-    display: block;
-  }
-  .cmp-carousel.cmp-hero-carousel .swiper-button[aria-disabled="true"] {
-    display: none;
-  }
-  .cmp-carousel.cmp-hero-carousel .VideoPlayer.paused .mediaOverlay {
-    display: block;
-  }
-  @media screen and (min-width: 1px) and (max-width: 1900px) {
-    .cmp-carousel.cmp-hero-carousel .VideoPlayer.paused .mediaOverlay {
-      position: relative;
-    }
-  }
-  .cmp-carousel.cmp-hero-carousel .mediaOverlay .mediaOverlayBg {
-    width: 100%;
-    height: 100%;
-  }
-  .cmp-carousel.cmp-hero-carousel
-    .mediaOverlay:not(.mediaOverlayVideo):hover
-    .mediaOverlayBg {
-    background: 0 0;
-  }
-  .cmp-carousel.cmp-hero-carousel .carousel {
-    text-align: center;
-    overflow: hidden;
-    direction: ltr;
-    min-height: 600px;
-  }
+}
+html.no-js .cmp-carousel.cmp-hero-carousel {
+  opacity: 1;
+  height: auto;
+}
+html.no-js .cmp-carousel.cmp-hero-carousel .carousel > * {
+  float: none;
+}
+html.no-js .cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
+  opacity: 1;
+  position: relative;
+  text-align: center;
+  height: auto;
+  display: block;
+}
+@media screen and (min-width: 1px) {
   .cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    color: #4a4f54;
-  }
-  @media screen and (min-width: 1px) and (max-width: 1900px) {
-    .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
-      position: relative;
-      padding-bottom: 56.25%;
-    }
-  }
-  .cmp-carousel.cmp-hero-carousel
-    .carousel
-    .cmp-carousel__slide
-    .VideoPlayer
-    > span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     display: block;
-    background-position: center center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
   }
-  .cmp-carousel.cmp-hero-carousel .carousel .video {
-    max-width: 100%;
-  }
-  .cmp-carousel.cmp-hero-carousel .carousel .video .VideoPlayer {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  @media screen and (min-width: 741px) {
-    .cmp-carousel.cmp-hero-carousel .carousel .video .VideoPlayer {
-      bottom: 0;
-    }
-  }
-  .cmp-carousel
-    .carousel
-    .video
-    .VideoPlayer
-    video::-webkit-media-controls-start-playback-button,
-  .cmp-carousel.cmp-hero-carousel
-    .carousel
-    .video
-    .VideoPlayer
-    video::-webkit-media-controls {
-    display: none;
-  }
-  .cmp-carousel.cmp-hero-carousel .carousel .video .VideoPlayer video {
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    max-width: 100%;
-    visibility: visible;
-    object-fit: fill;
-  }
-  .cmp-carousel.cmp-hero-carousel .carousel .video .VideoPlayer + span {
-    z-index: -1;
-  }
-  .ie .cmp-carousel.cmp-hero-carousel .carousel .video .VideoPlayer + span {
-    z-index: 0;
-  }
-  html.no-js .cmp-carousel.cmp-hero-carousel {
-    opacity: 1;
-    height: auto;
-    min-height: 0;
-  }
-  html.no-js .cmp-carousel.cmp-hero-carousel .carousel > * {
-    float: none;
-  }
+}
+@media screen and (min-width: 1px) and (max-width: 1279px) {
   html.no-js
     .cmp-carousel.cmp-hero-carousel
     .carousel
-    .video
-    .VideoPlayer
-    + span {
-    display: block;
-    z-index: 1;
-  }
-  html.no-js .cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
-    opacity: 1;
-    position: relative;
-    text-align: center;
-    height: auto;
+    .cmp-carousel__slide:first-child {
     display: block;
   }
-  @media screen and (min-width: 1px) and (max-width: 1440px) {
-    .cmp-carousel.cmp-hero-carousel .mediaOverlayVideo .mediaOverlayIcon:before {
-      padding-right: 33.333%;
-      text-align: right;
-    }
-    .cmp-carousel.cmp-hero-carousel .mediaOverlayVideo:after {
-      left: auto;
-      right: calc(32.333% - 36px);
-    }
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  #landrover .cmp-carousel.grey .carousel .cmp-carousel__slide {
+    background: #e9ecec;
   }
-  @media screen and (min-width: 1px) and (max-width: 900px) {
-    .cmp-carousel.cmp-hero-carousel {
-      min-height: 0;
-    }
-    .cmp-carousel.cmp-hero-carousel .carousel {
-      min-height: 0;
-    }
+  #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide {
+    background: #4a4f54;
+    color: #fff;
   }
-  @media screen and (min-width: 1px) and (max-width: 1900px) {
-    .cmp-carousel.cmp-hero-carousel .carousel .video .VideoPlayer video {
-      height: 100% !important;
-      width: 100% !important;
-    }
-    .cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
-      display: block;
-    }
-    .cmp-carousel.cmp-hero-carousel .mediaOverlayVideo .mediaOverlayIcon:before {
-      padding-right: 0;
-      text-align: center;
-    }
-    .cmp-carousel.cmp-hero-carousel .mediaOverlayVideo:after {
-      left: 50%;
-      right: auto;
-    }
+  #landrover
+    .cmp-carousel.dark
+    .carousel
+    .cmp-carousel__slide
+    .cmp-hero
+    .primaryLinkWithStyle {
+    background-color: #fff;
+    color: #0c121c;
   }
-  @media screen and (min-width: 1px) and (max-width: 400px) {
-    html.no-js
-      .cmp-carousel.cmp-hero-carousel
-      .carousel
-      .cmp-carousel__slide:first-child {
-      display: block;
-    }
+  #landrover
+    .cmp-carousel.dark
+    .carousel
+    .cmp-carousel__slide
+    .cmp-hero
+    .primaryLinkWithStyle:hover {
+    background-color: #0c121c;
+    color: #fff;
   }
-  @media screen and (min-width: 1px) and (max-width: 1900px) {
-    #landrover .cmp-carousel.grey .carousel .cmp-carousel__slide {
-      background: #e9ecec;
-    }
-    #landrover .cmp-carousel.dark .carousel .cmp-carousel__slide {
-      background: #4a4f54;
-      color: #fff;
-    }
-    #landrover
-      .cmp-carousel.dark
-      .carousel
-      .cmp-carousel__slide
-      .cmp-hero
-      .primaryLinkWithStyle {
-      background-color: #fff;
-      color: #0c121c;
-    }
-    #landrover
-      .cmp-carousel.dark
-      .carousel
-      .cmp-carousel__slide
-      .cmp-hero
-      .primaryLinkWithStyle:hover {
-      background-color: #0c121c;
-      color: #fff;
-    }
-    #landrover
-      .cmp-carousel.dark
-      .carousel
-      .cmp-carousel__slide
-      .secondaryLinkWithStyle {
-      color: #aeb0b2;
-    }
-    #landrover
-      .cmp-carousel.dark
-      .carousel
-      .cmp-carousel__slide
-      .secondaryLinkWithStyle:hover {
-      color: #e4e8e8;
-    }
+  #landrover
+    .cmp-carousel.dark
+    .carousel
+    .cmp-carousel__slide
+    .secondaryLinkWithStyle {
+    color: #aeb0b2;
   }
-  @media screen and (min-width: 1px) and (max-width: 1900px) {
-    .cmp-hero-carousel .cmp-carousel__controls .Pagination__pip:after {
-      box-shadow: none;
-      border: 2px solid #000;
-    }
-    .cmp-hero-carousel .cmp-carousel__controls .Pagination__pip:focus {
-      outline: 0;
-      box-shadow: none;
-    }
+  #landrover
+    .cmp-carousel.dark
+    .carousel
+    .cmp-carousel__slide
+    .secondaryLinkWithStyle:hover {
+    color: #e4e8e8;
   }
-  .cmp-hero .primaryLinkWithStyle {
-    margin-top: 0;
+}
+@media screen and (min-width: 1px) {
+  /* .cmp-hero-carousel .cmp-carousel__controls .Pagination__pip:after {
+    box-shadow: none;
+    border: 2px solid #000;
   }
-  .cmp-hero {
+  .cmp-hero-carousel .cmp-carousel__controls .Pagination__pip:focus {
+    outline: 0;
+    box-shadow: none;
+  } */
+}
+.cmp-hero .primaryLinkWithStyle {
+  margin-top: 0;
+}
+.cmp-hero {
+  width: 100%;
+}
+.cmp-genericItem__element-poster {
+  overflow: hidden;
+}
+.cmp-hero .headerClass {
+  min-height: auto;
+  float: left;
+  margin-right: 40px;
+}
+.cmp-hero .pricing {
+  text-align: left;
+  float: left;
+}
+.cmp-hero .logo {
+  margin-right: 20px;
+  float: left;
+  width: 50px;
+}
+.cmp-hero .pricing p {
+  font-size: 11px;
+}
+.cmp-hero .pricing p:not(:first-child) {
+  margin-top: 5px;
+}
+.cmp-hero .pricing p strong {
+  font-size: 28px;
+}
+.cmp-hero .contentClass {
+  margin-right: 40px;
+}
+.cmp-hero .linkContainer,
+.cmp-hero .secondaryLinkContainer {
+  float: left;
+}
+.cmp-hero .heroFooterSection {
+  padding-top: 15px;
+  border-top: 1px solid #4a4f544d;
+}
+.cmp-hero-carousel .emissionDetails {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.cmp-hero .caveat p {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 8px;
+}
+.cmp-hero-carousel .emissionDetails p,
+label {
+  display: inline;
+  font-size: 10px;
+}
+.cmp-hero .shelfComponent {
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 30px;
+  padding-top: 16px;
+  min-height: auto;
+}
+.cmp-hero-carousel .cmp-carousel__controls {
+  position: absolute;
+}
+.cmp-hero .headerClass h2 {
+  margin-bottom: 14px;
+}
+.headerCopy {
+  text-align: left;
+}
+@media screen and (max-width: 767px) {
+  .cmp-hero{
+    margin-bottom: 30px;
+  }
+  .cmp-hero .caveat{
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .cmp-hero .heroFooterSection{
+    padding-top: 0px;
+  }
+  .cmp-hero .pricing{
+    margin-top: 15px;
+  }
+  .cmp-carousel.cmp-hero-carousel {
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .cmp-hero .cmp-genericItem__element-poster {
     width: 100%;
   }
-  .cmp-genericItem__element-poster {
-    overflow: hidden;
+  .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
+    position: relative;
+    padding-bottom:36.6%
+  }
+  .cmp-hero .shelfComponent {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 16px;
+    padding-bottom: 0;
+    margin-bottom: 0px;
+    min-width: 40%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   .cmp-hero .headerClass {
     float: left;
-    margin-right: 40px;
-    min-height: 100px;
-    max-width: 360px;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .cmp-hero .headerClass h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    display: block;
+  }
+  #landrover .secondaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+  .cmp-hero .primaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+  .cmp-hero .heroFooterSection {
+    display: flex;
+    flex-direction: column-reverse;
+    border: none;
+    padding-top: 0px;
+  }
+  .cmp-hero .headerClass {
+    display: flex;
+    flex-direction: column;
+  }
+  .cmp-hero .logo {
+    margin-bottom: 8px;
   }
   .cmp-hero .contentClass {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 0;
+    border: none;
+  }
+  .cmp-hero-carousel .emissionDe {
+    display: flex;
+    flex-direction: column;
+  }
+  .linkContainer {
+    margin-top: 24px;
+  }
+  .cmp-hero-carousel .emissionDetails {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px;
+  }
+  .cmp-carousel.cmp-hero-carousel {
+    margin-bottom: 0;
+  }
+  .cmp-hero .heroFooterSection {
+    padding-left: 25px;
+  }
+  .cmp-hero-carousel .emissionDe:not(:first-child) {
+    padding-top: 13px;
+  }
+  .cmp-hero-carousel .cmp-carousel__controls {
+    justify-content: left;
+    padding-left: 25px;
+  }
+}
+.cmp-hero-carousel .cmp-carousel__slider {
+  height: 100% !important;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .emissionDe {
+    display: flex;
+    flex-direction: column;
+  }
+  .cmp-hero-carousel .emissionDe:not(:first-child) {
+    padding-top: 13px;
+  }
+  .cmp-hero-carousel .emissionDetails {
+    display: flex;
+    flex-direction: column;
+  }
+  .cmp-hero-carousel .emissionDetails label:not(:first-child) {
+    padding-top: 13px;
+  }
+  .cmp-hero-carousel .emissionDetails {
+    padding-left: 28px;
+    border-left: 1px solid #4a4f544d;
+  }
+  .slateblue .cmp-hero-carousel .emissionDetails {
+    padding-left: 28px;
+    border-left: 1px solid  #FFFFFF;
+  }
+  .copyDiv {
+    display: flex;
+    flex-direction: row;
+  }
+  .cmp-hero .heroFooterSection {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 32px;
+    width: 39%;
+  }
+  .cmp-hero .contentClass {
+    border: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .cmp-carousel.cmp-hero-carousel {
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+  }
+  .cmp-hero .cmp-genericItem__element-poster {
+    width: 100%;
+  }
+  .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
+    position: relative;
+  }
+  .cmp-hero .shelfComponent {
+    padding-left: 30px;
+    padding-right: 25px;
+    padding-top: 24px;
+    min-width: 30%;
+    max-width: 60.1%;
+  }
+  .cmp-hero .headerClass {
     float: left;
-    width: 500px;
-    max-height: 150px;
+    margin-bottom: 0;
+    width: 100%;
+  }
+  .cmp-hero .headerClass h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    display: block;
+  }
+  #landrover .secondaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+  .cmp-hero .primaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
+  .cmp-hero .logo {
+    margin-bottom: 8px;
   }
   .cmp-hero .pricing {
-    text-align: left;
-    margin-right: 20px;
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .linkContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+  }
+  .cmp-hero .primaryLinkWithStyle,
+  .secondaryLinkWithStyle {
     float: left;
-    max-width: 200px;
-    max-height: 115px;
+  }
+}
+@media screen and (min-width: 1280px){
+  .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
+    position: relative;
+  }
+  .cmp-hero-carousel .cmp-carousel__controls {
+    position: absolute;
+    margin-left: 30px;
+    width: 134px;
+    top: 25%;
+  }
+  .cmp-hero-carousel .emissionDetails {
+    display: flex;
+    flex-direction: row;
+  }
+  .cmp-hero-carousel .emissionDe p {
+    padding-right: 33px;
+  }
+  .cmp-hero-carousel .emissionDe label p {
+    padding-right: 0;
+  }
+  .cmp-hero-carousel .cmp-carousel__next,
+  .cmp-hero-carousel .cmp-carousel__previous {
+    top: 200px !important;
+  }
+  .cmp-hero-carousel .linkContainer {
+    padding-top: 0;
+  }
+  .cmp-hero-carousel .primaryLinkContainer {
+    margin-bottom: 24px;
+    height: 45px;
+  }
+  .cmp-hero-carousel .secondaryLinkContainer {
+    text-align: left;
+  }
+  .cmp-hero-carousel
+    .primaryLinkContainer
+    + .secondaryLinkContainer
+    .secondaryLinkWithStyle {
+    margin-top: 0;
+  }
+  .cmp-hero .pricing {
+    min-width: 150px;
+    margin-right: 22px;
+    padding-right: 28px;
+  }
+}
+.cmp-hero-carousel .headingWrapper {
+  font-weight: 400;
+}
+
+@media screen and (min-width: 1280px) {
+  .cmp-hero .shelfComponent .headerClass{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin-right: 0px;
+  }
+  .cmp-hero .shelfComponent .contentClass{
+    margin-left: auto;
+    margin-right: 0px;
+  }
+ .cmp-hero .shelfComponent .priceAndCta{
+    border-left: 1px solid #4a4f544d;
+      padding-left: 40px;
+  }
+  .slateblue .cmp-hero .shelfComponent .priceAndCta{
+    border-left: 1px solid #FFFFFF;
+  }
+  .cmp-hero .shelfComponent{
+      display: flex;
+      flex-direction: row;
+      min-width: 100%;
+      padding-right: 120px;
   }
   .cmp-hero .logo {
     margin-right: 20px;
     float: left;
     width: 50px;
-    height: 100px;
+    font-size: 50px;
+    height: 50px;
+}
+.cmp-hero .contentClass{
+  padding-top: 0px;
+  margin-top: 10px;
+}
+.cmp-hero .linkContainer{
+  padding-top: 4px;
+}
+.cmp-carousel.cmp-hero-carousel {
+  margin-bottom: 16px;
+}
+}
+.grey .cmp-hero-carousel [class^="icon-"]:before, .grey [class*="logo icon-"]:before,
+.light .cmp-hero-carousel [class^="icon-"]:before, .light [class*="logo icon-"]:before,
+.white .cmp-hero-carousel [class^="icon-"]:before, .white [class*="logo icon-"]:before{
+  color: black;
+  font-size: 50px;
+  margin-left: 0px;
+}
+.slateblue .cmp-hero-carousel [class^="icon-"]:before, .white [class*="logo icon-"]:before{
+  color: white;
+  font-size: 50px;
+  margin-left: 0px;
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-hero .headerClass{
+    display: flex;
+    flex-direction: column;
+    margin-right: 0px;
   }
-  .cmp-hero .pricing p {
-    font-size: 11px;
+  .cmp-hero .shelfComponent{
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0px;
+      width: 59.8%;
   }
-  .cmp-hero .pricing p:not(:first-child) {
-    margin-top: 5px;
+  .cmp-hero{
+    margin-bottom: 16px;
   }
-  .cmp-hero .pricing p strong {
-    font-size: 28px;
-  }
-  .cmp-hero .contentClass {
-    padding-left: 40px;
-    margin-right: 40px;
-    border-left: 1px solid #4a4f544d;
-  }
-  .cmp-hero .linkContainer,
-  .cmp-hero .secondaryLinkContainer {
-    float: left;
-  }
-  .cmp-hero .heroFooterSection {
-    padding-top: 15px;
-    border-top: 1px solid #4a4f544d;
-  }
-  .cmp-hero-carousel .emissionDetails {
-    width: 100%;
-    text-align: left;
-    height: 15px;
-    margin-bottom: 8px;
+  .cmp-hero .caveat{
+    width: 404px;
+    padding-top: 0px;
+    margin-left: 30px;
   }
   .cmp-hero .caveat p {
-    width: 100%;
-    height: 13px;
-    text-align: left;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
   }
-  .cmp-hero-carousel .emissionDetails p,
-  label {
-    display: inline;
+  .cmp-hero .copyDiv{
+    flex-wrap: wrap;
+  }
+  .cmp-carousel .carousel .cmp-hero .cmp-genericItem__element-poster {
+    position: relative;
+    padding-bottom: 40.7%;
+}
+}
+/* WIDESCREEN */
+@media screen and (min-width: 1920px){
+  .cmp-carousel.cmp-hero-carousel{
+    margin-left: 130px;
+    margin-right: 130px;
+  }
+  .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
+    position: relative;
+    min-width: auto;
+    max-width: auto;
+    height: auto;
+}
+.cmp-hero .shelfComponent{
+  margin-left: 130px;
+  padding-right: 341px;
+}
+}
+.cmp-hero .None{
+  width: auto;
+  height: auto;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/* FONT DEF */
+/* Common color */
+.grey .cmp-hero .headerCopy p,
+.light .cmp-hero .headerCopy p,
+.white .cmp-hero .headerCopy p,
+.grey .cmp-hero .contentClass .pricing p
+.light .cmp-hero .contentClass .pricing p
+.white .cmp-hero .contentClass .pricing p{
+      color: #4A4F54;
+}
+.grey .cmp-hero .contentClass .pricing p strong,
+.light .cmp-hero .contentClass .pricing p strong,
+.white .cmp-hero .contentClass .pricing p strong{
+  color: #0C121C;
+}
+.grey .cmp-hero .emissionDe label p,
+.light .cmp-hero .emissionDe label p,
+.white .cmp-hero .emissionDe label p{
+  color: #4A4F54;
+}
+.grey .cmp-hero .emissionDe p,
+.light .cmp-hero .emissionDe p,
+.white .cmp-hero .emissionDe p{
+  color: #6C6C6C;
+}
+.grey .cmp-hero .caveat p,
+.light .cmp-hero .caveat p,
+.white .cmp-hero .caveat p{
+  color: #0C121C99;
+}
+.cmp-hero .cmp-genericItem__element-poster .videoCustom,.cmp-hero .cmp-genericItem__element-poster .videoCustom img {
+  object-fit: cover;
+}
+.cmp-hero .cmp-genericItem__element-poster .videoCustom{
+position:unset;
+padding-bottom: 0%;
+}
+@media screen and (min-width: 1280px){
+  .cmp-hero .priceAndCta{
+    display: flex;
+    flex-direction: row;
+  }
+  .priceRight .cmp-hero .priceAndCta{
+    display: flex;
+    flex-direction: column;
+  }
+  /* MAIN HEADING */
+  .cmp-hero .heading .headingWrapper p{
+    text-align: left;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    font-size: 38px;
+    line-height: 38px;
+  }
+  /* heading copy */
+  .cmp-hero .headerCopy p{
+    text-align: left;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: capitalize;
+  }
+  /* price heading */
+  .cmp-hero .contentClass .pricing p{
+    text-align: left;
+    letter-spacing: 0.2px;
+    line-height: 11px;
+    font-size: 11px;
+    margin-bottom: 11px;
+  }
+  /* actual price */
+  .cmp-hero .contentClass .pricing p strong{
+    text-align: left;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    font-family: 'LandRoverWeb-Bold';
+    line-height: 24px;
+    font-size: 28px;
+
+  }
+  /* emission label */
+  .cmp-hero .emissionDe label p{
+    text-align: left;
+    letter-spacing: 0.5px;
+    line-height: 12px;
     font-size: 10px;
   }
-  .cmp-hero .shelfComponent {
-    padding-right: 0;
-    padding-left: 0;
-    padding-bottom: 30px;
-    padding-top: 16px;
-    min-height: 189px;
-    min-width: 960px;
-  }
-  .cmp-hero-carousel .cmp-carousel__controls {
-    position: absolute;
-  }
-  .cmp-hero .headerClass h2 {
-    margin-bottom: 14px;
-  }
-  .headerCopy {
+  /* emission value */
+  .cmp-hero .emissionDe p{
     text-align: left;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+    font-size: 10px;
+    opacity: 1;
   }
-  @media screen and (min-width: 300px) and (max-width: 766px) {
-    .cmp-hero {
-      min-height: 370px;
-      max-height: 750px;
-      height: 800px;
-    }
-    .cmp-carousel.cmp-hero-carousel {
-      margin-top: 30px;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .cmp-hero .cmp-genericItem__element-poster {
-      width: 100%;
-      min-height: 160px;
-    }
-    .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
-      position: relative;
-      padding-bottom: 0 !important;
-    }
-    .cmp-hero .shelfComponent {
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-top: 16px;
-      padding-bottom: 0;
-      margin-bottom: 24px;
-      min-height: 200px;
-      max-height: 400px;
-      height: 400px;
-      min-width: 40%;
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .cmp-hero .headerClass {
-      float: left;
-      min-height: 0;
-      margin-bottom: 0;
-      width: 100%;
-    }
-    .cmp-hero .headerClass h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      display: block;
-    }
-    #landrover .secondaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .cmp-hero .primaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .cmp-hero .heroFooterSection {
-      display: flex;
-      flex-direction: column-reverse;
-      border: none;
-      padding-top: 25px;
-      height: 0;
-    }
-    .cmp-hero .headerClass {
-      display: flex;
-      flex-direction: column;
-    }
-    .cmp-hero .logo {
-      width: 100%;
-      height: 50px;
-      margin-bottom: 8px;
-    }
-    .cmp-hero .contentClass {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 0;
-      border: none;
-    }
-    .cmp-hero-carousel .emissionDe {
-      display: flex;
-      flex-direction: column;
-    }
-    .linkContainer {
-      margin-top: 24px;
-    }
-    .cmp-hero-carousel .emissionDetails {
-      display: flex;
-      flex-direction: column;
-      margin-top: 16px;
-    }
-    .cmp-carousel.cmp-hero-carousel {
-      margin-bottom: 0;
-    }
-    .cmp-hero .heroFooterSection {
-      padding-left: 25px;
-    }
-    .cmp-hero-carousel .emissionDe:not(:first-child) {
-      padding-top: 13px;
-    }
-    .cmp-hero-carousel .cmp-carousel__controls {
-      justify-content: left;
-      padding-left: 20px;
+  /* caveat */
+  .cmp-hero .caveat p{
+    text-align: left;
+    letter-spacing: 0.5px;
+    line-height: 14px;
+    font-size: 10px;
   }
+}
+
+/* TABLET */
+@media screen and (max-width: 1279px){
+  .cmp-hero .priceAndCta{
+    display: flex;
+    flex-direction: column;
   }
-  .cmp-hero-carousel .cmp-carousel__slider {
-    height: 100% !important;
+  .cmp-hero-carousel .cmp-carousel__next,
+  .cmp-hero-carousel .cmp-carousel__previous {
+    display: none;
   }
-  
-  @media screen and (min-width: 767px) and (max-width: 1278px) {
-    .emissionDe {
-      display: flex;
-      flex-direction: column;
-    }
-    .cmp-hero-carousel .emissionDe:not(:first-child) {
-      padding-top: 13px;
-    }
-    .caveat {
-      padding-top: 150px;
-      width: 400px;
-      margin-left: -432px;
-      text-align: left;
-    }
-    .cmp-hero-carousel .emissionDetails {
-      display: flex;
-      flex-direction: column;
-    }
-    .cmp-hero-carousel .emissionDetails label:not(:first-child) {
-      padding-top: 13px;
-    }
-    .cmp-hero-carousel .emissionDetails {
-      padding-left: 28px;
-    }
-    .copyDiv {
-      display: flex;
-      flex-direction: row;
-    }
-    .cmp-hero .heroFooterSection {
-      border-top: none;
-      border-left: 1px solid #4a4f544d;
-      padding-top: 0;
-      margin-top: 139px;
-      height: 120px;
-    }
-    .cmp-hero .contentClass {
-      border: none;
-      padding-left: 0;
-      display: flex;
-      flex-direction: column;
-    }
-    .cmp-carousel.cmp-hero-carousel {
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 0;
-    }
-    .cmp-hero .cmp-genericItem__element-poster {
-      width: 100%;
-      min-height: 39.9vh;
-    }
-    .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
-      position: relative;
-      padding-bottom: 0;
-    }
-    .cmp-hero .shelfComponent {
-      padding-left: 30px;
-      padding-right: 25px;
-      padding-top: 24px;
-      min-height: 430px;
-      min-width: 30%;
-      max-width: 60%;
-    }
-    .cmp-hero .headerClass {
-      float: left;
-      min-height: 0;
-      margin-bottom: 0;
-      width: 100%;
-    }
-    .cmp-hero .headerClass h2 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      display: block;
-    }
-    #landrover .secondaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .cmp-hero .primaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .cmp-hero .logo {
-      width: 100%;
-      height: 50px;
-      margin-bottom: 8px;
-    }
-    .pricing {
-      max-width: 350px;
-      padding-top: 16px;
-      display: flex;
-      flex-direction: row;
-    }
-    .firstPrice,
-    .secondPrice {
-      padding-right: 40px;
-    }
-    .linkContainer {
-      display: flex;
-      flex-direction: column;
-      padding-top: 24px;
-    }
-    .cmp-hero .primaryLinkWithStyle,
-    .secondaryLinkWithStyle {
-      float: left;
-    }
+  /* MAIN HEADING */
+  .cmp-hero .heading .headingWrapper p{
+    text-align: left;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 30px;
+    line-height: 30px;
   }
-  @media screen and (min-width: 1025px) and (max-width: 1339px) {
-    .mediaOverlayVideo,
-    video {
-      height: 471px !important;
-      object-fit: cover;
-    }
-    .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
-      position: relative;
-      padding-bottom: 0;
-      min-width: 1160px;
-      height: 471px;
-    }
-    .cmp-hero-carousel .cmp-carousel__controls {
-      position: absolute;
-      margin-left: -60px;
-      top: 25%;
-    }
-    .cmp-hero .logo {
-      height: 100px;
-    }
-    .cmp-hero .headerClass {
-        min-width: 520px;
-      max-width: 520px;
-    }
-    .cmp-hero-carousel .emissionDetails {
-      display: flex;
-      flex-direction: row;
-    }
-    .cmp-hero-carousel .emissionDe p {
-      padding-right: 33px;
-    }
-    .cmp-hero-carousel .emissionDe label p {
-      padding-right: 0;
-    }
-    .cmp-hero-carousel .cmp-carousel__next,.cmp-hero-carousel .cmp-carousel__previous{
-      top: 200px  !important; 
-    }
-    .cmp-hero-carousel .linkContainer {
-        padding-top: 0px;
-        
-      }
-      .cmp-hero-carousel .primaryLinkContainer {
-        padding-bottom: 24px;
-      }
-      .cmp-hero-carousel .secondaryLinkContainer {
-        text-align: left;
-      }
-      .cmp-hero-carousel .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
-        margin-top: 0px;
-      }
-      .cmp-hero .pricing{
-          min-width: 140px;
-      }
- 
+  /* heading copy  can be common*/ 
+  .cmp-hero .headerCopy p{
+    text-align: left;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: capitalize;
   }
-  @media screen and (min-width: 1340px) {
-    .cmp-hero .logo {
-      height: 100px;
-    }
-    .cmp-carousel.cmp-hero-carousel {
-      margin-left: 6%;
-      margin-right: 6%;
-    }
-    .cmp-hero .heroFooterSection,
-    .cmp-hero .shelfComponent {
-      margin-left: 6.7%;
-    }
-    .mediaOverlayVideo,
-    video {
-      height: 471px !important;
-      object-fit: cover;
-    }
-    .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
-      position: relative;
-      padding-bottom: 0;
-      width: 100%;
-      height: 471px;
-    }
-    .cmp-hero-carousel .cmp-carousel__controls {
-      position: absolute;
-      margin-left: -60px;
-      top: 25%;
-    }
-    .cmp-hero .headerClass {
-      min-width: 520px;
-    }
-    .cmp-hero-carousel .emissionDetails {
-      display: flex;
-      flex-direction: row;
-    }
-    .cmp-hero-carousel .emissionDe p {
-      padding-right: 36px;
-    }
+  /* price heading */
+  .cmp-hero .contentClass .pricing p{
+    text-align: left;
+    letter-spacing: 0.18px;
+    line-height: 10px;
+    font-size: 10px;
   }
-   .cmp-hero-carousel .headingWrapper {
-      font-weight:normal;
+  /* actual price */
+  .cmp-hero .contentClass .pricing p strong{
+    text-align: left;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    font-family: 'LandRoverWeb-Bold';
+    line-height: 24px;
+    font-size: 22px;
+
   }
-  .videoCustom {
-    position: initial;
-    padding-bottom: 56.25%;
-    height: 0;
+  /* emission label */
+  .cmp-hero .emissionDe label p{
+    text-align: left;
+    letter-spacing: 0.14px;
+    line-height: 14px;
+    font-size: 10px;
   }
-  .videoCustom img {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 20;
-    cursor: pointer;
+  /* emission value */
+  .cmp-hero .emissionDe p{
+    text-align: left;
+    letter-spacing: 0.14px;
+    line-height: 14px;
+    font-size: 10px;
+    opacity: 1;
   }
-  .videoCustom:after {
-    content: "";
-    position: absolute;
-    display: block;
-    background: url(data:image/svg+xml;utf-8,SVG_REPLACED) no-repeat 0 0;
-    top: 45%;
-    left: 45%;
-    width: 100px;
-    height: 100px;
-    z-index: 30;
-    cursor: pointer;
+  /* caveat */
+  .cmp-hero .caveat p{
+    text-align: left;
+    letter-spacing: 0.14px;
+    line-height: 14px;
+    font-size: 10px;
   }
-  .videoCustom iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+}
+@media screen and (max-width: 767px){
+
+  /* MAIN HEADING */
+  .cmp-hero .heading .headingWrapper p{
+    text-align: left;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    font-size: 26px;
+    line-height: 26px;
   }
+  /* heading copy  can be common*/ 
+  .cmp-hero .headerCopy p{
+    text-align: left;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: capitalize;
+  }
+  /* price heading */
+  .cmp-hero .contentClass .pricing p{
+    text-align: left;
+    letter-spacing: 0.18px;
+    line-height: 10px;
+    font-size: 10px;
+  }
+  /* actual price */
+  .cmp-hero .contentClass .pricing p strong{
+    text-align: left;
+    letter-spacing: 1.76px;
+    text-transform: uppercase;
+    font-family: 'LandRoverWeb-Bold';
+    line-height: 24px;
+    font-size: 22px;
+
+  }
+  /* emission label */
+  .cmp-hero .emissionDe label p{
+    text-align: left;
+    letter-spacing: 0.14px;
+    line-height: 14px;
+    font-size: 10px;
+  }
+  /* emission value */
+  .cmp-hero .emissionDe p{
+    text-align: left;
+    letter-spacing: 0.14px;
+    line-height: 14px;
+    font-size: 10px;
+    opacity: 1;
+  }
+  /* caveat */
+  .cmp-hero .caveat p{
+    text-align: left;
+    letter-spacing: 0.14px;
+    line-height: 14px;
+    font-size: 10px;
+  }
+}
+@media screen and (min-width: 1920px){
+  .cmp-hero-carousel .cmp-carousel__controls {
+    margin-left: 115px;  
+  }
+}
+.grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
+.white .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
+.light .cmp-hero-carousel .Pagination__pause-timer-icon-countdown {
+  stroke: grey;
+}
+.grey .cmp-hero-carousel .st0--swiper-pagination,
+.white  .cmp-hero-carousel .st0--swiper-pagination,
+.light .cmp-hero-carousel .st0--swiper-pagination
+{
+  fill: white;
+}
+@media screen and (max-width: 1279px){
+  .grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
+.white .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
+.light .cmp-hero-carousel .Pagination__pause-timer-icon-countdown {
+  stroke: lightgray;
+}
+  .grey .cmp-hero-carousel .Pagination__play-control-icon, 
+  .grey .cmp-hero-carousel .Pagination__pause-control-icon.Pagination__pause-control-icon,
+  .light .cmp-hero-carousel .Pagination__play-control-icon, 
+  .light .cmp-hero-carousel .Pagination__pause-control-icon.Pagination__pause-control-icon,
+  .white .cmp-hero-carousel .Pagination__play-control-icon,
+  .white .cmp-hero-carousel .Pagination__pause-control-icon.Pagination__pause-control-icon
+  {
+    fill: black;
+  }
+  .white .cmp-hero-carousel .Pagination .Pagination__pip:after,
+  .light .cmp-hero-carousel .Pagination .Pagination__pip:after,
+  .grey .cmp-hero-carousel .Pagination .Pagination__pip:after
+   {
+    border: 2px solid #000;
+  }
+  .grey .cmp-hero-carousel .Pagination__pip--active:after, .grey .cmp-hero-carousel .Pagination__pip--active:hover:after,
+  .light .cmp-hero-carousel .Pagination__pip--active:after, .light .cmp-hero-carousel .Pagination__pip--active:hover:after,
+  .white .cmp-hero-carousel .Pagination__pip--active:after, .white .cmp-hero-carousel .Pagination__pip--active:hover:after
+  {
+    background:black;
+  }
+  .grey .cmp-hero-carousel .Pagination .Pagination__play:before,
+  .grey .cmp-hero-carousel .Pagination .Pagination__pause:before,
+  .light .cmp-hero-carousel .Pagination .Pagination__play:before,
+  .light .cmp-hero-carousel .Pagination .Pagination__pause:before ,
+  .white .cmp-hero-carousel .Pagination .Pagination__play:before,
+  .white .cmp-hero-carousel .Pagination .Pagination__pause:before  
+  {
+    border: 2px solid #000;
+    background-color: transparent;
+}
+}
+@media screen and (max-width: 767px){
+  .cmp-hero .videoCustom:after{
+    top: 35%;
+    left: 43%;
+  }
+}
+@media screen and (max-width: 600px){
+  .cmp-hero .videoCustom:after{
+    top: 20%;
+    left: 40%;
+  }
+}
+@media screen and (max-width: 450px){
+  .cmp-hero .videoCustom:after{
+    top: 17%;
+    left: 35%;
+  }
+}
