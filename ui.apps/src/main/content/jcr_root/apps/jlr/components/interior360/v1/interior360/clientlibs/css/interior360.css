@@ -107,7 +107,6 @@ html.no-js .cmp-interior360 .carousel > * {
 .cmp-interior360 .headerClass {
   float: left;
   margin-right: 40px;
-  max-width: 360px;
 }
 .cmp-interior360 .linkContainer,
 .secondaryLinkContainer {
@@ -1362,9 +1361,15 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (max-width: 767px) {
+  .cmp-interior360 .headerClass { 
+    min-width: 90%;
+    max-width:100%;
+    margin-right: 0px;
+  }
   .cmp-interior360 .shelfComponent{
     display: flex;
     flex-direction: column;
+    max-width:96.9%;
   }
   .Interior360__init-container-caption{
     line-height: 12px;
@@ -1430,8 +1435,11 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-left: 19px;
     line-height: 14px;
   }
+  .cmp-interior360 .headerClass {
+    width: 520px;
+  }
 }
-@media screen and (min-width: 1280px) and (max-width: 1910px){
+@media screen and (min-width: 1280px) and (max-width: 1919px){
   .Interior360__init-container-caption{
     line-height: 15px !important;
   }
