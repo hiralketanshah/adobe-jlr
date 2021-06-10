@@ -2071,8 +2071,8 @@ var _browserDetection = __webpack_require__(/*! ../../../resources/dev/js/utils/
 /* global jQuery, console, site, embedpano, removepano */
 
 var panoId = 0;
-
 (function ($, window) {
+  $('.Interior360').each(function (index, element) {
   var Interior360 = {
     krpanoURL: '/etc.clientlibs/jlr/clientlibs/',
     pano: null,
@@ -2106,7 +2106,7 @@ var panoId = 0;
     init: function init() {
       var _this = this;
 
-      this.panoID = 'krpanoSWFObject-' + this.$element.attr('id');
+      this.panoID = 'krpanoSWFObject-' + new Date().getMilliseconds();
       this._tabbedContainer = this.$element.parents('.TabbedContainer').not('[data-total="1"]');
       this._isInsideTabbedContainer = this._tabbedContainer.length;
       this._hasHeaderBox = !!this.ui('headerBox').length;
@@ -2359,7 +2359,7 @@ var panoId = 0;
         // Remove the overlay
         var elementHeight = _this6.$element.outerHeight();
 
-        $('.Interior360__panorama-load-container').remove();
+        $(element).find('.Interior360__panorama-load-container').remove();
 
         _this6._activateFocusOnKrpanoElement();
 
@@ -2385,7 +2385,7 @@ var panoId = 0;
         this.$element.find('Interior360__panorama-load-container').html('');
       } else {
         this._activeToggle.append('<div class="Interior360__panorama-load-container"></div>');
-        $('.Interior360__panorama-load-container').append(loadButton);
+        $(element).find('.Interior360__panorama-load-container').append(loadButton);
       }
     },
     _initPanoViewer: function _initPanoViewer() {
@@ -2762,13 +2762,12 @@ var panoId = 0;
       }
     }
   };
-
-  jQuery.createComponent('Interior360', Interior360);
-
-  $('.Interior360').each(function (index, element) {
-    var comp = $(element);
-    if (!comp.parents('.TabbedContainer').length) {
-      comp.Interior360();
+  let millisecond = new Date().getMilliseconds();
+  jQuery.createComponent('Interior360'+millisecond, Interior360);
+  var comp = $(element);
+  console.log("I am here");
+  if (!comp.parents('.TabbedContainer').length) {
+      comp[`Interior360${millisecond}`]();
     }
   });
 })(jQuery, window, document);
@@ -2850,7 +2849,9 @@ var isBreakpointMedium = exports.isBreakpointMedium = function isBreakpointMediu
 };
 
 var isMobileDevice = exports.isMobileDevice = function isMobileDevice() {
-  return 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch || navigator.msMaxTouchPoints; // eslint-disable-line
+  return window.innerWidth<=1279;
+
+  // return 'ontouchstart' in window || window.DocumentTouch && document instanceof DocumentTouch || navigator.msMaxTouchPoints; // eslint-disable-line
 };
 
 var isNotMobileDevice = exports.isNotMobileDevice = function isNotMobileDevice() {

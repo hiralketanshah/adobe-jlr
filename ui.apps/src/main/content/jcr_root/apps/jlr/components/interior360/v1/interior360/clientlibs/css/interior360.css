@@ -1,1477 +1,1455 @@
 .Interior360__icon {
-    height: 15px;
-    width: 9px;
-    background: url('../resources/icons/internal360-arrow-right.svg')
-      center center no-repeat;
-    background-size: 15px 15px;
-  }
-  .Interior360__init-container-icon-backdrop {
-    top: 25%;
-    left: 45%;
-    width: 180px;
-    height: 180px;
-    position: absolute;
-    margin: auto;
-    background-color: #0C121C;
-    opacity: 0.8;
-  }
-  .Interior360__init-container-icon {
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: -55px;
-    width: 72px;
-    height: 72px;
-    position: absolute;
-    border-radius: 88px;
-    border: 4px solid #fff;
-    margin: 0 auto;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.5);
-  }
-  .cmp-interior360 {
-    margin: 60px 60px 80px 60px;
-    min-height: 600px;
-    max-height: 100%;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .cmp-interiorInner .cmp-carousel__slider {
-    height: 100%;
-    width: 100%;
-    outline: 0;
-  }
-  .cmp-carousel__bgImage {
-    display: block;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+  height: 15px;
+  width: 9px;
+  background: url('../resources/icons/internal360-arrow-right.svg')
+    center center no-repeat;
+  background-size: 15px 15px;
+}
+.Interior360__init-container-icon-backdrop {
+  top: 25%;
+  left: 45%;
+  width: 180px;
+  height: 180px;
+  position: absolute;
+  margin: auto;
+  background-color: #0C121C;
+  opacity: 0.8;
+}
+.Interior360__init-container-icon {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: -55px;
+  width: 72px;
+  height: 72px;
+  position: absolute;
+  border-radius: 88px;
+  border: 4px solid #fff;
+  margin: 0 auto;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+.cmp-interior360 {
+  margin: 60px 60px 80px 60px;
+  min-height: 600px;
+  max-height: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cmp-interiorInner .cmp-carousel__slider {
+  height: 100%;
+  width: 100%;
+  outline: 0;
+}
+.cmp-carousel__bgImage {
+  display: block;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.cmp-interiorInner .cmp-carousel__controls {
+  z-index: 1;
+  padding: 4px 0 39px 0;
+  justify-content: center;
+}
+@media screen and (min-width: 741px) {
   .cmp-interiorInner .cmp-carousel__controls {
-    z-index: 1;
-    padding: 4px 0 39px 0;
-    justify-content: center;
+    padding: 0;
+    left: 48px;
+    right: auto;
+    bottom: 48px;
+    position: absolute;
+    justify-content: left;
   }
-  @media screen and (min-width: 741px) {
-    .cmp-interiorInner .cmp-carousel__controls {
-      padding: 0;
-      left: 48px;
-      right: auto;
-      bottom: 48px;
-      position: absolute;
-      justify-content: left;
-    }
+}
+@media screen and (min-width: 901px) {
+  .cmp-interiorInner .cmp-carousel__controls {
+    left: 88px;
   }
-  @media screen and (min-width: 901px) {
-    .cmp-interiorInner .cmp-carousel__controls {
-      left: 88px;
-    }
+}
+.cmp-interior360 .swiper-button {
+  display: block;
+}
+.cmp-interior360 .swiper-button[aria-disabled="true"] {
+  display: none;
+}
+.cmp-interior360 .carousel {
+  text-align: center;
+  overflow: hidden;
+  direction: ltr;
+  min-height: 600px;
+}
+@media screen and (min-width: 1px) and (max-width: 1900px) {
+  .cmp-interior360 .carousel .cmp-interior360render {
+    position: relative;
+    padding-bottom: 56.25%;
   }
-  .cmp-interior360 .swiper-button {
-    display: block;
-  }
-  .cmp-interior360 .swiper-button[aria-disabled="true"] {
-    display: none;
-  }
-  .cmp-interior360 .carousel {
-    text-align: center;
-    overflow: hidden;
-    direction: ltr;
-    min-height: 600px;
-  }
-  @media screen and (min-width: 1px) and (max-width: 1900px) {
-    .cmp-interior360 .carousel .cmp-interior360render {
-      position: relative;
-      padding-bottom: 56.25%;
-    }
-  }
-  html.no-js .cmp-carousel.cmp-interiorInner {
-    opacity: 1;
-    height: auto;
+}
+html.no-js .cmp-carousel.cmp-interiorInner {
+  opacity: 1;
+  height: auto;
+  min-height: 0;
+}
+html.no-js .cmp-interior360 .carousel > * {
+  float: none;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+  .cmp-carousel.cmp-interiorInner {
     min-height: 0;
   }
-  html.no-js .cmp-interior360 .carousel > * {
-    float: none;
+  .cmp-interior360 .carousel {
+    min-height: 0;
   }
-  @media screen and (min-width: 1px) and (max-width: 900px) {
-    .cmp-carousel.cmp-interiorInner {
-      min-height: 0;
-    }
-    .cmp-interior360 .carousel {
-      min-height: 0;
-    }
-  }
-  .cmp-interior360 .headerClass {
-    float: left;
-    margin-right: 40px;
-    min-height: 28px;
-    max-height: 32px;
-    min-width: 360px;
-  }
-  .cmp-interior360 .linkContainer,
-  .secondaryLinkContainer {
-    float: left;
-  }
-  .cmp-interior360 .fontBodyCopyLarge {
-    text-align: left;
-    padding-right: 0px;
+}
+.cmp-interior360 .headerClass {
+  float: left;
+  margin-right: 40px;
+  min-height: 28px;
+  max-height: 32px;
+  min-width: 360px;
+}
+.cmp-interior360 .linkContainer,
+.secondaryLinkContainer {
+  float: left;
+}
+.cmp-interior360 .fontBodyCopyLarge {
+  text-align: left;
+  padding-right: 0px;
+}
+.cmp-interior360 .shelfComponent {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 32px;
+  min-height: 189px;
+  min-width: 960px;
+}
+.cmp-interiorInner .cmp-carousel__controls {
+  position: relative;
+}
+@media screen and (min-width: 1920px) {
+  .cmp-interior360 .contentClass{
+    width: 650px;
   }
   .cmp-interior360 .shelfComponent {
-    padding-left: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-top: 32px;
-    min-height: 189px;
-    min-width: 960px;
+  display: flex;
+  flex-direction: row;
+  }
+  .cmp-interior360 .shelfComponent {
+    margin-left: 160px;
+    margin-right: 0px;
+    width: 100%;
+  }
+  .cmp-interior360 .carousel .cmp-interior360render {
+    position: relative;
+    min-width: 1660px;
+    width: 2000px;
+    max-width: 2000px;
+    height: 935px;
   }
   .cmp-interiorInner .cmp-carousel__controls {
+    position: absolute;
+    left: 160px;
+    top: 56%;
+  }
+  .cmp-interior360 {
+    margin-left: 130px;
+    margin-right: 130px;
+    margin-top: 60px;
+  }
+  .cmp-interior360 .headingWrapper p{
+    font-size: 24px;
+  }
+  .cmp-interior360 .linkContainer{
+    padding-top: 24px !important;
+  }
+  .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
+    margin-top: 23px !important;
+  }
+  .cmp-interior360 .headerClass { 
+    min-width: 420px;
+  }
+  .cmp-interior360 .headerClass .heading{ 
+    min-height: 32px;
+  }
+  .cmp-interior360 .headerClass .heading p{ 
+    line-height: 24px !important;
+    letter-spacing: 1.2px !important;
+  }
+  .cmp-interior360 .Interior360__init-container-icon{
+    width: 78px;
+    height: 78px;
+  }
+}
+@media screen and (min-width: 1279px) and (max-width: 1919px) {
+  .cmp-interior360render {
+    min-width: 1160px;
+    max-height: 653px;
+  }
+  .cmp-interior360 .carousel .cmp-interior360render {
     position: relative;
   }
-  @media screen and (min-width: 1920px) {
-    .cmp-interior360 .contentClass{
-      width: 650px;
-    }
-    .cmp-interior360 .shelfComponent {
+  .cmp-interiorInner .cmp-carousel__controls {
+    position: absolute;
+    margin-left: -60px;
+    top: 46%;
+  }
+  .cmp-carousel.cmp-interiorInner__previous,
+  .cmp-interiorInner.cmp-carousel__next {
+    top: 500px;
+  }
+  .cmp-interior360 .secondaryLinkContainer{
+    text-align: left;
+  }
+  .cmp-interior360 .primaryLinkWithStyle{
+    margin-top: 0px;
+  }
+  .cmp-interior360 .headingWrapper p{
+    font-size: 24px;
+  }
+  .cmp-interior360 .linkContainer{
+    padding-top: 24px !important;
+  }
+  .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
+    margin-top: 24px !important;
+  }
+  .cmp-interior360 .headerClass { 
+    min-width: 360px;
+  }
+  .cmp-interior360 .headerClass .heading{ 
+    min-height: 32px;
+  }
+  .cmp-interior360 .headerClass .heading p{ 
+    line-height: 24px !important;
+    letter-spacing: 1.2px !important;
+  }
+  .cmp-interior360 .Interior360__init-container-icon{
+    width: 78px;
+    height: 78px;
+  }
+  .cmp-interior360 .shelfComponent {
     display: flex;
     flex-direction: row;
     }
     .cmp-interior360 .shelfComponent {
-      margin-left: 160px;
       margin-right: 0px;
       width: 100%;
     }
-    .cmp-interior360 .carousel .cmp-interior360render {
-      position: relative;
-      min-width: 1660px;
-      width: 2000px;
-      max-width: 2000px;
-      height: 935px;
+    .cmp-interior360 .contentClass{
+      width: 560px;
     }
-    .cmp-interiorInner .cmp-carousel__controls {
-      position: absolute;
-      left: 160px;
-      top: 56%;
-    }
-    .cmp-interior360 {
-      margin-left: 130px;
-      margin-right: 130px;
-      margin-top: 60px;
-    }
-    .cmp-interior360 .headingWrapper p{
-      font-size: 24px;
-    }
-    .cmp-interior360 .linkContainer{
-      padding-top: 24px !important;
-    }
-    .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
-      margin-top: 23px !important;
-    }
-    .cmp-interior360 .headerClass { 
-      min-width: 420px;
-    }
-    .cmp-interior360 .headerClass .heading{ 
-      min-height: 32px;
-    }
-    .cmp-interior360 .headerClass .heading p{ 
-      line-height: 24px !important;
-      letter-spacing: 1.2px !important;
-    }
-    .cmp-interior360 .Interior360__init-container-icon{
-      width: 78px;
-      height: 78px;
-    }
+}
+@media screen and (min-width: 767px) and (max-width: 1278px) {
+  .cmp-interior360{
+    margin-top: 40px;
+    margin-bottom: 60px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
-  @media screen and (min-width: 1279px) and (max-width: 1919px) {
-    .cmp-interior360render {
-      min-width: 1160px;
-      max-height: 653px;
-    }
-    .cmp-interior360 .carousel .cmp-interior360render {
-      position: relative;
-    }
-    .cmp-interiorInner .cmp-carousel__controls {
-      position: absolute;
-      margin-left: -60px;
-      top: 46%;
-    }
-    .cmp-carousel.cmp-interiorInner__previous,
-    .cmp-interiorInner.cmp-carousel__next {
-      top: 500px;
-    }
-    .cmp-interior360 .secondaryLinkContainer{
-      text-align: left;
-    }
-    .cmp-interior360 .primaryLinkWithStyle{
-      margin-top: 0px;
-    }
-    .cmp-interior360 .headingWrapper p{
-      font-size: 24px;
-    }
-    .cmp-interior360 .linkContainer{
-      padding-top: 24px !important;
-    }
-    .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
-      margin-top: 24px !important;
-    }
-    .cmp-interior360 .headerClass { 
-      min-width: 360px;
-    }
-    .cmp-interior360 .headerClass .heading{ 
-      min-height: 32px;
-    }
-    .cmp-interior360 .headerClass .heading p{ 
-      line-height: 24px !important;
-      letter-spacing: 1.2px !important;
-    }
-    .cmp-interior360 .Interior360__init-container-icon{
-      width: 78px;
-      height: 78px;
-    }
-    .cmp-interior360 .shelfComponent {
-      display: flex;
-      flex-direction: row;
-      }
-      .cmp-interior360 .shelfComponent {
-        margin-right: 0px;
-        width: 100%;
-      }
-      .cmp-interior360 .contentClass{
-        width: 560px;
-      }
+  .cmp-interior360render {
+    width: 100%;
+    min-height: 432px;
   }
-  @media screen and (min-width: 767px) and (max-width: 1278px) {
-    .cmp-interior360{
-      margin-top: 40px;
-      margin-bottom: 60px;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-    .cmp-interior360render {
-      width: 100%;
-      min-height: 432px;
-    }
-    .cmp-interior360 .carousel .cmp-interior360render {
-      position: relative;
-      padding-bottom: 0;
-    }
-    .cmp-interior360 .shelfComponent {
-      padding-left: 30px;
-      padding-right: 25px;
-      padding-top: 28px;
-      min-height: 247px;
-      min-width: 40%;
-      max-width: 75.4%;
-    }
-    .cmp-interior360 .headerClass {
-      float: left;
-      min-height: 0;
-      margin-bottom: 0;
-      width: 100%;
-    }
-    .cmp-interior360 .headerClass h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .fontBodyCopyLarge {
-      width: 100%;
-      margin-bottom: 24px;
-      padding-right: 0;
-    }
-    #landrover .secondaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .primaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .cmp-interiorInner .cmp-carousel__controls {
-      position: absolute;
-      top: 70px;
-      left: 30px;
-    }
-    .cmp-interior360 .headingWrapper p{
-      font-size: 21px;
-    }
-    .cmp-interior360 .linkContainer {
-      padding-top: 19px;
-    }
-    .cmp-interior360 .headerClass .heading{ 
-      min-height: 28px;
-    }
-    .cmp-interior360 .headerClass .heading p{ 
-      line-height: 21px !important;
-      letter-spacing: 1.05px !important;
-    }
-      .cmp-interior360 .shelfComponent {
-        margin-right: 0px;
-        width: 100%;
-      }
-      .cmp-interior360 .contentClass{
-        width: 560px;
-      }
+  .cmp-interior360 .carousel .cmp-interior360render {
+    position: relative;
+    padding-bottom: 0;
   }
-  @media screen and (min-width: 300px) and (max-width: 766px) {
-    .Interior360__init-container-icon {
-      top: -60px;
-      width: 45px;
-      height: 45px;
-      position: absolute;
-    }
-    .cmp-interior360{
-      margin-top: 30px;
-      margin-bottom: 40px;
-      margin-left: 0px;
-      margin-right: 0px;
-    }
-    .cmp-carousel.cmp-interiorInner {
-      margin-top: 30px;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .cmp-carousel.cmp-interiorInner .carousel {
-      min-height: 339px;
-    }
-    .cmp-interior360render {
-      width: 100%;
-      min-height: 211px;
-    }
-    .cmp-interior360 .carousel .cmp-interior360render {
-      position: relative;
-      padding-bottom: 0;
-    }
-    .cmp-interior360 .shelfComponent {
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-top: 16px;
-      min-height: 301px;
-      min-width: 40%;
-      max-width: 100%;
-    }
-    .cmp-interior360 .headerClass {
-      float: left;
-      min-height: 0;
-      margin-bottom: 0;
-      width: 100%;
-    }
-    .cmp-interior360 .headerClass h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .cmp-interior360 .fontBodyCopyLarge {
-      width: 100%;
-      margin-bottom: 0;
-      padding-right: 0;
-    }
-    #landrover .secondaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .primaryLinkWithStyle {
-      margin-top: 0;
-      margin-bottom: 24px;
-    }
-    .cmp-interiorInner .cmp-carousel__controls {
-      position: absolute;
-      top: 150px;
-      left: 20px;
-      justify-content: left;
-    }
-    .Interior360__init-container-icon-backdrop {
-      top: -60px;
-      width: 126px;
-      height: 126px;
-      position: initial;
-      margin: auto;
-      background-color: #0C121C;
-      opacity: 0.8;
-    }
-    .Interior360__icon--up {
-      top: 7px;
-      left: 65%;
-      margin-left: -9px;
-    }
-    .Interior360__icon--down {
-      bottom: 9px;
-      left: 65%;
-      margin-left: -9px;
-      margin-top: 0px;
-    }
-    .Interior360__icon--left {
-      top: 7px;
-      left: 50%;
-      margin-left: -9px;
-    }
-    .Interior360__icon--right {
-      top: 7px;
-      left: 50%;
-      margin-left: -9px;
-    }
-    .cmp-interior360 .headingWrapper p{
-      font-size: 20px;
-    }
-    .cmp-interior360 .linkContainer{
-      margin-top: 43px !important;
-    }
-    .cmp-interior360 .headerClass .heading{ 
-      min-height: 27px;
-    }
-    .cmp-interior360 .headerClass .heading p{ 
-      line-height: 20px !important;
-      letter-spacing: 0.64px !important;
-    }
+  .cmp-interior360 .shelfComponent {
+    padding-left: 30px;
+    padding-right: 25px;
+    padding-top: 28px;
+    min-height: 247px;
+    min-width: 40%;
+    max-width: 75.4%;
   }
-  .cmp-interiorInner .cmp-carousel__slider {
-    height: 100% !important;
-  }
-  .cmp-interior360 .primaryLinkWithStyle {
+  .cmp-interior360 .headerClass {
     float: left;
-  }
-  .cmp-carousel__controls {
-    height: 50px;
-  }
-  .cmp-fullframe .headerClass {
-    text-transform: uppercase;
-  }
-  .cmp-fullframe .fontBodyCopyLarge p:first-child::first-letter{
-    text-transform: capitalize;
-  }
-  
-  @-webkit-keyframes iconAnimateUp {
-    0%,
-    100% {
-      -webkit-transform: rotate(270deg) translateX(0px);
-      -moz-transform: rotate(270deg) translateX(0px);
-      -ms-transform: rotate(270deg) translateX(0px);
-      -o-transform: rotate(270deg) translateX(0px);
-      transform: rotate(270deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(270deg) translateX(6px);
-      -moz-transform: rotate(270deg) translateX(6px);
-      -ms-transform: rotate(270deg) translateX(6px);
-      -o-transform: rotate(270deg) translateX(6px);
-      transform: rotate(270deg) translateX(6px);
-    }
-  }
-  @keyframes iconAnimateUp {
-    0%,
-    100% {
-      -webkit-transform: rotate(270deg) translateX(0px);
-      -moz-transform: rotate(270deg) translateX(0px);
-      -ms-transform: rotate(270deg) translateX(0px);
-      -o-transform: rotate(270deg) translateX(0px);
-      transform: rotate(270deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(270deg) translateX(6px);
-      -moz-transform: rotate(270deg) translateX(6px);
-      -ms-transform: rotate(270deg) translateX(6px);
-      -o-transform: rotate(270deg) translateX(6px);
-      transform: rotate(270deg) translateX(6px);
-    }
-  }
-  @-webkit-keyframes iconAnimateUpMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(270deg) translateX(0px);
-      -moz-transform: rotate(270deg) translateX(0px);
-      -ms-transform: rotate(270deg) translateX(0px);
-      -o-transform: rotate(270deg) translateX(0px);
-      transform: rotate(270deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(270deg) translateX(4px);
-      -moz-transform: rotate(270deg) translateX(4px);
-      -ms-transform: rotate(270deg) translateX(4px);
-      -o-transform: rotate(270deg) translateX(4px);
-      transform: rotate(270deg) translateX(4px);
-    }
-  }
-  @keyframes iconAnimateUpMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(270deg) translateX(0px);
-      -moz-transform: rotate(270deg) translateX(0px);
-      -ms-transform: rotate(270deg) translateX(0px);
-      -o-transform: rotate(270deg) translateX(0px);
-      transform: rotate(270deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(270deg) translateX(4px);
-      -moz-transform: rotate(270deg) translateX(4px);
-      -ms-transform: rotate(270deg) translateX(4px);
-      -o-transform: rotate(270deg) translateX(4px);
-      transform: rotate(270deg) translateX(4px);
-    }
-  }
-  @-webkit-keyframes iconAnimateRight {
-    0%,
-    100% {
-      -webkit-transform: rotate(0deg) translateX(0px);
-      -moz-transform: rotate(0deg) translateX(0px);
-      -ms-transform: rotate(0deg) translateX(0px);
-      -o-transform: rotate(0deg) translateX(0px);
-      transform: rotate(0deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(0deg) translateX(6px);
-      -moz-transform: rotate(0deg) translateX(6px);
-      -ms-transform: rotate(0deg) translateX(6px);
-      -o-transform: rotate(0deg) translateX(6px);
-      transform: rotate(0deg) translateX(6px);
-    }
-  }
-  @keyframes iconAnimateRight {
-    0%,
-    100% {
-      -webkit-transform: rotate(0deg) translateX(0px);
-      -moz-transform: rotate(0deg) translateX(0px);
-      -ms-transform: rotate(0deg) translateX(0px);
-      -o-transform: rotate(0deg) translateX(0px);
-      transform: rotate(0deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(0deg) translateX(6px);
-      -moz-transform: rotate(0deg) translateX(6px);
-      -ms-transform: rotate(0deg) translateX(6px);
-      -o-transform: rotate(0deg) translateX(6px);
-      transform: rotate(0deg) translateX(6px);
-    }
-  }
-  @-webkit-keyframes iconAnimateRightMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(0deg) translateX(0px);
-      -moz-transform: rotate(0deg) translateX(0px);
-      -ms-transform: rotate(0deg) translateX(0px);
-      -o-transform: rotate(0deg) translateX(0px);
-      transform: rotate(0deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(0deg) translateX(4px);
-      -moz-transform: rotate(0deg) translateX(4px);
-      -ms-transform: rotate(0deg) translateX(4px);
-      -o-transform: rotate(0deg) translateX(4px);
-      transform: rotate(0deg) translateX(4px);
-    }
-  }
-  @keyframes iconAnimateRightMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(0deg) translateX(0px);
-      -moz-transform: rotate(0deg) translateX(0px);
-      -ms-transform: rotate(0deg) translateX(0px);
-      -o-transform: rotate(0deg) translateX(0px);
-      transform: rotate(0deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(0deg) translateX(4px);
-      -moz-transform: rotate(0deg) translateX(4px);
-      -ms-transform: rotate(0deg) translateX(4px);
-      -o-transform: rotate(0deg) translateX(4px);
-      transform: rotate(0deg) translateX(4px);
-    }
-  }
-  @-webkit-keyframes iconAnimateLeft {
-    0%,
-    100% {
-      -webkit-transform: rotate(180deg) translateX(0px);
-      -moz-transform: rotate(180deg) translateX(0px);
-      -ms-transform: rotate(180deg) translateX(0px);
-      -o-transform: rotate(180deg) translateX(0px);
-      transform: rotate(180deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(180deg) translateX(6px);
-      -moz-transform: rotate(180deg) translateX(6px);
-      -ms-transform: rotate(180deg) translateX(6px);
-      -o-transform: rotate(180deg) translateX(6px);
-      transform: rotate(180deg) translateX(6px);
-    }
-  }
-  @keyframes iconAnimateLeft {
-    0%,
-    100% {
-      -webkit-transform: rotate(180deg) translateX(0px);
-      -moz-transform: rotate(180deg) translateX(0px);
-      -ms-transform: rotate(180deg) translateX(0px);
-      -o-transform: rotate(180deg) translateX(0px);
-      transform: rotate(180deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(180deg) translateX(6px);
-      -moz-transform: rotate(180deg) translateX(6px);
-      -ms-transform: rotate(180deg) translateX(6px);
-      -o-transform: rotate(180deg) translateX(6px);
-      transform: rotate(180deg) translateX(6px);
-    }
-  }
-  @-webkit-keyframes iconAnimateLeftMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(180deg) translateX(0px);
-      -moz-transform: rotate(180deg) translateX(0px);
-      -ms-transform: rotate(180deg) translateX(0px);
-      -o-transform: rotate(180deg) translateX(0px);
-      transform: rotate(180deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(180deg) translateX(4px);
-      -moz-transform: rotate(180deg) translateX(4px);
-      -ms-transform: rotate(180deg) translateX(4px);
-      -o-transform: rotate(180deg) translateX(4px);
-      transform: rotate(180deg) translateX(4px);
-    }
-  }
-  @keyframes iconAnimateLeftMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(180deg) translateX(0px);
-      -moz-transform: rotate(180deg) translateX(0px);
-      -ms-transform: rotate(180deg) translateX(0px);
-      -o-transform: rotate(180deg) translateX(0px);
-      transform: rotate(180deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(180deg) translateX(4px);
-      -moz-transform: rotate(180deg) translateX(4px);
-      -ms-transform: rotate(180deg) translateX(4px);
-      -o-transform: rotate(180deg) translateX(4px);
-      transform: rotate(180deg) translateX(4px);
-    }
-  }
-  @-webkit-keyframes iconAnimateDown {
-    0%,
-    100% {
-      -webkit-transform: rotate(90deg) translateX(0px);
-      -moz-transform: rotate(90deg) translateX(0px);
-      -ms-transform: rotate(90deg) translateX(0px);
-      -o-transform: rotate(90deg) translateX(0px);
-      transform: rotate(90deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(90deg) translateX(6px);
-      -moz-transform: rotate(90deg) translateX(6px);
-      -ms-transform: rotate(90deg) translateX(6px);
-      -o-transform: rotate(90deg) translateX(6px);
-      transform: rotate(90deg) translateX(6px);
-    }
-  }
-  @keyframes iconAnimateDown {
-    0%,
-    100% {
-      -webkit-transform: rotate(90deg) translateX(0px);
-      -moz-transform: rotate(90deg) translateX(0px);
-      -ms-transform: rotate(90deg) translateX(0px);
-      -o-transform: rotate(90deg) translateX(0px);
-      transform: rotate(90deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(90deg) translateX(6px);
-      -moz-transform: rotate(90deg) translateX(6px);
-      -ms-transform: rotate(90deg) translateX(6px);
-      -o-transform: rotate(90deg) translateX(6px);
-      transform: rotate(90deg) translateX(6px);
-    }
-  }
-  @-webkit-keyframes iconAnimateDownMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(90deg) translateX(0px);
-      -moz-transform: rotate(90deg) translateX(0px);
-      -ms-transform: rotate(90deg) translateX(0px);
-      -o-transform: rotate(90deg) translateX(0px);
-      transform: rotate(90deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(90deg) translateX(4px);
-      -moz-transform: rotate(90deg) translateX(4px);
-      -ms-transform: rotate(90deg) translateX(4px);
-      -o-transform: rotate(90deg) translateX(4px);
-      transform: rotate(90deg) translateX(4px);
-    }
-  }
-  @keyframes iconAnimateDownMob {
-    0%,
-    100% {
-      -webkit-transform: rotate(90deg) translateX(0px);
-      -moz-transform: rotate(90deg) translateX(0px);
-      -ms-transform: rotate(90deg) translateX(0px);
-      -o-transform: rotate(90deg) translateX(0px);
-      transform: rotate(90deg) translateX(0px);
-    }
-    50% {
-      -webkit-transform: rotate(90deg) translateX(4px);
-      -moz-transform: rotate(90deg) translateX(4px);
-      -ms-transform: rotate(90deg) translateX(4px);
-      -o-transform: rotate(90deg) translateX(4px);
-      transform: rotate(90deg) translateX(4px);
-    }
-  }
-  .Interior360 {
-    background: #fff;
-    direction: ltr;
-    position: relative;
-    margin: 0 auto;
+    min-height: 0;
+    margin-bottom: 0;
     width: 100%;
-    overflow: hidden;
   }
-  .Interior360__panorama-holder {
-    position: relative;
+  .cmp-interior360 .headerClass h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .fontBodyCopyLarge {
     width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    margin-bottom: 24px;
+    padding-right: 0;
   }
-  @media screen and (min-width: 1px) and (max-width: 740px) {
-    .Interior360__panorama-holder {
-      order: 1;
-    }
+  #landrover .secondaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
   }
-  @media screen and (min-width: 1px) and (max-width: 740px) {
-    .Interior360__panorama-holder {
-      transition: height 400ms ease-out;
-      transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
-    }
+  .primaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
   }
-  .Interior360__panorama {
-    cursor: -webkit-grab;
-  }
-  @media screen and (min-width: 1px) and (max-width: 740px) {
-    .Interior360__panorama {
-      opacity: 1;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      transition: opacity 550ms ease-out;
-      overflow: hidden;
-    }
-  }
-  .Interior360 .headerBox {
-    z-index: 4;
-  }
-  @media screen and (min-width: 1px) and (max-width: 740px) {
-    .Interior360 .headerBox {
-      order: 2;
-    }
-  }
-  .Interior360__panorama,
-  .Interior360__panorama-holder {
-    min-height: 250px;
-  }
-  @media screen and (min-width: 741px) {
-    .Interior360__panorama,
-    .Interior360__panorama-holder {
-      min-height: 500px;
-    }
-  }
-  .Interior360__panorama-init-container {
-    display: none;
-  }
-  .Interior360__pano-controls {
-    width: 100%;
-    bottom: 30px;
-    display: flex;
+  .cmp-interiorInner .cmp-carousel__controls {
     position: absolute;
-    padding: 0 30px;
-    justify-content: flex-start;
+    top: 70px;
+    left: 30px;
   }
-  @media screen and (min-width: 741px) {
-    .Interior360__pano-controls {
-      bottom: 40px;
-      padding: 0 40px;
+  .cmp-interior360 .headingWrapper p{
+    font-size: 21px;
+  }
+  .cmp-interior360 .linkContainer {
+    padding-top: 19px;
+  }
+  .cmp-interior360 .headerClass .heading{ 
+    min-height: 28px;
+  }
+  .cmp-interior360 .headerClass .heading p{ 
+    line-height: 21px !important;
+    letter-spacing: 1.05px !important;
+  }
+    .cmp-interior360 .shelfComponent {
+      margin-right: 0px;
+      width: 100%;
     }
-  }
-  @media screen and (min-width: 901px) {
-    .Interior360__pano-controls {
-      bottom: 56px;
-      padding: 0 56px 0 90px;
-      justify-content: space-between;
+    .cmp-interior360 .contentClass{
+      width: 560px;
     }
-  }
-  .Interior360__zoom-controls {
-    z-index: 3;
-    display: none;
-    opacity: 0;
-  }
-  .Interior360__zoom-out {
-    margin-right: 16px;
-  }
-  .Interior360__zoom-in {
-    margin-right: 32px;
-  }
-  .Interior360__zoom-in,
-  .Interior360__zoom-out {
-    border: 0;
-    width: 44px;
-    height: 44px;
-    color: #fff;
-    -webkit-transition-duration: 0s;
-    -moz-transition-duration: 0s;
-    -o-transition-duration: 0s;
-    transition-duration: 0s;
-    -webkit-transition: background-color 0.5s;
-    -moz-transition: background-color 0.5s;
-    -o-transition: background-color 0.5s;
-    transition: background-color 0.5s;
-  }
-  .Interior360__zoom-in:after,
-  .Interior360__zoom-out:after {
-    margin-left: unset;
-    margin-right: unset;
-  }
-  .Interior360__pano-controls-right,
-  .Interior360__zoom-controls-inner-wrapper {
-    display: flex;
-  }
-  .Interior360__pano-gallery-alternative-link {
-    margin: 0;
-    margin-right: 16px;
-    z-index: 4;
-    position: relative;
-  }
-  @media screen and (min-width: 901px) {
-    .Interior360__pano-gallery-alternative-link {
-      margin-right: 0;
-    }
-  }
-  .Interior360__accelerometer-control {
-    width: 44px;
-    height: 44px;
-    border: 0;
-    z-index: 1;
-    display: none;
-    margin-left: 16px;
-    background-size: 45px;
-    background-repeat: no-repeat;
-    background-position: 54% 54%;
-    background-image: url("../resources/icons/gyro.svg");
-    -webkit-transition-duration: 0s;
-    -moz-transition-duration: 0s;
-    -o-transition-duration: 0s;
-    transition-duration: 0s;
-    -webkit-transition: background-color 0.5s;
-    -moz-transition: background-color 0.5s;
-    -o-transition: background-color 0.5s;
-    transition: background-color 0.5s;
-  }
-  .Interior360__accelerometer-control:hover,
-  .Interior360__accelerometer-control:focus,
-  .Interior360__accelerometer-control:active,
-  .Interior360__accelerometer-control.gyro-enabled {
-    background-size: 24px;
-    box-shadow: 0 0 0 1px #000000 inset;
-  }
-  .Interior360__reset-control {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 125px;
+}
+@media screen and (min-width: 300px) and (max-width: 766px) {
+  .Interior360__init-container-icon {
+    top: -60px;
+    width: 45px;
     height: 45px;
-    line-height: 12px;
+    position: absolute;
+  }
+  .cmp-interior360{
     margin-top: 30px;
-    padding: 1px 24px 0 24px;
-    font-family: "avenir", "arial", "helvetica", sans-serif;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    cursor: pointer;
-    border: 0;
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-    -webkit-transition-timing-function: ease;
-    -moz-transition-timing-function: ease;
-    -o-transition-timing-function: ease;
-    transition-timing-function: ease;
-    -webkit-transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
-    -moz-transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
-    -o-transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
-    transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
-    overflow: hidden;
-    *zoom: 1;
-    padding-left: 49px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  .cmp-carousel.cmp-interiorInner {
+    margin-top: 30px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .cmp-carousel.cmp-interiorInner .carousel {
+    min-height: 339px;
+  }
+  .cmp-interior360render {
+    width: 100%;
+    min-height: 211px;
+  }
+  .cmp-interior360 .carousel .cmp-interior360render {
     position: relative;
-    margin: 0;
-    opacity: 0;
-    display: none;
-    min-width: 90px;
+    padding-bottom: 0;
   }
-  #landrover .Interior360__reset-control {
-    background-color: #0c121c;
-    color: #fff;
-    text-decoration: none;
+  .cmp-interior360 .shelfComponent {
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 16px;
+    min-height: 301px;
+    min-width: 40%;
+    max-width: 100%;
   }
-  #landrover .Interior360__reset-control:hover,
-  #landrover .Interior360__reset-control:active {
-    background-color: #fff;
-    color: #0c121c;
-    box-shadow: 0 0 0 1px #0c121c inset;
+  .cmp-interior360 .headerClass {
+    float: left;
+    min-height: 0;
+    margin-bottom: 0;
+    width: 100%;
   }
-  #landrover .Interior360__reset-control:focus {
-    outline: 0;
-  }
-  #landrover .Interior360__reset-control.disabled {
-    background-color: #e4e4e4;
-    color: #fff;
-  }
-  #landrover .Interior360__reset-control.disabled:hover {
-    background-color: #e4e4e4;
-    color: #fff;
-  }
-  #landrover.focusStylesOn .Interior360__reset-control:focus {
-    background-color: #fff;
-    color: #0c121c;
-    box-shadow: 0 0 0 1px #0c121c inset, 0 0 0 1px #fff, 0 0 2px 4px #4a90e2;
-  }
-  #landrover.focusStylesOn .Interior360__reset-control.disabled:focus {
-    background-color: #e4e4e4;
-    color: #fff;
-  }
-  .Interior360__reset-control.loading {
-    pointer-events: none;
-    transition: none;
-    position: relative;
-  }
-  .Interior360__reset-control.loading:before {
-    opacity: 0;
-  }
-  .Interior360__reset-control.disabled {
-    cursor: default;
-  }
-  .Interior360__reset-control.disabled:hover,
-  .Interior360__reset-control.disabled:active {
-    box-shadow: none !important;
-  }
-  .Interior360__reset-control:before {
-    font-size: 20px;
-    position: absolute;
-    top: 23px;
-    left: 15px;
-    line-height: 0;
-  }
-  @media (max-width: 599px) {
-    .Interior360__reset-control {
-      min-width: 65px;
-      padding: 1px 16px 0 !important;
-    }
-    .Interior360__reset-control:before {
-      display: none !important;
-    }
-  }
-  .Interior360__reset-control-mobile-text {
+  .cmp-interior360 .headerClass h2 {
+    margin-top: 0;
+    margin-bottom: 14px;
     display: block;
   }
-  @media (min-width: 599px) {
-    .Interior360__reset-control-mobile-text {
-      display: none;
-    }
-  }
-  .Interior360__reset-control-desktop-text {
-    display: none;
-  }
-  @media (min-width: 599px) {
-    .Interior360__reset-control-desktop-text {
-      display: block;
-    }
-  }
-  .Interior360__panorama-load-container {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: 3;
-    background-color: transparent;
+  .cmp-interior360 .fontBodyCopyLarge {
     width: 100%;
-    height: 100%;
-    opacity: 1;
-    display: block;
-    -webkit-transition: visibility 0.3s linear;
-    -moz-transition: visibility 0.3s linear;
-    -o-transition: visibility 0.3s linear;
-    transition: visibility 0.3s linear;
-    -webkit-transition: opacity 0.3s linear;
-    -moz-transition: opacity 0.3s linear;
-    -o-transition: opacity 0.3s linear;
-    transition: opacity 0.3s linear;
+    margin-bottom: 0;
+    padding-right: 0;
   }
-  .Interior360__load-button {
-    border: 0;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.16);
-    position: relative;
-    display: block !important;
-    width: 100%;
-    text-align: center;
-    height: 100%;
+  #landrover .secondaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
   }
-  .Interior360__load-button:hover,
-  .Interior360__load-button:focus {
-    color: #fff;
-    text-decoration: underline;
-    background-color: rgba(0, 0, 0, 0.16);
+  .primaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 24px;
   }
-  .Interior360__load-button:hover .Interior360__init-container-caption,
-  .Interior360__load-button:focus .Interior360__init-container-caption {
-    border-bottom: 2px solid #fff;
-  }
-  .Interior360__load-button.down .Interior360__icon--down {
-    -webkit-animation-name: iconAnimateDownMob;
-    animation-name: iconAnimateDownMob;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  @media screen and (min-width: 741px) {
-    .Interior360__load-button.down .Interior360__icon--down {
-      -webkit-animation-name: iconAnimateDown;
-      animation-name: iconAnimateDown;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-    }
-  }
-  .Interior360__load-button.right .Interior360__icon--right {
-    -webkit-animation-name: iconAnimateRightMob;
-    animation-name: iconAnimateRightMob;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  @media screen and (min-width: 741px) {
-    .Interior360__load-button.right .Interior360__icon--right {
-      -webkit-animation-name: iconAnimateRight;
-      animation-name: iconAnimateRight;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-    }
-  }
-  .Interior360__load-button.up .Interior360__icon--up {
-    -webkit-animation-name: iconAnimateUpMob;
-    animation-name: iconAnimateUpMob;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  @media screen and (min-width: 741px) {
-    .Interior360__load-button.up .Interior360__icon--up {
-      -webkit-animation-name: iconAnimateUp;
-      animation-name: iconAnimateUp;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-    }
-  }
-  .Interior360__load-button.left .Interior360__icon--left {
-    -webkit-animation-name: iconAnimateLeftMob;
-    animation-name: iconAnimateLeftMob;
-    -webkit-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-animation-timing-function: ease-in-out;
-    animation-timing-function: ease-in-out;
-  }
-  @media screen and (min-width: 741px) {
-    .Interior360__load-button.left .Interior360__icon--left {
-      -webkit-animation-name: iconAnimateLeft;
-      animation-name: iconAnimateLeft;
-      -webkit-animation-duration: 1s;
-      animation-duration: 1s;
-      -webkit-animation-timing-function: ease-in-out;
-      animation-timing-function: ease-in-out;
-    }
-  }
-  .Interior360__init-container {
-    top: 50%;
-    left: 50%;
-    width: 200px;
-    font-size: 10px;
-    font-weight: bold;
-    padding-top: 30px;
+  .cmp-interiorInner .cmp-carousel__controls {
     position: absolute;
-    margin-left: -100px;
-    border-radius: 70px;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    top: 150px;
+    left: 20px;
+    justify-content: left;
   }
-  @media screen and (min-width: 741px) {
-    .Interior360__init-container {
-      padding-top: 45px;
-    }
-  }
-  .Interior360__init-container-caption {
-    border-bottom: 0;
-    padding-bottom: 3px;
-  }
-  
-  @media screen and (min-width: 741px) {
-    .Interior360__init-container-icon {
-      top: -60px;
-      width: 70px;
-      height: 70px;
-      position: absolute;
-    }
-  }
-  .Interior360__icon {
-    position: absolute;
+  .Interior360__init-container-icon-backdrop {
+    top: -60px;
+    width: 126px;
+    height: 126px;
+    position: initial;
+    margin: auto;
+    background-color: #0C121C;
+    opacity: 0.8;
   }
   .Interior360__icon--up {
-    top: 13px;
-    left: 56.5%;
+    top: 7px;
+    left: 65%;
     margin-left: -9px;
-    background-size: 15px 15px;
+  }
+  .Interior360__icon--down {
+    bottom: 9px;
+    left: 65%;
+    margin-left: -9px;
+    margin-top: 0px;
+  }
+  .Interior360__icon--left {
+    top: 7px;
+    left: 50%;
+    margin-left: -9px;
+  }
+  .Interior360__icon--right {
+    top: 7px;
+    left: 50%;
+    margin-left: -9px;
+  }
+  .cmp-interior360 .headingWrapper p{
+    font-size: 20px;
+  }
+  .cmp-interior360 .linkContainer{
+    margin-top: 43px !important;
+  }
+  .cmp-interior360 .headerClass .heading{ 
+    min-height: 27px;
+  }
+  .cmp-interior360 .headerClass .heading p{ 
+    line-height: 20px !important;
+    letter-spacing: 0.64px !important;
+  }
+}
+.cmp-interiorInner .cmp-carousel__slider {
+  height: 100% !important;
+}
+.cmp-interior360 .primaryLinkWithStyle {
+  float: left;
+}
+.cmp-carousel__controls {
+  height: 50px;
+}
+.cmp-fullframe .headerClass {
+  text-transform: uppercase;
+}
+.cmp-fullframe .fontBodyCopyLarge p:first-child::first-letter{
+  text-transform: capitalize;
+}
+
+@-webkit-keyframes iconAnimateUp {
+  0%,
+  100% {
     -webkit-transform: rotate(270deg) translateX(0px);
     -moz-transform: rotate(270deg) translateX(0px);
     -ms-transform: rotate(270deg) translateX(0px);
     -o-transform: rotate(270deg) translateX(0px);
     transform: rotate(270deg) translateX(0px);
   }
-  
-  @media screen and (min-width: 741px) {
-    
-    .Interior360__icon--up {
-     background-size: 15px 15px;
-    }
+  50% {
+    -webkit-transform: rotate(270deg) translateX(6px);
+    -moz-transform: rotate(270deg) translateX(6px);
+    -ms-transform: rotate(270deg) translateX(6px);
+    -o-transform: rotate(270deg) translateX(6px);
+    transform: rotate(270deg) translateX(6px);
   }
-  .Interior360__icon--down {
-    bottom: 12px;
-    left: 50%;
-    margin-left: -5px;
-    margin-top: -20px;
-    -webkit-transform: rotate(90deg) translateX(0px);
-    -moz-transform: rotate(90deg) translateX(0px);
-    -ms-transform: rotate(90deg) translateX(0px);
-    -o-transform: rotate(90deg) translateX(0px);
-    transform: rotate(90deg) translateX(0px);
+}
+@keyframes iconAnimateUp {
+  0%,
+  100% {
+    -webkit-transform: rotate(270deg) translateX(0px);
+    -moz-transform: rotate(270deg) translateX(0px);
+    -ms-transform: rotate(270deg) translateX(0px);
+    -o-transform: rotate(270deg) translateX(0px);
+    transform: rotate(270deg) translateX(0px);
   }
-  @media screen and (min-width: 741px) {
-    .Interior360__icon--down {
-      /* bottom: 13px;
-      left: 50%;
-      margin-left: -10px;
-      margin-top: -20px; */
-    }
+  50% {
+    -webkit-transform: rotate(270deg) translateX(6px);
+    -moz-transform: rotate(270deg) translateX(6px);
+    -ms-transform: rotate(270deg) translateX(6px);
+    -o-transform: rotate(270deg) translateX(6px);
+    transform: rotate(270deg) translateX(6px);
   }
-  .Interior360__icon--right {
-    top: 55%;
-    margin-top: -10px;
-    right: 14px;
+}
+@-webkit-keyframes iconAnimateUpMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(270deg) translateX(0px);
+    -moz-transform: rotate(270deg) translateX(0px);
+    -ms-transform: rotate(270deg) translateX(0px);
+    -o-transform: rotate(270deg) translateX(0px);
+    transform: rotate(270deg) translateX(0px);
+  }
+  50% {
+    -webkit-transform: rotate(270deg) translateX(4px);
+    -moz-transform: rotate(270deg) translateX(4px);
+    -ms-transform: rotate(270deg) translateX(4px);
+    -o-transform: rotate(270deg) translateX(4px);
+    transform: rotate(270deg) translateX(4px);
+  }
+}
+@keyframes iconAnimateUpMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(270deg) translateX(0px);
+    -moz-transform: rotate(270deg) translateX(0px);
+    -ms-transform: rotate(270deg) translateX(0px);
+    -o-transform: rotate(270deg) translateX(0px);
+    transform: rotate(270deg) translateX(0px);
+  }
+  50% {
+    -webkit-transform: rotate(270deg) translateX(4px);
+    -moz-transform: rotate(270deg) translateX(4px);
+    -ms-transform: rotate(270deg) translateX(4px);
+    -o-transform: rotate(270deg) translateX(4px);
+    transform: rotate(270deg) translateX(4px);
+  }
+}
+@-webkit-keyframes iconAnimateRight {
+  0%,
+  100% {
     -webkit-transform: rotate(0deg) translateX(0px);
     -moz-transform: rotate(0deg) translateX(0px);
     -ms-transform: rotate(0deg) translateX(0px);
     -o-transform: rotate(0deg) translateX(0px);
     transform: rotate(0deg) translateX(0px);
   }
-  @media screen and (min-width: 741px) {
-    .Interior360__icon--right {
-      /* top: 50%;
-      margin-top: -11px;
-      right: 13px; */
-    }
+  50% {
+    -webkit-transform: rotate(0deg) translateX(6px);
+    -moz-transform: rotate(0deg) translateX(6px);
+    -ms-transform: rotate(0deg) translateX(6px);
+    -o-transform: rotate(0deg) translateX(6px);
+    transform: rotate(0deg) translateX(6px);
   }
-  .Interior360__icon--left {
-    top: 55%;
-    margin-top: -10px;
-    left: 14px;
+}
+@keyframes iconAnimateRight {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg) translateX(0px);
+    -moz-transform: rotate(0deg) translateX(0px);
+    -ms-transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
+    transform: rotate(0deg) translateX(0px);
+  }
+  50% {
+    -webkit-transform: rotate(0deg) translateX(6px);
+    -moz-transform: rotate(0deg) translateX(6px);
+    -ms-transform: rotate(0deg) translateX(6px);
+    -o-transform: rotate(0deg) translateX(6px);
+    transform: rotate(0deg) translateX(6px);
+  }
+}
+@-webkit-keyframes iconAnimateRightMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg) translateX(0px);
+    -moz-transform: rotate(0deg) translateX(0px);
+    -ms-transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
+    transform: rotate(0deg) translateX(0px);
+  }
+  50% {
+    -webkit-transform: rotate(0deg) translateX(4px);
+    -moz-transform: rotate(0deg) translateX(4px);
+    -ms-transform: rotate(0deg) translateX(4px);
+    -o-transform: rotate(0deg) translateX(4px);
+    transform: rotate(0deg) translateX(4px);
+  }
+}
+@keyframes iconAnimateRightMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg) translateX(0px);
+    -moz-transform: rotate(0deg) translateX(0px);
+    -ms-transform: rotate(0deg) translateX(0px);
+    -o-transform: rotate(0deg) translateX(0px);
+    transform: rotate(0deg) translateX(0px);
+  }
+  50% {
+    -webkit-transform: rotate(0deg) translateX(4px);
+    -moz-transform: rotate(0deg) translateX(4px);
+    -ms-transform: rotate(0deg) translateX(4px);
+    -o-transform: rotate(0deg) translateX(4px);
+    transform: rotate(0deg) translateX(4px);
+  }
+}
+@-webkit-keyframes iconAnimateLeft {
+  0%,
+  100% {
     -webkit-transform: rotate(180deg) translateX(0px);
     -moz-transform: rotate(180deg) translateX(0px);
     -ms-transform: rotate(180deg) translateX(0px);
     -o-transform: rotate(180deg) translateX(0px);
     transform: rotate(180deg) translateX(0px);
   }
-  @media screen and (min-width: 741px) {
-    .Interior360__icon--left {
-      /* top: 50%;
-      margin-top: -11px;
-      left: 13px; */
-    }
+  50% {
+    -webkit-transform: rotate(180deg) translateX(6px);
+    -moz-transform: rotate(180deg) translateX(6px);
+    -ms-transform: rotate(180deg) translateX(6px);
+    -o-transform: rotate(180deg) translateX(6px);
+    transform: rotate(180deg) translateX(6px);
   }
-  @media screen and (min-width: 1px) and (max-width: 740px) {
-    .Interior360 {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    .Interior360 .headerBox.withImage {
-      display: block;
-      position: relative;
-      top: 0 !important;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }
+}
+@keyframes iconAnimateLeft {
+  0%,
+  100% {
+    -webkit-transform: rotate(180deg) translateX(0px);
+    -moz-transform: rotate(180deg) translateX(0px);
+    -ms-transform: rotate(180deg) translateX(0px);
+    -o-transform: rotate(180deg) translateX(0px);
+    transform: rotate(180deg) translateX(0px);
   }
-  .no-js .Interior360__panorama {
-    height: 768px;
-    cursor: default;
+  50% {
+    -webkit-transform: rotate(180deg) translateX(6px);
+    -moz-transform: rotate(180deg) translateX(6px);
+    -ms-transform: rotate(180deg) translateX(6px);
+    -o-transform: rotate(180deg) translateX(6px);
+    transform: rotate(180deg) translateX(6px);
   }
-  .no-js .Interior360__no-JS-notice {
-    padding-top: 200px;
+}
+@-webkit-keyframes iconAnimateLeftMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(180deg) translateX(0px);
+    -moz-transform: rotate(180deg) translateX(0px);
+    -ms-transform: rotate(180deg) translateX(0px);
+    -o-transform: rotate(180deg) translateX(0px);
+    transform: rotate(180deg) translateX(0px);
   }
-  .no-js .Interior360__pano-controls {
-    display: none;
+  50% {
+    -webkit-transform: rotate(180deg) translateX(4px);
+    -moz-transform: rotate(180deg) translateX(4px);
+    -ms-transform: rotate(180deg) translateX(4px);
+    -o-transform: rotate(180deg) translateX(4px);
+    transform: rotate(180deg) translateX(4px);
   }
-  .Interior360__zoom-out:after {
-    content:"";
-    font-family: "icons";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: 0.2em;
-    text-align: center;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1em;
-    margin-left: 0.2em;
-    vertical-align: middle;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0;
+}
+@keyframes iconAnimateLeftMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(180deg) translateX(0px);
+    -moz-transform: rotate(180deg) translateX(0px);
+    -ms-transform: rotate(180deg) translateX(0px);
+    -o-transform: rotate(180deg) translateX(0px);
+    transform: rotate(180deg) translateX(0px);
   }
-  .Interior360__zoom-in:after {
-    content: "";
-    font-family: "icons";
-    font-style: normal;
-    font-weight: normal;
-    speak: none;
-    display: inline-block;
-    text-decoration: inherit;
-    width: 1em;
-    margin-right: 0.2em;
-    text-align: center;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1em;
-    margin-left: 0.2em;
-    vertical-align: middle;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    letter-spacing: 0;
+  50% {
+    -webkit-transform: rotate(180deg) translateX(4px);
+    -moz-transform: rotate(180deg) translateX(4px);
+    -ms-transform: rotate(180deg) translateX(4px);
+    -o-transform: rotate(180deg) translateX(4px);
+    transform: rotate(180deg) translateX(4px);
   }
-  .Interior360__zoom-in,
-  .Interior360__zoom-out {
-    background: rgba(12, 18, 28, 0.2);
+}
+@-webkit-keyframes iconAnimateDown {
+  0%,
+  100% {
+    -webkit-transform: rotate(90deg) translateX(0px);
+    -moz-transform: rotate(90deg) translateX(0px);
+    -ms-transform: rotate(90deg) translateX(0px);
+    -o-transform: rotate(90deg) translateX(0px);
+    transform: rotate(90deg) translateX(0px);
   }
-  .Interior360__zoom-in.enabled,
-  .Interior360__zoom-out.enabled {
-    background: #0c121c;
+  50% {
+    -webkit-transform: rotate(90deg) translateX(6px);
+    -moz-transform: rotate(90deg) translateX(6px);
+    -ms-transform: rotate(90deg) translateX(6px);
+    -o-transform: rotate(90deg) translateX(6px);
+    transform: rotate(90deg) translateX(6px);
   }
-  .Interior360__zoom-in.enabled:hover,
-  .Interior360__zoom-in.enabled:active,
-  .Interior360__zoom-out.enabled:hover,
-  .Interior360__zoom-out.enabled:active {
-    outline-offset: -1px;
-    background: #fff;
-    outline: 1px solid #0c121c;
+}
+@keyframes iconAnimateDown {
+  0%,
+  100% {
+    -webkit-transform: rotate(90deg) translateX(0px);
+    -moz-transform: rotate(90deg) translateX(0px);
+    -ms-transform: rotate(90deg) translateX(0px);
+    -o-transform: rotate(90deg) translateX(0px);
+    transform: rotate(90deg) translateX(0px);
   }
-  .Interior360__zoom-in.enabled:hover:after,
-  .Interior360__zoom-in.enabled:active:after,
-  .Interior360__zoom-out.enabled:hover:after,
-  .Interior360__zoom-out.enabled:active:after {
-    color: #0c121c;
+  50% {
+    -webkit-transform: rotate(90deg) translateX(6px);
+    -moz-transform: rotate(90deg) translateX(6px);
+    -ms-transform: rotate(90deg) translateX(6px);
+    -o-transform: rotate(90deg) translateX(6px);
+    transform: rotate(90deg) translateX(6px);
   }
-  .focusStylesOn .Interior360__zoom-in.enabled:focus,
-  .focusStylesOn .Interior360__zoom-out.enabled:focus {
-    outline-offset: -1px;
-    background: #fff;
-    outline: 1px solid #0c121c;
+}
+@-webkit-keyframes iconAnimateDownMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(90deg) translateX(0px);
+    -moz-transform: rotate(90deg) translateX(0px);
+    -ms-transform: rotate(90deg) translateX(0px);
+    -o-transform: rotate(90deg) translateX(0px);
+    transform: rotate(90deg) translateX(0px);
   }
-  .focusStylesOn .Interior360__zoom-in.enabled:focus:after,
-  .focusStylesOn .Interior360__zoom-out.enabled:focus:after {
-    color: #0c121c;
+  50% {
+    -webkit-transform: rotate(90deg) translateX(4px);
+    -moz-transform: rotate(90deg) translateX(4px);
+    -ms-transform: rotate(90deg) translateX(4px);
+    -o-transform: rotate(90deg) translateX(4px);
+    transform: rotate(90deg) translateX(4px);
   }
-  .Interior360__zoom-in:hover,
-  .Interior360__zoom-out:hover {
-    color: #fff;
-    background: rgba(12, 18, 28, 0.2);
+}
+@keyframes iconAnimateDownMob {
+  0%,
+  100% {
+    -webkit-transform: rotate(90deg) translateX(0px);
+    -moz-transform: rotate(90deg) translateX(0px);
+    -ms-transform: rotate(90deg) translateX(0px);
+    -o-transform: rotate(90deg) translateX(0px);
+    transform: rotate(90deg) translateX(0px);
   }
-  .Interior360__zoom-in:after,
-  .Interior360__zoom-out:after {
-    font-size: 2.1rem;
+  50% {
+    -webkit-transform: rotate(90deg) translateX(4px);
+    -moz-transform: rotate(90deg) translateX(4px);
+    -ms-transform: rotate(90deg) translateX(4px);
+    -o-transform: rotate(90deg) translateX(4px);
+    transform: rotate(90deg) translateX(4px);
   }
-  .Interior360__accelerometer-control {
-    background-color: #0c121c;
+}
+.Interior360 {
+  background: #fff;
+  direction: ltr;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  overflow: hidden;
+}
+.Interior360__panorama-holder {
+  position: relative;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .Interior360__panorama-holder {
+    order: 1;
   }
-  .Interior360__accelerometer-control:hover,
-  .Interior360__accelerometer-control:focus,
-  .Interior360__accelerometer-control:active,
-  .Interior360__accelerometer-control.gyro-enabled {
-    background-color: #fff;
-    background-image: url("../resources/icons/gyro-LR-blue.svg");
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .Interior360__panorama-holder {
+    transition: height 400ms ease-out;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
   }
+}
+.Interior360__panorama {
+  cursor: -webkit-grab;
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .Interior360__panorama {
+    opacity: 1;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: opacity 550ms ease-out;
+    overflow: hidden;
+  }
+}
+.Interior360 .headerBox {
+  z-index: 4;
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .Interior360 .headerBox {
+    order: 2;
+  }
+}
+.Interior360__panorama,
+.Interior360__panorama-holder {
+  min-height: 250px;
+}
+@media screen and (min-width: 741px) {
+  .Interior360__panorama,
+  .Interior360__panorama-holder {
+    min-height: 500px;
+  }
+}
+.Interior360__panorama-init-container {
+  display: none;
+}
+.Interior360__pano-controls {
+  width: 100%;
+  bottom: 30px;
+  display: flex;
+  position: absolute;
+  padding: 0 30px;
+  justify-content: flex-start;
+}
+@media screen and (min-width: 741px) {
+  .Interior360__pano-controls {
+    bottom: 40px;
+    padding: 0 40px;
+  }
+}
+@media screen and (min-width: 901px) {
+  .Interior360__pano-controls {
+    bottom: 56px;
+    padding: 0 56px 0 90px;
+    justify-content: space-between;
+  }
+}
+.Interior360__zoom-controls {
+  z-index: 3;
+  display: none;
+  opacity: 0;
+}
+.Interior360__zoom-out {
+  margin-right: 16px;
+}
+.Interior360__zoom-in {
+  margin-right: 32px;
+}
+.Interior360__zoom-in,
+.Interior360__zoom-out {
+  border: 0;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+.Interior360__zoom-in:after,
+.Interior360__zoom-out:after {
+  margin-left: unset;
+  margin-right: unset;
+}
+.Interior360__pano-controls-right,
+.Interior360__zoom-controls-inner-wrapper {
+  display: flex;
+}
+.Interior360__pano-gallery-alternative-link {
+  margin: 0;
+  margin-right: 16px;
+  z-index: 4;
+  position: relative;
+}
+@media screen and (min-width: 901px) {
+  .Interior360__pano-gallery-alternative-link {
+    margin-right: 0;
+  }
+}
+.Interior360__accelerometer-control {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  z-index: 1;
+  display: none;
+  margin-left: 16px;
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: 54% 54%;
+  background-image: url("../resources/icons/gyro.svg");
+  -webkit-transition-duration: 0s;
+  -moz-transition-duration: 0s;
+  -o-transition-duration: 0s;
+  transition-duration: 0s;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+.Interior360__accelerometer-control:hover,
+.Interior360__accelerometer-control:focus,
+.Interior360__accelerometer-control:active,
+.Interior360__accelerometer-control.gyro-enabled {
+  background-size: 24px;
+  box-shadow: 0 0 0 1px #000000 inset;
+}
+.Interior360__reset-control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 125px;
+  height: 45px;
+  line-height: 12px;
+  margin-top: 30px;
+  padding: 1px 24px 0 24px;
+  font-family: "avenir", "arial", "helvetica", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+  border: 0;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+  -moz-transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+  -o-transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+  transition: color 0.4s, background-color 0.4s, box-shadow 0.4s;
+  overflow: hidden;
+  *zoom: 1;
+  padding-left: 49px;
+  position: relative;
+  margin: 0;
+  opacity: 0;
+  display: none;
+  min-width: 90px;
+}
+#landrover .Interior360__reset-control {
+  background-color: #0c121c;
+  color: #fff;
+  text-decoration: none;
+}
+#landrover .Interior360__reset-control:hover,
+#landrover .Interior360__reset-control:active {
+  background-color: #fff;
+  color: #0c121c;
+  box-shadow: 0 0 0 1px #0c121c inset;
+}
+#landrover .Interior360__reset-control:focus {
+  outline: 0;
+}
+#landrover .Interior360__reset-control.disabled {
+  background-color: #e4e4e4;
+  color: #fff;
+}
+#landrover .Interior360__reset-control.disabled:hover {
+  background-color: #e4e4e4;
+  color: #fff;
+}
+#landrover.focusStylesOn .Interior360__reset-control:focus {
+  background-color: #fff;
+  color: #0c121c;
+  box-shadow: 0 0 0 1px #0c121c inset, 0 0 0 1px #fff, 0 0 2px 4px #4a90e2;
+}
+#landrover.focusStylesOn .Interior360__reset-control.disabled:focus {
+  background-color: #e4e4e4;
+  color: #fff;
+}
+.Interior360__reset-control.loading {
+  pointer-events: none;
+  transition: none;
+  position: relative;
+}
+.Interior360__reset-control.loading:before {
+  opacity: 0;
+}
+.Interior360__reset-control.disabled {
+  cursor: default;
+}
+.Interior360__reset-control.disabled:hover,
+.Interior360__reset-control.disabled:active {
+  box-shadow: none !important;
+}
+.Interior360__reset-control:before {
+  font-size: 20px;
+  position: absolute;
+  top: 23px;
+  left: 15px;
+  line-height: 0;
+}
+@media (max-width: 599px) {
   .Interior360__reset-control {
-    padding-left: 40px;
-    padding-right: 8px;
+    min-width: 65px;
+    padding: 1px 16px 0 !important;
   }
   .Interior360__reset-control:before {
-    left: 8px;
+    display: none !important;
   }
-  @media screen and (min-width: 300px) and (max-width: 766px) {
-    .Interior360__init-container-icon{
-      position: absolute;
-   top:-45px;
-      border: 2px solid white;
-    }
-    .Interior360__icon {
-      height: 10px;
-      width: 6px;
-      background-size: 8px 8px;
+}
+.Interior360__panorama-load-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 3;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  display: block;
+  -webkit-transition: visibility 0.3s linear;
+  -moz-transition: visibility 0.3s linear;
+  -o-transition: visibility 0.3s linear;
+  transition: visibility 0.3s linear;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+.Interior360__load-button {
+  border: 0;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.16);
+  position: relative;
+  display: block !important;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+}
+.Interior360__load-button:hover,
+.Interior360__load-button:focus {
+  color: #fff;
+  text-decoration: underline;
+  background-color: rgba(0, 0, 0, 0.16);
+}
+.Interior360__load-button:hover .Interior360__init-container-caption,
+.Interior360__load-button:focus .Interior360__init-container-caption {
+  border-bottom: 2px solid #fff;
+}
+.Interior360__load-button.down .Interior360__icon--down {
+  -webkit-animation-name: iconAnimateDownMob;
+  animation-name: iconAnimateDownMob;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+@media screen and (min-width: 741px) {
+  .Interior360__load-button.down .Interior360__icon--down {
+    -webkit-animation-name: iconAnimateDown;
+    animation-name: iconAnimateDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
   }
-    .Interior360__icon--up {
-      width: 56x;
-      height: 10px;
-      top: 8px;
-      left: 65%;
-      margin-left: -9px;
-    }
-    .Interior360__icon--down {
-      width: 56x;
-      height: 11px;
-      bottom: 7.5px;
-      left: 65%;
-      margin-left: -9px;
-      margin-top: 0px;
-    }
-    .Interior360__icon--left {
-      width: 56x;
-      height: 11px;
-      top: 25px;
-      left: 45%;
-      margin-left: -9px;
-    }
-    .Interior360__icon--right {
-      width: 56x;
-      height: 10px;
-      top: 26px;
-      left: 85%;
-      margin-left: -9px;
-    }
+}
+.Interior360__load-button.right .Interior360__icon--right {
+  -webkit-animation-name: iconAnimateRightMob;
+  animation-name: iconAnimateRightMob;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+@media screen and (min-width: 741px) {
+  .Interior360__load-button.right .Interior360__icon--right {
+    -webkit-animation-name: iconAnimateRight;
+    animation-name: iconAnimateRight;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
   }
-  .Interior360__load-button{
-    background-color: transparent;
+}
+.Interior360__load-button.up .Interior360__icon--up {
+  -webkit-animation-name: iconAnimateUpMob;
+  animation-name: iconAnimateUpMob;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+@media screen and (min-width: 741px) {
+  .Interior360__load-button.up .Interior360__icon--up {
+    -webkit-animation-name: iconAnimateUp;
+    animation-name: iconAnimateUp;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
   }
-  .Interior360__load-button:hover{
-    background-color: rgba(0, 0, 0, 0.16);
+}
+.Interior360__load-button.left .Interior360__icon--left {
+  -webkit-animation-name: iconAnimateLeftMob;
+  animation-name: iconAnimateLeftMob;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+}
+@media screen and (min-width: 741px) {
+  .Interior360__load-button.left .Interior360__icon--left {
+    -webkit-animation-name: iconAnimateLeft;
+    animation-name: iconAnimateLeft;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
   }
-  .grey .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p,.white .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p {
-    color: #0c121c !important;
+}
+.Interior360__init-container {
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 30px;
+  position: absolute;
+  margin-left: -100px;
+  border-radius: 70px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+@media screen and (min-width: 741px) {
+  .Interior360__init-container {
+    padding-top: 45px;
   }
+}
+.Interior360__init-container-caption {
+  border-bottom: 0;
+  padding-bottom: 3px;
+}
 
-  .cmp-interior360 .primaryLinkWithStyle { 
-    line-height: 14px !important;
+@media screen and (min-width: 741px) {
+  .Interior360__init-container-icon {
+    top: -60px;
+    width: 70px;
+    height: 70px;
+    position: absolute;
   }
-  .cmp-interior360 .secondaryLinkWithStyle { 
-    line-height: 12.5px !important;
+}
+.Interior360__icon {
+  position: absolute;
+}
+.Interior360__icon--up {
+  top: 13px;
+  left: 56.5%;
+  margin-left: -9px;
+  background-size: 15px 15px;
+  -webkit-transform: rotate(270deg) translateX(0px);
+  -moz-transform: rotate(270deg) translateX(0px);
+  -ms-transform: rotate(270deg) translateX(0px);
+  -o-transform: rotate(270deg) translateX(0px);
+  transform: rotate(270deg) translateX(0px);
+}
+
+@media screen and (min-width: 741px) {
+  
+  .Interior360__icon--up {
+   background-size: 15px 15px;
   }
-  /* FIXES for Image */
-  @media screen and (min-width: 1920px) {
-    .Interior360__init-container-icon-backdrop {
-      top: 45%;
-      left: 45%;
-    }
-    .Interior360__init-container-caption{
-      line-height: 15px;
-    }
-    .cmp-interior360 .headingThick{
-      padding: 0px !important;
-    }
-    .cmp-interiorInner {
-     min-width: 1672px;
-     min-height:937px;
-    }
+}
+.Interior360__icon--down {
+  bottom: 12px;
+  left: 50%;
+  margin-left: -5px;
+  margin-top: -20px;
+  -webkit-transform: rotate(90deg) translateX(0px);
+  -moz-transform: rotate(90deg) translateX(0px);
+  -ms-transform: rotate(90deg) translateX(0px);
+  -o-transform: rotate(90deg) translateX(0px);
+  transform: rotate(90deg) translateX(0px);
+}
+.Interior360__icon--right {
+  top: 55%;
+  margin-top: -10px;
+  right: 14px;
+  -webkit-transform: rotate(0deg) translateX(0px);
+  -moz-transform: rotate(0deg) translateX(0px);
+  -ms-transform: rotate(0deg) translateX(0px);
+  -o-transform: rotate(0deg) translateX(0px);
+  transform: rotate(0deg) translateX(0px);
+}
+.Interior360__icon--left {
+  top: 55%;
+  margin-top: -10px;
+  left: 14px;
+  -webkit-transform: rotate(180deg) translateX(0px);
+  -moz-transform: rotate(180deg) translateX(0px);
+  -ms-transform: rotate(180deg) translateX(0px);
+  -o-transform: rotate(180deg) translateX(0px);
+  transform: rotate(180deg) translateX(0px);
+}
+@media screen and (min-width: 1px) and (max-width: 740px) {
+  .Interior360 {
+    display: flex;
+    flex-wrap: wrap;
   }
-  @media screen and (max-width: 767px) {
-    .cmp-interior360 .shelfComponent{
-      display: flex;
-      flex-direction: column;
-    }
-    .Interior360__init-container-caption{
-      line-height: 12px;
-    }
-    .cmp-interior360 .headingThick{
-      padding: 2px !important;
-      margin-bottom: 16px !important;
-    }
-    .cmp-interiorInner {
-     min-width: 387px;
-     min-height:213px;
-    }
-    .Interior360__reset-control{
-      line-height: 14px;
-    }
+  .Interior360 .headerBox.withImage {
+    display: block;
+    position: relative;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
-  @media screen and (min-width: 768px) and (max-width: 1279px){
-    .Interior360__init-container-icon-backdrop {
-      position: unset;
-    }
-    .cmp-interior360 .shelfComponent{
-      display: flex;
-      flex-direction: column;
-    }
-    .Interior360__init-container-caption{
-      line-height: 12px;
-    }
-    .cmp-interior360 .headingThick{
-      padding: 0px !important;
-    }
-    .cmp-interiorInner {
-      min-width: 780px;
-      min-height:434px;
-     }
-    .Interior360__icon {
-      background-size: 12px 12px;
+}
+.no-js .Interior360__panorama {
+  height: 768px;
+  cursor: default;
+}
+.no-js .Interior360__no-JS-notice {
+  padding-top: 200px;
+}
+.no-js .Interior360__pano-controls {
+  display: none;
+}
+.Interior360__zoom-out:after {
+  content:"";
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0;
+}
+.Interior360__zoom-in:after {
+  content: "";
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: 0.2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: 0.2em;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0;
+}
+.Interior360__zoom-in,
+.Interior360__zoom-out {
+  background: rgba(12, 18, 28, 0.2);
+}
+.Interior360__zoom-in.enabled,
+.Interior360__zoom-out.enabled {
+  background: #0c121c;
+}
+.Interior360__zoom-in.enabled:hover,
+.Interior360__zoom-in.enabled:active,
+.Interior360__zoom-out.enabled:hover,
+.Interior360__zoom-out.enabled:active {
+  outline-offset: -1px;
+  background: #fff;
+  outline: 1px solid #0c121c;
+}
+.Interior360__zoom-in.enabled:hover:after,
+.Interior360__zoom-in.enabled:active:after,
+.Interior360__zoom-out.enabled:hover:after,
+.Interior360__zoom-out.enabled:active:after {
+  color: #0c121c;
+}
+.focusStylesOn .Interior360__zoom-in.enabled:focus,
+.focusStylesOn .Interior360__zoom-out.enabled:focus {
+  outline-offset: -1px;
+  background: #fff;
+  outline: 1px solid #0c121c;
+}
+.focusStylesOn .Interior360__zoom-in.enabled:focus:after,
+.focusStylesOn .Interior360__zoom-out.enabled:focus:after {
+  color: #0c121c;
+}
+.Interior360__zoom-in:hover,
+.Interior360__zoom-out:hover {
+  color: #fff;
+  background: rgba(12, 18, 28, 0.2);
+}
+.Interior360__zoom-in:after,
+.Interior360__zoom-out:after {
+  font-size: 2.1rem;
+}
+.Interior360__accelerometer-control {
+  background-color: #0c121c;
+}
+.Interior360__accelerometer-control:hover,
+.Interior360__accelerometer-control:focus,
+.Interior360__accelerometer-control:active,
+.Interior360__accelerometer-control.gyro-enabled {
+  background-color: #fff;
+  background-image: url("../resources/icons/gyro-LR-blue.svg");
+}
+.Interior360__reset-control {
+  padding-left: 40px;
+  padding-right: 8px;
+}
+.Interior360__reset-control:before {
+  left: 8px;
+}
+@media screen and (min-width: 300px) and (max-width: 766px) {
+  .Interior360__init-container-icon{
+    position: absolute;
+ top:-45px;
+    border: 2px solid white;
   }
-    .Interior360__icon--up {
-      top: 9px;
-      left: 57%;
-      margin-left: -9px;
-    }
-    .Interior360__icon--down {
-      bottom: 14px;
-      left: 58%;
-      margin-left: -9px;
-      margin-top: 0px;
-    }
-    .Interior360__icon--left {
-      top: 50%;
-      left: 39%;
-      margin-left: -9px;
-    }
-    .Interior360__icon--right {
-      top: 50%;
-      left: 78%;
-      margin-left: -9px;
-    }
-    .Interior360__reset-control:before {
-      visibility: hidden !important;
-    }
-    .Interior360__reset-control{
-      padding-left: 19px;
-      line-height: 14px;
-    }
+  .Interior360__icon {
+    height: 10px;
+    width: 6px;
+    background-size: 8px 8px;
+}
+  .Interior360__icon--up {
+    width: 56x;
+    height: 10px;
+    top: 8px;
+    left: 65%;
+    margin-left: -9px;
   }
-  @media screen and (min-width: 1280px) and (max-width: 1910px){
-    .Interior360__init-container-caption{
-      line-height: 15px !important;
-    }
+  .Interior360__icon--down {
+    width: 56x;
+    height: 11px;
+    bottom: 7.5px;
+    left: 65%;
+    margin-left: -9px;
+    margin-top: 0px;
+  }
+  .Interior360__icon--left {
+    width: 56x;
+    height: 11px;
+    top: 25px;
+    left: 45%;
+    margin-left: -9px;
+  }
+  .Interior360__icon--right {
+    width: 56x;
+    height: 10px;
+    top: 26px;
+    left: 85%;
+    margin-left: -9px;
+  }
+}
+.Interior360__load-button{
+  background-color: transparent;
+}
+.Interior360__load-button:hover{
+  background-color: rgba(0, 0, 0, 0.16);
+}
+.grey .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p,.white .cmp-interior360 .headingWrapper p,.light .cmp-interior360 .headingWrapper p {
+  color: #0c121c !important;
+}
+
+.cmp-interior360 .primaryLinkWithStyle { 
+  line-height: 14px !important;
+}
+.cmp-interior360 .secondaryLinkWithStyle { 
+  line-height: 12.5px !important;
+}
+/* FIXES for Image */
+@media screen and (min-width: 1920px) {
+  .Interior360__init-container-icon-backdrop {
+    top: 45%;
+    left: 45%;
+  }
+  .Interior360__init-container-caption{
+    line-height: 15px;
+  }
+  .cmp-interior360 .headingThick{
+    padding: 0px !important;
+  }
+  .cmp-interiorInner {
+   min-width: 1672px;
+   min-height:937px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .cmp-interior360 .shelfComponent{
+    display: flex;
+    flex-direction: column;
+  }
+  .Interior360__init-container-caption{
+    line-height: 12px;
+  }
+  .cmp-interior360 .headingThick{
+    padding: 2px !important;
+    margin-bottom: 16px !important;
+  }
+  .cmp-interiorInner {
+   min-width: 387px;
+   min-height:213px;
   }
   .Interior360__reset-control{
-    text-transform: uppercase;
+    line-height: 14px;
   }
- 
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .Interior360__init-container-icon-backdrop {
+    position: unset;
+  }
+  .cmp-interior360 .shelfComponent{
+    display: flex;
+    flex-direction: column;
+  }
+  .Interior360__init-container-caption{
+    line-height: 12px;
+  }
+  .cmp-interior360 .headingThick{
+    padding: 0px !important;
+  }
+  .cmp-interiorInner {
+    min-width: 780px;
+    min-height:434px;
+   }
+  .Interior360__icon {
+    background-size: 12px 12px;
+}
+  .Interior360__icon--up {
+    top: 9px;
+    left: 57%;
+    margin-left: -9px;
+  }
+  .Interior360__icon--down {
+    bottom: 14px;
+    left: 58%;
+    margin-left: -9px;
+    margin-top: 0px;
+  }
+  .Interior360__icon--left {
+    top: 50%;
+    left: 39%;
+    margin-left: -9px;
+  }
+  .Interior360__icon--right {
+    top: 50%;
+    left: 78%;
+    margin-left: -9px;
+  }
+  .Interior360__reset-control:before {
+    visibility: hidden !important;
+  }
+  .Interior360__reset-control{
+    padding-left: 19px;
+    line-height: 14px;
+  }
+}
+@media screen and (min-width: 1280px) and (max-width: 1910px){
+  .Interior360__init-container-caption{
+    line-height: 15px !important;
+  }
+}
+.Interior360__reset-control{
+  text-transform: uppercase;
+}
+
+@media (max-width: 1279px) {
+  .Interior360__reset-control-mobile-text {
+    display: block;
+  }
+  .Interior360__reset-control-desktop-text {
+    display: none;
+  }
+}
+@media (min-width: 1280px) {
+  .Interior360__reset-control-mobile-text {
+    display: none;
+  }
+}
+
+
+

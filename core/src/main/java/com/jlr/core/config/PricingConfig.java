@@ -44,6 +44,9 @@ public @interface PricingConfig {
     @AttributeDefinition(name = "Destination path", description = "Destination path", type = AttributeType.STRING)
     public String[] listOfDestinationPaths() default { "stage|/var/jlr/pricing/stg/", "prod|/var/jlr/pricing/prd/" };
 
+    @AttributeDefinition(name = "Replication Agents", description = "Comma separated list of replication agents", type = AttributeType.STRING)
+    public String replicationAgent() default "publish";
+
     @AttributeDefinition(name = "Destination path to be replicated", description = "Destination path to be replicated", type = AttributeType.STRING)
     public String replicationPath() default "/var/jlr/pricing/prd";
 }

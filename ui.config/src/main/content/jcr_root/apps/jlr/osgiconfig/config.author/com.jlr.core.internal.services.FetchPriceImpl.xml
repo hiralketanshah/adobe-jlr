@@ -2,7 +2,5 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
 	xmlns:jcr="http://www.jcp.org/jcr/1.0"
 	jcr:primaryType="sling:OsgiConfig"
-	listOfStageEndpoints="[]" 
-	stageApiKey=""
-	replicationAgent="publish1euwest2,publish2euwest2"
-	listOfDestinationPaths="[prod|/var/jlr/pricing/prd/]"/>
+	replicationAgent="publish"
+	stageApiKey="{9d3268906f91f6f22a93abfb691f66ccbcdad3c14e309d37572d96a299a4985fd5a81cca83eea60bc7d25cdd70c4578fd14c33d45242e8e1a0c5fe9824e53fd5}"/>

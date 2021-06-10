@@ -127,4 +127,14 @@ public class PricingConstants {
      * The constant HTTP_CLIENT_TIMEOUT
      */
     public static final int HTTP_CLIENT_TIMEOUT = 5000;
+
+    /**
+     * The constant PN_LOCK_ACTIVE
+     */
+    public static final String PN_LOCK_ACTIVE = "active";
+
+    /**
+     * The constant PN_LOCK_ACTIVE_DATE
+     */
+    public static final String PN_LOCK_ACTIVE_DATE = "activeDate";
 }
