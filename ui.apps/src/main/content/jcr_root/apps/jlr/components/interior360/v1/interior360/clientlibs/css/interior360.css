@@ -1142,14 +1142,6 @@ html.no-js .cmp-interior360 .carousel > * {
   -o-transform: rotate(90deg) translateX(0px);
   transform: rotate(90deg) translateX(0px);
 }
-@media screen and (min-width: 741px) {
-  .Interior360__icon--down {
-    /* bottom: 13px;
-    left: 50%;
-    margin-left: -10px;
-    margin-top: -20px; */
-  }
-}
 .Interior360__icon--right {
   top: 55%;
   margin-top: -10px;
@@ -1160,13 +1152,6 @@ html.no-js .cmp-interior360 .carousel > * {
   -o-transform: rotate(0deg) translateX(0px);
   transform: rotate(0deg) translateX(0px);
 }
-@media screen and (min-width: 741px) {
-  .Interior360__icon--right {
-    /* top: 50%;
-    margin-top: -11px;
-    right: 13px; */
-  }
-}
 .Interior360__icon--left {
   top: 55%;
   margin-top: -10px;
@@ -1176,13 +1161,6 @@ html.no-js .cmp-interior360 .carousel > * {
   -ms-transform: rotate(180deg) translateX(0px);
   -o-transform: rotate(180deg) translateX(0px);
   transform: rotate(180deg) translateX(0px);
-}
-@media screen and (min-width: 741px) {
-  .Interior360__icon--left {
-    /* top: 50%;
-    margin-top: -11px;
-    left: 13px; */
-  }
 }
 @media screen and (min-width: 1px) and (max-width: 740px) {
   .Interior360 {
