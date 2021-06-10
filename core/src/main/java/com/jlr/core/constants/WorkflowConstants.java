@@ -45,7 +45,7 @@ public class WorkflowConstants {
     /**
      * The constant VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION.
      */
-    public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/scheduled_activation";
+    public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/jlr_scheduled_page_assetactivation";
     /**
      * The constant YYYY_MM_DD_T_HH_MM_SS.
      */

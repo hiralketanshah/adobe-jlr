@@ -21,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
+import static com.jlr.core.utils.LockUnlockUtil.lockUnlockPage;
 
 /**
  * The component that approves/rejects the selected content.
@@ -47,7 +48,7 @@ public class ContentLockProcess implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(contentPath);
             if (resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                WorkflowUtils.lockUnlockPage(page, WorkflowConstants.LOCK);
+                lockUnlockPage(page, WorkflowConstants.LOCK, resolverFactory);
             }
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,

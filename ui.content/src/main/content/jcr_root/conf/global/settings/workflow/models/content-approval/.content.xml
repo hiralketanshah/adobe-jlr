@@ -3,7 +3,7 @@
           jcr:primaryType="cq:Page">
     <jcr:content
             cq:designPath="/libs/settings/wcm/designs/default"
-            cq:lastModified="{Date}2021-06-08T18:40:37.940+05:30"
+            cq:lastModified="{Date}2021-06-09T17:17:40.880+05:30"
             cq:lastModifiedBy="admin"
             cq:template="/libs/cq/workflow/templates/model"
             jcr:primaryType="cq:PageContent"
@@ -64,19 +64,6 @@
                         PROCESS="com.jlr.core.workflows.ContentActivationProcess"
                         PROCESS_AUTO_ADVANCE="true"/>
             </process>
-            <process_959825641
-                    jcr:created="{Date}2021-06-06T11:55:16.914+05:30"
-                    jcr:createdBy="admin"
-                    jcr:lastModified="{Date}2021-06-08T18:40:37.936+05:30"
-                    jcr:lastModifiedBy="admin"
-                    jcr:primaryType="nt:unstructured"
-                    jcr:title="Cleanup  "
-                    sling:resourceType="cq/workflow/components/model/process">
-                <metaData
-                        jcr:primaryType="nt:unstructured"
-                        PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
-                        PROCESS_AUTO_ADVANCE="true"/>
-            </process_959825641>
         </flow>
     </jcr:content>
 </jcr:root>

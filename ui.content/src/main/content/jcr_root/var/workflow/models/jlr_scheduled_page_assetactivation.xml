@@ -2,15 +2,17 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           jcr:isCheckedOut="{Boolean}false"
           jcr:primaryType="cq:WorkflowModel"
-          jcr:uuid="76013c70-4cb7-46eb-bc03-f2e71dde4a33"
+          jcr:uuid="d062722b-f260-4c97-b00f-1920cbd734a7"
           sling:resourceType="cq/workflow/components/model"
-          description="No Description"
-          title="Content Approval">
+          description="Description of JLR Scheduled Activation"
+          title="JLR Scheduled Page/Asset Activation">
     <metaData
-            cq:generatingPage="/conf/global/settings/workflow/models/content-approval/jcr:content"
-            cq:lastModified="{Long}1623239262706"
+            cq:generatingPage="/conf/global/settings/workflow/models/jlr_scheduled_page_assetactivation/jcr:content"
+            cq:lastModified="{Long}1623242084303"
             cq:lastModifiedBy="admin"
-            jcr:primaryType="nt:unstructured"/>
+            jcr:primaryType="nt:unstructured"
+            multiResourceSupport="true"
+            tags="system"/>
     <nodes jcr:primaryType="nt:unstructured">
         <node0
                 jcr:primaryType="cq:WorkflowNode"
@@ -20,46 +22,69 @@
         </node0>
         <node1
                 jcr:primaryType="cq:WorkflowNode"
-                title="Approval Process Started"
+                title="Unlock Pages"
+                type="PROCESS">
+            <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
+                    PROCESS_AUTO_ADVANCE="true"/>
+        </node1>
+        <node2
+                jcr:primaryType="cq:WorkflowNode"
+                title="Create Version"
+                type="PROCESS">
+            <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.day.cq.wcm.workflow.process.CreateVersionProcess"
+                    PROCESS_AUTO_ADVANCE="true"/>
+        </node2>
+        <node3
+                jcr:primaryType="cq:WorkflowNode"
+                title="Lock Page"
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
                     PROCESS="com.jlr.core.workflows.ContentLockProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
-        </node1>
-        <node2
-                jcr:primaryType="cq:WorkflowNode"
-                title="Content Approval"
-                type="DYNAMIC_PARTICIPANT">
-            <metaData
-                    jcr:primaryType="nt:unstructured"
-                    DIALOG_PATH="/apps/jlr/components/workflow/contentapproval/cq:dialog"
-                    DYNAMIC_PARTICIPANT="com.jlr.core.workflows.ContentApprovalParticipant"/>
-        </node2>
-        <node3
-                jcr:primaryType="cq:WorkflowNode"
-                title="Processing Approval/Rejection"
-                type="PROCESS">
-            <metaData
-                    jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentMetaDataProcess"
-                    PROCESS_AUTO_ADVANCE="true"/>
         </node3>
         <node4
                 jcr:primaryType="cq:WorkflowNode"
-                title="Activate Content"
+                description="Waiting for activation until the scheduled time is reached"
+                title="Waiting for activation"
+                type="PARTICIPANT">
+            <metaData
+                    jcr:primaryType="nt:unstructured"
+                    DO_NOTIFY="false"
+                    PARTICIPANT="admin"
+                    timeoutHandler="com.day.cq.workflow.timeout.autoadvance.AbsoluteTimeAutoAdvancer"
+                    timeoutMillis="0"/>
+        </node4>
+        <node5
+                jcr:primaryType="cq:WorkflowNode"
+                title="Unlock Pages"
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentActivationProcess"
+                    PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
-        </node4>
-        <node5
+        </node5>
+        <node6
+                jcr:primaryType="cq:WorkflowNode"
+                description="Activates the page/asset"
+                title="Activate Page/Asset"
+                type="PROCESS">
+            <metaData
+                    jcr:primaryType="nt:unstructured"
+                    PROCESS="com.day.cq.wcm.workflow.process.ActivatePageProcess"
+                    PROCESS_ARGS=""
+                    PROCESS_AUTO_ADVANCE="true"/>
+        </node6>
+        <node7
                 jcr:primaryType="cq:WorkflowNode"
                 title="End"
                 type="END">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node5>
+        </node7>
     </nodes>
     <transitions jcr:primaryType="nt:unstructured">
         <node0_x0023_node1
@@ -93,8 +118,22 @@
         <node4_x0023_node5
                 jcr:primaryType="cq:WorkflowTransition"
                 from="node4"
+                rule=""
                 to="node5">
             <metaData jcr:primaryType="nt:unstructured"/>
         </node4_x0023_node5>
+        <node5_x0023_node6
+                jcr:primaryType="cq:WorkflowTransition"
+                from="node5"
+                rule=""
+                to="node6">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node5_x0023_node6>
+        <node6_x0023_node7
+                jcr:primaryType="cq:WorkflowTransition"
+                from="node6"
+                to="node7">
+            <metaData jcr:primaryType="nt:unstructured"/>
+        </node6_x0023_node7>
     </transitions>
 </jcr:root>

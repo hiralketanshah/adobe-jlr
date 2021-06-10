@@ -25,6 +25,7 @@ import java.security.Principal;
 
 import static com.jlr.core.constants.WorkflowConstants.JCR_CONTENT;
 import static com.jlr.core.constants.WorkflowConstants.UNLOCK;
+import static com.jlr.core.utils.LockUnlockUtil.lockUnlockPage;
 import static com.jlr.core.utils.WorkflowUtils.*;
 
 /**
@@ -112,7 +113,7 @@ public class JLRReplicationPreProcessor implements Preprocessor {
         if(isValidResourceForReplication(resource)) {
             Page page = resource.adaptTo(Page.class);
             if(page != null) {
-                lockUnlockPage(page, UNLOCK);
+                lockUnlockPage(page, UNLOCK, resourceResolverFactory);
                 removeMetadata(page, resourceResolver);
                 saveChanges(resourceResolver);
                 return true;

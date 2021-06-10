@@ -25,6 +25,7 @@ import java.util.List;
 
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
 import static com.jlr.core.constants.WorkflowConstants.*;
+import static com.jlr.core.utils.LockUnlockUtil.lockUnlockPage;
 import static com.jlr.core.utils.WorkflowUtils.saveChanges;
 
 /**
@@ -58,10 +59,10 @@ public class ContentMetaDataProcess implements WorkflowProcess {
                 }
                 MetaDataMap dataMap = historyItem.getWorkItem().getMetaDataMap();
                 if (page != null) {
-                    WorkflowUtils.lockUnlockPage(page, UNLOCK);
+                    lockUnlockPage(page, UNLOCK, resolverFactory);
                     WorkflowUtils.processMetadata(dataMap.get(APPROVAL_STATUS, String.class), dataMap.get(ACTIVATE_NOW_LATER, String.class), dataMap.get(CONTENT_PUBLISHING_DATE, String.class), dataMap.get(EMBARGO_LIFT_DATE, String.class), page, null, resourceResolver);
                     saveChanges(resourceResolver);
-                    WorkflowUtils.lockUnlockPage(page, LOCK);
+                    lockUnlockPage(page, LOCK, resolverFactory);
                 } else {
                     Resource asset = resource.getChild(JCR_CONTENT);
                     WorkflowUtils.processMetadata(dataMap.get(APPROVAL_STATUS, String.class), dataMap.get(ACTIVATE_NOW_LATER, String.class), dataMap.get(CONTENT_PUBLISHING_DATE, String.class), dataMap.get(EMBARGO_LIFT_DATE, String.class), null, asset, resourceResolver);

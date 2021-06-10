@@ -93,21 +93,6 @@ public class WorkflowUtils {
         return null;
     }
 
-    public static void lockUnlockPage(Page page, String lockUnlockState) {
-        /*if(page != null) {
-            try{
-                if("lock".equals(lockUnlockState) && !page.isLocked()) {
-                    page.lock();
-                } else if("unlock".equals(lockUnlockState) && page.isLocked() && page.canUnlock()){
-                    page.unlock();
-                }
-            } catch (WCMException e) {
-                LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WCM_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                        ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
-            }
-        } */
-    }
-
     /**
      * Is initially approved boolean.
      *
