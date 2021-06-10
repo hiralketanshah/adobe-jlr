@@ -2072,6 +2072,18 @@ var _browserDetection = __webpack_require__(/*! ../../../resources/dev/js/utils/
 
 var panoId = 0;
 (function ($, window) {
+  $('.cmp-interior360').each(function (index, element){ 
+        //check for making shelfComponent display none to remove extra padding
+        if((element.querySelectorAll('p').length == 0) || element.querySelectorAll('a').length == 0){
+          //assuming author doest not author anything
+          let shelfComponent = element.querySelector('.shelfComponent');
+          if(shelfComponent){
+            element.querySelector('.cmp-genericItem__element-poster').style.marginBottom="0px";
+            shelfComponent.style.display = "none";
+          }
+        }
+  })
+
   $('.Interior360').each(function (index, element) {
   var Interior360 = {
     krpanoURL: '/etc.clientlibs/jlr/clientlibs/',
@@ -2765,7 +2777,6 @@ var panoId = 0;
   let millisecond = new Date().getMilliseconds();
   jQuery.createComponent('Interior360'+millisecond, Interior360);
   var comp = $(element);
-  console.log("I am here");
   if (!comp.parents('.TabbedContainer').length) {
       comp[`Interior360${millisecond}`]();
     }
@@ -2814,9 +2825,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var breakpoints = exports.breakpoints = {
-  small: 740,
-  medium: 900,
-  wider: 1000,
+  small: 767,
+  medium: 1279,
+  wider: 1280,
   current: null
 };
 
