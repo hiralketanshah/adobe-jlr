@@ -1,0 +1,28 @@
+{
+    "exitPageLink": "/content/landrover/global/exitpage",
+    "categoryList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "bgImage":"/content/dam/landrover/s44-test-assets/dimension-compression-test/larger-sizes/L494_19MY_046_1920x1080_400kb.jpg",
+      "categoryName":"<p>exterior</p>",
+      "isDecorative": "false",
+      "link":"/content/landrover/global/global-master/en/component-library/gallery-list"
+    },
+    "item1":{
+      "jcr:primaryType":"nt:unstructured",
+      "bgImage":"/content/dam/landrover/s44-test-assets/dimension-compression-test/larger-sizes/L494_19MY_046_1920x1080_400kb.jpg",
+      "categoryName":"<p>exterior</p>",
+      "isDecorative": "false",
+      "link":"/content/landrover/global/global-master/en/component-library/gallery-list"
+    },
+    "item2":{
+      "jcr:primaryType":"nt:unstructured",
+      "bgImage":"/content/dam/landrover/s44-test-assets/dimension-compression-test/larger-sizes/L494_19MY_046_1920x1080_400kb.jpg",
+      "categoryName":"<p>exterior</p>",
+      "isDecorative": "false",
+      "link":"/content/landrover/global/global-master/en/component-library/gallery-list"
+    }
+  },
+    "jcr:primaryType": "nt:unstructured"
+}
