@@ -55,7 +55,7 @@
   padding: 4px 0 39px 0;
   justify-content: center;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .cmp-interiorInner .cmp-carousel__controls {
     padding: 0;
     left: 48px;
@@ -248,6 +248,10 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .cmp-interior360render {
     width: 100%;
+    min-height: 432px;
+  }
+  .cmp-interiorInner .cmp-genericItem__element-poster{
+    width: 98.47%;
     min-height: 432px;
   }
   .cmp-interior360 .carousel .cmp-interior360render {
@@ -726,12 +730,12 @@ html.no-js .cmp-interior360 .carousel > * {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media screen and (min-width: 1px) and (max-width: 740px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360__panorama-holder {
     order: 1;
   }
 }
-@media screen and (min-width: 1px) and (max-width: 740px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360__panorama-holder {
     transition: height 400ms ease-out;
     transform: translate3d(0, 0, 0);
@@ -741,7 +745,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__panorama {
   cursor: -webkit-grab;
 }
-@media screen and (min-width: 1px) and (max-width: 740px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360__panorama {
     opacity: 1;
     -webkit-backface-visibility: hidden;
@@ -753,7 +757,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360 .headerBox {
   z-index: 4;
 }
-@media screen and (min-width: 1px) and (max-width: 740px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360 .headerBox {
     order: 2;
   }
@@ -762,7 +766,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__panorama-holder {
   min-height: 250px;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__panorama,
   .Interior360__panorama-holder {
     min-height: 500px;
@@ -779,7 +783,7 @@ html.no-js .cmp-interior360 .carousel > * {
   padding: 0 30px;
   justify-content: flex-start;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__pano-controls {
     bottom: 40px;
     padding: 0 40px;
@@ -1016,7 +1020,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__load-button.down .Interior360__icon--down {
     -webkit-animation-name: iconAnimateDown;
     animation-name: iconAnimateDown;
@@ -1034,7 +1038,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__load-button.right .Interior360__icon--right {
     -webkit-animation-name: iconAnimateRight;
     animation-name: iconAnimateRight;
@@ -1052,7 +1056,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__load-button.up .Interior360__icon--up {
     -webkit-animation-name: iconAnimateUp;
     animation-name: iconAnimateUp;
@@ -1070,7 +1074,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -webkit-animation-timing-function: ease-in-out;
   animation-timing-function: ease-in-out;
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__load-button.left .Interior360__icon--left {
     -webkit-animation-name: iconAnimateLeft;
     animation-name: iconAnimateLeft;
@@ -1094,7 +1098,7 @@ html.no-js .cmp-interior360 .carousel > * {
   text-transform: uppercase;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__init-container {
     padding-top: 45px;
   }
@@ -1104,7 +1108,7 @@ html.no-js .cmp-interior360 .carousel > * {
   padding-bottom: 3px;
 }
 
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   .Interior360__init-container-icon {
     top: -60px;
     width: 70px;
@@ -1127,7 +1131,7 @@ html.no-js .cmp-interior360 .carousel > * {
   transform: rotate(270deg) translateX(0px);
 }
 
-@media screen and (min-width: 741px) {
+@media screen and (min-width: 768px) {
   
   .Interior360__icon--up {
    background-size: 15px 15px;
@@ -1164,7 +1168,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -o-transform: rotate(180deg) translateX(0px);
   transform: rotate(180deg) translateX(0px);
 }
-@media screen and (min-width: 1px) and (max-width: 740px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360 {
     display: flex;
     flex-wrap: wrap;
@@ -1345,6 +1349,14 @@ html.no-js .cmp-interior360 .carousel > * {
 }
 /* FIXES for Image */
 @media screen and (min-width: 1920px) {
+  .cmp-interior360 .cmp-genericItem__element-poster {
+    width: 99.3%;
+    min-height: 935px;
+  }
+    .Interior360__panorama,
+    .Interior360__panorama-holder {
+      min-height: 935px;
+    }
   .Interior360__init-container-icon-backdrop {
     top: 45%;
     left: 45%;
@@ -1361,6 +1373,9 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (max-width: 767px) {
+  .Interior360__init-container{
+    padding-top: 13px;
+  }
   .cmp-interior360 .headerClass { 
     min-width: 90%;
     max-width:100%;
@@ -1387,6 +1402,15 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px){
+  .Interior360__init-container{
+    padding-top: 0px;
+  }
+  .Interior360__init-container-caption{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 23px;
+  }
   .Interior360__init-container-icon-backdrop {
     position: unset;
   }
@@ -1457,6 +1481,17 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media (min-width: 1280px) {
+  .Interior360__init-container-caption{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    width: fit-content;
+    margin: auto;
+  }
+  .Interior360__init-container{
+    padding-top: 0px;
+  }
   .Interior360__reset-control-mobile-text {
     display: none;
   }
