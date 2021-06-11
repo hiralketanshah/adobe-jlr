@@ -1,7 +1,7 @@
 (function() {
     var cplayers = document.getElementsByClassName("cmp-cplayer");
     if(cplayers.length>0){
-        var buildItem = localStorage.getItem("ConfiguratorPrompt_jlr");
+        var buildItem = localStorage.getItem("ConfiguratorPrompt_lr");
         if(buildItem){
         var items = JSON.parse(buildItem);
         for(var j = 0;j<=cplayers.length;j++){
@@ -8105,12 +8105,20 @@
                         while (1) {
                             switch (_context.prev = _context.next) {
                                 case 0:
+                                    url = _ref.url, log = _ref.log, apiKey = _ref.apiKey;
                                     if (log && Object.keys(log).length > 0) _logger["default"].logWithColour(log.color, "".concat(log.copy, " ").concat(url));
                                     _context.next = 4;
-                                    return {"zindices":{"Wheel":30,"Background":0,"Trim":40,"Badge":20,"RoofRails":70,"RoofDown":45,"ConvertibleRoof":40,"Base":10,"Colour":10,"BodyColouredRoof":40,"Roof":40,"IAccessoryPack":150,"ContrastRoof":40,"Finish":30,"Headlining":20,"EAccessoryPack":50}};
+                                    return (0, _isomorphicFetch["default"])(url, {
+                                        method: 'GET',
+                                        mode: 'cors',
+                                        headers: {
+                                            'x-api-key': apiKey
+                                        }
+                                    })["catch"](function(error) {
+                                        _logger["default"].error("Fetch from API: ".concat(url, " failed with the following error: ").concat(error));
+                                    });
     
                                 case 4:
-                                    response = _context.sent;
                                     return _context.abrupt("return", {"zindices":{"Wheel":30,"Background":0,"Trim":40,"Badge":20,"RoofRails":70,"RoofDown":45,"ConvertibleRoof":40,"Base":10,"Colour":10,"BodyColouredRoof":40,"Roof":40,"IAccessoryPack":150,"ContrastRoof":40,"Finish":30,"Headlining":20,"EAccessoryPack":50}});
     
                                 case 6:
@@ -8118,6 +8126,22 @@
                                     return _context.stop();
                             }
                         }
+                        // while (1) {
+                        //     switch (_context.prev = _context.next) {
+                        //         case 0:
+                        //             if (log && Object.keys(log).length > 0) _logger["default"].logWithColour(log.color, "".concat(log.copy, " ").concat(url));
+                        //             _context.next = 4;
+                        //             return {"zindices":{"Wheel":30,"Background":0,"Trim":40,"Badge":20,"RoofRails":70,"RoofDown":45,"ConvertibleRoof":40,"Base":10,"Colour":10,"BodyColouredRoof":40,"Roof":40,"IAccessoryPack":150,"ContrastRoof":40,"Finish":30,"Headlining":20,"EAccessoryPack":50}};
+    
+                        //         case 4:
+                        //             response = _context.sent;
+                        //             return _context.abrupt("return", {"zindices":{"Wheel":30,"Background":0,"Trim":40,"Badge":20,"RoofRails":70,"RoofDown":45,"ConvertibleRoof":40,"Base":10,"Colour":10,"BodyColouredRoof":40,"Roof":40,"IAccessoryPack":150,"ContrastRoof":40,"Finish":30,"Headlining":20,"EAccessoryPack":50}});
+    
+                        //         case 6:
+                        //         case "end":
+                        //             return _context.stop();
+                        //     }
+                        // }
                     }, _callee);
                 }));
     
@@ -25657,7 +25681,7 @@
             return;
         }
     
-        var brandKey = ConfiguratorPromptElements[0].getAttribute('data-brand') === 'jaguar' ? 'jag' : 'jlr';
+        var brandKey = ConfiguratorPromptElements[0].getAttribute('data-brand') === 'jaguar' ? 'jag' : 'lr';
         const datastore = new _CrossDomainCommunication_js_datastore__WEBPACK_IMPORTED_MODULE_3__.Datastore({
             localStorage,
             brandKey

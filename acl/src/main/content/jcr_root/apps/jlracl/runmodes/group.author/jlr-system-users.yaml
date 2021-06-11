@@ -20,6 +20,13 @@
           path: ${systemUserPath}
           isSystemUser: "true"
 
+    - jlr-workflow-service:
+
+        - name: "System user for workflow service"
+          isMemberOf: administrators
+          path: ${systemUserPath}
+          isSystemUser: "true"
+
 - ace_config:
 
   - pricing-service:
@@ -33,6 +40,7 @@
       actions: read,create,modify,delete,replicate
 
   - pricing-read-service:
-    - path: /var/jlr/pricing
-      permission: allow
-      actions: read
+
+      - path: /var/jlr/pricing
+        permission: allow
+        actions: read

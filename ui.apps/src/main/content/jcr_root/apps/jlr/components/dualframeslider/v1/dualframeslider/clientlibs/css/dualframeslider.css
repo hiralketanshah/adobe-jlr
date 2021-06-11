@@ -109,7 +109,7 @@ text-transform: uppercase;
 .cmp-dualFrameSlider .desktopSliderFrame {
     display: block;
     height: calc((70vw - 40px) / 2) !important;
-    width: 100%;
+    width: 100% !important;
 }
 
 .cmp-dualFrameSlider .sliderContainer {
@@ -166,6 +166,8 @@ text-transform: uppercase;
     }
 }
 @media screen and (max-width: 490px)  {
+   
+
     .dualframeslider.right .cmp-dualFrameSlider, 
     .dualframeslider.left .cmp-dualFrameSlider {
         padding: 25px;
@@ -188,6 +190,21 @@ text-transform: uppercase;
     }
     .cmp-dualFrameSlider .Slider__right .mobileSliderFrame {
         height: calc((108.3vw - 40px) / 2) !important;
+    }
+    .dualframeslider.right .cmp-dualFrameSlider .Slider__left, .dualframeslider .cmp-dualFrameSlider .Slider__left{
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+    .DxRangeSlider .noUi-handle, .DxRangeSlider.noUi-horizontal .noUi-handle{
+        width: 40px;
+    height: 40px;
+    border-color: #000;
+    }
+    .DxRangeSlider__custom-connect{
+        background: #000;
+    }
+    .DxRangeSlider--image .noUi-touch-area:after{
+        color: #000;
     }
 }
 @media screen and (min-width: 1px) and (max-width: 740px) {

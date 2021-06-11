@@ -347,7 +347,7 @@
   }
 
   .offerMainFrame {
-    margin-bottom: 80px;
+    margin-bottom: 85px;
   }
 
   .cmp-offersContainer ul {
@@ -360,12 +360,7 @@
   }
 
   .cmp-offersContainer .offerLink {
-    margin-top: 24px;
-  }
-
-  .cmp-offersContainer {
-    margin-left: 60px;
-    margin-right: 60px;
+    margin-top: 13px;
   }
 
   .offerImage {
@@ -604,11 +599,6 @@
     margin-top: 24px;
   }
 
-  .cmp-offersContainer {
-    margin-left: 290px;
-    margin-right: 290px;
-  }
-
   .offerImage {
     margin-top: 60px;
   }
@@ -825,6 +815,10 @@
 
 /* FONT DEF DESKTOP */
 @media screen and (min-width: 1280px) {
+  .cmp-offersContainer .currency {
+    width: 15px;
+    height: 37px;
+  }
   .cmp-offersContainer .Offers__info-body {
     margin-bottom: 0px;
   }
@@ -906,11 +900,6 @@
     font-size: 56px;
     line-height: 56px;
   }
-
-  .cmp-offersContainer .offerInfoLease {
-    margin-bottom: 39px;
-  }
-
   .cmp-offersContainer .offerDetailsLink span,
   .cmp-offersContainer .primaryLinkWithStyle span {
     text-transform: uppercase;
@@ -943,7 +932,9 @@
 
 /* Left and Right DESKTOP and WIDESCREEN */
 @media screen and (min-width: 1280px) {
-
+  .offer .offerFinanceBoxes{
+    display: flex;
+  }
   .left .offer .offerImage,
   .left .offer .offerFinanceBoxes {
     float: left;

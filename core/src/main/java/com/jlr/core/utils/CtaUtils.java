@@ -3,12 +3,14 @@ package com.jlr.core.utils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.pojos.CTAPojo;
 
@@ -22,14 +24,18 @@ public class CtaUtils {
     /**
      * Instantiates a new cta utils.
      */
-    private CtaUtils() {}
+    private CtaUtils() {
+    }
 
     /**
      * Creates the cta list.
      *
-     * @param ctaList the cta list
-     * @param header the header
-     * @param resourceResolver the resource resolver
+     * @param ctaList
+     *            the cta list
+     * @param header
+     *            the header
+     * @param resourceResolver
+     *            the resource resolver
      * @return the list
      */
     public static List<CTAPojo> createCtaList(Resource ctaList, String header, ResourceResolver resourceResolver) {
@@ -42,9 +48,11 @@ public class CtaUtils {
                 String icon = properties.get(CommonConstants.PN_ICON, String.class);
                 String linkType = properties.get(CommonConstants.PN_CTA_LINK_TYPE, String.class);
                 list.add(new CTAPojo(properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class), resourceResolver),
-                                properties.get(CommonConstants.PN_CTA_TARGET, String.class), linkType, getIcon(icon, linkType),
-                                getComputedAriaLabel(properties, header), properties.get(CommonConstants.PN_DESCRIPTION, String.class)));
+                        LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                resourceResolver),
+                        properties.get(CommonConstants.PN_CTA_TARGET, String.class), linkType, getIcon(icon, linkType),
+                        getComputedAriaLabel(properties, header),
+                        properties.get(CommonConstants.PN_DESCRIPTION, String.class)));
             }
         }
         return list;
@@ -53,8 +61,10 @@ public class CtaUtils {
     /**
      * Gets the computed aria label.
      *
-     * @param properties the properties
-     * @param header the header
+     * @param properties
+     *            the properties
+     * @param header
+     *            the header
      * @return the computed aria label
      */
     private static String getComputedAriaLabel(ValueMap properties, String header) {
@@ -67,17 +77,15 @@ public class CtaUtils {
     /**
      * Gets the aria label.
      *
-     * @param header the header
-     * @param text the text
+     * @param header
+     *            the header
+     * @param text
+     *            the text
      * @return the aria label
      */
     public static String getAriaLabel(String header, String text) {
         if (null != header) {
-            Pattern removeTags = Pattern.compile("<.+?>");
-
-            Matcher m = removeTags.matcher(header);
-            String updatedHeader = m.replaceAll("");
-            updatedHeader = updatedHeader.replaceAll("(\\n|\\r)", "");
+            String updatedHeader = Jsoup.clean(header, Whitelist.none());
             if (StringUtils.isEmpty(text)) {
                 return updatedHeader;
             }
@@ -90,8 +98,10 @@ public class CtaUtils {
     /**
      * Gets the icon.
      *
-     * @param icon the icon
-     * @param linkType the link type
+     * @param icon
+     *            the icon
+     * @param linkType
+     *            the link type
      * @return the icon
      */
     public static String getIcon(String icon, String linkType) {

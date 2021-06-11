@@ -8,7 +8,7 @@
                   <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}" />
                 </picture>
 				<div data-sly-test="${model.assetType == 'video' && model.videoId && !model.videoPath}" class="videoCustom">
-                    <img>
+                    <img src="${model.posterImage}">
                      <!-- <iframe width="100%" height="100%" src="${model.videoId}" frameborder="0" allowfullscreen></iframe> -->
                 </div>
 				
@@ -23,11 +23,12 @@
                 <h2 class="summaryItemHeader heading headingH4 cmp-heroTitleBanner__header fontQuote">
                   <span class="headingWrapper">${model.headerCopy @context='html'}</span>
                 </h2>
-                <p>${model.copy @ context='html'}</p>
+                <div class="headingCopy">${model.copy @ context='html'}</div>
+               
 
 				<div data-sly-test="${model.price}" class="pricing">
                   <div class="firstPrice">
-                    <p>${model.priceConfigValue}</p>
+                    <p>From</p>
                   <p><strong>${model.price}</strong></p>
                   </div> 
                 </div>
@@ -44,7 +45,7 @@
 					</sly>
 				</div>
                 <div class="caveat">
-                  <p>${model.caveat @ context='html'}</p>
+                  ${model.caveat @ context='html'}
                  </div>
               
               </div>
@@ -56,7 +57,7 @@
 					<sly data-sly-test="${footer.header}">
 						<div class="emissionDe">
                             <label>${footer.header @ context='html'}</label>
-                            <p>${footer.copy  @ context='html'}</p>
+                            ${footer.copy  @ context='html'}
                         </div>
 					</sly>
 				</sly>

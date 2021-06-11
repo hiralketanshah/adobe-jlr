@@ -13,6 +13,9 @@ public class CommonConstants {
     /** The Constant FORWARD_SLASH. */
     public static final String FORWARD_SLASH = "/";
 
+    /** The Constant HYPHEN. */
+    public static final String HYPHEN = "-";
+
     /** The Constant PIPE_CHARACTER. */
     public static final String PIPE_CHARACTER = "|";
 
@@ -333,4 +336,12 @@ public class CommonConstants {
      * The constant JLR_LOCALE_PRICING.
      */
     public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
+
+    /**
+     * The constant NAMEPLATE_PATH.
+     */
+    public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
+
+    /** The Constant JLR_WORKFLOW_SUBSERVICE. */
+    public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
 }

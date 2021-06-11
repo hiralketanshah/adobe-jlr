@@ -1,25 +1,31 @@
 package com.jlr.core.replication.impl;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.resource.LoginException;
-import org.apache.sling.api.resource.ModifiableValueMap;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
+import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.dam.api.DamConstants;
+import com.day.cq.replication.*;
+import com.day.cq.wcm.api.NameConstants;
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.jackrabbit.api.security.principal.PrincipalManager;
+import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.sling.api.resource.*;
+import org.apache.sling.jcr.base.util.AccessControlUtil;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.day.cq.commons.jcr.JcrConstants;
-import com.day.cq.dam.api.DamConstants;
-import com.day.cq.replication.Preprocessor;
-import com.day.cq.replication.ReplicationAction;
-import com.day.cq.replication.ReplicationActionType;
-import com.day.cq.replication.ReplicationException;
-import com.day.cq.replication.ReplicationOptions;
-import com.day.cq.wcm.api.NameConstants;
-import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.utils.CommonUtils;
+
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.security.Principal;
+
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
+import static com.jlr.core.constants.WorkflowConstants.UNLOCK;
+import static com.jlr.core.utils.WorkflowUtils.*;
 
 /**
  * The Class JLRReplicationPreProcessor.
@@ -33,7 +39,7 @@ public class JLRReplicationPreProcessor implements Preprocessor {
     private static final Logger LOGGER = LoggerFactory.getLogger(JLRReplicationPreProcessor.class);
 
     /** The Constant RESOURCE_UNAPPROVED_MESSAGE. */
-    private static final String RESOURCE_UNAPPROVED_MESSAGE = "Page/Asset is not approved or scheduled deployment time not met!";
+    private static final String RESOURCE_UNAPPROVED_MESSAGE = "Page/Asset is not approved or scheduled deployment time not met or Page/Asset has been modified after workflow creation!";
 
     /** The resource resolver factory. */
     @Reference
@@ -45,27 +51,22 @@ public class JLRReplicationPreProcessor implements Preprocessor {
      */
     @Override
     public void preprocess(final ReplicationAction replicationAction, final ReplicationOptions replicationOptions) throws ReplicationException {
-
         LOGGER.debug("Path of Resource being replicated is {}", replicationAction.getPath());
         LOGGER.debug("ReplicationAction is {}", replicationAction.getType());
-
         String actionPath = replicationAction.getPath();
-
-        if (replicationAction == null || !ReplicationActionType.ACTIVATE.equals(replicationAction.getType())
-                        || !StringUtils.contains(actionPath, CommonConstants.JLR_CONTENT_PATH)
-                        || !StringUtils.contains(actionPath, CommonConstants.JLR_DAM_PATH) || !StringUtils.contains(actionPath, CommonConstants.JLR_XF_PATH)) {
-            LOGGER.trace("Path of Resource being replicated is {}", actionPath);
-            return;
-        }
-
         ResourceResolver resourceResolver = null;
-
         try {
-            resourceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, CommonConstants.WF_PROCESS_SUBSERVICE);
+            resourceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, CommonConstants.JLR_WORKFLOW_SUBSERVICE);
+
+            if (replicationAction == null || !ReplicationActionType.ACTIVATE.equals(replicationAction.getType())
+                    || !(StringUtils.contains(actionPath, CommonConstants.JLR_CONTENT_PATH) || StringUtils.contains(actionPath, CommonConstants.JLR_DAM_PATH) || StringUtils.contains(actionPath, CommonConstants.JLR_XF_PATH)) || isAdministrator(resourceResolver, replicationAction)) {
+                LOGGER.trace("Path of Resource being replicated is {}", actionPath);
+                return;
+            }
             final Resource resource = resourceResolver.getResource(actionPath);
             if (resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(NameConstants.NT_PAGE)
                             || resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(DamConstants.NT_DAM_ASSET)) {
-                if (isResourceApproved(resource)) {
+                if (isResourceApproved(resource, resourceResolver)) {
                     LOGGER.trace("Resource with path {} is approved", resource.getPath());
                     return;
                 } else {
@@ -83,8 +84,20 @@ public class JLRReplicationPreProcessor implements Preprocessor {
             }
         }
 
+    }
 
-
+    private boolean isAdministrator(ResourceResolver resourceResolver, ReplicationAction replicationAction) {
+        boolean authorable = false;
+        try {
+            final UserManager userManager = AccessControlUtil.getUserManager(resourceResolver.adaptTo(Session.class));
+            final PrincipalManager principalManager = AccessControlUtil.getPrincipalManager(resourceResolver.adaptTo(Session.class));
+            Principal principal = principalManager.getPrincipal(replicationAction.getUserId());
+            authorable = CommonUtils.isUserPartOfGroup(principal, userManager, "administrators");
+        } catch (RepositoryException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                    ErrorUtilsConstants.MODULE_SERVICE, JLRReplicationPreProcessor.class.getName(), e));
+        }
+        return authorable;
     }
 
 
@@ -92,13 +105,25 @@ public class JLRReplicationPreProcessor implements Preprocessor {
      * Checks if is resource approved.
      *
      * @param resource the resource
+     * @param resourceResolver
      * @return the boolean
      */
-    private Boolean isResourceApproved(Resource resource) {
-        // TODO : Check if the approved flag is present in page properties and if the replication time is greater than the scheduled replication time property
-        return true;
-
-
+    private Boolean isResourceApproved(Resource resource, ResourceResolver resourceResolver) {
+        if(isValidResourceForReplication(resource)) {
+            Page page = resource.adaptTo(Page.class);
+            if(page != null) {
+                lockUnlockPage(page, UNLOCK);
+                removeMetadata(page, resourceResolver);
+                saveChanges(resourceResolver);
+                return true;
+            } else {
+                Resource asset = resource.getChild(JCR_CONTENT);
+                removeProperties(asset);
+                saveChanges(resourceResolver);
+                return true;
+            }
+        }
+        return false;
     }
 
 }

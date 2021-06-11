@@ -134,12 +134,21 @@
 <link href="https://www.landroverzambia.com/" hreflang="en-zm" rel="alternate" />
 <link href="https://www.landrover.co.zw/" hreflang="en-zw" rel="alternate" />
 
+<sly data-sly-test.scheme="${request.scheme}"/>
+<sly data-sly-test.servername="${request.serverName}"/>
+<sly data-sly-test.serverport="${request.serverPort}"/>
+<sly data-sly-test.uri="${request.requestURI}"/>
 
-<link rel="canonical" href="${properties.ogUrl}"/>
+<sly data-sly-test.ogUrl="${properties.ogUrl}">
+	<link rel="canonical" href="${properties.ogUrl}"/>
+</sly>
+<sly data-sly-test="${!ogUrl}">
+	<link rel="canonical" href="${scheme}://${servername}:${serverport}${uri}"/>
+</sly>
 
 <meta data-sly-test.keywords="${properties.keywords}" name="keywords" content="${keywords}"/>
-<meta data-sly-test.title="${properties['jcr:title']}" name="title" content="${title}"/>
-<meta data-sly-test.description="${properties['jcr:description']}" name="description" content="${description}"/>
+<meta data-sly-test.title="${additionalPage.metaTitle ? additionalPage.metaTitle : currentPage.pageTitle}" name="title" content="${title}"/>
+<meta data-sly-test.description="${additionalPage.metaDescription ? additionalPage.metaDescription : properties['jcr:description']}" name="description" content="${description}"/>
 
 <!-- Search Crawler controls --> 
 <sly data-sly-test="${properties.noIndex}">
@@ -157,21 +166,20 @@ ${additionalPage.schema @ context='scriptRegExp'}
 
 
 <sly data-sly-test="${properties.enableImageSchema =='true'}">
-<script type="application/ld+json">
-${additionalPage.imageSchema @ context='scriptRegExp'} 
-</script>
+  <sly data-sly-list.imgSchema="${additionalPage.imageSchema}">
+    <script type="application/ld+json">
+       ${imgSchema @ context='scriptRegExp'} 
+   </script>
+  </sly>
 </sly>
 
-<sly data-sly-test.scheme="${request.scheme}"/>
-<sly data-sly-test.servername="${request.serverName}"/>
-<sly data-sly-test.serverport="${request.serverPort}"/>
-<sly data-sly-test.uri="${request.requestURI}"/>
+
 
 <!-- Last Modified -->
 <meta data-sly-test.lastModified="${properties['cq:lastModified'] ? properties['cq:lastModified'] : properties['cq:lastPublished']  }" content="${ 'dd-MM-yyyy' @ format=lastModified}" name="last-modified" />
 
 <!-- Open Graph Details -->
-<meta data-sly-test.ogTitle="${properties.ogTitle ? properties.ogTitle : properties['jcr:title']}" property="og:title" content="${ogTitle}"/>
+<meta data-sly-test.ogTitle="${properties.ogTitle ? properties.ogTitle : (currentPage.pageTitle ? currentPage.pageTitle : properties['jcr:title'])}" property="og:title" content="${ogTitle}"/>
 <meta data-sly-test.ogType="${properties.ogType ? properties.ogType :'website'}"  property="og:type" content="${ogType}"/>
 <meta data-sly-test.ogUrl="${properties.ogUrl}" property="og:url" content="${ogURL}"/>
 <meta data-sly-test="${!properties.ogUrl}" property="og:url" content="${scheme}://${servername}:${serverport}${uri}"></meta>
@@ -179,8 +187,9 @@ ${additionalPage.imageSchema @ context='scriptRegExp'}
 <meta data-sly-test.ogImageUrl="${properties.ogImageUrl}" property="og:image" content="${ogImageUrl}"	/>
 <meta data-sly-test.siteName="${properties.siteName ? properties.siteName :'landrover'}"  property="og:site_name" content="${siteName}"/>
 
+
 <!-- Twitter Card Details -->
-<meta data-sly-test.twitterTitle="${properties.twitterTitle ? properties.twitterTitle : properties['jcr:title']}" property="twitter:title" content="${twitterTitle}"/>
+<meta data-sly-test.twitterTitle="${properties.twitterTitle ? properties.twitterTitle : (currentPage.pageTitle ? currentPage.pageTitle : properties['jcr:title'])}" property="twitter:title" content="${twitterTitle}"/>
 <meta data-sly-test.twitterDescription="${properties.twitterDescription ? properties.twitterDescription : properties.jcr:description}" property="twitter:description" content="${twitterDescription}"/>	
 <meta data-sly-test.twitterCard="${properties.twitterCard ? properties.twitterCard :'summary_large_image'}"  property="twitter:card" content="${twitterCard}"/>
 
