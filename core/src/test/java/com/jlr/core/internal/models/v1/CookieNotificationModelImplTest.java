@@ -56,9 +56,7 @@ class CookieNotificationModelImplTest extends GlobalModelImplTest {
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_cta_text", item.getText());
-           // assertEquals("/content/jlr/au", item.getLink());
             assertEquals("test_aria_label", item.getAriaLabel());
-          //  assertEquals("primary", item.getLinkType());
         });
     }
 }
