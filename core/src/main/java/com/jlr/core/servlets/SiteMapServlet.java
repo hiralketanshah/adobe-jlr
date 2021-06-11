@@ -44,6 +44,8 @@ import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 import com.jlr.core.constants.CommonConstants;
 
+import static com.day.cq.wcm.api.NameConstants.NN_TEMPLATE;
+
 @Component(service = Servlet.class,
                 property = {Constants.SERVICE_DESCRIPTION + "= Page and Asset Site Map Servlet", "sling.servlet.methods=" + HttpConstants.METHOD_GET,
                                 "sling.servlet.extensions=xml", "sling.servlet.selectors=sitemap",
@@ -58,7 +60,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
      */
 
     @Reference
-    private SlingSettingsService slingSettingsService;
+    private transient SlingSettingsService slingSettingsService;
 
     private static final long serialVersionUID = 7980112322505823554L;
 
@@ -289,7 +291,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         boolean flag = false;
         if (this.excludedPageTemplates != null) {
             for (String pageTemplate : this.excludedPageTemplates) {
-                flag = flag || page.getProperties().get("cq:template", StringUtils.EMPTY).equalsIgnoreCase(pageTemplate);
+                flag = flag || page.getProperties().get(NN_TEMPLATE, StringUtils.EMPTY).equalsIgnoreCase(pageTemplate);
             }
         }
         return flag;
