@@ -5,6 +5,7 @@ import com.day.cq.dam.api.DamConstants;
 import com.day.cq.replication.*;
 import com.day.cq.wcm.api.NameConstants;
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.config.ReplicationAccessConfig;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.utils.CommonUtils;
@@ -14,8 +15,10 @@ import org.apache.jackrabbit.api.security.principal.PrincipalManager;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.resource.*;
 import org.apache.sling.jcr.base.util.AccessControlUtil;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +37,7 @@ import static com.jlr.core.utils.WorkflowUtils.*;
  * @author Adobe
  */
 @Component(immediate = true)
+@Designate(ocd = ReplicationAccessConfig.class)
 public class JLRReplicationPreProcessor implements Preprocessor {
     
     /** The Constant LOGGER. */
@@ -41,6 +45,21 @@ public class JLRReplicationPreProcessor implements Preprocessor {
 
     /** The Constant RESOURCE_UNAPPROVED_MESSAGE. */
     private static final String RESOURCE_UNAPPROVED_MESSAGE = "Page/Asset is not approved or scheduled deployment time not met or Page/Asset has been modified after workflow creation!";
+
+    /** The config. */
+    private ReplicationAccessConfig config;
+
+    /**
+     * Activate.
+     *
+     * @param config the config
+     */
+    @Activate
+    public void activate(ReplicationAccessConfig config) {
+        if (null != config) {
+            this.config = config;
+        }
+    }
 
     /** The resource resolver factory. */
     @Reference
@@ -93,7 +112,7 @@ public class JLRReplicationPreProcessor implements Preprocessor {
             final UserManager userManager = AccessControlUtil.getUserManager(resourceResolver.adaptTo(Session.class));
             final PrincipalManager principalManager = AccessControlUtil.getPrincipalManager(resourceResolver.adaptTo(Session.class));
             Principal principal = principalManager.getPrincipal(replicationAction.getUserId());
-            authorable = CommonUtils.isUserPartOfGroup(principal, userManager, "administrators");
+            authorable = CommonUtils.isUserPartOfGroup(principal, userManager, config.getGroupName());
         } catch (RepositoryException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_SERVICE, JLRReplicationPreProcessor.class.getName(), e));

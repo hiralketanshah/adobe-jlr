@@ -140,11 +140,18 @@ public class WorkflowUtils {
             if(isInitiallyApproved(valueMap)) {
                 String activateNowLater = valueMap.get(ACTIVATE_NOW_LATER, String.class);
                 if(ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
-                    return true;
-                } else if(ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)){
-                    if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
+                    if(embargoLiftDate == null) {
                         return true;
-                    } else if(embargoLiftDate != null && (embargoLiftDate.equals(new Date()) || embargoLiftDate.before(new Date()))) {
+                    } else if(embargoLiftDate.equals(new Date()) || embargoLiftDate.before(new Date())) {
+                        return true;
+                    }
+                } else if(ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)){
+                    if(embargoLiftDate == null) {
+                        if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
+                            return true;
+                        }
+                    } else if( contentPublishingDate != null
+                            && (embargoLiftDate.equals(contentPublishingDate) || embargoLiftDate.before(contentPublishingDate))) {
                         return true;
                     }
                 }
