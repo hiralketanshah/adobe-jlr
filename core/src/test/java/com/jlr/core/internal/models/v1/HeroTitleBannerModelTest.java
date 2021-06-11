@@ -1,32 +1,34 @@
 package com.jlr.core.internal.models.v1;
 
-import com.day.cq.commons.inherit.InheritanceValueMap;
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.services.TcoService;
-import io.wcm.testing.mock.aem.junit5.AemContext;
-import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.lenient;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.services.TcoService;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.lenient;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class HeroTitleBannerModelTest.
  *
  * @author Adobe
  */
-@ExtendWith({AemContextExtension.class, MockitoExtension.class})
+@ExtendWith(AemContextExtension.class)
 class HeroTitleBannerModelTest extends GlobalModelImplTest {
 
     /** The hero title banner model. */
@@ -41,6 +43,7 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
 
     @Mock
     private TcoService tcoService;
+
     /**
      * Sets the up.
      *
@@ -49,12 +52,14 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setup(AemContext context) {
+        MockitoAnnotations.initMocks(this);
         context.registerService(TcoService.class, tcoService);
         context.registerService(InheritanceValueMap.class, pageProperties);
         context.registerService(Page.class, currentPage);
 
         Map<String, String> priceMap = new HashMap<>();
-        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage, pageProperties, "12345", "test")).thenReturn(priceMap);
+        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage,
+                pageProperties, "12345", "test")).thenReturn(priceMap);
 
         context.request().setAttribute("key", "test");
         context.addModelsForClasses(HeroTitleBannerImpl.class);

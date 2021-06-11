@@ -1,0 +1,56 @@
+{
+    "previousPageLink": "/content/landrover/global/test",
+    "exitPageLink": "/content/landrover/global/exitpage",
+    "mainHeaderCopy": "Main Header Copy",
+    "galleryList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "assetType":"video",
+      "copy":"<p>Range Rover Sport Autobiography with Dynamic Pack in Firenze Red.</p>",
+      "fileReference":"/content/dam/landrover/australia/en/exterior/l551_21my_063_glhdp07desktop/L551_21MY_063_GLHD_p07_Desktop/L551_21MY_063_GLHD_p07_0021.jpg",
+      "headerCopy":"<p>RANGE ROVER SPORT</p>",
+      "icon":"icon-arrow-right",
+      "link":"www.google.com",
+      "linkType":"primary",
+      "isDecorative": "false",
+      "posterImage":"/content/dam/landrover/zdenek-machacek-hxXtAZXqGWs-unsplash.jpg",
+      "target":"_self",
+      "text":"TEST CTA ONE",
+      "videoId":"V1CZan9Tb34"
+    },
+      "item1":{
+      "jcr:primaryType":"nt:unstructured",
+      "assetType":"video",
+      "copy":"<p>Range Rover Sport Autobiography with Dynamic Pack in Firenze Red.</p>",
+      "fileReference":"/content/dam/landrover/australia/en/exterior/l551_21my_063_glhdp07desktop/L551_21MY_063_GLHD_p07_Desktop/L551_21MY_063_GLHD_p07_0021.jpg",
+      "headerCopy":"<p>RANGE ROVER SPORT</p>",
+      "icon":"icon-arrow-right",
+      "link":"www.google.com",
+      "linkType":"primary",
+      "isDecorative": "false",
+      "posterImage":"/content/dam/landrover/zdenek-machacek-hxXtAZXqGWs-unsplash.jpg",
+      "target":"_self",
+      "text":"TEST CTA ONE",
+      "videoId":"V1CZan9Tb34"
+    },
+      "item2":{
+      "jcr:primaryType":"nt:unstructured",
+      "assetType":"video",
+      "copy":"<p>Range Rover Sport Autobiography with Dynamic Pack in Firenze Red.</p>",
+      "fileReference":"/content/dam/landrover/australia/en/exterior/l551_21my_063_glhdp07desktop/L551_21MY_063_GLHD_p07_Desktop/L551_21MY_063_GLHD_p07_0021.jpg",
+      "headerCopy":"<p>RANGE ROVER SPORT</p>",
+      "icon":"icon-arrow-right",
+      "link":"www.google.com",
+      "linkType":"primary",
+      "isDecorative": "false",
+      "posterImage":"/content/dam/landrover/zdenek-machacek-hxXtAZXqGWs-unsplash.jpg",
+      "target":"_self",
+      "text":"TEST CTA ONE",
+      "videoId":"V1CZan9Tb34"
+    }
+
+  },
+    "date": "2021-02-25T14:41:24.047+05:30",
+    "jcr:primaryType": "nt:unstructured"
+}
