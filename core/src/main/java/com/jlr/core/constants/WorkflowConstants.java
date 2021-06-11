@@ -31,10 +31,6 @@ public class WorkflowConstants {
      */
     public static final String APPROVE = "approve";
     /**
-     * The constant JCR_CONTENT.
-     */
-    public static final String JCR_CONTENT = "jcr:content";
-    /**
      * The constant CONTENT_ACTIVATION_PROCESS.
      */
     public static final String CONTENT_ACTIVATION_PROCESS = "ContentActivationProcess";
@@ -50,10 +46,6 @@ public class WorkflowConstants {
      * The constant YYYY_MM_DD_T_HH_MM_SS.
      */
     public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
-    /**
-     * The constant JCR_PATH.
-     */
-    public static final String JCR_PATH = "JCR_PATH";
     /**
      * The constant CONTENT_ACTIVATION_SCHEDULED_ON.
      */
@@ -115,10 +107,6 @@ public class WorkflowConstants {
      */
     public static final String GLOBAL_APPROVERS = "global-approvers";
     /**
-     * The constant ADMIN.
-     */
-    public static final String ADMIN = "admin";
-    /**
      * The constant DEU.
      */
     public static final String DEU = "deu/";
@@ -142,14 +130,6 @@ public class WorkflowConstants {
      * The constant APPROVED_DATE.
      */
     public static final String APPROVED_DATE = "approvedDate";
-    /**
-     * The constant CQ_LAST_MODIFIED.
-     */
-    public static final String CQ_LAST_MODIFIED = "cq:lastModified";
-    /**
-     * The constant JCR_LAST_MODIFIED.
-     */
-    public static final String JCR_LAST_MODIFIED = "jcr:lastModified";
     /**
      * The constant WORKFLOW_UTILS.
      */

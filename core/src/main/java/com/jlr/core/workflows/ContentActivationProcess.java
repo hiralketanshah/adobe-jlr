@@ -30,6 +30,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
 import static com.jlr.core.constants.WorkflowConstants.*;
 import static com.jlr.core.utils.WorkflowUtils.*;
@@ -65,7 +66,7 @@ public class ContentActivationProcess implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(contentPath);
             if(resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                ValueMap valueMap = resource.getChild(WorkflowConstants.JCR_CONTENT).getValueMap();
+                ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
                 String approvalStatus = valueMap.get(WorkflowConstants.APPROVAL_STATUS, String.class);
                 if(WorkflowConstants.APPROVE.equalsIgnoreCase(approvalStatus)) {
                     String activateNowLater = valueMap.get(WorkflowConstants.ACTIVATE_NOW_LATER, String.class);
@@ -83,8 +84,7 @@ public class ContentActivationProcess implements WorkflowProcess {
                     if(page != null) {
                         removeMetadata(page, resourceResolver);
                     } else {
-                        ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
-                        removeProperties(properties);
+                        removeProperties(resource.getChild(JCR_CONTENT));
                     }
                     saveChanges(resourceResolver);
                 }
@@ -111,7 +111,7 @@ public class ContentActivationProcess implements WorkflowProcess {
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
             final WorkflowModel workflowModel = workflowSession.getModel(model);
-            final WorkflowData workflowData = workflowSession.newWorkflowData(JCR_PATH, contentPath);
+            final WorkflowData workflowData = workflowSession.newWorkflowData(TYPE_JCR_PATH, contentPath);
             workflowData.getMetaDataMap().put(ABSOLUTE_TIME, date.getTime());
             workflowData.getMetaDataMap().put(WORKFLOW_TITLE, CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowSession.startWorkflow(workflowModel, workflowData);

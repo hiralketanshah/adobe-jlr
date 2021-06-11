@@ -103,12 +103,12 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
 
     @Override
     public List<String> getEngineNames() {
-        return engineNames;
+        return new ArrayList<>(engineNames);
     }
 
     @Override
     public List<DerivativeEnginePojo> getEngineDataList() {
-        return engineDataList;
+        return new ArrayList<>(engineDataList);
     }
 
     @Override
@@ -131,7 +131,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
         if (null != ctaList && ctaList.hasChildren()) {
             list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
-        return list;
+        return new ArrayList<>(list);
     }
 
     @Override
