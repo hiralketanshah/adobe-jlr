@@ -893,3 +893,7 @@ padding-bottom: 0%;
     left: 35%;
   }
 }
+.cmp-hero .video.customControl{
+	position: absolute;
+	left: 0;
+}
