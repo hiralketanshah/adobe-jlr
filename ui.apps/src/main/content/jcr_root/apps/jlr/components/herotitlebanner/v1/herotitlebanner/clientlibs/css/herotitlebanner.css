@@ -837,3 +837,7 @@ p {
 		line-height: 14px;
 	}
 }
+.cmp-heroTitleBanner .video.customControl{
+	position: absolute;
+	left: 0;
+}
