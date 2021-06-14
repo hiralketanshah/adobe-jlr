@@ -841,3 +841,7 @@ p {
 	position: absolute;
 	left: 0;
 }
+.cmp-heroTitleBanner .videoCustom{
+	position: unset;
+	padding-bottom: 0%;
+}
