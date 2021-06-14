@@ -957,3 +957,14 @@
 .offerBody p{
   color: #4A4F54;
 }
+/* css fix for #877 */
+
+.cmp-offersContainer .offer .linkContainer .primaryLinkContainer a.primaryLinkWithStyle{
+  margin-top: 24px;
+}
+
+.slateblue .offerBody p{
+  color: #ffffff;
+ }
+
+/* ends */
