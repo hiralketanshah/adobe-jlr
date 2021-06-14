@@ -1,13 +1,18 @@
 package com.jlr.core.internal.models.v1;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
@@ -22,7 +27,7 @@ import com.jlr.core.utils.LinkUtils;
 /**
  * The Class GalleryListModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {
         GalleryListModel.class }, resourceType = GalleryListModelImpl.RESOURCE_TYPE)
 public class GalleryListModelImpl extends GlobalModelImpl implements GalleryListModel {
 
@@ -30,6 +35,10 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      * The Constant RESOURCE_TYPE.
      */
     public static final String RESOURCE_TYPE = "jlr/components/gallery/v1/gallerylist";
+
+    /** The request. */
+    @Inject
+    private SlingHttpServletRequest request;
 
     /** The resource resolver. */
     @Inject
@@ -65,6 +74,20 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
         return LinkUtils.appendLinkExtension(previousPageLink, resourceResolver);
     }
 
+    int startSlide;
+
+    @PostConstruct
+    public void init() {
+        String selector = request.getRequestPathInfo().getSelectorString();
+        if(StringUtils.isNotEmpty(selector) && !selector.startsWith("-")) {
+            try {
+                startSlide = Integer.parseInt(selector) - 1;
+            } catch(NumberFormatException nfex) {
+                startSlide = -1;
+            }
+        }
+    }
+
     /**
      * Gets the exit page link.
      *
@@ -72,6 +95,20 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getExitPageLink() {
+        String referer = request.getHeader("referer");
+        if(StringUtils.isNotEmpty(referer)) {
+            String refererDomain = "";
+            try {
+                URL url = new URL(referer);
+                refererDomain = url.getHost();
+            } catch(MalformedURLException muex) {
+                refererDomain = "";
+            }
+            String domain = request.getServerName();
+            if(refererDomain.equals(domain)) {
+                return referer;
+            }
+        }
         return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
@@ -94,28 +131,42 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     public List<GalleryItem> getGalleryList() {
         if (null != galleryList && galleryList.hasChildren()) {
             Iterator<Resource> childResources = galleryList.listChildren();
-            while (childResources.hasNext()) {
+            if (childResources.hasNext()) {
                 Resource child = childResources.next();
-                ValueMap properties = child.adaptTo(ValueMap.class);
-                if (null != properties) {
-                    listOfGalleryItems.add(new GalleryItem(properties.get(CommonConstants.PN_TITLE, String.class),
-                            properties.get(CommonConstants.PN_DESCRIPTION, String.class),
-                            properties.get(CommonConstants.PN_ASSET_TYPE, String.class),
-                            properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
-                            properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
-                            properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
-                            properties.get(CommonConstants.PN_VIDEO_ID, String.class),
-                            properties.get(CommonConstants.PN_POSTER_IMAGE, String.class),
-                            properties.get(CommonConstants.PN_CTA_TEXT, String.class),
-                            LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
-                                    resourceResolver),
-                            properties.get(CommonConstants.PN_ICON, String.class),
-                            properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class),
-                            properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
-                }
+                Iterator<Resource> galleryListChildResources = child.listChildren();
+                while (galleryListChildResources.hasNext()) {
+                    Resource galleryListChild = galleryListChildResources.next();
+                    ValueMap properties = galleryListChild.adaptTo(ValueMap.class);
+                    if (null != properties) {
+                        listOfGalleryItems.add(new GalleryItem(properties.get(CommonConstants.PN_TITLE, String.class),
+                                properties.get(CommonConstants.PN_DESCRIPTION, String.class),
+                                properties.get(CommonConstants.PN_ASSET_TYPE, String.class),
+                                properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
+                                properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
+                                properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
+                                properties.get(CommonConstants.PN_VIDEO_ID, String.class),
+                                properties.get(CommonConstants.PN_POSTER_IMAGE, String.class),
+                                properties.get(CommonConstants.PN_CTA_TEXT, String.class),
+                                LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
+                                        resourceResolver),
+                                properties.get(CommonConstants.PN_ICON, String.class),
+                                properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class),
+                                properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+                    }
 
+                }
             }
+
         }
         return listOfGalleryItems;
+    }
+
+    /**
+     * Gets the number of slide to start.
+     *
+     * @return the slide number
+     */
+    public int getStartSlide() {
+        return startSlide;
     }
 }

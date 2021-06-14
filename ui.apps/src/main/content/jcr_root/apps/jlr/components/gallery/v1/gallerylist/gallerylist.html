@@ -30,7 +30,7 @@
               <div class="Gallery__wrapper" id="full-width-slider">
                 <sly data-sly-list.gallery="${model.galleryList}">
                   <!-- class for theme added below with galleryItem -->
-                  <div data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false"
+                  <div data-show="${model.startSlide == galleryList.index ? true : false }" data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false"
                     data-swiper-thumbnail="${gallery.fileReference}">
                     <picture data-sly-test="${gallery.fileReference}"
                       class="Picture Picture--background Gallery__background-image" data-orientation="landscape">
@@ -51,7 +51,7 @@
                       </span>
                     </div>
                   </div>
-                  <div data-sly-test="${gallery.assetType == 'video'}"
+                  <div data-show="${model.startSlide == galleryList.index ? true : false }" data-sly-test="${gallery.assetType == 'video'}"
                     class="${gallery.posterImage}abc YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth swiper-slide swiper-slide-active"
                     data-only-item="false" data-swiper-thumbnail="${gallery.posterImage}"
                     style="width: 1707px; margin-right: 15px;">
