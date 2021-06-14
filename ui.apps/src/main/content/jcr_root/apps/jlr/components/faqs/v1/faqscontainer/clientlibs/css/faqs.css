@@ -345,3 +345,13 @@
 }
 
 /*----------762---------------*/
+
+/* --------890------ */
+
+.cmp-faqmodel__list__content__caveat p a{
+    font-size: 10px;
+    text-align: left;
+    letter-spacing: 2.5px;
+    line-height: 12.5px;
+}
+/* --------890------ */
