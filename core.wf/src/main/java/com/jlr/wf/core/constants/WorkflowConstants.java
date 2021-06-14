@@ -1,4 +1,4 @@
-package com.jlr.core.constants;
+package com.jlr.wf.core.constants;
 
 
 /**
@@ -29,7 +29,7 @@ public class WorkflowConstants {
     /**
      * The constant APPROVE.
      */
-    public static final String APPROVE = "approve";
+    public static final String APPROVE = "Approved";
     /**
      * The constant CONTENT_ACTIVATION_PROCESS.
      */
@@ -41,7 +41,7 @@ public class WorkflowConstants {
     /**
      * The constant VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION.
      */
-    public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/scheduled_activation";
+    public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/jlr_scheduled_page_assetactivation";
     /**
      * The constant YYYY_MM_DD_T_HH_MM_SS.
      */
@@ -142,4 +142,14 @@ public class WorkflowConstants {
      * The constant WORKFLOW_TITLE.
      */
     public static final String WORKFLOW_TITLE = "workflowTitle";
+    /** The Constant JLR_WORKFLOW_SUBSERVICE. */
+    public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
+    /** The Constant JLR_CONTENT_PATH. */
+    public static final String JLR_CONTENT_PATH = "/content/landrover/";
+
+    /** The Constant JLR_DAM_PATH. */
+    public static final String JLR_DAM_PATH = "/content/dam/landrover/";
+
+    /** The Constant JLR_XF_PATH. */
+    public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
 }

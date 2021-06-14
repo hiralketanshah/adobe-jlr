@@ -1,4 +1,4 @@
-package com.jlr.core.workflows;
+package com.jlr.wf.core.workflows;
 
 import com.adobe.acs.commons.notifications.InboxNotificationSender;
 import com.adobe.granite.workflow.WorkflowException;
@@ -13,10 +13,9 @@ import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationException;
 import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.constants.WorkflowConstants;
-import com.jlr.core.utils.CommonUtils;
-import com.jlr.core.utils.ErrorUtils;
+import com.jlr.wf.core.constants.ErrorUtilsConstants;
+import com.jlr.wf.core.constants.WorkflowConstants;
+import com.jlr.wf.core.utils.ErrorUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Component;
@@ -31,9 +30,8 @@ import java.util.Date;
 import java.util.Map;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
-import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
-import static com.jlr.core.constants.WorkflowConstants.*;
-import static com.jlr.core.utils.WorkflowUtils.*;
+import static com.jlr.wf.core.constants.WorkflowConstants.*;
+import static com.jlr.wf.core.utils.WorkflowUtils.*;
 
 /**
  * The component that activates the selected content now or a later date.
@@ -60,7 +58,7 @@ public class ContentActivationProcess implements WorkflowProcess {
                         final MetaDataMap metaDataMap) throws WorkflowException {
         LOGGER.debug("Content Activation Process Started");
 
-        try (ResourceResolver resourceResolver = CommonUtils.getServiceResolver(resolverFactory, JLR_WORKFLOW_SUBSERVICE)) {
+        try (ResourceResolver resourceResolver = getServiceResolver(resolverFactory, JLR_WORKFLOW_SUBSERVICE)) {
 
             String contentPath = workItem.getContentPath();
             Resource resource = resourceResolver.getResource(contentPath);

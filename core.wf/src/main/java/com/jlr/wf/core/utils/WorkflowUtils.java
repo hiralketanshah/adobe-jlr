@@ -1,31 +1,35 @@
-package com.jlr.core.utils;
+package com.jlr.wf.core.utils;
 
 import com.adobe.acs.commons.notifications.InboxNotification;
 import com.adobe.acs.commons.notifications.InboxNotificationSender;
+import com.adobe.aem.formsndocuments.util.FMUtils;
 import com.adobe.granite.taskmanagement.TaskManagerException;
 import com.adobe.granite.workflow.exec.WorkItem;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.api.DamConstants;
 import com.day.cq.dam.commons.util.AssetReferenceSearch;
 import com.day.cq.wcm.api.Page;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.constants.WorkflowConstants;
+import com.jlr.wf.core.constants.ErrorUtilsConstants;
+import com.jlr.wf.core.constants.WorkflowConstants;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.resource.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.day.cq.wcm.api.NameConstants.*;
-import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
-import static com.jlr.core.constants.WorkflowConstants.*;
+import static com.jlr.wf.core.constants.WorkflowConstants.*;
 
 /**
  * The type Workflow utils.
@@ -83,29 +87,26 @@ public class WorkflowUtils {
         }
     }
 
+    /**
+     * Retrieves the service user resolver.
+     *
+     * @param resolverFactory - resource resolver factory.
+     * @param subServiceName - configured service user subservice name
+     * @return - service user resolver
+     */
+    public static ResourceResolver getServiceResolver(final ResourceResolverFactory resolverFactory, final String subServiceName) throws LoginException {
+        Map<String, Object> subServiceAuthInfo = Collections.singletonMap(ResourceResolverFactory.SUBSERVICE, (Object) subServiceName);
+        return resolverFactory.getServiceResourceResolver(subServiceAuthInfo);
+    }
+
     public static ResourceResolver getJlrWorkflowResolver(ResourceResolverFactory resolverFactory, String path) {
-        try (ResourceResolver resourceResolver = CommonUtils.getServiceResolver(resolverFactory, JLR_WORKFLOW_SUBSERVICE)) {
+        try (ResourceResolver resourceResolver = getServiceResolver(resolverFactory, JLR_WORKFLOW_SUBSERVICE)) {
            return resourceResolver;
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_WORKFLOW, WORKFLOW_UTILS, e));
         }
         return null;
-    }
-
-    public static void lockUnlockPage(Page page, String lockUnlockState) {
-        /*if(page != null) {
-            try{
-                if("lock".equals(lockUnlockState) && !page.isLocked()) {
-                    page.lock();
-                } else if("unlock".equals(lockUnlockState) && page.isLocked() && page.canUnlock()){
-                    page.unlock();
-                }
-            } catch (WCMException e) {
-                LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WCM_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                        ErrorUtilsConstants.MODULE_WORKFLOW, "WorkflowUtils", e));
-            }
-        } */
     }
 
     /**
@@ -155,11 +156,18 @@ public class WorkflowUtils {
             if(isInitiallyApproved(valueMap)) {
                 String activateNowLater = valueMap.get(ACTIVATE_NOW_LATER, String.class);
                 if(ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
-                    return true;
-                } else if(ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)){
-                    if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
+                    if(embargoLiftDate == null) {
                         return true;
-                    } else if(embargoLiftDate != null && (embargoLiftDate.equals(new Date()) || embargoLiftDate.before(new Date()))) {
+                    } else if(embargoLiftDate.equals(new Date()) || embargoLiftDate.before(new Date())) {
+                        return true;
+                    }
+                } else if(ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)){
+                    if(embargoLiftDate == null) {
+                        if(contentPublishingDate != null && (contentPublishingDate.equals(new Date()) || contentPublishingDate.before(new Date()))) {
+                            return true;
+                        }
+                    } else if( contentPublishingDate != null
+                            && (embargoLiftDate.equals(contentPublishingDate) || embargoLiftDate.before(contentPublishingDate))) {
                         return true;
                     }
                 }
@@ -293,6 +301,25 @@ public class WorkflowUtils {
         } else {
             properties.put(APPROVED_BY, StringUtils.EMPTY);
         }
+    }
+
+    /**
+     * Checks if is user part of group.
+     *
+     * @param user the user
+     * @param um the um
+     * @param group the group
+     * @return the boolean
+     */
+    public static Boolean isUserPartOfGroup(Principal user, UserManager um, String group) {
+        try {
+            return FMUtils.isUserPartOfGroup(user, um, group);
+        } catch (RepositoryException e) {
+
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
+                    ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, WorkflowUtils.class.getSimpleName(), e));
+        }
+        return false;
     }
 
 }

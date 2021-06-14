@@ -347,11 +347,22 @@ public class CommonConstants {
      */
     public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
 
-    /** The Constant JLR_WORKFLOW_SUBSERVICE. */
-    public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
-
     public static final String AU_EXTERNALIZER_DOMAIN = "publish-au";
     public static final String DE_EXTERNALIZER_DOMAIN = "publish-de";
     public static final String DEFAULT_EXTERNALIZER_DOMAIN = "publish";
 
+    /**
+     * The constant APPROVAL_STATUS.
+     */
+    public static final String APPROVAL_STATUS = "approvalStatus";
+
+    /**
+     * The constant APPROVED_DATE.
+     */
+    public static final String APPROVED_DATE = "approvedDate";
+
+    /**
+     * The constant YYYY_MM_DD_T_HH_MM_SS.
+     */
+    public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
 }

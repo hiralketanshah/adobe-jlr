@@ -69,6 +69,11 @@
                             <artifactId>jlr.core</artifactId>
                             <target>/apps/jlr-packages/application/install</target>
                         </embedded>
+						<embedded>
+                            <groupId>com.jlr</groupId>
+                            <artifactId>jlr.wf.core</artifactId>
+                            <target>/apps/jlr-packages/application/install</target>
+                        </embedded>
                         <embedded>
                             <groupId>com.jlr</groupId>
                             <artifactId>jlr.ui.content</artifactId>
