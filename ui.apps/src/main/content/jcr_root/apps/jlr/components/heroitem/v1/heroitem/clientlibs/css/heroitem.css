@@ -897,3 +897,7 @@ padding-bottom: 0%;
 	position: absolute;
 	left: 0;
 }
+.cmp-hero .videoCustom{
+  position: unset;
+  padding-bottom: 0%;
+}
