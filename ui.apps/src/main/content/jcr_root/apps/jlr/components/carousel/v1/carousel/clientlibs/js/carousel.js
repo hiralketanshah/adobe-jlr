@@ -12343,12 +12343,6 @@
   
       _onResize(event) {
         const that = event ? event.data.that : this;
-        if (this._total > 1) {
-        //   if($(window).width() >= 1280){
-        //     $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','0'); 
-        // }
-      }
-  
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
   
