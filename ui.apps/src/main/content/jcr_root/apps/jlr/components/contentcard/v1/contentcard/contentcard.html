@@ -37,10 +37,12 @@
                                                     <div class="mediaOverlayIcon"></div>
                                                 </div>
                                         </sly>
-                                            <picture data-sly-test="${content.fileReference || content.posterImage}" class="Picture">
-                                                <source data-dimensions="680x450" media="(min-width: 0px)" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}" />
-                                                <img alt="${content.isDecorative=='true' ? '': content.imageAlt}" class="Picture__img" data-dimensions="680x450" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}"/>
-                                            </picture>
+                                        <picture data-sly-test="${content.fileReference || content.posterImage}" class="Picture">
+                                            <source data-dimensions="680x450" media="(min-width: 0px)" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}"
+                                            />
+                                            <img alt="${content.isDecorative=='true' ? '': content.imageAlt}" class="Picture__img" data-dimensions="680x450" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}"
+                                            />
+                                        </picture>
                                         </a>
                                     </div>
                                     <div class="textContainer">
@@ -108,13 +110,5 @@
             </div>
         </div>
 
-    </div>
-</div>
-<div id="contentCardModal" class="contentCard_Modal">
-    <div class="contentCard_ModalContent">
-        <div class="contentCardModel_Header">
-            <span class="contentCardClose">&times;</span>
-        </div>
-        <iframe class="contentCardVideo" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
     </div>
 </div>

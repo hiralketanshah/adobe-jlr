@@ -1,3 +1,12 @@
+let contentCardYoutubeDom = `<div id="contentCardModal" class="contentCard_Modal">
+    <div class="contentCard_ModalContent">
+        <div class="contentCardModel_Header">
+            <span class="contentCardClose">&times;</span>
+        </div>
+        <iframe class="contentCardVideo" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>`;
+$(document.body).append(contentCardYoutubeDom);
 var modal = document.getElementById("contentCardModal");
 var closeBtn = document.getElementsByClassName("contentCardClose")[0];
 
