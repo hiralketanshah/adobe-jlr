@@ -11,12 +11,14 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.apache.commons.httpclient.HttpClient;
 import org.apache.jackrabbit.commons.JcrUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import com.day.cq.commons.jcr.JcrConstants;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
@@ -34,6 +36,13 @@ public class PricingUtils {
             }
         }
         return mapOfConfigFields;
+    }
+
+    public static HttpClient getHttpClient() {
+        HttpClient httpClient = new HttpClient();
+        httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+        httpClient.getHttpConnectionManager().getParams().setSoTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+        return httpClient;
     }
 
     public static List<String> formEndpointURLs(ResourceResolver resolver, Map<String, String> endpoints,
@@ -138,6 +147,10 @@ public class PricingUtils {
         }
 
         return false;
+    }
+
+    public static JsonObject getJsonObjectFromResponse(String response) {
+        return new Gson().fromJson(response, JsonObject.class);
     }
 
 }

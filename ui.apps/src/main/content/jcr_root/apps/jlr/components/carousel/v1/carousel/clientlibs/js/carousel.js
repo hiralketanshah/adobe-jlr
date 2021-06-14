@@ -11924,14 +11924,7 @@
             for(var i = 0; i<le; i++){
               if(conts[i].nodeType == 8) ifr = conts[i].textContent;
             }
-            var spanElement = $(ifr);
-            if(spanElement == undefined || spanElement == ""){
-              spanElement[0].allow = "autoplay";
-              spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&muted=1';
-            }
-           
-           
-            
+            var spanElement = $(ifr);   
             elm.addClass("player").html(spanElement);
            // elm.addClass("player").html(ifr);
             elm.off("click");
@@ -11947,10 +11940,8 @@
           }
           
           var spanElement = $(ifr);
-          if(spanElement == undefined || spanElement == ""){
-            spanElement[0].allow = "autoplay";
-            spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&muted=1';
-          }
+          spanElement[0].allow = "autoplay";
+          spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&mute=1';
           elm.addClass("player").html(spanElement);
           elm.off("click");
       });
