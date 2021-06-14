@@ -4,19 +4,19 @@
     data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-test="${wcmmode.disabled||wcmmode.preview}">
+    <sly data-sly-test="${!wcmmode.edit}">
         <sly data-sly-call="${clientlib.css @ categories='jlr.components.offers.preview.v1'}" />
     </sly>
 </sly>
 <div class="cmp-offersContainer fontSmooth">
-    <!-- Page Wrapper dummy for overlay -->
+   
     <div class="pageWrapper">
     </div>
-    <!-- end -->
-    <!--/* OFFER - odd - light theme */-->
+   
+   
     <div class="offer">
         <div class="offerMainFrame">
-            <!--/* Main offer image */-->
+         
             <div class="offerImage">
                 <picture class="Picture Picture--background cmp-offersContainer__picture">
                     <source data-dimensions="1600x696" media="(min-width: 1201px)"
@@ -29,7 +29,7 @@
                         srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                 </picture>
             </div>
-            <!--/* Block with offer description */-->
+           
             <div class="offerDescription">
                 <div class="offerHeading">
                     <h2 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h2>
@@ -61,11 +61,11 @@
                     </sly>
                 </div>
             </div>
-            <!--/* Wrapper for two finance boxes */-->
+           
             <div class="offerFinanceBoxes">
                 <sly data-sly-list.offers="${model.offerList}">
                     <sly data-sly-test="${offersList.index==0}">
-                        <!-- Leasing information -->
+                     
                         <div class="offerInfo offerInfoLease">
                             <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'} </div>
                             <p class="heading Offers__amount headingH1">
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </sly>
-                    <!--/* Loan information */-->
+                    
                     <sly data-sly-test="${offersList.index==1}">
                         <div class="offerInfo offerInfoApr">
                             <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</div>
@@ -131,8 +131,8 @@
                 </sly>
             </div>
         </div>
-        <!--/* .offerMainFrame */-->
+       
     </div>
-    <!--/* .offer */-->
+   
 
     <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
