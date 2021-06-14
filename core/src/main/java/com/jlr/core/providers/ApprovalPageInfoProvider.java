@@ -4,6 +4,7 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageInfoProvider;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.utils.ErrorUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
@@ -13,9 +14,11 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
-import static com.jlr.core.constants.CommonConstants.APPROVAL_STATUS;
-import static com.jlr.core.constants.CommonConstants.APPROVED_DATE;
+import static com.jlr.core.constants.CommonConstants.*;
 
 
 @Component(
@@ -42,9 +45,18 @@ public class ApprovalPageInfoProvider implements PageInfoProvider {
                     if (valueMap.containsKey(APPROVAL_STATUS)) {
                         try {
                             approvalInfoObj.put(APPROVAL_STATUS, valueMap.get(APPROVAL_STATUS, String.class));
-                            approvalInfoObj.put(APPROVED_DATE, valueMap.get(APPROVED_DATE, String.class));
+                            SimpleDateFormat parseFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
+                            String approvedDate = valueMap.get(APPROVED_DATE, String.class);
+                            if(StringUtils.isNotEmpty(approvedDate)) {
+                                String formatted = dateFormat.format(parseFormat.parse(approvedDate));
+                                approvalInfoObj.put(APPROVED_DATE, formatted);
+                            }
                         } catch (org.json.JSONException e) {
                             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                                    ErrorUtilsConstants.MODULE_SERVICE, "ApprovalPageInfoProvider", e));
+                        } catch (ParseException e) {
+                            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_PARSE_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                                     ErrorUtilsConstants.MODULE_SERVICE, "ApprovalPageInfoProvider", e));
                         }
                     }

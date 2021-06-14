@@ -360,4 +360,9 @@ public class CommonConstants {
      * The constant APPROVED_DATE.
      */
     public static final String APPROVED_DATE = "approvedDate";
+
+    /**
+     * The constant YYYY_MM_DD_T_HH_MM_SS.
+     */
+    public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
 }

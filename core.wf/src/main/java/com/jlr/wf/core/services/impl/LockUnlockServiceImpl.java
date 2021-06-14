@@ -17,6 +17,7 @@ import org.slf4j.LoggerFactory;
  * The type Lock unlock service.
  */
 @Component(service = LockUnlockService.class, immediate = true)
+@SuppressWarnings("deprecation")
 public class LockUnlockServiceImpl implements LockUnlockService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(LockUnlockService.class);

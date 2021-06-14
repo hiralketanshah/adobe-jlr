@@ -29,7 +29,7 @@ public class WorkflowConstants {
     /**
      * The constant APPROVE.
      */
-    public static final String APPROVE = "approve";
+    public static final String APPROVE = "Approved";
     /**
      * The constant CONTENT_ACTIVATION_PROCESS.
      */
