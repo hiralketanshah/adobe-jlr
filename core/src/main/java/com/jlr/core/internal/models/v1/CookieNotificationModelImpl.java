@@ -1,19 +1,18 @@
 package com.jlr.core.internal.models.v1;
 
 
-import com.jlr.core.models.CookieNotificationModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
+import java.util.ArrayList;
+import java.util.List;
+import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
-import javax.inject.Inject;
-import java.util.ArrayList;
-import java.util.List;
+import com.jlr.core.models.CookieNotificationModel;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.utils.CtaUtils;
 
 
 /**
@@ -30,16 +29,16 @@ public class CookieNotificationModelImpl extends GlobalModelImpl implements Cook
     @Inject
     private ResourceResolver resourceResolver;
 
-    @ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String header;
 
-    @ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String summary;
 
-    @ValueMapValue(injectionStrategy=InjectionStrategy.OPTIONAL)
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private Integer expiry;
 
-   /** The cta list. */
+    /** The cta list. */
     @Inject
     @Optional
     private Resource ctaList;
@@ -69,18 +68,24 @@ public class CookieNotificationModelImpl extends GlobalModelImpl implements Cook
 
     /**
      * Gets the cta list.
+     * 
      * @return the cta list
      */
+    @Override
     public List<CTAPojo> getCtaList() {
         if (null != ctaList && ctaList.hasChildren()) {
             list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
         return list;
     }
+
     /**
      * Gets the Expiry.
      *
      * @return the Expiry
      */
-    public Integer getExpiry() { return expiry ;}
+    @Override
+    public Integer getExpiry() {
+        return expiry;
+    }
 }

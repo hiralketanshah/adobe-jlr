@@ -90,6 +90,9 @@ public class CommonConstants {
     public static final String TEMPLATE_EMPTY = "empty-page-template";
     public static final String TEMPLATE_REDIRECT = "redirect-page-template";
 
+    public static final CharSequence AUS_MARKET_TAG = "/market/au";
+    public static final CharSequence DE_MARKET_TAG = "/market/de";
+
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
 
@@ -110,6 +113,8 @@ public class CommonConstants {
 
     /** The Constant THUMB_140_100_PNG. */
     public static final String THUMB_140_100_PNG = ".thumb.140.100.png";
+
+    public static final String PN_ENABLE_IMAGE_SCHEME = "enableImageSchema";
 
     /** The PROTOCOL Constant. */
     public static final String PREFIX_HTTPS = "https://";
@@ -344,4 +349,9 @@ public class CommonConstants {
 
     /** The Constant JLR_WORKFLOW_SUBSERVICE. */
     public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
+
+    public static final String AU_EXTERNALIZER_DOMAIN = "publish-au";
+    public static final String DE_EXTERNALIZER_DOMAIN = "publish-de";
+    public static final String DEFAULT_EXTERNALIZER_DOMAIN = "publish";
+
 }
