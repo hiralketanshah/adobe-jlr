@@ -37,7 +37,6 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -246,10 +245,7 @@ public class FetchPriceImpl implements FetchPrice {
         destinationPathBuilder.append(destinationPath);
         try {
             Session session = resolver.adaptTo(Session.class);
-            HttpClient httpClient = new HttpClient();
-            httpClient.getHttpConnectionManager().getParams()
-                    .setConnectionTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
-            httpClient.getHttpConnectionManager().getParams().setSoTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+            HttpClient httpClient = PricingUtils.getHttpClient();
             GetMethod method = new GetMethod(endpoint);
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 method.setRequestHeader(entry.getKey(), entry.getValue());
@@ -264,7 +260,7 @@ public class FetchPriceImpl implements FetchPrice {
                 LOGGER.debug("Completed fetched response from {}. {}", endpoint, new java.util.Date());
             }
 
-            JsonObject responseObject = new Gson().fromJson(response, JsonObject.class);
+            JsonObject responseObject = PricingUtils.getJsonObjectFromResponse(response);
             if (responseObject.has(PricingConstants.JLR_PRICING_JSON_FETAURE_DICTIONARY)) {
                 JsonObject featureDictionary = responseObject
                         .getAsJsonObject(PricingConstants.JLR_PRICING_JSON_FETAURE_DICTIONARY);
