@@ -673,12 +673,6 @@ html.no-js .cmp-carousel.cmp-dualframe-carousel .carousel .cmp-carousel__slide .
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-.cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--prev{
-    left: -50px;
-}
-.cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--next{
-    right: -50px;
-}
 /* .cmp-dualframe-carousel .cmp-carousel__slider{
   max-height: 428px !important;
 } */
@@ -1011,12 +1005,6 @@ order:1;
     }
     .cmp-carousel__controls{
         bottom: -35px;
-    }
-    .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--next {
-        right: -30px;
-    }
-    .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--prev {
-        left: -30px;
     }
     .cmp-dualFrameItem .cmp-genericItem__content p{
         width: 75%;
