@@ -1114,7 +1114,7 @@ order:1;
       line-height: 72px;
       width: 75px;
       height: 75px;
-      top: 35%;
+      top: 28%;
       left: 40%;
     }
     .cmp-dualFrameItem .cmp-dualFrameItem__header .headingWrapper p
@@ -1263,4 +1263,17 @@ order:1;
   cursor: grab;
   max-height: 100% !important;
   }
+}
+
+@media screen and (min-width: 500px) {
+  .cmp-dualframe-carousel .videoCustom:after{
+    top: 32%;
+    left: 44%;
+  }
+}
+@media screen and (min-width: 1280px) {
+.cmp-dualframe-carousel .videoCustom:after {
+  top: 36%;
+  left: 48%;
+}
 }
