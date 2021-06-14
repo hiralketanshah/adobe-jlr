@@ -44,7 +44,7 @@
                         <configuration>
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
-Export-Package: com.wf.jlr.core.utils.WorkflowUtils
+Export-Package: com.wf.jlr.core.*
                                 ]]>      
                                 </bnd>
                         </configuration>

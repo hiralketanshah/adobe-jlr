@@ -1,4 +1,4 @@
-package com.jlr.core.config;
+package com.jlr.wf.core.config;
 
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.AttributeType;

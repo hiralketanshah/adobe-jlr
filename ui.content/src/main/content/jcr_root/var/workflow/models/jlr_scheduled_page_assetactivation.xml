@@ -26,7 +26,7 @@
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
+                    PROCESS="com.jlr.wf.core.workflows.ContentUnlockProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
         </node1>
         <node2
@@ -44,7 +44,7 @@
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentLockProcess"
+                    PROCESS="com.jlr.wf.core.workflows.ContentLockProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
         </node3>
         <node4
@@ -65,7 +65,7 @@
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
+                    PROCESS="com.jlr.wf.core.workflows.ContentUnlockProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
         </node5>
         <node6

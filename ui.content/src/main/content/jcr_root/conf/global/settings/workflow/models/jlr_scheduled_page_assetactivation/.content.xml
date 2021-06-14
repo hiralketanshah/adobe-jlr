@@ -24,7 +24,7 @@
                     sling:resourceType="cq/workflow/components/model/process">
                 <metaData
                         jcr:primaryType="nt:unstructured"
-                        PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
+                        PROCESS="com.jlr.wf.core.workflows.ContentUnlockProcess"
                         PROCESS_AUTO_ADVANCE="true"/>
             </process>
             <process_1602450167
@@ -50,7 +50,7 @@
                     sling:resourceType="cq/workflow/components/model/process">
                 <metaData
                         jcr:primaryType="nt:unstructured"
-                        PROCESS="com.jlr.core.workflows.ContentLockProcess"
+                        PROCESS="com.jlr.wf.core.workflows.ContentLockProcess"
                         PROCESS_AUTO_ADVANCE="true"/>
             </process_885212920>
             <participant
@@ -75,7 +75,7 @@
                     sling:resourceType="cq/workflow/components/model/process">
                 <metaData
                         jcr:primaryType="nt:unstructured"
-                        PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
+                        PROCESS="com.jlr.wf.core.workflows.ContentUnlockProcess"
                         PROCESS_AUTO_ADVANCE="true"/>
             </process_copy>
             <process0

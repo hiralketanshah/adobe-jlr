@@ -1,4 +1,4 @@
-package com.jlr.core.constants;
+package com.jlr.wf.core.constants;
 
 
 /**
@@ -142,4 +142,14 @@ public class WorkflowConstants {
      * The constant WORKFLOW_TITLE.
      */
     public static final String WORKFLOW_TITLE = "workflowTitle";
+    /** The Constant JLR_WORKFLOW_SUBSERVICE. */
+    public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
+    /** The Constant JLR_CONTENT_PATH. */
+    public static final String JLR_CONTENT_PATH = "/content/landrover/";
+
+    /** The Constant JLR_DAM_PATH. */
+    public static final String JLR_DAM_PATH = "/content/dam/landrover/";
+
+    /** The Constant JLR_XF_PATH. */
+    public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
 }

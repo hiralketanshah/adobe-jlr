@@ -14,7 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
-import static com.jlr.core.constants.WorkflowConstants.*;
+import static com.jlr.core.constants.CommonConstants.APPROVAL_STATUS;
+import static com.jlr.core.constants.CommonConstants.APPROVED_DATE;
 
 
 @Component(
