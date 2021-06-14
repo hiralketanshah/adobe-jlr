@@ -11882,6 +11882,9 @@
         
         if (this._total > 1) {
           this._initGallery();
+          // if($(window).width() < 1279){
+          //   $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','78px');
+          // }
           
         } else {
           this._$currentSlide = this.$element;
@@ -12343,6 +12346,12 @@
   
       _onResize(event) {
         const that = event ? event.data.that : this;
+        if (this._total > 1) {
+        //   if($(window).width() >= 1280){
+        //     $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','0'); 
+        // }
+      }
+  
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
   
@@ -12597,43 +12606,41 @@
   const carousalElements = document.querySelectorAll('.cmp-carousel');
   if (carousalElements.length) {
     carousalElements.forEach((el)=>{
+      el.classList.add('cmp-accolades-carousel');
       let accolades = el.querySelector('.cmp-accolades');
-      if(accolades){
-        el.querySelectorAll('.cmp-accolades').forEach((el)=>{
+      el.querySelectorAll('.cmp-accolades').forEach((el)=>{
+        let onlyCopy = el.querySelector('.cmp-onlyCopy');
+        let handleOnlyCopy = ()=>{
           let onlyCopy = el.querySelector('.cmp-onlyCopy');
-          let handleOnlyCopy = ()=>{
-            let onlyCopy = el.querySelector('.cmp-onlyCopy');
-            onlyCopy.style.paddingRight="0px";
-            el.style.display ="block";
-            let img = el.querySelector('.cmp-accolades__img');
-            if(img){
-              img.style.display="none";
-            }
-            if(window.innerWidth>=1280){
-              el.style.paddingTop = "60px";
-              el.style.paddingBottom = "80px";
-            }
-           
-            if(window.innerWidth>=768 && window.innerWidth<=1279 ){
-              el.style.paddingTop = "40px";
-              el.style.paddingBottom = "60px";
-            }
-            if(window.innerWidth<=767){
-              el.style.paddingTop = "30px";
-              el.style.paddingBottom = "40px";
-            }
+          onlyCopy.style.paddingRight="0px";
+          el.style.display ="block";
+          let img = el.querySelector('.cmp-accolades__img');
+          if(img){
+            img.style.display="none";
           }
-          if(onlyCopy){
+          if(window.innerWidth>=1280){
+            el.style.paddingTop = "60px";
+            el.style.paddingBottom = "80px";
+          }
+         
+          if(window.innerWidth>=768 && window.innerWidth<=1279 ){
+            el.style.paddingTop = "40px";
+            el.style.paddingBottom = "60px";
+          }
+          if(window.innerWidth<=767){
+            el.style.paddingTop = "30px";
+            el.style.paddingBottom = "40px";
+          }
+        }
+        if(onlyCopy){
+          handleOnlyCopy();
+          $(el).resize(()=>{
             handleOnlyCopy();
-            $(el).resize(()=>{
-              handleOnlyCopy();
-            });
-        
-           
-          }
-        })
-      }
-   
+          });
+      
+         
+        }
+      })
       if(accolades){
         let controls = el.querySelector('.cmp-carousel__controls');
         controls.classList.add('cmp-accolades_pagination');
