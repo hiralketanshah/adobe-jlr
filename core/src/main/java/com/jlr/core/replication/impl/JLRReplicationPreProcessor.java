@@ -26,7 +26,7 @@ import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.security.Principal;
 
-import static com.jlr.core.constants.WorkflowConstants.JCR_CONTENT;
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.jlr.core.constants.WorkflowConstants.UNLOCK;
 import static com.jlr.core.utils.LockUnlockUtil.lockUnlockPage;
 import static com.jlr.core.utils.WorkflowUtils.*;
@@ -138,8 +138,7 @@ public class JLRReplicationPreProcessor implements Preprocessor {
                 return true;
             } else {
                 Resource asset = resource.getChild(JCR_CONTENT);
-                ModifiableValueMap properties = asset.adaptTo(ModifiableValueMap.class);
-                removeProperties(properties);
+                removeProperties(asset);
                 saveChanges(resourceResolver);
                 return true;
             }

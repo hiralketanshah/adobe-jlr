@@ -9,3 +9,9 @@
 .gallerycategories .GalleryCategories__category-title-inner {
     text-transform: uppercase;
 }
+/*-------------bug fix for 744-------------*/
+   
+   .GalleryCategories__category-title-inner p{ border-bottom:3px solid transparent;}
+   .GalleryCategories__category-title-inner p:hover{ border-bottom:3px solid #fff;}
+   
+   /*-------------bug fix for 744-------------*/

@@ -4650,5 +4650,13 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	}
 }
 
+/* -------------code fix for 856----------*/
+.primarynavigation .dxnav-unique-nav .dxnav__breadcrumb .dxnav-icon{
+	width:6px;
+    min-width:6px;
+}
+.dxnav-unique-nav .dxnav__breadcrumb-text{font-size:10px; line-height:13px; letter-spacing:1.7px;}
+
+/* -------------code fix for 856----------*/
 
 /*# sourceMappingURL=landrover.css.map*/

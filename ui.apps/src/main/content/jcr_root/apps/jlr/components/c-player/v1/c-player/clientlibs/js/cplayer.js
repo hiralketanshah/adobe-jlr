@@ -1,7 +1,7 @@
 (function() {
     var cplayers = document.getElementsByClassName("cmp-cplayer");
     if(cplayers.length>0){
-        var buildItem = localStorage.getItem("ConfiguratorPrompt_jlr");
+        var buildItem = localStorage.getItem("ConfiguratorPrompt_lr");
         if(buildItem){
         var items = JSON.parse(buildItem);
         for(var j = 0;j<=cplayers.length;j++){
@@ -25681,7 +25681,7 @@
             return;
         }
     
-        var brandKey = ConfiguratorPromptElements[0].getAttribute('data-brand') === 'jaguar' ? 'jag' : 'jlr';
+        var brandKey = ConfiguratorPromptElements[0].getAttribute('data-brand') === 'jaguar' ? 'jag' : 'lr';
         const datastore = new _CrossDomainCommunication_js_datastore__WEBPACK_IMPORTED_MODULE_3__.Datastore({
             localStorage,
             brandKey

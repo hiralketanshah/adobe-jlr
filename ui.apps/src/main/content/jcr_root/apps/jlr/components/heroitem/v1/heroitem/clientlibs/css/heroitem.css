@@ -216,6 +216,14 @@ label {
   text-align: left;
 }
 @media screen and (max-width: 767px) {
+  .cmp-hero .linkContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .cmp-hero .secondaryLinkContainer{
+    text-align: left;
+  }
+
   .cmp-hero{
     margin-bottom: 30px;
   }
@@ -439,8 +447,14 @@ label {
   .cmp-hero-carousel .linkContainer {
     padding-top: 0;
   }
+  .cmp-hero .linkContainer div:nth-of-type(1){
+		margin-top: 4px;
+	}
+	.cmp-hero .linkContainer div:nth-of-type(2) {
+		margin-top: 24px;
+	}
   .cmp-hero-carousel .primaryLinkContainer {
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
     height: 45px;
   }
   .cmp-hero-carousel .secondaryLinkContainer {
@@ -463,6 +477,13 @@ label {
 }
 
 @media screen and (min-width: 1280px) {
+  .cmp-hero .linkContainer{
+    display: flex;
+    flex-direction: column;
+  }
+  .cmp-hero .secondaryLinkWithStyle{
+    margin-top: 0px;
+  } 
   .cmp-hero .shelfComponent .headerClass{
     display: flex;
     flex-direction: row;
@@ -871,4 +892,8 @@ padding-bottom: 0%;
     top: 17%;
     left: 35%;
   }
+}
+.cmp-hero .video.customControl{
+	position: absolute;
+	left: 0;
 }

@@ -688,6 +688,22 @@
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item1>
+                                <item2
+                                    cq:styleGroupLabel="Padding"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="cmp-table--padSpace28"
+                                            cq:styleId="1623421611939"
+                                            cq:styleLabel="Pixel 28"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="cmp-table--padSpace18"
+                                            cq:styleId="1623421616145"
+                                            cq:styleLabel="Pixel 18"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item2>
                             </cq:styleGroups>
                         </policy_1617608375376>
                     </table>

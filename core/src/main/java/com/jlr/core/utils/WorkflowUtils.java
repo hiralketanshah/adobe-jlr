@@ -22,8 +22,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import static com.day.cq.wcm.api.NameConstants.PN_LAST_MOD_BY;
-import static com.day.cq.wcm.api.NameConstants.PN_PAGE_LAST_MOD_BY;
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
+import static com.day.cq.wcm.api.NameConstants.*;
 import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
 import static com.jlr.core.constants.WorkflowConstants.*;
 
@@ -102,9 +102,9 @@ public class WorkflowUtils {
     public static boolean isInitiallyApproved(ValueMap valueMap) {
             String approvalStatus =  valueMap.get(APPROVAL_STATUS, String.class);
             String date = valueMap.get(WorkflowConstants.APPROVED_DATE, String.class);
-            String lastModified = valueMap.get(WorkflowConstants.CQ_LAST_MODIFIED, String.class);
+            String lastModified = valueMap.get(PN_PAGE_LAST_MOD, String.class);
             if(StringUtils.isNotEmpty(lastModified)) {
-                lastModified = valueMap.get(WorkflowConstants.JCR_LAST_MODIFIED, String.class);
+                lastModified = valueMap.get(PN_LAST_MOD, String.class);
             }
         try {
             if(StringUtils.isNotEmpty(date)) {
@@ -184,8 +184,7 @@ public class WorkflowUtils {
 
     private static void removeMetadataFromPage(Page page) {
         if(page.getContentResource() != null) {
-            ModifiableValueMap properties = page.getContentResource().adaptTo(ModifiableValueMap.class);
-            removeProperties(properties);
+            removeProperties(page.getContentResource());
         }
     }
 
@@ -195,14 +194,13 @@ public class WorkflowUtils {
             assetMap.entrySet().stream().forEach(entry -> {
                 Asset asset = entry.getValue();
                 Resource resource = resourceResolver.getResource(asset.getPath());
-                ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
-                removeProperties(properties);
+                removeProperties(resource.getChild(JCR_CONTENT));
             });
         }
-
     }
 
-    public static void removeProperties(Map<String, Object> properties) {
+    public static void removeProperties(Resource resource) {
+        ModifiableValueMap properties = resource.adaptTo(ModifiableValueMap.class);
         if(MapUtils.isNotEmpty(properties)) {
             properties.remove(APPROVAL_STATUS);
             properties.remove(ACTIVATE_NOW_LATER);
@@ -243,11 +241,9 @@ public class WorkflowUtils {
             fetchAssetsOfPage(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, page, resourceResolver);
         }
         if(asset != null) {
-            ModifiableValueMap properties = asset.adaptTo(ModifiableValueMap.class);
-            addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, properties);
+            addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, asset);
         }
     }
-
 
     private static void fetchAssetsOfPage(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Page page, ResourceResolver resourceResolver) {
         Map<String, Asset> assetMap = getAssetMapOfPage(page, resourceResolver);
@@ -255,18 +251,19 @@ public class WorkflowUtils {
             assetMap.entrySet().stream().forEach(entry -> {
                 Asset asset = entry.getValue();
                 Resource resource = resourceResolver.getResource(asset.getPath());
-                ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
-                addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, properties);
+                addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, resource.getChild(JCR_CONTENT));
             });
         }
     }
 
     private static void addMetadataToPage(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Page page) {
-        ModifiableValueMap properties = page.getContentResource().adaptTo(ModifiableValueMap.class);
-        addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, properties);
+        if(page.getContentResource() != null) {
+            addProperties(approvalStatus, activateNowLater, contentPublishingDate, embargoLiftDate, page.getContentResource());
+        }
     }
 
-    private static void addProperties(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Map<String, Object> properties) {
+    private static void addProperties(String approvalStatus, String activateNowLater, String contentPublishingDate, String embargoLiftDate, Resource resource) {
+        ModifiableValueMap properties = resource.adaptTo(ModifiableValueMap.class);
         if(StringUtils.isNotEmpty(approvalStatus)) {
             properties.put(APPROVAL_STATUS, approvalStatus);
         }

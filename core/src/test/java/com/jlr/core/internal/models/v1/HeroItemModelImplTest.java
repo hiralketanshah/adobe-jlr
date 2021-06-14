@@ -7,32 +7,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.day.cq.commons.inherit.InheritanceValueMap;
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.services.TcoService;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import com.jlr.core.models.HeroItemModel;
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.services.TcoService;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import javax.inject.Inject;
 
 /**
  * The Class HeroCarouselModelImplTest.
  *
  * @author Adobe
  */
-@ExtendWith({AemContextExtension.class, MockitoExtension.class})
+@ExtendWith(AemContextExtension.class)
 class HeroItemModelImplTest extends GlobalModelImplTest {
 
     /** The hero item model. */
@@ -56,12 +52,14 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setup(AemContext context) {
+        MockitoAnnotations.initMocks(this);
         context.registerService(TcoService.class, tcoService);
         context.registerService(InheritanceValueMap.class, pageProperties);
         context.registerService(Page.class, currentPage);
 
         Map<String, String> priceMap = new HashMap<>();
-        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage, pageProperties, "12345", "test")).thenReturn(priceMap);
+        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage,
+                pageProperties, "12345", "test")).thenReturn(priceMap);
 
         context.request().setAttribute("key", "test");
         context.addModelsForClasses(HeroItemModelImpl.class);

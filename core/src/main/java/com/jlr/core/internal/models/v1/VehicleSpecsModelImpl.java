@@ -79,7 +79,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getBodyStyleHeader() {
-		return bodyStyleHeader;
+		return bodyStyleHeader.toUpperCase();
 	}
 
 	/**
@@ -89,7 +89,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getModelHeader() {
-		return modelHeader;
+		return modelHeader.toUpperCase();
 	}
 
 	/**
@@ -99,7 +99,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getEngineHeader() {
-		return engineHeader;
+		return engineHeader.toUpperCase();
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getSpecHeader() {
-		return specHeader;
+		return specHeader.toUpperCase();
 	}
 
 	/**

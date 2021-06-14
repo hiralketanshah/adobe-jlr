@@ -17,7 +17,7 @@
   data-sly-use.headResources="head.resources.html" data-sly-use.headGtmTags="gtmtags.html" data-sly-use.metadata="metadata.html"
   data-sly-use.dataLayer="head.datalayer.html">
   <meta charset="UTF-8">
-  <title>${page.title}</title>
+  <title>${currentPage.pageTitle}</title>
 
   <sly data-sly-call="${dataLayer.gtmTags @ page = page, additionalPage = additionalPage }"></sly>
   <sly data-sly-call="${headGtmTags.gtmTags @ additionalPage = additionalPage }"></sly>
