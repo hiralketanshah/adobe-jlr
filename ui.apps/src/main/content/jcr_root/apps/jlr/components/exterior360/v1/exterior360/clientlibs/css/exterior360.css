@@ -1075,9 +1075,7 @@
 		left: intial;
 		top: 247px;
 	}
-	.nocopy .shelfComponent {
-		display: none;
-	}
+	.nocopy .shelfComponent{ min-height:70px; margin-bottom:24px;}
 	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider--range,
 		.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider__custom-connect
 		{
