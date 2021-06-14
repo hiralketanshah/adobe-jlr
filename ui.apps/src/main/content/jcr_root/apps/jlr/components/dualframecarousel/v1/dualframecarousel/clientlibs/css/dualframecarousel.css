@@ -1008,7 +1008,6 @@ order:1;
         margin-top: 16px;
         padding: 0 !important;
         order: 2;
-        margin-bottom: 40px;
     }
     .cmp-carousel__controls{
         bottom: -35px;
@@ -1063,7 +1062,9 @@ order:1;
   }
 }
 @media screen and (max-width: 767px) {
-    
+  .cmp-dualFrameItem .cmp-genericItem__content{
+    margin-bottom: 0px;
+  }
     .cmp-carousel.cmp-dualframe-carousel {
         padding: 0px;
         padding-top: 25px;
@@ -1254,4 +1255,11 @@ order:1;
     .cmp-dualFrameItem .summaryItemContent h2{
       margin-bottom: 16px;
     }
+}
+@media screen and (max-width: 1279px) {
+  .cmp-carousel.cmp-dualframe-carousel .carousel,.cmp-carousel.cmp-dualframe-carousel {
+  min-height: 100% !important;
+  cursor: grab;
+  max-height: 100% !important;
+  }
 }
