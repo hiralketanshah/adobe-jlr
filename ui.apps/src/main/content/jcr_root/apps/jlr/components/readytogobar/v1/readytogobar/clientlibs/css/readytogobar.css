@@ -99,7 +99,9 @@ h2.cmp-readyToGoBar__heading.heading.fontH5.headingH5 {
 	transition: all .4s;
 	font-size:14px !important;
 	padding-top:9px;
-    font-family: "AvenirNext-Regular,Regular";
+    font-family: "AvenirNext-Regular";
+    font-weight: normal;
+    font-style: normal;
 }
 
 .cmp-readyToGoBar__copy p:first-child::first-letter {
