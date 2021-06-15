@@ -1,5 +1,11 @@
+.cmp-signPost .cmp-signPost__content-copy-wrapper p:first-child::first-letter{
+	text-transform:capitalize;
+}
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
+}
+.cmp-vehicleSummary .cmp-vehicleSummary__content p:first-child::first-letter {
+    text-transform:capitalize;
 }
 .cmp-vehicleSummary .cmp-signpostGridContext{
     display: none;
@@ -54,10 +60,10 @@
     transform: translate(0, -50%);
     padding-right: 40px;
 }
-.cmp-signPost.right .cmp-signPost__center{
+/* .cmp-signPost.right .cmp-signPost__center{
     padding-right: 40px;
     transform: translate(0px, -50%);
-}
+} */
 .cmp-signPost__content .fontH3 {
     margin-bottom: 0;
 }
@@ -83,7 +89,7 @@
     max-height: 366px;
 }
 .cmp-signPost__picture {
-    width: 650px;
+    width: 100%;
     height: 100%;
     position: absolute;
 }
@@ -195,14 +201,16 @@
 @media screen and (min-width: 768px) and (max-width: 900px) {
     .cmp-signPost {      
         padding: 30px;
-        min-height: 340px;
+        min-height: 250px;
     }
     .cmp-signPost__content{
-        padding-left: 28px;
-        width: 50%;
+        width: 52%;
+        height: 100%;
     }
     .cmp-signPost__image {       
-        width: 50%;       
+        width: 340px;
+    height: 191px;
+    min-height: 191px;       
     }
     .cmp-signPost__picture {
         width: 100%;
@@ -301,12 +309,7 @@
     }
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-    .cmp-signPost {      
-        padding: 60px 150px;
-        min-height: 530px;
-    }
-}
+
 .cmp-signPost .cmp-vehicleSummaryGridContext{
     display: none;
 }
@@ -379,13 +382,13 @@ height: 493px;
     order:1;
     width: 25%;
     flex-grow: 0;
-flex-shrink: 0;
-padding-right: 40px;
+    flex-shrink: 0;
+    padding-left: 0px;
 }
+
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
     margin-top: 3px;
-    text-transform:capitalize;
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
@@ -601,13 +604,16 @@ padding-right: 40px;
 
 #landrover .cmp-vehicleSummary .primaryLinkWithStyle,
 #landrover .cmp-signPost .primaryLinkWithStyle {
-    margin-top: 15px;
+    margin-top: 24px;
+    margin-bottom: 0;
     font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
 }
 
 #landrover .cmp-vehicleSummary .secondaryLinkWithStyle,
 #landrover .cmp-signPost .secondaryLinkWithStyle {
     margin-right: 10px;
+    margin-top: 23px;
+    margin-bottom: 0;
     display: inherit;
     font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
 }
@@ -622,7 +628,7 @@ padding-right: 40px;
     position: absolute;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture {
-        width: calc(100% - 40px);
+        width: 100%;
     }
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image{
     order:2;
@@ -635,10 +641,11 @@ padding-right: 40px;
         }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__content{
         order:2;
+        padding-right:0px;
+        padding-left: 40px;
     }
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image .Picture {
-        left: 40px;
-        width: calc(100% - 40px);
+        width: 100% ;
     }
     #landrover .cmp-vehicleSummary .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-theme="dark"] .primaryLinkWithStyle:focus, #landrover.focusStylesOn [data-contrast="dark"] .primaryLinkWithStyle:focus
     {
@@ -652,27 +659,65 @@ padding-right: 40px;
      text-shadow: none;
      box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
     }
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
-    .cmp-vehicleSummary {      
-        padding: 0px 90px 80px;
-    }
-    .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
-        min-height: 490px
-    }
-    .cmp-vehicleSummary .cmp-vehicleSummary__image{      
-        padding: 60px 0px 80px;
-    }
-    .cmp-vehicleSummary .cmp-vehicleSummary__content{      
-        padding: 51px 0px 80px;
-        padding-right: 40px;
-    }
-}
-@media screen and (min-width: 1921px) and (max-width: 2560px) {
+
+@media screen and (min-width: 1920px) and (max-width: 2560px) {
     .cmp-vehicleSummary {      
         padding: 60px 295px 80px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
+    }
+    .cmp-signPost{
+        max-height: 525px;
+        min-height: 525px;
+        padding: 80px 290px;
+    }
+    .cmp-signPost__content{
+        width: 50%;
+    }
+    .cmp-signPost__image{
+        max-height: 366px;
+        min-height: 366px;
+        width: 650px;
+    }
+    .cmp-signpostGridContext{
+        height: 100%;
+    }
+    .cmp-vehicleSummary .cmp-vehicleSummary__content{
+        width: 34%;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+    .cmp-vehicleSummary {
+        padding: 60px 60px 80px;
+        min-height: 570px;
+    }
+    .cmp-signPost {
+        min-height: 436px;
+      }
+    .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
+        min-height: 428px;
+    }
+    
+    .cmp-vehicleSummary .cmp-vehicleSummary__image{      
+        height: 428px;
+        width: 760px;
+    }
+    .cmp-vehicleSummary .cmp-vehicleSummary__content{    
+        padding-right: 40px;
+        width: 34%;
+    }
+    .cmp-signPost__image{
+        width: 560px;
+        height: 315px;
+        min-height: 315px;
+    }
+    .cmp-signPost__picture{
+        width: 100%;
+        height: 100%;
+    }
+    .cmp-signPost__content{
+        width: 50%;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 768px) {
@@ -691,12 +736,12 @@ padding-right: 40px;
         right: auto;
         overflow: hidden;
         padding-left: 0;
-        min-height: 150px;
+        min-height: 399px;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture,
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image .Picture {
         width: 100%;
-        height: auto;
+        height: 100%;
         left:0;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
@@ -733,3 +778,211 @@ padding-right: 40px;
         width: 100%;
     }
 }
+/*--------code fix for bug 566-----------*/
+
+.cmp-vehicleSummary .plwsLight:hover, .primaryLinkWithStyle:hover{background-color: #fff!important;
+    color: #0c121c!important;
+    box-shadow: 0 0 0 1px #0c121c inset!important;}
+.cmp-vehicleSummary .plwsLight:focus, .primaryLinkWithStyle:focus{background-color: #fff!important;
+    color: #0c121c!important;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2!important;}
+.cmp-vehicleSummary .secondaryLinkContainer,
+.cmp-signPost .secondaryLinkContainer{clear:both;}
+.cmp-vehicleSummary .price{color:#4A4F54!important;}
+ .cmp-vehicleSummary.grey p,  .cmp-vehicleSummary.light p,  .cmp-vehicleSummary.white p {
+    color: #4A4F54;
+}
+@media screen and (min-width: 1280px) and (max-width: 2560px){
+
+
+.cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px;}
+    .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px;}
+ .cmp-vehicleSummary .headingWrapper{
+	font-size:24px; 
+	line-height:24px;
+        color: #0C121C;
+    font-family: LandRoverWeb-Bold;
+            }
+
+.cmp-vehicleSummary .cmp-vehicleSummary__content p {
+    margin-top: 8px;
+    text-transform: capitalize;
+        line-height:19px;
+        letter-spacing:0.2px;
+}
+.cmp-vehicleSummary ul li:before {
+    content: '\2013';
+    position: absolute;
+    margin-left: -14px;
+}
+.cmp-vehicleSummary ul {
+    list-style-type: none;
+    padding-left: 1em;
+    line-height: 19px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;margin-top:5px}
+.cmp-vehicleSummary .primaryLinkWithStyle{    
+    /* margin-top:0!important;  */
+    line-height:14px;
+}
+.cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
+
+        }
+
+@media screen and (min-width: 1px) and (max-width: 1025px){
+    .cmp-vehicleSummary.left .cmp-vehicleSummary__content{padding-left:0!important;}
+    .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
+.cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
+    min-height: 426px;
+    display: block;
+}
+            .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
+        }
+
+@media screen and (min-width: 1401px){
+.cmp-vehicleSummary .summaryItemContent {
+    padding-top: 0px; 
+ }}
+  @media screen and (min-width: 768px) and (max-width: 1279px){
+
+ .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px; line-height:19px;}
+
+.cmp-vehicleSummary .cmp-vehicleSummary__image{width:100%;}
+
+ .cmp-vehicleSummary .headingWrapper{
+	font-size:21px; 
+	line-height:21px;
+    color: #0C121C;
+    font-family: LandRoverWeb-Bold;
+}
+  .cmp-vehicleSummary .cmp-vehicleSummary__content {
+    width: 100%;
+    margin-top: 24px!important;
+    padding: 0;
+}
+   .cmp-vehicleSummary ul {
+    list-style-type: none;
+    padding-left: 1em;
+    line-height: 19px;
+    margin-top: 24px!important;
+    margin-bottom: 24px!important;
+}
+.cmp-vehicleSummary .linkContainer{padding-top:0}
+.cmp-vehicleSummary .primaryLinkWithStyle { margin-bottom:0px!important;}
+
+}
+@media screen and (min-width: 320px) and (max-width: 767px){
+    .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
+.cmp-vehicleSummary .cmp-vehicleSummary__content {
+
+    margin-top: 16px;
+
+}
+ .cmp-vehicleSummary .headingWrapper{
+	font-size:20px; 
+	line-height:20px;
+    color: #0C121C;
+    font-family: LandRoverWeb-Bold;
+}
+        .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
+.cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
+.cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px;}
+.cmp-vehicleSummary ul{margin-top:12px; margin-bottom:24px;}
+.cmp-vehicleSummary .primaryLinkWithStyle { margin-bottom:0!important;}
+.cmp-vehicleSummary .linkContainer{padding-top:0;margin-top:0;}
+  }
+
+.cmp-vehicleSummary .cmp-vehicleSummary__secondaryLinks .secondaryLinkWithStyle:last-child {
+    margin-bottom: 0!important;
+}
+/*--------code fix for bug 566-----------*/
+
+  
+      /*------code fix for bug 584-----*/
+ .cmp-signPost.grey p, .cmp-signPost.light p,  .cmp-signPost.white p, .cmp-signPost p {
+    color: #4A4F54;
+}
+.cmp-signPost p a{
+    color: #4A4F54;
+}
+@media screen and (min-width: 1280px) and (max-width: 2560px){
+    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+	.cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+    .cmp-signPost .cmp-signPost__image{
+     width:50%;
+     height: auto;
+     min-height: 315px;
+
+   }
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+  .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
+.cmp-signPost .cmp-signPost__center{
+
+    top:0;
+    transform:none;
+
+    }
+ .cmp-signPost .cmp-signPost__picture {
+    width: 100%!important;
+    height: 100%;
+    margin-top:4px;
+}
+
+ .cmp-signPost .cmp-signPost__content .fontBodyCopy{
+	margin-top:16px;
+   }
+
+ .cmp-signPost  .cmp-signPost__content-copy-wrapper{
+margin-bottom:10px;
+  }
+ .cmp-signPost .linkContainer{padding-top:0px;}
+}
+
+ @media screen and (min-width: 768px) and (max-width: 1279px){
+    .cmp-signPost .cmp-signPost__center{
+
+    top:0;
+    transform:none;
+
+    }
+    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+    .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+.cmp-signPost .cmp-signPost__image{width:50%; height: auto;
+     min-height:240px;}
+ .cmp-signPost .cmp-signPost__picture {
+    width: 100%!important;
+    height: 100%;
+    margin-top:5px;
+}
+.cmp-signPost p{font-size:14px; line-height:19px; letter-spacing:0.2px;}
+.cmp-signPost .cmp-signPost__center{
+		top:0%;
+
+    }
+ .cmp-signPost .Picture--background .Picture__img{
+object-fit: unset;
+  }
+.cmp-signPost .cmp-signPost__content{width:50%;}
+.cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:16px;}
+.cmp-signPost .linkContainer{padding-top:0px;}
+ .cmp-signPost .primaryLinkWithStyle{margin-top:24px;}
+        }
+@media screen and (min-width: 300px) and (max-width: 766px){
+.cmp-signPost .headingWrapper{font-family:LandRoverWeb-Bold; font-size:20px; line-height:24px; letter-spacing:0.9px;}
+     .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
+    .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}
+.cmp-signPost .linkContainer {
+    margin-top: 0;
+}
+.cmp-signPost.left .cmp-signPost__center{padding-left:0;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:11px;}
+.cmp-signPost .fontBodyCopy{margin-top:0;}
+    }
+
+.cmp-signPost .Picture--background .Picture__img{
+object-fit: unset;
+  }
+  /*------code fix for bug 584----- new code*/
+

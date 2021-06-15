@@ -48,10 +48,18 @@
                                                 value="4"/>
                                         </items>
                                     </columnLayout>
+                                    <rte1heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Header Copy"/>
                                     <header
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
                                         path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                    <rte2heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Copy"/>
                                     <descriptionCopy
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -102,6 +110,18 @@
                                             jcr:primaryType="nt:unstructured"
                                             maxlimit="2"/>
                                     </ctaList>
+                                    <tabHeading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                        path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
+                                    <enableStacking
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        fieldDescription="Check to disable the swiping mode in mobile and enable data-blocks."
+                                        name="./enableStacking"
+                                        text="Disable Swiping / Enable Stacking in mobile"
+                                        uncheckedValue="swiping"
+                                        value="data-blocks"/>
                                 </items>
                             </column>
                         </items>
@@ -122,10 +142,18 @@
                                     sling:resourceType="granite/ui/components/coral/foundation/container"
                                     name="./contentCardList">
                                     <items jcr:primaryType="nt:unstructured">
+                                        <rte1heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Header Copy"/>
                                         <title
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                        <rte2heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Copy"/>
                                         <bodyCopy
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -145,6 +173,8 @@
                                         <assestType
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/foundation/form/select"
+                                            class="cq-dialog-dropdown-showhide"
+                                            cq-dialog-dropdown-showhide-target=".image-video-hide-show"
                                             fieldDescription="Select Content Type as Video or Image"
                                             fieldLabel="Choose Image or Video assest"
                                             name="./assestType">
@@ -159,31 +189,73 @@
                                                     value="video"/>
                                             </items>
                                         </assestType>
-                                        <imagePath
+                                        <image
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
-                                        <galleryLink
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            class="hide image-video-hide-show"
+                                            showhidetargetvalue="image">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <well
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <imagePathHeading
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                                            text="Image"/>
+                                                        <imagePath
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                                                        <decorative
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
+                                                        <imgAlt
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </image>
+                                        <video
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                            sling:resourceType="granite/ui/components/foundation/container"
+                                            class="hide image-video-hide-show"
+                                            showhidetargetvalue="video">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <well
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <videoId
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                                        <posterImage
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                            allowUpload="{Boolean}false"
+                                                            fieldDescription="Select an Image to be displayed as Youtube Poster Image."
+                                                            fieldLabel="Poster Image"
+                                                            fileReferenceParameter="./posterImage"
+                                                            mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                            multiple="{Boolean}false"
+                                                            name="./file"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </video>
                                         <target
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
-                                        <decorative
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
-                                        <imgAlt
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
                                         <ctaList
+                                            granite:class="horizontal-line"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
                                             composite="{Boolean}true"
-                                            granite:class="horizontal-line"
                                             fieldLabel="CTA List">
                                             <field
                                                 jcr:primaryType="nt:unstructured"
@@ -191,8 +263,8 @@
                                                 name="./ctaList">
                                                 <items jcr:primaryType="nt:unstructured">
                                                     <column
-                                                        jcr:primaryType="nt:unstructured"
                                                         granite:class="horizontal-line-dotted"
+                                                        jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/foundation/container">
                                                         <items jcr:primaryType="nt:unstructured">
                                                             <linkText

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Specs At a Glance"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        granite:class="cmp-contentfragmentlist__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <id
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                            <rte1heading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                text="Header *"/>
+                            <header
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                            <rte2heading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                text="Summary *"/>
+                            <summary
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                        </items>
+                    </properties>
+                    <dataitems
+                        granite:class="horizontal-line"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Data Items"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <dataItem
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Data Item"
+                                validation="minmax">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    fieldDescription="Minimum 3 and Maximum 4 Items are allowed"
+                                    name="./dataItems">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <rte1heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Data Label *"/>
+                                        <header
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                        <rte2heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Data Summary"/>
+                                        <summary
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                                        <prefix
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            fieldLabel="Data Prefix"
+                                            name="./prefix"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </prefix>
+                                        <value
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Data Value"
+                                            name="./value"
+                                            required="true"/>
+                                        <suffix
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            fieldLabel="Data Suffix"
+                                            name="./suffix"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </suffix>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    max-items="{Long}4"
+                                    maxlimit="4"
+                                    min-items="{Long}3"
+                                    specs-glance-component="true"/>
+                            </dataItem>
+                        </items>
+                    </dataitems>
+                    <cta
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="CTA"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <ctaList
+                                granite:class="horizontal-line"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldDescription="Maximum 1 CTAs are allowed"
+                                fieldLabel="CTA List">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./ctaList">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            granite:class="horizontal-line-dotted"
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <linkText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                <link
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                <target
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                <linkType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                                <icon
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                                <ariaLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="1"/>
+                            </ctaList>
+                        </items>
+                    </cta>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

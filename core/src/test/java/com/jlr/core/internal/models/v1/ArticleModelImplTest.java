@@ -17,6 +17,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * Simple JUnit test verifying the ArticleModelImpl.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class ArticleModelImplTest extends GlobalModelImplTest {

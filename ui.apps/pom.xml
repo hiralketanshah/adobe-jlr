@@ -135,13 +135,18 @@
             <artifactId>jlr.core</artifactId>
             <version>${project.version}</version>
         </dependency>
+		<dependency>
+            <groupId>com.jlr</groupId>
+            <artifactId>jlr.wf.core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
-        <dependency>
+        <!--<dependency>
             <groupId>com.jlr</groupId>
             <artifactId>jlr.ui.frontend</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>com.jlr</groupId>

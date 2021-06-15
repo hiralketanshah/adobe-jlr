@@ -1,31 +1,27 @@
 package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.inject.Inject;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.VerticalSliderModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
 
 
 /**
  * The Class VerticalSliderModelImpl.
+ *
+ * @author Adobe
  */
 @Model(adaptables = Resource.class, adapters = {VerticalSliderModel.class}, resourceType = VerticalSliderModelImpl.RESOURCE_TYPE)
 public class VerticalSliderModelImpl extends GlobalModelImpl implements VerticalSliderModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/verticalslider/v1/verticalslider";
-
-    /** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
 
     /** The pip Icon. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -39,13 +35,17 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private Boolean autopauseDisabled;
 
-    /** The cta list. */
+    /** The vertical slider. */
+    @Inject
+    private Resource verticalSlider;
+
+    /** The vertical slider list. */
     @Inject
     @Optional
-    private Resource ctaList;
+    private Resource verticalSliderList;
 
     /** The list. */
-    List<CTAPojo> list = new ArrayList<>();
+    List<VerticalSliderItem> verticalSliderItems = new ArrayList<>();
 
     /**
      * 
@@ -54,14 +54,24 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
      * @return the cta list
      */
     @Override
-    public List<CTAPojo> getCtaList() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
+    public List<VerticalSliderItem> getVerticalSliderItems() {
+        verticalSliderItems = new ArrayList<>();
+        if (null != verticalSliderList && verticalSliderList.hasChildren()) {
+            Iterator<Resource> iterator = verticalSliderList.getChildren().iterator();
+            while (iterator.hasNext()) {
+                Resource item = iterator.next();
+                VerticalSliderItem vsItem = item.adaptTo(VerticalSliderItem.class);
+                verticalSliderItems.add(vsItem);
+            }
         }
-        return list;
+        return verticalSliderItems;
     }
 
-
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getDelay()
+     */
     /*
      * Gets the delay between transitions
      * 
@@ -74,6 +84,11 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
 
 
     /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getAutopauseDisabled()
+     */
+    /*
      * Gets the autopause state
      * 
      * @return autopausedisabled state
@@ -85,14 +100,33 @@ public class VerticalSliderModelImpl extends GlobalModelImpl implements Vertical
 
 
     /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getPipIcon()
+     */
+    /*
      * Gets the icon type - Default to number
      * 
      * @return the icon type
      */
     @Override
-    public String getPipicon() {
+    public String getPipIcon() {
         return pipIcon;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.VerticalSliderModel#getName()
+     */
+    /*
+     * Gets slider resource Node name
+     * 
+     * @return the resource name
+     */
+    @Override
+    public String getName() {
+        return verticalSlider.getName();
+    }
 
 }

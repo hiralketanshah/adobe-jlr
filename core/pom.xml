@@ -175,9 +175,18 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.models.api</artifactId>
         </dependency>
+        <!-- JSOUP API -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+        </dependency>
 
 
         <!-- Testing -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -229,5 +238,11 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
             <artifactId>acs-aem-commons-bundle</artifactId>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.3.1</version>
+		    <scope>test</scope>
+		</dependency>
     </dependencies>
 </project>

@@ -1,29 +1,49 @@
 package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.lenient;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.ContentCardListModel;
-import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.services.TcoService;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class ContentCardModelTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class ContentCardModelTest extends GlobalModelImplTest {
 
     /** The content card model. */
-    private ContentCardModel contentCardModel;
+    @InjectMocks
+    private ContentCardImpl contentCardModel;
+
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private InheritanceValueMap pageProperties;
+
+    @Mock
+    private TcoService tcoService;
 
     /**
      * Sets the up.
@@ -33,9 +53,21 @@ class ContentCardModelTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setup(AemContext context) {
+        MockitoAnnotations.initMocks(this);
+        context.registerService(TcoService.class, tcoService);
+        context.registerService(InheritanceValueMap.class, pageProperties);
+        context.registerService(Page.class, currentPage);
+
+        Map<String, String> priceMap = new HashMap<>();
+        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage,
+                pageProperties, "12345", "test")).thenReturn(priceMap);
+
+        context.request().setAttribute("key", "test");
+        context.addModelsForClasses(ContentCardImpl.class);
         context.load().json("/content/jlr/contentcard/contentcard.json", "/content/jlr/contentcard.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/contentcard.html");
-        contentCardModel = resource.adaptTo(ContentCardImpl.class);
+        context.currentResource(resource);
+        contentCardModel = context.request().adaptTo(ContentCardImpl.class);
     }
 
     /**
@@ -48,7 +80,6 @@ class ContentCardModelTest extends GlobalModelImplTest {
         list.forEach(item -> {
             assertEquals("https://google.com", item.getImageLink());
             assertEquals("imageAlt", item.getImageAlt());
-            assertEquals("04-04-2021", item.getDate());
             assertEquals("$98.05", item.getPrice());
             assertEquals("headerCopy", item.getHeaderCopy());
             assertEquals("copy", item.getCopy());
@@ -56,33 +87,31 @@ class ContentCardModelTest extends GlobalModelImplTest {
             List<CTAPojo> cta = item.getCtaList();
             assertEquals(1, list.size());
             cta.forEach(item1 -> {
-            	assertEquals("text", item1.getText());
-            	assertEquals("https://google.com", item1.getLink());
-            	assertEquals("_blank", item1.getTarget());
-            	assertEquals("primary", item1.getLinkType());
+                assertEquals("text", item1.getText());
+                assertEquals("https://google.com", item1.getLink());
+                assertEquals("_blank", item1.getTarget());
+                assertEquals("primary", item1.getLinkType());
             });
         });
     }
-    
+
     /**
      * Test contentcontainer CTA.
      */
-    @Test
     void testContentcontainerCTA() {
         List<CTAPojo> list = contentCardModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
-        	assertEquals("text", item.getText());
-        	assertEquals("https://google.com", item.getLink());
-        	assertEquals("_blank", item.getTarget());
-        	assertEquals("primary", item.getLinkType());
+            assertEquals("text", item.getText());
+            assertEquals("https://google.com", item.getLink());
+            assertEquals("_blank", item.getTarget());
+            assertEquals("primary", item.getLinkType());
         });
-        }
+    }
 
     /**
      * Test column.
      */
-    @Test
     void testColumn() {
         assertEquals("2", contentCardModel.getColumn());
     }

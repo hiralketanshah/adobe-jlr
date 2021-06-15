@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Gallery Images"
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[jlr.authoring.dialog]">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="General"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <previousPageLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to Gallery Categories page"
+                                fieldLabel="Link to Gallery Categories page"
+                                name="./previousPageLink"
+                                rootPath="/content/landrover/global"/>
+                            <exitLink
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                fieldDescription="Link to page when gallery is closed"
+                                fieldLabel="Link to exit page"
+                                name="./exitPageLink"
+                                rootPath="/content/landrover/global"/>
+                            <headerCopy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                dfs-required="true"
+                                fieldDescription="The Header copy to be displayed."
+                                fieldLabel="Header Copy"
+                                name="./mainHeaderCopy"
+                                required="{Boolean}true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <misctools
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                            <chars jcr:primaryType="nt:unstructured">
+                                                <non-breaking-space
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;nbsp;"
+                                                    name="Non-breaking space"/>
+                                                <non-breaking-hyphen
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;#8209"
+                                                    name="Non-breaking hyphen"/>
+                                            </chars>
+                                        </specialCharsConfig>
+                                    </misctools>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                    </cui>
+                                </uiSettings>
+                            </headerCopy>
+                        </items>
+                    </properties>
+                    <categories
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Gallery Images"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <list
+                                granite:class="minmax"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel=""
+                                validation="minmax">
+                                <field
+                                    granite:class="horizontal-line"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                    name="./galleryList">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <imagevideo
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Image / Video"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                            margin="{Boolean}true">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <headerCopy
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                    dfs-required="true"
+                                                    fieldDescription="The Header copy to be displayed."
+                                                    fieldLabel="Header Copy"
+                                                    name="./headerCopy"
+                                                    useFixedInlineToolbar="{Boolean}true">
+                                                    <rtePlugins jcr:primaryType="nt:unstructured">
+                                                        <subsuperscript
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*"/>
+                                                        <misctools
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*">
+                                                            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                                <chars jcr:primaryType="nt:unstructured">
+                                                                    <non-breaking-space
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;nbsp;"
+                                                                        name="Non-breaking space"/>
+                                                                    <non-breaking-hyphen
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;#8209"
+                                                                        name="Non-breaking hyphen"/>
+                                                                </chars>
+                                                            </specialCharsConfig>
+                                                        </misctools>
+                                                    </rtePlugins>
+                                                    <uiSettings jcr:primaryType="nt:unstructured">
+                                                        <cui jcr:primaryType="nt:unstructured">
+                                                            <inline
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                            <dialogFullScreen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                        </cui>
+                                                    </uiSettings>
+                                                </headerCopy>
+                                                <infoCopy
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                    dfs-required="true"
+                                                    fieldDescription="The Image Description copy to be displayed."
+                                                    fieldLabel="Image Description"
+                                                    name="./copy"
+                                                    useFixedInlineToolbar="{Boolean}true">
+                                                    <rtePlugins jcr:primaryType="nt:unstructured">
+                                                        <subsuperscript
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*"/>
+                                                        <misctools
+                                                            jcr:primaryType="nt:unstructured"
+                                                            features="*">
+                                                            <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                                <chars jcr:primaryType="nt:unstructured">
+                                                                    <non-breaking-space
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;nbsp;"
+                                                                        name="Non-breaking space"/>
+                                                                    <non-breaking-hyphen
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        entity="&amp;#8209"
+                                                                        name="Non-breaking hyphen"/>
+                                                                </chars>
+                                                            </specialCharsConfig>
+                                                        </misctools>
+                                                    </rtePlugins>
+                                                    <uiSettings jcr:primaryType="nt:unstructured">
+                                                        <cui jcr:primaryType="nt:unstructured">
+                                                            <inline
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                            <dialogFullScreen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                        </cui>
+                                                    </uiSettings>
+                                                </infoCopy>
+                                                <assetType
+                                                    granite:class="cq-dialog-dropdown-showhide-multival"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldDescription="Select Content Type as Video or Image"
+                                                    fieldLabel="Choose Image or Video assest"
+                                                    name="./assetType">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <image
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Image"
+                                                            value="image"/>
+                                                        <video
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Video"
+                                                            value="video"/>
+                                                    </items>
+                                                    <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"/>
+                                                </assetType>
+                                                <image
+                                                    granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <well
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <imagePathHeading
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/text"
+                                                                    text="Image"/>
+                                                                <imagePath
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
+                                                                <imageAlt
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                                                <decorative
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/image/decorative"/>
+                                                            </items>
+                                                        </well>
+                                                    </items>
+                                                    <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="image"/>
+                                                </image>
+                                                <video
+                                                    granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <well
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <videoId
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/video/videoId"/>
+                                                                <posterImage
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                    path="/mnt/overlay/jlr/components/globalfields/video/posterImage"/>
+                                                            </items>
+                                                        </well>
+                                                    </items>
+                                                    <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        showhidetargetvalue="video"/>
+                                                </video>
+                                                <well
+                                                    granite:class="grey-border"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <heading
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                            level="{Long}4"
+                                                            text="CTA"/>
+                                                        <text
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                                        <link
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/link"/>
+                                                        <icon
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
+                                                        <linkType
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/linkType"/>
+                                                        <ariaLabel
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/ariaLabel"/>
+                                                        <target
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/cta/targetTab"/>
+                                                    </items>
+                                                </well>
+                                            </items>
+                                        </imagevideo>
+                                    </items>
+                                </field>
+                            </list>
+                        </items>
+                    </categories>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

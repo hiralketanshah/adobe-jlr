@@ -10,6 +10,8 @@ import com.jlr.core.pojos.CTAPojo;
 
 /**
  * The Interface ContentCardModel.
+ *
+ * @author Adobe
  */
 @ConsumerType
 public interface ContentCardModel {
@@ -33,11 +35,29 @@ public interface ContentCardModel {
     }
 
     /**
+     * Gets the enable stacking.
+     *
+     * @return the enable stacking
+     */
+    default String getEnableStacking() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
      * Gets the cta list.
      *
      * @return the cta list
      */
     default List<CTAPojo> getCtaList() {
-   	 return new ArrayList<>();
+        return new ArrayList<>();
+    }
+
+    /**
+     * Gets the price config value.
+     *
+     * @return the price config value
+     */
+    default String getPriceConfigValue() {
+        return StringUtils.EMPTY;
     }
 }

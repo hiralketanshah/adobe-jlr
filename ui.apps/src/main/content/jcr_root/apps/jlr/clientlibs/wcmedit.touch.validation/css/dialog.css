@@ -1,7 +1,14 @@
 .horizontal-line {
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid orange;
+    padding-bottom:10px;
 }
 .horizontal-line-dotted {
     padding-bottom : 5px;
     border-bottom: 2px dotted blue;
+}
+.grey-border {
+    border: 1px solid grey;
+}
+.pad-top {
+	padding-top:25px;
 }

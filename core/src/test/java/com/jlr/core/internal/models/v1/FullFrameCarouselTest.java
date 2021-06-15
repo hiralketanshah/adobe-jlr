@@ -2,18 +2,23 @@ package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import com.jlr.core.models.FullFrameCarouselModel;
+import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class FullFrameCarouselTest.
+ *
+ * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
 class FullFrameCarouselTest extends GlobalModelImplTest {
@@ -35,13 +40,20 @@ class FullFrameCarouselTest extends GlobalModelImplTest {
         fullFrameCarouselModel = resource.adaptTo(FullFrameCarouselImpl.class);
     }
 
-    /**
-     * Test properties.
+    /* (non-Javadoc)
+     * @see com.jlr.core.internal.models.v1.GlobalModelImplTest#testCtaProperties()
      */
+    @Override
     @Test
-    void testBackGroundImgProperty() {
-        assertEquals("/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
-                fullFrameCarouselModel.getBackgroundImage());
-    }
+    void testCtaProperties() {
+        List<CTAPojo> list = fullFrameCarouselModel.getCtaList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("test_cta_text", item.getText());
+            assertEquals("/content/jlr/au", item.getLink());
+            assertEquals("_self", item.getTarget());
+            assertEquals("primary", item.getLinkType());
+        });
 
+    }
 }

@@ -5,6 +5,8 @@ import org.osgi.annotation.versioning.ConsumerType;
 
 /**
  * The Interface AccoladeModel.
+ *
+ * @author Adobe
  */
 @ConsumerType
 public interface AccoladeModel {

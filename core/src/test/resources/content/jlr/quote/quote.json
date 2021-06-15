@@ -1,0 +1,12 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "quoteAuthorName":"name",
+  "quoteTitleName":"title",
+  "quote":"quote",
+  "sling:resourceType":"jlr/components/quote/v1/quote",
+  "textIsRich":[
+    "true",
+    "true",
+    "true"
+  ]
+}

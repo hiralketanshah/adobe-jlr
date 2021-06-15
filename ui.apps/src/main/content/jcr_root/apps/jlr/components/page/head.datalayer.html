@@ -1,0 +1,18 @@
+<template data-sly-template.gtmTags="${@ page, additionalPage}">
+
+
+<script data-sly-test.dataLayerEnabled="${page.data}">
+    window.jlrDataLayer = window.jlrDataLayer || [];
+    jlrDataLayer.push({
+      page: {
+        basic: JSON.parse("${page.data.json @ context='scriptString'}"),
+        advanced: JSON.parse("${additionalPage.PageData @ context='scriptString'}")
+      },
+      event: 'cmp:show',
+      eventInfo: {
+        path: 'page.${page.id @ context="scriptString"}'
+      }
+    });
+ </script>
+
+ </template>

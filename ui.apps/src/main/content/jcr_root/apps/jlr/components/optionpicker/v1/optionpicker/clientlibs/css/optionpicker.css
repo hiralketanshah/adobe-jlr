@@ -1,0 +1,852 @@
+.cmp_interactiveOptionPicker__theme .show-cta {
+	display:block;
+}
+.cmp_interactiveOptionPicker__theme .hide-cta {
+    display:none;
+}
+
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__cta .primaryLinkWithStyle:nth-child(1) {
+    margin-top: 0px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__secondary-cta {
+    display: flex;
+    margin-top: 12px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__secondary-cta .secondaryLinkWithStyle {
+    text-transform: uppercase;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container {
+    display: flex;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    flex-direction: column;
+}
+@media screen and (min-width: 740px) and (max-width: 899px) {
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container {
+        flex-direction: row;
+        margin-bottom: 32px;
+    }
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr,
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__disclaimer {
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #0c121c;
+}
+@media screen and (min-width: 741px) {
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
+        padding: 0 1rem 0 0;
+    }
+}
+@media screen and (min-width: 901px) {
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
+        padding: 0;
+    }
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__disclaimer {
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-group-slider {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-group-slider--without-scrollbar .cmp_interactiveOptionPicker__option-group {
+    padding-bottom: 8px;
+}
+@media screen and (min-width: 741px) {
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-group-slider {
+        margin-top: 26px;
+        margin-bottom: 30px;
+    }
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__content {
+    padding-top: 32px;
+}
+@media screen and (min-width: 741px) {
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__content {
+        padding: 38px 40px 40px;
+    }
+}
+@media screen and (min-width: 901px) {
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__content {
+        padding: 48px 40px 48px 90px;
+    }
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__header {
+    margin-bottom: 25px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__group-title {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-group {
+    padding-bottom: 24px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-card {
+    padding-bottom: 8px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-image {
+    margin-bottom: 8px;
+}
+@media screen and (min-width: 901px) {
+    .cmp_interactiveOptionPicker__theme[data-tab-alignment$="Right"] .cmp_interactiveOptionPicker__content {
+        padding: 48px 90px 48px 40px;
+    }
+}
+.cmp_interactiveOptionPicker {
+    /* background-color: #fff; */
+    display: flex;
+    flex-direction: column;
+}
+.cmp_interactiveOptionPicker__image-wrapper {
+    height: calc(100vw * 0.5625);
+    position: relative;
+}
+.cmp_interactiveOptionPicker__content {
+    padding: 28px 30px 40px;
+}
+.cmp_interactiveOptionPicker__bodyCopy {
+    max-width: 60%;
+    font-size: 18px;
+}
+.cmp_interactiveOptionPicker__image {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+.cmp_interactiveOptionPicker__image--duplicated {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.cmp_interactiveOptionPicker__image--fading {
+    z-index: 1;
+}
+.cmp_interactiveOptionPicker__header {
+    line-height: 1;
+    margin-bottom: 18px;
+    text-align: left;
+}
+.cmp_interactiveOptionPicker__option-group-slider {
+    margin-top: 35px;
+}
+.cmp_interactiveOptionPicker__option-group-slider--without-scrollbar .cmp_interactiveOptionPicker__option-group {
+    padding-bottom: 0;
+}
+.cmp_interactiveOptionPicker .cmp_interactiveOptionPicker__swiper-scrollbar {
+    left: 0;
+    width: 100%;
+    bottom: 0;
+    background-color: #f0f0f0;
+}
+.cmp_interactiveOptionPicker .cmp_interactiveOptionPicker__swiper-scrollbar--hidden {
+    visibility: hidden;
+}
+.cmp_interactiveOptionPicker .cmp_interactiveOptionPicker__swiper-scrollbar-drag {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.12);
+}
+.cmp_interactiveOptionPicker__swiper-wrapper {
+    cursor: grab;
+}
+.cmp_interactiveOptionPicker__swiper-wrapper:active {
+    cursor: grabbing;
+}
+.cmp_interactiveOptionPicker__option-group {
+    transition: padding 0.2s;
+    box-sizing: content-box;
+    padding-bottom: 34px;
+}
+.cmp_interactiveOptionPicker__option-group:last-child {
+    border-width: 0;
+}
+.cmp_interactiveOptionPicker__group-title {
+    transition: padding 0.5s;
+    position: relative;
+    color: #444;
+    font-family: "avenir", "arial", "helvetica", sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 1.6px;
+    font-weight: 600;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid transparent;
+}
+.cmp_interactiveOptionPicker__group-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 5px);
+    height: 1px;
+    background: #d8d8d8;
+}
+.cmp_interactiveOptionPicker__group-title--sticky {
+    width: 100%;
+    padding-bottom: 12px !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.cmp_interactiveOptionPicker__option-card {
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 108px;
+    padding: 8px 8px 20px;
+    float: left;
+    border: 1px solid transparent;
+    position: relative;
+}
+.cmp_interactiveOptionPicker__option-card--active {
+    border-color: #d8d8d8;
+}
+.cmp_interactiveOptionPicker__option-card--active .cmp_interactiveOptionPicker__radio-button {
+    background: #005a2b;
+}
+.cmp_interactiveOptionPicker__option-card--active .icon-tick {
+    display: block;
+}
+.cmp_interactiveOptionPicker__option-card:last-child {
+    margin-right: 0;
+}
+.cmp_interactiveOptionPicker--wheels .cmp_interactiveOptionPicker__option-card,
+.cmp_interactiveOptionPicker--wheels .cmp_interactiveOptionPicker__option-card--active {
+    border: 0;
+    background-color: transparent;
+}
+.cmp_interactiveOptionPicker__option-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus {
+    box-shadow: none;
+}
+body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
+    box-shadow: inset 0 0 5px #4a90e2, 0 0 5px #4a90e2;
+}
+.cmp_interactiveOptionPicker__option-image {
+    max-width: 100%;
+    border-radius: 0 10px 10px 10px;
+    margin-bottom: 6px;
+}
+.cmp_interactiveOptionPicker__price {
+    border: 1px solid #d8d8d8;
+    border-width: 1px 0;
+    margin-top: 10px;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+.cmp_interactiveOptionPicker__radio-button {
+    height: 19px;
+    width: 19px;
+    background: #fff;
+    border: 1px solid #005a2b;
+    border-radius: 50px;
+    margin-left: auto;
+}
+.cmp_interactiveOptionPicker__radio-button .icon-tick {
+    display: none;
+}
+.cmp_interactiveOptionPicker__radio-button .icon-tick:before {
+    top: 0;
+    left: 1px;
+    color: #fff;
+    padding: 2px;
+    position: relative;
+    margin: 0;
+    font-size: 1.1rem;
+}
+.cmp_interactiveOptionPicker .primaryLinkWithStyle {
+    margin-top: 40px;
+}
+.cmp_interactiveOptionPicker__secondary-cta {
+    display: none;
+}
+.cmp_interactiveOptionPicker__otr-disclaimer-container {
+    display: none;
+}
+@media screen and (min-width: 1px) and (max-width: 900px) {
+    .cmp_interactiveOptionPicker .swiper-container {
+        overflow: hidden;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 !important;
+    }
+}
+@media screen and (min-width: 741px) {
+    .cmp_interactiveOptionPicker__swiper-wrapper,
+    .cmp_interactiveOptionPicker__swiper-scrollbar {
+        padding: 0 !important;
+    }
+    .cmp_interactiveOptionPicker__content {
+        padding: 40px 40px 48px;
+    }
+}
+@media screen and (min-width: 901px) {
+    .cmp_interactiveOptionPicker {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .cmp_interactiveOptionPicker__image-wrapper {
+        width: calc(((100% - 140px) * (0.66666)) + (50px));
+        min-height: 300px;
+        height: auto;
+        order: 1;
+    }
+    [data-tab-alignment$="Right"] .cmp_interactiveOptionPicker__image-wrapper {
+        order: 0;
+    }
+    .cmp_interactiveOptionPicker__content-wrapper {
+        width: calc(((100% - 140px) * (0.33333)) + (90px));
+        order: 0;
+    }
+    [data-tab-alignment$="Right"] .cmp_interactiveOptionPicker__content-wrapper {
+        order: 1;
+    }
+    .cmp_interactiveOptionPicker__content {
+        padding: 72px 40px 56px 90px;
+    }
+    [data-tab-alignment$="Right"] .cmp_interactiveOptionPicker__content {
+        padding: 72px 90px 56px 40px;
+    }
+}
+.cmp_interactiveOptionPicker__header {
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08rem;
+}
+.cmp_interactiveOptionPicker__option-card {
+    font-size: 1.3rem;
+    letter-spacing: 0.026rem;
+    line-height: 1.7rem;
+}
+.cmp_interactiveOptionPicker__option-card--active {
+    background-color: #f8f9f9;
+}
+.cmp_interactiveOptionPicker .cmp_interactiveOptionPicker__swiper-scrollbar {
+    background-color: #e4e8e8;
+}
+.cmp_interactiveOptionPicker .cmp_interactiveOptionPicker__swiper-scrollbar-drag {
+    background-color: #a5a7aa;
+}
+/* New Design */
+.cmp_interactiveOptionPicker{
+    padding: 60px;
+    display: inherit;
+    height: auto !important;
+    min-height: auto !important;
+}
+#landrover .cmp_interactiveOptionPicker .primaryLinkWithStyle{
+    text-transform: uppercase;
+}
+.cmp_interactiveOptionPicker__image-wrapper {
+    width: 100%;
+    min-height: 651px;
+    height: auto;
+    order: 1;
+}
+.cmp_interactiveOptionPicker__content-wrapper {
+    width: 100%;
+    padding: 0;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__content {
+    padding: 26px 0px 10px;
+}
+.cmp_interactiveOptionPicker__header__box{
+    padding-bottom: 60px;
+}
+.cmp_interactiveOptionPicker__header__box h2{
+    font-family: "LandRoverWeb-Bold";
+    font-weight: bold;  
+    text-transform: uppercase;
+    font-size: 38px;
+    letter-spacing: 1px;
+    color: #0C121C;
+    margin-bottom: 25px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-group-slider {
+    margin-top: 0;
+}
+.cmp_interactiveOptionPicker__option-card {
+    width: 42px;
+    margin: 3px;
+    padding: 4px;
+    height: 42px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-image {
+    margin-bottom: 0;
+    border-radius: 50%;
+    height: 100%;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-card {
+    padding-bottom: 3px;
+}
+.cmp_interactiveOptionPicker__option-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.cmp_interactiveOptionPicker__option-card:first-child {
+    margin-left: 0px;
+  }
+.cmp_interactiveOptionPicker__option-card:hover {
+    border: 2px solid #989C9F;
+    border-radius: 50%;
+    background-color: none;
+}
+.cmp_interactiveOptionPicker__option-card--active,.cmp_interactiveOptionPicker__option-card--active:hover {
+    border: 2px solid #005A2B;
+    border-radius: 50%;
+    background-color: none;
+    padding: 3px;
+}
+.cmp_interactiveOptionPicker__option-group-container{
+    /* width: 70%; */
+    float: left;
+    height: 42px;
+    position: relative;
+}
+.cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta{
+    text-align: right;
+}
+.cmp_interactiveOptionPicker__otr-disclaimer-container{
+    margin-top: 10px;
+}
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr{
+    font-size: 14px;
+    color: #4A4F54;
+    font-weight: 400;
+    padding-top: 15px;
+}
+.cmp_interactiveOptionPicker__bottom-title{
+    width: 32%;
+    float: left;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #0C121C;
+    margin-top: 25px;
+}
+.cmp_interactiveOptionPicker__bottom-title h2{
+    font-family: "LandRoverWeb-Bold";
+    font-size: 24px;
+    text-transform: uppercase;
+}
+.cmp_interactiveOptionPicker__bottom-content{
+    width: 68%;
+    float: left;
+    margin-top: 25px;
+    padding-left: 40px;
+    font-size: 14px;
+    color: #4A4F54;
+}
+.cmp_interactiveOptionPicker__bottom-content p{
+    padding-bottom: 0;
+    width: 71%;
+}
+.cmp_interactiveOptionPicker__bottom-content p:first-child::first-letter {
+text-transform: capitalize;
+}
+.cmp_interactiveOptionPicker__bottom-content p:last-child{
+    margin-top: 25px;
+}
+.slateblue .cmp_interactiveOptionPicker__option-card--active{
+    background-color: #0C121C;
+}
+.cmp_interactiveOptionPicker__bottom-container{
+    padding-bottom: 0px;
+    display: inline-block;
+    width: 100%;
+}
+.slateblue .cmp_interactiveOptionPicker__option-card--active, 
+.slateblue .cmp_interactiveOptionPicker__option-card--active:hover{
+    border: 2px solid #FFFFFF;
+}
+.slateblue.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr,
+.slateblue .cmp_interactiveOptionPicker__header__box h2,
+.slateblue .cmp_interactiveOptionPicker__bottom-title{
+    color:#FFFFFF;
+    font-family: "AvenirNext"
+}
+.wheel .cmp_interactiveOptionPicker__option-card{
+    width: 88px;
+    height: 88px;
+}
+ .cmp_interactiveOptionPicker__option-btn  hr{
+    display: none;
+}
+.wheel .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta {
+   padding-bottom: 50px;
+}
+.wheel .swiper-container-free-mode>.swiper-wrapper {
+    min-height: 150px;
+}
+.cmp_interactiveOptionPicker__bodyCopy::first-letter{
+    text-transform: uppercase;
+}
+.cmp_interactiveOptionPicker__bottom-container hr{
+    margin: 0;
+}
+.btn-second{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.btn-second .cmp_interactiveOptionPicker__cta{
+text-align: left;
+order: 2
+}
+.btn-second .cmp_interactiveOptionPicker__otr-disclaimer-container{
+    display: inherit;
+    flex-direction: unset;
+    padding-bottom: 25px;
+    padding-top: 24px;
+}
+.wheel  .cmp_interactiveOptionPicker__content .btn-second .cmp_interactiveOptionPicker__cta{
+padding-bottom: 0px;
+padding-top: 24px;
+}
+.wheel .cmp_interactiveOptionPicker__option-group-container{
+    height:92px;
+}
+.btn-second  .cmp_interactiveOptionPicker__otr{
+    padding-top: 0px;
+}
+.wheel .btn-second hr{
+    display: block;
+    height: 1px;
+    color: #ffffff;
+    margin: 0;
+}
+@media screen and (min-width: 1400px) and (max-width: 2600px) {
+    .cmp_interactiveOptionPicker{
+        padding: 60px 290px 60px;
+    }
+    .cmp_interactiveOptionPicker__bottom-title {
+        width: 30%;
+    }
+    .cmp_interactiveOptionPicker__bottom-content {
+        padding-left: 40px;
+    }
+    .cmp_interactiveOptionPicker__image-wrapper{
+        min-height: 752px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+    .cmp_interactiveOptionPicker{
+        padding: 40px 30px 40px;
+    }
+    .cmp_interactiveOptionPicker__image-wrapper{
+        max-height: 397px;
+        min-height: 397px;
+    }
+    .cmp_interactiveOptionPicker__header__box h2{       
+        font-size: 30px;
+    }
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__header {
+        margin-bottom: 17px;
+    }
+    .cmp_interactiveOptionPicker__header__box {
+        padding-bottom: 40px;
+    }
+    .cmp_interactiveOptionPicker__bodyCopy{
+        max-width: 80%;
+    }
+    .cmp_interactiveOptionPicker__theme.wheel .cmp_interactiveOptionPicker__otr-disclaimer-container{
+        width: 100%;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-group-container{
+        width: 70%;
+    }
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container{
+        margin-bottom: 0px;
+    }
+    .swiper-container-free-mode>.swiper-wrapper {
+        min-height: 150px;
+    }
+    .cmp_interactiveOptionPicker__bottom-title {
+        width: 60%;
+    }
+    .cmp_interactiveOptionPicker__bottom-content {
+        width: 100%;
+        margin-top: 0px;
+        padding: 0;
+    }
+    .swiper-container-horizontal>.swiper-scrollbar{
+        height: 1px;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-group-container{
+        float: left;
+        min-height: 90px;
+    }
+    .wheel .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta{
+        padding-bottom: 0px;
+    }
+    .cmp_interactiveOptionPicker__theme.wheel .cmp_interactiveOptionPicker__otr-disclaimer-container {
+        
+        margin-top:15px;
+        padding: 0; 
+    }
+    .cmp_interactiveOptionPicker__theme.wheel .btn-second .cmp_interactiveOptionPicker__otr-disclaimer-container{
+        margin-bottom: 24px;
+    }
+    /* .wheel .cmp_interactiveOptionPicker__option-btn{
+        display: flex;
+        flex-direction: column;
+    }
+    .wheel .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta {
+        text-align: left;
+        order: 2;
+    } */
+    .wheel .picker-over{
+        position: absolute;
+        width: 100px;
+        height: 84px;
+        top: 4px;
+        right: 0;
+        z-index: 8;
+        background: transparent linear-gradient(90deg, #FFFFFF00 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+    }
+    .wheel.slateblue .picker-over{
+        background: transparent linear-gradient( 90deg , #FFFFFF00 0%, #0c121c 100%) 0% 0% no-repeat padding-box;
+    }
+    
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .cmp_interactiveOptionPicker{
+        padding: 40px 25px 40px;
+    }
+    .cmp_interactiveOptionPicker__image-wrapper{
+        max-height: 182px;
+        min-height: 182px;
+    }
+    .cmp_interactiveOptionPicker__header__box h2{       
+        font-size: 26px;
+    }
+    .cmp_interactiveOptionPicker__bodyCopy{
+        max-width: 100% ;
+        font-size: 14px;
+    }
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__header {
+        margin-bottom: 16px;
+    }
+    .cmp_interactiveOptionPicker__header__box {
+        padding-bottom: 40px;
+    }
+    .cmp_interactiveOptionPicker__option-group-container {
+        width: 108%;
+        float: left;
+        margin-bottom: 0px;
+    }
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container{
+        margin-bottom: 0px;
+    }
+    .swiper-container-free-mode>.swiper-wrapper {
+        min-height: 98px;
+    }
+    .cmp_interactiveOptionPicker__bottom-title {
+        width: 100%;
+        font-size: 20px;
+    }
+    .cmp_interactiveOptionPicker__bottom-content p {
+        width: 100%;
+    }
+    .cmp_interactiveOptionPicker__bottom-content {
+        width: 100%;
+    }
+    .swiper-container-horizontal>.swiper-scrollbar{
+        height: 2px;
+    }
+    .cmp_interactiveOptionPicker__bottom-content{
+        margin-top: 0px;
+        padding: 0;
+    }
+    /* .cmp_interactiveOptionPicker__option-btn{
+        display: flex;
+        flex-direction: column;
+    }
+    .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta {
+        text-align: left;
+        order: 2;
+    } */
+    .btn-second .cmp_interactiveOptionPicker__otr-disclaimer-container{
+        padding-bottom: 25px;
+    padding-top: 0;
+    }
+    .btn-second .cmp_interactiveOptionPicker__cta{
+        margin-top: 25px;
+    }
+    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr{
+        padding-top: 15px;
+        padding-bottom: 0px;
+    }
+    .cmp_interactiveOptionPicker .cmp_interactiveOptionPicker__swiper-scrollbar {
+        
+        width: 92%;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-card {
+        width: 74px;
+        height: 74px;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-group-container{
+        float: none;
+        min-height: 110px;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-card {
+        margin: 1px;
+    }
+    .wheel .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta{
+        padding-bottom: 0px;
+    }
+    .cmp_interactiveOptionPicker__theme.wheel .cmp_interactiveOptionPicker__otr-disclaimer-container {
+        margin-bottom: 24px;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-btn{
+        display: flex;
+        flex-direction: column;
+    }
+    .wheel .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta {
+        text-align: left;
+        order: 2;
+        margin-top: 25px;
+    }
+    .wheel .cmp_interactiveOptionPicker__option-group-container {
+        float: none;
+        min-height: 80px;
+        height: 80px;
+    }
+    .picker-over{
+        position: absolute;
+        width: 25px;
+        height: 42px;
+        top: 4px;
+        right: 0;
+        z-index: 8;
+        background: transparent linear-gradient(90deg, #FFFFFF00 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+    }
+    .slateblue .picker-over{
+        background: transparent linear-gradient( 90deg , #FFFFFF00 0%, #0c121c 100%) 0% 0% no-repeat padding-box;
+    }
+    .wheel .picker-over{
+        width: 50px;
+        height: 74px;
+    }
+    .wheel .swiper-container-free-mode>.swiper-wrapper{
+        min-height: 135px;
+    }
+    .cmp_interactiveOptionPicker__theme.wheel .btn-second .cmp_interactiveOptionPicker__otr-disclaimer-container{
+        margin: 0;
+        padding: 0;
+        margin-bottom: 25px;
+    }
+    .wheel .cmp_interactiveOptionPicker__content .btn-second .cmp_interactiveOptionPicker__cta{
+        padding-top: 0;
+    }
+    .btn-second.cmp_interactiveOptionPicker__option-btn hr{
+        display: block;
+        margin: 0;
+    }
+    .cmp_interactiveOptionPicker__bottom-container hr{
+        display: none;
+    }
+    .wheel.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__option-group{
+        padding-bottom: 0px;
+    }
+}
+
+/*------code fix for defect 760----*/
+@media screen and (min-width:1280px) and (max-width: 2700px){
+    .cmp_interactiveOptionPicker .primaryLinkWithStyle {
+       text-transform: uppercase;
+       float: right;
+   }
+               .cmp_interactiveOptionPicker__content{padding:24px 0 10px 0!important;}
+   
+        .optionpicker .cmp_interactiveOptionPicker__otr{
+               margin-top:2%;
+   
+       }
+        .optionpicker .show-cta{
+       margin-top:8px;
+        }
+   .optionpicker .primaryLinkContainer {margin-top:0;}
+   .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container{display: inherit;
+       flex-direction: unset;
+        padding-top: 17px;}
+       }
+   
+
+ @media screen and (min-width:768px) and (max-width: 1279px){
+ .optionpicker .primaryLinkWithStyle {
+           float: left;
+ }
+  .wheel .cmp_interactiveOptionPicker__option-group-container {
+           float: left;
+           min-height: 90px;
+           width: 100%!important;
+       }
+           .optionpicker .primaryLinkWithStyle{
+       margin-bottom:0px
+       }
+.optionpicker .cmp_interactiveOptionPicker__otr-disclaimer-container {
+    display: inherit;
+    flex-direction: unset;
+    padding-bottom: 25px;
+    padding-top: 24px;
+}
+.optionpicker .cmp_interactiveOptionPicker__option-btn {
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.optionpicker .primaryLinkContainer {
+text-align: left;
+    order: 2;
+    display: block;
+}
+  }
+       
+@media screen and (min-width:320px) and (max-width: 767px){
+    .optionpicker .cmp_interactiveOptionPicker__otr-disclaimer-container {
+    display: inherit;
+    flex-direction: unset;
+    padding-bottom: 25px;
+    padding-top: 24px;
+}
+.optionpicker .cmp_interactiveOptionPicker__option-btn {
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.optionpicker .primaryLinkContainer {
+text-align: left;
+    order: 2;
+    display: block;
+}
+       .optionpicker .primaryLinkWithStyle{
+       margin-bottom:0px
+       }
+       }
+           /*------code fix for defect 760----*/

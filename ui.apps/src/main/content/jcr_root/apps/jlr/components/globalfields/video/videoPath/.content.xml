@@ -3,4 +3,6 @@
     jcr:primaryType="nt:unstructured"
     sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
     fieldLabel="Video Path"
+    fieldDescription="Select a video path"
+    rootPath="/content/dam/landrover"
     name="./videoPath"/>

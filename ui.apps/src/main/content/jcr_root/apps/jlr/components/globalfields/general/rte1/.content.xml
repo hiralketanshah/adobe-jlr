@@ -3,7 +3,6 @@
     jcr:primaryType="nt:unstructured"
     sling:resourceType="cq/gui/components/authoring/dialog/richtext"
     fieldDescription="The Header copy to be displayed."
-    fieldLabel="Header Copy"
     name="./headerCopy"
     dfs-required="true"
     useFixedInlineToolbar="{Boolean}true">
@@ -41,5 +40,15 @@
     <granite:data
         jcr:primaryType="nt:unstructured"
         accolades-header="true"
-        vertical-slider-header="true"/>
+        hero-item-header="true"
+        faq-header="true"
+        c-player-header="true"
+        vertical-slider-header="true"
+        dual-frame-header="true"
+        seat-slider-header="true"
+        specs-glance-header="true"
+		legacy-browser-header="true"
+        hero-title-banner-header="true"
+        derivative-container-header="true"
+        derivative-header="true"/>
 </jcr:root>

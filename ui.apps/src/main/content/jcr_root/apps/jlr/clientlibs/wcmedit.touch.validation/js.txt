@@ -6,4 +6,16 @@ rtgb-validation.js
 page-properties-validation.js
 table-validation.js
 accolades-validation.js
+faq-validation.js
 vehiclesummary-validation.js
+option-picker-validation.js
+legacy-browser-validation.js
+showhide.js
+full-frame-validation.js
+dual-frame-validation.js
+hero-item-validation.js
+hero-title-banner-validation.js
+seat-slider-validation.js
+specsglance-validation.js
+c-player-validation.js
+derivative-validation.js

@@ -3,4 +3,4 @@
     jcr:primaryType="cq:Component"
     jcr:title="Footer Links(v1)"
     sling:resourceSuperType="jlr/components/sociallinks/v1/sociallinks"
-    componentGroup="JLR - Content"/>
+    componentGroup=".hidden"/>

@@ -3,69 +3,83 @@ package com.jlr.core.models;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
+import org.apache.commons.lang.StringUtils;
+import org.osgi.annotation.versioning.ConsumerType;
 
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
-import org.apache.sling.models.annotations.Model;
-import com.jlr.core.internal.models.v1.GlobalModelImpl;
 import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.utils.CtaUtils;
 
 /**
- * The Class ContentCardListModel.
+ * The Interface ContentCardListModel.
  */
-@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class ContentCardListModel extends GlobalModelImpl{
-	
-	/** The resource resolver. */
-	@Inject
-    private ResourceResolver resourceResolver;
-	
-	/** The assest type. */
-	@Inject
-    private String assestType;
-	
-	/** The price. */
-	@Inject
-    private String price;
-	
-	/** The cta list. */
-	@Inject
-    private Resource ctaList;
-	
-	/** The list. */
-	List<CTAPojo> list = new ArrayList<>();
-	
-    /**
-     * Gets the cta list.
-     *
-     * @return the cta list
-     */
-    public List<CTAPojo> getCtaList() {
-        if (null != ctaList && ctaList.hasChildren()) {
-            list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
-        }
-        return list;
-    }
+@ConsumerType
+public interface ContentCardListModel extends GlobalModel {
 
+	/**
+	 * Gets the cta list.
+	 *
+	 * @return the cta list
+	 */
+	default List<CTAPojo> getCtaList() {
+        return new ArrayList<>();
+    }
+	
 	/**
 	 * Gets the assest type.
 	 *
 	 * @return the assest type
 	 */
-	public String getAssestType() {
-		return assestType;
-	}
+	default String getAssestType() {
+        return StringUtils.EMPTY;
+    }
+	
+	/**
+	 * Gets the poster image.
+	 *
+	 * @return the poster image
+	 */
+	default String getPosterImage() {
+        return StringUtils.EMPTY;
+    }
+	
+	/**
+	 * Gets the first cta link.
+	 *
+	 * @return the first cta link
+	 */
+	default String getFirstCtaLink() {
+        return StringUtils.EMPTY;
+    }
+	
+	/**
+	 * Gets the price config value.
+	 *
+	 * @return the price config value
+	 */
+	default String getPriceConfigValue() {
+        return StringUtils.EMPTY;
+    }
+	
+	/**
+	 * Gets the gallery link.
+	 *
+	 * @return the gallery link
+	 */
+	default String getGalleryLink() {
+        return StringUtils.EMPTY;
+    }
 
 	/**
-	 * Gets the price.
+	 * Sets the price.
 	 *
-	 * @return the price
+	 * @param price the new price
 	 */
-	public String getPrice() {
-		return price;
-	}
+	void setPrice(String price);
+
+	/**
+	 * Sets the price config value.
+	 *
+	 * @param priceConfigValue the new price config value
+	 */
+	void setPriceConfigValue(String priceConfigValue);
 
 }

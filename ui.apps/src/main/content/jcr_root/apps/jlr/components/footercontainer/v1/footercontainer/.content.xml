@@ -3,4 +3,4 @@
     cq:isContainer="{Boolean}true"
     jcr:primaryType="cq:Component"
     jcr:title="Footer Container(v1)"
-    componentGroup="JLR - Content"/>
+    componentGroup="JLR - Structure"/>

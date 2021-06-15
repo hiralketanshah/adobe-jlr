@@ -27,6 +27,7 @@
     <modules>
         <module>all</module>
         <module>core</module>
+		<module>core.wf</module>
         <!-- <module>ui.frontend</module> -->
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
@@ -54,6 +55,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <componentGroupName>JLR</componentGroupName>
 		<jacoco.data.file>${project.build.directory}/jacoco.exec</jacoco.data.file>
+        <jsoup.version>1.13.1</jsoup.version>
     </properties>
 
     <build>
@@ -173,6 +175,8 @@ Bundle-Category: ${componentGroupName}
 Bundle-DocURL:
 -plugin org.apache.sling.caconfig.bndplugin.ConfigurationClassScannerPlugin
 -plugin org.apache.sling.bnd.models.ModelsScannerPlugin
+
+-includeresource: META-INF/lib/jsoup.jar=jsoup-${jsoup.version}.jar;lib:=true
                                 ]]></bnd>
                             </configuration>
                         </execution>
@@ -930,6 +934,11 @@ Bundle-DocURL:
                 <type>zip</type>
                 <version>${core.wcm.components.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.13.1</version>
+            </dependency>
 
             <!-- Testing -->
             <dependency>
@@ -942,13 +951,19 @@ Bundle-DocURL:
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>3.3.3</version>
+                <version>3.4.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-inline</artifactId>
+                <version>3.4.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-junit-jupiter</artifactId>
-                <version>3.3.3</version>
+                <version>3.4.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -988,6 +1003,11 @@ Bundle-DocURL:
                 <artifactId>accesscontroltool-oakindex-package</artifactId>
                 <type>zip</type>
                 <version>${biz.netcentric.cq.tools.accesscontroltool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>dynamic-include</artifactId>
+                <version>3.2.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

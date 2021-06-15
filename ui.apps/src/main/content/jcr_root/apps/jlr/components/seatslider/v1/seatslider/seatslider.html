@@ -1,0 +1,87 @@
+<sly data-sly-use.seatslider="com.jlr.core.models.SeatSliderModel"
+	 data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='seat_configuration_click_to_interact_desktop,seat_configuration_click_to_interact_mobile,enable.javascript.txt,seat_configuration_literage_label,seat_configuration_seats_label,interactiveslider.odometer.format'}"/>
+
+<div class="cmp-interactiveSlider fontSmooth" id="${seatslider.id}">
+    <div aria-describedby="cmp-interactiveSliderClickToInteract cmp-interactiveSliderPurpose" class="clickToInteract" role="button" tabindex="0">
+      <div aria-hidden="true" class="text clickToInteract__text">
+
+       
+      </div>
+    </div>
+  
+    <!-- Slider -->
+    <div class="sliderContainer">
+      <div aria-hidden="true" class="sliderContainerUpper"></div>
+  
+      <div class="sliderContainerLower">
+        <div class="sliderControls">
+          <div class="sliderTrack">
+            <div class="sliderTrackBackground"></div>
+            <div class="sliderProgress"></div>
+          </div>
+          <div class="sliderHandle handle" ><span class="handleInner"></span></div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="frameSliderItem">
+      <div class="shelfComponent">
+        <div aria-live="polite" class="infoContainer" role="region">
+          <div class="content">
+            <div class="tabData"></div>
+          </div>
+        </div>
+  
+        <div class="outerContainer">
+          <!-- Sprite -->
+          <div class="spriteContainer">
+  
+            <!-- Vehicle -->
+            <div aria-hidden="true" class="vehicleContainer">
+              <picture class="Picture Picture--background">
+                <img alt="" class="Picture__img" srcset="${seatslider.coverImage}" />
+              </picture>
+              <div class="bgforcaption">
+
+                <div aria-hidden="true" class="clickToInteract__image">
+                  <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
+                </div>
+                <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
+                  <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
+                  <span class="mobile">${config.configMap['seat_configuration_click_to_interact_mobile']}</span>
+                </div>
+                </div>
+            </div>
+  
+            <div aria-hidden="true" class="spriteContainerContext">
+              <div class="sliderFrame mobileSliderFrame onlyOnMobile" data-frames="${seatslider.mobileFrames}"></div>
+              <div class="sliderFrame desktopSliderFrame hideOnMobile" data-frames="${seatslider.desktopFrames}"></div>
+           </div>
+           
+
+        </div>
+        </div>
+   
+        <div class="infoContainerTemplates">
+          <!-- for when there is a single .. tab.. thing -->
+          <!-- for when there are multiple.. tab.. things -->
+          <sly data-sly-list="${seatslider.seatSliderItems}">
+	          <div class="multi tabData" data-desktop-title="${item.title}" data-item-position="${itemList.index}" data-mobile-title="${item.title}">
+	            <h1 class="largeTitle">${item.headerCopy  @ context='html'}</h1>
+	            <div class="literage">
+	              <span class="odo-label" role="text" aria-label="${item.value}"><span aria-hidden="true" class="odo" data-format="(d),dd">${item.value}</span><span aria-hidden="true" class="litres">${seatslider.headerCopy @ context='html'}</span></span>
+	            </div>
+	            <div class="copy">${item.copy  @ context='html'}</div>
+              <sly data-sly-test="${item.fileReference}">
+	            <picture class="Picture">
+	              <img alt="${item.imageAlt}" class="Picture__img" srcset="${item.fileReference}" />
+	            </picture>
+              </sly>
+	            <div class="cmp-interactiveSlider__infoContainerTemplates-content-purpose" id="cmp-interactiveSliderPurpose">${seatslider.copy @ context='html'}</div>
+	          </div>
+
+	      </sly>
+        </div>
+      </div>
+    </div> <!--.frameSliderItem -->
+</div>

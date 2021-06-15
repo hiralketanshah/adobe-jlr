@@ -1,6 +1,8 @@
 (function (window, $) {
     'use strict';
-
+    $(window).on("dialog-ready", function() {
+    setTimeout(function(){ $(".rte-toolbar").css("visibility","visible") }, 800);
+    });
     /*
      * Generic regular expression validation for text fields.
      *
@@ -41,10 +43,6 @@
             }
         }
     });
-
-
-
-
 
 })(window, Granite.$);
 
@@ -178,4 +176,15 @@ $(window).adaptTo("foundation-registry").register("foundation.validation.validat
             $(el).parent().parent().find(".img-alt").parent().show();
         }
     }
+});
+
+$(window).on("dialog-ready", function() {
+    $('.img-decorative').each(function(index, value){
+        var status = $(this).prop("checked");
+        if (status) {
+            $(this).parent().parent().find(".img-alt").parent().hide();
+        } else {
+            $(this).parent().parent().find(".img-alt").parent().show();
+        }
+    });
 });

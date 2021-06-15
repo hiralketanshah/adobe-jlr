@@ -14,9 +14,15 @@ import com.jlr.core.models.TcoModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class TcoModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 class TcoModelImplTest extends GlobalModelImplTest {
 
+    /** The tco model. */
     private TcoModel tcoModel;
 
     /**
@@ -37,19 +43,6 @@ class TcoModelImplTest extends GlobalModelImplTest {
      */
     @Test
     void testProperties() {
-        assertEquals("emission_body", tcoModel.getEmissionBody());
-        assertEquals("emission_head", tcoModel.getEmissionHead());
-        assertEquals("lease_label", tcoModel.getLeaseLabel());
-        assertEquals("lease_price", tcoModel.getLeasePrice());
-        assertEquals("test_price", tcoModel.getPrice());
-        assertEquals("price_symbol", tcoModel.getPriceDescSymbol());
-        assertEquals("price_suffix", tcoModel.getPriceSuffix());
-        assertEquals("view_type", tcoModel.getViewType());
-        List<String> list = tcoModel.getCaveats();
-        assertEquals(1, list.size());
-        list.forEach(item -> {
-            assertEquals("test_text", item);
-        });
 
     }
 

@@ -1,0 +1,67 @@
+<sly data-sly-use.external360="com.jlr.core.models.Exterior360Model"
+  data-sly-use.clientLib="${'/libs/granite/sightly/templates/clientlib.html'}"
+  data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='exterior360.aria.alert,enable.javascript.txt,exterior360.aria.label,external360.desktoptxt,external360.mobiletxt,exterior360.aria.increase,exterior360.aria.decrease'}"
+  data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+  data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+  data-sly-test.hasContent="${external360.headerCopy}" />
+<sly data-sly-test="${external360.imageList}">
+  <div class="cmp-exterior360 fontSmooth ${!(external360.headerCopy && external360.copy) ? 'nocopy' : ''}"
+    aria-label="${config.configMap['exterior360.aria.label']}"
+    data-label-increase-slider="${config.configMap['exterior360.aria.increase']}"
+    data-label-decrease-slider="${config.configMap['exterior360.aria.decrease']}"
+    data-aria-alert="${config.configMap['exterior360.aria.alert']}" data-frames="${external360.imageList}">
+    <div class="Exterior360__canvas-container">
+      <div class="bgforcaption">
+      <button class="Exterior360__load-button">
+        <span class="Exterior360__init-container">
+          <span
+            class="Exterior360__init-container-caption Exterior360__init-container-caption--desktop">${config.configMap['external360.desktoptxt']}</span>
+          <span
+            class="Exterior360__init-container-caption Exterior360__init-container-caption--mobile">${config.configMap['external360.mobiletxt']}</span>
+           
+          <div class="Exterior360__init-container-icon">
+            <div class="Exterior360__icon Exterior360__icon--left"></div>
+            <div class="Exterior360__icon Exterior360__icon--right"></div>
+          </div>
+          
+        </span>
+      </button>
+    </div>
+      <div class="Exterior360__slider"></div>
+    </div>
+
+    <div class="noJsText Exterior360__no-js-notice">${config.configMap['enable.javascript.txt']}</div>
+    <div class="shelfComponent">
+      <div class="headerClass">
+        <h2 class="heading headingThick fontH2">
+          <span class="headingWrapper">
+            ${external360.headerCopy @ context='html'}
+          </span>
+        </h2>
+      </div>
+      <div class="contentClass">
+        <div class="copy fontBodyCopyLarge">${external360.copy @ context='html'}</div>
+        <div class="linkContainer">
+          <sly data-sly-list.cta="${external360.ctaList}">
+            <sly data-sly-test="${cta.text}">
+              <div
+                class="${cta.linkType == 'primary' ? 'primaryLinks primaryLinkContainer' : 'secondaryLinks secondaryLinkContainer'}">
+                <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='_overlay' ? '' : cta.icon} TargetLinks"
+                  aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}"
+                  target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
+                  <span aria-hidden="true">${cta.text}</span>
+                </a>
+              </div>
+            </sly>
+          </sly>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- line added here 731-->
+  <input data-sly-test="${wcmmode.edit||wcmmode.preview}" type="hidden" name="wcmmode" id="authorM" value="author" />
+  <!-- line added here 731-->
+
+  <sly data-sly-call="${clientLib.all @ categories='jlr.exterior360.v1'}">
+  </sly>
+  <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

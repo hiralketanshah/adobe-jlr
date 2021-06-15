@@ -18,18 +18,32 @@ import com.jlr.core.models.GlobalModel;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+/**
+ * The Class GlobalModelImplTest.
+ *
+ * @author Adobe
+ */
 @ExtendWith(AemContextExtension.class)
 class GlobalModelImplTest {
 
+    /** The context. */
     private final AemContext context = new AemContext();
 
+    /** The global model. */
     private GlobalModel globalModel;
 
+    /** The injector. */
     @InjectMocks
     private HierarchicalPagePropertyInjector injector;
 
+    /**
+     * Sets the up.
+     *
+     * @throws Exception
+     *             the exception
+     */
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp() {
         MockitoAnnotations.initMocks(this);
         context.registerService(Injector.class, injector);
         context.registerService(StaticInjectAnnotationProcessorFactory.class,
@@ -39,14 +53,23 @@ class GlobalModelImplTest {
         globalModel = resource.adaptTo(GlobalModelImpl.class);
     }
 
+    /**
+     * Test general properties.
+     */
     @Test
     void testGeneralProperties() {
         assertEquals("12345", globalModel.getId());
         assertEquals("test_header_title", globalModel.getHeaderTitle());
         assertEquals("test_header_Copy", globalModel.getHeaderCopy());
         assertEquals("test_body_copy", globalModel.getCopy());
+        assertEquals("$12345", globalModel.getPrice());
+        assertEquals("25-02-2021", globalModel.getDate());
+        assertEquals("icon-arrow-right", globalModel.getHeaderIcon());
     }
 
+    /**
+     * Test image properties.
+     */
     @Test
     void testImageProperties() {
         assertEquals("/content/dam/test.png", globalModel.getLogoImage());
@@ -55,11 +78,28 @@ class GlobalModelImplTest {
         assertEquals("/content/jlr/au", globalModel.getImageLink());
     }
 
+    /**
+     * Test video properties.
+     */
+    @Test
+    void testVideoProperties() {
+        assertEquals("video", globalModel.getAssetType());
+        assertEquals("https://youtube.com/embed/V1CZan9Tb34", globalModel.getVideoId());
+        assertEquals("/content/dam/test.mp4", globalModel.getVideoPath());
+        assertEquals("/content/dam/test.png", globalModel.getPosterImage());
+        assertEquals("Test Video Title", globalModel.getVideoTitle());
+    }
+
+    /**
+     * Test cta properties.
+     */
     @Test
     void testCtaProperties() {
         assertEquals("test_cta_text", globalModel.getText());
         assertEquals("/content/jlr/au", globalModel.getLink());
         assertEquals("primary", globalModel.getLinkType());
         assertEquals("_self", globalModel.getTarget());
+        assertEquals("icon-arrow-right", globalModel.getIcon());
+        assertEquals("test_header_Copy:test_cta_text", globalModel.getAriaLabel());
     }
 }

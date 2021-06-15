@@ -1,12 +1,19 @@
 {
-  "jcr:primaryType":"nt:unstructured",
-  "target":"_self",
-  "id":"title",
-  "copy":"<p>copy text</p>\r\n",
-  "link":"/content/jlr/au",
-  "text":"button",
-  "linkType":"primary",
-  "sling:resourceType":"jlr/components/fullframecarousel/v1/fullframecarousel",
-  "backgroundImage":"/content/dam/core-components-examples/library/sample-assets/mountain-range.jpg",
-  "textIsRich":"true"
+    "headerTitle": "test_header_Title",
+    "copy": "test_body_copy",
+    "id": "12345",
+    "fileReference": "/content/dam/test.png",
+    "imageAlt": "test_imageAlt",
+    "imageLink": "/content/jlr/au",
+    "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"/content/jlr/au",
+      "text":"test_cta_text",
+      "linkType":"primary"
+    }
+  },
+    "jcr:primaryType": "nt:unstructured"
 }

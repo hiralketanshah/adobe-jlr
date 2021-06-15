@@ -2,25 +2,23 @@ package com.jlr.core.internal.models.v1;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-
 import com.jlr.core.models.FullWidthImageModel;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.utils.CtaUtils;
 
 /**
  * The Class FullWidthImageImpl.
+ *
+ * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
-        FullWidthImageModel.class }, resourceType = FullWidthImageImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = {FullWidthImageModel.class}, resourceType = FullWidthImageImpl.RESOURCE_TYPE)
 public class FullWidthImageImpl extends GlobalModelImpl implements FullWidthImageModel {
 
     /** The Constant RESOURCE_TYPE. */

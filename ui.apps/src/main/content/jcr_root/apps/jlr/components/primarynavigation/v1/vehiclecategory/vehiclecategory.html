@@ -1,0 +1,41 @@
+<sly data-sly-use.model="com.jlr.core.models.VehicleCategoryModel"
+data-sly-use.pageConfig="com.jlr.core.models.PageModel"
+data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"
+ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
+
+<div role="tabpanel" class="dxnav-dropdown-primary-tabs__panel" data-dropdown-panel-id="vehicle-menu-tab-0">
+   <div class="dxnav-vehicle-menu">
+      <div class="dxnav-vehicle-menu__sidebar">
+         <div class="dxnav-vehicle-menu__categories">
+            <sly data-sly-list.item="${model.vehicleFamily}">
+               <div class="dxnav-vehicle-nav__category-block">
+                  <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
+                  <sly data-sly-list.item1="${item.vehiclesList}">
+                     <sly data-sly-resource="${item1.vehicleCardLink @appendPath='/jcr:content/root/container',selectors='vehiclecarditem', wcmmode='disabled'}"/>
+                  </sly>
+               </div>
+            </sly>
+         </div>
+         <sly data-sly-test="${model.compareText}">
+         <a class="dxnav-vehicle-nav__cta dxnav-vehicle-nav__cta--compare" href="${model.compareLink}" aria-label=${model.compareAriaLabel} data-target="${model.compareTarget}" target="${model.compareTarget}">
+            <svg class="dxnav-icon">
+               <use xlink:href="#Compare"></use>
+            </svg>
+            <span>${model.compareText}</span>
+         </a>
+         </sly>
+         <sly data-sly-test="${pageConfig.marketRegionPath}">
+         <div class="dxnav-NaasMarketRegionalPricing">
+            <a class="dxnav-button-tertiary dxnav-button-tertiary--alt cmp-marketButton MarketRegionalPricing-triggerer" href="#" aria-label="" aria-expanded="false" aria-haspopup="dialog" role="button">
+            <span class="dxnav-NaasMarketRegionalPricing__label">
+               ${config.configMap['marketregionpricing.dxnav.selectregion']}
+            </span>
+            </a>
+         </div>
+      </sly>
+      </div>
+      <div class="dxnav-vehicle-menu__product"></div>
+   </div>
+</div>
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

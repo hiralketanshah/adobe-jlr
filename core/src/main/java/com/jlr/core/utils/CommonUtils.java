@@ -1,7 +1,10 @@
 package com.jlr.core.utils;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.jcr.RepositoryException;
@@ -10,14 +13,20 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.ValueMap;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.adobe.aem.formsndocuments.util.FMUtils;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.pojos.FooterPojo;
 
 /**
  * The Class CommonUtils is used for commonly used utilities.
@@ -46,13 +55,13 @@ public final class CommonUtils {
      * @param group the group
      * @return the boolean
      */
-    public Boolean isUserPartOfGroup(Principal user, UserManager um, String group) {
+    public static Boolean isUserPartOfGroup(Principal user, UserManager um, String group) {
         try {
             return FMUtils.isUserPartOfGroup(user, um, group);
         } catch (RepositoryException e) {
 
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
-                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
+                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, CommonUtils.class.getSimpleName(), e));
         }
         return false;
     }
@@ -95,4 +104,85 @@ public final class CommonUtils {
         Map<String, Object> subServiceAuthInfo = Collections.singletonMap(ResourceResolverFactory.SUBSERVICE, (Object) subServiceName);
         return resolverFactory.getServiceResourceResolver(subServiceAuthInfo);
     }
+
+    /**
+     * Retrieves the root page path based on current page.
+     * 
+     * @param currentPage
+     * @return
+     */
+    public static String getSiteRootPath(Page currentPage) {
+        if (null == currentPage) {
+            return null;
+        }
+        String path = currentPage.getPath();
+        int level = 0;
+        Page rootPath = null;
+        if (path.startsWith(CommonConstants.JLR_CONTENT_PATH)) {
+            if (path.contains(CommonConstants.JLR_LANGUAGE_MASTER)) {
+                level = 6;
+            } else if (path.contains(CommonConstants.JLR_GLOBAL_MASTER) || path.contains(CommonConstants.JLR_GLOBAL_PUBLISHED)) {
+                level = 4;
+            } else {
+                level = 5;
+
+            }
+            rootPath = currentPage.getAbsoluteParent(level);
+            if (null == rootPath) {
+                return null;
+            }
+            return rootPath.getPath();
+        }
+        return null;
+    }
+
+    public static String getWebImagePath(String path) {
+        if (path != null) {
+            return path + CommonConstants.THUMB_1280_1280_PNG;
+        }
+        return null;
+    }
+
+    public static String getSmallImagePath(String path) {
+        if (path != null) {
+            return path + CommonConstants.THUMB_319_319_PNG;
+        }
+        return null;
+    }
+
+
+    public static String getTinyImagePath(String path) {
+        if (path != null) {
+            return path + CommonConstants.THUMB_140_100_PNG;
+        }
+        return null;
+    }
+
+    public static String getOnlyTextFromHTML(String text) {
+        return StringUtils.isBlank(text) ? StringUtils.EMPTY : Jsoup.clean(text, Whitelist.none().addTags("sup"));
+    }
+
+    public static List<FooterPojo> createFooterList(Resource footerList) {
+        List<FooterPojo> list = new ArrayList<>();
+        Iterator<Resource> childResources = footerList.listChildren();
+        while (childResources.hasNext()) {
+            Resource child = childResources.next();
+            ValueMap properties = child.adaptTo(ValueMap.class);
+            if (null != properties) {
+                list.add(new FooterPojo(properties.get("header", String.class), properties.get("copy", String.class)));
+            }
+        }
+        return list;
+    }
+
+    public static Boolean isAUMarket(Page page) {
+        if (null != page) {
+            String pagePath = page.getPath();
+            if (pagePath.contains("aus/") || pagePath.contains("en_au")) {
+                return Boolean.TRUE;
+            }
+        }
+        return Boolean.FALSE;
+    }
+
 }
