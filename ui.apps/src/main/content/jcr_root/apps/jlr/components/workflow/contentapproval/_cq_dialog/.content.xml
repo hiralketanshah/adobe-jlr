@@ -36,11 +36,11 @@
                                             <approve
                                                 jcr:primaryType="nt:unstructured"
                                                 text="Approve"
-                                                value="approve"/>
+                                                value="Approved"/>
                                             <reject
                                                 jcr:primaryType="nt:unstructured"
                                                 text="Reject"
-                                                value="reject"/>
+                                                value="Rejected"/>
                                         </items>
                                     </approvalStatus>
                                     <approve
