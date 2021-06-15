@@ -1745,7 +1745,7 @@
                 this._multiFrameBindResizeEvent();
                 this.ui('xRaySlider').remove(); // remove x-ray slider
               } else {
-                console.log(this.frames.length)
+
                 this.isDualFrame = true; // Dualframe Slider as more than two images
 
                 this.ui('overlay').remove(); // overlay not needed for Dual Frame
@@ -1994,8 +1994,6 @@
           jQuery.createComponent('DualFrameSlider', DualFrameSlider);
 
           $('.cmp-dualFrameSlider').DualFrameSlider();
-
-          console.log('resize');
 
         })(jQuery, window, document);
 
