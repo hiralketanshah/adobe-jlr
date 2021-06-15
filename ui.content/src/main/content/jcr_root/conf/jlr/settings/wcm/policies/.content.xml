@@ -1160,6 +1160,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <tabbedcontainer jcr:primaryType="nt:unstructured">
                         <policy_1620031717860
+                                cq:styleDefaultClasses="white"
                                 jcr:lastModified="{Date}2021-06-14T15:40:14.614+05:30"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
