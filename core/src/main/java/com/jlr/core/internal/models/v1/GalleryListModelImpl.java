@@ -97,21 +97,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getExitPageLink() {
-        String referer = request.getHeader("referer");
-        if(StringUtils.isNotEmpty(referer)) {
-            String refererDomain = "";
-            try {
-                URL url = new URL(referer);
-                refererDomain = url.getHost();
-            } catch(MalformedURLException muex) {
-                refererDomain = "";
-            }
-            String domain = request.getServerName();
-            if(refererDomain.equals(domain)) {
-                return referer;
-            }
-        }
-        return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
+              return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
     /**
