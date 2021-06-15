@@ -1893,7 +1893,12 @@
               this.spriteSpinApi = this.$spriteSpinElement.spritespin('api'); // Set API object
             },
             _multiFrame_HeightWidthRatio: function _multiFrame_HeightWidthRatio() {
-              console.log(this.imgHeight, this.imgWidth)
+
+              if ($(window).width() < 740 && $('.cmp-dualFrameSlider__slider .leftHr').length == 0) {
+                $('.cmp-dualFrameSlider__slider').append(`<hr class="leftHr"><hr class="rightHr">`);
+              } else if ($(window).width() > 740) {
+                $('.cmp-dualFrameSlider__slider hr').remove();
+              }
               return this.imgHeight / this.imgWidth;
             },
             _bindTransitionEndEvent: function _bindTransitionEndEvent() {
@@ -1989,6 +1994,9 @@
           jQuery.createComponent('DualFrameSlider', DualFrameSlider);
 
           $('.cmp-dualFrameSlider').DualFrameSlider();
+
+          console.log('resize');
+
         })(jQuery, window, document);
 
         /***/
