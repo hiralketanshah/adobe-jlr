@@ -630,7 +630,13 @@ label {
 position:unset;
 padding-bottom: 0%;
 }
+.cmp-hero .heading .headingWrapper p{
+  font-family: 'LandRoverWeb-Bold';
+}
 @media screen and (min-width: 1280px){
+  .cmp-hero-carousel .Pagination__play-control-icon, .cmp-hero-carousel  .Pagination__pause-control-icon {
+    fill:white;
+}
   .cmp-hero .priceAndCta{
     display: flex;
     flex-direction: row;
