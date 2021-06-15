@@ -83,7 +83,7 @@
     text-transform: capitalize;
 }
 
-a.cmp-specificationsAtAGlance__link.primaryLinkWithStyle.plwsLight.icon-360-view {
+.cmp-specificationsAtAGlance .cmp-ctaContainer .primaryLinkWithStyle {
     margin: 13px 26px 14px 0;
 }
 
