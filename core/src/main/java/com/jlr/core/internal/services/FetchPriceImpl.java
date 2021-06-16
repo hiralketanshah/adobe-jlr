@@ -245,7 +245,10 @@ public class FetchPriceImpl implements FetchPrice {
         destinationPathBuilder.append(destinationPath);
         try {
             Session session = resolver.adaptTo(Session.class);
-            HttpClient httpClient = PricingUtils.getHttpClient();
+            HttpClient httpClient = new HttpClient();
+            httpClient.getHttpConnectionManager().getParams()
+                    .setConnectionTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+            httpClient.getHttpConnectionManager().getParams().setSoTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
             GetMethod method = new GetMethod(endpoint);
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 method.setRequestHeader(entry.getKey(), entry.getValue());
@@ -253,7 +256,6 @@ public class FetchPriceImpl implements FetchPrice {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Started fetching response from {}. {}", endpoint, new java.util.Date());
             }
-
             httpClient.executeMethod(method);
             String response = method.getResponseBodyAsString();
             if (LOGGER.isDebugEnabled()) {
