@@ -115,6 +115,7 @@
        c-player-summary="true"
        faq-text="true"
        seat-slider-summary="true"
+       site-notification-summary="true"
 	    legacy-browser-summary="true"
        vertical-slider-header="true"/>
 </jcr:root>

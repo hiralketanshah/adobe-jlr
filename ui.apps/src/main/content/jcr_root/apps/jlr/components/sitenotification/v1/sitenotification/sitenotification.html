@@ -1,0 +1,21 @@
+   <sly data-sly-use.model="com.jlr.core.models.SiteNotificationModel"
+    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='a11y.modalClose.label'}"
+    data-sly-test.hasContent="${model.headerCopy}" id="${component.id}"></sly>
+   <div>
+        <div class="cmp-popupModal slateblue" pop="30" data-cookie-disable="false" data-component-url="${model.componentURL}" data-component-id="${model.id}"
+          data-modal-return="true">
+          <div class="cmp-popupModal__body" data-close-label="${config.configMap['a11y.modalClose.label']}">
+            <div class="cmp-popupModal__header-title Modal__title">${model.headerCopy @context='html'}</div>
+            <div class="Modal__text">
+              <div class="cmp-popupModal__body-copy">
+                <span>${model.copy @context='html'}</span>
+              </div>
+              <button data-sly-test="${model.closeButtonCopy}" aria-label="${model.closeButtonArialabel}" class="cmp-popupModal__body-cta primaryLinkWithStyle">${model.closeButtonCopy}</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
