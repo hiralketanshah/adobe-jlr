@@ -1,0 +1,41 @@
+<sly data-sly-use.model="com.jlr.core.models.SnippetModel" data-sly-call="${renderSnippet @ snippet=model, config=config}" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"/>
+<template data-sly-template.renderSnippet="${ @ snippet, config }">
+   <div class="cq-placeholder"
+      data-sly-test="${!snippet.headerCopy || !snippet.copy || !snippet.ctaList}" data-emptytext="Site Notification Component"></div>
+   <div>
+        <div class="cmp-popupModal slateblue" pop="30" data-cookie-disable="false" data-component-url="PopupModal.html" data-component-id="296-778381"
+          data-modal-return="true">
+          <div class="cmp-popupModal__body" data-close-label="close">
+            <div class="cmp-popupModal__header-title Modal__title">PLEASE NOTE</div>
+            <div class="Modal__text">
+              <div class="cmp-popupModal__body-copy">
+                <p>To see State specific pricing, please select “Show Prices” in the navigation. Where pricing is currently
+                  unavailable online, please contact your preferred Land Rover Retailer.</p>
+                <p> Discovery Sport & Range Rover Evoque fuel economy and CO2 figures quoted on this website are based on European
+                  testing. Australian figures are expected to be available early 2021.</p>
+                <p>​Defender 22MY model year is now available to order. Some models of the 21 model year range reflected on
+                  this website are no longer available, please check with your local retailer for the latest ordering information.
+                  Please refer to 22MY Specification and price guide for all details.</p>
+              </div>
+              <button aria-label="close" class="cmp-popupModal__body-cta primaryLinkWithStyle">Close</button>
+            </div>
+          </div>
+        </div>
+        <div class="cmp-popupModal" pop="30" data-cookie-disable="false" data-component-url="sdasd" data-component-id="296-778382"
+          data-modal-return="true">
+          <div class="cmp-popupModal__body" data-close-label="close">
+            <div class="cmp-popupModal__header-title Modal__title">Header Title to be 2</div>
+            <div class="Modal__text">
+              <div class="cmp-popupModal__body-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed luctus ex sit amet risus condimentum fermentum.
+                Praesent at dapibus nibh. Aenean vestibulum efficitur massa. Mauris et lobortis ligula. Nunc efficitur egestas
+                magna, sed rhoncus leo vulputate non. Nulla eu nunc efficitur, ullamcorper orci sit amet, bibendum augue.
+                <a href="#">Check for presence of link</a>
+              </div>
+              <button aria-label="close" class="cmp-popupModal__body-cta primaryLinkWithStyle">OK</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+</template>
