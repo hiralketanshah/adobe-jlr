@@ -1,291 +1,83 @@
-.cmp-snippet .Snippet__MarketRegionalPricing {
-    padding-top:16px;
+.cmp-popupModal {
+    display: none;
 }
-
-.cmp-snippet {
-	text-align: left;
+.cmp-popupModal__body-copy a {
+    color: #005a2b;
+    text-decoration: underline;
 }
-
-.cmp-snippet .headingWrapper p {
-	line-height: 38px;
+.cmp-popupModal__header-title{    
+    font-family: "lr_ot4", "arial", "helvetica", sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    letter-spacing: 1.2px;
+    line-height: 24px;
     text-transform: uppercase;
 }
-
-.cmp-snippet .copy p:first-child::first-letter{
-    text-transform: capitalize;
+.Modal__content {
+    padding: 60px 40px 40px; 
 }
-
-.cmp-snippet h2 {
-	margin-bottom: 0;
+.cmp-popupModal__body-copy p{
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    line-height: 19px;
+    margin-bottom: 23px;
 }
-
-.cmp-snippet p {
-	margin-top: 23px;
-	width: 85%;
-	line-height: 20px;
+.cmp-popupModal__body-copy p::first-letter{
+    text-transform: uppercase;
 }
-
-.cmp-snippet .linkContainer .secondaryLinkContainer:empty {
-	display: none;
+.cmp-popupModal__body-copy p:last-child{
+    margin-bottom: 0;
 }
-
-.cmp-snippet .linkContainer .primaryLinkContainer,
-.cmp-snippet .linkContainer .secondaryLinkContainer {
-	margin-top: 26px;
-	margin-right: 20px;
-	display: inline-block;
-	vertical-align: middle;
-	text-transform: uppercase;
-}
-
-.cmp-snippet .linkContainer .primaryLinkContainer a,
-.cmp-snippet .linkContainer .secondaryLinkContainer a {
-	margin-top: 0;
-}
-
-.cmp-snippet .linkContainer .primaryLinkContainer:first-child,
-.cmp-snippet .linkContainer .secondaryLinkContainer:first-child {
-	margin-left: 0;
-}
-
-.cmp-snippet .linkContainer .primaryLinkContainer.secondaryLinkType,
-.cmp-snippet .linkContainer .secondaryLinkContainer.secondaryLinkType {
-	display: block;
-	margin-left: 0;
-}
-
-@media screen and (min-width: 1px) and (max-width: 900px) {
-	.cmp-snippet p {
-		margin-top: 23px;
-		width: 100%;
-	}
-}
-
-@media screen and (min-width: 1px) and (max-width: 740px) {
-	.cmp-snippet p {
-		width: 100%;
-	}
-	.cmp-snippet.hide-title-mobile {
-		display: none;
-	}
-	.cmp-snippet .linkContainer .secondaryLinkContainer {
-		margin-top: 0;
-	}
-	.cmp-snippet .linkContainer .primaryLinkContainer,
-	.cmp-snippet .linkContainer .secondaryLinkContainer {
-		display: block;
-		margin-left: 0;
-	}
-	.cmp-snippet .linkContainer .secondaryLinkContainer .primaryLinkWithStyle,
-	.cmp-snippet .linkContainer .secondaryLinkContainer .secondaryLinkWithStyle {
-		margin-top: 28px;
-	}
-	.cmp-snippet .primaryLinkContainer+.secondaryLinkContainer {
-		margin-top: 0;
-	}
-}
-
-.cmp-snippet--with-DerivativesOverview {
-	padding-bottom: 8px;
-}
-
-.cmp-snippet+.DerivativesOverview .Derivative__range {
-	padding: 0;
+.cmp-popupModal__body-cta{
+    font-family: "AvenirNext-DemiBold";
+    margin-top: 43px;
+    text-transform: uppercase;
+    min-width: 40px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    line-height: 14px;
 }
 
 @media screen and (min-width: 741px) {
-	.cmp-snippet+.DerivativesOverview .Derivative__range+.Derivative__toggle-content {
-		padding-top: 40px;
+	.Modal__content-wrapper {
+		width: 580px;
+		max-height: calc(100vh - 80px);
+		top: 50%;
+		left: 50%;
+		height: auto;
+		transform: translate(-50%, -50%);
+		box-shadow: 0px 6px 13px
 	}
 }
-
-.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
-	background: #fff;
-}
-
-@media screen and (min-width: 901px) {
-	.cmp-snippet+.DerivativesOverview .Derivative__toggle-content {
-		padding-top: 56px;
-	}
-}
-
-@media (max-width: 740px) {
-	.cmp-snippet.Accordion--mobile-hide {
-		display: block;
-		height: 1px;
-		padding: 0;
-		visibility: hidden;
-		position: absolute;
-		top: 0;
-	}
-}
-
-.cmp-snippet__MarketRegionalPricing {
-	display: flex;
-	justify-content: center;
-	padding-top: 24px;
-}
-
-.cmp-snippet h2 {
-	margin-bottom: 0;
-}
-
-.cmp-snippet .linkContainer {
-	padding-top: 6px;
-}
-
-.cmp-snippet .copy {
-	font-size: 18px;
-}
-
-@media screen and (min-width: 1px) and (max-width: 900px) {
-	.cmp-snippet .copy {
-		font-size: 16px;
-		line-height: 18px;
-	}
-	.cmp-snippet p {
-		margin-top: 23px;
-	}
-}
-
-@media screen and (min-width: 1px) and (max-width: 740px) {
-	.cmp-snippet p {
-		margin-top: 18px;
-	}
-	.cmp-snippet .copy {
-		font-size: 14px;
-	}
-}
-
-@media screen and (min-width: 1281px) and (max-width: 2000px) {
-	.cmp-snippet {
-		padding-left: 190px;
-	}
-}
-
-@media screen and (max-width: 375px) {
-	.cmp-snippet .headingWrapper p {
-		line-height: 26px;
-	}
-	.cmp-snippet .copy p {
-		line-height: 19px;
-	}
-}
-
-@media screen and (min-width: 376px) and (max-width: 768px) {
-	.cmp-snippet .headingWrapper p {
-		line-height: 30px;
-	}
-	.cmp-snippet .copy p {
-		line-height: 19px;
-	}
-}
-
-@media screen and (min-width: 769px) and (max-width: 1280px) {
-	.cmp-snippet .headingWrapper p {
-		line-height: 38px;
-	}
-	.cmp-snippet .copy p {
-		line-height: 24px;
-	}
-}
-
-/* code fix for defect 567 */
-.snippet.grey p, .snippet.light p,.snippet.white p{
-	color:#4A4F54;
- }
- .cmp-snippet .headingWrapper p{color:#0C121C;}
-@media screen and (min-width:1920px) and (max-width: 2700px){
-    .snippet .headingThick {width:765px;}
-	.snippet .shelfComponent{margin-left:290px; min-width:880px;width:880px; margin-right:750px; margin-bottom:82px;}
-	.snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;} 
-}
-
- @media screen and (min-width:1024px) and (max-width: 1919px){
-    .snippet .shelfComponent{ min-width:760px;width:760px;}
-    .snippet .headingThick {width:760px;}
-.cmp-snippet p{line-height:24px;}
-.snippet .shelfComponent{
-	padding:60px 60px 82px 60px;
-
-}
-  .cmp-snippet .headingWrapper p {
-    color: #0C121C;
-	margin-top:0!important;
-}
-.cmp-snippet .linkContainer{padding-top:0;}
-.cmp-snippet .secondaryLinkContainer{clear:both; margin-top:23px!important; }  
-.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
-.cmp-snippet .primaryLinkWithStyle {line-height:14px;}
-}
-@media screen and (min-width: 767px) and (max-width: 1278px){
-.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
-.cmp-snippet .primaryLinkWithStyle {line-height:14px;}
-.cmp-snippet .primaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 0px;
-      }
-.cmp-snippet .secondaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 0px!important;
-}
+@media screen and (min-width: 1px) and (max-width: 768px){
+    .Modal__content-wrapper{
+        width: 100%;
+        max-height: 100vh;
+        height: 100vh;
     }
-@media screen and (min-width: 1px) and (max-width: 900px){
-.snippet .cmp-snippet p {
-    margin-top: 17px;
+    .Modal__header{
+        border-bottom: 1px solid #d8d8d8;
+    }
+    .Modal__content {
+        padding: 78px 30px 0px;
+    }
+    .cmp-popupModal__header-title{
+        margin-bottom: 15px;
+        margin-top: 0;
+        font-size: 16px;
+        letter-spacing: 0.82px;
+        line-height: 16px;
+    }
+    .cmp-popupModal__body-copy p{
+        margin-bottom: 14px;
+    }
+    
 }
-
+@media screen and (min-width: 1px) and (max-width: 425px){
+    .Modal__content {
+        padding: 70px 25px 25px;
+    }
+    .cmp-popupModal__header-title{
+        margin-top: 0;
+    }
 }
-@media screen and (min-width: 766px) and (max-width: 900px){
-.snippet .headingThick {width:524px;}
- .snippet .shelfComponent{
-    padding-top:40px;
-    padding-left:30px;
-	padding-bottom:62px;
-	min-width:519px;
-	width:519px;
-	margin-right:214px;
-   }
-.cmp-snippet .headingWrapper p {
-    color: #0C121C;
-	margin-top:0!important;
-}
-.cmp-snippet .secondaryLinkWithStyle {margin-bottom:0;}
-}
-.snippet .primaryLinkContainer{margin-top: 25px!important; float: left;
-    clear: both;}
-
-@media screen and (max-width: 375px){
-.cmp-snippet .headingWrapper p {
-
-  margin-top:8px;
-}
-}
-@media screen and (min-width: 300px) and (max-width: 766px){
-.snippet .headingThick {width:325px;}  
-.snippet .shelfComponent{min-height: auto; width:325px; min-width:325px; margin-bottom:40px;   }         
-.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px; margin-top:23px!important; margin-bottom:0!important;}
-.cmp-snippet .primaryLinkWithStyle {line-height:14px;}
-.snippet .cmp-snippet p {
-    margin-top: 16px;
-}
-.cmp-snippet .headingWrapper p{color:#0C121C; margin-top:0}
-.snippet .linkContainer {
-    margin-top: 0px;
-    padding-top:0;
-}
-.snippet .shelfComponent{
-padding-top:25px;
-   }
- .cmp-snippet .secondaryLinkContainer{clear:both;}
- .snippet .primaryLinkContainer{clear:both;}
-.snippet .primaryLinkContainer {
-    margin-top: 24px!important;
-}
-.snippet .primaryLinkWithStyle{margin-bottom:0px;}
-}
-  /* code fix for defect 567 */
-
-
-
-
