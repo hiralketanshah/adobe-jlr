@@ -2543,12 +2543,12 @@
               var sharedNavigation = document.querySelector('.sharedNavigation');
 
               if (toggle) {
-                pageWrapper.setAttribute('aria-hidden', 'true');
+                // pageWrapper.setAttribute('aria-hidden', 'true');
                 if ((0, _utils.checkDefined)(sharedNavigation)) {
                   sharedNavigation.setAttribute('aria-hidden', 'true');
                 }
               } else {
-                pageWrapper.removeAttribute('aria-hidden');
+                // pageWrapper.removeAttribute('aria-hidden');
                 if ((0, _utils.checkDefined)(sharedNavigation)) {
                   sharedNavigation.removeAttribute('aria-hidden');
                 }
@@ -2664,7 +2664,7 @@
               this.element = element;
               this.cookieID = this.element.getAttribute('data-component-id');
               let cookieURL = this.element.getAttribute('data-component-url');
-              console.log(cookieURL);
+
 
               this.retentionPeriod = this.element.getAttribute('data-cookie-retention');
               this.forcePreventCookie = this.element.getAttribute('data-cookie-disable');
@@ -2678,6 +2678,12 @@
                   }
                 }
               }
+              console.log(this.element.parentElement.classList[1]);
+
+              if (this.element.parentElement.classList[1] == 'slateblue' || this.element.parentElement.classList[1] == 'light') {
+                $('.Modal__content-wrapper').addClass(this.element.parentElement.classList[1]);
+              }
+
             }
           }, {
             key: 'checkModalCookie',
