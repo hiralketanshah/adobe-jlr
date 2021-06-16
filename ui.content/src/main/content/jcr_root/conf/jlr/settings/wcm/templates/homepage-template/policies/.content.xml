@@ -200,7 +200,15 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </specsglance>                                          					
+                        </specsglance>
+                        <sitenotification jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <sitenotification
+                                    cq:policy="jlr/components/sitenotification/v1/sitenotification/policy_1623840580238"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </sitenotification>                                         					
                     </components>
                 </jlr>
             </container>
