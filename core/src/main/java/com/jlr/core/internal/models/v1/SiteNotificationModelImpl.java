@@ -11,7 +11,6 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.jlr.core.models.SiteNotificationModel;
-import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class SiteNotificationModelImpl.
@@ -21,10 +20,6 @@ public class SiteNotificationModelImpl extends GlobalModelImpl implements SiteNo
 	
 	/** The Constant RESOURCE_TYPE. */
 	public static final String RESOURCE_TYPE = "jlr/components/sitenotification/v1/sitenotification";
-	
-	/** The resource resolver. */
-    @Inject
-    private ResourceResolver resourceResolver;
 	
 	/** The close button copy. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -84,7 +79,7 @@ public class SiteNotificationModelImpl extends GlobalModelImpl implements SiteNo
 	 */
 	@Override
 	public String getComponentURL() {
-		return LinkUtils.appendLinkExtension(componentURL, resourceResolver);
+		return componentURL;
 	}
 
 }

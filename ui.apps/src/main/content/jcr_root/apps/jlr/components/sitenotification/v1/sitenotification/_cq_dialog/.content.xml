@@ -40,11 +40,10 @@
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
                             <componenturl
                                 jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Link to a content page, external URL."
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="Specify the page to which the site notification should appear."
                                 fieldLabel="Component URL"
-                                name="./componentURL"
-                                rootPath="/content/landrover/global"/>
+                                name="./componentURL"/>
                             <closeButtonCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
