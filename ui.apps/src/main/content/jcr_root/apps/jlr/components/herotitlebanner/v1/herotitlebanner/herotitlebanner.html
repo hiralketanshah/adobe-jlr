@@ -12,7 +12,7 @@
                      <!-- <iframe width="100%" height="100%" src="${model.videoId}" frameborder="0" allowfullscreen></iframe> -->
                 </div>
 				
-				<video data-sly-test="${model.assetType == 'video' && model.videoPath}" class="video customControl" loop autoplay="true" muted="true"controls="controls" height="100%" preload="none" width="100%">
+				<video data-sly-test="${model.assetType == 'video' && model.videoPath}" class="video customControl" loop playsinline autoplay="true" muted="true"controls="controls" height="100%" preload="none" width="100%">
 					<source src="${model.videoPath}#t=0,6" type="video/mp4" />
 				</video>
              
