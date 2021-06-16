@@ -1,4 +1,4 @@
-package com.jlr.core.workflows;
+package com.jlr.wf.core.workflows;
 
 import com.adobe.acs.commons.notifications.InboxNotificationSender;
 import com.adobe.granite.workflow.WorkflowException;
@@ -13,10 +13,9 @@ import com.day.cq.replication.ReplicationActionType;
 import com.day.cq.replication.ReplicationException;
 import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.constants.WorkflowConstants;
-import com.jlr.core.utils.CommonUtils;
-import com.jlr.core.utils.ErrorUtils;
+import com.jlr.wf.core.constants.ErrorUtilsConstants;
+import com.jlr.wf.core.constants.WorkflowConstants;
+import com.jlr.wf.core.utils.ErrorUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.sling.api.resource.*;
 import org.osgi.service.component.annotations.Component;
@@ -30,9 +29,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 
-import static com.jlr.core.constants.CommonConstants.JLR_WORKFLOW_SUBSERVICE;
-import static com.jlr.core.constants.WorkflowConstants.*;
-import static com.jlr.core.utils.WorkflowUtils.*;
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
+import static com.jlr.wf.core.constants.WorkflowConstants.*;
+import static com.jlr.wf.core.utils.WorkflowUtils.*;
 
 /**
  * The component that activates the selected content now or a later date.
@@ -59,13 +58,13 @@ public class ContentActivationProcess implements WorkflowProcess {
                         final MetaDataMap metaDataMap) throws WorkflowException {
         LOGGER.debug("Content Activation Process Started");
 
-        try (ResourceResolver resourceResolver = CommonUtils.getServiceResolver(resolverFactory, JLR_WORKFLOW_SUBSERVICE)) {
+        try (ResourceResolver resourceResolver = getServiceResolver(resolverFactory, JLR_WORKFLOW_SUBSERVICE)) {
 
             String contentPath = workItem.getContentPath();
             Resource resource = resourceResolver.getResource(contentPath);
             if(resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                ValueMap valueMap = resource.getChild(WorkflowConstants.JCR_CONTENT).getValueMap();
+                ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
                 String approvalStatus = valueMap.get(WorkflowConstants.APPROVAL_STATUS, String.class);
                 if(WorkflowConstants.APPROVE.equalsIgnoreCase(approvalStatus)) {
                     String activateNowLater = valueMap.get(WorkflowConstants.ACTIVATE_NOW_LATER, String.class);
@@ -83,8 +82,7 @@ public class ContentActivationProcess implements WorkflowProcess {
                     if(page != null) {
                         removeMetadata(page, resourceResolver);
                     } else {
-                        ModifiableValueMap properties = resource.getChild(JCR_CONTENT).adaptTo(ModifiableValueMap.class);
-                        removeProperties(properties);
+                        removeProperties(resource.getChild(JCR_CONTENT));
                     }
                     saveChanges(resourceResolver);
                 }
@@ -111,7 +109,7 @@ public class ContentActivationProcess implements WorkflowProcess {
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
             final WorkflowModel workflowModel = workflowSession.getModel(model);
-            final WorkflowData workflowData = workflowSession.newWorkflowData(JCR_PATH, contentPath);
+            final WorkflowData workflowData = workflowSession.newWorkflowData(TYPE_JCR_PATH, contentPath);
             workflowData.getMetaDataMap().put(ABSOLUTE_TIME, date.getTime());
             workflowData.getMetaDataMap().put(WORKFLOW_TITLE, CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowSession.startWorkflow(workflowModel, workflowData);

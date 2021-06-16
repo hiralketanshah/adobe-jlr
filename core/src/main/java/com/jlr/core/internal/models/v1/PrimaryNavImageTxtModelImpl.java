@@ -11,7 +11,6 @@ import com.jlr.core.models.PrimaryNavImageTxtModel;
 import com.jlr.core.utils.LinkUtils;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class PrimaryNavImageTxtModel.
  *

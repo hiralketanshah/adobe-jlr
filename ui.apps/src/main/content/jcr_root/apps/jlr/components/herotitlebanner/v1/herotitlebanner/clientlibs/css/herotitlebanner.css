@@ -318,6 +318,11 @@ label {
 	}
 	}
 @media screen and (min-width: 1280px){
+	.cmp-heroTitleBanner .secondaryLinkWithStyle,
+	.cmp-heroTitleBanner .primaryLinkContainer+.secondaryLinkWithStyle, .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle
+	{
+		margin-top: 0px;
+	} 
 	.short .cmp-carousel__bgImage {
 		min-height: 349px;
 		height: 340px;
@@ -382,6 +387,8 @@ label {
 	}
 	.cmp-heroTitleBanner .linkContainer {
 	  width: max-content;
+	  display: flex;
+	  flex-direction: column;
 	}
 	.cmp-heroTitleBanner .emissionDe p {
 	  display: inline;
@@ -396,8 +403,10 @@ label {
 	}
 	.cmp-heroTitleBanner .linkContainer div:nth-of-type(1){
 		margin-top: 24px;
-		display: flex;
-		flex-direction: column;
+		display: block;
+	}
+	.cmp-heroTitleBanner .linkContainer div:nth-of-type(2) {
+		margin-top: 23px;
 	}
 	.cmp-heroTitleBanner .caveat{
 		margin-top: 24px;
@@ -575,11 +584,6 @@ p {
 {
   fill: white
 }
-
-	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--next,
-	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--prev {
-		display: none;
-	}
 	.grey .cmp-herotitle-carousel .Pagination__play-control-icon, 
 	.grey .cmp-herotitle-carousel .Pagination__pause-control-icon.Pagination__pause-control-icon,
 	.light .cmp-herotitle-carousel .Pagination__play-control-icon, 
@@ -612,6 +616,10 @@ p {
 	  background-color: transparent;
   }
   @media screen and (max-width: 1279px){
+	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--next,
+	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--prev {
+		display: none;
+	}
 	.cmp-heroTitleBanner .cmp-genericItem__content .headingWrapper p{
 	margin-top: 8px;
 	}
@@ -828,4 +836,12 @@ p {
 		letter-spacing: 0.15px;
 		line-height: 14px;
 	}
+}
+.cmp-heroTitleBanner .video.customControl{
+	position: absolute;
+	left: 0;
+}
+.cmp-heroTitleBanner .videoCustom{
+	position: unset;
+	padding-bottom: 0%;
 }

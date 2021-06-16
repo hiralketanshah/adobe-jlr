@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured">
+    <approvalStatus
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Approval Status"
+            columnGroup="approval"
+            columnResourceType="cq/gui/components/common/admin/listview/customcell"
+            default="{Boolean}true"
+            page-info-provider="approvalTypeProvider"
+            page-info-provider-property="approvalStatus"
+            sortable="{Boolean}true"/>
+    <approvedDate
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Approved On"
+            columnGroup="approval"
+            columnResourceType="cq/gui/components/common/admin/listview/customcell"
+            default="{Boolean}true"
+            page-info-provider="approvalTypeProvider"
+            page-info-provider-property="approvedDate"
+            sortable="{Boolean}true"/>
+</jcr:root>

@@ -12,6 +12,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 

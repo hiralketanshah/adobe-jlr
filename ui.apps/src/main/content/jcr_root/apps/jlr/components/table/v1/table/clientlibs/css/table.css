@@ -562,7 +562,9 @@
 	}
 
 			}
-	.cmp-table{padding-bottom:60px;}
+	.cmp-table{
+		padding-bottom:60px;
+	}
 	.cmp-table .primaryLinkWithStyle{
 	margin-top:0;
 	}
@@ -600,5 +602,11 @@
     border: 1px solid #ffffff;
 	border-left: 20px solid #e4e8e8;
     border-right: 20px solid #fff;
+}
+.cmp-table--padSpace28{
+    padding: 28px;    
+}
+.cmp-table--padSpace18{
+    padding: 18px;    
 }
 	/*---------code fix for 585----------*/

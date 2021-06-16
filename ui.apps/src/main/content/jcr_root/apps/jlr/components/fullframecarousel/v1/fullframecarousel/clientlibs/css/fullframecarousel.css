@@ -1049,8 +1049,15 @@
     padding:28px 0 0 30px;
     -webkit-font-smoothing: antialiased;
 }
+.cmp-fullframe .contentClass{
+  float: left;
+  width: 650px;}
 }   
 @media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-fullframe .contentClass{
+    float: left;
+    width: 560px;}
+}
 .cmp-fullframe  .headerClass h2 {
     margin-bottom: 16px;
 }
@@ -1064,10 +1071,13 @@
     -webkit-font-smoothing: antialiased;
 }
 .cmp-fullframe .linkContainer{padding-top:0;}
-.cmp-fullframe .fontBodyCopyLarge{margin-bottom:0px; min-width:525px; min-height:76px; height:auto;margin:0 auto;}
+.cmp-fullframe .fontBodyCopyLarge{margin-bottom:0px; min-width:524px; min-height:76px; height:auto;margin:0 auto;}
 
 } 
 @media screen and (min-width: 320px) and (max-width:767px){
+  .cmp-fullframe .contentClass{
+    float: left;
+    width:325px;}
 .cmp-fullframe  .headerClass h2 {
     margin-bottom: 16px;
 }

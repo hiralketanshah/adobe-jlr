@@ -20818,3 +20818,6 @@ color:#FFFFFF;
 	color: #005A2B;
 	text-decoration: underline;
 }
+#landrover .secondaryLinkWithStyle,#landrover .primaryLinkWithStyle {
+ text-transform: uppercase !important;
+}

@@ -6,4 +6,5 @@
     <filter root="/apps/jlr/i18n"/>
     <filter root="/apps/sling"/>
     <filter root="/apps/msm/jlr" mode="merge"/>
+    <filter root="/apps/wcm/core"/>
 </workspaceFilter>

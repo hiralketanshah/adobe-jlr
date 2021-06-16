@@ -1,4 +1,4 @@
-package com.jlr.core.constants;
+package com.jlr.wf.core.constants;
 
 
 /**
@@ -29,11 +29,7 @@ public class WorkflowConstants {
     /**
      * The constant APPROVE.
      */
-    public static final String APPROVE = "approve";
-    /**
-     * The constant JCR_CONTENT.
-     */
-    public static final String JCR_CONTENT = "jcr:content";
+    public static final String APPROVE = "Approved";
     /**
      * The constant CONTENT_ACTIVATION_PROCESS.
      */
@@ -45,15 +41,11 @@ public class WorkflowConstants {
     /**
      * The constant VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION.
      */
-    public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/scheduled_activation";
+    public static final String VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION = "/var/workflow/models/jlr_scheduled_page_assetactivation";
     /**
      * The constant YYYY_MM_DD_T_HH_MM_SS.
      */
     public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
-    /**
-     * The constant JCR_PATH.
-     */
-    public static final String JCR_PATH = "JCR_PATH";
     /**
      * The constant CONTENT_ACTIVATION_SCHEDULED_ON.
      */
@@ -115,10 +107,6 @@ public class WorkflowConstants {
      */
     public static final String GLOBAL_APPROVERS = "global-approvers";
     /**
-     * The constant ADMIN.
-     */
-    public static final String ADMIN = "admin";
-    /**
      * The constant DEU.
      */
     public static final String DEU = "deu/";
@@ -143,14 +131,6 @@ public class WorkflowConstants {
      */
     public static final String APPROVED_DATE = "approvedDate";
     /**
-     * The constant CQ_LAST_MODIFIED.
-     */
-    public static final String CQ_LAST_MODIFIED = "cq:lastModified";
-    /**
-     * The constant JCR_LAST_MODIFIED.
-     */
-    public static final String JCR_LAST_MODIFIED = "jcr:lastModified";
-    /**
      * The constant WORKFLOW_UTILS.
      */
     public static final String WORKFLOW_UTILS = "WorkflowUtils";
@@ -162,4 +142,14 @@ public class WorkflowConstants {
      * The constant WORKFLOW_TITLE.
      */
     public static final String WORKFLOW_TITLE = "workflowTitle";
+    /** The Constant JLR_WORKFLOW_SUBSERVICE. */
+    public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
+    /** The Constant JLR_CONTENT_PATH. */
+    public static final String JLR_CONTENT_PATH = "/content/landrover/";
+
+    /** The Constant JLR_DAM_PATH. */
+    public static final String JLR_DAM_PATH = "/content/dam/landrover/";
+
+    /** The Constant JLR_XF_PATH. */
+    public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
 }

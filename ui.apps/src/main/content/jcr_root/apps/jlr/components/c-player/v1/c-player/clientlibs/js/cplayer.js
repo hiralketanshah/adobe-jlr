@@ -25681,7 +25681,7 @@
             return;
         }
     
-        var brandKey = ConfiguratorPromptElements[0].getAttribute('data-brand') === 'jaguar' ? 'jag' : 'jlr';
+        var brandKey = ConfiguratorPromptElements[0].getAttribute('data-brand') === 'jaguar' ? 'jag' : 'lr';
         const datastore = new _CrossDomainCommunication_js_datastore__WEBPACK_IMPORTED_MODULE_3__.Datastore({
             localStorage,
             brandKey
