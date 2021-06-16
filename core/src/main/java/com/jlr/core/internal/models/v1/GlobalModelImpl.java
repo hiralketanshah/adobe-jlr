@@ -2,16 +2,20 @@ package com.jlr.core.internal.models.v1;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import javax.inject.Inject;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
+import com.jlr.core.utils.AltTextUtils;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
 
@@ -23,7 +27,8 @@ import com.jlr.core.utils.LinkUtils;
  */
 @Model(adaptables = Resource.class, adapters = {GlobalModel.class})
 public class GlobalModelImpl implements GlobalModel {
-
+	
+	
     /** The id. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String id;
@@ -366,4 +371,13 @@ public class GlobalModelImpl implements GlobalModel {
     public String getPrice() {
         return price;
     }
+    
+	@Override
+	public String getAltTextFromDAM() {
+		String altText = "";
+		if (resourceResolver != null) {
+			altText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
+		}
+		return altText;
+	}
 }
