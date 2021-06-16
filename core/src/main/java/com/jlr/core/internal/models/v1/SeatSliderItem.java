@@ -16,6 +16,9 @@ public class SeatSliderItem extends GlobalModelImpl {
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String value;
 
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private boolean format;
+
 	/*
 	 * Return the title of Seat tab
 	 */
@@ -30,5 +33,8 @@ public class SeatSliderItem extends GlobalModelImpl {
 		return value;
 	}
 
+	public boolean getFormat() {
+		return format;
+	}
 
 }

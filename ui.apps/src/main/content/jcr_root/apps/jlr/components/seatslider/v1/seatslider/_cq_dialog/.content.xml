@@ -101,6 +101,15 @@
                                             fieldLabel="Seat Configuration Value"
                                             name="./value"
                                             required="true"/>
+                                        <format
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                            checked="true"
+                                            fieldDescription="A check box to consider seat configuration value format as decimal separated. Default format is comma separated"
+                                            name="./format"
+                                            text="Decimal Format"
+                                            uncheckedValue="false"
+                                            value="true"/>
                                         <imagePathHeading
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/text"
