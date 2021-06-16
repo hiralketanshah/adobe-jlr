@@ -161,6 +161,9 @@ public class CommonConstants {
     /** The Constant PN_POSTER_IMAGE. */
     public static final String PN_POSTER_IMAGE = "posterImage";
 
+    /** The Constant PN_THUMBNAIL. */
+    public static final String PN_THUMBNAIL = "thumbnail";
+
     /** The Constant PN_OPTION_IMAGE. */
     public static final String PN_OPTION_IMAGE = "optionImage";
 

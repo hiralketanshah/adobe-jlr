@@ -786,6 +786,7 @@ height: 493px;
 .cmp-vehicleSummary .plwsLight:focus, .primaryLinkWithStyle:focus{background-color: #fff!important;
     color: #0c121c!important;
     box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2!important;}
+
 .cmp-vehicleSummary .secondaryLinkContainer,
 .cmp-signPost .secondaryLinkContainer{clear:both;}
 .cmp-vehicleSummary .price{color:#4A4F54!important;}
@@ -909,7 +910,8 @@ height: 493px;
 }
 @media screen and (min-width: 1280px) and (max-width: 2560px){
     .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
-	.cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+
     .cmp-signPost .cmp-signPost__image{
      width:50%;
      height: auto;
@@ -919,10 +921,8 @@ height: 493px;
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
 .cmp-signPost .cmp-signPost__center{
-
     top:0;
     transform:none;
-
     }
  .cmp-signPost .cmp-signPost__picture {
     width: 100%!important;

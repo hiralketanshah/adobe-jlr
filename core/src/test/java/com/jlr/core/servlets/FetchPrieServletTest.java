@@ -134,8 +134,8 @@ class FetchPrieServletTest {
         hits.add(hit);
         when(result.getHits()).thenReturn(hits);
         when(hit.getPath()).thenReturn("userPath");
-        listOfEndpoints.add("de|dummypathforgermany");
-        listOfEndpoints.add("en_au|dummypathforaustralia");
+        listOfEndpoints.add("de|https://google.com/");
+        listOfEndpoints.add("en_au|http://dummypathforaustralia");
 
         request = context.request();
         response = context.response();
@@ -195,10 +195,6 @@ class FetchPrieServletTest {
                 PricingUtils.formEndpointURLs(Mockito.any(ResourceResolver.class), Mockito.any(Map.class),
                         Mockito.any(Map.class), Mockito.any(Map.class), Mockito.anyString());
             }).thenReturn(listOfEndpoints);
-
-            pricingUtils.when(() -> {
-                PricingUtils.getHttpClient();
-            }).thenReturn(httpClient);
 
             pricingUtils.when(() -> {
                 PricingUtils.getJsonObjectFromResponse(Mockito.any());
