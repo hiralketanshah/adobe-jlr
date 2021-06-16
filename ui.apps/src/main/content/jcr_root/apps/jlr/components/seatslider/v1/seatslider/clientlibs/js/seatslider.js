@@ -1295,7 +1295,7 @@
                       new Odometer({ // eslint-disable-line no-new
                         el: this.odometer,
                         value: initial,
-                        format: '(,ddd).dd',
+                        //format: '(,ddd).dd',
                         theme: 'default',
                         duration: 9000
                       });
