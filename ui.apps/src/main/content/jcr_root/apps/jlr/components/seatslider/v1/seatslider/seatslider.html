@@ -2,12 +2,7 @@
 	 data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='seat_configuration_click_to_interact_desktop,seat_configuration_click_to_interact_mobile,enable.javascript.txt,seat_configuration_literage_label,seat_configuration_seats_label,interactiveslider.odometer.format'}"/>
 
 <div class="cmp-interactiveSlider fontSmooth" id="${seatslider.id}">
-    <div aria-describedby="cmp-interactiveSliderClickToInteract cmp-interactiveSliderPurpose" class="clickToInteract" role="button" tabindex="0">
-      <div aria-hidden="true" class="text clickToInteract__text">
-
-       
-      </div>
-    </div>
+   
   
     <!-- Slider -->
     <div class="sliderContainer">
@@ -41,16 +36,22 @@
               <picture class="Picture Picture--background">
                 <img alt="" class="Picture__img" srcset="${seatslider.coverImage}" />
               </picture>
-              <div class="bgforcaption">
+              <div aria-describedby="cmp-interactiveSliderClickToInteract cmp-interactiveSliderPurpose" class="clickToInteract" role="button" tabindex="0">
+                <div aria-hidden="true" class="text clickToInteract__text">
+                  <div class="bgforcaption">
 
-                <div aria-hidden="true" class="clickToInteract__image">
-                  <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
+                    <div aria-hidden="true" class="clickToInteract__image">
+                      <img alt="" src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/icons/seat-config-icon.png" />
+                    </div>
+                    <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
+                      <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
+                      <span class="mobile">${config.configMap['seat_configuration_click_to_interact_mobile']}</span>
+                    </div>
+                    </div>
+                 
                 </div>
-                <div class="clickToInteract__caption" id="cmp-interactiveSliderClickToInteract">
-                  <span class="desktop">${config.configMap['seat_configuration_click_to_interact_desktop']}</span>
-                  <span class="mobile">${config.configMap['seat_configuration_click_to_interact_mobile']}</span>
-                </div>
-                </div>
+              </div>
+              
             </div>
   
             <div aria-hidden="true" class="spriteContainerContext">
