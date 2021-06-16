@@ -196,4 +196,140 @@
   .Gallery__thumbnails-previous:hover {
     background-color: rgba(74, 79, 84, 0.9);
   }
+  /*-----------Code fix for gallery bugs----------*/
+@media screen and (min-width: 901px) and (max-width: 2000px){
+
+  .gallerylist .Fullscreen__information-heading{
+    padding: 9px 0 11px 48px;
+      height: 71px;
+      min-width:230px;
+      max-width:400px;
+    letter-spacing:0.1px;
+    font-family:LandRover;
+  }
+  .gallerylist .Fullscreen__information-text{
+    padding: 5px 20px 5px 48px;
+    max-height: 71px;
+    color:#E4E8E8;
+    line-height:24px;
+    letter-spacing:0.7px;
+  }
+  .gallerylist .filmstripToggle {
+      font-size:11px;
+      line-height:19px;
+    letter-spacing:0.3px;
+    min-width:auto;
+    padding:0 16px;
+  }
+  .gallerylist .filmstripToggle:after{
+      margin-right:0;
+      width:12px;
+  }
+  .gallerylist .Fullscreen__gallery-categories-button {
+    width:70px;
+    height:70px;
+  }
+  .gallerylist .Fullscreen__gallery-categories-button:before{
+    width:18px;
+    }
+  .gallerylist .mfp-close{
+    width:70px;
+    height:70px;
+  }
+  .gallerylist .swiper-button svg{
+    height:30px;
+    max-width:30px;
+  }
+  .gallerylist .Gallery__next{
+    padding-right:30px;
+  }
+  .gallerylist .Gallery__previous{
+    padding-left:30px;
+  }
+  
+  .gallerylist .playerWrapper{
+    width:841px!important;
+    height:473px!important;
+  }
+  }
+  
+  @media screen and (min-width: 741px) and (max-width: 900px){
+  .gallerylist .Fullscreen__footer-heading{
+    font-size:16px;
+    line-height:18px;
+    letter-spacing:0.1px;
+    font-family:LandRoverWeb-Bold;
+    margin-bottom:16px;
+  }
+  .gallerylist .Fullscreen__footer-text{
+    font-size:12px;
+    line-height:15px;
+    letter-spacing:0.6px;
+    color:#f9f9f9;
+  }
+  .gallerylist .Gallery__next{
+    padding-right:14px;
+  }
+  .gallerylist .Gallery__previous{
+    padding-left:14px;
+  }
+    .gallerylist .swiper-button svg{
+    height:24px;
+    max-width:14px;
+  }
+  .gallerylist .Fullscreen .primaryLinkWithStyle{
+    margin-top:40px;
+  }
+  .gallerylist .YouTubePlayer{
+    margin-top:40%;
+  }
+  }
+  
+  @media screen and (min-width: 320px) and (max-width: 740px){
+  .gallerylist .Picture__img{
+    width:100%;
+    height:auto;
+    margin-top:40px;
+  }
+  .gallerylist .Gallery__item{
+    display:block;
+  }
+   .gallerylist .YouTubePlayer{
+    margin-top:40px;
+  }
+  .gallerylist .Fullscreen__content-wrapper{
+    height:344px;
+  
+  }
+  .gallerylist .filmstripToggle {
+    padding:0 16px;
+    min-width: auto;
+  }
+  .gallerylist .Fullscreen__gallery-categories-button{
+    width:56px;
+  }
+  .gallerylist .mfp-close {
+    width:50px;
+  
+  
+  }
+  .gallerylist .Fullscreen a.mfp-close{
+    font-size:13px;
+  }
+  .gallerylist .Fullscreen__gallery-categories-button:before {
+  
+      font-size: 18px;
+  }
+  .gallerylist .swiper-button svg {
+      width: auto;
+      height: 24px;
+      max-width: 10px;
+      margin: 0 auto;
+  }
+  .gallerylist .Fullscreen__footer{
+    padding-top:0;
+  }
+  }
+  /*-----------Code fix for gallery bugs----------*/
+  
   

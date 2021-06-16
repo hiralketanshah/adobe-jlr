@@ -1,6 +1,5 @@
 
 .cmp-exterior360 {
-	cursor: pointer;
 	position: relative;
 	text-align: left;
 }
@@ -22,10 +21,14 @@
 	position: absolute;
 	color: #fff;
 }
+.cmp-exterior360 .button, button{
+	padding:0 !important;
+}
 .Exterior360__load-button:hover,
 .Exterior360__load-button:focus {
 	color: #fff;
 	text-decoration: underline;
+	padding:0;
 	background-color: rgba(65, 63, 63, 0.16)
 }
 .Exterior360__load-button:hover .Exterior360__init-container-caption,
@@ -205,6 +208,7 @@
 		margin-top:60px;
 		
 	}
+	
 	.shelfComponent {
 		padding-left: 160px;
 		padding-right: 390px;
@@ -300,7 +304,7 @@
 
 
 /* desktop view  */
-@media screen and (min-width: 1280px) and (max-width: 1920px) {
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
 	.cmp-exterior360 {
 		margin-left:60px;
 		margin-right:60px;
@@ -391,7 +395,7 @@
 
 /* tab view part  */
 
-@media screen and (min-width: 500px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
 
 	.cmp-exterior360 {
 		display: flex;
@@ -486,7 +490,7 @@
 }
 
 /* mobile view  */
-@media screen and (min-width: 1px) and (max-width: 500px) {
+@media screen and (min-width: 1px) and (max-width: 767px) {
 
 	.cmp-exterior360 {
 		display: flex;
@@ -1061,15 +1065,15 @@
 		transform: rotate(90deg) translateX(4px)
 	}
 }
+
+
 /* code fix for defect 733*/
 @media screen and (min-width: 1px) and (max-width: 640px) {
 	.nocopy .Exterior360__slider--visible {
 		left: intial;
 		top: 247px;
 	}
-	.nocopy .shelfComponent {
-		display: none;
-	}
+	.nocopy .shelfComponent{ min-height:70px; margin-bottom:24px;}
 	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider--range,
 		.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider__custom-connect
 		{

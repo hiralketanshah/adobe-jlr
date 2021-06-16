@@ -1,0 +1,39 @@
+<div
+	data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+	data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html">
+</div>
+
+<script>
+
+	window.addEventListener('message', function(e) {
+
+      if (e.data.retailerName !== null && e.data.retailerUrl !== null) {
+        var NaaSRetailer = localStorage.getItem('NaaSRetailer') !== null ?
+          JSON.parse(localStorage.getItem('NaaSRetailer')) :
+          {};
+        var expiry = new Date();
+        expiry.setDate(expiry.getDate() + parseInt(e.data.expiryPeriod));
+        if (e.data.locale !== undefined) {
+          NaaSRetailer[e.data.locale] = {
+            expiryDate: expiry.getTime(),
+            name: e.data.retailerName,
+            url: e.data.retailerUrl
+          };
+          localStorage.setItem('NaaSRetailer', JSON.stringify(NaaSRetailer));
+        }
+      }
+
+	});
+
+	var NaaSRetailer = localStorage.getItem('NaaSRetailer');
+	var data = {
+		message: 'NaaSRetailer',
+    NaaSRetailer: NaaSRetailer
+  };
+
+  window.parent.postMessage(data, "*");
+</script>
+
+
+
+<sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

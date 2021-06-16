@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/jlr/settings/wcm/templates/(?!xf-)(?!homepage-).*]"
+        cq:conf="/conf/jlr"
+        cq:lastModified="{Date}2021-03-04T13:09:43.417+05:30"
+        cq:lastModifiedBy="reference-adjustment-service"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable,rep:AccessControllable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Naas Config"
+        jcr:uuid="5dabefa4-f090-4791-8c3a-b8d354f63ab4"
+        sling:configRef="/conf/jlr"
+        sling:redirect="{Boolean}true"
+        sling:redirectStatus="{Long}302"
+        sling:resourceType="foundation/components/redirect"
+        redirectTarget="/content/landrover">
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+    </jcr:content>
+    <en_au/>
+    <de_de/>
+</jcr:root>

@@ -1,0 +1,18 @@
+<sly data-sly-use.legacy="${'com.jlr.core.models.LegacyBrowserNotificationModel'}"></sly>
+<div data-emptytext="${component.title}" class="cq-placeholder" data-sly-test="${wcmmode.edit}"></div>
+
+<div class="cmp-legacyBrowserNotification" data-theme="dark" data-days="1">
+  <div class="cmp-legacyBrowserNotification__inner">
+    <i class="cmp-legacyBrowserNotification__icon" role="presentation"></i>
+
+    <h2 class="cmp-legacyBrowserNotification__heading">${legacy.headerCopy  @context='html'}</h2>
+    <div class="cmp-legacyBrowserNotification__copy">${legacy.copy  @context='html'}</div>
+
+    <div class="cmp-legacyBrowserNotification__close" role="button" tabindex="0">
+      <span class="visuallyHidden cmp-legacyBrowserNotification__close-text"></span>
+    </div>
+  </div>
+</div>
+
+
+

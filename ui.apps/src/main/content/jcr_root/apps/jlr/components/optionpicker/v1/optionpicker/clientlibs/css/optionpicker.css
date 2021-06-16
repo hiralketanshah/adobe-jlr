@@ -773,3 +773,80 @@ padding-top: 24px;
         padding-bottom: 0px;
     }
 }
+
+/*------code fix for defect 760----*/
+@media screen and (min-width:1280px) and (max-width: 2700px){
+    .cmp_interactiveOptionPicker .primaryLinkWithStyle {
+       text-transform: uppercase;
+       float: right;
+   }
+               .cmp_interactiveOptionPicker__content{padding:24px 0 10px 0!important;}
+   
+        .optionpicker .cmp_interactiveOptionPicker__otr{
+               margin-top:2%;
+   
+       }
+        .optionpicker .show-cta{
+       margin-top:8px;
+        }
+   .optionpicker .primaryLinkContainer {margin-top:0;}
+   .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container{display: inherit;
+       flex-direction: unset;
+        padding-top: 17px;}
+       }
+   
+
+ @media screen and (min-width:768px) and (max-width: 1279px){
+ .optionpicker .primaryLinkWithStyle {
+           float: left;
+ }
+  .wheel .cmp_interactiveOptionPicker__option-group-container {
+           float: left;
+           min-height: 90px;
+           width: 100%!important;
+       }
+           .optionpicker .primaryLinkWithStyle{
+       margin-bottom:0px
+       }
+.optionpicker .cmp_interactiveOptionPicker__otr-disclaimer-container {
+    display: inherit;
+    flex-direction: unset;
+    padding-bottom: 25px;
+    padding-top: 24px;
+}
+.optionpicker .cmp_interactiveOptionPicker__option-btn {
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.optionpicker .primaryLinkContainer {
+text-align: left;
+    order: 2;
+    display: block;
+}
+  }
+       
+@media screen and (min-width:320px) and (max-width: 767px){
+    .optionpicker .cmp_interactiveOptionPicker__otr-disclaimer-container {
+    display: inherit;
+    flex-direction: unset;
+    padding-bottom: 25px;
+    padding-top: 24px;
+}
+.optionpicker .cmp_interactiveOptionPicker__option-btn {
+	display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+.optionpicker .primaryLinkContainer {
+text-align: left;
+    order: 2;
+    display: block;
+}
+       .optionpicker .primaryLinkWithStyle{
+       margin-bottom:0px
+       }
+       }
+           /*------code fix for defect 760----*/

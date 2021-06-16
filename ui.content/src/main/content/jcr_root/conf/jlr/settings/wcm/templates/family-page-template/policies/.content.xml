@@ -81,14 +81,6 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </carousel>
-                        <accolade jcr:primaryType="nt:unstructured">
-                            <v1 jcr:primaryType="nt:unstructured">
-                                <accolade
-                                    cq:policy="jlr/components/accolade/v1/accolade/policy_1617788181626"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                            </v1>
-                        </accolade>
                         <contentcard jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <contentcard
@@ -140,7 +132,7 @@
                         <seatslider jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <seatslider
-                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1622717561395"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>

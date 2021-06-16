@@ -55,13 +55,13 @@ public final class CommonUtils {
      * @param group the group
      * @return the boolean
      */
-    public Boolean isUserPartOfGroup(Principal user, UserManager um, String group) {
+    public static Boolean isUserPartOfGroup(Principal user, UserManager um, String group) {
         try {
             return FMUtils.isUserPartOfGroup(user, um, group);
         } catch (RepositoryException e) {
 
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
-                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
+                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, CommonUtils.class.getSimpleName(), e));
         }
         return false;
     }

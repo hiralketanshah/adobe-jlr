@@ -1,0 +1,56 @@
+.sharedNavigation .NotificationBar .notificationContainer .notificationHeader p{
+
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    letter-spacing: 1.28px !important;
+    line-height: 24px !important;
+    font-style: normal !important;
+	font-weight: normal !important;
+    font-family: "AvenirNext-DemiBold" !important;
+    text-transform: uppercase !important;
+            }
+  .sharedNavigation .NotificationBar .notificationContainer p{
+
+    font-size: 11px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.15px !important;
+    line-height: 14px !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+            }
+  .sharedNavigation .NotificationBar .notificationContainer p:first-child::first-letter{  
+      text-transform: capitalize !important;
+  }           
+  .sharedNavigation .NotificationBar .notificationContainer .notificationHeader{
+      margin-bottom:17px !important;
+  }
+  .sharedNavigation  .NotificationBar .notificationContainer .NotificationBar__close-wrapper .primaryLinkWithStyle
+  {
+    font-size: 10px !important;
+    letter-spacing: 3px !important;
+    line-height: 14px !important;
+	font-style: normal !important;
+	font-weight: normal !important;
+    font-family: "AvenirNext-DemiBold" !important;
+    text-transform: uppercase !important;
+  }
+
+
+  @media screen and (min-width:1px) and (max-width:767px) {
+    .NotificationBar__close-wrapper{
+        margin-top: 38px !important;
+    }
+    .sharedNavigation .NotificationBar .notificationContainer .top .notificationHeader {
+        padding: 24px 0 0 24px !important;
+    }
+
+  }
+  @media screen and (min-width:768px) and (max-width:900px) {
+ .NotificationBar__close-wrapper{
+    margin-top: 24px !important;
+    }
+    .sharedNavigation .NotificationBar .notificationContainer .top .notificationHeader {
+        padding: 30px 0 0px 40px;
+    }
+}
+                                            

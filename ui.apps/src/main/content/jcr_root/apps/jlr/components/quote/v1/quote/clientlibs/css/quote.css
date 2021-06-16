@@ -231,8 +231,5 @@
     .cmp-quote .cmp-quote__content{width:325px;}
 
 }
-@media screen and (min-width: 741px) and (max-width: 1200px){
-    .cmp-quote__content-text p{ max-height:100%; min-height:184px; height:auto;}
-}
 .cmp-quote__content-text p{ max-height:100%; min-height:184px; height:auto;}
 /*--------------- code fix --------------*/
