@@ -1,2 +1,3 @@
+Include /etc/httpd/conf.d/variables/de_lr_${RUNMODE}.vars
 # Put hostnames that would be honored for publish blob matching works.
-"${PUBLISH_DEFAULT_HOSTNAME}"
+"${PUBLISH_DE_HOSTNAME}"

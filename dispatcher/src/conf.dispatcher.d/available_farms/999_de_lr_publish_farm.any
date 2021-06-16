@@ -7,6 +7,7 @@
 	}
 	# hostname globbing for farm selection (virtual domain addressing)
 	/virtualhosts {
+		$include "../vhosts/ams_publish_vhosts.any"
 		$include "../vhosts/de_lr_publish_vhosts.any"
 	}
 	# the load will be balanced among these render instances

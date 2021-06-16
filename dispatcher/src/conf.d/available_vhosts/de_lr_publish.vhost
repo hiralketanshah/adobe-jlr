@@ -3,14 +3,14 @@
 PassEnv DISP_ID
 
 <VirtualHost *:80>
+		Include /etc/httpd/conf.d/variables/de_lr_${RUNMODE}.vars
+		Include /etc/httpd/conf.d/variables/lr_${RUNMODE}.vars
+		
         ## allowing slashes in the URL to be encoded and still honored
         AllowEncodedSlashes On
         ServerName      publish
         ## Put names of which domains are used for your published site/content here
         ServerAlias     ${PUBLISH_DE_HOSTNAME}
-
-		Include /etc/httpd/conf.d/variables/de_lr_${RUNMODE}.vars
-		Include /etc/httpd/conf.d/variables/lr_${RUNMODE}.vars
 
         ## Use a doc root that matches what's in the /etc/httpd/conf/publish-farm.any
         DocumentRoot    ${PUBLISH_DOCROOT}
