@@ -210,7 +210,9 @@ line-height: 12.5px;
     -webkit-tap-highlight-color: transparent;
     border: 0;
 }
-
+.dualframeslider .cmp-dualFrameSlider .Slider__left{
+    margin-top: -5px;
+}
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
     .cmp-dualFrameSlider .Slider__left {
@@ -223,7 +225,9 @@ line-height: 12.5px;
     .cmp-dualFrameSlider .Slider__left .headerBox__copy {
         margin: 14px 0 0;
     }
-    
+    .dualframeslider .cmp-dualFrameSlider .Slider__left{
+        margin-top: 0px;
+    }
 }
 
 @media screen and (min-width: 741px) {
@@ -386,6 +390,9 @@ line-height: 12.5px;
 }
 html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
     background: #ffffff
+    }
+    .dualframeslider .cmp-dualFrameSlider .Slider__left{
+        margin-top: -5px;
     }
 }
 

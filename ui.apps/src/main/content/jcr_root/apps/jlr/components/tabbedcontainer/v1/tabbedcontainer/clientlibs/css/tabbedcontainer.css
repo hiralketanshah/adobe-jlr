@@ -199,10 +199,11 @@ text-transform:unset;
     z-index: 1;
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs {
-    top: -40px !important;
+    top: -47px !important;
     bottom: unset;
     margin: 0px 60px;
     width: calc(100% - 120px);
+    height: 47px;
 }
 
 .cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs__panels{
