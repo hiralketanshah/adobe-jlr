@@ -386,8 +386,12 @@ public class FetchPriceImpl implements FetchPrice {
         try {
             throttledTaskRunner.waitForLowCpuAndLowMemory();
             replicator.replicate(session, ReplicationActionType.ACTIVATE, path, replicationOptions);
-        } catch (ReplicationException | InterruptedException e) {
+        } catch (ReplicationException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
+        } catch (InterruptedException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_INTERRUPTED_EXCEPTION,
                     ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
                     this.getClass().getSimpleName(), e));
         }
