@@ -87,36 +87,11 @@
                                                 templatePath="/conf/jlr/settings/wcm/templates/homepage-template"/>
                                     </datalayer>
                                     <moretitles
-                                            cq:showOnCreate="{Boolean}true"
+                                            cq:hideOnEdit="{Boolean}true"
+                                            cq:showOnCreate="{Boolean}false"
                                             jcr:primaryType="nt:unstructured"
                                             jcr:title="More Titles and Description"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <pagetitle
-                                                    cq:showOnCreate="{Boolean}true"
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldLabel="Meta Title"
-                                                    name="./pageTitle"
-                                                    renderReadOnly="{Boolean}true">
-                                                <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        allowBulkEdit="{Boolean}true"
-                                                        cq-msm-lockable="pageTitle"/>
-                                            </pagetitle>
-                                            <description
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
-                                                    fieldLabel="Meta Description"
-                                                    name="./jcr:description"
-                                                    renderReadOnly="{Boolean}true">
-                                                <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        allowBulkEdit="{Boolean}true"
-                                                        cq-msm-lockable="jcr:description"/>
-                                            </description>
-                                        </items>
-                                    </moretitles>
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"/>
                                     <secnav
                                             jcr:primaryType="nt:unstructured"
                                             jcr:title="Secondary Navigation"
@@ -268,6 +243,29 @@
                                             sling:orderAfter="moretitles"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
+                                            <pagetitle
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Meta Title"
+                                                    name="./pageTitle"
+                                                    renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        allowBulkEdit="{Boolean}true"
+                                                        cq-msm-lockable="pageTitle"/>
+                                            </pagetitle>
+                                            <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                    fieldLabel="Meta Description"
+                                                    name="./jcr:description"
+                                                    renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                        jcr:primaryType="nt:unstructured"
+                                                        allowBulkEdit="{Boolean}true"
+                                                        cq-msm-lockable="jcr:description"/>
+                                            </description>
                                             <keywords
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
