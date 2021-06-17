@@ -11882,9 +11882,9 @@
         
         if (this._total > 1) {
           this._initGallery();
-          if($(window).width() < 769){
-            $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','78px');
-          }
+          // if($(window).width() < 1279){
+          //   $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','78px');
+          // }
           
         } else {
           this._$currentSlide = this.$element;
@@ -11924,14 +11924,7 @@
             for(var i = 0; i<le; i++){
               if(conts[i].nodeType == 8) ifr = conts[i].textContent;
             }
-            var spanElement = $(ifr);
-            if(spanElement == undefined || spanElement == ""){
-              spanElement[0].allow = "autoplay";
-              spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&muted=1';
-            }
-           
-           
-            
+            var spanElement = $(ifr);   
             elm.addClass("player").html(spanElement);
            // elm.addClass("player").html(ifr);
             elm.off("click");
@@ -11947,10 +11940,8 @@
           }
           
           var spanElement = $(ifr);
-          if(spanElement == undefined || spanElement == ""){
-            spanElement[0].allow = "autoplay";
-            spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&muted=1';
-          }
+          spanElement[0].allow = "autoplay";
+          spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&mute=1';
           elm.addClass("player").html(spanElement);
           elm.off("click");
       });
@@ -12347,13 +12338,10 @@
       _onResize(event) {
         const that = event ? event.data.that : this;
         if (this._total > 1) {
-          if($(window).width() < 769){
-            $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','78px');
-          }else{
-            $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','0');
-          }
-          
-        }
+        //   if($(window).width() >= 1280){
+        //     $('.cmp-dualFrameItem .cmp-genericItem__content').css('margin-top','0'); 
+        // }
+      }
   
         const windowWidth = $(window).width();
         const windowHeight = $(window).height();
@@ -12751,6 +12739,48 @@
         if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
           comp.DualFrameCarouselCustom();
         }
+        setTimeout(()=>{
+          if(el.querySelectorAll(".cmp-dualFrameItem__image").length>0){
+            //pagination enabled
+            let adjust = ()=>{
+                let controls = el.querySelector('.cmp-dualframe_pagination');
+                if(controls){
+                  let controlsFFC = el.querySelector('.cmp-dualframe_pagination');
+                  let height = el.querySelector(".cmp-dualFrameItem__image").clientHeight;
+                  if(window.innerWidth<=767){
+                    controlsFFC.style.top = "0px";
+                    let offsetheight = el.querySelector(".cmp-dualFrameItem__image").offsetHeight;
+                    let elm = el.querySelectorAll(".cmp-dualFrameItem__image");
+                    elm.forEach((e)=>{
+                      e.style.marginBottom="60px";
+                    })
+                    controlsFFC.style.top = offsetheight+50+"px";
+                  }   
+                  if(window.innerWidth >=768 && window.innerWidth<=1279){
+                    controlsFFC.style.top = "0px";
+                    let offsetheight = el.querySelector(".cmp-dualFrameItem__image").offsetHeight;
+                    let elm = el.querySelectorAll(".cmp-dualFrameItem__image");
+                    elm.forEach((e)=>{
+                      e.style.marginBottom="70px";
+                    })
+                    controlsFFC.style.top = offsetheight+65+"px";
+                  }   
+                  if(window.innerWidth >=1280){
+                    controlsFFC.style.top = "";
+                    let elm = el.querySelectorAll(".cmp-dualFrameItem__image");
+                    elm.forEach((e)=>{
+                      e.style.marginBottom="0px";
+                    })
+                  }
+                }
+            
+            }
+            $(el).resize(()=>{
+              adjust();
+            });
+            adjust();
+        };
+        },200);
       }
       if(hero){
         el.classList.add('cmp-hero-carousel');

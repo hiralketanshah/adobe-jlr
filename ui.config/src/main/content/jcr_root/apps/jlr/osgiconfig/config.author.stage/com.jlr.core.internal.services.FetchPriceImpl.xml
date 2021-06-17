@@ -3,4 +3,4 @@
 	xmlns:jcr="http://www.jcp.org/jcr/1.0"
 	jcr:primaryType="sling:OsgiConfig"
 	replicationAgent="publish1euwest2,publish2euwest2"
-	stageApiKey="{a8157a10a2bb0f0cc54621fc248f1881e46ad39771b76a876f7e03a34acacbdd5a6c3f4455731190a401d5f77d3c1c71dcc378496c049ec06f9c801691f8a8b6}"/>
+	stageApiKey="\{a8157a10a2bb0f0cc54621fc248f1881e46ad39771b76a876f7e03a34acacbdd5a6c3f4455731190a401d5f77d3c1c71dcc378496c049ec06f9c801691f8a8b6\}"/>

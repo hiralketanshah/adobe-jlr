@@ -15,7 +15,7 @@
               <div class="Fullscreen__buttons">
 
                   <a data-sly-test="${model.previousPageLink}" aria-label="${config.configMap['gallery.seeCategories']}" class="Fullscreen__gallery-categories-button  hasCategory" href="${model.previousPageLink}" title="${config.configMap['gallery.seeCategories']}"><span></span></a>
-                  <a class="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">${config.configMap['fullscreen.default.close.link.text']}</span></a>
+                  <a class="mfp-close" id="mfp-close" data-close-button-label="a11y.close.overlay" data-prev-page-link-text="a11y.close.previousPage" href="${model.exitPageLink}"><span class="visuallyHidden mfp-close__inner">${config.configMap['fullscreen.default.close.link.text']}</span></a>
               </div>
         </div>
         <div class="Fullscreen__content-wrapper">
@@ -30,7 +30,7 @@
               <div class="Gallery__wrapper" id="full-width-slider">
                 <sly data-sly-list.gallery="${model.galleryList}">
                   <!-- class for theme added below with galleryItem -->
-                  <div data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false"
+                  <div data-show="${model.startSlide == galleryList.index ? true : false }" data-sly-test="${gallery.assetType == 'image'}" class="Gallery__item dark" data-only-item="false"
                     data-swiper-thumbnail="${gallery.fileReference}">
                     <picture data-sly-test="${gallery.fileReference}"
                       class="Picture Picture--background Gallery__background-image" data-orientation="landscape">
@@ -51,9 +51,9 @@
                       </span>
                     </div>
                   </div>
-                  <div data-sly-test="${gallery.assetType == 'video'}"
-                    class="${gallery.posterImage}abc YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth swiper-slide swiper-slide-active"
-                    data-only-item="false" data-swiper-thumbnail="${gallery.posterImage}"
+                  <div data-show="${model.startSlide == galleryList.index ? true : false }" data-sly-test="${gallery.assetType == 'video'}"
+                    class="${gallery.posterImage} YouTubeGalleryAsset Gallery__item Gallery__item--youTube-gallery-asset fontSmooth swiper-slide swiper-slide-active"
+                    data-only-item="false" data-swiper-thumbnail="${gallery.thumbnail}"
                     style="width: 1707px; margin-right: 15px;">
                     <div class="YouTubePlayer">
                       <div class="playerWrapper" style="height: 288px; width: 512px;">

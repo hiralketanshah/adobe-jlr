@@ -19,3 +19,4 @@ seat-slider-validation.js
 specsglance-validation.js
 c-player-validation.js
 derivative-validation.js
+site-notification-validation.js

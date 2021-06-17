@@ -37,7 +37,6 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -257,14 +256,13 @@ public class FetchPriceImpl implements FetchPrice {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Started fetching response from {}. {}", endpoint, new java.util.Date());
             }
-
             httpClient.executeMethod(method);
             String response = method.getResponseBodyAsString();
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Completed fetched response from {}. {}", endpoint, new java.util.Date());
             }
 
-            JsonObject responseObject = new Gson().fromJson(response, JsonObject.class);
+            JsonObject responseObject = PricingUtils.getJsonObjectFromResponse(response);
             if (responseObject.has(PricingConstants.JLR_PRICING_JSON_FETAURE_DICTIONARY)) {
                 JsonObject featureDictionary = responseObject
                         .getAsJsonObject(PricingConstants.JLR_PRICING_JSON_FETAURE_DICTIONARY);
@@ -390,8 +388,12 @@ public class FetchPriceImpl implements FetchPrice {
         try {
             throttledTaskRunner.waitForLowCpuAndLowMemory();
             replicator.replicate(session, ReplicationActionType.ACTIVATE, path, replicationOptions);
-        } catch (ReplicationException | InterruptedException e) {
+        } catch (ReplicationException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
+        } catch (InterruptedException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_INTERRUPTED_EXCEPTION,
                     ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
                     this.getClass().getSimpleName(), e));
         }

@@ -8,7 +8,7 @@
           title="Content Approval">
     <metaData
             cq:generatingPage="/conf/global/settings/workflow/models/content-approval/jcr:content"
-            cq:lastModified="{Long}1623157844063"
+            cq:lastModified="{Long}1623239262706"
             cq:lastModifiedBy="admin"
             jcr:primaryType="nt:unstructured"/>
     <nodes jcr:primaryType="nt:unstructured">
@@ -24,7 +24,7 @@
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentLockProcess"
+                    PROCESS="com.jlr.wf.core.workflows.ContentLockProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
         </node1>
         <node2
@@ -34,7 +34,7 @@
             <metaData
                     jcr:primaryType="nt:unstructured"
                     DIALOG_PATH="/apps/jlr/components/workflow/contentapproval/cq:dialog"
-                    DYNAMIC_PARTICIPANT="com.jlr.core.workflows.ContentApprovalParticipant"/>
+                    DYNAMIC_PARTICIPANT="com.jlr.wf.core.workflows.ContentApprovalParticipant"/>
         </node2>
         <node3
                 jcr:primaryType="cq:WorkflowNode"
@@ -42,7 +42,7 @@
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentMetaDataProcess"
+                    PROCESS="com.jlr.wf.core.workflows.ContentMetaDataProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
         </node3>
         <node4
@@ -51,24 +51,15 @@
                 type="PROCESS">
             <metaData
                     jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentActivationProcess"
+                    PROCESS="com.jlr.wf.core.workflows.ContentActivationProcess"
                     PROCESS_AUTO_ADVANCE="true"/>
         </node4>
         <node5
                 jcr:primaryType="cq:WorkflowNode"
-                title="Cleanup  "
-                type="PROCESS">
-            <metaData
-                    jcr:primaryType="nt:unstructured"
-                    PROCESS="com.jlr.core.workflows.ContentUnlockProcess"
-                    PROCESS_AUTO_ADVANCE="true"/>
-        </node5>
-        <node6
-                jcr:primaryType="cq:WorkflowNode"
                 title="End"
                 type="END">
             <metaData jcr:primaryType="nt:unstructured"/>
-        </node6>
+        </node5>
     </nodes>
     <transitions jcr:primaryType="nt:unstructured">
         <node0_x0023_node1
@@ -102,15 +93,8 @@
         <node4_x0023_node5
                 jcr:primaryType="cq:WorkflowTransition"
                 from="node4"
-                rule=""
                 to="node5">
             <metaData jcr:primaryType="nt:unstructured"/>
         </node4_x0023_node5>
-        <node5_x0023_node6
-                jcr:primaryType="cq:WorkflowTransition"
-                from="node5"
-                to="node6">
-            <metaData jcr:primaryType="nt:unstructured"/>
-        </node5_x0023_node6>
     </transitions>
 </jcr:root>

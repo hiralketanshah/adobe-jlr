@@ -11,18 +11,24 @@
     data-label-decrease-slider="${config.configMap['exterior360.aria.decrease']}"
     data-aria-alert="${config.configMap['exterior360.aria.alert']}" data-frames="${external360.imageList}">
     <div class="Exterior360__canvas-container">
+   
       <button class="Exterior360__load-button">
+        <div class="bgforcaption">
         <span class="Exterior360__init-container">
           <span
             class="Exterior360__init-container-caption Exterior360__init-container-caption--desktop">${config.configMap['external360.desktoptxt']}</span>
           <span
             class="Exterior360__init-container-caption Exterior360__init-container-caption--mobile">${config.configMap['external360.mobiletxt']}</span>
+           
           <div class="Exterior360__init-container-icon">
             <div class="Exterior360__icon Exterior360__icon--left"></div>
             <div class="Exterior360__icon Exterior360__icon--right"></div>
           </div>
+          
         </span>
+      </div>
       </button>
+    
       <div class="Exterior360__slider"></div>
     </div>
 

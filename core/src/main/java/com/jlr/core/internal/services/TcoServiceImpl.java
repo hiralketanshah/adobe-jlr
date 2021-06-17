@@ -80,7 +80,11 @@ public class TcoServiceImpl implements TcoService {
         String region = getRegionFromPage(currentPage, resourceResolver);
 
         if (StringUtils.isEmpty(region)) {
-            modelPriceMap.put(StringUtils.EMPTY, StringUtils.EMPTY);
+            if (TcoUtils.isStaticPrice(priceMacro)) {
+                modelPriceMap.put(StringUtils.EMPTY, priceMacro);
+            } else {
+                modelPriceMap.put(StringUtils.EMPTY, StringUtils.EMPTY);
+            }
             return modelPriceMap;
         }
         pricingPojo.setRegion(region);
@@ -98,13 +102,12 @@ public class TcoServiceImpl implements TcoService {
         }
 
         if (StringUtils.isNotEmpty(priceMacro)) {
-            if ((priceMacro.contains("{{") && priceMacro.contains("}}")) && StringUtils.isNotEmpty(region)) {
+            if (!TcoUtils.isStaticPrice(priceMacro) && StringUtils.isNotEmpty(region)) {
 
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.info("Valid marco with pricing supression: False");
                 }
 
-                String stateCookieValue = StringUtils.EMPTY;
                 if (region.equalsIgnoreCase("en_au")) {
 
                     Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
@@ -119,7 +122,7 @@ public class TcoServiceImpl implements TcoService {
                         return modelPriceMap;
                     }
 
-                    stateCookieValue = stateCode.getValue();
+                    String stateCookieValue = stateCode.getValue();
                     if (LOGGER.isDebugEnabled()) {
                         LOGGER.info("Australian state detected from cookies is {}", stateCookieValue);
                     }
@@ -180,7 +183,6 @@ public class TcoServiceImpl implements TcoService {
 
         Resource resource = resourceResolver.getResource(siteRootPath);
 
-        // TODO: need to process other regions, default to "de" for now
         String region = StringUtils.EMPTY;
         if (resource.getName().contains("en_au") || resource.getPath().contains("aus/en")) {
             region = "en_au";

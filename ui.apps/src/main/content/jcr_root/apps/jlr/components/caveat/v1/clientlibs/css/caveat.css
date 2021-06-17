@@ -114,12 +114,6 @@
 	padding-bottom: 80px
 }
 
-@media screen and (min-width: 1340px) {
-	.cmp-caveat {
-		padding: 20px 290px;
-	}
-}
-
 @media screen and (min-width: 1280px) and (max-width: 1389px) {
 	.cmp-caveat {
 		padding: 20px 60px;
@@ -132,9 +126,10 @@
 	}
 }
 
-@media screen and (min-width: 375px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
 	.cmp-caveat {
 		padding: 20px 25px;
+		padding-bottom: 36px;
 	}
 }
 
@@ -153,7 +148,11 @@
 		text-align: left;
 	}
 	}
-	
+@media screen and (min-width: 1340px) {
+	.cmp-caveat {
+		padding: 20px 290px;
+	}
+}
 	.caveat a{
 	color: #4a4f54;
 	font-weight:normal;

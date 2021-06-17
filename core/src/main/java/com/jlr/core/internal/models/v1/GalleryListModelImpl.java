@@ -4,13 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
+import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -22,7 +26,7 @@ import com.jlr.core.utils.LinkUtils;
 /**
  * The Class GalleryListModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         GalleryListModel.class }, resourceType = GalleryListModelImpl.RESOURCE_TYPE)
 public class GalleryListModelImpl extends GlobalModelImpl implements GalleryListModel {
 
@@ -30,6 +34,10 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      * The Constant RESOURCE_TYPE.
      */
     public static final String RESOURCE_TYPE = "jlr/components/gallery/v1/gallerylist";
+
+    /** The request. */
+    @Inject
+    private SlingHttpServletRequest request;
 
     /** The resource resolver. */
     @Inject
@@ -42,7 +50,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     /** The exitPageLink. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String exitPageLink;
-    
+
     /** The main header copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String mainHeaderCopy;
@@ -50,6 +58,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     /** The gallery list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource galleryList;
 
     /** The list of gallery items. */
@@ -65,6 +74,20 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
         return LinkUtils.appendLinkExtension(previousPageLink, resourceResolver);
     }
 
+    int startSlide;
+
+    @PostConstruct
+    public void init() {
+        String selector = request.getRequestPathInfo().getSelectorString();
+        if (StringUtils.isNotEmpty(selector) && !selector.startsWith("-")) {
+            try {
+                startSlide = Integer.parseInt(selector) - 1;
+            } catch (NumberFormatException nfex) {
+                startSlide = -1;
+            }
+        }
+    }
+
     /**
      * Gets the exit page link.
      *
@@ -72,6 +95,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getExitPageLink() {
+
         return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
@@ -82,15 +106,15 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getMainHeaderCopy() {
-		return mainHeaderCopy;
-	}
+        return mainHeaderCopy;
+    }
 
-	/**
-	 * Gets the gallery list.
-	 *
-	 * @return the gallery list
-	 */
-	@Override
+    /**
+     * Gets the gallery list.
+     *
+     * @return the gallery list
+     */
+    @Override
     public List<GalleryItem> getGalleryList() {
         if (null != galleryList && galleryList.hasChildren()) {
             Iterator<Resource> childResources = galleryList.listChildren();
@@ -106,6 +130,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
                             properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
                             properties.get(CommonConstants.PN_VIDEO_ID, String.class),
                             properties.get(CommonConstants.PN_POSTER_IMAGE, String.class),
+                            properties.get(CommonConstants.PN_THUMBNAIL, String.class),
                             properties.get(CommonConstants.PN_CTA_TEXT, String.class),
                             LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                                     resourceResolver),
@@ -113,9 +138,17 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
                             properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class),
                             properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
                 }
-
             }
         }
         return listOfGalleryItems;
+    }
+
+    /**
+     * Gets the number of slide to start.
+     *
+     * @return the slide number
+     */
+    public int getStartSlide() {
+        return startSlide;
     }
 }

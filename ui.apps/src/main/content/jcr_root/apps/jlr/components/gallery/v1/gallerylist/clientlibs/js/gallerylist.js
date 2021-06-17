@@ -3170,3 +3170,21 @@
         } : s
     }
 });
+
+function getdomain() {
+  let exitPageLink = document.getElementById("mfp-close").href;
+  let referrer = document.referrer;
+  if(referrer != "" && referrer != undefined) {
+      let referrerUrl = (new URL(referrer));
+      let referrerDomain = referrerUrl.hostname;
+      let domain = document.domain;
+      if(referrerDomain == domain) {
+          return referrerUrl.href;
+      }
+  }
+  return exitPageLink;
+}
+if(document.getElementById("mfp-close") != undefined){
+
+    document.getElementById("mfp-close").href = getdomain();
+    }

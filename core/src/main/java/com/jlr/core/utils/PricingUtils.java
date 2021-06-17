@@ -17,6 +17,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import com.day.cq.commons.jcr.JcrConstants;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
@@ -138,6 +139,10 @@ public class PricingUtils {
         }
 
         return false;
+    }
+
+    public static JsonObject getJsonObjectFromResponse(String response) {
+        return new Gson().fromJson(response, JsonObject.class);
     }
 
 }

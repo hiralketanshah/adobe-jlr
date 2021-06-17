@@ -1,32 +1,34 @@
 package com.jlr.core.internal.models.v1;
 
-import com.day.cq.commons.inherit.InheritanceValueMap;
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.services.TcoService;
-import io.wcm.testing.mock.aem.junit5.AemContext;
-import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.lenient;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.MockitoAnnotations;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.services.TcoService;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.lenient;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class VehicleSummaryImplTest.
  *
  * @author Adobe
  */
-@ExtendWith({AemContextExtension.class, MockitoExtension.class})
+@ExtendWith(AemContextExtension.class)
 class VehicleSummaryImplTest extends GlobalModelImplTest {
 
     /** The vehicle summary model. */
@@ -52,12 +54,14 @@ class VehicleSummaryImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
+        MockitoAnnotations.initMocks(this);
         context.registerService(TcoService.class, tcoService);
         context.registerService(InheritanceValueMap.class, pageProperties);
         context.registerService(Page.class, currentPage);
 
         Map<String, String> priceMap = new HashMap<>();
-        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage, pageProperties, "12345", "test")).thenReturn(priceMap);
+        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage,
+                pageProperties, "12345", "test")).thenReturn(priceMap);
 
         context.request().setAttribute("key", "test");
         context.addModelsForClasses(VehicleSummaryImpl.class);
@@ -70,6 +74,7 @@ class VehicleSummaryImplTest extends GlobalModelImplTest {
     /**
      * Test cta properties.
      */
+    @Override
     @Test
     void testCtaProperties() {
         List<CTAPojo> list = vehicleSummaryModel.getCtaList();
