@@ -8,7 +8,7 @@
    <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.vsreStack?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${page.language}">
 
       <section class="RulesEngineDropdown">
-         <div class="RulesEngineDropdown__dropdowns-container">
+         <div class="RulesEngineDropdown__dropdowns-container" id="${vehicleSpecs.id}">
             <div class="RulesEngineDropdown__dropdowns">
                <div class="RulesEngineDropdown__dropdown RulesEngineDropdown__dropdown--bodystyle" data-feature="bodystyle" data-sly-test=${vehicleSpecs.bodyStyleHeader}>
                   <div class="dxDropdown">
