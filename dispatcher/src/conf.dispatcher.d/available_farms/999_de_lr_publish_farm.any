@@ -17,7 +17,7 @@
 	# only handle the requests in the following acl. default is 'none'
 	# the glob pattern is matched against the first request line
 	/filter {
-		$include "../filters/de_lr_publish_filters.any"
+		$include "../filters/lr_publish_filters.any"
 	}
 	# if the package is installed on publishers to generate a list of all content with a vanityurl attached
 	# this section will auto-allow the items to bypass the normal dispatcher filters
@@ -50,7 +50,7 @@
 		# - only requests without query parameters ( ? ) are cached
 		# - only unauthorized pages are cached unless allowUnauthorized is set to 1
 		/rules {
-			$include "../cache/de_lr_publish_cache.any"
+			$include "../cache/lr_publish_cache.any"
 		}
 		# the invalidate section defines those pages which are 'invalidated' after
 		# any activation. please note that, the activated page itself and all 
