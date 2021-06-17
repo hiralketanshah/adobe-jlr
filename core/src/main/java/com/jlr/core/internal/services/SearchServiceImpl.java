@@ -28,7 +28,6 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
 import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
@@ -67,7 +66,7 @@ public class SearchServiceImpl implements SearchService {
         searchPojo.setQuery(searchText);
         searchPojo.setNoResultsText("Sorry, no results containing '" + searchText + "'");
         searchPojo.setResultsTitleText(result.getHits().size() + " results found for " + searchText);
-        searchPojo.setMaxPage(result.getTotalMatches() / resultPerPage);
+        searchPojo.setMaxPage(result.getHits().size() / resultPerPage);
         try {
             for (final Hit hit : result.getHits()) {
                 if (null != hit.getResource()) {
@@ -101,34 +100,33 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public String processResultsByRules(SearchPojo searchPojo, ResourceResolver resolver) {
 
-        Map<String, ResultPojo> resultsPojoMap = new ConcurrentHashMap<String, ResultPojo>();
+        Map<String, ResultPojo> resultsPojoMap = new HashMap<String, ResultPojo>();
         searchPojo.getResults().stream().forEach(resultPojo -> {
             resultsPojoMap.put(resultPojo.getLink().getUrl(), resultPojo);
         });
 
-        Map<String, String> exclusionMap = getExclusion(resolver);
-        Map<String, String> priorityMap = getPriority(resolver);
+        Map<String, String> exclusionMap = getExclusion(resolver, searchPojo.getLocale());
+        Map<String, String> priorityMap = getPriority(resolver, searchPojo.getLocale());
 
         List<ResultPojo> filteredResults = new LinkedList<>();
-
         if (MapUtils.isNotEmpty(exclusionMap)) {
             exclusionMap.keySet().stream().forEach(key -> {
-                String excludePages = exclusionMap.get(key);
-                if (Boolean.valueOf(excludePages)) {
-                    resultsPojoMap.entrySet().iterator().forEachRemaining(resultsPojo -> {
-                        if (resultsPojo.getKey().contains(key)) {
-                            resultsPojoMap.remove(key);
-                        }
-                    });
+                String excludeChildPages = exclusionMap.get(key);
+                Iterator resultsIterator = resultsPojoMap.entrySet().iterator();
+                while (resultsIterator.hasNext()) {
+                    Map.Entry<String, ResultPojo> result = (Map.Entry<String, ResultPojo>) resultsIterator.next();
+                    if (Boolean.valueOf(excludeChildPages) && result.getKey().startsWith(key)) {
+                        resultsIterator.remove();
+                    } else if (result.getKey().equals(key)) {
+                        resultsIterator.remove();
+                    }
                 }
-                resultsPojoMap.remove(key);
             });
 
         }
 
         resultsPojoMap.entrySet().stream().forEach(resultPojoEntry -> {
             if (MapUtils.isNotEmpty(priorityMap) && priorityMap.containsKey(resultPojoEntry.getKey())) {
-                //TODO: sort the order
                 String order = priorityMap.get(resultPojoEntry.getKey());
                 filteredResults.add(0, resultPojoEntry.getValue());
             } else {
@@ -147,31 +145,47 @@ public class SearchServiceImpl implements SearchService {
         int total = filteredResults.size();
         int maxPages = filteredResults.size() / PAGE_SIZE;
         searchPojo.setMaxPage((long) maxPages);
+        searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
+        if (page <= 0 ) {
+            return null;
+        }
         if (total <= PAGE_SIZE) {
             searchPojo.setMaxPage(1l);
             if (page == 1) {
                 return filteredResults;
             }
         } else {
-            int startIndex = page * PAGE_SIZE;
+            int startIndex = (page - 1) * PAGE_SIZE;
             int endIndex = startIndex + PAGE_SIZE;
-            if (filteredResults.size() > startIndex) {
+            if (filteredResults.size() >= startIndex) {
                 return filteredResults.subList(startIndex, endIndex);
             }
         }
         return null;
     }
 
-    private Map<String, String> getExclusion(ResourceResolver resolver) {
-        Resource exclusion = resolver.getResource("/content/landrover/global/global-master/en/config/search-config/jcr:content/root/container/searchconfig/exclusion");
+    private Map<String, String> getExclusion(ResourceResolver resolver, String locale) {
+        String searchConfigPath = config.defaultSearchConfigPath();
+        if(locale.equalsIgnoreCase("en_AU")) {
+            searchConfigPath = config.auSearchConfigPath();
+        } else if(locale.equalsIgnoreCase("de_DE")) {
+            searchConfigPath = config.deSearchConfigPath();
+        }
+        Resource exclusion = resolver.getResource(searchConfigPath+"/jcr:content/root/container/searchconfig/exclusion");
         if (null != exclusion) {
             return getResourceMap(exclusion, CommonConstants.PN_PATHS_TO_EXCLUDE, CommonConstants.PN_EXCLUDE_CHILD_PAGES);
         }
         return null;
     }
 
-    public Map<String, String> getPriority(ResourceResolver resolver) {
-        Resource priority = resolver.getResource("/content/landrover/global/global-master/en/config/search-config/jcr:content/root/container/searchconfig/priority");
+    public Map<String, String> getPriority(ResourceResolver resolver, String locale) {
+        String searchConfigPath = config.deSearchConfigPath();
+        if(locale.equalsIgnoreCase("en_AU")) {
+            searchConfigPath = config.auSearchConfigPath();
+        } else if(locale.equalsIgnoreCase("de_DE")) {
+            searchConfigPath = config.deSearchConfigPath();
+        }
+        Resource priority = resolver.getResource(searchConfigPath + "/jcr:content/root/container/searchconfig/priority");
         if (null != priority) {
             return getResourceMap(priority, CommonConstants.PN_PRIORITY_PATHS, PN_PRIORITY);
         }

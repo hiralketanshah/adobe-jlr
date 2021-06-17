@@ -15,4 +15,13 @@ public @interface SearchConfig {
 
     @AttributeDefinition(name = "Root path to be searched", description = "Root path to be searched", type = AttributeType.STRING)
     public String searchRootPath() default "/content/landrover";
+
+    @AttributeDefinition(name = "DE Search Config Path", description = "DE search config path for exclusions and priorities", type = AttributeType.STRING)
+    public String deSearchConfigPath() default "/content/landrover/global/europe/published-sites/de_de/config/search-config";
+
+    @AttributeDefinition(name = "AU Search Config Path", description = "AU search config path for exclusions and priorities", type = AttributeType.STRING)
+    public String auSearchConfigPath() default "/content/landrover/global/row/published-sites/en_au/config/search-config";
+
+    @AttributeDefinition(name = "Global Search Config Path", description = "Global search config path for exclusions and priorities", type = AttributeType.STRING)
+    public String defaultSearchConfigPath() default "/content/landrover/global/global-master/en/config/search-config";
 }

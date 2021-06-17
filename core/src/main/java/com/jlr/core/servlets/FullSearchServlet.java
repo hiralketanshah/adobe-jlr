@@ -4,6 +4,7 @@ import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
 import org.apache.commons.lang.CharEncoding;
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;

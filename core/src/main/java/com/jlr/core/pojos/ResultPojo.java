@@ -1,13 +1,16 @@
 package com.jlr.core.pojos;
 
+import java.util.Comparator;
+
 /**
  * The type Result pojo.
  */
-public class ResultPojo {
+public class ResultPojo implements Comparator<ResultPojo> {
 
     private String title;
     private String summary;
     private LinkPojo link;
+    private int priority = 100;
 
     /**
      * Gets title.
@@ -61,5 +64,40 @@ public class ResultPojo {
      */
     public void setLink(LinkPojo link) {
         this.link = link;
+    }
+
+    /**
+     * Gets priority.
+     *
+     * @return the priority
+     */
+    public int getPriority() {
+        return priority;
+    }
+
+    /**
+     * Sets priority.
+     *
+     * @param priority the priority
+     */
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
+    /**
+     * Compare int.
+     *
+     * @param o1 the o 1
+     * @param o2 the o 2
+     * @return the int
+     */
+    @Override
+    public int compare(ResultPojo o1, ResultPojo o2) {
+        if(o1.getPriority() > o2.getPriority()) {
+            return 1;
+        } else if(o1.getPriority() < o2.getPriority()){
+            return -1;
+        }
+        return 0;
     }
 }

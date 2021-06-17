@@ -1,6 +1,7 @@
 package com.jlr.core.servlets;
 
 import com.day.cq.contentsync.handler.util.RequestResponseFactory;
+import com.day.cq.wcm.api.WCMMode;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jlr.core.constants.ErrorUtilsConstants;
@@ -11,6 +12,7 @@ import org.apache.commons.lang.CharEncoding;
 import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.engine.SlingRequestProcessor;
@@ -21,6 +23,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -53,7 +59,9 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
         String locale = request.getParameter("locale");
         String pageNumber = request.getParameter("page");
 
-        String resultJson = searchService.getFullJson(searchTerm, request.getResourceResolver());
+        ByteArrayOutputStream out = getFullJson(request, "/content/request/fullsearch.html", request.getResourceResolver());
+        String resultJson = out.toString();
+
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.create();
         SearchPojo searchPojo = gson.fromJson(resultJson, SearchPojo.class);
@@ -63,6 +71,27 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
         String finalJson = searchService.processResultsByRules(searchPojo, request.getResourceResolver());
 
         sendResponse(response, gson, finalJson);
+    }
+
+    private ByteArrayOutputStream getFullJson(SlingHttpServletRequest request, String requestPath, ResourceResolver resourceResolver) {
+
+        HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
+        ParameterHttpRequest parameterHttpRequest = new ParameterHttpRequest(req);
+        parameterHttpRequest.addParameter("query",request.getParameter("query"));
+        WCMMode.DISABLED.toRequest(req);
+
+        /* Setup response */
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        HttpServletResponse resp = requestResponseFactory.createResponse(out);
+
+        /* Process request through Sling */
+        try {
+            requestProcessor.processRequest(parameterHttpRequest, resp, resourceResolver);
+        } catch (ServletException | IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                    ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+        }
+        return out;
     }
 
     private void sendResponse(SlingHttpServletResponse response, Gson gson, String finalJson) {
