@@ -1,3 +1,3 @@
-Include /etc/httpd/conf.d/variables/au_lr_${RUNMODE}.vars
+#Include /etc/httpd/conf.d/variables/au_lr_${RUNMODE}.vars
 # Put hostnames that would be honored for publish blob matching works.
 "${PUBLISH_AU_HOSTNAME}"

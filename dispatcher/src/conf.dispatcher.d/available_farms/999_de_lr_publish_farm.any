@@ -1,11 +1,11 @@
-/publishfarm {  
+/defarm {  
 	# client headers which should be passed through to the render instances
 	# (feature supported since dispatcher build 2.6.3.5222)
 	/clientheaders {
 		$include "../clientheaders/ams_publish_clientheaders.any"
 		$include "../clientheaders/ams_common_clientheaders.any"
 	}
-	# hostname globbing for farm selection (virtual domain addressing)
+ 	# hostname globbing for farm selection (virtual domain addressing)
 	/virtualhosts {
 		$include "../vhosts/ams_publish_vhosts.any"
 		$include "../vhosts/de_lr_publish_vhosts.any"

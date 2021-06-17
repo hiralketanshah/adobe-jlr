@@ -3,8 +3,8 @@
 PassEnv DISP_ID
 
 <VirtualHost *:80>
-		Include /etc/httpd/conf.d/variables/au_lr_${RUNMODE}.vars
-		Include /etc/httpd/conf.d/variables/lr_${RUNMODE}.vars
+		Include /etc/httpd/conf.d/variables/au_lr_dev.vars
+		Include /etc/httpd/conf.d/variables/lr_dev.vars
 
         ## allowing slashes in the URL to be encoded and still honored
         AllowEncodedSlashes On
@@ -73,6 +73,7 @@ PassEnv DISP_ID
 			LogLevel warn rewrite:info
 			##Global rewrite include
 			Include /etc/httpd/conf.d/rewrites/base_rewrite.rules
+			Include /etc/httpd/conf.d/rewrites/au_lr_rewrite.rules
 			## Update /etc/sysconfig/httpd with setting the PUBLISH_FORCE_SSL from 0 or 1 to enable or disable enforcing SSL
 			<If "${PUBLISH_FORCE_SSL} == 1">
 				Include /etc/httpd/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
