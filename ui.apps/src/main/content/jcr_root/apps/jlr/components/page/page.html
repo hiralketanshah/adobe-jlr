@@ -13,60 +13,75 @@
    ~ See the License for the specific language governing permissions and
    ~ limitations under the License.
    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
-<!DOCTYPE HTML>
-<html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
-   data-sly-use.pageConfig="com.jlr.core.models.PageModel" lang="${page.language}" data-sly-use.head="head.html"
-   data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html">
-   <head data-sly-call="${head.head @ page = page, additionalPage = pageConfig}"></head>
-   <body class="${page.cssClassNames}" id="${page.id}" data-cmp-data-layer-enabled="${page.data ? true : false}"
-      data-custom-page-data-layer="${pageConfig.PageData @ context='scriptString'}"
-      data-page-data-layer="${page.data.json @ context='scriptString'}">
-      
-      <sly data-sly-list.item="${pageConfig.GtmTagsList}">
-         <noscript>
-            <iframe height="0" src="//www.googletagmanager.com/ns.html?id=${item}" style="display:none;visibility:hidden"
-               width="0">
-            </iframe>
-         </noscript>
-      </sly>
-      <sly data-sly-test="${pageConfig.GtmTagsList}">
-         <script id="dx-loadGTM">
-            loadGTM(gtmTags);
-         </script>
-      </sly>
-      <div id="landrover">
-         <sly data-sly-test.cqTemplate="${pageProperties.cq:template}">
+   <!DOCTYPE HTML>
+   <html data-sly-use.page="com.adobe.cq.wcm.core.components.models.Page"
+      data-sly-use.pageConfig="com.jlr.core.models.PageModel" lang="${page.language}" data-sly-use.head="head.html" data-sly-use.naas="naas.html"
+      data-sly-use.footer="footer.html" data-sly-use.redirect="redirect.html">
+     <sly data-sly-test="${pageProperties.cq:template != '/conf/jlr/settings/wcm/templates/naas-page-template'}">
+      <head data-sly-call="${head.head @ page = page, additionalPage = pageConfig}"></head>
+      <body class="${page.cssClassNames}" id="${page.id}" data-cmp-data-layer-enabled="${page.data ? true : false}"
+         data-custom-page-data-layer="${pageConfig.PageData @ context='scriptString'}"
+         data-page-data-layer="${page.data.json @ context='scriptString'}">
+
+         <sly data-sly-list.item="${pageConfig.GtmTagsList}">
+            <noscript>
+               <iframe height="0" src="//www.googletagmanager.com/ns.html?id=${item}" style="display:none;visibility:hidden"
+                  width="0">
+               </iframe>
+            </noscript>
+         </sly>
+         <sly data-sly-test="${pageConfig.GtmTagsList}">
+            <script id="dx-loadGTM">
+               loadGTM(gtmTags);
+            </script>
+         </sly>
+         <div id="landrover">
+            <div class="sharedNavigation" data-fallback-status="None" data-response-status-code="200">
+               <sly data-sly-test.cqTemplate="${pageProperties.cq:template}">
+                  <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/gallery-page-template'}">
+                     <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/empty-page-template'}">
+                        <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/redirect-page-template'}">
+                           <sly data-sly-test="${pageConfig.headerPath}" data-sly-resource="${pageConfig.headerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
+                        </sly>
+                     </sly>
+                  </sly>
+                </sly>
+            </div>
+            <div class="skip-link">
+               <a class="primaryLinkWithStyle skipLink" href="#content" tabindex="1">${pageConfig.skipToMainTitle}</a>
+            </div>
+            <sly data-sly-test="${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
+
+            <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
+               data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
+            <sly data-sly-test="${!isRedirectPage}">
+               <sly data-sly-include="body.skiptomaincontent.html"></sly>
+               <sly data-sly-include="body.socialmedia_begin.html"></sly>
+               <sly data-sly-include="body.html"></sly>
+               <sly data-sly-call="${footer.footer @ page = page}"></sly>
+               <sly data-sly-include="body.socialmedia_end.html"></sly>
+            </sly>
+            <sly data-sly-test.cqTemplate="${pageProperties.cq:template}">
             <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/gallery-page-template'}">
                <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/empty-page-template'}">
                   <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/redirect-page-template'}">
-                     <sly data-sly-test="${pageConfig.headerPath}" data-sly-resource="${pageConfig.headerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
+                     <sly data-sly-test="${pageConfig.footerPath}" data-sly-resource="${pageConfig.footerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
                   </sly>
                </sly>
             </sly>
          </sly>
-         <div class="skip-link">
-            <a class="primaryLinkWithStyle skipLink" href="#content" tabindex="1">${pageConfig.skipToMainTitle}</a>
          </div>
-         <sly data-sly-test="${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
-
-         <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
-            data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
-         <sly data-sly-test="${!isRedirectPage}">
-            <sly data-sly-include="body.skiptomaincontent.html"></sly>
-            <sly data-sly-include="body.socialmedia_begin.html"></sly>
-            <sly data-sly-include="body.html"></sly>
-            <sly data-sly-call="${footer.footer @ page = page}"></sly>
-            <sly data-sly-include="body.socialmedia_end.html"></sly>
-         </sly>
-         <sly data-sly-test.cqTemplate="${pageProperties.cq:template}">
-         <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/gallery-page-template'}">
-            <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/empty-page-template'}">
-               <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/redirect-page-template'}">
-                  <sly data-sly-test="${pageConfig.footerPath}" data-sly-resource="${pageConfig.footerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
-               </sly>
-            </sly>
-         </sly>
+      </body>
       </sly>
-      </div>
-   </body>
-</html>
+       <sly data-sly-test="${pageProperties.cq:template == '/conf/jlr/settings/wcm/templates/naas-page-template'}">
+        <head data-sly-call="${naas.naas @ page = page}"></head>
+              <body>
+               <sly data-sly-include="body.html"></sly>
+             </body>
+           </sly>
+	<style>
+		.videoCustom:after {
+			background: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-play" viewBox="0 0 16 16"><path d="M10.804 8 5 4.633v6.734L10.804 8zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696l6.363 3.692z"/> </svg>') no-repeat 0 0; 
+		}
+	</style>
+   </html>

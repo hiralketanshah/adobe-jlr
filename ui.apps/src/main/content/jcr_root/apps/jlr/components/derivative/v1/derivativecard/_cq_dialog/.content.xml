@@ -19,10 +19,22 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+                            <id
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/include"
+                                path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                            <rte1heading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                text="Header Copy"/>
                             <headerCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
                                 path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                            <rte2heading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                text="Copy"/>
                             <bodyCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -155,6 +167,10 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+                            <imagePathHeading
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/text"
+                                text="Image"/>
                             <imagePath
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -232,12 +248,20 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
+                            <featureLabel
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                fieldDescription="This label will be displayed as the feature heading"
+                                fieldLabel="Feature Label"
+                                required="{Boolean}true"
+                                name="./featureLabel"/>
                             <leftcolumn
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                 fieldDescription="Key Features to be displayed on left column"
                                 fieldLabel="Left Column"
                                 name="./leftColumn"
+                                required="{Boolean}true"
                                 useFixedInlineToolbar="{Boolean}true">
                                 <rtePlugins jcr:primaryType="nt:unstructured">
                                     <format
@@ -350,6 +374,7 @@
                                 fieldDescription="Key Features to be displayed on right column"
                                 fieldLabel="Right Column"
                                 name="./rightColumn"
+                                required="{Boolean}true"
                                 useFixedInlineToolbar="{Boolean}true">
                                 <rtePlugins jcr:primaryType="nt:unstructured">
                                     <format
@@ -654,7 +679,7 @@
                                                     </field>
                                                     <granite:data
                                                         jcr:primaryType="nt:unstructured"
-                                                        maxlimit="4"
+                                                        max-items="{Long}4"
                                                         min-items="{Long}3"/>
                                                 </data>
                                             </items>

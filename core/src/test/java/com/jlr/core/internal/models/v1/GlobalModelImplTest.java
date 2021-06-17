@@ -39,10 +39,11 @@ class GlobalModelImplTest {
     /**
      * Sets the up.
      *
-     * @throws Exception the exception
+     * @throws Exception
+     *             the exception
      */
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp() {
         MockitoAnnotations.initMocks(this);
         context.registerService(Injector.class, injector);
         context.registerService(StaticInjectAnnotationProcessorFactory.class,
@@ -61,6 +62,9 @@ class GlobalModelImplTest {
         assertEquals("test_header_title", globalModel.getHeaderTitle());
         assertEquals("test_header_Copy", globalModel.getHeaderCopy());
         assertEquals("test_body_copy", globalModel.getCopy());
+        assertEquals("$12345", globalModel.getPrice());
+        assertEquals("25-02-2021", globalModel.getDate());
+        assertEquals("icon-arrow-right", globalModel.getHeaderIcon());
     }
 
     /**
@@ -75,6 +79,18 @@ class GlobalModelImplTest {
     }
 
     /**
+     * Test video properties.
+     */
+    @Test
+    void testVideoProperties() {
+        assertEquals("video", globalModel.getAssetType());
+        assertEquals("https://youtube.com/embed/V1CZan9Tb34", globalModel.getVideoId());
+        assertEquals("/content/dam/test.mp4", globalModel.getVideoPath());
+        assertEquals("/content/dam/test.png", globalModel.getPosterImage());
+        assertEquals("Test Video Title", globalModel.getVideoTitle());
+    }
+
+    /**
      * Test cta properties.
      */
     @Test
@@ -83,5 +99,7 @@ class GlobalModelImplTest {
         assertEquals("/content/jlr/au", globalModel.getLink());
         assertEquals("primary", globalModel.getLinkType());
         assertEquals("_self", globalModel.getTarget());
+        assertEquals("icon-arrow-right", globalModel.getIcon());
+        assertEquals("test_header_Copy:test_cta_text", globalModel.getAriaLabel());
     }
 }

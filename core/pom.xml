@@ -184,6 +184,10 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
 
         <!-- Testing -->
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -234,5 +238,16 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
             <artifactId>acs-aem-commons-bundle</artifactId>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.3.1</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.day.commons.osgi.wrapper</groupId>
+		    <artifactId>com.day.commons.osgi.wrapper.commons-httpclient</artifactId>
+		    <version>3.1.0.018</version>
+		</dependency>
     </dependencies>
 </project>

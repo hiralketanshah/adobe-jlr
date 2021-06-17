@@ -2,16 +2,24 @@
 
 - group_config:
 
+    - content-admins:
+
+        - name: 'Content Admins'
+          isMemberOf: administrators, de-content-approvers, au-content-approvers, global-approvers
+          path: ${groupPath}
+
     - global-leads:
 
         - name: 'Global Leads'
-          isMemberOf: internal-group, template-authors, tag-administrators, internal-tools-nav-group, projects-administrators
+          isMemberOf: internal-group, template-authors, tag-administrators, internal-tools-nav-group,
+            projects-administrators, de-content-approvers, au-content-approvers, global-approvers
           path: ${groupPath}
 
     - global-qas:
 
         - name: 'Global QAs'
-          isMemberOf: internal-group, template-authors, internal-tools-nav-group, projects-administrators
+          isMemberOf: internal-group, template-authors, internal-tools-nav-group, projects-administrators,
+            de-content-approvers, au-content-approvers, global-approvers
           path: ${groupPath}
 
     - global-authors:

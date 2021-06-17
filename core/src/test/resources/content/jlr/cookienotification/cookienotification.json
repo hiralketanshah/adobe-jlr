@@ -1,0 +1,14 @@
+{
+    "header": "HEADER",
+    "summary": "Summary",
+    "expiry": 1,
+    "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "text":"test_cta_text",
+          "ariaLabel":"test_aria_label"
+        }
+    },
+    "jcr:primaryType": "nt:unstructured"  
+}

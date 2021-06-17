@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Legacy Browser Notification"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Legacy Browser Notification"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <headerCopy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                dfs-required="true"
+                                fieldDescription="Header Text"
+                                fieldLabel="Header"
+                                name="./headerCopy"
+                                required="{Boolean}true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <misctools
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                            <chars jcr:primaryType="nt:unstructured">
+                                                <non-breaking-space
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;nbsp;"
+                                                    name="Non-breaking space"/>
+                                                <non-breaking-hyphen
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;#8209"
+                                                    name="Non-breaking hyphen"/>
+                                            </chars>
+                                        </specialCharsConfig>
+                                    </misctools>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                    </cui>
+                                </uiSettings>
+                            </headerCopy>
+                            <infoCopy
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                dfs-required="true"
+                                fieldDescription="Body Copy"
+                                fieldLabel="Body"
+                                name="./copy"
+                                required="{Boolean}true"
+                                useFixedInlineToolbar="{Boolean}true">
+                                <rtePlugins jcr:primaryType="nt:unstructured">
+                                    <subsuperscript
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*"/>
+                                    <misctools
+                                        jcr:primaryType="nt:unstructured"
+                                        features="*">
+                                        <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                            <chars jcr:primaryType="nt:unstructured">
+                                                <non-breaking-space
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;nbsp;"
+                                                    name="Non-breaking space"/>
+                                                <non-breaking-hyphen
+                                                    jcr:primaryType="nt:unstructured"
+                                                    entity="&amp;#8209"
+                                                    name="Non-breaking hyphen"/>
+                                            </chars>
+                                        </specialCharsConfig>
+                                    </misctools>
+                                </rtePlugins>
+                                <uiSettings jcr:primaryType="nt:unstructured">
+                                    <cui jcr:primaryType="nt:unstructured">
+                                        <inline
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                        <dialogFullScreen
+                                            jcr:primaryType="nt:unstructured"
+                                            toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                    </cui>
+                                </uiSettings>
+                            </infoCopy>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

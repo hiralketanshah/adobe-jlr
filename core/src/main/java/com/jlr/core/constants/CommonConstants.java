@@ -13,6 +13,9 @@ public class CommonConstants {
     /** The Constant FORWARD_SLASH. */
     public static final String FORWARD_SLASH = "/";
 
+    /** The Constant HYPHEN. */
+    public static final String HYPHEN = "-";
+
     /** The Constant PIPE_CHARACTER. */
     public static final String PIPE_CHARACTER = "|";
 
@@ -42,6 +45,9 @@ public class CommonConstants {
 
     /** The Constant TRUE. */
     public static final String TRUE = "true";
+
+    /** The Constant FALSE. */
+    public static final String FALSE = "false";
 
     /** The Constant COMMA. */
     public static final String COMMA = ",";
@@ -78,11 +84,14 @@ public class CommonConstants {
     public static final String PATH_CONTENT = "/content";
     public static final String PATH_HEADER = "/config/navigation/header";
     public static final String PATH_FOOTER = "/config/navigation/footer";
-    
+
     /** The Template Constants. */
     public static final String TEMPLATE_GALLERY = "gallery-page-template";
     public static final String TEMPLATE_EMPTY = "empty-page-template";
     public static final String TEMPLATE_REDIRECT = "redirect-page-template";
+
+    public static final CharSequence AUS_MARKET_TAG = "/market/au";
+    public static final CharSequence DE_MARKET_TAG = "/market/de";
 
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
@@ -104,6 +113,8 @@ public class CommonConstants {
 
     /** The Constant THUMB_140_100_PNG. */
     public static final String THUMB_140_100_PNG = ".thumb.140.100.png";
+
+    public static final String PN_ENABLE_IMAGE_SCHEME = "enableImageSchema";
 
     /** The PROTOCOL Constant. */
     public static final String PREFIX_HTTPS = "https://";
@@ -149,6 +160,9 @@ public class CommonConstants {
 
     /** The Constant PN_POSTER_IMAGE. */
     public static final String PN_POSTER_IMAGE = "posterImage";
+
+    /** The Constant PN_THUMBNAIL. */
+    public static final String PN_THUMBNAIL = "thumbnail";
 
     /** The Constant PN_OPTION_IMAGE. */
     public static final String PN_OPTION_IMAGE = "optionImage";
@@ -248,19 +262,19 @@ public class CommonConstants {
 
     /** The Constant PN_VEHICLE_CARD_LINK. */
     public static final String PN_VEHICLE_CARD_LINK = "vehicleCardLink";
-    
+
     /** The Constant PN_SECONDARY_NAVIGATION_TITLE. */
     public static final String PN_SECONDARY_NAVIGATION_TITLE = "secNavTitle";
-    
+
     /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
     public static final String PN_SHOW_IN_SECONDARY_NAVIGATION = "showInSecNav";
-    
+
     /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
     public static final String PN_SECONDARY_NAVIGATION_EXT_LINK = "secNavExtLink";
-    
+
     /** The Constant PN_SHOW_IN_SECONDARY_NAVIGATION. */
     public static final String PN_SECONDARY_NAVIGATION_HIDE_PARENT = "hideParent";
-    
+
     /** The Constant PN_REDIRECT_TARTGET. */
     public static final String PN_REDIRECT_TARTGET = "cq:redirectTarget";
 
@@ -330,4 +344,28 @@ public class CommonConstants {
      * The constant JLR_LOCALE_PRICING.
      */
     public static final String JLR_LOCALE_PRICING = "JLR_locale-pricing";
+
+    /**
+     * The constant NAMEPLATE_PATH.
+     */
+    public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
+
+    public static final String AU_EXTERNALIZER_DOMAIN = "publish-au";
+    public static final String DE_EXTERNALIZER_DOMAIN = "publish-de";
+    public static final String DEFAULT_EXTERNALIZER_DOMAIN = "publish";
+
+    /**
+     * The constant APPROVAL_STATUS.
+     */
+    public static final String APPROVAL_STATUS = "approvalStatus";
+
+    /**
+     * The constant APPROVED_DATE.
+     */
+    public static final String APPROVED_DATE = "approvedDate";
+
+    /**
+     * The constant YYYY_MM_DD_T_HH_MM_SS.
+     */
+    public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
 }

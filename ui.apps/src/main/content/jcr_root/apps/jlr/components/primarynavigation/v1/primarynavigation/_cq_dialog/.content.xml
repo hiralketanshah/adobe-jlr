@@ -63,13 +63,6 @@
                                 fieldLabel="Logo Alt Text"
                                 name="./logoImageAlt"
                                 required="true"/>
-                            <logoImageLink
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                fieldDescription="Specify the Link for the Logo Image."
-                                fieldLabel="Logo Target Link"
-                                name="./logoImageLink"
-                                rootPath="/content/landrover/global"/>
                         </items>
                     </logo>
                     <secondary
@@ -86,17 +79,11 @@
                                 text="Enable Last Visited"
                                 uncheckedValue="false"
                                 value="{Boolean}true"/>
-                            <custPortalheading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Customer Portal"/>
                             <enableCustPortal
                                 granite:class="primary-nav-cp"
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                fieldDescription="Check to enable myLandRover link to be displayed."
+                                fieldDescription="Check to enable myJLRProfile link to be displayed."
                                 name="./enableCustPortal"
                                 text="Enable Customer Portal"
                                 uncheckedValue="false"
@@ -116,12 +103,6 @@
                                 fieldDescription="Specify the Aria Label for Customer Portal."
                                 fieldLabel="Customer Portal Aria Label"
                                 name="./custPortalAriaLabel"/>
-                            <retailerheading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Retailer Option"/>
                             <retailerlLink
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
@@ -136,12 +117,6 @@
                                 fieldLabel="Retailer Locator Aria Label"
                                 name="./retailerAriaLabel"
                                 required="true"/>
-                            <Searchheading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Search Option"/>
                             <searchAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -149,12 +124,6 @@
                                 fieldLabel="Search Aria Label"
                                 name="./searchAriaLabel"
                                 required="true"/>
-                            <mobileBurgerHeading
-                                granite:class="coral-Heading coral-Heading--4"
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                level="{Long}4"
-                                text="Mobile Burger Option"/>
                             <mobileBurgerAriaLabel
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"

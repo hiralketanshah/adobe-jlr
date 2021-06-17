@@ -3,6 +3,7 @@ package com.jlr.core.httpcache.key;
 import org.apache.sling.api.SlingHttpServletRequest;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -15,8 +16,8 @@ public class RequestKeyValueMapBuilder {
     private final SlingHttpServletRequest slingHttpServletRequest;
 
     public RequestKeyValueMapBuilder(Set<String> allowedParameters, Set<String> allowedParameterValues, SlingHttpServletRequest slingHttpServletRequest) {
-        this.allowedParameters = allowedParameters;
-        this.allowedParameterValues = allowedParameterValues;
+        this.allowedParameters = new HashSet<>(allowedParameters);
+        this.allowedParameterValues = new HashSet<>(allowedParameterValues);
         this.slingHttpServletRequest = slingHttpServletRequest;
     }
 

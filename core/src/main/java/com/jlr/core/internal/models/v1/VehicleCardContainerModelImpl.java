@@ -187,6 +187,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                 if (VehicleCardConstants.PRIMARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                     vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else if (VehicleCardConstants.SECONDARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
+                	ctaPojo.setIcon("Chevron_Right");
                     secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else {
                     extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
@@ -197,7 +198,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         vehicleCard.setExtraSecondaryLinks(extraSecondaryLinks);
         vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink());
         vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink());
-        vehicleCard.setDisclaimer(CommonUtils.getOnlyTextFromHTML(vehicleCardModel.getDisclaimer()));
+        vehicleCard.setDisclaimer(vehicleCardModel.getDisclaimer());
         vehicleCard.setImage(VehicleCardUtils.setImageToVehicleLink(vehicleCardModel.getFileReference(), vehicleCardModel.getImageAlt()));
         vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink());
         vehicleCard.setFeatures(VehicleCardUtils.addFeaturesToVehicleCard(vehicleCardModel.getFeatures()));

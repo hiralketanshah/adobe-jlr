@@ -1,6 +1,7 @@
 package com.jlr.core.utils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -16,6 +17,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import com.day.cq.commons.jcr.JcrConstants;
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
@@ -91,7 +93,6 @@ public class PricingUtils {
             modelNode.setProperty(PricingConstants.PN_NET, Double.toString(minNet));
             modelNode.setProperty(PricingConstants.PN_RETAIL, Double.toString(minRetail));
             modelNode.setProperty(PricingConstants.PN_CURRENCY, currency);
-            modelNode.setProperty(PricingConstants.PN_LAST_FETCHED, System.currentTimeMillis());
         }
     }
 
@@ -109,6 +110,39 @@ public class PricingUtils {
             }
         }
         return minPrice;
+    }
+
+    public static void unlockPricingNode(Session session, String path) throws RepositoryException {
+        Node pricingNode = JcrUtils.getOrCreateByPath(path, JcrConstants.NT_UNSTRUCTURED, session);
+        pricingNode.setProperty(PricingConstants.PN_LOCK_ACTIVE, false);
+    }
+
+    public static void lockPricingNode(Session session, String path) throws RepositoryException {
+        Node pricingNode = JcrUtils.getOrCreateByPath(path, JcrConstants.NT_UNSTRUCTURED, session);
+        pricingNode.setProperty(PricingConstants.PN_LOCK_ACTIVE, true);
+        pricingNode.setProperty(PricingConstants.PN_LOCK_ACTIVE_DATE, Calendar.getInstance());
+    }
+
+    public static boolean isLocked(ResourceResolver resolver, String path) {
+        Resource pricingResource = resolver.getResource(path);
+        if (null != pricingResource) {
+            ValueMap valueMap = pricingResource.adaptTo(ValueMap.class);
+            if (null != valueMap && valueMap.containsKey(PricingConstants.PN_LOCK_ACTIVE)
+                    && Boolean.TRUE.equals(valueMap.get(PricingConstants.PN_LOCK_ACTIVE, Boolean.class))
+                    && valueMap.containsKey(PricingConstants.PN_LOCK_ACTIVE_DATE)) {
+                Calendar activeDate = valueMap.get(PricingConstants.PN_LOCK_ACTIVE_DATE, Calendar.class);
+                long seconds = (Calendar.getInstance().getTimeInMillis() - activeDate.getTimeInMillis()) / 1000;
+                if (15 > (seconds / 60)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public static JsonObject getJsonObjectFromResponse(String response) {
+        return new Gson().fromJson(response, JsonObject.class);
     }
 
 }

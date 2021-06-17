@@ -9,6 +9,7 @@ accolades-validation.js
 faq-validation.js
 vehiclesummary-validation.js
 option-picker-validation.js
+legacy-browser-validation.js
 showhide.js
 full-frame-validation.js
 dual-frame-validation.js
@@ -18,3 +19,4 @@ seat-slider-validation.js
 specsglance-validation.js
 c-player-validation.js
 derivative-validation.js
+site-notification-validation.js
