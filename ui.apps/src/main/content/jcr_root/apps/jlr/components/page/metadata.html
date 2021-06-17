@@ -143,7 +143,7 @@
 	<link rel="canonical" href="${properties.ogUrl}"/>
 </sly>
 <sly data-sly-test="${!ogUrl}">
-	<link rel="canonical" href="${scheme}://${servername}:${serverport}${uri}"/>
+	<link rel="canonical" href="${scheme}://${servername}${uri}"/>
 </sly>
 
 <meta data-sly-test.keywords="${properties.keywords}" name="keywords" content="${keywords}"/>
