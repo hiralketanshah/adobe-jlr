@@ -59,9 +59,19 @@
     background:#0C121C;
     color: #FFFFFF;
 }
-.slateblue .Modal__close{
+.slateblue .Modal__close:after{
+    color: #FFFFFF;
+}
+.slateblue .Modal__close:after{
+    color: #FFFFFF;
+}
+.slateblue .Modal__close:hover{
     background-color: #FFFFFF;
 }
+.slateblue .Modal__close:hover:after{
+    color: #0C121C;
+}
+
 @media screen and (min-width: 741px) {
 	.Modal__content-wrapper {
 		width: 580px;
