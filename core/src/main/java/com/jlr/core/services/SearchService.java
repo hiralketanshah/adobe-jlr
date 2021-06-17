@@ -1,11 +1,11 @@
 package com.jlr.core.services;
 
+import com.jlr.core.pojos.SearchPojo;
 import org.apache.sling.api.resource.ResourceResolver;
-
-import java.util.List;
-import java.util.Map;
 
 public interface SearchService {
 
-    List<String> getRelatedPages(String searchRoot, String searchText, ResourceResolver resolver, Map<String, String> exclusions);
+    String getFullJson(String searchText, ResourceResolver resolver);
+
+    String processResultsByRules(SearchPojo searchPojo, ResourceResolver resolver);
 }

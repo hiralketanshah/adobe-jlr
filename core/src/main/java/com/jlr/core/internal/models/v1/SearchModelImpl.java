@@ -50,7 +50,7 @@ public class SearchModelImpl implements SearchModel {
     public void init(){
         String searchText = request.getParameter("fulltext");
         Map<String, String> exclusions = searchConfigModel.getExclusion();
-        this.results = searchService.getRelatedPages(searchRoot, searchText, resolver, exclusions);
+        searchService.getFullJson(searchText, resolver);
     }
 
     @Override
