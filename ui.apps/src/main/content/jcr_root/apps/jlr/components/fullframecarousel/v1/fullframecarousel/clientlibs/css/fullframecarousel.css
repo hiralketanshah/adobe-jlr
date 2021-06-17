@@ -1014,12 +1014,16 @@
   .videoCustom.player:after { display: none; }
  
 /*---------Full Frame UI ------------*/
-.cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
+.white .headingWrapper p{color:#0C121C;}
+.light  .headingWrapper p{color:#0C121C;}
+.light .cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
+.white .cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
+
 .cmp-fullframe .primaryLinkWithStyle{font-family:AvenirNext-DemiBold; line-height:14px;}
 .cmp-fullframe  .headerClass h2 {
     margin-bottom: 16px;
 }
-.cmp-fullframe .headingWrapper p{font-size:21px; line-height:21px; color:#0C121C;font-family:LandRoverWeb-Bold;height:28px; letter-spacing:1.05px;}
+.cmp-fullframe .headingWrapper p{font-size:21px; line-height:21px; font-family:LandRoverWeb-Bold;height:28px; letter-spacing:1.05px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:43px;}
 .cmp-fullframe-carousel .cmp-carousel__controls{top:0;}
 .cmp-fullframe .secondaryLinkWithStyle{margin-top:23px!important; line-height:12.5px;}
@@ -1033,7 +1037,7 @@
 
 
 @media screen and (min-width:1920px) and (max-width:2700px){
-.cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px; color:#0C121C; font-family:LandRoverWeb-Bold; height:32px;letter-spacing:1.2px;}
+.cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:32px;letter-spacing:1.2px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
 .cmp-fullframe .secondaryLinkWithStyle{margin-top:23px!important; line-height:12.5px}
     .cmp-fullframe .shelfComponent {
