@@ -958,10 +958,14 @@ object-fit: unset;
 .cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:16px;}
 .cmp-signPost .linkContainer{padding-top:0px;}
  .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important;}
-        }
+ .cmp-vehicleSummary{ padding:40px 30px 60px 30px;} 
+}
 @media screen and (min-width: 300px) and (max-width: 766px){
+.cmp-vehicleSummary{ padding:25px 25px 42px 25px;}
+.cmp-vehicleSummary .Picture__img{width:325px;}
+.cmp-vehicleSummary .summaryItemContent {width:325px;}
 .cmp-signPost .headingWrapper{font-family:LandRoverWeb-Bold; font-size:20px; line-height:24px; letter-spacing:0.9px;}
-     .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
+ .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
     .cmp-signPost .primaryLinkWithStyle{margin-top:24px!important; line-height:14px; letter-spacing:3px;}
 .cmp-signPost .linkContainer {
     margin-top: 0;
