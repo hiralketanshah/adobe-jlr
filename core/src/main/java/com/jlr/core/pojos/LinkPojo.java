@@ -1,9 +1,12 @@
 package com.jlr.core.pojos;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * The type Link pojo.
  */
 public class LinkPojo {
+    @Expose
     private String url;
 
     /**

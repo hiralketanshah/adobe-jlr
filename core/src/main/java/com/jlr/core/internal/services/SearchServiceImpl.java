@@ -1,5 +1,6 @@
 package com.jlr.core.internal.services;
 
+import com.day.cq.commons.Externalizer;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
@@ -28,9 +29,12 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.util.*;
+import java.util.stream.Collectors;
 
+import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
 import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
+import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
 
 @Component(immediate = true, service = SearchService.class)
@@ -41,6 +45,9 @@ public class SearchServiceImpl implements SearchService {
 
     @Reference
     private QueryBuilder queryBuilder;
+
+    @Reference
+    private Externalizer externalizer;
 
     /**
      * The config.
@@ -61,7 +68,7 @@ public class SearchServiceImpl implements SearchService {
                 resolver.adaptTo(Session.class));
         SearchResult result = query.getResult();
         GsonBuilder gsonBuilder = new GsonBuilder();
-        Gson gson = gsonBuilder.create();
+        Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().create();
         SearchPojo searchPojo = new SearchPojo();
         searchPojo.setQuery(searchText);
         searchPojo.setNoResultsText("Sorry, no results containing '" + searchText + "'");
@@ -75,8 +82,7 @@ public class SearchServiceImpl implements SearchService {
                     ResultPojo resultPojo = new ResultPojo();
                     resultPojo.setLink(linkPojo);
                     resultPojo.setTitle(getOnlyTextFromHTML(hit.getTitle()));
-                    //TODO: get description from page for summary
-                    resultPojo.setSummary(hit.getResource().getName());
+                    resultPojo.setSummary(getDescription(hit.getResource()));
                     results.add(resultPojo);
                 }
             }
@@ -85,6 +91,20 @@ public class SearchServiceImpl implements SearchService {
             log.error("Error during search results");
         }
         return gson.toJson(searchPojo);
+    }
+
+    private String getDescription(Resource resource) {
+        ValueMap valueMap = resource.getValueMap();
+        if(valueMap != null) {
+            return valueMap.get(JCR_DESCRIPTION, String.class);
+        }
+        return StringUtils.EMPTY;
+    }
+
+    private String getExternalUrl(String path, String locale, ResourceResolver resolver) {
+        String externalizerDomain = getExternalizerDomainByLocale(locale);
+        String externalPath = externalizer.externalLink(resolver, externalizerDomain, path);
+        return externalPath + ".html";
     }
 
     private PredicateGroup createQueryPredicate(String searchRoot, String searchText) {
@@ -100,15 +120,21 @@ public class SearchServiceImpl implements SearchService {
     @Override
     public String processResultsByRules(SearchPojo searchPojo, ResourceResolver resolver) {
 
-        Map<String, ResultPojo> resultsPojoMap = new HashMap<String, ResultPojo>();
-        searchPojo.getResults().stream().forEach(resultPojo -> {
-            resultsPojoMap.put(resultPojo.getLink().getUrl(), resultPojo);
-        });
-
+        Map<String, ResultPojo> resultsPojoMap = new TreeMap<>();
         Map<String, String> exclusionMap = getExclusion(resolver, searchPojo.getLocale());
         Map<String, String> priorityMap = getPriority(resolver, searchPojo.getLocale());
 
-        List<ResultPojo> filteredResults = new LinkedList<>();
+        searchPojo.getResults().stream().forEach(resultPojo -> {
+            if(resultPojo.getLink() != null) {
+                String path = resultPojo.getLink().getUrl();
+                if(priorityMap.containsKey(path)) {
+                    String priority = priorityMap.get(path);
+                    resultPojo.setPriority(Integer.parseInt(priority));
+                }
+                resultsPojoMap.put(path, resultPojo);
+            }
+        });
+
         if (MapUtils.isNotEmpty(exclusionMap)) {
             exclusionMap.keySet().stream().forEach(key -> {
                 String excludeChildPages = exclusionMap.get(key);
@@ -125,18 +151,15 @@ public class SearchServiceImpl implements SearchService {
 
         }
 
-        resultsPojoMap.entrySet().stream().forEach(resultPojoEntry -> {
-            if (MapUtils.isNotEmpty(priorityMap) && priorityMap.containsKey(resultPojoEntry.getKey())) {
-                String order = priorityMap.get(resultPojoEntry.getKey());
-                filteredResults.add(0, resultPojoEntry.getValue());
-            } else {
-                filteredResults.add(resultPojoEntry.getValue());
-            }
-        });
-
+        List<ResultPojo> filteredResults = resultsPojoMap.values().stream().sorted().collect(Collectors.toList());
         List<ResultPojo> finalResultsForPage = getPaginationResults(searchPojo, filteredResults);
+        finalResultsForPage.stream().forEach(result -> {
+            LinkPojo linkPojo = result.getLink();
+            linkPojo.setUrl(getExternalUrl(linkPojo.getUrl(), searchPojo.getLocale(), resolver));
+        });
         searchPojo.setResults(finalResultsForPage);
-        return new Gson().toJson(searchPojo);
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        return gson.toJson(searchPojo);
     }
 
     private List<ResultPojo> getPaginationResults(SearchPojo searchPojo, List<ResultPojo> filteredResults) {
@@ -208,5 +231,4 @@ public class SearchServiceImpl implements SearchService {
         }
         return finalMap;
     }
-
 }

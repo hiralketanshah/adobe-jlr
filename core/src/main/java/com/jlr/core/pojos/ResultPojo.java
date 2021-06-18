@@ -1,14 +1,17 @@
 package com.jlr.core.pojos;
 
-import java.util.Comparator;
+import com.google.gson.annotations.Expose;
 
 /**
  * The type Result pojo.
  */
-public class ResultPojo implements Comparator<ResultPojo> {
+public class ResultPojo implements Comparable<ResultPojo> {
 
+    @Expose
     private String title;
+    @Expose
     private String summary;
+    @Expose
     private LinkPojo link;
     private int priority = 100;
 
@@ -87,15 +90,14 @@ public class ResultPojo implements Comparator<ResultPojo> {
     /**
      * Compare int.
      *
-     * @param o1 the o 1
-     * @param o2 the o 2
+     * @param resultPojo the result pojo
      * @return the int
      */
     @Override
-    public int compare(ResultPojo o1, ResultPojo o2) {
-        if(o1.getPriority() > o2.getPriority()) {
+    public int compareTo(ResultPojo resultPojo) {
+        if(this.getPriority() > resultPojo.getPriority()) {
             return 1;
-        } else if(o1.getPriority() < o2.getPriority()){
+        } else if(this.getPriority() < resultPojo.getPriority()){
             return -1;
         }
         return 0;

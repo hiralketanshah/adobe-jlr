@@ -185,4 +185,16 @@ public final class CommonUtils {
         return Boolean.FALSE;
     }
 
+    public static String getExternalizerDomainByLocale(String locale) {
+        String externalizerDomain;
+        if (locale.equalsIgnoreCase("en_AU")) {
+            externalizerDomain = CommonConstants.AU_EXTERNALIZER_DOMAIN;
+        } else if (locale.equalsIgnoreCase("de_DE")) {
+            externalizerDomain = CommonConstants.DE_EXTERNALIZER_DOMAIN;
+        } else {
+            externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
+        }
+        return externalizerDomain;
+    }
+
 }

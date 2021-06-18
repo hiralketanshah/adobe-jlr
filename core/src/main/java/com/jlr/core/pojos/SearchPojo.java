@@ -1,18 +1,28 @@
 package com.jlr.core.pojos;
 
+import com.google.gson.annotations.Expose;
+
 import java.util.List;
 
 /**
  * The type Search pojo.
  */
 public class SearchPojo {
+    @Expose
     private String query;
+    @Expose
     private Long page;
+    @Expose
     private String locale;
+    @Expose
     private Long maxPage;
+    @Expose
     private String resultsTitleText;
+    @Expose
     private String noResultsText;
+    @Expose
     private List<ResultPojo> results = null;
+    @Expose
     private List<Object> suggestions = null;
 
     /**

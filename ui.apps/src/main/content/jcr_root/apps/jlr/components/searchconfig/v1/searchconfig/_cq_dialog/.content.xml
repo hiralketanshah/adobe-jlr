@@ -109,6 +109,26 @@
                                                                 jcr:primaryType="nt:unstructured"
                                                                 text="5"
                                                                 value="5"/>
+                                                        <_x0037_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="6"
+                                                                value="6"/>
+                                                        <_x0038_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="7"
+                                                                value="7"/>
+                                                        <_x0039_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="8"
+                                                                value="8"/>
+                                                        <_x0040_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="9"
+                                                                value="9"/>
+                                                        <_x0041_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="10"
+                                                                value="10"/>
                                                     </items>
                                                 </priority>
                                             </items>
