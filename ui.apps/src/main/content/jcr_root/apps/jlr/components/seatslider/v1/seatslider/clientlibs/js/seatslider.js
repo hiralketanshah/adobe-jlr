@@ -755,7 +755,18 @@
                 
                   var contentheight = $(".infoContainer .content").css("height");
                   var spriteContainerheight = $(".spriteContainer").css("height");
-                 
+
+                  if(window.innerWidth == 1280){
+                    $('.cmp-interactiveSlider').css({ height: 632 });
+                  }
+                  else if(window.innerWidth == 1920){
+                    $('.cmp-interactiveSlider').css({ height: 710 });
+                  }
+                  else{
+                    $('.cmp-interactiveSlider').removeAttr('style');
+                  }
+
+
                   if(window.innerWidth >= 901){
                   var maxheightcontent = Math.max(parseInt(contentheight),parseInt(spriteContainerheight))
                   $('.frameSliderItem').css({ height: maxheightcontent });
