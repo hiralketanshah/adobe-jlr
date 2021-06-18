@@ -1,0 +1,24 @@
+{
+    "faqsList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+            "jcr:primaryType":"nt:unstructured",
+            "question": "test_question",
+            "answer": "test_answer",
+            "answerCaveat": "test_answer_caveat"
+        },
+        "item1":{
+            "jcr:primaryType":"nt:unstructured",
+            "question": "test_question",
+            "answer": "test_answer",
+            "answerCaveat": "test_answer_caveat"
+        },
+        "item2":{
+            "jcr:primaryType":"nt:unstructured",
+            "question": "test_question",
+            "answer": "test_answer",
+            "answerCaveat": "test_answer_caveat"
+        }
+    },
+    "jcr:primaryType": "nt:unstructured"
+}
