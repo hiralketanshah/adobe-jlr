@@ -759,18 +759,24 @@
                   if(window.innerWidth >= 901){
                   var maxheightcontent = Math.max(parseInt(contentheight),parseInt(spriteContainerheight))
                   $('.frameSliderItem').css({ height: maxheightcontent });
+                  $('.infoContainer', this.$element).css({
+                    top: 0
+                   });
                   } 
-                  if(window.innerWidth >= 320  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
                     var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
-
                   
                     $('.frameSliderItem').css({ height: maxheightcontentmobile});
+
+                     var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
+                    $('.infoContainer', this.$element).css({
+                    top: topCalculation
+                   });
+
                    
                   }
 
                   
-                  
-
                 },
                 _setupWaypointDivs: function _setupWaypointDivs(resize) {
                   var sliderFlexWidth = this.$sliderContainerUpper.width() - 64;
@@ -834,6 +840,7 @@
                   this._initDragDealer();
     
                   var cti = $('.clickToInteract', this.$element);
+                  var ctiupper = $('.sliderContainerUpper', this.$element);
                   var onCtiClick = function onCtiClick() {
                     cti.hide().attr('aria-hidden', 'true');
                     _this2._loadingOverlay();
@@ -848,6 +855,8 @@
                     }
                   };
                   cti.one('click', onCtiClick);
+                  ctiupper.one('click', onCtiClick);
+
                   cti.on('keypress', function (evt) {
                     if (evt.which === _aria.KeyCode.RETURN || evt.which === _aria.KeyCode.SPACE) {
                       evt.preventDefault();
@@ -1131,6 +1140,7 @@
                   var $controlElement = $(this.sliderElementRef, $element);
     
                   if ($element.hasClass('backgroundOverlay')) {
+                    alert("overlay");
                     $element.prepend($('<div class="backgroundOverlayElement"/>'));
                     // Show Background Overlay when hovering controls
                     $controlElement.on('mouseenter touchstart', function () {
@@ -1208,6 +1218,9 @@
                 _centerInfoContainer: function _centerInfoContainer() {
                   if (this.currentState !== 'mobile') {
                     var topCalculation = ($('.frameSliderBg', this.$element).height() - $(this.$arrangementInformationContainer).outerHeight()) / 2;
+                    //$('.infoContainer', this.$element).css({
+                    //   top: topCalculation
+                    //  });
     
                   }
                 },
@@ -1276,15 +1289,15 @@
                   if (!this.isOldSlider) {
                     this.odometer = $(this.$contentContainer).find('.odo').get(0);
                     var initial = $(this.odometer).html();
-                    var format = this.odometer.getAttribute('data-format');
-    
+                    // var format = this.odometer.getAttribute('data-format');
+                    
                     if (initial !== '') {
                       new Odometer({ // eslint-disable-line no-new
                         el: this.odometer,
                         value: initial,
-                        format: format,
+                        //format: '(,ddd).dd',
                         theme: 'default',
-                        duration: 2000
+                        duration: 9000
                       });
     
                       this._noOdometer = false;

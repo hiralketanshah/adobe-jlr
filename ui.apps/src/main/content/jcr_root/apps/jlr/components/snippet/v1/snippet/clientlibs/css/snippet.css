@@ -195,11 +195,18 @@
 	color:#4A4F54;
  }
  .cmp-snippet .headingWrapper p{color:#0C121C;}
+@media screen and (min-width:1920px) and (max-width: 2700px){
+    .snippet .headingThick {width:765px;}
+	.snippet .shelfComponent{margin-left:290px; min-width:880px;width:880px; margin-right:750px; margin-bottom:82px;}
+	.snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;} 
+}
 
- @media screen and (min-width:1024px) and (max-width: 1920px){
+ @media screen and (min-width:1024px) and (max-width: 1919px){
+    .snippet .shelfComponent{ min-width:760px;width:760px;}
+    .snippet .headingThick {width:760px;}
 .cmp-snippet p{line-height:24px;}
 .snippet .shelfComponent{
-padding:60px;
+	padding:60px 60px 82px 60px;
 
 }
   .cmp-snippet .headingWrapper p {
@@ -230,10 +237,14 @@ padding:60px;
 
 }
 @media screen and (min-width: 766px) and (max-width: 900px){
+.snippet .headingThick {width:524px;}
  .snippet .shelfComponent{
     padding-top:40px;
     padding-left:30px;
-	padding-bottom:60px;
+	padding-bottom:62px;
+	min-width:519px;
+	width:519px;
+	margin-right:214px;
    }
 .cmp-snippet .headingWrapper p {
     color: #0C121C;
@@ -251,7 +262,9 @@ padding:60px;
 }
 }
 @media screen and (min-width: 300px) and (max-width: 766px){
-.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
+.snippet .headingThick {width:325px;}  
+.snippet .shelfComponent{min-height: auto; width:325px; min-width:325px; margin-bottom:40px;   }         
+.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px; margin-top:23px!important; margin-bottom:0!important;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 .snippet .cmp-snippet p {
     margin-top: 16px;
@@ -259,6 +272,7 @@ padding:60px;
 .cmp-snippet .headingWrapper p{color:#0C121C; margin-top:0}
 .snippet .linkContainer {
     margin-top: 0px;
+    padding-top:0;
 }
 .snippet .shelfComponent{
 padding-top:25px;
@@ -268,9 +282,10 @@ padding-top:25px;
 .snippet .primaryLinkContainer {
     margin-top: 24px!important;
 }
-.snippet .primaryLinkWithStyle{margin-bottom: 23px;}
+.snippet .primaryLinkWithStyle{margin-bottom:0px;}
 }
   /* code fix for defect 567 */
+
 
 
 
