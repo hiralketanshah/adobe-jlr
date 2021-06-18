@@ -117,7 +117,7 @@
                                         path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
                                     <enableStacking
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                         defaultChecked="{Boolean}true"
                                         fieldDescription="Check to disable the swiping mode in mobile and enable data-blocks."
                                         name="./enableStacking"
