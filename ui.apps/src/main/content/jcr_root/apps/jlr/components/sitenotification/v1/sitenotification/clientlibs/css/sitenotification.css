@@ -30,9 +30,10 @@
 }
 .cmp-popupModal__body-cta{
     font-family: "AvenirNext-DemiBold";
-    margin-top: 43px;
+    margin-top: 43px !important;
+    margin-bottom: 0 !important;
     text-transform: uppercase;
-    min-width: 40px;
+    min-width: 96px !important;
     font-size: 10px;
     letter-spacing: 3px;
     line-height: 14px;
@@ -58,9 +59,19 @@
     background:#0C121C;
     color: #FFFFFF;
 }
-.slateblue .Modal__close{
+.slateblue .Modal__close:after{
+    color: #FFFFFF;
+}
+.slateblue .Modal__close:after{
+    color: #FFFFFF;
+}
+.slateblue .Modal__close:hover{
     background-color: #FFFFFF;
 }
+.slateblue .Modal__close:hover:after{
+    color: #0C121C;
+}
+
 @media screen and (min-width: 741px) {
 	.Modal__content-wrapper {
 		width: 580px;

@@ -3236,7 +3236,7 @@
 					n.forEach(function (t) {
 						t.addEventListener("focus", function () {
 							e.onVehicleNavSelect(t)
-						}), t.addEventListener("mousedown", function () {
+						}), t.addEventListener("mouseenter", function () {
 							t.classList.contains("dxnav-vehicle-nav__item--active") || e.onVehicleNavSelect(t)
 						})
 					}), t.addEventListener("dxnav:VehicleDropdownInitialOpen", function () {
@@ -3334,7 +3334,7 @@
 					return (0, h.isEmpty)(r) ? "" : "<span>" + r + "</span>"
 				};
 			return '\n\t\t<div class="dxnav-vehicle-info__price-wrapper">\n\t\t\t' + function () {
-				return (0, h.isEmpty)(t) ? "" : '\n\t\t\t<div class="dxnav-vehicle-info__price-wrapper__item dxnav-vehicle-info__price">\n\t\t\t\t' + s(n) + "\n\t\t\t\t<span>" + t + "</span>\n\t\t\t</div>\n\t\t"
+				return (0, h.isEmpty)(t) ? "" : '\n\t\t\t<div class="dxnav-vehicle-info__price-wrapper__item dxnav-vehicle-info__price">\n\t\t\t\t' + s(n) + "\n\t\t\t\t<span>" + t.replace(/\D/g,'') + "</span>\n\t\t\t</div>\n\t\t"
 			}() + "\n\t\t\t" + function () {
 				return (0, h.isEmpty)(a) ? "" : '\n\t\t\t<div class="dxnav-vehicle-info__price-wrapper__item dxnav-vehicle-info__lease-price">\n\t\t\t\t' + s(i) + "\n\t\t\t\t<span>" + a + "</span>\n\t\t\t\t" + o() + "\n\t\t\t</div>\n\t\t"
 			}() + "\n\t\t</div>\n\t"

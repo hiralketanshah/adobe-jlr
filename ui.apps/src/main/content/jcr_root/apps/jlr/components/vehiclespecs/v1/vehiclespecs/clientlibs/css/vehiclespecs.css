@@ -608,7 +608,7 @@ h2.heading,
        letter-spacing: 1.9px;
        color: #0C121C;
        text-transform: uppercase;
-       line-height: 39px;
+       line-height: 38px;
      }
 
      .VehicleSpecsRulesEngine__specs-engine{
@@ -666,3 +666,56 @@ h2.heading,
     padding-left: 0;
     padding-right: 0
   }
+
+/* 917 fixes */
+#landrover .RulesEngineDropdown .primaryLinkWithStyle{
+  font-family: "AvenirNext-DemiBold";
+  line-height: 14px;
+  letter-spacing: 3px;
+}
+.TechSpecsTable__heading, .TechSpecsTable__cell{
+  color:#0c121c;
+}
+
+@media screen and (min-width: 1280px){
+ .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading{
+    margin-bottom: 7px;
+  }
+  .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p{
+    height: 19px;
+  }
+  .stack .RulesEngineDropdown__dropdown{
+    margin-right: 0px;
+  }
+  .stack .RulesEngineDropdown__dropdown .dxDropdown__button {
+    width: 100.14%;
+  }
+   .RulesEngineDropdown__dropdown--model .dxDropdown__button,
+   .RulesEngineDropdown__dropdown--bodystyle .dxDropdown__button,
+   .RulesEngineDropdown__dropdown--specpack .dxDropdown__button{
+    padding-top: 13px;
+    height: 42px;
+   }
+  .stack .RulesEngineDropdown__engine-label{
+    height: 15px;
+    color: #4A4F54;
+  }
+  .stack .RulesEngineDropdown__engine-consumption{
+    color:#4A4F54B2;
+    height: 15px;
+  }
+  .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-title{
+    width: 760px;
+    height: 51px;
+  }
+  .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-engine{
+    width: 760px;
+  }
+  .cmp-vehicleSpecsRulesEngine .dxAccordion__trigger .dxAccordion__title{
+    height: 20px;
+  }
+  [data-items="3"] .RulesEngineDropdown__dropdown {
+    min-width: 360px;
+  }
+}
+/* 917 fixes */
