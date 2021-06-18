@@ -1,0 +1,51 @@
+{
+    "caveat": "test_caveat",
+    "featureLabel": "test_feature_label",
+    "leftColumn": "test_left_column",
+    "rightColumn": "test_right_column",
+    "price": "test_price",
+    "priceConfigValue": "test_price_config_value",
+    "specsAtaGlanceHeading": "test_specs_at_glance_heading",
+    "override": true,
+    "ctaList":{
+        "jcr:primaryType":"nt:unstructured",
+        "item0":{
+          "jcr:primaryType":"nt:unstructured",
+          "target":"_self",
+          "link":"/content/jlr/au",
+          "text":"test_cta_text",
+          "linkType":"primary",
+          "icon":"test_icon",
+          "ariaLabel":"test_aria_label"
+        }
+    },
+    "engineNames": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "jcr:primaryType": "nt:unstructured",
+          "name": "engine1"
+        },
+        "item1": {
+          "jcr:primaryType": "nt:unstructured",
+          "name": "engine2"
+        }
+    },
+    "engineList": {
+        "jcr:primaryType": "nt:unstructured",
+        "item0": {
+          "jcr:primaryType": "nt:unstructured",
+          "count": "1",
+          "engineData": {
+            "jcr:primaryType": "nt:unstructured"
+          }
+        },
+        "item1": {
+          "jcr:primaryType": "nt:unstructured",
+          "count": "2",
+          "engineData": {
+            "jcr:primaryType": "nt:unstructured"
+          }
+        }
+    },
+    "jcr:primaryType": "nt:unstructured"
+}
