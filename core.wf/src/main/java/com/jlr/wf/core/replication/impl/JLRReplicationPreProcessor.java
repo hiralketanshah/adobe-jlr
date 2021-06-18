@@ -112,8 +112,10 @@ public class JLRReplicationPreProcessor implements Preprocessor {
         try {
             final UserManager userManager = AccessControlUtil.getUserManager(resourceResolver.adaptTo(Session.class));
             final PrincipalManager principalManager = AccessControlUtil.getPrincipalManager(resourceResolver.adaptTo(Session.class));
-            Principal principal = principalManager.getPrincipal(replicationAction.getUserId());
-            authorable = isUserPartOfGroup(principal, userManager, config.getGroupName());
+            if(!replicationAction.getUserId().equalsIgnoreCase(JLR_WORKFLOW_SERVICE)) {
+                Principal principal = principalManager.getPrincipal(replicationAction.getUserId());
+                authorable = isUserPartOfGroup(principal, userManager, config.getGroupName());
+            }
         } catch (RepositoryException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_SERVICE, JLRReplicationPreProcessor.class.getName(), e));

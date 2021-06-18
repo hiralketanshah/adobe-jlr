@@ -50,7 +50,9 @@ public class ContentLockProcess implements WorkflowProcess {
             Resource resource = resourceResolver.getResource(contentPath);
             if (resource != null) {
                 Page page = resource.adaptTo(Page.class);
-                lockUnlockService.lockUnlockPage(page.getPath(), WorkflowConstants.LOCK);
+                if(page != null) {
+                    lockUnlockService.lockUnlockPage(page.getPath(), WorkflowConstants.LOCK);
+                }
             }
         } catch (LoginException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_LOGIN_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
