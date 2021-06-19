@@ -177,7 +177,7 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                             fieldDescription="Select Content Type as Video or Image"
-                                            fieldLabel="Choose Image or Video asset"
+                                            fieldLabel="Choose Image or Video assets"
                                             name="./assestType">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <image
