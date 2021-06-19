@@ -1735,3 +1735,38 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     border-bottom: 1px solid #E0E0E0;
   }
 }
+
+/* 936 fix */
+.primaryLinkContainer a.primaryLinkWithStyle span{
+    line-height: 14px;
+}
+/* 936 fix ends */
+
+/* 939 fix */
+.cmp-ContentCard .textContainer .textContainerTop h5.heading, .heading.headingH5 {
+    font-size: 18px !important;
+    line-height: 18px !important;
+}
+/* 939 fix ends */
+
+/* 941 fix */
+a.primaryLinkWithStyle[class^="icon-"]:before,
+a.primaryLinkWithStyle[class*=" icon-"]:before {
+    font-size: 18px !important;
+}
+/* 941 fix ends */
+
+/* 942 fix */
+.secondaryLinkContainer a.secondaryLinkWithStyle span{
+    line-height: 12.5px !important;
+}
+/* 942 fix ends */
+
+/* 955 fix */
+@media screen and (min-width: 1px) and (max-width: 740px){
+h5.heading, .heading.headingH5 {
+    font-size: 16px !important;
+    line-height: 16px !important;
+  }
+}
+/* 955 fix ends */
