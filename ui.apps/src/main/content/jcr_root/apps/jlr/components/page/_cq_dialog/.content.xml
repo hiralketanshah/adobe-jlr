@@ -795,7 +795,7 @@
                                     </pricing>
                                     <notificationbanner
                                             jcr:primaryType="nt:unstructured"
-                                            jcr:title="Notification banner Setting"
+                                            jcr:title="Site Notification Setting"
                                             sling:orderBefore="moretitles"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
                                         <items jcr:primaryType="nt:unstructured">
@@ -804,7 +804,7 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                                     fieldDescription="Select cookie notification config page"
-                                                    fieldLabel="Cookie Notification Config Page"
+                                                    fieldLabel="Cookie Notification Page"
                                                     name="./cookieNotificationPath"
                                                     rootPath="/content/landrover"/>
                                             <legacyBrowser
@@ -814,6 +814,14 @@
                                                     fieldDescription="Select the Legacy browser notification config page"
                                                     fieldLabel="Legacy Browser Notification Page"
                                                     name="./legacyBrowser"
+                                                    rootPath="/content/landrover"/>
+                                            <siteNotification
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Select the Site notification config page"
+                                                    fieldLabel="Site Notification Page"
+                                                    name="./siteNotificationPath"
                                                     rootPath="/content/landrover"/>
                                         </items>
                                     </notificationbanner>
