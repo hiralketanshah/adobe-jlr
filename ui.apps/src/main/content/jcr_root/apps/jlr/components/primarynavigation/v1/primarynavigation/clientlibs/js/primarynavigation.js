@@ -2385,6 +2385,20 @@
 			}, {
 				key: "searchFormSubmitListeners",
 				value: function () {
+					var e = this,
+					t = document.getElementById("dxnav__search-form"),
+					a = c.default.getElementByClassName("dxnav-suggestions"),
+					n = c.default.getElementByClassName("dxnav-search__results"),
+					i = c.default.getElementByClassName("dxnav-search__error-link");
+				t && (t.addEventListener("submit", function (t) {
+					e.clearSearchSuggestions();
+					var i = document.getElementById("dxnav-searchInput");
+					t.preventDefault(), i.value.length >= 2 ? (e.siteSearch(i.value, a, n), c.default.removeClass(i, "dxnav-pulse")) : c.default.addClass(i, "dxnav-pulse")
+				}), i.addEventListener("click", function (t) {
+					t.preventDefault();
+					var i = document.getElementById("dxnav-searchInput");
+					e.siteSearch(i.value, a, n)
+				}))
 					
 				}
 			}, {
@@ -2401,6 +2415,7 @@
 						var s = function () {
 								var s = i.value,
 									o = c.default.removeHtml(s);
+									
 								c.default.removeClass(i, "dxnav-pulse"), s.length >= 2 ? (r.disabled = !1, e.updateTabbables(), e.searchSuggestions(o, t), c.default.removeClass(n, "dxnav-active"), c.default.removeClass(a, "dxnav-active")) : r.disabled = !0
 							},
 							o = function () {
@@ -2411,48 +2426,48 @@
 				}
 			}, {
 				key: "searchSuggestions",
-				value: function (e, t) {
-					var n = this,
-						a = this.getSearchSuggestionsUrl(e),
-						i = c.default.getElementByClassName("dxnav-suggestions"),
-						r = c.default.getElementByClassName("dxnav-suggestions__results", i),
-						s = c.default.getElementByClassName("dxnav-see-all"),
-						o = c.default.getElementByClassName("dxnav-search-results-container"),
-						l = c.default.getElementByClassName("dxnav-search__error"),
-						d = function t(a) {
-							a.preventDefault(), n.clearSearchSuggestions();
-							var r = c.default.getElementByClassName("dxnav-search__results");
-							n.siteSearch(e, i, r), s.removeEventListener("click", t)
-						};
-					c.default.removeClass(l, "dxnav-active"), s.removeEventListener("click", d), s.addEventListener("click", d), r.addEventListener("click", function () {
-						n.clearSearchSuggestions()
-					}), this.activeSearchUrl = null, this.callurl(a, !1, function (e) {
-						var a = e.suggestions,
-							s = c.default.getElementByClassName("dxnav-see-all"),
-							l = c.default.getElementByClassName("dxnav-search__results-content"),
-							d = c.default.getElementByClassName("dxnav-search__results-footer");
-						if (a.length > 0) n.clearSearchSuggestions(), c.default.removeClass(l, "dxnav-hide"), c.default.removeClass(d, "dxnav-hide"), a.forEach(function (e) {
-							var t = document.createElement("li"),
-								a = document.createElement("a"),
-								o = document.createElement("span");
-							t.appendChild(a), a.appendChild(o), r.appendChild(t), a.setAttribute("class", "dxnav-suggestion"), o.textContent = e.query, c.default.addClass(s, "dxnav-active");
-							var l = function (t) {
-								t.preventDefault();
-								var a = c.default.getElementByClassName("dxnav-search__results");
-								document.getElementById("dxnav-searchInput").value = e.query, n.siteSearch(e.query, i, a)
-							};
-							a.addEventListener("click", l)
-						}), c.default.addClass(t, "dxnav-active dxnav-search-no-opacity"), setTimeout(function () {
-							c.default.addClass(o, "dxnav-active"), setTimeout(function () {
-								c.default.removeClass(t, "dxnav-search-no-opacity")
-							}, 300)
-						}, 100);
-						else {
-							var u = c.default.getElementByClassName("dxnav-suggestions");
-							c.default.addClass(o, "dxnav-active"), c.default.removeClass(u, "dxnav-active")
-						}
-					})
-				}
+                value: function (e, t) {
+                    var a = this,
+                        n = this.getSearchSuggestionsUrl(e),
+                        i = c.default.getElementByClassName("dxnav-suggestions"),
+                        r = c.default.getElementByClassName("dxnav-suggestions__results", i),
+                        s = c.default.getElementByClassName("dxnav-see-all"),
+                        o = c.default.getElementByClassName("dxnav-search-results-container"),
+                        l = c.default.getElementByClassName("dxnav-search__error"),
+                        d = function t(n) {
+                            n.preventDefault(), a.clearSearchSuggestions();
+                            var r = c.default.getElementByClassName("dxnav-search__results");
+                            a.siteSearch(e, i, r), s.removeEventListener("click", t)
+                        };
+                    c.default.removeClass(l, "dxnav-active"), s.removeEventListener("click", d), s.addEventListener("click", d), r.addEventListener("click", function () {
+                        a.clearSearchSuggestions()
+                    }), this.activeSearchUrl = null, this.callurl(n, !1, function (e) {
+                        var n = e.suggestions,
+                            s = c.default.getElementByClassName("dxnav-see-all"),
+                            l = c.default.getElementByClassName("dxnav-search__results-content"),
+                            d = c.default.getElementByClassName("dxnav-search__results-footer");
+                        if (n.length > 0) a.clearSearchSuggestions(), c.default.removeClass(l, "dxnav-hide"), c.default.removeClass(d, "dxnav-hide"), n.forEach(function (e) {
+                            var t = document.createElement("li"),
+                                n = document.createElement("a"),
+                                o = document.createElement("span");
+                            t.appendChild(n), n.appendChild(o), r.appendChild(t), n.setAttribute("class", "dxnav-suggestion"), o.textContent = e.query, c.default.addClass(s, "dxnav-active");
+                            var l = function (t) {
+                                t.preventDefault();
+                                var n = c.default.getElementByClassName("dxnav-search__results");
+                                document.getElementById("dxnav-searchInput").value = e.query, a.siteSearch(e.query, i, n)
+                            };
+                            n.addEventListener("click", l)
+                        }), c.default.addClass(t, "dxnav-active dxnav-search-no-opacity"), setTimeout(function () {
+                            c.default.addClass(o, "dxnav-active"), setTimeout(function () {
+                                c.default.removeClass(t, "dxnav-search-no-opacity")
+                            }, 300)
+                        }, 100);
+                        else {
+                            var u = c.default.getElementByClassName("dxnav-suggestions");
+                            c.default.addClass(o, "dxnav-active"), c.default.removeClass(u, "dxnav-active")
+                        }
+                    })
+                }
 			}, {
 				key: "clearSearchSuggestions",
 				value: function () {
@@ -2477,6 +2492,8 @@
 						if (c.default.removeClass(m, "dxnav-active"), a.mostRecentSearchResults = v, c.default.addClass(t, "dxnav-search-no-opacity"), setTimeout(function () {
 								c.default.removeClass(t, "dxnav-active"), c.default.addClass(n, "dxnav-active")
 							}, 300), f.textContent = v.resultsTitleText, h.innerHTML = " ", c.default.addClass(d, "dxnav-active"), 0 === v.results.length && (c.default.addClass(o, "dxnav-hide"), c.default.addClass(l, "dxnav-hide")), 0 === v.maxPage) c.default.addClass(u, "dxnav-active");
+							
+							
 						else if (i.value = e, c.default.removeClass(u, "dxnav-active"), c.default.removeClass(r, "dxnav-active"), c.default.removeClass(o, "dxnav-hide"), c.default.removeClass(l, "dxnav-hide"), v.results.forEach(function (e) {
 								var t = a.getResultTemplate(e),
 									n = document.createElement("div");
@@ -2687,13 +2704,18 @@
 			}, {
 				key: "getSearchSuggestionsUrl",
 				value: function (e) {
+					
+
 					return document.getElementById("dxnav-search").getAttribute("data-search-suggestions-url") + "&query=" + encodeURIComponent(e)
 				}
 			}, {
 				key: "getSearchResultsUrl",
 				value: function (e) {
+					
 					var t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 1;
-					return document.getElementById("dxnav-search").getAttribute("data-search-results-url") + "&query=" + encodeURIComponent(e) + "&page=" + t
+					// return document.getElementById("dxnav-search").getAttribute("data-search-results-url")+ "&query=" + encodeURIComponent(e) + "&page=" + t
+					return document.getElementById("dxnav-search").getAttribute("data-search-results-url")+  document.getElementsByClassName("dxnav-header")[0].getAttribute("data-locale")+ "&query=" + encodeURIComponent(e) + "&page=" + t
+				
 				}
 			}, {
 				key: "pagination",
