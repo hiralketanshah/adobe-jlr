@@ -1,32 +1,30 @@
 package com.jlr.core.utils;
 
-import java.security.Principal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import javax.jcr.RepositoryException;
-import javax.servlet.http.HttpServletRequest;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.jackrabbit.api.security.user.UserManager;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.LoginException;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
-import org.apache.sling.api.resource.ValueMap;
-import org.jsoup.Jsoup;
-import org.jsoup.safety.Whitelist;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.adobe.aem.formsndocuments.util.FMUtils;
 import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.Template;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.pojos.FooterPojo;
+import org.apache.commons.lang.CharEncoding;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.jackrabbit.api.security.user.UserManager;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.*;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.jcr.RepositoryException;
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.Principal;
+import java.util.*;
+
+import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
 
 /**
  * The Class CommonUtils is used for commonly used utilities.
@@ -195,6 +193,20 @@ public final class CommonUtils {
             externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
         }
         return externalizerDomain;
+    }
+
+    public static void sendResponseStatus(SlingHttpServletResponse response, int statusCode, String message) {
+        try {
+            response.setContentType(APPLICATION_JSON);
+            response.setCharacterEncoding(CharEncoding.UTF_8);
+            response.setStatus(statusCode);
+            response.sendError(statusCode, message);
+            PrintWriter printOut = response.getWriter();
+            printOut.flush();
+        } catch (IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                    ErrorUtilsConstants.MODULE_SERVLET, CommonUtils.class.getSimpleName(), e));
+        }
     }
 
 }

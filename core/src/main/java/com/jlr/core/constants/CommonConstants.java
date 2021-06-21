@@ -385,4 +385,9 @@ public class CommonConstants {
      * The constant PN_PRIORITY.
      */
     public static final String PN_PRIORITY = "priority";
+
+    /**
+     * The constant APPLICATION_JSON.
+     */
+    public static final String APPLICATION_JSON = "application/json";
 }

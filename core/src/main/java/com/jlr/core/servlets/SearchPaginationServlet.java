@@ -9,6 +9,7 @@ import com.jlr.core.pojos.SearchPojo;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
 import org.apache.commons.lang.CharEncoding;
+import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -29,6 +30,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
 
 @Component(service = Servlet.class,
 property = { Constants.SERVICE_DESCRIPTION + "= JLR Fulltext Search",
@@ -58,6 +61,11 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
         String searchTerm = request.getParameter("query");
         String locale = request.getParameter("locale");
         String pageNumber = request.getParameter("page");
+
+        if(StringUtils.isEmpty(locale)) {
+            sendResponseStatus(response, HttpStatus.SC_NOT_FOUND, "Request parameter is not found");
+            return;
+        }
 
         ByteArrayOutputStream out = getFullJson(request, "/content/request/fullsearch.html", request.getResourceResolver());
         String resultJson = out.toString();

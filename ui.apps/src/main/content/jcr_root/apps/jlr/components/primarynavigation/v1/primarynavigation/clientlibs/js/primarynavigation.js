@@ -2416,7 +2416,9 @@
 								var s = i.value,
 									o = c.default.removeHtml(s);
 									
-								c.default.removeClass(i, "dxnav-pulse"), s.length >= 2 ? (r.disabled = !1, e.updateTabbables(), e.searchSuggestions(o, t), c.default.removeClass(n, "dxnav-active"), c.default.removeClass(a, "dxnav-active")) : r.disabled = !0
+								c.default.removeClass(i, "dxnav-pulse"), s.length >= 2 ? (r.disabled = !1, e
+								.updateTabbables(), /*e.searchSuggestions(o, t),*/ c.default.removeClass(n,
+								"dxnav-active"), c.default.removeClass(a, "dxnav-active")) : r.disabled = !0
 							},
 							o = function () {
 								c.default.removeClass(i, "dxnav-pulse")
@@ -2706,7 +2708,8 @@
 				value: function (e) {
 					
 
-					return document.getElementById("dxnav-search").getAttribute("data-search-suggestions-url") + "&query=" + encodeURIComponent(e)
+					/*return document.getElementById("dxnav-search").getAttribute("data-search-suggestions-url") +
+					"&query=" + encodeURIComponent(e)*/
 				}
 			}, {
 				key: "getSearchResultsUrl",

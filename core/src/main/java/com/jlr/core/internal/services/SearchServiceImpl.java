@@ -14,6 +14,7 @@ import com.jlr.core.pojos.LinkPojo;
 import com.jlr.core.pojos.ResultPojo;
 import com.jlr.core.pojos.SearchPojo;
 import com.jlr.core.services.SearchService;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
@@ -73,7 +74,6 @@ public class SearchServiceImpl implements SearchService {
         searchPojo.setQuery(searchText);
         searchPojo.setNoResultsText("Sorry, no results containing '" + searchText + "'");
         searchPojo.setResultsTitleText(result.getHits().size() + " results found for " + searchText);
-        searchPojo.setMaxPage(result.getHits().size() / resultPerPage);
         try {
             for (final Hit hit : result.getHits()) {
                 if (null != hit.getResource()) {
@@ -114,6 +114,7 @@ public class SearchServiceImpl implements SearchService {
         predicate.put("path", searchRoot);
         predicate.put("type", "cq:Page");
         predicate.put(FULLTEXT, searchText);
+        predicate.put("p.limit", "-1");
         return PredicateGroup.create(predicate);
     }
 
@@ -145,6 +146,8 @@ public class SearchServiceImpl implements SearchService {
                         resultsIterator.remove();
                     } else if (result.getKey().equals(key)) {
                         resultsIterator.remove();
+                    } else if(result.getKey().contains("/config/")) {
+                        resultsIterator.remove();
                     }
                 }
             });
@@ -153,10 +156,12 @@ public class SearchServiceImpl implements SearchService {
 
         List<ResultPojo> filteredResults = resultsPojoMap.values().stream().sorted().collect(Collectors.toList());
         List<ResultPojo> finalResultsForPage = getPaginationResults(searchPojo, filteredResults);
-        finalResultsForPage.stream().forEach(result -> {
-            LinkPojo linkPojo = result.getLink();
-            linkPojo.setUrl(getExternalUrl(linkPojo.getUrl(), searchPojo.getLocale(), resolver));
-        });
+        if(CollectionUtils.isNotEmpty(finalResultsForPage)) {
+            finalResultsForPage.stream().forEach(result -> {
+                LinkPojo linkPojo = result.getLink();
+                linkPojo.setUrl(getExternalUrl(linkPojo.getUrl(), searchPojo.getLocale(), resolver));
+            });
+        }
         searchPojo.setResults(finalResultsForPage);
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         return gson.toJson(searchPojo);
@@ -167,9 +172,13 @@ public class SearchServiceImpl implements SearchService {
         int PAGE_SIZE = 20;
         int total = filteredResults.size();
         int maxPages = filteredResults.size() / PAGE_SIZE;
+        if(filteredResults.size() % PAGE_SIZE != 0) {
+            maxPages = maxPages+1;
+        }
         searchPojo.setMaxPage((long) maxPages);
         searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
-        if (page <= 0 ) {
+        if (page <= 0 || total <= 0) {
+            searchPojo.setMaxPage(0l);
             return null;
         }
         if (total <= PAGE_SIZE) {
@@ -181,14 +190,18 @@ public class SearchServiceImpl implements SearchService {
             int startIndex = (page - 1) * PAGE_SIZE;
             int endIndex = startIndex + PAGE_SIZE;
             if (filteredResults.size() >= startIndex) {
-                return filteredResults.subList(startIndex, endIndex);
+                if(filteredResults.size() <= endIndex) {
+                    return filteredResults.subList(startIndex, filteredResults.size());
+                } else {
+                    return filteredResults.subList(startIndex, endIndex);
+                }
             }
         }
         return null;
     }
 
     private Map<String, String> getExclusion(ResourceResolver resolver, String locale) {
-        String searchConfigPath = config.defaultSearchConfigPath();
+        String searchConfigPath = StringUtils.EMPTY;
         if(locale.equalsIgnoreCase("en_AU")) {
             searchConfigPath = config.auSearchConfigPath();
         } else if(locale.equalsIgnoreCase("de_DE")) {
@@ -202,7 +215,7 @@ public class SearchServiceImpl implements SearchService {
     }
 
     public Map<String, String> getPriority(ResourceResolver resolver, String locale) {
-        String searchConfigPath = config.deSearchConfigPath();
+        String searchConfigPath = StringUtils.EMPTY;
         if(locale.equalsIgnoreCase("en_AU")) {
             searchConfigPath = config.auSearchConfigPath();
         } else if(locale.equalsIgnoreCase("de_DE")) {

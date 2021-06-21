@@ -22,6 +22,4 @@ public @interface SearchConfig {
     @AttributeDefinition(name = "AU Search Config Path", description = "AU search config path for exclusions and priorities", type = AttributeType.STRING)
     public String auSearchConfigPath() default "/content/landrover/global/row/published-sites/en_au/config/search-config";
 
-    @AttributeDefinition(name = "Global Search Config Path", description = "Global search config path for exclusions and priorities", type = AttributeType.STRING)
-    public String defaultSearchConfigPath() default "/content/landrover/global/global-master/en/config/search-config";
 }
