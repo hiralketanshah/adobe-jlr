@@ -1467,6 +1467,25 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     width: calc(60% - 120px);
     padding-right: 28px;
   }
+  /* bug fix for KESTREL-967 start*/
+  .headingWrapper.fontH2 p{
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 1.5px;
+}
+/* bug fix for KESTREL-967 end*/
+
+/* bug fix for KESTREL-968 start*/
+.linkContainer.primaryLinkContainer .primaryLinkWithStyle{
+  line-height:14px;
+}
+/* bug fix for KESTREL-968 end */
+
+/* bug fix for KESTREL-969 start */
+.linkContainer.secondaryLinkContainer .secondaryLinkWithStyle{
+  line-height: 12.5px;
+}
+/* bug fix for KESTREL-969 end*/
 }
 /* TABLET END */
 /* DESKTOP START */
@@ -1607,12 +1626,13 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   #landrover .ctaContainer a{
     margin-top: 0px !important;
   }
-  .ctaContainer .primaryLinkContainer{
+  /* commented the below css and rewritten the above css without important keyword for best practices for fixing defect 972*/
+  /* .ctaContainer .primaryLinkContainer{
     margin-top: 15px !important;
   }
   .ctaContainer .secondaryLinkContainer{
     margin-top: 15px !important;
-  }
+  } */
   /* FIXES END */
   .cmp-ContentCard .mediaOverlayVideo, video {
       height: 100% !important;
@@ -1770,3 +1790,9 @@ h5.heading, .heading.headingH5 {
   }
 }
 /* 955 fix ends */
+
+/* bug fix for KESTREL-972 start*/
+.cmp-ContentBlocksContainer .ctaContainer .primaryLinkContainer,.cmp-ContentBlocksContainer .ctaContainer .secondaryLinkContainer {
+  margin-top: 23px;
+}
+ /* bug fix for KESTREL-972 end*/
