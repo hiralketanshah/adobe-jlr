@@ -22,4 +22,7 @@ public @interface SearchConfig {
     @AttributeDefinition(name = "AU Search Config Path", description = "AU search config path for exclusions and priorities", type = AttributeType.STRING)
     public String auSearchConfigPath() default "/content/landrover/global/row/published-sites/en_au/config/search-config";
 
+    @AttributeDefinition(name = "search results to be shown per page", description = "search results to be shown per page", type = AttributeType.STRING)
+    public int resultsPerPage() default 20;
+
 }

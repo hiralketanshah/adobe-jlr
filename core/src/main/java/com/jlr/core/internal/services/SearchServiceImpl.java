@@ -64,7 +64,6 @@ public class SearchServiceImpl implements SearchService {
     public String getFullJson(String searchText, ResourceResolver resolver) {
         log.trace("Entering method getFullJson");
         List<ResultPojo> results = new ArrayList<>();
-        Long resultPerPage = 20l;
         Query query = queryBuilder.createQuery(createQueryPredicate(config.searchRootPath(), searchText),
                 resolver.adaptTo(Session.class));
         SearchResult result = query.getResult();
@@ -169,7 +168,7 @@ public class SearchServiceImpl implements SearchService {
 
     private List<ResultPojo> getPaginationResults(SearchPojo searchPojo, List<ResultPojo> filteredResults) {
         int page = searchPojo.getPage().intValue();
-        int PAGE_SIZE = 20;
+        int PAGE_SIZE = config.resultsPerPage();
         int total = filteredResults.size();
         int maxPages = filteredResults.size() / PAGE_SIZE;
         if(filteredResults.size() % PAGE_SIZE != 0) {
