@@ -1,5 +1,9 @@
 package com.jlr.core.utils;
 
+import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
+
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,9 +16,11 @@ import java.util.Optional;
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang.CharEncoding;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -213,6 +219,33 @@ public final class CommonUtils {
         mapOfFomCopy.put(PricingConstants.NN_DERIVATIVE, PricingConstants.HERO_FROM_TEXT);
         mapOfFomCopy.put(PricingConstants.NN_CONTENT_CARD, PricingConstants.CONTENTCARD_FROM_TEXT);
         return mapOfFomCopy;
+    }
+
+    public static String getExternalizerDomainByLocale(String locale) {
+        String externalizerDomain;
+        if (locale.equalsIgnoreCase("en_AU")) {
+            externalizerDomain = CommonConstants.AU_EXTERNALIZER_DOMAIN;
+        } else if (locale.equalsIgnoreCase("de_DE")) {
+            externalizerDomain = CommonConstants.DE_EXTERNALIZER_DOMAIN;
+        } else {
+            externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
+        }
+        return externalizerDomain;
+    }
+
+    public static void sendResponseStatus(SlingHttpServletResponse response, int statusCode, String message) {
+        try {
+            response.setContentType(APPLICATION_JSON);
+            response.setCharacterEncoding(CharEncoding.UTF_8);
+            response.setStatus(statusCode);
+            response.sendError(statusCode, message);
+            PrintWriter printOut = response.getWriter();
+            printOut.flush();
+        } catch (IOException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVLET,
+                    CommonUtils.class.getSimpleName(), e));
+        }
     }
 
 }

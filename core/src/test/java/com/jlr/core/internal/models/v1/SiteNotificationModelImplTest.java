@@ -48,6 +48,14 @@ class SiteNotificationModelImplTest extends GlobalModelImplTest {
     void testGetCloseButtonCopy() {
         assertEquals("close", siteNotificationModel.getCloseButtonCopy());
     }
+    
+    /**
+     * Test get cookie rentention.
+     */
+    @Test
+    void testGetCookieRentention() {
+        assertEquals("30", siteNotificationModel.getCookieRentention());
+    }
 
     /**
      * Test get close button arialabel.

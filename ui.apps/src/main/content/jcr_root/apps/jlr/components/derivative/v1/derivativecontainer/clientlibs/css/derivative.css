@@ -445,14 +445,7 @@ width: 760px;
     width: 100%;
     border-bottom: 1px solid #dfdfdf;
 }
-.Derivative__engine-attribute-wrapper,
-.Derivative__engine-attribute-value {
-    font-family: "avenir", "arial", "helvetica", sans-serif;
-    font-size: 3.7rem;
-    line-height: 1.19;
-    letter-spacing: 0.017rem;
-    font-weight: 300;
-}
+
 .Derivative__engine-attribute-wrapper sup,
 .Derivative__engine-attribute-value sup {
     font-size: 1em;
@@ -639,9 +632,9 @@ width: 760px;
 .Derivative__engine-attribute-value {
     color: #0C121C;
     font-family: "lr_ot4", "arial", "helvetica", sans-serif;
-    font-size: 3.8rem;
-    line-height: 1.9rem;
-    letter-spacing: 0;
+    font-size: 33px;
+    line-height: 33px;
+    letter-spacing: 1.65px;
     font-weight: 500;
     margin-left: -1px;
 }
