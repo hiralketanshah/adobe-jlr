@@ -14,6 +14,7 @@ import org.apache.jackrabbit.api.security.principal.PrincipalManager;
 import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.resource.*;
 import org.apache.sling.jcr.base.util.AccessControlUtil;
+import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -47,6 +48,9 @@ public class JLRReplicationPreProcessor implements Preprocessor {
     /** The config. */
     private ReplicationAccessConfig config;
 
+    @Reference
+    private transient SlingSettingsService slingSettingsService;
+
     /**
      * Activate.
      *
@@ -74,34 +78,37 @@ public class JLRReplicationPreProcessor implements Preprocessor {
     public void preprocess(final ReplicationAction replicationAction, final ReplicationOptions replicationOptions) throws ReplicationException {
         LOGGER.debug("Path of Resource being replicated is {}", replicationAction.getPath());
         LOGGER.debug("ReplicationAction is {}", replicationAction.getType());
-        String actionPath = replicationAction.getPath();
-        ResourceResolver resourceResolver = null;
-        try {
-            resourceResolver = getServiceResolver(resourceResolverFactory, JLR_WORKFLOW_SUBSERVICE);
 
-            if (replicationAction == null || !ReplicationActionType.ACTIVATE.equals(replicationAction.getType())
-                    || !(StringUtils.contains(actionPath, JLR_CONTENT_PATH) || StringUtils.contains(actionPath, JLR_DAM_PATH) || StringUtils.contains(actionPath, JLR_XF_PATH)) || isAdministrator(resourceResolver, replicationAction)) {
-                LOGGER.trace("Path of Resource being replicated is {}", actionPath);
-                return;
-            }
-            final Resource resource = resourceResolver.getResource(actionPath);
-            if (resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(NameConstants.NT_PAGE)
-                            || resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(DamConstants.NT_DAM_ASSET)) {
-                if (isResourceApproved(resource, resourceResolver)) {
-                    LOGGER.trace("Resource with path {} is approved", resource.getPath());
+        if (slingSettingsService.getRunModes().contains(RUNMODE_AUTHOR)) {
+            String actionPath = replicationAction.getPath();
+            ResourceResolver resourceResolver = null;
+            try {
+                resourceResolver = getServiceResolver(resourceResolverFactory, JLR_WORKFLOW_SUBSERVICE);
+
+                if (replicationAction == null || !ReplicationActionType.ACTIVATE.equals(replicationAction.getType())
+                        || !(StringUtils.contains(actionPath, JLR_CONTENT_PATH) || StringUtils.contains(actionPath, JLR_DAM_PATH) || StringUtils.contains(actionPath, JLR_XF_PATH)) || isAdministrator(resourceResolver, replicationAction)) {
+                    LOGGER.trace("Path of Resource being replicated is {}", actionPath);
                     return;
-                } else {
-                    throw new ReplicationException(RESOURCE_UNAPPROVED_MESSAGE);
                 }
-            } else {
-                return;
-            }
-        } catch (LoginException e) {
-            throw new ReplicationException(e);
-        } finally {
-            if (resourceResolver != null && resourceResolver.isLive()) {
-                // Always close resource resolver you open
-                resourceResolver.close();
+                final Resource resource = resourceResolver.getResource(actionPath);
+                if (resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(NameConstants.NT_PAGE)
+                        || resource.adaptTo(ModifiableValueMap.class).get(JcrConstants.JCR_PRIMARYTYPE).toString().equals(DamConstants.NT_DAM_ASSET)) {
+                    if (isResourceApproved(resource, resourceResolver)) {
+                        LOGGER.trace("Resource with path {} is approved", resource.getPath());
+                        return;
+                    } else {
+                        throw new ReplicationException(RESOURCE_UNAPPROVED_MESSAGE);
+                    }
+                } else {
+                    return;
+                }
+            } catch (LoginException e) {
+                throw new ReplicationException(e);
+            } finally {
+                if (resourceResolver != null && resourceResolver.isLive()) {
+                    // Always close resource resolver you open
+                    resourceResolver.close();
+                }
             }
         }
 
