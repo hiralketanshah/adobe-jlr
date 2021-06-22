@@ -3184,4 +3184,7 @@ function getdomain() {
   }
   return exitPageLink;
 }
-document.getElementById("mfp-close").href = getdomain();
+if(document.getElementById("mfp-close") != undefined){
+
+    document.getElementById("mfp-close").href = getdomain();
+    }

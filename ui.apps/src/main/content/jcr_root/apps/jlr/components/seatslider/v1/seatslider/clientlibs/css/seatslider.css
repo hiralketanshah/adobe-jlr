@@ -152,6 +152,8 @@
 }
 .cmp-interactiveSlider .clickToInteract{
 	position: absolute;
+	width: 100%;
+    height: 100%;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -211,26 +213,6 @@
 	opacity: 1
 }
 
-.cmp-interactiveSlider .backgroundOverlay .backgroundOverlayElement {
-	background-color: #0c121c;
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-	opacity: 0;
-	-webkit-transition: opacity 400ms;
-	-moz-transition: opacity 400ms;
-	-o-transition: opacity 400ms;
-	transition: opacity 400ms;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	z-index: 1
-}
-
-.cmp-interactiveSlider .backgroundOverlay.backgroundOverlayActive .backgroundOverlayElement {
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-	opacity: .4
-}
 
 .cmp-interactiveSlider .royalSlider {
 	min-height: 400px
@@ -274,7 +256,7 @@
 }
 
 .cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons.active {
-	color: #000
+	color: #0C121C
 }
 
 
@@ -383,23 +365,6 @@
 
 
 
-.cmp-interactiveSlider .infoContainer .tabData .dimensions {
-	font-family: "lr_ot4", "arial", "helvetica", sans-serif;
-	font-size: 16px;
-	color: #4a4f54;
-	margin-bottom: 15px;
-	font-weight: 900;
-	letter-spacing: .8px
-}
-
-.cmp-interactiveSlider .infoContainer .tabData .literage {
-	font-family: "AvenirNext", "arial", "helvetica", sans-serif;
-	font-size: 40px;
-	color: #000;
-	font-weight: 900;
-	margin-bottom: 17px
-}
-
 .cmp-interactiveSlider .infoContainer .tabData .literage>s {
 	position: relative;
 	padding-left: 0;
@@ -413,14 +378,10 @@
 
 .cmp-interactiveSlider .infoContainer .tabData .literage>span .odo {
 	transition: width 1s;
-	font-size: 70px;
 	direction: ltr;
 	padding-top: 3px
 }
 
-.cmp-interactiveSlider .infoContainer .tabData .literage>span .odometer {
-	font-family: "lr_ot4", "arial", "helvetica", sans-serif
-}
 
 .cmp-interactiveSlider .infoContainer .tabData .literage>span:before,
 .cmp-interactiveSlider .infoContainer .tabData .literage>span:after {
@@ -438,13 +399,29 @@
 
 .cmp-interactiveSlider .infoContainer .tabData .literage .litres p {	
 	font-family: "lr_ot4";
+	font-style: normal;
+	font-weight: bold;
 	display: inline-block;
 	position: relative;
 	top: 7px;
 	text-transform: uppercase;
 	color:#0c121c;
+	font-size: 18px;
+	line-height:0.9px;
+	line-height:24px;
+	
+}
+.cmp-interactiveSlider .infoContainer .tabData .literage {
+	font-family: "lr_ot4";
 	font-style: normal;
-    font-weight: bold;
+	font-weight: bold;
+	font-size: 60px;
+	line-height:1.2px;
+	line-height:70px;
+	color: #0C121C;
+	text-transform: uppercase;
+	font-weight: 900;
+	margin-bottom: 19px
 }
 
 
@@ -524,11 +501,6 @@
 }
 
 
-
-.cmp-interactiveSlider .loadingOverlay {
-	background: rgba(0, 0, 0, 0.2)
-}
-
 .cmp-interactiveSlider .loadingOverlay canvas {
 	position: absolute;
 	z-index: 6;
@@ -605,24 +577,19 @@
 }
 
 
-
-.clickToInteract__text span {
-	margin-top: 0;
-	font-size: 10px;
-	font-weight: bold;
-	letter-spacing: .3em;
-	text-transform: uppercase
-}
-
-.clickToInteract__caption {
+.clickToInteract__caption span {
 	display: inline-block;
 	padding-bottom: 3px;
-	font-family: "AvenirNext", "arial", "helvetica", sans-serif;
+	font-family: "AvenirNext-DemiBold";
+	font-style: normal;
+  	font-weight: normal;
     color: #fff;
     text-align: center;
     cursor: pointer;
 	text-transform:uppercase;
 	font-size:12px;
+	line-height:15px;
+	letter-spacing: 3px;
 	width: 100%;
 }
 
@@ -917,38 +884,7 @@
 	}
 
 }
-@media screen and (min-width:400px) and (max-width:450px){
-	.cmp-interactiveSlider:not(.old) .infoContainer{
-		top: 213px !important;
-		
-	}
-	
-}
-@media screen and (min-width: 450px) and (max-width: 500px){
-.cmp-interactiveSlider:not(.old) .infoContainer {
-    top: 250px !important;
-}
-}
-@media screen and (min-width:800px) and (max-width:900px){
-	.cmp-interactiveSlider .infoContainer{
-		top:456px !important;
-	}
-}
-@media screen and (min-width:740px) and (max-width:700px){
-	.cmp-interactiveSlider .infoContainer{
-		top: 400px !important;
-	}
-}
-@media screen and (min-width:700px) and (max-width:600px){
-	.cmp-interactiveSlider .infoContainer{
-		top: 381px !important;
-	}
-}
-@media screen and (min-width:700px) and (max-width:600px){
-	.cmp-interactiveSlider .infoContainer{
-		top: 340px !important;
-	}
-}
+
 
 
 
@@ -987,8 +923,15 @@
     	transition: top .3s;
 	}
 	
-	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
+	/* .cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
 		padding-top:40px;
+	} */
+	.cmp-interactiveSlider__infoContainerTemplates-content-purpose{
+		margin-top: 87px;
+		padding:0;
+	}
+	.cmp-interactiveSlider:not(.old) .infoContainer .content{
+		height: 503px !important; 
 	}
 	.cmp-interactiveSlider .sliderContainer{
 		bottom:23px;
@@ -1009,12 +952,7 @@
 		width: 65.7%;
 	}
 
-	.cmp-interactiveSlider .clickToInteract{
-    	width: 100%;
-    	height: 100%;
-		left:0;
-		right:0;
-	}
+	
 	.clickToInteract__text{
 		margin-top: 339px;
 		margin-left: 528px;
@@ -1024,7 +962,7 @@
 	.cmp-interactiveSlider:not(.old) .spriteContainer,
 	.cmp-interactiveSlider.old .spriteContainer{
 		width: 65.7%;
-		height:calc((53.43vw - 40px) / 2);
+		height:calc((53.89vw - 40px) / 2);
 		left: 0;
 		top:0;
 	}
@@ -1036,16 +974,7 @@
 		height:24px;
 	
 	}
-	.cmp-interactiveSlider .infoContainer .tabData .literage{
-		font-family: "LandRoverWeb-Bold";
-   		font-size: 60px;
-   		line-height: 70px;
-    	letter-spacing: 1.2px;
-    	color: #0C121C;
-    	text-transform: uppercase;
-    	margin-bottom: 19px;
-		
-	}
+	
 	.cmp-interactiveSlider .infoContainer .tabData .copy p{
 			
     	margin-bottom: 2px;
@@ -1111,7 +1040,13 @@
 		
 		padding-bottom: 24px;
 	}
-	
+	.cmp-interactiveSlider:not(.old) .infoContainer .content{
+		height: 435px !important; 
+	}
+	.cmp-interactiveSlider__infoContainerTemplates-content-purpose{
+		margin-top: 38px;
+		padding:0;
+	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper,
 	.cmp-interactiveSlider .sliderContainer .sliderContainerLower{
 		width: 65.52%;
@@ -1136,12 +1071,7 @@
 		-moz-osx-font-smoothing: grayscale;
 	}
 
-	.cmp-interactiveSlider .clickToInteract{
-    	width: 100%;
-    	height: 100%;
-		left:0;
-		right:0;
-	}
+	
 	.clickToInteract__text{
 		margin-top: 500px;
         position: initial;
@@ -1158,7 +1088,7 @@
 		font-size: 18px;
 		letter-spacing: 0.9px;
 		line-height: 18px;
-		width:332px;
+		width: 92.1%;
 	
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres p{
@@ -1169,19 +1099,10 @@
 		width:57px;
 		
 	}
-	.cmp-interactiveSlider .infoContainer .tabData .literage{
-		font-family: "LandRoverWeb-Bold";
-   		font-size: 60px;
-   		line-height: 70px;
-    	letter-spacing: 1.2px;
-    	color: #0C121C;
-    	text-transform: uppercase;
-    	margin-bottom: 19px;
-		
-	}
+	
 	.cmp-interactiveSlider .infoContainer .tabData .copy p,
 	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
-		width: 332px;
+		width: 92.1%;
 	}
 
 	
@@ -1235,7 +1156,7 @@
 }
 
 
-@media screen and (min-width:501px) and (max-width:900px){
+@media screen and (min-width:601px) and (max-width:900px){
 	.cmp-interactiveSlider{
 		padding: 39px 30px 60px 30px;
 	
@@ -1259,13 +1180,7 @@
 		height: calc((109vw - 40px) / 2);
 				
 	}
-	.cmp-interactiveSlider .clickToInteract{
-
-		width: 100%;
-		height:398px;
-		left:0;
-		right:0;
-	}
+	
 	.clickToInteract__text{
 		margin-top: 269px;
         position: initial;
@@ -1338,13 +1253,15 @@
 		line-height:21px;
 		width:57px;
 		height:24px;
-		top:11px !important;
+		top:5px !important;
 		
 	}
 
 	.cmp-interactiveSlider .infoContainer .tabData .literage{
-		line-height: 41px; 
+		line-height: 40px; 
 		margin-bottom: 19px;
+		font-size:60px;
+		letter-spacing:3px;
 	}
 
 	.cmp-interactiveSlider  .clickToInteract__caption .desktop{
@@ -1375,12 +1292,25 @@
 		margin-bottom:15px;
 	
 	}
+	.clickToInteract__caption span{
+		font-size:10px;
+		line-height:15px;
+		letter-spacing: 2px;
+	}
+	.cmp-interactiveSlider .infoContainer .tabData img{
+		width: 86.2%;
+		height: 119px;
+	}
+	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
+		width: 48.9%;
+		height: 15px;
+	}
 
 
 
 }
 
-@media screen and (min-width:1px) and (max-width:500px){
+@media screen and (min-width:1px) and (max-width:600px){
 	.cmp-interactiveSlider{
 		padding: 14px 25px 40px 25px;
 	
@@ -1394,14 +1324,14 @@
 		width: 100%;
 		height: calc((108.5vw - 40px) / 2);	
 	}
-
+	
 	.cmp-interactiveSlider:not(.old) .infoContainer{
-		top: 185px;
+		/* top: 185px; */
 		opacity: 1;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		margin-top: 15px;
+		/* margin-top: 15px; */
 	}
 	
 	.cmp-interactiveSlider .infoContainer .content {
@@ -1442,17 +1372,14 @@
 		line-height:24px;
 		width:57px;
 		height:24px;
-		top: -22px !important;
+		
 		
 	}
-	.cmp-interactiveSlider .infoContainer .tabData .literage span{
-		font-family: "LandRoverWeb-Bold";
+	.cmp-interactiveSlider .infoContainer .tabData .literage{
+		
    		font-size: 42px;
    		line-height: 42px;
     	letter-spacing: 2.1px;
-    	color: #0C121C;
-    	text-transform: uppercase;
-    	margin-bottom: 18px;
 				
 	}
 
@@ -1461,8 +1388,8 @@
 		margin-bottom: 18px;
     	height: 56px;
 	}
-	.cmp-interactiveSlider .infoContainer .tabData .copy{
-		width: 99.8%;   	
+	.cmp-interactiveSlider .infoContainer .tabData .copy p{
+		width: 325px;   	
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 324px;
@@ -1493,6 +1420,9 @@
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres{
         top: -24px !important;
     }
+	.cmp-interactiveSlider .infoContainer .tabData .literage .litres p{
+		top:4px;
+	}
 	.cmp-interactiveSlider:not(.old) .infoContainer .content{
 		height:auto !important;
 	}
@@ -1505,6 +1435,10 @@
 		padding-bottom:16px;
 		overflow: scroll;
 	}
+	.cmp-interactiveSlider .sliderContainer::-webkit-scrollbar { 
+		width: 0 !important;
+		display: none; 
+	  }
 
 	.bgforcaption{
 		
@@ -1532,5 +1466,10 @@
 		
 		border-bottom: 1px solid #898d90; 
 	
+	}
+	.clickToInteract__caption span{
+		font-size:8px;
+		line-height:12px;
+		letter-spacing: 2px;
 	}
 }

@@ -7,12 +7,17 @@
     <filter root="/content/misc" mode="merge"/>
     <filter root="/content/experience-fragments/landrover" mode="merge"/>
     <filter root="/content/nav" mode="merge"/>
+    <filter root="/content/request" mode="merge"/>
     <filter root="/etc/acs-commons/lists/icons" mode="replace"/>
 	<filter root="/etc/replication/agents.publish/akamai-cache-flush" mode="replace"/>
     <filter root="/etc/acs-commons/lists/header-icons" mode="replace"/>
     <filter root="/var/acs-commons/reports" mode="merge"/>
-    <filter root="/var/workflow/models" mode="merge"/>
+    <filter root="/var/workflow/models/content-approval.xml" mode="replace"/>
+    <filter root="/var/workflow/models/jlr_scheduled_page_assetactivation.xml" mode="replace"/>
+    <filter root="/var/workflow/models/dam/jlr_dam_update_asset.xml" mode="replace"/>
 	<filter root="/var/jlr" mode="merge"/>
-    <filter root="/conf/global/settings/workflow/models" mode="merge"/>
+    <filter root="/conf/global/settings/workflow/models/content-approval" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/jlr_scheduled_page_assetactivation" mode="replace"/>
+    <filter root="/conf/global/settings/workflow/models/dam/jlr_dam_update_asset" mode="replace"/>
     <filter root="/conf/global/settings/workflow/launcher/config"/>
 </workspaceFilter>
