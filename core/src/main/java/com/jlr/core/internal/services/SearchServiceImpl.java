@@ -180,7 +180,7 @@ public class SearchServiceImpl implements SearchService {
         searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
         if (page <= 0 || total <= 0) {
             searchPojo.setMaxPage(0l);
-            return null;
+            return new ArrayList<>();
         }
         if (total <= PAGE_SIZE) {
             searchPojo.setMaxPage(1l);
