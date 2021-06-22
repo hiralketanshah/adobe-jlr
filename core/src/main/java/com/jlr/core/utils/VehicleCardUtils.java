@@ -72,6 +72,7 @@ public class VehicleCardUtils {
         vehicleLink.setText(ctaPojo.getText());
         vehicleLink.setIcon(ctaPojo.getIcon());
         vehicleLink.setHref(ctaPojo.getLink());
+        vehicleLink.setTargetKeyword(ctaPojo.getTarget());
         vehicleLink.setExternalLink(ctaPojo.getLink());
         vehicleLink.setAccessibleText(JSONObject.NULL + StringUtils.EMPTY);
         vehicleLink.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);

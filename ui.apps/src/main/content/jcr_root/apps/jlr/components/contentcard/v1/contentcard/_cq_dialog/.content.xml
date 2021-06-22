@@ -117,7 +117,7 @@
                                         path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
                                     <enableStacking
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                         defaultChecked="{Boolean}true"
                                         fieldDescription="Check to disable the swiping mode in mobile and enable data-blocks."
                                         name="./enableStacking"
@@ -177,7 +177,7 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                             fieldDescription="Select Content Type as Video or Image"
-                                            fieldLabel="Choose Image or Video asset"
+                                            fieldLabel="Choose Image or Video assets"
                                             name="./assestType">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <image
