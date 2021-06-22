@@ -88,7 +88,7 @@ height: 45px !important;
 .cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active){
     background-color: transparent;
     color: #0C121C;
-    border-bottom: 2px solid #4A4F544D; 
+    border-bottom: 5px solid #4A4F5400; 
     border-right: 0;
     outline: none;
     box-shadow: unset;
