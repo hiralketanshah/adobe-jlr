@@ -34,6 +34,7 @@ import java.util.stream.Collectors;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
+import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
 import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
 import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
@@ -111,7 +112,7 @@ public class SearchServiceImpl implements SearchService {
         final Map<String, String> predicate = new HashMap<>();
         //search the pages with fulltext
         predicate.put("path", searchRoot);
-        predicate.put("type", "cq:Page");
+        predicate.put("type", NT_PAGE);
         predicate.put(FULLTEXT, searchText);
         predicate.put("p.limit", "-1");
         return PredicateGroup.create(predicate);
@@ -124,10 +125,11 @@ public class SearchServiceImpl implements SearchService {
         Map<String, String> exclusionMap = getExclusion(resolver, searchPojo.getLocale());
         Map<String, String> priorityMap = getPriority(resolver, searchPojo.getLocale());
 
+
         searchPojo.getResults().stream().forEach(resultPojo -> {
             if(resultPojo.getLink() != null) {
                 String path = resultPojo.getLink().getUrl();
-                if(priorityMap.containsKey(path)) {
+                if(MapUtils.isNotEmpty(priorityMap) && priorityMap.containsKey(path)) {
                     String priority = priorityMap.get(path);
                     resultPojo.setPriority(Integer.parseInt(priority));
                 }
@@ -210,7 +212,7 @@ public class SearchServiceImpl implements SearchService {
         if (null != exclusion) {
             return getResourceMap(exclusion, CommonConstants.PN_PATHS_TO_EXCLUDE, CommonConstants.PN_EXCLUDE_CHILD_PAGES);
         }
-        return null;
+        return new HashMap<>();
     }
 
     public Map<String, String> getPriority(ResourceResolver resolver, String locale) {
@@ -224,7 +226,7 @@ public class SearchServiceImpl implements SearchService {
         if (null != priority) {
             return getResourceMap(priority, CommonConstants.PN_PRIORITY_PATHS, PN_PRIORITY);
         }
-        return null;
+        return new HashMap<>();
     }
 
     private Map<String, String> getResourceMap(Resource resource, String pathProperty, String otherProperty) {

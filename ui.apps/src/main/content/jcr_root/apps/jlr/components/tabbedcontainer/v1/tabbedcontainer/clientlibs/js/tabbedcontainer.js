@@ -8183,6 +8183,7 @@
                           var _this3 = this;
                           this._selectedTab = payload.selectedPanel;
                           setTimeout(() => {
+                              
                               this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
                               $(this._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(this._selectedTab).height() - $(this._selectedTab).find('.shelfComponent').outerHeight());
                             }, 500);
@@ -8277,9 +8278,11 @@
                           if (this._selectedTab) {
                               if (isDesktop && !this.destroyed) {
                                   setTimeout(function () {
+                                     
+                                      _this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 60);
+                                    $(_this4._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(_this4._selectedTab).height() - $(_this4._selectedTab).find('.shelfComponent').outerHeight());
 
-
-                                      _this4.$element.height($(_this4._selectedTab).height());
+                                     // _this4.$element.height($(_this4._selectedTab).height());
                                   }, 50);
                               } else {
                                   this.$element.height('');
