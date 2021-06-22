@@ -1,4 +1,7 @@
 # rewrite for root redirect
+
+RewriteRule ^/?$ /${AU_CONTENT_PATH}/index.html [PT,L]
+
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
 RewriteCond %{REQUEST_URI} !^/content
@@ -10,4 +13,4 @@ RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
-RewriteRule ^/(.*)$ /content/${AU_CONTENT_PATH}/$1 [PT,L]
+RewriteRule ^/(.*)$ /${AU_CONTENT_PATH}/$1 [PT,L]
