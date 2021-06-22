@@ -29,4 +29,11 @@ public @interface AkamaiPurgeConfigs {
 
     @AttributeDefinition(name = "Akamai Cache Clear Group")
     String akamaiCacheClearGroup() default "administrators";
+
+    @AttributeDefinition(name = "Enable Akamai Cache Clear")
+    String enableCacheClear() default "false";
+
+    @AttributeDefinition(name = "Enable Akamai Cache Clear Replication Agent")
+    String enableAkamaiAgent() default "false";
+
 }

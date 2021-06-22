@@ -99,7 +99,7 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
         Map<String, List<String>> akamaiRequestMap = new HashMap<>();
 
         ArrayList<String> arrayList = new ArrayList<>();
-        // TODO : To add logic to clear associated pages
+
 
         StringBuilder clearPagePath = new StringBuilder(domain);
         arrayList.add(clearPagePath.append("/").append(pagePath).toString());
@@ -151,13 +151,17 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
                 }
                 HttpResponse akamaiResponse = null;
                 try {
-                    LOGGER.trace("Akamai Execute: {}", akamaiRequest.getUrl());
-                    akamaiResponse = akamaiRequest.execute();
+
+                    if (akamaiPurgeConfig.getEnableCacheClear().equalsIgnoreCase("true")) {
+                        LOGGER.trace("Akamai Execute: {}", akamaiRequest.getUrl());
+                        LOGGER.trace("Akamai Cache clear enabled!");
+                        akamaiResponse = akamaiRequest.execute();
+                    }
                 } catch (Exception e) {
                     LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
                                     ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
                 }
-                if (!servlet) {
+                if (servlet) {
                     purgeResponse = akamaiResponseCheck(akamaiResponse);
                     LOGGER.info("Akamai Cache Response {}", purgeResponse);
                 }

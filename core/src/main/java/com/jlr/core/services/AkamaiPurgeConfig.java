@@ -22,6 +22,8 @@ public class AkamaiPurgeConfig {
     private String[] purgePaths;
     private String environment;
     private String akamaiCacheClearGroup;
+    private String enableAkamaiAgent;
+    private String enableCacheClear;
 
     /**
      * @return the environment
@@ -48,6 +50,8 @@ public class AkamaiPurgeConfig {
         purgePaths = akamaiPurgeConfigs.purgePaths();
         akamaiCacheClearGroup = akamaiPurgeConfigs.akamaiCacheClearGroup();
         environment = akamaiPurgeConfigs.environment();
+        enableCacheClear = akamaiPurgeConfigs.enableCacheClear();
+        enableAkamaiAgent = akamaiPurgeConfigs.enableAkamaiAgent();
     }
 
     public String getAkamaiHost() {
@@ -73,4 +77,15 @@ public class AkamaiPurgeConfig {
     public String[] getPurgePaths() {
         return purgePaths.clone();
     }
+
+    public String getEnableCacheClear() {
+        return enableCacheClear;
+    }
+
+    public String getEnableAkamaiAgent() {
+        return enableAkamaiAgent;
+    }
+
+
+
 }
