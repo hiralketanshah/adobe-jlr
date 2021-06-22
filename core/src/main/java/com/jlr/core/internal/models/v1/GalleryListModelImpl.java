@@ -95,8 +95,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getExitPageLink() {
-
-        return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
+    return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
     /**
