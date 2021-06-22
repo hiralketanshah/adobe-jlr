@@ -6,6 +6,7 @@ import java.util.Calendar;
 import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
@@ -27,6 +28,8 @@ import com.jlr.core.utils.LinkUtils;
  */
 @Model(adaptables = Resource.class, adapters = {GlobalModel.class})
 public class GlobalModelImpl implements GlobalModel {
+	
+	Logger logger = Logger.getLogger(GlobalModelImpl.class);
 	
 	
     /** The id. */
@@ -68,6 +71,11 @@ public class GlobalModelImpl implements GlobalModel {
     /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
+    
+    /**To get altTextFromDAM when user checked the check box*/
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private Boolean altTextFromDAM;
+
 
     /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -226,12 +234,24 @@ public class GlobalModelImpl implements GlobalModel {
      */
     @Override
     public String getImageAlt() {
-        if (isDecorative) {
-            return null;
-        }
-        return imageAlt;
+    	String altDAMText = "";
+    	String damAltText = getAltTextFromDAM();
+    	if(isDecorative) {
+			return null;
+		    }
+    	else {
+    	if(imageAlt!=null && !imageAlt.isEmpty() && altTextFromDAM == true) {
+    		altDAMText = damAltText;
+    	}else if(imageAlt!=null && !imageAlt.isEmpty() && altTextFromDAM == false) {
+    		altDAMText =  imageAlt;
+    	}else if(imageAlt!=null && imageAlt.isEmpty() && altTextFromDAM == false) {	
+    		altDAMText = null;
+    	}else if(altTextFromDAM == true){
+    		altDAMText = damAltText;
+		}
+    	}
+    	return altDAMText;
     }
-
     /*
      * (non-Javadoc)
      * 
@@ -374,10 +394,11 @@ public class GlobalModelImpl implements GlobalModel {
     
 	@Override
 	public String getAltTextFromDAM() {
-		String altText = "";
+		String damAltText = "";
 		if (resourceResolver != null) {
-			altText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
+			damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
 		}
-		return altText;
+		return damAltText;
+		
 	}
 }
