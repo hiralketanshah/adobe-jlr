@@ -1,0 +1,16 @@
+<sly data-sly-use.model="com.jlr.core.models.SearchConfigModel"
+     data-sly-call="${renderSearchConfig @ searchConfig=model}" />
+
+<template data-sly-template.renderSearchConfig="${ @ searchConfig }">
+    <div class="cq-placeholder" data-emptytext="Search Config Component"></div>
+    Exclusion & Priority Paths </br>
+    <sly data-sly-list.key="${searchConfig.exclusion}">
+        Exclusion Paths: ${key} </br>
+        Include Child Pages: ${searchConfig.exclusion[key]} </br>
+    </sly>
+    <sly data-sly-list.priorityKey="${searchConfig.priority}">
+        Priority Paths: ${priorityKey} </br>
+        Priority: ${searchConfig.priority[priorityKey]} </br>
+    </sly>
+
+</template>
