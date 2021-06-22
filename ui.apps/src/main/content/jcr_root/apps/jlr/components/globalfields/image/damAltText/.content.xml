@@ -4,8 +4,9 @@
     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
     checked="{Boolean}true"
 	defaultChecked="{Boolean}true"
-    fieldDescription="Check if the image should be ignored by assistive technology and therefore does not require an alternative text. This applies to decorative images only."
+    fieldDescription="When checked, populate the image's alt attribute with the value of the dc:description metadata in DAM."
     name="./altTextFromDAM"
-    text="Get alt text from DAM"
+    text="Get alternative text from DAM"
     uncheckedValue="false"
     value="{Boolean}true"/>
+
