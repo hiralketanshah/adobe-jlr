@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    jcr:title="Search Config"
+    sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <exclusions
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Exclusions"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <Exclusion
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                composite="{Boolean}true"
+                                fieldLabel="Exclusion">
+                                <field
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                    name="./exclusion">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <pathsToExclude
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="Add paths to be excluded from search"
+                                                    fieldLabel="Paths to exclude"
+                                                    name="./pathsToExclude"/>
+                                                <excludeChildPages
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    fieldDescription="If checked, child pages will be excluded from search."
+                                                    name="./excludeChildPages"
+                                                    value="true"
+                                                    uncheckedValue="false"
+                                                    text="Exclude child pages"/>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    maxlimit="5"/>
+                            </Exclusion>
+                        </items>
+                    </exclusions>
+                    <priorities
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Priorities"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <priority
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                    composite="{Boolean}true"
+                                    fieldLabel="priority">
+                                <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/fieldset"
+                                        name="./priority">
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <column
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/foundation/container">
+                                            <items jcr:primaryType="nt:unstructured">
+                                                <priorityPaths
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldDescription="Add priority paths to populate on the top of the search"
+                                                        fieldLabel="Priority Paths"
+                                                        name="./priorityPaths"/>
+                                                <priority
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="Select the priority"
+                                                        fieldLabel="Priority"
+                                                        name="./priority">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <_x0032_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="1"
+                                                                value="1"/>
+                                                        <_x0033_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="2"
+                                                                value="2"/>
+                                                        <_x0034_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="3"
+                                                                value="3"/>
+                                                        <_x0035_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="4"
+                                                                value="4"/>
+                                                        <_x0036_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="5"
+                                                                value="5"/>
+                                                        <_x0037_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="6"
+                                                                value="6"/>
+                                                        <_x0038_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="7"
+                                                                value="7"/>
+                                                        <_x0039_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="8"
+                                                                value="8"/>
+                                                        <_x0040_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="9"
+                                                                value="9"/>
+                                                        <_x0041_priority
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="10"
+                                                                value="10"/>
+                                                    </items>
+                                                </priority>
+                                            </items>
+                                        </column>
+                                    </items>
+                                </field>
+                                <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        maxlimit="5"/>
+                            </priority>
+                        </items>
+                    </priorities>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

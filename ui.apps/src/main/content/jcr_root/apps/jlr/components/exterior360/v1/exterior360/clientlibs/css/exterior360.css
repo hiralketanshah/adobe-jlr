@@ -21,7 +21,7 @@
 	position: absolute;
 	color: #fff;
 }
-.cmp-exterior360 .button, button{
+.cmp-exterior360 .button{
 	padding:0 !important;
 }
 .Exterior360__load-button:hover,
@@ -193,7 +193,34 @@
 .primaryLinkWithStyle {
 	float: left
 }
-
+.headerClass{
+	font-family: 'lr_ot4';
+	font-style: normal;
+	font-weight: bold;
+	float: left;
+	text-transform: uppercase;
+	color:#0C121C;
+}
+.headerClass h2{
+	font-family: 'lr_ot4';
+	font-style: normal;
+	font-weight: bold;
+	text-transform: uppercase;
+	color:#0C121C;
+}
+.fontBodyCopyLarge p{
+	font-family:"AvenirNext";
+	color:#4A4F54;
+	font-style: normal;
+	font-weight: normal;
+}
+.cmp-exterior360 #landrover .secondaryLinkWithStyle {
+	text-transform: uppercase;
+	font-family: "AvenirNext-DemiBold";
+}
+.nocopy .shelfComponent{
+	display:none;
+}
 /* media query start  */
 
 
@@ -214,45 +241,38 @@
 		padding-right: 390px;
 		padding-bottom: 79px;
 		padding-top: 32px;
+		margin-left: 0;
 		width:1660px !important;
 	}
 	.headerClass {
-		float: left;
+	
 		margin-right: 40px;
 		min-height: 200px;
 		min-width: 360px;
-		font-family:"LandRoverWeb-Bold";
-		line-height: 24px;
-		letter-spacing: 1.2px;
-		text-transform: uppercase;
-		color:#0C121C;
+		line-height: 24px;	
+		letter-spacing: 1.2px;		
 		font-size: 24px;
 	}
 
 	.headerClass h2 {
 		margin-top: 0;
 		margin-bottom: 14px;
-		display: block;
-		font-family:"LandRoverWeb-Bold";
+		display: block;	
 		line-height: 24px;
-		letter-spacing: 1.2px;
-		text-transform: uppercase;
-		color:#0C121C;
+		letter-spacing: 1.2px;	
 		font-size: 24px;
 	}
 
 	.fontBodyCopyLarge p {
 		width: 100%;
 		margin-bottom: 24px;
-		padding-right: 0;
-		font-family:"AvenirNext";
+		padding-right: 0;	
 		line-height: 19px;
-		letter-spacing: 0.2px;
-		color:#4A4F54;
+		letter-spacing: 0.2px;	
 		font-size: 14px;
 	}
 
-	#landrover .secondaryLinkWithStyle {
+	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 24px
 	}
@@ -297,7 +317,12 @@
 	}
 	.Exterior360__init-container-caption--mobile {
 		display: none;
-	} 
+	}
+	.cmp-exterior360 .headerClass .heading .headingWrapper p
+	{
+   		width: 420px !important;
+    	height: 38px !important;
+	}	 
 
 
 }
@@ -310,25 +335,22 @@
 		margin-right:60px;
 		margin-top:60px;
 	}
+	
 	.shelfComponent {
 		padding-left: 0;
 		padding-right: 0;
 		padding-bottom: 79px;
-		padding-top: 32px;
+		padding-top: 32px;		
 		width: 1160px;
     	margin: 0 auto;
 		
 	}
 	.headerClass {
-		float: left;
 		margin-right: 40px;
 		min-height: 200px;
 		min-width: 360px;
-		font-family:"LandRoverWeb-Bold";
 		line-height: 24px;
 		letter-spacing: 1.2px;
-		text-transform: uppercase;
-		color:#0C121C;
 		font-size: 24px;
 	}
 
@@ -343,14 +365,12 @@
 		width: 100%;
 		margin-bottom: 24px;
 		padding-right: 0;
-		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		color:#4A4F54;
 		font-size: 14px;
 	}
 
-	#landrover .secondaryLinkWithStyle {
+	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 24px
 	}
@@ -390,6 +410,11 @@
 		-webkit-animation-timing-function: ease-in-out;
 		animation-timing-function: ease-in-out
 	}
+	.cmp-exterior360 .headerClass .heading .headingWrapper p
+	{
+   		width: 360px !important;
+    	height: 32px !important;
+	}
 
 }
 
@@ -422,11 +447,8 @@
 				
 		min-height: 28px;
 		min-width: 524px;
-		font-family:"LandRoverWeb-Bold";
 		line-height: 21px;
 		letter-spacing: 1.05px;
-		text-transform: uppercase;
-		color:#0C121C;
 		font-size: 21px;
 	}
 
@@ -435,11 +457,8 @@
 		margin-bottom: 0;
 		padding-bottom: 16px;
 		display: block;
-		font-family:"LandRoverWeb-Bold";
 		line-height: 21px;
 		letter-spacing: 1.05px;
-		text-transform: uppercase;
-		color:#0C121C;
 		font-size: 21px;
 	}
 
@@ -447,19 +466,17 @@
 		width: 100%;
 		margin-bottom: 43px;
 		padding-right: 25px;
-		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		color:#4A4F54;
 		font-size: 14px;
 
 	}
 
-	#landrover .secondaryLinkWithStyle {
+
+	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 24px;
-		text-transform: uppercase;
-		font-family: "AvenirNext-DemiBold";
+		
 	}
 
 	.primaryLinkWithStyle {
@@ -483,7 +500,13 @@
 	.Exterior360__init-container-caption--mobile {
 		display: inline-block
 	} 
-	
+	.cmp-exterior360 .linkContainer{
+		padding-top: 0 !important;
+	}
+	.cmp-exterior360 .contentClass{
+		max-height: 76px !important;
+		min-width: 524px;
+	}
 
 
 	
@@ -496,8 +519,6 @@
 		display: flex;
 		flex-wrap: wrap
 	}
-
-	
 	.Exterior360__canvas-container {
 		order: 1;
 		margin-top:30px;
@@ -512,14 +533,10 @@
 	}
 
 	.headerClass {
-		float: left;		
 		min-height: 27px;
 		min-width: 325px;
-		font-family:"LandRoverWeb-Bold";
 		line-height: 20px;
 		letter-spacing: 0.64px;
-		text-transform: uppercase;
-		color:#0C121C;		
 		font-size: 20px;
 	}
 
@@ -527,11 +544,8 @@
 		margin-top: 0;
 		margin-bottom: 16px;
 		display: block;
-		font-family:"LandRoverWeb-Bold";
 		line-height: 20px;
 		letter-spacing: 0.64px;
-		text-transform: uppercase;
-		color:#0C121C;
 		font-size: 20px;
 	}
 
@@ -539,19 +553,16 @@
 		width: 100%;
 		margin-bottom: 43px;
 		padding-right: 25px;
-		font-family:"AvenirNext";
 		line-height: 19px;
 		letter-spacing: 0.2px;
-		color:#4A4F54;
 		font-size: 14px;
 
 	}
 
-	#landrover .secondaryLinkWithStyle {
+	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 24px;
-		text-transform: uppercase;
-		font-family: "AvenirNext-DemiBold";
+		
 	}
 
 	.primaryLinkWithStyle {
@@ -575,6 +586,9 @@
 	.Exterior360__init-container-caption--mobile {
 		display: inline-block
 	} 
+	.cmp-exterior360 .linkContainer{
+		margin-top: 0 !important;
+	}
 
 	
 	
@@ -1069,9 +1083,12 @@
 
 /* code fix for defect 733*/
 @media screen and (min-width: 1px) and (max-width: 640px) {
+	.nocopy .shelfComponent{
+		display:block !important;
+	}
 	.nocopy .Exterior360__slider--visible {
 		left: intial;
-		top: 247px;
+		top: 117%;
 	}
 	.nocopy .shelfComponent{ min-height:70px; margin-bottom:24px;}
 	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider--range,

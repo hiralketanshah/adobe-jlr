@@ -10,14 +10,10 @@
             jcr:primaryType="nt:unstructured"
             selected="{Boolean}true"
             text="Same Window"
-            value="_self"/>
+            value="same_window"/>
         <newWindow
             jcr:primaryType="nt:unstructured"
             text="New Window"
-            value="_blank"/>
-        <overlay
-            jcr:primaryType="nt:unstructured"
-            text="Overlay"
-            value="overlay"/>
+            value="new_window"/>
     </items>
 </jcr:root>

@@ -1050,6 +1050,7 @@
 .cmp-fullframe .contentClass{
   float: left;
   width: 650px;}
+  .cmp-fullframe .fontBodyCopyLarge p{min-width:650px;}
 .cmp-fullframe_pagination .Pagination__pause:before {
     border: 2px solid rgba(255,255,255,0.4)!important;
 }
@@ -1065,6 +1066,7 @@
     float: left;
     width: 560px;
 }
+.cmp-fullframe .fontBodyCopyLarge p{min-width :560px;}
  .cmp-fullframe_pagination .Pagination__pause:before {
     border: 2px solid rgba(255,255,255,0.4)!important;
 }
@@ -1080,6 +1082,7 @@
     float: left;
     width: 524px;
 }
+.cmp-fullframe .fontBodyCopyLarge p{min-width :524px;}
 .cmp-fullframe_pagination .Pagination__pause-control-icon, .cmp-fullframe_pagination .Pagination__play-control-icon{fill:#fff;}
 .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:after{border:2px solid #fff;}
 .cmp-fullframe_pagination .Pagination__pip--active:hover:after, .cmp-fullframe_pagination .Pagination__pip--active:after{background:#fff;}
@@ -1090,6 +1093,7 @@
 .cmp-fullframe .contentClass{
     float: left;
     width:325px; }
+.cmp-fullframe .fontBodyCopyLarge p{min-width :325px;}
 .cmp-fullframe  .headerClass h2 {
     margin-bottom: 16px;
 }

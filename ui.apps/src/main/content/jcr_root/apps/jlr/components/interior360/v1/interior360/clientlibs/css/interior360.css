@@ -302,7 +302,7 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .linkContainer {
     padding-top: 19px;
   }
-  .cmp-interior360 .headerClass .heading{ 
+  .cmp-interior360 .headerClass .heading p{ 
     min-height: 28px;
   }
   .cmp-interior360 .headerClass .heading p{ 
@@ -420,7 +420,8 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .linkContainer{
     margin-top: 43px !important;
   }
-  .cmp-interior360 .headerClass .heading{ 
+  .cmp-interior360 .headerClass .heading p{ 
+    min-width: 325px;
     min-height: 27px;
   }
   .cmp-interior360 .headerClass .heading p{ 
@@ -1460,7 +1461,7 @@ html.no-js .cmp-interior360 .carousel > * {
     line-height: 14px;
   }
   .cmp-interior360 .headerClass {
-    width: 520px;
+    width: 524px;
   }
 }
 @media screen and (min-width: 1280px) and (max-width: 1919px){
@@ -1511,5 +1512,18 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-top: 0px;
   }
 }
-
+/* KESTREL-708 */
+@media screen and (min-width: 1280px) {
+  .cmp-interior360 .headerClass .heading p{
+    min-height: 32px;
+  }
+  .cmp-interior360 .headerClass{
+    width: 25.12%;
+  }
+}
+@media screen and (max-width: 767px) {
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+}
+/* KESTREL-708 */
 
