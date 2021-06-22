@@ -2,7 +2,6 @@
         data-sly-call="${renderCookieNotification @ cookieNotification=cookieNotificationModel}"/>
 
 <template data-sly-template.renderCookieNotification="${ @ cookieNotification }">
-	<div class="notificationBarsWrapper">
 		<div class="notificationBars fontSmooth">
 			<div class="NotificationBar dark generalNotification" data-expires="${cookieNotification.expiry}" >
 				<div class="notificationContainer">
@@ -22,6 +21,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
 </template>

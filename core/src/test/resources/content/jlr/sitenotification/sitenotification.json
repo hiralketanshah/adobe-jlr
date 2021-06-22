@@ -1,0 +1,14 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "id":"667667",
+  "closeButtonCopy":"close",
+  "componentURL":"google.com",
+  "closeButtonArialabel":"close-aria",
+  "cookieRentention":"30",
+  "sling:resourceType":"jlr/components/sitenotification/v1/sitenotification",
+  "textIsRich":[
+    "true",
+    "true",
+    "true"
+  ]
+}

@@ -1009,6 +1009,18 @@ Bundle-DocURL:
                 <artifactId>dynamic-include</artifactId>
                 <version>3.2.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/com.akamai.edgegrid/edgegrid-signer-core -->
+            <dependency>
+                <groupId>com.akamai.edgegrid</groupId>
+                <artifactId>edgegrid-signer-core</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.akamai.edgegrid/edgegrid-signer-google-http-client -->
+            <dependency>
+                <groupId>com.akamai.edgegrid</groupId>
+                <artifactId>edgegrid-signer-google-http-client</artifactId>
+                <version>4.0.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -50,5 +50,6 @@
 		legacy-browser-header="true"
         hero-title-banner-header="true"
         derivative-container-header="true"
-        derivative-header="true"/>
+        derivative-header="true"
+        site-notification-header="true"/>
 </jcr:root>

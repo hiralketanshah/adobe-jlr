@@ -786,6 +786,7 @@ height: 493px;
 .cmp-vehicleSummary .plwsLight:focus, .primaryLinkWithStyle:focus{background-color: #fff!important;
     color: #0c121c!important;
     box-shadow: 0 0 0 1px #fff, 0 0 0 2px #4a4f54, 0 0 2px 4px #4a90e2!important;}
+
 .cmp-vehicleSummary .secondaryLinkContainer,
 .cmp-signPost .secondaryLinkContainer{clear:both;}
 .cmp-vehicleSummary .price{color:#4A4F54!important;}
@@ -871,20 +872,21 @@ height: 493px;
 }
 .cmp-vehicleSummary .linkContainer{padding-top:0}
 .cmp-vehicleSummary .primaryLinkWithStyle { margin-bottom:0px!important;}
-
+.cmp-vehicleSummary{ padding:40px 30px 60px 30px;} 
 }
 @media screen and (min-width: 320px) and (max-width: 767px){
-    .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
+.cmp-vehicleSummary{ padding:25px 25px 42px 25px;}
+.cmp-vehicleSummary .Picture__img{width:325px;}
+.cmp-vehicleSummary .summaryItemContent {width:325px;}
+  .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
 .cmp-vehicleSummary .cmp-vehicleSummary__content {
-
     margin-top: 16px;
-
 }
  .cmp-vehicleSummary .headingWrapper{
 	font-size:20px; 
 	line-height:20px;
-    color: #0C121C;
-    font-family: LandRoverWeb-Bold;
+  color: #0C121C;
+  font-family: LandRoverWeb-Bold;
 }
         .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
 .cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
@@ -907,9 +909,10 @@ height: 493px;
 .cmp-signPost p a{
     color: #4A4F54;
 }
-@media screen and (min-width: 1280px) and (max-width: 2560px){
+@media screen and (min-width: 1920px) and (max-width: 2560px){
     .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
-	.cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+
     .cmp-signPost .cmp-signPost__image{
      width:50%;
      height: auto;
@@ -919,10 +922,8 @@ height: 493px;
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
 .cmp-signPost .cmp-signPost__center{
-
     top:0;
     transform:none;
-
     }
  .cmp-signPost .cmp-signPost__picture {
     width: 100%!important;
@@ -938,9 +939,56 @@ height: 493px;
 margin-bottom:10px;
   }
  .cmp-signPost .linkContainer{padding-top:0px;}
+ .cmp-signPost:first-child{padding:71px 290px 60px 290px;}
+.cmp-signPost:last-child{padding:0px 290px 135px 290px;}
+.cmp-signPost{padding:0px 290px 60px 290px;}
+.cmp-signPost{min-height:auto;max-height:525px;}
+.cmp-signPost.grey{padding:71px 290px 60px 290px;}
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px){
+    .cmp-signPost.grey:first-child{padding-top:60px;margin-bottom:60px}
+    .cmp-signPost{min-height:auto; max-height:525px;}
+    .cmp-signPost:first-child{padding:71px 60px 69px 60px;}
+	.cmp-signPost:last-child{padding:0px 60px 70px 60px;}
+	.cmp-signPost{padding:0px 60px 69px 60px;}
+    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+	 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+
+    .cmp-signPost .cmp-signPost__image{
+     width:50%;
+     height: auto;
+     min-height: 315px;
+
+   }
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+  .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
+.cmp-signPost .cmp-signPost__center{
+    top:0;
+    transform:none;
+    }
+ .cmp-signPost .cmp-signPost__picture {
+    width: 100%!important;
+    height: 100%;
+    margin-top:4px;
+}
+
+ .cmp-signPost .cmp-signPost__content .fontBodyCopy{
+	margin-top:16px;
+   }
+
+ .cmp-signPost  .cmp-signPost__content-copy-wrapper{
+margin-bottom:10px;
+  }
+ .cmp-signPost .linkContainer{padding-top:0px;}
+
 }
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
+    .cmp-signPost{min-height:auto; max-height:525px;}
+    .cmp-signPost:first-child{padding:49px 30px 68px 30px;}
+	.cmp-signPost:last-child{padding:0px 30px 63px 30px;}
+	.cmp-signPost{padding:0px 30px 68px 30px;}
     .cmp-signPost .cmp-signPost__center{
 
     top:0;
@@ -967,12 +1015,18 @@ object-fit: unset;
 .cmp-signPost .cmp-signPost__content{width:50%;}
 .cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:16px;}
 .cmp-signPost .linkContainer{padding-top:0px;}
- .cmp-signPost .primaryLinkWithStyle{margin-top:24px;}
-        }
+
+}
+
 @media screen and (min-width: 300px) and (max-width: 766px){
+    .cmp-signPost{min-height:auto; max-height:525px;}
+    .cmp-signPost:first-child{padding:25px 25px 60px 25px;}
+	.cmp-signPost:last-child{padding:0px 25px 60px 25px;}
+	.cmp-signPost{padding:0px 25px 60px 25px;}
 .cmp-signPost .headingWrapper{font-family:LandRoverWeb-Bold; font-size:20px; line-height:24px; letter-spacing:0.9px;}
-     .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
-    .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}
+ .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
+  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}
+
 .cmp-signPost .linkContainer {
     margin-top: 0;
 }
@@ -984,5 +1038,6 @@ object-fit: unset;
 .cmp-signPost .Picture--background .Picture__img{
 object-fit: unset;
   }
+
   /*------code fix for bug 584----- new code*/
 
