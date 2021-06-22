@@ -1,5 +1,4 @@
 # rewrite for root redirect
-RewriteRule ^/?$ /content/landrover/global/europe/published-sites/de_de/index.html [PT,L]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
@@ -12,4 +11,4 @@ RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
-RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
+RewriteRule ^/(.*)$ /content/${DE_CONTENT_PATH}/$1 [PT,L]

@@ -3,11 +3,11 @@
 	# (feature supported since dispatcher build 2.6.3.5222)
 	/clientheaders {
 		$include "../clientheaders/ams_publish_clientheaders.any"
+		$include "../clientheaders/lr_publish_clientheaders.any"
 		$include "../clientheaders/ams_common_clientheaders.any"
 	}
 	# hostname globbing for farm selection (virtual domain addressing)
 	/virtualhosts {
-		$include "../vhosts/ams_publish_vhosts.any"
 		$include "../vhosts/au_lr_publish_vhosts.any"
 	}
 	# the load will be balanced among these render instances
@@ -98,6 +98,11 @@
 			"Expires"
 			"Last-Modified"
 			"X-Content-Type-Options"
+			"Access-Control-Expose-Headers"
+			"Access-Control-Max-Age"
+			"Access-Control-Allow-Credentials"
+			"Access-Control-Allow-Methods"
+			"Access-Control-Allow-Headers"
 		}
 		# A grace period defines the number of seconds a stale, auto-invalidated
 		# resource may still be served from the cache after the last activation
