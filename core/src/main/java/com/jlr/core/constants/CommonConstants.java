@@ -161,6 +161,9 @@ public class CommonConstants {
     /** The Constant PN_POSTER_IMAGE. */
     public static final String PN_POSTER_IMAGE = "posterImage";
 
+    /** The Constant PN_THUMBNAIL. */
+    public static final String PN_THUMBNAIL = "thumbnail";
+
     /** The Constant PN_OPTION_IMAGE. */
     public static final String PN_OPTION_IMAGE = "optionImage";
 
@@ -365,4 +368,26 @@ public class CommonConstants {
      * The constant YYYY_MM_DD_T_HH_MM_SS.
      */
     public static final String YYYY_MM_DD_T_HH_MM_SS = "yyyy-MM-dd'T'HH:mm:ss";
+
+    /**
+     * The constant PN_PATHS_TO_EXCLUDE.
+     */
+    public static final String PN_PATHS_TO_EXCLUDE = "pathsToExclude";
+    /**
+     * The constant PN_EXCLUDE_CHILD_PAGES.
+     */
+    public static final String PN_EXCLUDE_CHILD_PAGES = "excludeChildPages";
+    /**
+     * The constant PN_PRIORITY_PATHS.
+     */
+    public static final String PN_PRIORITY_PATHS = "priorityPaths";
+    /**
+     * The constant PN_PRIORITY.
+     */
+    public static final String PN_PRIORITY = "priority";
+
+    /**
+     * The constant APPLICATION_JSON.
+     */
+    public static final String APPLICATION_JSON = "application/json";
 }

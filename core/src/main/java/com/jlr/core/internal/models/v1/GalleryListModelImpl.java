@@ -1,7 +1,5 @@
 package com.jlr.core.internal.models.v1;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -10,9 +8,9 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
@@ -28,7 +26,7 @@ import com.jlr.core.utils.LinkUtils;
 /**
  * The Class GalleryListModelImpl.
  */
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         GalleryListModel.class }, resourceType = GalleryListModelImpl.RESOURCE_TYPE)
 public class GalleryListModelImpl extends GlobalModelImpl implements GalleryListModel {
 
@@ -52,7 +50,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     /** The exitPageLink. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String exitPageLink;
-    
+
     /** The main header copy. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String mainHeaderCopy;
@@ -81,10 +79,10 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     @PostConstruct
     public void init() {
         String selector = request.getRequestPathInfo().getSelectorString();
-        if(StringUtils.isNotEmpty(selector) && !selector.startsWith("-")) {
+        if (StringUtils.isNotEmpty(selector) && !selector.startsWith("-")) {
             try {
                 startSlide = Integer.parseInt(selector) - 1;
-            } catch(NumberFormatException nfex) {
+            } catch (NumberFormatException nfex) {
                 startSlide = -1;
             }
         }
@@ -97,7 +95,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getExitPageLink() {
-              return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
+    return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 
     /**
@@ -107,15 +105,15 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     @Override
     public String getMainHeaderCopy() {
-		return mainHeaderCopy;
-	}
+        return mainHeaderCopy;
+    }
 
-	/**
-	 * Gets the gallery list.
-	 *
-	 * @return the gallery list
-	 */
-	@Override
+    /**
+     * Gets the gallery list.
+     *
+     * @return the gallery list
+     */
+    @Override
     public List<GalleryItem> getGalleryList() {
         if (null != galleryList && galleryList.hasChildren()) {
             Iterator<Resource> childResources = galleryList.listChildren();
@@ -131,6 +129,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
                             properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
                             properties.get(CommonConstants.PN_VIDEO_ID, String.class),
                             properties.get(CommonConstants.PN_POSTER_IMAGE, String.class),
+                            properties.get(CommonConstants.PN_THUMBNAIL, String.class),
                             properties.get(CommonConstants.PN_CTA_TEXT, String.class),
                             LinkUtils.appendLinkExtension(properties.get(CommonConstants.PN_CTA_LINK, String.class),
                                     resourceResolver),

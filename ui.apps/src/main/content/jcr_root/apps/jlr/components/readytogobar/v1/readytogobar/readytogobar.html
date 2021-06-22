@@ -2,7 +2,7 @@
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
    <div data-sly-test=${!readytogobar.rtgb}></div>
-   <div class="cmp-readyToGoBar container fontSmooth">
+   <div class="cmp-readyToGoBar container fontSmooth"  id="${readytogobar.id}">
       <ul data-sly-test="${readytogobar.rtgb}" class="cmp-readyToGoBar__list" data-sly-list.item="${readytogobar.rtgb}">
          <li class="cmp-readyToGoBar__item">
 			<a class="cmp-readyToGoBar__link" data-target="${item.target}" target="${item.target}" aria-label="${item.ariaLabel}" href="${item.link}">
