@@ -34,6 +34,7 @@ import java.util.stream.Collectors;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
+import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
 import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
 import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
@@ -111,7 +112,7 @@ public class SearchServiceImpl implements SearchService {
         final Map<String, String> predicate = new HashMap<>();
         //search the pages with fulltext
         predicate.put("path", searchRoot);
-        predicate.put("type", "cq:Page");
+        predicate.put("type", NT_PAGE);
         predicate.put(FULLTEXT, searchText);
         predicate.put("p.limit", "-1");
         return PredicateGroup.create(predicate);
