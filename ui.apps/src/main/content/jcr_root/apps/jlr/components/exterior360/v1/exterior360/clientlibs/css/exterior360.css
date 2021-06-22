@@ -218,7 +218,9 @@
 	text-transform: uppercase;
 	font-family: "AvenirNext-DemiBold";
 }
-
+.nocopy .shelfComponent{
+	display:none;
+}
 /* media query start  */
 
 
@@ -333,6 +335,7 @@
 		margin-right:60px;
 		margin-top:60px;
 	}
+	
 	.shelfComponent {
 		padding-left: 0;
 		padding-right: 0;
@@ -1080,9 +1083,12 @@
 
 /* code fix for defect 733*/
 @media screen and (min-width: 1px) and (max-width: 640px) {
+	.nocopy .shelfComponent{
+		display:block !important;
+	}
 	.nocopy .Exterior360__slider--visible {
 		left: intial;
-		top: 247px;
+		top: 117%;
 	}
 	.nocopy .shelfComponent{ min-height:70px; margin-bottom:24px;}
 	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider--range,
