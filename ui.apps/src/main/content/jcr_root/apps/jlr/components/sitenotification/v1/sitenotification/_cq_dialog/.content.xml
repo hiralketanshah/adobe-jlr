@@ -42,8 +42,15 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                 fieldDescription="Specify the page to which the site notification should appear."
-                                fieldLabel="Component URL"
+                                fieldLabel="Page Path"
                                 name="./componentURL"/>
+                            <cookieRentention
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                fieldDescription="Number of days for cookie expiry"
+                                fieldLabel="Expiry Days"
+                                min="-1"
+                                name="./cookieRentention"/>
                             <closeButtonCopy
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
