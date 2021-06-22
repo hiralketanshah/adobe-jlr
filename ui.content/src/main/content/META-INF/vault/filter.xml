@@ -8,6 +8,7 @@
     <filter root="/content/nav" mode="merge"/>
     <filter root="/content/request" mode="merge"/>
     <filter root="/etc/acs-commons/lists/icons" mode="replace"/>
+	<filter root="/etc/replication/agents.publish/akamai-cache-flush" mode="replace"/>
     <filter root="/etc/acs-commons/lists/header-icons" mode="replace"/>
     <filter root="/var/acs-commons/reports" mode="merge"/>
     <filter root="/var/workflow/models/content-approval.xml" mode="replace"/>
