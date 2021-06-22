@@ -51,13 +51,4 @@ public interface ContentCardModel {
     default List<CTAPojo> getCtaList() {
         return new ArrayList<>();
     }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    default String getPriceConfigValue() {
-        return StringUtils.EMPTY;
-    }
 }

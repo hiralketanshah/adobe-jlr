@@ -2,26 +2,29 @@ package com.jlr.core.internal.models.v1;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
 import javax.inject.Inject;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
-
+import com.jlr.core.utils.TcoUtils;
 
 /**
  * The Class GlobalModelImpl.
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {GlobalModel.class})
+@Model(adaptables = Resource.class, adapters = { GlobalModel.class })
 public class GlobalModelImpl implements GlobalModel {
 
     /** The id. */
@@ -127,6 +130,8 @@ public class GlobalModelImpl implements GlobalModel {
     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
+
+    private Boolean isStaticPrice;
 
     /*
      * (non-Javadoc)
@@ -365,5 +370,13 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getPrice() {
         return price;
+    }
+
+    @Override
+    public Boolean getIsStaticPrice() {
+        if (!StringUtils.isBlank(price)) {
+            isStaticPrice = TcoUtils.isStaticPrice(price);
+        }
+        return isStaticPrice;
     }
 }

@@ -15,7 +15,7 @@ public interface PriceModel {
         return StringUtils.EMPTY;
     }
 
-    default String getCookie() {
+    default String getPriceConfigValue() {
         return StringUtils.EMPTY;
     }
 }
