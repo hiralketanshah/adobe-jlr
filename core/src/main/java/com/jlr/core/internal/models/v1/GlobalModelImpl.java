@@ -6,6 +6,7 @@ import java.util.Calendar;
 import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
@@ -15,6 +16,7 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
+import com.jlr.core.utils.AltTextUtils;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
 import com.jlr.core.utils.TcoUtils;
@@ -27,17 +29,19 @@ import com.jlr.core.utils.TcoUtils;
 @Model(adaptables = Resource.class, adapters = { GlobalModel.class })
 public class GlobalModelImpl implements GlobalModel {
 
-    /** The id. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String id;
+	Logger logger = Logger.getLogger(GlobalModelImpl.class);
 
-    /** The date. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private Calendar date;
+	/** The id. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private String id;
 
-    /** The date format. */
-    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String dateFormat;
+	/** The date. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private Calendar date;
+
+	/** The date format. */
+	@HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private String dateFormat;
 
     /** The header title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -66,6 +70,10 @@ public class GlobalModelImpl implements GlobalModel {
     /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
+    
+    /** To get altTextFromDAM when user checked the check box */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private Boolean altTextFromDAM;
 
     /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -219,18 +227,40 @@ public class GlobalModelImpl implements GlobalModel {
         return fileReference;
     }
 
+	@Override
+	public String getAltTextFromDAM() {
+		String damAltText = "";
+		if (resourceResolver != null) {
+			damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
+		}
+		return damAltText;
+
+	}
+
     /*
      * (non-Javadoc)
      * 
      * @see com.jlr.core.models.GlobalModel#getImageAlt()
      */
     @Override
-    public String getImageAlt() {
-        if (isDecorative) {
-            return null;
-        }
-        return imageAlt;
-    }
+	public String getImageAlt() {
+		String altDAMText = "";
+		String damAltText = getAltTextFromDAM();
+		if (isDecorative) {
+			return null;
+		} else {
+			if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == true) {
+				altDAMText = damAltText;
+			} else if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == false) {
+				altDAMText = imageAlt;
+			} else if (imageAlt != null && imageAlt.isEmpty() && altTextFromDAM == false) {
+				altDAMText = StringUtils.EMPTY;
+			} else if (altTextFromDAM == true) {
+				altDAMText = damAltText;
+			}
+		}
+		return altDAMText;
+	}
 
     /*
      * (non-Javadoc)

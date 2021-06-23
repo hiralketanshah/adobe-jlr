@@ -208,6 +208,10 @@ public interface GlobalModel {
     default String getPrice() {
         return StringUtils.EMPTY;
     }
+    
+    default String getAltTextFromDAM(){
+        return StringUtils.EMPTY;
+    }
 
     default Boolean getIsStaticPrice() {
         return false;
