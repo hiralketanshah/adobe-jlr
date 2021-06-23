@@ -43,18 +43,6 @@ public class GlobalModelImpl implements GlobalModel {
 	@HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
 	private String dateFormat;
 
-	/** The header title. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String headerTitle;
-
-	/** The header copy. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String headerCopy;
-
-    /** The date format. */
-    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String dateFormat;
-
     /** The header title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String headerTitle;
@@ -82,6 +70,10 @@ public class GlobalModelImpl implements GlobalModel {
     /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
+    
+    /** To get altTextFromDAM when user checked the check box */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+	private Boolean altTextFromDAM;
 
     /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
