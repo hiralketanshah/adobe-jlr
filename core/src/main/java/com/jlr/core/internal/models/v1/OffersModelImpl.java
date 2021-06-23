@@ -33,7 +33,6 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
     /** The offer list. */
     @Inject
-    @Via("resource")
     public List<OffersList> offerList = new ArrayList<>();
 
     /** The offers header copy. */
@@ -50,7 +49,6 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
     /** The cta list. */
     @Inject
-    @Via("resource")
     private Resource ctaList;
 
     /** The price. */
