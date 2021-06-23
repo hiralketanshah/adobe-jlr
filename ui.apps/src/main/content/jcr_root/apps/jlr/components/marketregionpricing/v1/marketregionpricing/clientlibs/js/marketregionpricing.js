@@ -1462,7 +1462,18 @@
           this.marketPricing = document.querySelector('.cmp-marketregionalpricing');
           this.closeModal = el.querySelector('.Modal__close');
           const firstItem = el.querySelector('.dxDropdown__list-item-link:not(.dxDropdown__list-item-link--disabled');
-          this.addActiveDropdownItem(firstItem);
+          const existingSelection = this.getCookieValue("JLR_locale-pricing");
+          if(existingSelection){
+            this.element.querySelectorAll("a").forEach((elm)=>{
+                if(elm.dataset.value ==existingSelection){
+                  this.button.innerHTML = elm.innerHTML;
+                }
+            })
+          }
+          else{
+            this.addActiveDropdownItem(firstItem);
+          }
+     
 			$(document).on('click','.MarketRegionalPricing-triggerer',()=>{
           this.marketPricing.classList.remove('cmp-hidemarket');
           this.marketPricing.classList.add('cmp-showmarket');
@@ -1482,7 +1493,9 @@
       }
   
     }
-  
+    getCookieValue(name){
+      return document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)')?.pop() || '';
+    }
     testBlur(e) {
       if (
         !e.relatedTarget.classList.contains('dxDropdown__list-item')
