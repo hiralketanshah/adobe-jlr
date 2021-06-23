@@ -21,7 +21,7 @@
             sortable="{Boolean}true"/>
     <embargoLiftDate
             jcr:primaryType="nt:unstructured"
-            jcr:title="Should Publish On/After"
+            jcr:title="Should Publish After"
             columnGroup="approval"
             columnResourceType="cq/gui/components/common/admin/listview/customcell"
             default="{Boolean}true"
