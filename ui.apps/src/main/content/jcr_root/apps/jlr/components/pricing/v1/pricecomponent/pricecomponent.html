@@ -1,0 +1,8 @@
+<sly data-sly-use.model="${'com.jlr.core.models.PriceModel'}"/>
+<sly data-sly-test="${!model.isHeroOrDerivative}">
+  ${model.priceConfigValue} ${model.price}
+</sly>
+<sly data-sly-test="${model.isHeroOrDerivative}">
+  <p>${model.priceConfigValue}</p>
+  <p><strong>${model.price}</strong></p>
+</sly>

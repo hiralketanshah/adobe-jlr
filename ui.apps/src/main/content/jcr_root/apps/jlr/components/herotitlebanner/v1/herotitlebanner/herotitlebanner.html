@@ -28,8 +28,11 @@
 
 				<div data-sly-test="${model.price}" class="pricing">
                   <div class="firstPrice">
-                    <p>From</p>
-                  <p><strong>${model.price}</strong></p>
+                    <sly data-sly-test="${model.isStaticPrice}">
+                      <p>${model.priceConfigValue}</p>
+                      <p><strong>${model.price}</strong></p>
+                    </sly>
+					<sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
                   </div> 
                 </div>
 
