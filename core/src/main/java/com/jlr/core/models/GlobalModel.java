@@ -3,7 +3,6 @@ package com.jlr.core.models;
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
-
 /**
  * The Interface GlobalModel.
  *
@@ -209,9 +208,12 @@ public interface GlobalModel {
     default String getPrice() {
         return StringUtils.EMPTY;
     }
-
     
     default String getAltTextFromDAM(){
         return StringUtils.EMPTY;
+    }
+
+    default Boolean getIsStaticPrice() {
+        return false;
     }
 }

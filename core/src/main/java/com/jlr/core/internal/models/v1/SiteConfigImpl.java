@@ -18,8 +18,7 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.SiteConfigModel;
 import com.jlr.core.services.Dictionary;
@@ -41,9 +40,7 @@ public class SiteConfigImpl implements SiteConfigModel {
     private static final String SITE_CONFIG_CHANGE_REGION_KEY = "marketregionpricing.dxnav.changeregion";
     private static final String CONFIG_KEY_PLACEHOLDER_STATE = "{state}";
 
-    private static Logger LOGGER = LoggerFactory.getLogger(SiteConfigImpl.class);
-
-    /** Request Parameter - List of Keys. */
+      /** Request Parameter - List of Keys. */
     @RequestAttribute(injectionStrategy = InjectionStrategy.OPTIONAL)
     List<String> keys;
 

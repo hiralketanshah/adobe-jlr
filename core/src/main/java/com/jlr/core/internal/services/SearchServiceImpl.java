@@ -32,6 +32,7 @@ import javax.jcr.Session;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
 import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
@@ -94,9 +95,11 @@ public class SearchServiceImpl implements SearchService {
     }
 
     private String getDescription(Resource resource) {
-        ValueMap valueMap = resource.getValueMap();
-        if(valueMap != null) {
-            return valueMap.get(JCR_DESCRIPTION, String.class);
+        if(resource.getChild(JCR_CONTENT) != null) {
+            ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
+            if(valueMap != null) {
+                return valueMap.get(JCR_DESCRIPTION, String.class);
+            }
         }
         return StringUtils.EMPTY;
     }
@@ -180,7 +183,7 @@ public class SearchServiceImpl implements SearchService {
         searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
         if (page <= 0 || total <= 0) {
             searchPojo.setMaxPage(0l);
-            return null;
+            return new ArrayList<>();
         }
         if (total <= PAGE_SIZE) {
             searchPojo.setMaxPage(1l);

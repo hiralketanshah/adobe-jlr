@@ -56,10 +56,11 @@
         <div class="contentClass">
           <div class="priceAndCta">
             <div class="pricing">
-              <p data-sly-test="${heroCarousel.price}">
-                ${heroCarousel.priceConfigValue}
-              </p>
-              <p><strong> ${heroCarousel.price}</strong></p>
+                <sly data-sly-test="${heroCarousel.isStaticPrice}">
+                    <p>${heroCarousel.priceConfigValue}</p>
+                    <p><strong>${heroCarousel.price}</strong></p>
+                </sly>
+				<sly data-sly-test="${!heroCarousel.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=heroCarousel.price, wcmmode='disabled'}"></sly>
             </div>
             <div class="linkContainer">
               <sly data-sly-list="${heroCarousel.ctaList}">

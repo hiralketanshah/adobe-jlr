@@ -394,6 +394,10 @@
 }
 
 @media screen and (min-width: 1920px) {
+  .cmp-offersContainer {  
+    margin-left: 290px;
+    margin-right: 290px;
+  }
   .cmp-offersContainer .offer .offerImage {
     padding: 0 0 37.02%;
   }
@@ -966,10 +970,5 @@
 .slateblue .offerBody p{
   color: #ffffff;
  }
-
-.cmp-offersContainer {   
-  margin-left: 290px;
-  margin-right: 290px;
-}
 
 /* ends */

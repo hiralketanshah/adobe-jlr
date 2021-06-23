@@ -19,6 +19,7 @@ import com.jlr.core.models.GlobalModel;
 import com.jlr.core.utils.AltTextUtils;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
+import com.jlr.core.utils.TcoUtils;
 
 /**
  * The Class GlobalModelImpl.
@@ -50,186 +51,206 @@ public class GlobalModelImpl implements GlobalModel {
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
 	private String headerCopy;
 
-	/** The header icon. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String headerIcon;
+    /** The date format. */
+    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String dateFormat;
 
-	/** The copy. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String copy;
+    /** The header title. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String headerTitle;
 
-	/** The logo image. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String logoImage;
+    /** The header copy. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String headerCopy;
 
-	/** The file reference. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String fileReference;
+    /** The header icon. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String headerIcon;
 
-	/** The image alt. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String imageAlt;
+    /** The copy. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String copy;
 
-	/** To get altTextFromDAM when user checked the check box */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private Boolean altTextFromDAM;
+    /** The logo image. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String logoImage;
 
-	/** The image link. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String imageLink;
+    /** The file reference. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String fileReference;
 
-	/** The is decorative. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private boolean isDecorative;
+    /** The image alt. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String imageAlt;
 
-	/** The text. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String text;
+    /** The image link. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String imageLink;
 
-	/** The link. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String link;
+    /** The is decorative. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private boolean isDecorative;
 
-	/** The link type. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String linkType;
+    /** The text. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String text;
 
-	/** The target. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String target;
+    /** The link. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String link;
 
-	/** The aria label. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String ariaLabel;
+    /** The link type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String linkType;
 
-	/** The logo path. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String logoPath;
+    /** The target. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String target;
 
-	/** The video id. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String videoId;
+    /** The aria label. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String ariaLabel;
 
-	/** The video path. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String videoPath;
+    /** The logo path. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String logoPath;
 
-	/** The poster image. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String posterImage;
+    /** The video id. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoId;
 
-	/** The video title. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String videoTitle;
+    /** The video path. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoPath;
 
-	/** The icon. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String icon;
+    /** The poster image. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String posterImage;
 
-	/** The asset type. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String assetType;
+    /** The video title. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String videoTitle;
 
-	/** The price. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String price;
+    /** The icon. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String icon;
 
-	/** The resource resolver. */
-	@Inject
-	private ResourceResolver resourceResolver;
+    /** The asset type. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String assetType;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getId()
-	 */
+    /** The price. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String price;
+
+    /** The resource resolver. */
+    @Inject
+    private ResourceResolver resourceResolver;
+
+    private Boolean isStaticPrice;
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getId()
+     */
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getDate()
+     */
+    @Override
+    public String getDate() {
+        String formattedDate = StringUtils.EMPTY;
+        dateFormat = (null == dateFormat) ? CommonConstants.PN_REVISED_DATE_FORMAT : dateFormat;
+        if (null != date) {
+            SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+            formattedDate = formatter.format(date.getTime());
+        }
+        return formattedDate;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getHeaderTitle()
+     */
+    @Override
+    public String getHeaderTitle() {
+        return headerTitle;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getHeaderCopy()
+     */
+    @Override
+    public String getHeaderCopy() {
+        return headerCopy;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getHeaderIcon()
+     */
+    @Override
+    public String getHeaderIcon() {
+        return headerIcon;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getCopy()
+     */
+    @Override
+    public String getCopy() {
+        return copy;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getLogoImage()
+     */
+    @Override
+    public String getLogoImage() {
+        return logoImage;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getFileReference()
+     */
+    @Override
+    public String getFileReference() {
+        return fileReference;
+    }
+
 	@Override
-	public String getId() {
-		return id;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getDate()
-	 */
-	@Override
-	public String getDate() {
-		String formattedDate = StringUtils.EMPTY;
-		dateFormat = (null == dateFormat) ? CommonConstants.PN_REVISED_DATE_FORMAT : dateFormat;
-		if (null != date) {
-			SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
-			formattedDate = formatter.format(date.getTime());
+	public String getAltTextFromDAM() {
+		String damAltText = "";
+		if (resourceResolver != null) {
+			damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
 		}
-		return formattedDate;
+		return damAltText;
+
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getHeaderTitle()
-	 */
-	@Override
-	public String getHeaderTitle() {
-		return headerTitle;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getHeaderCopy()
-	 */
-	@Override
-	public String getHeaderCopy() {
-		return headerCopy;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getHeaderIcon()
-	 */
-	@Override
-	public String getHeaderIcon() {
-		return headerIcon;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getCopy()
-	 */
-	@Override
-	public String getCopy() {
-		return copy;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getLogoImage()
-	 */
-	@Override
-	public String getLogoImage() {
-		return logoImage;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getFileReference()
-	 */
-	@Override
-	public String getFileReference() {
-		return fileReference;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getImageAlt()
-	 */
-	@Override
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getImageAlt()
+     */
+    @Override
 	public String getImageAlt() {
 		String altDAMText = "";
 		String damAltText = getAltTextFromDAM();
@@ -249,153 +270,151 @@ public class GlobalModelImpl implements GlobalModel {
 		return altDAMText;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getImageLink()
-	 */
-	@Override
-	public String getImageLink() {
-		if (isDecorative) {
-			return null;
-		}
-		return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getImageLink()
+     */
+    @Override
+    public String getImageLink() {
+        if (isDecorative) {
+            return null;
+        }
+        return LinkUtils.appendLinkExtension(imageLink, resourceResolver);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getText()
-	 */
-	@Override
-	public String getText() {
-		return text;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getText()
+     */
+    @Override
+    public String getText() {
+        return text;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getLink()
-	 */
-	@Override
-	public String getLink() {
-		return LinkUtils.appendLinkExtension(link, resourceResolver);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getLink()
+     */
+    @Override
+    public String getLink() {
+        return LinkUtils.appendLinkExtension(link, resourceResolver);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getLinkType()
-	 */
-	@Override
-	public String getLinkType() {
-		return linkType;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getLinkType()
+     */
+    @Override
+    public String getLinkType() {
+        return linkType;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getTarget()
-	 */
-	@Override
-	public String getTarget() {
-		return target;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getTarget()
+     */
+    @Override
+    public String getTarget() {
+        return target;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getAriaLabel()
-	 */
-	@Override
-	public String getAriaLabel() {
-		if (null == ariaLabel) {
-			if (null != headerCopy) {
-				ariaLabel = CtaUtils.getAriaLabel(headerCopy, text);
-			} else if (null != headerTitle) {
-				ariaLabel = CtaUtils.getAriaLabel(headerTitle, text);
-			}
-		}
-		return ariaLabel;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getAriaLabel()
+     */
+    @Override
+    public String getAriaLabel() {
+        if (null == ariaLabel) {
+            if (null != headerCopy) {
+                ariaLabel = CtaUtils.getAriaLabel(headerCopy, text);
+            } else if (null != headerTitle) {
+                ariaLabel = CtaUtils.getAriaLabel(headerTitle, text);
+            }
+        }
+        return ariaLabel;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getVideoId()
-	 */
-	@Override
-	public String getVideoId() {
-		return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getVideoId()
+     */
+    @Override
+    public String getVideoId() {
+        return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getVideoPath()
-	 */
-	@Override
-	public String getVideoPath() {
-		return videoPath;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getVideoPath()
+     */
+    @Override
+    public String getVideoPath() {
+        return videoPath;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getPosterImage()
-	 */
-	@Override
-	public String getPosterImage() {
-		return posterImage;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getPosterImage()
+     */
+    @Override
+    public String getPosterImage() {
+        return posterImage;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getVideoTitle()
-	 */
-	@Override
-	public String getVideoTitle() {
-		return videoTitle;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getVideoTitle()
+     */
+    @Override
+    public String getVideoTitle() {
+        return videoTitle;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getIcon()
-	 */
-	@Override
-	public String getIcon() {
-		return CtaUtils.getIcon(icon, linkType);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getIcon()
+     */
+    @Override
+    public String getIcon() {
+        return CtaUtils.getIcon(icon, linkType);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getAssetType()
-	 */
-	@Override
-	public String getAssetType() {
-		return assetType;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getAssetType()
+     */
+    @Override
+    public String getAssetType() {
+        return assetType;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see com.jlr.core.models.GlobalModel#getPrice()
-	 */
-	@Override
-	public String getPrice() {
-		return price;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getPrice()
+     */
+    @Override
+    public String getPrice() {
+        return price;
+    }
 
-	@Override
-	public String getAltTextFromDAM() {
-		String damAltText = "";
-		if (resourceResolver != null) {
-			damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
-		}
-		return damAltText;
-
-	}
+    @Override
+    public Boolean getIsStaticPrice() {
+        if (!StringUtils.isBlank(price)) {
+            isStaticPrice = TcoUtils.isStaticPrice(price);
+        }
+        return isStaticPrice;
+    }
 }

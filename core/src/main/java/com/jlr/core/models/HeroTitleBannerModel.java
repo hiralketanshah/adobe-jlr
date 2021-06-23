@@ -41,13 +41,4 @@ public interface HeroTitleBannerModel {
     default String getCaveat() {
         return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    default String getPriceConfigValue() {
-        return StringUtils.EMPTY;
-    }
 }
