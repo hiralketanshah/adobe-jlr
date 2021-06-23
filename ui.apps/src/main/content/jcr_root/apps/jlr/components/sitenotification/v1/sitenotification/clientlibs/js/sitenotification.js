@@ -2694,7 +2694,13 @@
           }, {
             key: 'setCookieForModalDisplay',
             value: function setCookieForModalDisplay() {
-              (0, _cookieManager.createCookie)('JLR_DxPopupShown_' + this.cookieID, true, this.retentionPeriod);
+              if (this.retentionPeriod == -1) {
+                (0, _cookieManager.createCookie)('JLR_DxPopupShown_' + this.cookieID, true, '1825');
+              } else if (this.retentionPeriod == 0) {
+                (0, _cookieManager.createCookie)('JLR_DxPopupShown_' + this.cookieID, true, '');
+              } else {
+                (0, _cookieManager.createCookie)('JLR_DxPopupShown_' + this.cookieID, true, this.retentionPeriod);
+              }
             }
           }, {
             key: 'generateModalContent',
