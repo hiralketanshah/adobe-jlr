@@ -34,10 +34,14 @@
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/jlr</root></filter>
+                        
 
                         <!-- Common overlay roots -->
                         <filter><root>/apps/sling</root></filter>
                         <filter><root>/apps/cq</root></filter>
+                         <filter><root>/apps/cq/experience-fragments</root></filter>
+                         <filter><root>/apps/cq/experience-fragments/components</root></filter>
+                         <filter><root>/apps/cq/experience-fragments/components/xfpage</root></filter>
                         <filter><root>/apps/dam</root></filter>
                         <filter><root>/apps/wcm</root></filter>
                         <filter><root>/apps/msm</root></filter>
