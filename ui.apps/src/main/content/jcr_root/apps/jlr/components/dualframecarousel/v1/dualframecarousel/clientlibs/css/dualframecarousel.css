@@ -1332,4 +1332,11 @@ order:1;
   width: 10px;
 }
 /* COMMON */
-    
+.cmp-dualframe-carousel .videoCustom:after{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
