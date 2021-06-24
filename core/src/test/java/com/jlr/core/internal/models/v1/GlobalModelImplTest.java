@@ -74,7 +74,13 @@ class GlobalModelImplTest {
     void testImageProperties() {
         assertEquals("/content/dam/test.png", globalModel.getLogoImage());
         assertEquals("/content/dam/test.png", globalModel.getFileReference());
-        assertEquals("test_imageAlt", globalModel.getImageAlt());
+        try (MockedStatic<AltTextUtils> mock = Mockito.mockStatic(AltTextUtils.class)) {
+            mock.when(() -> {
+                AltTextUtils.getAltTextFromDAM(Mockito.any(String.class), Mockito.any(ResourceResolver.class));
+            }).thenReturn("test_imageAlt");
+ 
+            assertEquals("test_imageAlt", globalModel.getImageAlt());
+        }
         assertEquals("/content/jlr/au", globalModel.getImageLink());
     }
 
