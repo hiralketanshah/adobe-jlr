@@ -1,0 +1,16 @@
+{
+  "folderPath": "/content/dam/landrover",
+  "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"/content/jlr/au",
+      "text":"test_cta_text",
+      "linkType":"primary",
+      "icon":"test_icon",
+      "ariaLabel":"test_aria_label"
+    }
+  },
+  "jcr:primaryType": "nt:unstructured"
+}
