@@ -395,4 +395,14 @@ public class CommonConstants {
      * The constant EMBARGO_LIFT_DATE.
      */
     public static final String EMBARGO_LIFT_DATE = "embargoLiftDate";
+
+    /**
+     * The constant LOCALE_AU.
+     */
+    public static final String LOCALE_AU = "en_AU";
+
+    /**
+     * The constant LOCALE_AU.
+     */
+    public static final String LOCALE_DE = "de_DE";
 }
