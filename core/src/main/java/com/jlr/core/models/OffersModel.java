@@ -2,7 +2,9 @@ package com.jlr.core.models;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
+
 import com.jlr.core.pojos.CTAPojo;
 
 /**
@@ -44,15 +46,6 @@ public interface OffersModel {
      */
     default List<OffersList> getOfferList() {
         return new ArrayList<>();
-    }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    default String getPriceConfigValue() {
-        return StringUtils.EMPTY;
     }
 
 }

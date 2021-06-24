@@ -55,6 +55,9 @@ public class ErrorUtilsConstants {
     /** The Constant AEM_CRYPTO_EXCEPTION. */
     public static final String AEM_CRYPTO_EXCEPTION = "013 - AEM_CRYPTO_EXCEPTION";
 
+    /** The Constant AEM_INTERRUPTED_EXCEPTION. */
+    public static final String AEM_INTERRUPTED_EXCEPTION = "014 - AEM_INTERRUPTED_EXCEPTION";
+
     /** Type. */
     public static final String TECHNICAL = "Technical";
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2021-06-20T10:17:36.881+05:30"
+        cq:lastModifiedBy="admin"
+        cq:name="flush"
+        cq:template="/libs/cq/replication/templates/agent"
+        jcr:description="Example agent that is triggered on modification and sends flush requests to the Akamai."
+        jcr:lastModified="{Date}2021-06-20T10:17:36.879+05:30"
+        jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[cq:ReplicationStatus]"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Akamai Cache Flush"
+        sling:resourceType="cq/replication/components/agent"
+        enabled="true"
+        logLevel="error"
+        noVersioning="true"
+        protocolHTTPHeaders="[CQ-Action:{action},CQ-Handle:{path},CQ-Path: {path},Path: {path}]"
+        protocolHTTPMethod="GET"
+        retryDelay="60000"
+        serializationType="flush"
+        transportPassword="\{7680edd772909cbc8dfcd1add7fc73829398a8394abf35b09163ceb5394464c3}"
+        transportUri="http://localhost:4504/content/misc/akamai"
+        triggerReceive="true"
+        triggerSpecific="true"
+        userId="admin"/>
+</jcr:root>

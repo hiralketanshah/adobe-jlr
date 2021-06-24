@@ -1467,6 +1467,25 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     width: calc(60% - 120px);
     padding-right: 28px;
   }
+  /* bug fix for KESTREL-967 start*/
+  .headingWrapper.fontH2 p{
+    font-size: 30px;
+    line-height: 30px;
+    letter-spacing: 1.5px;
+}
+/* bug fix for KESTREL-967 end*/
+
+/* bug fix for KESTREL-968 start*/
+.linkContainer.primaryLinkContainer .primaryLinkWithStyle{
+  line-height:14px;
+}
+/* bug fix for KESTREL-968 end */
+
+/* bug fix for KESTREL-969 start */
+.linkContainer.secondaryLinkContainer .secondaryLinkWithStyle{
+  line-height: 12.5px;
+}
+/* bug fix for KESTREL-969 end*/
 }
 /* TABLET END */
 /* DESKTOP START */
@@ -1607,12 +1626,13 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   #landrover .ctaContainer a{
     margin-top: 0px !important;
   }
-  .ctaContainer .primaryLinkContainer{
+  /* commented the below css and rewritten the above css without important keyword for best practices for fixing defect 972*/
+  /* .ctaContainer .primaryLinkContainer{
     margin-top: 15px !important;
   }
   .ctaContainer .secondaryLinkContainer{
     margin-top: 15px !important;
-  }
+  } */
   /* FIXES END */
   .cmp-ContentCard .mediaOverlayVideo, video {
       height: 100% !important;
@@ -1735,3 +1755,67 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     border-bottom: 1px solid #E0E0E0;
   }
 }
+
+/* 936 fix */
+.primaryLinkContainer a.primaryLinkWithStyle span{
+    line-height: 14px;
+}
+/* 936 fix ends */
+
+/* 939 fix */
+.cmp-ContentCard .textContainer .textContainerTop h5.heading, .heading.headingH5 {
+    font-size: 18px !important;
+    line-height: 18px !important;
+}
+/* 939 fix ends */
+
+/* 941 fix */
+a.primaryLinkWithStyle[class^="icon-"]:before,
+a.primaryLinkWithStyle[class*=" icon-"]:before {
+    font-size: 18px !important;
+}
+/* 941 fix ends */
+
+/* 942 fix */
+.secondaryLinkContainer a.secondaryLinkWithStyle span{
+    line-height: 12.5px !important;
+}
+/* 942 fix ends */
+
+/* 955 fix */
+@media screen and (min-width: 1px) and (max-width: 740px){
+h5.heading, .heading.headingH5 {
+    font-size: 16px !important;
+    line-height: 16px !important;
+  }
+}
+/* 955 fix ends */
+
+/* bug fix for KESTREL-972 start*/
+.cmp-ContentBlocksContainer .ctaContainer .primaryLinkContainer,.cmp-ContentBlocksContainer .ctaContainer .secondaryLinkContainer {
+  margin-top: 23px;
+}
+ /* bug fix for KESTREL-972 end*/
+ /* 982 fix starts */
+ .GridListWrapper .items .el .price {
+   margin-bottom: 16px !important;
+ }
+ 
+ p.price.\.cmp-ContentCard__price{
+    padding-top: 9px;
+  }
+ /* 982 fix ends */
+
+ /* 980 fix start */
+ .GridListWrapper .items .el {
+   padding: 0 20px 42px;
+ }
+ /* 980 fix ends */
+
+ /*962 fix starts */
+ @media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-ContentBlocksContainer .GridListWrapper .items .el {
+     padding-bottom: 62px;
+   }
+ }
+ /*962 fix ends */

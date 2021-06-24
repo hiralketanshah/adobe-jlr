@@ -7,6 +7,13 @@
           path: ${systemUserPath}
           isSystemUser: "true"
 
+    - jlr-workflow-service:
+
+        - name: "System user for workflow service"
+          isMemberOf: administrators
+          path: ${systemUserPath}
+          isSystemUser: "true"
+
 - ace_config:
 
   - pricing-read-service:

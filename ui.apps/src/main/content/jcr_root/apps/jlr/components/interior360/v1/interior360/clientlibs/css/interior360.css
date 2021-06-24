@@ -6,8 +6,8 @@
   background-size: 15px 15px;
 }
 .Interior360__init-container-icon-backdrop {
-  top: 25%;
-  left: 45%;
+  top: 36%;
+  left: 44%;
   width: 180px;
   height: 180px;
   position: absolute;
@@ -302,7 +302,7 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .linkContainer {
     padding-top: 19px;
   }
-  .cmp-interior360 .headerClass .heading{ 
+  .cmp-interior360 .headerClass .heading p{ 
     min-height: 28px;
   }
   .cmp-interior360 .headerClass .heading p{ 
@@ -420,7 +420,8 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .linkContainer{
     margin-top: 43px !important;
   }
-  .cmp-interior360 .headerClass .heading{ 
+  .cmp-interior360 .headerClass .heading p{ 
+    min-width: 325px;
     min-height: 27px;
   }
   .cmp-interior360 .headerClass .heading p{ 
@@ -1358,7 +1359,7 @@ html.no-js .cmp-interior360 .carousel > * {
       min-height: 935px;
     }
   .Interior360__init-container-icon-backdrop {
-    top: 45%;
+    top: 40.5%;
     left: 45%;
   }
   .Interior360__init-container-caption{
@@ -1412,7 +1413,9 @@ html.no-js .cmp-interior360 .carousel > * {
     top: 23px;
   }
   .Interior360__init-container-icon-backdrop {
-    position: unset;
+    top: 36%;
+    left: 38.5%;
+    position: absolute;
   }
   .cmp-interior360 .shelfComponent{
     display: flex;
@@ -1460,7 +1463,7 @@ html.no-js .cmp-interior360 .carousel > * {
     line-height: 14px;
   }
   .cmp-interior360 .headerClass {
-    width: 520px;
+    width: 524px;
   }
 }
 @media screen and (min-width: 1280px) and (max-width: 1919px){
@@ -1511,5 +1514,23 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-top: 0px;
   }
 }
+/* KESTREL-708 */
+@media screen and (min-width: 1280px) {
+  .cmp-interior360 .headerClass .heading p{
+    min-height: 32px;
+  }
+  .cmp-interior360 .headerClass{
+    width: 25.12%;
+  }
+}
+@media screen and (max-width: 767px) {
+}
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+}
+/* KESTREL-708 */
 
 
+.Interior360__init-container-icon-backdrop {
+  position: initial;
+  margin: auto;
+}

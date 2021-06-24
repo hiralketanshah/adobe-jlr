@@ -1,0 +1,6 @@
+{
+  "headerCopy": "headerCopy",
+  "copy": "copy",
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType":"jlr/components/legacybrowser/v1/legacybrowser"
+}

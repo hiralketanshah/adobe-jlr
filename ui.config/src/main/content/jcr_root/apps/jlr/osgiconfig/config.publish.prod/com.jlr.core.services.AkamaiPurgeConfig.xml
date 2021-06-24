@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="sling:OsgiConfig"
+    accessToken="akab-h5udcp7cfy6focbx-dtbrhbhvie2dqzs4"
+    akamaiHost="akab-p2tvxj53mxlxetbw-4salip7ssme73i2k.luna.akamaiapis.net"
+    clientSecret="9owYRKw9O8DPe/80OC2MsIoGQvSZhDYMtKBLHE2to10="
+    clientToken="akab-ou6yhjmgwq3thhd4-yuu6laxyedi437mv"
+    delayPurge="30000"
+    environment="staging"
+    akamaiCacheClearGroup="administrators"
+	purgePaths = "[/content/landrover/global]"/>

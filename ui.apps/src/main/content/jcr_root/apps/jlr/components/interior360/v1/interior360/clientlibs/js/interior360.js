@@ -2080,6 +2080,7 @@ var panoId = 0;
           if(shelfComponent){
             element.querySelector('.cmp-genericItem__element-poster').style.marginBottom="0px";
             shelfComponent.style.display = "none";
+            element.style.minHeight ="auto";
           }
         }
   })

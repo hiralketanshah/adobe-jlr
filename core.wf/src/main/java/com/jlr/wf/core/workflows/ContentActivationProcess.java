@@ -15,6 +15,7 @@ import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
 import com.jlr.wf.core.constants.ErrorUtilsConstants;
 import com.jlr.wf.core.constants.WorkflowConstants;
+import com.jlr.wf.core.services.LockUnlockService;
 import com.jlr.wf.core.utils.ErrorUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.sling.api.resource.*;
@@ -52,6 +53,8 @@ public class ContentActivationProcess implements WorkflowProcess {
     private ResourceResolverFactory resolverFactory;
     @Reference
     private InboxNotificationSender inboxNotificationSender;
+    @Reference
+    private LockUnlockService lockUnlockService;
 
     @Override
     public void execute(final WorkItem workItem, final WorkflowSession workflowSession,
@@ -72,19 +75,19 @@ public class ContentActivationProcess implements WorkflowProcess {
                         replicateRelatedAssets(workflowSession, resourceResolver, page);
                     }
                     if (ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
+                        if(page != null) {
+                            lockUnlockService.lockUnlockPage(page.getPath(), UNLOCK);
+                        }
                         replicator.replicate(resourceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, contentPath);
                     } else if (ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)) {
                         scheduleActivationLater(workflowSession, contentPath, valueMap);
+                    } else {
+                        if(page != null) {
+                            lockUnlockService.lockUnlockPage(page.getPath(), UNLOCK);
+                        }
                     }
                 } else {
-
                     notifyInitiatorOfRejection(workItem, resourceResolver, inboxNotificationSender);
-                    if(page != null) {
-                        removeMetadata(page, resourceResolver);
-                    } else {
-                        removeProperties(resource.getChild(JCR_CONTENT));
-                    }
-                    saveChanges(resourceResolver);
                 }
             }
 

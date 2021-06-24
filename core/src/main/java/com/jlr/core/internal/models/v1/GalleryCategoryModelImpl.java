@@ -1,7 +1,5 @@
 package com.jlr.core.internal.models.v1;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -9,8 +7,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -29,7 +25,7 @@ import com.jlr.core.utils.LinkUtils;
 /**
  * The Class GalleryCategoryModelImpl.
  */
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {
+@Model(adaptables = Resource.class, adapters = {
         GalleryCategoryModel.class }, resourceType = GalleryCategoryModelImpl.RESOURCE_TYPE)
 public class GalleryCategoryModelImpl extends GlobalModelImpl implements GalleryCategoryModel {
 
@@ -37,10 +33,6 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
      * The Constant RESOURCE_TYPE.
      */
     public static final String RESOURCE_TYPE = "jlr/components/gallery/v1/gallerycategories";
-
-    /** The request. */
-    @Inject
-    private SlingHttpServletRequest request;
 
     /** The resource resolver. */
     @Inject
@@ -63,44 +55,26 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
     public void init() {
         if (null != categoryList && categoryList.hasChildren()) {
             Iterator<Resource> childResources = categoryList.listChildren();
-            if (childResources.hasNext()) {
+            while (childResources.hasNext()) {
                 Resource child = childResources.next();
-                Iterator<Resource> galleryCategoryChildResources = child.listChildren();
-                while (galleryCategoryChildResources.hasNext()) {
-                    Resource galleryCategoryChild = galleryCategoryChildResources.next();
-                    ValueMap properties = galleryCategoryChild.adaptTo(ValueMap.class);
-                    String categoryPath = properties.get(CommonConstants.PN_CTA_LINK, String.class);
-                    int count = (null != categoryPath) ? getCount(categoryPath) : 0;
-                    if (null != properties) {
-                        listOfCategoryItems
-                                .add(new GalleryCategory(properties.get(CommonConstants.PN_BG_IMAGE, String.class),
-                                        properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
-                                        properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
-                                        LinkUtils.appendLinkExtension(categoryPath, resourceResolver),
-                                        properties.get(CommonConstants.PN_CATEGORY_NAME, String.class), count));
-                    }
-
+                ValueMap properties = child.adaptTo(ValueMap.class);
+                String categoryPath = properties.get(CommonConstants.PN_CTA_LINK, String.class);
+                int count = (null != categoryPath) ? getCount(categoryPath) : 0;
+                if (null != properties) {
+                    listOfCategoryItems
+                            .add(new GalleryCategory(properties.get(CommonConstants.PN_BG_IMAGE, String.class),
+                                    properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
+                                    properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
+                                    LinkUtils.appendLinkExtension(categoryPath, resourceResolver),
+                                    properties.get(CommonConstants.PN_CATEGORY_NAME, String.class), count));
                 }
+
             }
         }
     }
 
     @Override
     public String getExitPageLink() {
-        String referer = request.getHeader("referer");
-        if(StringUtils.isNotEmpty(referer)) {
-            String refererDomain = "";
-            try {
-                URL url = new URL(referer);
-                refererDomain = url.getHost();
-            } catch(MalformedURLException muex) {
-                refererDomain = "";
-            }
-            String domain = request.getServerName();
-            if(refererDomain.equals(domain)) {
-                return referer;
-            }
-        }
         return LinkUtils.appendLinkExtension(exitPageLink, resourceResolver);
     }
 

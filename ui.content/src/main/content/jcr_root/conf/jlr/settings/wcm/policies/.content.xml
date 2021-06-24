@@ -643,7 +643,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <table jcr:primaryType="nt:unstructured">
                         <policy_1617608375376
-                            cq:styleDefaultClasses="cmp-table--white white"
+                            cq:styleDefaultClasses="cmp-table--white white cmp-table--padSpace28"
                             jcr:lastModified="{Date}2021-04-05T13:12:52.493+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
@@ -1160,6 +1160,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <tabbedcontainer jcr:primaryType="nt:unstructured">
                         <policy_1620031717860
+                                cq:styleDefaultClasses="white"
                                 jcr:lastModified="{Date}2021-06-14T15:40:14.614+05:30"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
@@ -1450,7 +1451,44 @@
                         </policy_1621876679634>
                     </cardcontainer>
                 </v1>
-            </derivative>            
+            </derivative>
+            <sitenotification jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <sitenotification jcr:primaryType="nt:unstructured">
+                        <policy_1623840580238
+                            jcr:lastModified="{Date}2021-06-16T16:28:31.762+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Site Notification"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1623840584699"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1623840596946"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1623840598968"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1623840580238>
+                    </sitenotification>
+                </v1>
+            </sitenotification>            
         </components>
     </jlr>
     <rep:policy/>

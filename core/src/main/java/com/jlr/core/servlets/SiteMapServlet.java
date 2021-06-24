@@ -105,6 +105,8 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
     private static final String DEFAULT_PN_SEO_PRIORITY = "seoPriority";
     private static final String DEFAULT_PN_HIDE_IN_NAV = "hideInNav";
 
+    private static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
+    private static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
 
     /** The Constant NS. */
     private static final String NS = "http://www.sitemaps.org/schemas/sitemap/0.9";
@@ -396,21 +398,27 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         Page currentPage = Optional.ofNullable(request.getResourceResolver().adaptTo(PageManager.class)).map(pm -> pm.getContainingPage(request.getResource()))
                         .orElse(null);
 
-        if (currentPage.getPath().contains("au")) {
-            externalizerDomain = CommonConstants.AU_EXTERNALIZER_DOMAIN;
-        } else if (currentPage.getPath().contains("de")) {
-            externalizerDomain = CommonConstants.DE_EXTERNALIZER_DOMAIN;
-        } else {
-            externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
-        }
-        if (StringUtils.isNotBlank(externalizerDomain)) {
-            return externalizer.externalLink(request.getResourceResolver(), externalizerDomain, path);
-        } else {
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("No externalizer domain configured, take into account current host header {} and current scheme {}", request.getServerName(),
-                                request.getScheme());
+        if (null != currentPage) {
+            if (currentPage.getPath().contains("au")) {
+                externalizerDomain = CommonConstants.AU_EXTERNALIZER_DOMAIN;
+            } else if (currentPage.getPath().contains("de")) {
+                externalizerDomain = CommonConstants.DE_EXTERNALIZER_DOMAIN;
+            } else {
+                externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
             }
-            return externalizer.absoluteLink(request, request.getScheme(), path);
+            if (StringUtils.isNotBlank(externalizerDomain)) {
+                path = path.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
+                path = path.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
+                return externalizer.externalLink(request.getResourceResolver(), externalizerDomain, path);
+            } else {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("No externalizer domain configured, take into account current host header {} and current scheme {}", request.getServerName(),
+                                    request.getScheme());
+                }
+                return externalizer.absoluteLink(request, request.getScheme(), path);
+            }
+        } else {
+            return StringUtils.EMPTY;
         }
     }
 

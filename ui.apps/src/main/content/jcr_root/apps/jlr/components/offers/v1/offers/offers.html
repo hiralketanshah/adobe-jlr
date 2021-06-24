@@ -36,7 +36,10 @@
                 </div>
                 <sly data-sly-test="${model.price}">
                     <div class="offerPrice">
-                        <p class="Offers__price heading price">${model.priceConfigValue} ${model.price}</p>
+                        <p class="Offers__price heading price">
+							<sly data-sly-test="${model.isStaticPrice}"> ${model.priceConfigValue} ${model.price} </sly>
+							<sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
+						</p>
                     </div>
                 </sly>
                 <div class="offerBody">
@@ -127,6 +130,7 @@
                                     ${offers.offerOverlaySummary @context='html'}
                                 </div>
                             </div>
+                        </div>
                     </sly>
                 </sly>
             </div>
@@ -136,3 +140,4 @@
    
 
     <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
+</div>

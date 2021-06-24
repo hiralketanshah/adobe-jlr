@@ -1,11 +1,8 @@
 package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.lenient;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
@@ -53,20 +50,9 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     @BeforeEach
     public void setup(AemContext context) {
         MockitoAnnotations.initMocks(this);
-        context.registerService(TcoService.class, tcoService);
-        context.registerService(InheritanceValueMap.class, pageProperties);
-        context.registerService(Page.class, currentPage);
-
-        Map<String, String> priceMap = new HashMap<>();
-        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage,
-                pageProperties, "12345", "test")).thenReturn(priceMap);
-
-        context.request().setAttribute("key", "test");
-        context.addModelsForClasses(HeroItemModelImpl.class);
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
-        context.currentResource(resource);
-        heroItemModel = context.request().adaptTo(HeroItemModelImpl.class);
+        heroItemModel = resource.adaptTo(HeroItemModelImpl.class);
     }
 
     /**

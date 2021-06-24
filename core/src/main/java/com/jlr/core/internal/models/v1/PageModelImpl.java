@@ -1,6 +1,7 @@
 package com.jlr.core.internal.models.v1;
 
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,9 +9,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.annotation.Nullable;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -24,6 +27,7 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
@@ -174,6 +178,10 @@ public class PageModelImpl implements PageModel {
     /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
+    
+    /** The site notification path. */
+    @HierarchicalPageProperty("siteNotificationPath")
+    private String siteNotificationPath;
 
     /**
      * Post construct .
@@ -355,8 +363,8 @@ public class PageModelImpl implements PageModel {
     }
 
     /**
-     * Gets the locale
-     * 
+     * Gets the locale.
+     *
      * @return the locale
      */
     @Override
@@ -431,6 +439,15 @@ public class PageModelImpl implements PageModel {
      */
     public String getCookieNotificationPath() {
         return cookieNotificationPath;
+    }
+    
+    /**
+     * Gets the site notification path.
+     *
+     * @return the site notification path
+     */
+    public String getSiteNotificationPath() {
+        return siteNotificationPath;
     }
 
     /**
