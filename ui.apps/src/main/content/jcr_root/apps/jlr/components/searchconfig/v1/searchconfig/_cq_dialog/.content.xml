@@ -37,7 +37,8 @@
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                                     fieldDescription="Add paths to be excluded from search"
                                                     fieldLabel="Paths to exclude"
-                                                    name="./pathsToExclude"/>
+                                                    name="./pathsToExclude"
+                                                    rootPath="/content/landrover/global"/>
                                                 <excludeChildPages
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
@@ -81,7 +82,8 @@
                                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
                                                         fieldDescription="Add priority paths to populate on the top of the search"
                                                         fieldLabel="Priority Paths"
-                                                        name="./priorityPaths"/>
+                                                        name="./priorityPaths"
+                                                        rootPath="/content/landrover/global"/>
                                                 <priority
                                                         jcr:primaryType="nt:unstructured"
                                                         sling:resourceType="granite/ui/components/coral/foundation/form/select"

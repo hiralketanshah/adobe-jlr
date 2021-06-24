@@ -39,7 +39,8 @@ public class FullSearchServlet extends SlingSafeMethodsServlet {
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
 
         String searchTerm = request.getParameter("query");
-        String resultJson = searchService.getFullJson(searchTerm, request.getResourceResolver());
+        String locale = request.getParameter("locale");
+        String resultJson = searchService.getFullJson(searchTerm, locale, request.getResourceResolver());
 
         response.setContentType(APPLICATION_JSON);
         response.setCharacterEncoding(CharEncoding.UTF_8);

@@ -86,6 +86,7 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
         HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
         ParameterHttpRequest parameterHttpRequest = new ParameterHttpRequest(req);
         parameterHttpRequest.addParameter("query",request.getParameter("query"));
+        parameterHttpRequest.addParameter("locale",request.getParameter("locale"));
         WCMMode.DISABLED.toRequest(req);
 
         /* Setup response */
