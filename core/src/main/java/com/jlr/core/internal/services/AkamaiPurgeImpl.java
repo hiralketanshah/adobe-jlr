@@ -166,7 +166,7 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
                         LOGGER.trace("Akamai Cache clear enabled!");
                         akamaiResponse = akamaiRequest.execute();
                     }
-                } catch (Exception e) {
+                } catch (IOException e) {
                     LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
                                     ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
                 }
@@ -200,16 +200,11 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
     /*
      * Input HttpResponse of Akamai Response Output: Status response or error message
      */
-    private String akamaiResponseCheck(HttpResponse akamaiResponse) {
+    private String akamaiResponseCheck(HttpResponse akamaiResponse) throws IOException {
 
         String purgeResponse = "";
         if (akamaiResponse != null) {
-            try {
-                purgeResponse = "Akamai Response Code " + akamaiResponse.getStatusCode();
-            } catch (Exception e) {
-                purgeResponse = "Exception while calling akamai response code return null";
-                LOGGER.error("Exception while getting akamaiResponse Status Code{}", e.getMessage());
-            }
+            purgeResponse = "Akamai Response Code " + akamaiResponse.getStatusCode();
         }
         return purgeResponse;
     }
