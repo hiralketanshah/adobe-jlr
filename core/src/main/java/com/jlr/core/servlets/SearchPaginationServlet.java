@@ -47,18 +47,17 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
     private static final String APPLICATION_JSON = "application/json";
 
     @Reference
-    private RequestResponseFactory requestResponseFactory;
+    private transient RequestResponseFactory requestResponseFactory;
 
     @Reference
-    private SlingRequestProcessor requestProcessor;
+    private transient SlingRequestProcessor requestProcessor;
 
     @Reference
-    private SearchService searchService;
+    private transient SearchService searchService;
 
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
 
-        String searchTerm = request.getParameter("query");
         String locale = request.getParameter("locale");
         String pageNumber = request.getParameter("page");
 
