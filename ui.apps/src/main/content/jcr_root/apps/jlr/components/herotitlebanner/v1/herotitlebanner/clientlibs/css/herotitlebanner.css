@@ -454,7 +454,7 @@ label {
 	bottom: 30%;
 }
 .cmp-heroTitleBanner .emissionDetails label,
-p {
+.cmp-heroTitleBanner .emissionDetails p {
 	padding-left: 28px;
 }
 .cmp-heroTitleBanner {
@@ -500,7 +500,7 @@ p {
 .summaryItemImage.cmp-heroTitleBanner__image{
 	padding-bottom: 56.3%;
 }
-.cmp-heroTitleBanner .emissionDetails p, label{
+.cmp-heroTitleBanner .emissionDetails p, .cmp-heroTitleBanner .emissionDetails label{
 	padding-left: 28px;
 }
 .cmp-heroTitleBanner .linkContainer{
