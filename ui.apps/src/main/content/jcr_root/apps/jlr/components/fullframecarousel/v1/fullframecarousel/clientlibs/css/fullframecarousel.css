@@ -1076,6 +1076,7 @@ left: 50px;
 @media screen and (min-width: 900px) and (max-width: 1919px){
   .cmp-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:50px;
+    margin-right:50px;
     position: relative;
     min-width: 1160px;
     max-width: 1280px;
