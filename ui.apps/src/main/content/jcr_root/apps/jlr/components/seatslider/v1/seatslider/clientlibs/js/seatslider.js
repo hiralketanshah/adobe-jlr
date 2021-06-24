@@ -816,21 +816,7 @@
                       top: topCalculation
                       });
                    }
-                  
-                   //console.log(parseInt(contentheightmaxmob));
-
-                    //var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
-
-                     //console.log(maxheightcontentmobile);
-                    
-                  //   $('.frameSliderItem').css({ height: maxheightcontentmobile});
-
-                  //    var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
-                  //   $('.infoContainer', this.$element).css({
-                  //   top: topCalculation
-                  //  });
-
-                   
+                 
                   }
 
                   
@@ -865,7 +851,6 @@
                     sliderWith += mm * 22
 
                   }
-                  //sliderWith += mm * 22;
     
                   sliderFlexWidth = sliderWith;
     
