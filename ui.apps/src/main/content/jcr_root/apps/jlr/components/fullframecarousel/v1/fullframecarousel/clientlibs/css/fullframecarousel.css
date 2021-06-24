@@ -1074,7 +1074,28 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
-  .swiper-button{position:fixed;}
+  .cmp-carousel .carousel .cmp-genericItem__element-poster{
+    margin-left:50px;
+    position: relative;
+    min-width: 1160px;
+    max-width: 1280px;
+    height: 653px;
+  }  
+  .cmp-fullframe .shelfComponent{padding:28px 0 0 50px;}
+  .cmp-fullframe-carousel .cmp-carousel__controls{margin-left:-15px;}
+  .cmp-fullframe-carousel.cmp-carousel{margin-left:0;margin-right:0;}
+  .cmp-fullframe-carousel .swiper-button--next, .cmp-fullframe-carousel .swiper-button--prev {
+      position: absolute;
+      margin-top: 0;
+      top: 330px;
+  }
+  .cmp-fullframe-carousel .swiper-button--prev {
+      left: 10px;
+  }
+  .cmp-fullframe-carousel .swiper-button--next {
+      right: 10px;
+  }
+.swiper-button{position:fixed;}
 .cmp-fullframe .contentClass{
   float: left;
   width: 560px;
