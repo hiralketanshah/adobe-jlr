@@ -1130,7 +1130,11 @@ left: 50px;
 .cmp-fullframe_pagination .Pagination__play-control-icon{fill:#000;}
 .cmp-fullframe_pagination .Pagination__pause:before{border: 2px solid #000;}
 .cmp-fullframe .shelfComponent{margin-top:50px; padding:25px 25px 40px 25px;}
-
+.slateblue .cmp-fullframe_pagination .Pagination__play:before{border: 2px solid #fff;}
+.slateblue .cmp-fullframe_pagination .Pagination__play-control-icon{fill:#fff;}
+.slateblue .cmp-fullframe_pagination .Pagination__pause:before{border: 2px solid #fff;}
+.slateblue .Pagination__pause-control-icon, .slateblue .cmp-fullframe .Pagination__play-control-icon{fill:#fff;}
+.slateblue .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:after{border: 2px solid #fff;}
 }
 
 .cmp-fullframe .linkContainer{margin-top:0}
