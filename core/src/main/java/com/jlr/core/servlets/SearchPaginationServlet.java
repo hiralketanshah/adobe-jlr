@@ -62,7 +62,7 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
             return;
         }
 
-        ByteArrayOutputStream out = getFullJson(request, "/content/request/fullsearch.html", request.getResourceResolver());
+        ByteArrayOutputStream out = getFullJson(request, "/content/misc/fullsearch.html", request.getResourceResolver());
         String resultJson = out.toString();
 
         GsonBuilder gsonBuilder = new GsonBuilder();

@@ -1,0 +1,32 @@
+{
+  "offersHeaderCopy": "test_header_copy",
+  "offersImageFileReference": "test_image_reference",
+  "price": "1234",
+  "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_self",
+      "link":"/content/jlr/au",
+      "text":"test_cta_text",
+      "linkType":"primary",
+      "icon":"test_icon",
+      "ariaLabel":"test_aria_label"
+    }
+  },
+  "offerList": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "offerCopy": "test_offerCopy",
+      "offerPrefix": "test_offerPrefix",
+      "offerValue": "test_offerValue",
+      "offerSuffix": "test_offerSuffix",
+      "offerLabel": "test_offerLabel",
+      "offerDetailsButton": "test_offerDetailsButton",
+      "offerOverlayHeader": "test_offerOverlayHeader",
+      "offerOverlaySummary": "test_offerOverlaySummary"
+    }
+  },
+  "jcr:primaryType": "nt:unstructured"
+}
