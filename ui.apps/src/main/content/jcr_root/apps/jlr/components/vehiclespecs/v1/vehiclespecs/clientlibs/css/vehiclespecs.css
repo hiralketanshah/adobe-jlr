@@ -757,6 +757,9 @@ h2.heading,
   .stack [data-items="3"] .RulesEngineDropdown__dropdown {
     min-width: 100%;
   }
+  .VehicleSpecsRulesEngine__specs-title {
+    margin-bottom: 23px;
+}
 }
 @media screen and (min-width: 1920px){
   .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-engine{
