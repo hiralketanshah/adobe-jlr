@@ -774,15 +774,61 @@
                     top: 0
                    });
                   } 
-                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+
+
+                  if(window.innerWidth >= 601  && window.innerWidth <= 900){
+                    var maxheightcontentab = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
+                     $('.frameSliderItem').css({ height: maxheightcontentab});
+
+                     var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
+                    
+                    $('.infoContainer', this.$element).css({
+                    top: topCalculation 
+                   });
+
+                   
+                  }
+                  if(window.innerWidth >= 1  && window.innerWidth <= 600){
+                   
+                   if(parseInt(contentheight)<313){
+                     console.log(parseInt(contentheight));
+                     parseInt(contentheight)
+                     var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+372;
+                     $('.frameSliderItem').css({ height: maxheightcontentmobile});
+                     var topCalculation = maxheightcontentmobile - $(this.$arrangementInformationContainer).outerHeight();
+                     console.log(topCalculation);
+                     $('.infoContainer', this.$element).css({
+                      top: topCalculation -344
+                      });
+                   }
+                   else
+                   {
+                   
                     var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
-                  
+                    console.log("maxheightcontentmobile",maxheightcontentmobile);
                     $('.frameSliderItem').css({ height: maxheightcontentmobile});
 
                      var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
-                    $('.infoContainer', this.$element).css({
-                    top: topCalculation
-                   });
+
+                     console.log($('.frameSliderItem').height());
+                     console.log($(this.$arrangementInformationContainer).outerHeight());
+                     $('.infoContainer', this.$element).css({
+                      top: topCalculation
+                      });
+                   }
+                  
+                   //console.log(parseInt(contentheightmaxmob));
+
+                    //var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
+
+                     //console.log(maxheightcontentmobile);
+                    
+                  //   $('.frameSliderItem').css({ height: maxheightcontentmobile});
+
+                  //    var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
+                  //   $('.infoContainer', this.$element).css({
+                  //   top: topCalculation
+                  //  });
 
                    
                   }
@@ -808,9 +854,18 @@
     
                   }
                   let mm = (len * 2) - 2;
-    
-                  sliderWith += mm * 22;
-    
+                  
+                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                    
+                    sliderWith += mm * 16
+
+                  }
+                  else{
+                    
+                    sliderWith += mm * 22
+
+                  }
+                  //sliderWith += mm * 22;
     
                   sliderFlexWidth = sliderWith;
     
@@ -867,6 +922,12 @@
                   };
                   cti.one('click', onCtiClick);
                   ctiupper.one('click', onCtiClick);
+                  ctiupper.on('keypress', function (evt) {
+                    if (evt.which === _aria.KeyCode.RETURN || evt.which === _aria.KeyCode.SPACE) {
+                      evt.preventDefault();
+                      onCtiClick();
+                    }
+                  });
 
                   cti.on('keypress', function (evt) {
                     if (evt.which === _aria.KeyCode.RETURN || evt.which === _aria.KeyCode.SPACE) {
@@ -879,11 +940,11 @@
                   var dragControl = this.activeframeSliderItem.dragControl;
     
     
-                  if (site.rtl) {
-                    dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([1, 1]), false);
-                  } else {
-                    dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([0, 1]), false);
-                  }
+                  // if (site.rtl) {
+                  //   dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([1, 1]), false);
+                  // } else {
+                  //   dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([0, 1]), false);
+                  // }
                 },
                 _loadingOverlay: function _loadingOverlay() {
                   // Overlay
@@ -952,9 +1013,9 @@
                     _this4.activeframeSliderItem.dragControl.enable();
                   }, 1500);
                 },
-                init_rtl: function init_rtl() {
-                  this._frameSliderItemDefaults.frameState.direction = 'backward';
-                },
+                // init_rtl: function init_rtl() {
+                //   this._frameSliderItemDefaults.frameState.direction = 'backward';
+                // },
                 _initframeSliderItem: function _initframeSliderItem($element) {
                   this.activeframeSliderItem = false;
     
@@ -1120,11 +1181,21 @@
                   let len = this.$sliderContainerUpper[0].children.length;
                   let sliderWith = 0;
                   let sliderBtn = [];
+                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                    for (var i = 0; i < len; i++) {
+                      sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
+                      let ss = (sliderWith + ((i + 1) * 34) - 17) - 52;
+                      sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 16)) / sliderWidth)}`));
+                    }
+
+                  }
+                  else{
                   for (var i = 0; i < len; i++) {
                     sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
                     let ss = (sliderWith + ((i + 1) * 44) - 22) - 60;
                     sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 22)) / sliderWidth)}`));
                   }
+                }
                   sliderBtn[0] = 0;
                   sliderBtn[sliderBtn.length - 1] = 0.90;
                   if (sliderBtn.length == 3) {
