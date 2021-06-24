@@ -255,7 +255,7 @@ public class GlobalModelImpl implements GlobalModel {
 				altDAMText = imageAlt;
 			} else if (imageAlt != null && imageAlt.isEmpty() && altTextFromDAM == false) {
 				altDAMText = StringUtils.EMPTY;
-			} else if (altTextFromDAM == true) {
+			} else if (altTextFromDAM != null && altTextFromDAM == true) {
 				altDAMText = damAltText;
 			}
 		}
