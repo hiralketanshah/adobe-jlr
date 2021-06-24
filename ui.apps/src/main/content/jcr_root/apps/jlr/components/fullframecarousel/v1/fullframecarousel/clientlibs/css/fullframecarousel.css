@@ -795,7 +795,7 @@ min-width: 360px;
 }
 /* WIDESCREEN */
 @media screen and (min-width: 1920px){
-  .cmp-carousel .carousel .cmp-genericItem__element-poster {
+  .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster {
       position: relative;
       min-width: 1660px;
       max-width:2000px;
@@ -1074,7 +1074,29 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
-  .swiper-button{position:fixed;}
+  .cmp-carousel .carousel .cmp-genericItem__element-poster{
+    margin-left:50px;
+    margin-right:50px;
+    position: relative;
+    min-width: 1160px;
+    max-width: 1280px;
+    height: 653px;
+  }  
+  .cmp-fullframe .shelfComponent{padding:28px 0 0 50px;}
+  .cmp-fullframe-carousel .cmp-carousel__controls{margin-left:-15px;}
+  .cmp-fullframe-carousel.cmp-carousel{margin-left:0;margin-right:0;}
+  .cmp-fullframe-carousel .swiper-button--next, .cmp-fullframe-carousel .swiper-button--prev {
+      position: absolute;
+      margin-top: 0;
+      top: 330px;
+  }
+  .cmp-fullframe-carousel .swiper-button--prev {
+      left: 10px;
+  }
+  .cmp-fullframe-carousel .swiper-button--next {
+      right: 10px;
+  }
+.swiper-button{position:fixed;}
 .cmp-fullframe .contentClass{
   float: left;
   width: 560px;
@@ -1130,9 +1152,23 @@ left: 50px;
 .cmp-fullframe_pagination .Pagination__play-control-icon{fill:#000;}
 .cmp-fullframe_pagination .Pagination__pause:before{border: 2px solid #000;}
 .cmp-fullframe .shelfComponent{margin-top:50px; padding:25px 25px 40px 25px;}
-
+.slateblue .cmp-fullframe_pagination .Pagination__play:before{border: 2px solid #fff;}
+.slateblue .cmp-fullframe_pagination .Pagination__play-control-icon{fill:#fff;}
+.slateblue .cmp-fullframe_pagination .Pagination__pause:before{border: 2px solid #fff;}
+.slateblue .Pagination__pause-control-icon, .slateblue .cmp-fullframe .Pagination__play-control-icon{fill:#fff;}
+.slateblue .cmp-fullframe-carousel .cmp-carousel__controls .Pagination__pip:after{border: 2px solid #fff;}
 }
 
 .cmp-fullframe .linkContainer{margin-top:0}
 
 /*---------Full Frame UI ------------*/
+
+/* COMMON FOR ALL */
+.videoCustom:after,.cmp-carousel.cmp-fullframe-carousel .videoCustom:after{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+}

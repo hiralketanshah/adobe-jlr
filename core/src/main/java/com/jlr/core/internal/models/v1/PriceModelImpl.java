@@ -6,10 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.StringJoiner;
-
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -17,7 +15,6 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
@@ -30,8 +27,7 @@ import com.jlr.core.utils.CommonUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
-        PriceModel.class }, resourceType = PriceModelImpl.RESOURCE_TYPE)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {PriceModel.class}, resourceType = PriceModelImpl.RESOURCE_TYPE)
 public class PriceModelImpl implements PriceModel {
 
     /** The Constant RESOURCE_TYPE. */
@@ -61,7 +57,7 @@ public class PriceModelImpl implements PriceModel {
 
     @PostConstruct
     public void init() {
-        String[] test = request.getRequestPathInfo().getSelectors();
+
         List<String> selectors = Arrays.asList(request.getRequestPathInfo().getSelectors());
         if (!selectors.isEmpty()) {
             StringJoiner joiner = new StringJoiner(".");
@@ -70,8 +66,7 @@ public class PriceModelImpl implements PriceModel {
         }
         String resourceType = getResourceType();
         setIfHeroOrDerivative(resourceType);
-        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
-                pageProperties, price, getKey(resourceType));
+        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage, pageProperties, price, getKey(resourceType));
         modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
             priceConfigValue = entry.getKey();
             price = entry.getValue();
@@ -82,8 +77,8 @@ public class PriceModelImpl implements PriceModel {
         if (StringUtils.isNotBlank(resourceType)) {
             Map<String, String> map = CommonUtils.getMapOfFomCopy();
             for (String key : map.keySet()) {
-                if (resourceType.contains(key) && (key.equalsIgnoreCase("heroitem")
-                        || key.equalsIgnoreCase("herotitlebanner") || key.equalsIgnoreCase("derivative"))) {
+                if (resourceType.contains(key)
+                                && (key.equalsIgnoreCase("heroitem") || key.equalsIgnoreCase("herotitlebanner") || key.equalsIgnoreCase("derivative"))) {
                     isHeroOrDerivative = true;
                 }
             }
@@ -125,8 +120,7 @@ public class PriceModelImpl implements PriceModel {
         String key = StringUtils.EMPTY;
         if (StringUtils.isNotBlank(resourceType)) {
             Map<String, String> map = CommonUtils.getMapOfFomCopy();
-            Optional<String> firstKey = map.entrySet().stream().filter(entry -> resourceType.contains(entry.getKey()))
-                    .map(Map.Entry::getValue).findFirst();
+            Optional<String> firstKey = map.entrySet().stream().filter(entry -> resourceType.contains(entry.getKey())).map(Map.Entry::getValue).findFirst();
             if (firstKey.isPresent()) {
                 key = firstKey.get();
             }

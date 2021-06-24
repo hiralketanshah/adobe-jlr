@@ -1,13 +1,13 @@
 package com.jlr.core.servlets;
 
-import com.day.cq.contentsync.handler.util.RequestResponseFactory;
-import com.day.cq.wcm.api.WCMMode;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.pojos.SearchPojo;
-import com.jlr.core.services.SearchService;
-import com.jlr.core.utils.ErrorUtils;
+import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.lang.CharEncoding;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
@@ -22,22 +22,17 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.day.cq.contentsync.handler.util.RequestResponseFactory;
+import com.day.cq.wcm.api.WCMMode;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.pojos.SearchPojo;
+import com.jlr.core.services.SearchService;
+import com.jlr.core.utils.ErrorUtils;
 
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-
-import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
-
-@Component(service = Servlet.class,
-property = { Constants.SERVICE_DESCRIPTION + "= JLR Fulltext Search",
-        "sling.servlet.methods=" + HttpConstants.METHOD_GET,
-        "sling.servlet.extensions="+ SearchPaginationServlet.EXTENSION_HTML,
-        "sling.servlet.resourceTypes=" + SearchPaginationServlet.RESOURCE_TYPES })
+@Component(service = Servlet.class, property = {Constants.SERVICE_DESCRIPTION + "= JLR Fulltext Search", "sling.servlet.methods=" + HttpConstants.METHOD_GET,
+                "sling.servlet.extensions=" + SearchPaginationServlet.EXTENSION_HTML, "sling.servlet.resourceTypes=" + SearchPaginationServlet.RESOURCE_TYPES})
 public class SearchPaginationServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
@@ -58,10 +53,11 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
 
+
         String locale = request.getParameter("locale");
         String pageNumber = request.getParameter("page");
 
-        if(StringUtils.isEmpty(locale)) {
+        if (StringUtils.isEmpty(locale)) {
             sendResponseStatus(response, HttpStatus.SC_NOT_FOUND, "Request parameter is not found");
             return;
         }
@@ -84,8 +80,8 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
 
         HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
         ParameterHttpRequest parameterHttpRequest = new ParameterHttpRequest(req);
-        parameterHttpRequest.addParameter("query",request.getParameter("query"));
-        parameterHttpRequest.addParameter("locale",request.getParameter("locale"));
+        parameterHttpRequest.addParameter("query", request.getParameter("query"));
+        parameterHttpRequest.addParameter("locale", request.getParameter("locale"));
         WCMMode.DISABLED.toRequest(req);
 
         /* Setup response */
@@ -97,7 +93,7 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
             requestProcessor.processRequest(parameterHttpRequest, resp, resourceResolver);
         } catch (ServletException | IOException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+                            ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
         }
         return out;
     }
@@ -112,7 +108,7 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
             printOut.flush();
         } catch (IOException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+                            ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
         }
     }
 }
