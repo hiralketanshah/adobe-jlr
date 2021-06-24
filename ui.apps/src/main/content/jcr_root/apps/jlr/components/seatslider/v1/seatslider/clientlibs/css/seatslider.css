@@ -1033,12 +1033,12 @@
 
 @media screen and (min-width:901px) and (max-width:1919px){
 	.cmp-interactiveSlider{
-		padding: 59px 60px 60px 60px;
+		padding: 59px 60px 80px 60px;
 	
 	}
 	.sliderContainer{
 		
-		padding-bottom: 24px;
+		bottom: 23px  !important;
 	}
 	.cmp-interactiveSlider:not(.old) .infoContainer .content{
 		height: 435px !important; 
@@ -1114,6 +1114,7 @@
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 99.7%;
 		height: 205px;
+		margin:0 auto;
 	}
 	
 	.cmp-interactiveSlider .frameSliderItem{
