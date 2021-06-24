@@ -1800,20 +1800,21 @@ h5.heading, .heading.headingH5 {
  .GridListWrapper .items .el .price {
    margin-bottom: 16px !important;
  }
- .heading .headingH5 .cmp-ContentCard__heading .fontH4 .ignoreIgniteIcon .ignoreLinkBeanCss .keepOriginalClasses{
-   padding-bottom: 9px !important;
- }
+ 
+ p.price.\.cmp-ContentCard__price{
+    padding-top: 9px;
+  }
  /* 982 fix ends */
 
  /* 980 fix start */
  .GridListWrapper .items .el {
-   padding: 0 20px 42px !important;
+   padding: 0 20px 42px;
  }
  /* 980 fix ends */
 
  /*962 fix starts */
  @media screen and (min-width: 768px) and (max-width: 1279px){
- .GridListWrapper .items .el {
+  .cmp-ContentBlocksContainer .GridListWrapper .items .el {
      padding-bottom: 62px;
    }
  }
