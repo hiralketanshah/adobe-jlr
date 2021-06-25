@@ -16,6 +16,7 @@ import org.slf4j.LoggerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.jlr.core.constants.CommonConstants.*;
@@ -51,6 +52,11 @@ public class ApprovalPageInfoProvider implements PageInfoProvider {
                             if(StringUtils.isNotEmpty(approvedDate)) {
                                 String formatted = dateFormat.format(parseFormat.parse(approvedDate));
                                 approvalInfoObj.put(APPROVED_DATE, formatted);
+                            }
+                            Date embargoLiftDate = valueMap.get(EMBARGO_LIFT_DATE, Date.class);
+                            if(embargoLiftDate != null) {
+                                String formatted = dateFormat.format(embargoLiftDate);
+                                approvalInfoObj.put(EMBARGO_LIFT_DATE, formatted);
                             }
                         } catch (org.json.JSONException e) {
                             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,

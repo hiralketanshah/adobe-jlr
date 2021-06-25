@@ -56,11 +56,11 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     protected static final String SELECTOR_JSON = "json";
 
     @Reference
-    private RequestResponseFactory requestResponseFactory;
+    private transient RequestResponseFactory requestResponseFactory;
 
     @Reference
-    private SlingRequestProcessor requestProcessor;
-    private NavigationServletConfig config;
+    private transient SlingRequestProcessor requestProcessor;
+    private transient NavigationServletConfig config;
 
     @Activate
     protected void activate(NavigationServletConfig config) {

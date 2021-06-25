@@ -15,6 +15,7 @@ import com.day.cq.replication.Replicator;
 import com.day.cq.wcm.api.Page;
 import com.jlr.wf.core.constants.ErrorUtilsConstants;
 import com.jlr.wf.core.constants.WorkflowConstants;
+import com.jlr.wf.core.services.LockUnlockService;
 import com.jlr.wf.core.utils.ErrorUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.sling.api.resource.*;
@@ -26,8 +27,10 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.Session;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.jlr.wf.core.constants.WorkflowConstants.*;
@@ -52,6 +55,8 @@ public class ContentActivationProcess implements WorkflowProcess {
     private ResourceResolverFactory resolverFactory;
     @Reference
     private InboxNotificationSender inboxNotificationSender;
+    @Reference
+    private LockUnlockService lockUnlockService;
 
     @Override
     public void execute(final WorkItem workItem, final WorkflowSession workflowSession,
@@ -72,19 +77,19 @@ public class ContentActivationProcess implements WorkflowProcess {
                         replicateRelatedAssets(workflowSession, resourceResolver, page);
                     }
                     if (ACTIVATE_NOW.equalsIgnoreCase(activateNowLater)) {
+                        if(page != null) {
+                            lockUnlockService.lockUnlockPage(page.getPath(), UNLOCK);
+                        }
                         replicator.replicate(resourceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE, contentPath);
                     } else if (ACTIVATE_LATER.equalsIgnoreCase(activateNowLater)) {
                         scheduleActivationLater(workflowSession, contentPath, valueMap);
+                    } else {
+                        if(page != null) {
+                            lockUnlockService.lockUnlockPage(page.getPath(), UNLOCK);
+                        }
                     }
                 } else {
-
                     notifyInitiatorOfRejection(workItem, resourceResolver, inboxNotificationSender);
-                    if(page != null) {
-                        removeMetadata(page, resourceResolver);
-                    } else {
-                        removeProperties(resource.getChild(JCR_CONTENT));
-                    }
-                    saveChanges(resourceResolver);
                 }
             }
 
@@ -106,16 +111,28 @@ public class ContentActivationProcess implements WorkflowProcess {
         String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         Date date = dateFormat.parse(contentPublishingDate);
+        long convertedTime = toServerTime(dateFormat.getTimeZone(), Calendar.getInstance().getTimeZone(), date);
+        LOGGER.debug("From TimeZone :: "+ dateFormat.getTimeZone().getDisplayName() + " -- "+"To TimeZone :: "+Calendar.getInstance().getTimeZone().getDisplayName() + " Time :: "+convertedTime);
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
             final WorkflowModel workflowModel = workflowSession.getModel(model);
             final WorkflowData workflowData = workflowSession.newWorkflowData(TYPE_JCR_PATH, contentPath);
-            workflowData.getMetaDataMap().put(ABSOLUTE_TIME, date.getTime());
+            workflowData.getMetaDataMap().put(ABSOLUTE_TIME, convertedTime);
             workflowData.getMetaDataMap().put(WORKFLOW_TITLE, CONTENT_ACTIVATION_SCHEDULED_ON + dateFormat.format(date));
             workflowSession.startWorkflow(workflowModel, workflowData);
         } catch (WorkflowException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WORKFLOW_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
+        }
+    }
+
+    private long toServerTime(TimeZone fromTZ, TimeZone toTZ, Date localDate) {
+        long local = localDate.getTime();
+        if(fromTZ.getDisplayName().equalsIgnoreCase(toTZ.getDisplayName())){
+            return local;
+        } else {
+            int toTimeZoneOffsetFromUTC = toTZ.getOffset(local);
+            return local - toTimeZoneOffsetFromUTC;
         }
     }
 

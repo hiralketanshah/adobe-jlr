@@ -18,6 +18,7 @@
     "jcr:primaryType": "nt:unstructured",
     "videoId": "V1CZan9Tb34",
     "videoPath": "/content/dam/test.mp4",
+    "altTextFromDAM": false,
     "posterImage": "/content/dam/test.png",
     "videoTitle": "Test Video Title",
     "icon": "icon-arrow-right",
