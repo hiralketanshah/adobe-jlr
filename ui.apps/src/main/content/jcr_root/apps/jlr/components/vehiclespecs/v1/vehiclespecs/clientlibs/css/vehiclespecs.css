@@ -812,3 +812,17 @@ h2.heading,
 }
 }
 /* 917 fixes */
+
+/* KESTREL-926 */
+.cmp-vehicleSpecsRulesEngine .dxDropdown--active .dxDropdown__button {
+  background-color: #F0F0F0;
+}
+.cmp-vehicleSpecsRulesEngine .dxDropdown--active .dxDropdown__button {
+  background-color: #F0F0F0;
+  color: #0c121c;
+}
+.cmp-vehicleSpecsRulesEngine .dxAccordion__section--active .dxAccordion__section-title .dxAccordion__title,
+.cmp-vehicleSpecsRulesEngine .dxAccordion__title:hover{
+  font-weight: normal;
+}
+/* KESTREL-926 */

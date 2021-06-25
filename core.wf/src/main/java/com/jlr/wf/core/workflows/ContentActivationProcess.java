@@ -27,8 +27,10 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.Session;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.TimeZone;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.jlr.wf.core.constants.WorkflowConstants.*;
@@ -108,6 +110,9 @@ public class ContentActivationProcess implements WorkflowProcess {
             ParseException {
         String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
+        Calendar now = Calendar.getInstance();
+        TimeZone timeZone = now.getTimeZone();
+        dateFormat.setTimeZone(timeZone);
         Date date = dateFormat.parse(contentPublishingDate);
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
