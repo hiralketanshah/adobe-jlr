@@ -27,10 +27,12 @@ import org.slf4j.LoggerFactory;
 import javax.jcr.Session;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
-import java.util.TimeZone;
 
 import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.jlr.wf.core.constants.WorkflowConstants.*;
@@ -108,10 +110,13 @@ public class ContentActivationProcess implements WorkflowProcess {
 
     private void scheduleActivationLater(WorkflowSession workflowSession, String contentPath, ValueMap valueMap) throws
             ParseException {
-        String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
+        String contentPublishingDate = "2021-06-25T22:50:00+05:30";//valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         Date date = dateFormat.parse(contentPublishingDate);
-        long convertedTime = toServerTime(dateFormat.getTimeZone(), Calendar.getInstance().getTimeZone(), date);
+        ZonedDateTime zDateTime = ZonedDateTime.parse(contentPublishingDate, DateTimeFormatter.ISO_ZONED_DATE_TIME);
+        ZoneId toTimeZone = Calendar.getInstance().getTimeZone().toZoneId();
+        ZonedDateTime currentETime = zDateTime.withZoneSameInstant(toTimeZone);
+        long convertedTime = currentETime.toInstant().toEpochMilli();
         LOGGER.debug("From TimeZone :: "+ dateFormat.getTimeZone().getDisplayName() + " -- "+"To TimeZone :: "+Calendar.getInstance().getTimeZone().getDisplayName() + " Time :: "+convertedTime);
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
@@ -123,16 +128,6 @@ public class ContentActivationProcess implements WorkflowProcess {
         } catch (WorkflowException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_WORKFLOW_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                     ErrorUtilsConstants.MODULE_WORKFLOW, CONTENT_ACTIVATION_PROCESS, e));
-        }
-    }
-
-    private long toServerTime(TimeZone fromTZ, TimeZone toTZ, Date localDate) {
-        long local = localDate.getTime();
-        if(fromTZ.getDisplayName().equalsIgnoreCase(toTZ.getDisplayName())){
-            return local;
-        } else {
-            int toTimeZoneOffsetFromUTC = toTZ.getOffset(local);
-            return local - toTimeZoneOffsetFromUTC;
         }
     }
 
