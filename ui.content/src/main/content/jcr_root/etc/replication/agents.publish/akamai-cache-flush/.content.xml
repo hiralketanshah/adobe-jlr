@@ -13,7 +13,7 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="Akamai Cache Flush"
         sling:resourceType="cq/replication/components/agent"
-        enabled="true"
+        enabled="false"
         logLevel="error"
         noVersioning="true"
         protocolHTTPHeaders="[CQ-Action:{action},CQ-Handle:{path},CQ-Path: {path},Path: {path}]"
