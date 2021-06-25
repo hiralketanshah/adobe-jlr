@@ -128,7 +128,6 @@ public class ContentActivationProcess implements WorkflowProcess {
 
     private long toServerTime(TimeZone fromTZ, TimeZone toTZ, Date localDate) {
         long local = localDate.getTime();
-        System.out.println("timeZone:: "+fromTZ.getDisplayName() + " To TimeZone :: "+ toTZ.getDisplayName());
         if(fromTZ.getDisplayName().equalsIgnoreCase(toTZ.getDisplayName())){
             return local;
         } else {
