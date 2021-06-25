@@ -33,7 +33,7 @@ public class FullSearchServlet extends SlingSafeMethodsServlet {
     private static final String APPLICATION_JSON = "application/json";
 
     @Reference
-    private SearchService searchService;
+    private transient SearchService searchService;
 
     @Override
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
