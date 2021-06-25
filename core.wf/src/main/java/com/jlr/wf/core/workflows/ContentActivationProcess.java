@@ -110,7 +110,7 @@ public class ContentActivationProcess implements WorkflowProcess {
 
     private void scheduleActivationLater(WorkflowSession workflowSession, String contentPath, ValueMap valueMap) throws
             ParseException {
-        String contentPublishingDate = "2021-06-25T22:50:00+05:30";//valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
+        String contentPublishingDate = valueMap.get(CONTENT_PUBLISHING_DATE, String.class);
         SimpleDateFormat dateFormat = new SimpleDateFormat(YYYY_MM_DD_T_HH_MM_SS);
         Date date = dateFormat.parse(contentPublishingDate);
         ZonedDateTime zDateTime = ZonedDateTime.parse(contentPublishingDate, DateTimeFormatter.ISO_ZONED_DATE_TIME);
