@@ -106,7 +106,14 @@ public class SearchServiceImpl implements SearchService {
 
     private String getExternalUrl(String path, String locale, ResourceResolver resolver) {
         String externalizerDomain = getExternalizerDomainByLocale(locale);
-        String externalPath = externalizer.externalLink(resolver, externalizerDomain, path);
+        String externalPath = StringUtils.EMPTY;
+        try{
+            externalPath = externalizer.externalLink(resolver, externalizerDomain, path);
+        } catch (IllegalArgumentException e){
+            if(StringUtils.isEmpty(externalPath)) {
+                externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY) + path.replaceFirst("/",StringUtils.EMPTY);
+            }
+        }
         return externalPath + ".html";
     }
 
