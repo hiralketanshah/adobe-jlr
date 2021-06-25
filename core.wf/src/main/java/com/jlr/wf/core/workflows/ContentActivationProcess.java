@@ -117,7 +117,7 @@ public class ContentActivationProcess implements WorkflowProcess {
         ZoneId toTimeZone = Calendar.getInstance().getTimeZone().toZoneId();
         ZonedDateTime currentETime = zDateTime.withZoneSameInstant(toTimeZone);
         long convertedTime = currentETime.toInstant().toEpochMilli();
-        LOGGER.debug("From TimeZone :: "+ dateFormat.getTimeZone().getDisplayName() + " -- "+"To TimeZone :: "+Calendar.getInstance().getTimeZone().getDisplayName() + " Time :: "+convertedTime);
+        LOGGER.debug("Date :: "+ date + " -- To TimeZone :: "+toTimeZone + " ConvertedTime :: "+convertedTime);
         try {
             final String model = VAR_WORKFLOW_MODELS_SCHEDULED_ACTIVATION;
             final WorkflowModel workflowModel = workflowSession.getModel(model);
