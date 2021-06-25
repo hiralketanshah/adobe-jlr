@@ -920,3 +920,6 @@ padding-bottom: 0%;
   bottom: 0;
   margin: auto;
 }
+#landrover .cmp-hero .primaryLinkWithStyle {
+  font-family: AvenirNext-DemiBold, arial, helvetica, sans-serif;
+}
