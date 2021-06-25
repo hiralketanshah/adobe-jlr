@@ -530,8 +530,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .swiper-container {
-    margin-left: -30px; /*bugfix kestrel-966 */
-    margin-right: 20px; /*bugfix kestrel-966 */
+    margin-left: -10px; /*bugfix kestrel-966 */
+    margin-right: -10px; /*bugfix kestrel-966 */
   }
   .touch
     .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
@@ -1351,7 +1351,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .ctaContainer {
-    padding: 40px 0 30px;
+    padding: 40px 0 30px 25px;/*bugfix kestrel-966 */
   }
 }
 @media screen and (min-width: 1px) and (max-width: 740px) and (orientation: landscape) {
@@ -1418,13 +1418,16 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     padding-left: 0px;
   } */
   .GridListWrapper {
-      padding-top:25px;
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-bottom: 25px;
+    padding-top:25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+  }
+  .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper { 
+    padding: 30px 10px 0;/*bugfix kestrel-966 */
   }
   .GridListWrapper .headerBlock{
-    padding-left: 0px;
+    padding-left: 20px;/*bugfix kestrel-966 */
   }
   .GridListWrapper .items .el{
     padding-left: 0px;
