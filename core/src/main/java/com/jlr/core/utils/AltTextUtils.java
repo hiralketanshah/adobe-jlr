@@ -12,7 +12,7 @@ public class AltTextUtils {
 		String altTextDAMProperty = "";
 		if (resource != null) {
 			Asset asset = resource.adaptTo(Asset.class);
-			altTextDAMProperty = asset.getMetadataValue("dc:description");
+			altTextDAMProperty = asset.getMetadataValue("dam:altText");
 			}
 		return altTextDAMProperty;
 		}
