@@ -427,7 +427,7 @@ label {
   .cmp-hero-carousel .cmp-carousel__controls {
     position: absolute;
     margin-left: 30px;
-    width: 134px;
+    width: fit-content;
     top: 25%;
   }
   .cmp-hero-carousel .emissionDetails {
