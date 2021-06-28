@@ -1,17 +1,16 @@
 package com.jlr.core.utils;
 
-import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
-import static com.jlr.core.constants.PricingConstants.PN_YYY;
-
-import java.text.DecimalFormat;
-
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.pojos.PricingPojo;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.pojos.PricingPojo;
+import java.text.DecimalFormat;
+
+import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
+import static com.jlr.core.constants.PricingConstants.PN_YYY;
 
 public class TcoUtils {
 
@@ -23,19 +22,27 @@ public class TcoUtils {
         if (StringUtils.isBlank(pattern)) {
             return StringUtils.EMPTY;
         }
+
+        String currencyString = StringUtils.EMPTY;
         DecimalFormat currencyFormatter = null;
+        String newPattern = StringUtils.EMPTY;
+        if(pattern.contains(".")){
+            newPattern = pattern.replace(".", ",");
+        }
         try {
-            currencyFormatter = new DecimalFormat(pattern);
+            currencyFormatter = new DecimalFormat(newPattern);
         } catch (IllegalArgumentException e) {
-            LOGGER.error("Invalid currency pattern {} detected!", pattern);
+            LOGGER.error("Invalid currency pattern {} detected!", newPattern);
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION,
                     ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
                     "TcoUtils", e));
             return StringUtils.EMPTY;
         }
-        String currencyString = StringUtils.EMPTY;
         if (value.intValue() != 0) {
             currencyString = currencyFormatter.format(value);
+        }
+        if(pattern.contains(".")){
+            currencyString = currencyString.replace(",",".");
         }
         return currencyString;
     }

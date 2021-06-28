@@ -35,7 +35,6 @@ import com.jlr.core.httpcache.key.RequestKeyValueMapBuilder;
 @Designate(ocd = NavigationCacheExtensionConfig.class, factory = true)
 public class NavigationCacheExtension implements HttpCacheConfigExtension, CacheKeyFactory {
 
-    private List<Pattern> selectorPatterns;
     private List<Pattern> extensionPatterns;
     private Set<String> cookieKeys;
     private Set<String> resourceTypes;
@@ -51,11 +50,6 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Override
     public boolean accepts(SlingHttpServletRequest request, HttpCacheConfig cacheConfig) throws HttpCacheRepositoryAccessException {
-
-
-        if (!matches(selectorPatterns, request.getRequestPathInfo().getSelectorString())) {
-            return false;
-        }
 
         if (!matches(extensionPatterns, request.getRequestPathInfo().getExtension())) {
             return false;
@@ -165,7 +159,6 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
     @Activate
     protected void activate(NavigationCacheExtensionConfig config) {
         this.extensionPatterns = compileToPatterns(config.extensions());
-        this.selectorPatterns = compileToPatterns(config.selectors());
         this.cookieKeys = ImmutableSet.copyOf(config.allowedCookieKeys());
         this.resourceTypes = ImmutableSet.copyOf(config.resourceTypes());
         this.emptyCookieKeySetAllowed = config.emptyCookieKeySetAllowed();

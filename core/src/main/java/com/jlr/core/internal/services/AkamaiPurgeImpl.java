@@ -78,10 +78,14 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
 
             incomingURLtoPurge = externalizer.externalLink(resourceResolver, externalizerDomain, pathToPurge);
 
-            if (pathToPurge.contains(DE_PUBLISHED_SITES)) {
-                incomingURLtoPurge = incomingURLtoPurge.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY).concat(HTML_EXTENSION);
-            } else if (pathToPurge.contains(AU_PUBLISHED_SITES)) {
-                incomingURLtoPurge = incomingURLtoPurge.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY).concat(HTML_EXTENSION);
+            if (akamaiPurgeConfig.getEnableUrlRewrite().equalsIgnoreCase("true")) {
+                if (pathToPurge.contains(DE_PUBLISHED_SITES)) {
+                    incomingURLtoPurge = incomingURLtoPurge.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY).concat(HTML_EXTENSION);
+                } else if (pathToPurge.contains(AU_PUBLISHED_SITES)) {
+                    incomingURLtoPurge = incomingURLtoPurge.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY).concat(HTML_EXTENSION);
+                }
+            } else {
+                incomingURLtoPurge = incomingURLtoPurge.concat(HTML_EXTENSION);
             }
             incomingURLtoPurge = "{\"objects\":[\"" + incomingURLtoPurge + "\"]}";
         }
@@ -101,8 +105,13 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
         ArrayList<String> arrayList = new ArrayList<>();
 
 
-        StringBuilder clearPagePath = new StringBuilder(domain);
-        arrayList.add(clearPagePath.append("/").append(pagePath).toString());
+        StringBuilder pagePathForPurge = new StringBuilder(domain);
+        if (pagePath.contains(DE_PUBLISHED_SITES)) {
+            pagePath = pagePath.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
+        } else if (pagePath.contains(AU_PUBLISHED_SITES)) {
+            pagePath = pagePath.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
+        }
+        arrayList.add(pagePathForPurge.append(pagePath).toString());
 
         akamaiRequestMap.put("objects", arrayList);
         if (LOGGER.isDebugEnabled()) {
@@ -157,7 +166,7 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
                         LOGGER.trace("Akamai Cache clear enabled!");
                         akamaiResponse = akamaiRequest.execute();
                     }
-                } catch (Exception e) {
+                } catch (IOException e) {
                     LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
                                     ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
                 }
@@ -191,16 +200,11 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
     /*
      * Input HttpResponse of Akamai Response Output: Status response or error message
      */
-    private String akamaiResponseCheck(HttpResponse akamaiResponse) {
+    private String akamaiResponseCheck(HttpResponse akamaiResponse) throws IOException {
 
         String purgeResponse = "";
         if (akamaiResponse != null) {
-            try {
-                purgeResponse = "Akamai Response Code " + akamaiResponse.getStatusCode();
-            } catch (Exception e) {
-                purgeResponse = "Exception while calling akamai response code return null";
-                LOGGER.error("Exception while getting akamaiResponse Status Code{}", e.getMessage());
-            }
+            purgeResponse = "Akamai Response Code " + akamaiResponse.getStatusCode();
         }
         return purgeResponse;
     }

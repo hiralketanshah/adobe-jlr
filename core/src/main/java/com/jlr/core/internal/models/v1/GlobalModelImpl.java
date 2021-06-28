@@ -249,13 +249,13 @@ public class GlobalModelImpl implements GlobalModel {
 		if (isDecorative) {
 			return null;
 		} else {
-			if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == true) {
+			if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == Boolean.TRUE) {
 				altDAMText = damAltText;
-			} else if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == false) {
+			} else if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == Boolean.FALSE) {
 				altDAMText = imageAlt;
-			} else if (imageAlt != null && imageAlt.isEmpty() && altTextFromDAM == false) {
+			} else if (imageAlt != null && imageAlt.isEmpty() && altTextFromDAM == Boolean.FALSE) {
 				altDAMText = StringUtils.EMPTY;
-			} else if (altTextFromDAM == true) {
+			} else if (altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
 				altDAMText = damAltText;
 			}
 		}

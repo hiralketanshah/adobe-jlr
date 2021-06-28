@@ -2571,8 +2571,11 @@
             let windowWith = $('.cmp_interactiveOptionPicker').width();
             let btnWidth = $('.primaryLinkWithStyle').width() + 72;
             let btnSpace = windowWith - $('.cmp_interactiveOptionPicker__option-group').width();
-            if (btnSpace < $('.primaryLinkWithStyle').width()) {
+            let btnPrimatyWidth = $('.mobile-add-button').width() + parseInt($('.mobile-add-button').css('padding-left')) + parseInt($('.mobile-add-button').css('padding-right'));
+            if (btnSpace < btnPrimatyWidth) {
+            // if (btnSpace < $('.primaryLinkWithStyle').width()) {
               $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
+              $('.mobile-add-button').addClass('mobile-addButton');
             }
 
             // https://www.jlrdxhelp.com/browse/LRA-25903 - this triggers when the page is loaded as its taking sticky nav
@@ -2590,9 +2593,11 @@
               let windowWith = $('.cmp_interactiveOptionPicker').width();
               let btnWidth = $('.primaryLinkWithStyle').width() + 72;
               let btnSpace = windowWith - $('.cmp_interactiveOptionPicker__option-group').width();
-              if (btnSpace < $('.primaryLinkWithStyle').width()) {
-
+              let btnPrimatyWidth = $('.mobile-add-button').width() + parseInt($('.mobile-add-button').css('padding-left')) + parseInt($('.mobile-add-button').css('padding-right'));
+              if (btnSpace < btnPrimatyWidth) {
+              // if (btnSpace < $('.primaryLinkWithStyle').width()) {
                 $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
+                $('.mobile-add-button').addClass('mobile-addButton');
               }
 
 

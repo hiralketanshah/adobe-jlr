@@ -179,6 +179,18 @@ public class PageModelImpl implements PageModel {
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
     
+    /** The fab desktop active. */
+    @HierarchicalPageProperty("fabDesktopActive")
+    private String fabDesktopActive;
+    
+    /** The fab tablet active. */
+    @HierarchicalPageProperty("fabTabletActive")
+    private String fabTabletActive;
+    
+    /** The fab mobile active. */
+    @HierarchicalPageProperty("fabMobileActive")
+    private String fabMobileActive;
+    
     /** The site notification path. */
     @HierarchicalPageProperty("siteNotificationPath")
     private String siteNotificationPath;
@@ -415,6 +427,33 @@ public class PageModelImpl implements PageModel {
     }
 
     /**
+     * Gets the fab desktop active.
+     *
+     * @return the fab desktop active
+     */
+    public String getFabDesktopActive() {
+		return fabDesktopActive;
+	}
+
+	/**
+	 * Gets the fab tablet active.
+	 *
+	 * @return the fab tablet active
+	 */
+	public String getFabTabletActive() {
+		return fabTabletActive;
+	}
+
+	/**
+	 * Gets the fab mobile active.
+	 *
+	 * @return the fab mobile active
+	 */
+	public String getFabMobileActive() {
+		return fabMobileActive;
+	}
+
+	/**
      * Gets the market region path.
      *
      * @return the market region path
