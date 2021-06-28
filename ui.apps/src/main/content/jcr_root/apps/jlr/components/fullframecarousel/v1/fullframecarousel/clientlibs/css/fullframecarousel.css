@@ -1096,7 +1096,6 @@ left: 50px;
   .cmp-fullframe-carousel .swiper-button--next {
       right: 10px;
   }
-.cmp-fullframe-carousel .swiper-button{position:fixed;}
 .cmp-fullframe .contentClass{
   float: left;
   width: 560px;
