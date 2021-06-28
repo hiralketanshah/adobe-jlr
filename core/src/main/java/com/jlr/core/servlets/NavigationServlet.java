@@ -40,7 +40,7 @@ import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
 import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
 import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
-import static com.jlr.core.utils.NavigationUtils.getBaseUrl;
+import static com.jlr.core.utils.NavigationUtils.getExternalLink;
 
 /**
  * Navigation Servlet is used to fetch the header nav based on request parameters, and also to return the json.
@@ -98,7 +98,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         Document document = null;
         if (fullyQualifyDxLinks) {
-            document = Jsoup.parse(html, getBaseUrl(resourceResolver));
+            document = Jsoup.parse(html, getExternalLink(StringUtils.EMPTY, locale, resourceResolver));
             NavigationUtils.processUrls(document);
         } else {
             document = Jsoup.parse(html);
@@ -130,7 +130,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         } else {
             NavigationUtils.removeAttribute(document, "a.dxnav-profile");
         }
-        sendResponse(response, cache, document);
+        sendResponse(response, cache, document, locale, request.getResourceResolver());
     }
 
     private ByteArrayOutputStream processRequest(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean mrp, String requestPath,
@@ -158,14 +158,14 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         return out;
     }
 
-    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document) {
+    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document, String locale, ResourceResolver resolver) {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
-            responseObject.put("cssFontImportsLink", config.cssFontImportsLink());
-            responseObject.put("cssLink", config.cssLink());
+            responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
+            responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             responseObject.put("html", document.getElementsByTag("header").outerHtml());
-            responseObject.put("javascriptLink", config.javascriptLink());
+            responseObject.put("javascriptLink", getExternalLink(config.javascriptLink(), locale, resolver));
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));

@@ -15,6 +15,7 @@
     <filter root="/var/workflow/models/jlr_scheduled_page_assetactivation" mode="replace"/>
     <filter root="/var/workflow/models/dam/jlr_dam_update_asset" mode="replace"/>
 	<filter root="/var/jlr" mode="merge"/>
+    <filter root="/conf/global/settings/dam/adminui-extension/metadataschema/Landrover" mode="merge"/>
     <filter root="/conf/global/settings/workflow/models/content-approval" mode="replace"/>
     <filter root="/conf/global/settings/workflow/models/jlr_scheduled_page_assetactivation" mode="replace"/>
     <filter root="/conf/global/settings/workflow/models/dam/jlr_dam_update_asset" mode="replace"/>

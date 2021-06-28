@@ -153,7 +153,7 @@
   border-bottom: 1px solid #a4a7a9;
 }
 .TechSpecsTable__heading {
-  background-color: #e4e8e8;
+  background-color: #E9ECEC;
 }
 .TechSpecsTable__caveat {
   font-size: 1rem;
@@ -242,7 +242,7 @@ body {
   max-width: 847px;
 }
 #landrover .cmp-vehicleSpecsRulesEngine .primaryLinkWithStyle {
-  margin-left: 46px;
+  margin-left: 0px;
 }
 .VehicleSpecsRulesEngine__specs-cta .primaryLinkWithStyle {
   margin-left: 0;
@@ -325,9 +325,6 @@ h2.heading,
     .vehiclespecs .primaryLinkWithStyle{
       margin-bottom: 0px;
     }
-    .VehicleSpecsRulesEngine__specs-cta{
-      margin-left: 30px;
-    }
     .dxAccordion.VehicleSpecsRulesEngine__specs-accordion{
       margin-bottom: 35px;
     }
@@ -374,20 +371,22 @@ h2.heading,
       padding: 0px;
   }
   }
-  @media screen and (min-width: 768px) and (max-width: 1280px)  {
+  @media screen and (min-width: 768px) and (max-width: 1279px)  {
+    .VehicleSpecsRulesEngine__specs-cta{
+      min-height: 45px;
+      margin-top: 35px;
+      margin-left: 30px;
+    }
     .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
       padding-left: 30px;
       padding-top: 18px;
       padding-bottom: 16px;
     }
-    .vehiclespecs{
-      margin-bottom: 72px;
+    .VehicleSpecsRulesEngine__specs{
+      padding-bottom: 72px;
     }
     .vehiclespecs .primaryLinkWithStyle{
       margin-bottom: 0px;
-    }
-    .VehicleSpecsRulesEngine__specs-cta{
-      margin-left: 30px;
     }
     .dxAccordion.VehicleSpecsRulesEngine__specs-accordion{
       margin-bottom: 35px;
@@ -409,6 +408,7 @@ h2.heading,
     }
     .VehicleSpecsRulesEngine__specs-heading{
       padding-top: 40px;
+      margin-top: 80px;
       padding-left: 30px;
       /* padding-right: 25px; */
       padding-bottom: 60px;
@@ -432,7 +432,8 @@ h2.heading,
     }
     .VehicleSpecsRulesEngine__specs {
       padding: 0px;
-  }
+      padding-bottom: 40px;
+      }
   }
   @media screen and (min-width: 1280px) {
     .VehicleSpecsRulesEngine__specs-cta{
@@ -444,12 +445,6 @@ h2.heading,
     .VehicleSpecsRulesEngine__specs-heading{
       padding-top: 60px;
       padding-bottom: 81px;
-    }
-    .vehiclespecs{
-      margin-bottom: 80px;
-    }
-    .VehicleSpecsRulesEngine__specs-cta{
-      padding-left: 60px;
     }
     .RulesEngineDropdown__submit-button{
       width: auto;
@@ -499,9 +494,6 @@ h2.heading,
       padding-right: 290px;
       padding-bottom: 0p;
       margin-bottom: 90px;
-    }
-    .VehicleSpecsRulesEngine__specs-cta{
-      padding-left: 290px;
     }
     .VehicleSpecsRulesEngine__specs {
       padding: 0px 290px 15px 290px;
@@ -571,7 +563,7 @@ h2.heading,
       .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
         font-family: 'AvenirNext';
         text-align: left;
-        font-size: 15px;
+        font-size: 15px !important;
         font-weight: bold;
         letter-spacing: 0.17px;
         color: #0C121C;
@@ -732,7 +724,7 @@ h2.heading,
     margin-right: 0px;
   }
   .stack .RulesEngineDropdown__dropdown .dxDropdown__button {
-    width: 100.14%;
+    width: 100%;
   }
    .RulesEngineDropdown__dropdown--model .dxDropdown__button,
    .RulesEngineDropdown__dropdown--bodystyle .dxDropdown__button,
@@ -759,6 +751,19 @@ h2.heading,
   }
   .VehicleSpecsRulesEngine__specs-title {
     margin-bottom: 23px;
+}
+.cmp-vehicleSpecsRulesEngine .primaryLinkWithStyle {
+  margin-top: 0px;
+}
+.VehicleSpecsRulesEngine__specs-cta{
+  min-height: 45px;
+  margin-top: 26px;
+}
+.VehicleSpecsRulesEngine__specs{
+  padding-bottom: 80px;
+}
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
+  font-weight: 600;
 }
 }
 @media screen and (min-width: 1920px){
@@ -825,4 +830,46 @@ h2.heading,
 .cmp-vehicleSpecsRulesEngine .dxAccordion__title:hover{
   font-weight: normal;
 }
+.cmp-vehicleSpecsRulesEngine .dxDropdown__button {
+  border: none;
+}
+.cmp-vehicleSpecsRulesEngine .dxDropdown__button:after, .cmp-vehicleSpecsRulesEngine .dxDropdown__button:after {
+  border: 1px solid #0C121C4D;
+}
+.cmp-vehicleSpecsRulesEngine .dxDropdown__button:hover:after, .cmp-vehicleSpecsRulesEngine .dxDropdown__button:focus:after,
+.cmp-vehicleSpecsRulesEngine .dxDropdown--active .dxDropdown__list {
+  border:1px solid #0C121C;
+}
+.VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger:after {
+  width: 16px;
+  height: 16px;
+}
+.dxAccordion.VehicleSpecsRulesEngine__specs-accordion{
+  margin-bottom: 0px;
+}
+/* THEME */
+/* ENGINE API RESPONSE SECTION */
+.white .VehicleSpecsRulesEngine__specs,.VehicleSpecsRulesEngine__specs,.VehicleSpecsRulesEngine__specs-heading,.white .VehicleSpecsRulesEngine__specs-heading {
+  background-clip: padding-box;
+  background-color: #F8F9F9;
+}
+/* DROPDOWN SECTION */
+.white .RulesEngineDropdown__dropdowns-container, .RulesEngineDropdown__dropdowns-container{
+  background-color: #FFFFFF;
+}
+.light .VehicleSpecsRulesEngine__specs,.light .VehicleSpecsRulesEngine__specs-heading{
+  background-clip: padding-box;
+  background-color: #FFFFFF;
+}
+/* DROPDOWN SECTION */
+.light .RulesEngineDropdown__dropdowns-container,.light .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger{
+  background-color: #F8F9F9;
+}
+.light .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__trigger:hover{
+  background-color: #E9ECEC;
+}
+.light .VehicleSpecsRulesEngine .dxAccordion [aria-expanded="true"]{
+  background-color: #E9ECEC;
+}
+/* THEME */
 /* KESTREL-926 */
