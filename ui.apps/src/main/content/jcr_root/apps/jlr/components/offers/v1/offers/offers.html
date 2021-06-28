@@ -106,8 +106,10 @@
                             <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</div>
                             <p class="heading Offers__amount headingH1">
                                 <span class="headingWrapper" role="text">
-                                    <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
-                                        @context='html'}</small>
+                                    <span class="currency">
+                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
+                                            @context='html'}</small>
+                                    </span>
                                     <span class="amount">${offers.offerValue @context='html'}</span>
                                     <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix
                                         @context='html'}</small>

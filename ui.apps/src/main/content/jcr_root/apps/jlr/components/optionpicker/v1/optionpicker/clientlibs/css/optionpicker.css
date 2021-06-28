@@ -33,9 +33,11 @@
     line-height: 1.2;
 }
 .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
-    font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.2px;
     color: #0c121c;
+    font-weight: 400;
 }
 @media screen and (min-width: 741px) {
     .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
@@ -329,8 +331,8 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 }
 .cmp_interactiveOptionPicker__header {
     font-size: 1.6rem;
-    font-weight: 600;
-    letter-spacing: 0.08rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
 }
 .cmp_interactiveOptionPicker__option-card {
     font-size: 1.3rem;
@@ -432,7 +434,8 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 .cmp_interactiveOptionPicker__otr-disclaimer-container{
     margin-top: 10px;
 }
-.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr{
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
+    font-family: "AvenirNext-Regular";
     font-size: 14px;
     color: #4A4F54;
     font-weight: 400;
@@ -486,7 +489,7 @@ text-transform: capitalize;
 .slateblue .cmp_interactiveOptionPicker__header__box h2,
 .slateblue .cmp_interactiveOptionPicker__bottom-title{
     color:#FFFFFF;
-    font-family: "AvenirNext"
+    font-family: "AvenirNext-Regular""
 }
 .wheel .cmp_interactiveOptionPicker__option-card{
     width: 88px;
@@ -728,7 +731,7 @@ padding-top: 24px;
     .wheel .cmp_interactiveOptionPicker__content .cmp_interactiveOptionPicker__cta {
         text-align: left;
         order: 2;
-        margin-top: 25px;
+        margin-top: 24px;
     }
     .wheel .cmp_interactiveOptionPicker__option-group-container {
         float: none;
@@ -793,7 +796,10 @@ padding-top: 24px;
    .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr-disclaimer-container{display: inherit;
        flex-direction: unset;
         padding-top: 17px;}
-       }
+        .primaryLinkContainer .mobile-addButton{
+            float: left !important;
+        }
+    }
    
 
  @media screen and (min-width:768px) and (max-width: 1279px){
@@ -829,24 +835,28 @@ text-align: left;
        
 @media screen and (min-width:320px) and (max-width: 767px){
     .optionpicker .cmp_interactiveOptionPicker__otr-disclaimer-container {
-    display: inherit;
-    flex-direction: unset;
-    padding-bottom: 25px;
-    padding-top: 24px;
-}
-.optionpicker .cmp_interactiveOptionPicker__option-btn {
-	display: flex;
-    flex-direction: column;
-    width: 100%;
-
-}
-.optionpicker .primaryLinkContainer {
-text-align: left;
-    order: 2;
-    display: block;
-}
-       .optionpicker .primaryLinkWithStyle{
+        display: inherit;
+        flex-direction: unset;
+        padding-bottom: 26px;
+        /* padding-top: 24px; */
+    }   
+    .optionpicker .cmp_interactiveOptionPicker__option-btn {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .optionpicker .primaryLinkContainer {
+        text-align: left;
+        order: 2;
+        display: block;
+    }
+    .optionpicker .primaryLinkWithStyle{
        margin-bottom:0px
-       }
-       }
+    }
+    .cmp_interactiveOptionPicker__bottom-title h2 {
+        letter-spacing: 0.64px;
+        font-size: 20px;
+        line-height: 20px;
+    }
+}
            /*------code fix for defect 760----*/

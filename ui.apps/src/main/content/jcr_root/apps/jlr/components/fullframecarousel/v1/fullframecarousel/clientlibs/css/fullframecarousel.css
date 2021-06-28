@@ -795,7 +795,7 @@ min-width: 360px;
 }
 /* WIDESCREEN */
 @media screen and (min-width: 1920px){
-  .cmp-carousel .carousel .cmp-genericItem__element-poster {
+  .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster {
       position: relative;
       min-width: 1660px;
       max-width:2000px;
@@ -1074,7 +1074,7 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
-  .cmp-carousel .carousel .cmp-genericItem__element-poster{
+  .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:50px;
     margin-right:50px;
     position: relative;
@@ -1096,7 +1096,6 @@ left: 50px;
   .cmp-fullframe-carousel .swiper-button--next {
       right: 10px;
   }
-.swiper-button{position:fixed;}
 .cmp-fullframe .contentClass{
   float: left;
   width: 560px;
@@ -1162,3 +1161,13 @@ left: 50px;
 .cmp-fullframe .linkContainer{margin-top:0}
 
 /*---------Full Frame UI ------------*/
+
+/* COMMON FOR ALL */
+.videoCustom:after,.cmp-carousel.cmp-fullframe-carousel .videoCustom:after{
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+margin: auto;
+}
