@@ -1351,7 +1351,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .ctaContainer {
-    padding: 40px 0 30px 25px;/*bugfix kestrel-966 */
+    padding: 40px 0 30px 30px;/*bugfix kestrel-966 */
   }
 }
 @media screen and (min-width: 1px) and (max-width: 740px) and (orientation: landscape) {
@@ -1391,8 +1391,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 /* TABLET START */
 @media screen and (min-width: 300px) and (max-width: 765px){
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
-    width: calc(100% - 60px);  /*bugfix kestrel-966 */
-}
+    width: calc(97.8% - 60px);  /*bugfix kestrel-966 */
+  }
 /* commented out the below section to fix kestrel-966 */
   /* .swiper-slide-visible{
     width: 325px;
@@ -1424,10 +1424,13 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     padding-bottom: 25px;
   }
   .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper { 
-    padding: 30px 10px 0;/*bugfix kestrel-966 */
+    padding: 30px 5px 0;/*bugfix kestrel-966 */
   }
   .GridListWrapper .headerBlock{
-    padding-left: 20px;/*bugfix kestrel-966 */
+    padding-left: 0px;/*bugfix kestrel-966 */
+  }
+  .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper .headerBlock{
+    padding-left: 20px;/*bugfix kestrel-953 */
   }
   .GridListWrapper .items .el{
     padding-left: 0px;
@@ -1465,7 +1468,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el.swiper-slide,
   .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el.swiper-slide,
   .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el.swiper-slide {
-     width: calc(51.333% - 40.6px); /*bugfix kestrel-970 */
+     width: calc(50.333% - 40.6px); /*bugfix kestrel-970 */
      padding-right: 0;
      padding-left: 0;
   }
@@ -1494,7 +1497,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   }
   /*bugfix kestrel-970 */
   .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper { 
-    padding: 40px 20px;
+    padding: 40px 10px;
   }
 
   /* kestrel-966, kestrel-970,kestrel-971 bug fix :end */
