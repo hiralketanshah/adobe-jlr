@@ -278,6 +278,7 @@ line-height: 12.5px;
     .cmp-dualFrameSlider .mobileSliderFrame {
         display: block;
         height: calc((109.12vw - 40px) / 2) !important;
+        width: 100% !important;
     }
     .dualframeslider.right .cmp-dualFrameSlider .Slider__left,
     .dualframeslider .cmp-dualFrameSlider .Slider__left,
@@ -357,6 +358,7 @@ line-height: 12.5px;
     }
     .cmp-dualFrameSlider .Slider__right .mobileSliderFrame {
         height: calc((108.3vw - 40px) / 2) !important;
+        width: 100% !important;
     }
     .dualframeslider.right .cmp-dualFrameSlider .Slider__left, .dualframeslider .cmp-dualFrameSlider .Slider__left{
         padding-top: 10px;
