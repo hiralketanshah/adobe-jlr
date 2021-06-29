@@ -358,7 +358,7 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 #landrover .cmp_interactiveOptionPicker .primaryLinkWithStyle{
     text-transform: uppercase;
 }
-.cmp_interactiveOptionPicker__image-wrapper {
+.cmp_interactiveOptionPicker__image-wrapper { 
     width: 100%;
     min-height: 651px;
     height: auto;
@@ -414,12 +414,12 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 .cmp_interactiveOptionPicker__option-card:hover {
     border: 2px solid #989C9F;
     border-radius: 50%;
-    background-color: none;
+    /* background-color: none; */
 }
 .cmp_interactiveOptionPicker__option-card--active,.cmp_interactiveOptionPicker__option-card--active:hover {
     border: 2px solid #005A2B;
     border-radius: 50%;
-    background-color: none;
+    /* background-color: none; */
     padding: 3px;
 }
 .cmp_interactiveOptionPicker__option-group-container{
@@ -489,7 +489,7 @@ text-transform: capitalize;
 .slateblue .cmp_interactiveOptionPicker__header__box h2,
 .slateblue .cmp_interactiveOptionPicker__bottom-title{
     color:#FFFFFF;
-    font-family: "AvenirNext-Regular""
+    font-family: "AvenirNext-Regular"
 }
 .wheel .cmp_interactiveOptionPicker__option-card{
     width: 88px;

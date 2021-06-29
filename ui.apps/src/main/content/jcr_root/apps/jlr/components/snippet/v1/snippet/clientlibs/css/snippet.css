@@ -194,7 +194,7 @@
 .snippet.grey p, .snippet.light p,.snippet.white p{
 	color:#4A4F54;
  }
- .cmp-snippet .headingWrapper p{color:#0C121C;}
+ .cmp-snippet .headingWrapper p{color:#0C121C;font-family:"LandRoverWeb-Bold", "arial", "helvetica", sans-serif;}
 @media screen and (min-width:1920px) and (max-width: 2700px){
 	.snippet .headingWrapper p{width:765px;}
 	.snippet .fontBodyCopyLarge p{width:880px;}
@@ -209,7 +209,8 @@
     .snippet .headingThick {width:760px;}
     .cmp-snippet p{line-height:24px;}
     .snippet .shelfComponent{
-    padding:60px 60px 119px 60px;
+    padding:60px 60px 82px 60px;
+
 
 }
   .cmp-snippet .headingWrapper p {
@@ -239,10 +240,12 @@
  .snippet .shelfComponent{
     padding-top:40px;
     padding-left:30px;
-	padding-bottom:62px;
+	margin-bottom:62px;
 	min-width:519px;
-	width:519px;
-	margin-right:214px;
+	width:auto;
+	margin-right:219px;
+    min-height:150px;
+    height:auto;
    }
 .cmp-snippet .headingWrapper p {
     color: #0C121C;
