@@ -4446,3 +4446,8 @@ if (!$(".swiper-scrollbar").hasClass("cmp_interactiveOptionPicker__swiper-scroll
   $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
   $('.cmp_interactiveOptionPicker__option-btn hr').hide();
 }
+$('.cmp_interactiveOptionPicker__option-card').click(function(){
+  if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
+    $('.mobile-add-button').addClass('mobile-addButton');
+  }
+});
