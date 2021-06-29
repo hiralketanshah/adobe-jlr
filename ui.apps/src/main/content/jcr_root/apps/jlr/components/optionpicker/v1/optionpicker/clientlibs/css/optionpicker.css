@@ -434,7 +434,8 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
 .cmp_interactiveOptionPicker__otr-disclaimer-container{
     margin-top: 10px;
 }
-.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr{
+.cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
+    font-family: "AvenirNext-Regular";
     font-size: 14px;
     color: #4A4F54;
     font-weight: 400;
@@ -488,7 +489,7 @@ text-transform: capitalize;
 .slateblue .cmp_interactiveOptionPicker__header__box h2,
 .slateblue .cmp_interactiveOptionPicker__bottom-title{
     color:#FFFFFF;
-    font-family: "AvenirNext"
+    font-family: "AvenirNext-Regular""
 }
 .wheel .cmp_interactiveOptionPicker__option-card{
     width: 88px;

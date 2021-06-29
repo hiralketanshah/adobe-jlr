@@ -50,3 +50,6 @@
 .cmp-hidemarket{
     display:none;
 }
+.slateblue .Modal__title{
+    color: #FFFF;
+}

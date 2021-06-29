@@ -1074,7 +1074,7 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
-  .cmp-carousel .carousel .cmp-genericItem__element-poster{
+  .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:50px;
     margin-right:50px;
     position: relative;
@@ -1096,7 +1096,6 @@ left: 50px;
   .cmp-fullframe-carousel .swiper-button--next {
       right: 10px;
   }
-.swiper-button{position:fixed;}
 .cmp-fullframe .contentClass{
   float: left;
   width: 560px;

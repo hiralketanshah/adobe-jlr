@@ -381,7 +381,6 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="swiping"]
     .el.swiper-slide-active
-    + .el.swiper-slide
     + .el.swiper-slide,
   .touch
     .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
@@ -468,8 +467,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .swiper-container {
-    margin-left: -20px;
-    margin-right: -20px;
+    margin-left: -20px; /*bugfix kestrel-966 */
+    margin-right: -20px; /*bugfix kestrel-966 */
   }
   .touch
     .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
@@ -531,8 +530,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .swiper-container {
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: -10px; /*bugfix kestrel-966 */
+    margin-right: -10px; /*bugfix kestrel-966 */
   }
   .touch
     .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
@@ -1037,7 +1036,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .swiper-scrollbar {
-    left: 40px;
+    left: 40px; /*bugfix kestrel-966 */
     right: 45px;
   }
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-contentCardsInner,
@@ -1103,7 +1102,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .cmp-ContentCard
     .textContainer {
-    padding-left: 40px;
+    padding-left: 50px; /*bugfix kestrel-966 */
     margin-right: -40px;
   }
   .touch
@@ -1140,7 +1139,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .ctaContainer {
-    padding: 20px 0 0;
+    padding: 20px 0 0 20px; /*bugfix kestrel-970 */
   }
   .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el {
     width: calc(50% - 40px);
@@ -1352,7 +1351,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .ctaContainer {
-    padding: 40px 0 30px;
+    padding: 40px 0 30px 25px;/*bugfix kestrel-966 */
   }
 }
 @media screen and (min-width: 1px) and (max-width: 740px) and (orientation: landscape) {
@@ -1392,9 +1391,10 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 /* TABLET START */
 @media screen and (min-width: 300px) and (max-width: 765px){
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el, .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el, .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el, .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
-    width: calc(100% - 45px);
+    width: calc(100% - 60px);  /*bugfix kestrel-966 */
 }
-  .swiper-slide-visible{
+/* commented out the below section to fix kestrel-966 */
+  /* .swiper-slide-visible{
     width: 325px;
   }
   .swiper-slide-next .cmp-ContentCard{
@@ -1415,16 +1415,19 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .swiper-slide-next .cmp-ContentCard{
     width: 325px;
     padding-right: 100px;
-    padding-left: 50px;
-  }
+    padding-left: 0px;
+  } */
   .GridListWrapper {
-      padding-top:25px;
-      padding-left: 25px;
-      padding-right: 25px;
-      padding-bottom: 25px;
+    padding-top:25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+  }
+  .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper { 
+    padding: 30px 10px 0;/*bugfix kestrel-966 */
   }
   .GridListWrapper .headerBlock{
-    padding-left: 0px;
+    padding-left: 20px;/*bugfix kestrel-966 */
   }
   .GridListWrapper .items .el{
     padding-left: 0px;
@@ -1446,6 +1449,56 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 /* MOBILE END */
 /* TABLET START */
 @media screen and (min-width: 768px) and (max-width: 1279px){
+
+  /* kestrel-966, kestrel-970,kestrel-971 bug fix :start */
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(60% - 120px);
+    padding-right: 20px;
+    padding-left:20px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el.swiper-slide,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el.swiper-slide,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el.swiper-slide,
+  .touch .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .el.swiper-slide,
+  .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el.swiper-slide {
+     width: calc(51.333% - 40.6px); /*bugfix kestrel-970 */
+     padding-right: 0;
+     padding-left: 0;
+  }
+  .GridListWrapper .items .swiper-wrapper .el {
+    padding: 0 10px 42px  0;
+  }
+  .cmp-ContentBlocksContainer .GridListWrapper .items .el:nth-child(odd) {
+    padding-left: 0px;
+   }
+   .cmp-ContentBlocksContainer .GridListWrapper .items .el:nth-child(even) {
+    padding-right: 0px;
+   }
+  .cmp-ContentBlocksContainer .cmp-contentCards .swiper-wrapper .imageContainer a.imageLink{
+    padding: 0 10px;
+  }
+  .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner .textContainerTop{
+    height: auto !important;
+  }
+   .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner {
+    display: flex;
+    flex-wrap:wrap;
+  }
+  .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner.swiper-wrapper{
+    display: flex;
+    flex-wrap:nowrap;
+  }
+  /*bugfix kestrel-970 */
+  .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper { 
+    padding: 40px 20px;
+  }
+
+  /* kestrel-966, kestrel-970,kestrel-971 bug fix :end */
+
   .cmp-ContentBlocksContainer .secondaryLinkWithStyle,.cmp-ContentBlocksContainer .primaryLinkWithStyle  {
       margin-top: 0;
       margin-bottom: 0px !important;
@@ -1456,9 +1509,14 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
       padding-right: 30px;
       padding-bottom: 60px;
   }
-  .GridListWrapper .headerBlock{
+  /*bugfix kestrel-970 */
+  .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper .headerBlock{
+    padding-left: 20px;
+  }
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .headerBlock{
     padding-left: 0px;
   }
+  /*bugfix kestrel-970 */
   .GridListWrapper .items .el{
     padding-left: 0px;
     padding-right: 28px;
@@ -1754,6 +1812,23 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     margin: 0px -60px;
     border-bottom: 1px solid #E0E0E0;
   }
+  /* kestrel-966, kestrel-970,kestrel-971 bug fix :start */
+  .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner{
+    display: flex;
+    flex-wrap:wrap;
+  }
+  .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner .textContainerTop{
+    height: auto !important;
+  }
+  .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner.swiper-wrapper{
+    display: flex;
+    flex-wrap:nowrap;
+  }
+  .GridListWrapper .items .el.gridEl{
+    padding: 0 0 42px;
+  }
+  /* kestrel-966, kestrel-970,kestrel-971 bug fix :end */
+
 }
 
 /* 936 fix */
@@ -1808,7 +1883,7 @@ h5.heading, .heading.headingH5 {
 
  /* 980 fix start */
  .GridListWrapper .items .el {
-   padding: 0 20px 42px;
+  padding: 0 20px 42px;
  }
  /* 980 fix ends */
 

@@ -196,17 +196,20 @@
  }
  .cmp-snippet .headingWrapper p{color:#0C121C;}
 @media screen and (min-width:1920px) and (max-width: 2700px){
+	.snippet .headingWrapper p{width:765px;}
+	.snippet .fontBodyCopyLarge p{width:880px;}
     .snippet .headingThick {width:765px;}
-	.snippet .shelfComponent{margin-left:290px; min-width:880px;width:880px; margin-right:750px; margin-bottom:82px;}
+	.snippet .shelfComponent{margin-left:290px; min-width:880px;width:880px; margin-right:750px; margin-bottom:119px;}
 	.snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;} 
 }
 
  @media screen and (min-width:1024px) and (max-width: 1919px){
-    .snippet .shelfComponent{ min-width:760px;width:760px;}
+    .snippet .shelfComponent{ min-width:760px;width:760px;margin-right:460px; }
+	.snippet .primaryLinkContainer{margin-right:24px!important;}
     .snippet .headingThick {width:760px;}
-.cmp-snippet p{line-height:24px;}
-.snippet .shelfComponent{
-	padding:60px 60px 82px 60px;
+    .cmp-snippet p{line-height:24px;}
+    .snippet .shelfComponent{
+    padding:60px 60px 119px 60px;
 
 }
   .cmp-snippet .headingWrapper p {
@@ -221,22 +224,17 @@
 @media screen and (min-width: 767px) and (max-width: 1278px){
 .cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
-.cmp-snippet .primaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 0px;
-      }
-.cmp-snippet .secondaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 0px!important;
+.cmp-snippet .primaryLinkWithStyle {margin-top: 0; margin-bottom: 0px; }
+.cmp-snippet .secondaryLinkWithStyle {margin-top: 0;margin-bottom: 0px!important;}
 }
-    }
-@media screen and (min-width: 1px) and (max-width: 900px){
+
+@media screen and (min-width: 766px) and (max-width: 900px){
 .snippet .cmp-snippet p {
     margin-top: 17px;
 }
-
-}
-@media screen and (min-width: 766px) and (max-width: 900px){
+.cmp-snippet .linkContainer{display:block;}
+.cmp-snippet .headingWrapper p{width:524px;}
+.snippet .fontBodyCopyLarge p{width:519px;}
 .snippet .headingThick {width:524px;}
  .snippet .shelfComponent{
     padding-top:40px;
@@ -251,37 +249,26 @@
 	margin-top:0!important;
 }
 .cmp-snippet .secondaryLinkWithStyle {margin-bottom:0;}
+.cmp-snippet .secondaryLinkContainer {clear:both;}
 }
 .snippet .primaryLinkContainer{margin-top: 25px!important; float: left;
-    clear: both;}
+  }
 
-@media screen and (max-width: 375px){
-.cmp-snippet .headingWrapper p {
 
-  margin-top:8px;
-}
-}
 @media screen and (min-width: 300px) and (max-width: 766px){
+.snippet .cmp-snippet p {margin-top: 17px;}
+.cmp-snippet .headingWrapper p {margin-top:8px;}
 .snippet .headingThick {width:325px;}  
-.snippet .shelfComponent{min-height: auto; width:325px; min-width:325px; margin-bottom:40px;   }         
+.snippet .shelfComponent{min-height: auto; width:325px; min-width:325px; margin-bottom:42px;}         
 .cmp-snippet .secondaryLinkWithStyle {line-height:12.5px; margin-top:23px!important; margin-bottom:0!important;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
-.snippet .cmp-snippet p {
-    margin-top: 16px;
-}
+.snippet .cmp-snippet p { margin-top: 16px;}
 .cmp-snippet .headingWrapper p{color:#0C121C; margin-top:0}
-.snippet .linkContainer {
-    margin-top: 0px;
-    padding-top:0;
-}
-.snippet .shelfComponent{
-padding-top:25px;
-   }
- .cmp-snippet .secondaryLinkContainer{clear:both;}
- .snippet .primaryLinkContainer{clear:both;}
-.snippet .primaryLinkContainer {
-    margin-top: 24px!important;
-}
+.snippet .linkContainer { margin-top: 0px;padding-top:0;}
+.snippet .shelfComponent{padding-top:25px;}
+.cmp-snippet .secondaryLinkContainer{clear:both;}
+.snippet .primaryLinkContainer{clear:both;}
+.snippet .primaryLinkContainer {margin-top: 24px!important;}
 .snippet .primaryLinkWithStyle{margin-bottom:0px;}
 }
   /* code fix for defect 567 */
