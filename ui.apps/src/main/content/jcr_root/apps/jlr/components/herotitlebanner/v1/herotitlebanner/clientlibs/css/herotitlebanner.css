@@ -852,3 +852,30 @@ label {
 	position: unset;
 	padding-bottom: 0%;
 }
+.slateblue .cmp-herotitle-carousel .Pagination__play:before, .slateblue .cmp-herotitle-carousel .Pagination__pause:before{
+	border: 2px solid #fff;
+  }
+  .slateblue .cmp-herotitle-carousel .Pagination__play-control-icon, .slateblue .cmp-herotitle-carousel .Pagination__pause-control-icon{
+	fill: #fff;
+  }
+  .slateblue .cmp-herotitle-carousel .Pagination__pip:after{
+	border: 2px solid #fff;
+  }
+  .slateblue .cmp-herotitle-carousel .Pagination__pip--active:after, .slateblue .cmp-herotitle-carousel .Pagination__pip--active:hover:after{
+	background: #fff;
+  }
+  .slateblue .cmp-herotitle-carousel .st0--swiper-pagination{
+	fill: #ffffff
+	}
+	.slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__play-control-icon,
+  .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__pause-control-icon{
+  fill:#ffffff;
+  }
+  .slateblue .cmp-herotitle-carousel .Pagination__pause:before,
+  .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__play:before, 
+  .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__pause:before{
+	  border: 2px solid white;
+  }
+  .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__pip:after{
+	  border: 2px solid #fff;
+  }
