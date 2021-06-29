@@ -3236,7 +3236,7 @@
 					n.forEach(function (t) {
 						t.addEventListener("focus", function () {
 							e.onVehicleNavSelect(t)
-						}), t.addEventListener("mousedown", function () {
+						}), t.addEventListener("mouseenter", function () {
 							t.classList.contains("dxnav-vehicle-nav__item--active") || e.onVehicleNavSelect(t)
 						})
 					}), t.addEventListener("dxnav:VehicleDropdownInitialOpen", function () {
