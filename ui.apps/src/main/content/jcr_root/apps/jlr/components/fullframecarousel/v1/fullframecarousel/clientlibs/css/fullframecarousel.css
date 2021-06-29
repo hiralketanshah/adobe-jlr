@@ -2,7 +2,7 @@
   min-height: 0;
 }
 .cmp-carousel.cmp-fullframe-carousel {
-    margin: 60px 60px 80px 60px;
+    margin: 60px 60px 79px 60px;
   min-height: 600px;
   max-height: 100%;
   text-align: center;
@@ -1021,7 +1021,9 @@ fill:black;
 .light  .headingWrapper p{color:#0C121C;}
 .light .cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
 .white .cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
-
+.slateblue p {
+  color: #FFFFFF!important;
+}
 .cmp-fullframe .primaryLinkWithStyle{font-family:AvenirNext-DemiBold; line-height:14px;}
 .cmp-fullframe  .headerClass h2 {
   margin-bottom: 16px;
@@ -1050,6 +1052,7 @@ fill:black;
   margin-left: 100px;
   width: 1200px;
 }
+.cmp-fullframe .headerClass{min-height:150px;}
 .cmp-fullframe .contentClass{
 float: left;
 width: 650px;}
@@ -1074,6 +1077,7 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
+  .cmp-fullframe .headerClass{min-height:150px;}
   .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:50px;
     margin-right:50px;
@@ -1111,6 +1115,12 @@ left: 50px;
 }
 
 @media screen and (min-width: 768px) and (max-width:998px){
+  .cmp-fullframe-carousel .cmp-carousel__slider{height:auto!important;}
+  .cmp-carousel.cmp-fullframe-carousel {
+    margin-bottom:61px;
+  }
+  .cmp-fullframe .secondaryLinkWithStyle{margin-bottom:0;}
+  .cmp-fullframe .primaryLinkWithStyle{margin-bottom:0;}
 .cmp-fullframe .headerClass {width:524px; min-width:524px; max-width:524px;}
 .cmp-fullframe .contentClass{
   float: left;
@@ -1123,6 +1133,8 @@ left: 50px;
 }
 
 @media screen and (min-width: 320px) and (max-width:767px){
+  .cmp-fullframe_pagination .Pagination__pip--active:hover:after,
+  .cmp-fullframe_pagination .Pagination__pip--active:after{background:#fff;}
 .cmp-fullframe .headerClass {width:325px; min-width:325px; max-width:325px;}
 .cmp-fullframe .contentClass{
   float: left;
