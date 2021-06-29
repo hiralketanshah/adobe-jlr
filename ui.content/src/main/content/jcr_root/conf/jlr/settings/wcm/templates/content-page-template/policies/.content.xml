@@ -89,14 +89,6 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </carousel>
-                        <accolade jcr:primaryType="nt:unstructured">
-                            <v1 jcr:primaryType="nt:unstructured">
-                                <accolade
-                                    cq:policy="jlr/components/accolade/v1/accolade/policy_1617788181626"
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="wcm/core/components/policies/mapping"/>
-                            </v1>
-                        </accolade>
                         <dualframeslider jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <dualframeslider
@@ -148,11 +140,11 @@
                         <seatslider jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <seatslider
-                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1621706500752"
+                                    cq:policy="jlr/components/seatslider/v1/seatslider/policy_1622717561395"
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </seatslider>                      
+                        </seatslider>
                         <herotitlebanner jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
                                 <herotitlebanner
@@ -224,7 +216,23 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </c-player>                          
+                        </c-player>
+                        <sitenotification jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <sitenotification
+                                    cq:policy="jlr/components/sitenotification/v1/sitenotification/policy_1623840580238"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </sitenotification>
+                        <vehiclespecs jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <vehiclespecs
+                                    cq:policy="jlr/components/vehiclespecs/v1/vehiclespecs/policy_1624904253125"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </vehiclespecs>
                     </components>
                 </jlr>
             </container>

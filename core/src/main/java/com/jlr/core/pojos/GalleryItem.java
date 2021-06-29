@@ -10,6 +10,7 @@ public class GalleryItem {
     private boolean isDecorative;
     private String videoId;
     private String posterImage;
+    private String thumbnail;
     private String text;
     private String link;
     private String icon;
@@ -17,8 +18,8 @@ public class GalleryItem {
     private String target;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-            boolean isDecorative, String videoId, String posterImage, String text, String link, String icon,
-            String ariaLabel, String target) {
+            boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
+            String icon, String ariaLabel, String target) {
         super();
         this.headerCopy = headerCopy;
         this.copy = copy;
@@ -28,6 +29,7 @@ public class GalleryItem {
         this.isDecorative = isDecorative;
         this.videoId = videoId;
         this.posterImage = posterImage;
+        this.thumbnail = thumbnail;
         this.text = text;
         this.link = link;
         this.icon = icon;
@@ -92,6 +94,10 @@ public class GalleryItem {
 
     public String getPosterImage() {
         return posterImage;
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
     }
 
     public void setVideoId(String videoId) {

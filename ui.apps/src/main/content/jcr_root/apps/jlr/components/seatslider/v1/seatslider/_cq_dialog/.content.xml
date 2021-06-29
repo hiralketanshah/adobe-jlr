@@ -27,21 +27,32 @@
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
                                         path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                                    <rte1heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Seat Configuration Value Unit *"/>
                                     <unit
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/include"
                                         path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
-                                   <images
+                                    <images
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                        fieldLabel="Seat Configuration Image"
                                         name="./folderPath"
-                                        rootPath="/content/dam/landrover"
-                                        fieldLabel="Image Folder Path"/>
-                                   <caption
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>          
+                                        rootPath="/content/dam/landrover"/>
+                                    <rte2heading
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/text"
+                                        text="Component Caption *"/>
+                                    <caption
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                        path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
                                 </items>
+                                <granite:data
+                                    jcr:primaryType="nt:unstructured"
+                                    seat-slider-component="true"/>
                             </column>
                         </items>
                     </copy>
@@ -62,27 +73,38 @@
                                     fieldDescription="Maximum 6 Items are allowed"
                                     name="./seatSliderList">
                                     <items jcr:primaryType="nt:unstructured">
-                                    	<title
+                                        <title
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                            fieldLabel="Tab Title"
-                                            required = "true"
-                                            name="./title"/>
+                                            fieldLabel="Seat Tab Copy"
+                                            name="./title"
+                                            required="true"/>
+                                        <rte1heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Seat Configuration Header *"/>
                                         <header
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                        <rte2heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Seat Configuration Summary *"/>
                                         <summary
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
-                                         <seat
+                                        <seatValue
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-                                            fieldLabel="Configuration Value"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                            fieldLabel="Seat Configuration Value"
                                             name="./value"
-                                            step="1"
-                                            value="1"/> 
+                                            required="true"/>
+                                        <imagePathHeading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Seat Configuration Capacity Image"/>
                                         <imagePath
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"

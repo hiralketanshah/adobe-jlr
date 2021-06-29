@@ -1,14 +1,19 @@
 package com.jlr.core.utils;
 
-import com.jlr.core.pojos.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.pojos.Feature;
+import com.jlr.core.pojos.Image;
+import com.jlr.core.pojos.PublishedImage;
+import com.jlr.core.pojos.VehicleLink;
 
 /**
  * The type Vehicle card utils.
@@ -19,8 +24,10 @@ public class VehicleCardUtils {
     /**
      * Sets image to vehicle link.
      *
-     * @param fileReference the file reference
-     * @param altText       the alt text
+     * @param fileReference
+     *            the file reference
+     * @param altText
+     *            the alt text
      * @return the image to vehicle link
      */
     public static Image setImageToVehicleLink(String fileReference, String altText) {
@@ -43,20 +50,21 @@ public class VehicleCardUtils {
      */
     public static VehicleLink getEmptyVehicleLink() {
         VehicleLink empty = new VehicleLink();
-        empty.setInternalLink(JSONObject.NULL+ StringUtils.EMPTY);
-        empty.setExternalLink(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
+        empty.setExternalLink(JSONObject.NULL + StringUtils.EMPTY);
         empty.setHref(null);
         empty.setIcon(null);
         empty.setText(null);
         empty.setTargetKeyword("same_window");
-        empty.setAccessibleText(JSONObject.NULL+ StringUtils.EMPTY);
+        empty.setAccessibleText(JSONObject.NULL + StringUtils.EMPTY);
         return empty;
     }
 
     /**
      * Sets cta to vehicle link.
      *
-     * @param ctaPojo the cta pojo
+     * @param ctaPojo
+     *            the cta pojo
      * @return the cta to vehicle link
      */
     public static VehicleLink setCtaToVehicleLink(CTAPojo ctaPojo) {
@@ -64,21 +72,23 @@ public class VehicleCardUtils {
         vehicleLink.setText(ctaPojo.getText());
         vehicleLink.setIcon(ctaPojo.getIcon());
         vehicleLink.setHref(ctaPojo.getLink());
+        vehicleLink.setTargetKeyword(ctaPojo.getTarget());
         vehicleLink.setExternalLink(ctaPojo.getLink());
-        vehicleLink.setAccessibleText(JSONObject.NULL+ StringUtils.EMPTY);
-        vehicleLink.setInternalLink(JSONObject.NULL+ StringUtils.EMPTY);
+        vehicleLink.setAccessibleText(JSONObject.NULL + StringUtils.EMPTY);
+        vehicleLink.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
         return vehicleLink;
     }
 
     /**
      * Add features to vehicle card list.
      *
-     * @param features the features
+     * @param features
+     *            the features
      * @return the list
      */
     public static List<Feature> addFeaturesToVehicleCard(Resource features) {
         List<Feature> featureList = new ArrayList<>();
-        if (null != features && features.hasChildren()) {
+        if (null != features && features.hasChildren() && "features".equals(features.getName())) {
             Iterator<Resource> childResources = features.listChildren();
             while (childResources.hasNext()) {
                 Resource child = childResources.next();

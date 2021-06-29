@@ -122,4 +122,38 @@ public class PricingConstants {
      * The Pricing read sub service
      */
     public static final String PRICING_READ_SUBSERVICE = "jlrreadpricing";
+
+    /**
+     * The constant HTTP_CLIENT_TIMEOUT
+     */
+    public static final int HTTP_CLIENT_TIMEOUT = 5000;
+
+    /**
+     * The constant PN_LOCK_ACTIVE
+     */
+    public static final String PN_LOCK_ACTIVE = "active";
+
+    /**
+     * The constant PN_LOCK_ACTIVE_DATE
+     */
+    public static final String PN_LOCK_ACTIVE_DATE = "activeDate";
+
+    public static final String NN_VEHICLE_SUMMARY = "signpostvehiclesummary";
+
+    public static final String NN_HERO_ITEM = "heroitem";
+
+    public static final String NN_HERO_TITLE = "herotitlebanner";
+
+    public static final String NN_OFFERS = "offers";
+
+    public static final String NN_DERIVATIVE = "derivative";
+
+    public static final String NN_CONTENT_CARD = "contentcard";
+
+    public static final String HERO_FROM_TEXT = "hero.tco.from.txt";
+
+    public static final String OFFERS_FROM_TEXT = "offers.tco.from.txt";
+
+    public static final String CONTENTCARD_FROM_TEXT = "content.blocks.from.text";
+
 }

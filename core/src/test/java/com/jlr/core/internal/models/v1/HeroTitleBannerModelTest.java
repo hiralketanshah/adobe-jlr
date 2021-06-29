@@ -6,9 +6,10 @@ import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 
-import com.jlr.core.models.HeroTitleBannerModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -23,7 +24,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 class HeroTitleBannerModelTest extends GlobalModelImplTest {
 
     /** The hero title banner model. */
-    private HeroTitleBannerModel heroTitleBannerModel;
+    @InjectMocks
+    private HeroTitleBannerImpl heroTitleBannerModel;
 
     /**
      * Sets the up.
@@ -41,6 +43,7 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
     /**
      * Test properties.
      */
+    @Test
     void testProperties() {
         List<CTAPojo> list = heroTitleBannerModel.getCtaList();
         assertEquals(1, list.size());

@@ -6,9 +6,11 @@ import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.MockitoAnnotations;
 
-import com.jlr.core.models.VehicleSummaryModel;
 import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
@@ -23,7 +25,8 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 class VehicleSummaryImplTest extends GlobalModelImplTest {
 
     /** The vehicle summary model. */
-    private VehicleSummaryModel vehicleSummaryModel;
+    @InjectMocks
+    private VehicleSummaryImpl vehicleSummaryModel;
 
     /**
      * Sets the up.
@@ -35,6 +38,7 @@ class VehicleSummaryImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
+        MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/vehiclesummary/vehiclesummary.json", "/content/jlr/vehiclesummary.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/vehiclesummary.html");
         vehicleSummaryModel = resource.adaptTo(VehicleSummaryImpl.class);
@@ -44,9 +48,9 @@ class VehicleSummaryImplTest extends GlobalModelImplTest {
      * Test cta properties.
      */
     @Override
+    @Test
     void testCtaProperties() {
         List<CTAPojo> list = vehicleSummaryModel.getCtaList();
-        assertEquals("pricing_value", vehicleSummaryModel.getPrice());
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("test_cta_text", item.getText());

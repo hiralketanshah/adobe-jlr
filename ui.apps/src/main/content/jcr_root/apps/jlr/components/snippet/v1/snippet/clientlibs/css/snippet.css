@@ -199,7 +199,7 @@
 	.snippet .headingWrapper p{width:765px;}
 	.snippet .fontBodyCopyLarge p{width:880px;}
     .snippet .headingThick {width:765px;}
-	.snippet .shelfComponent{margin-left:290px; min-width:880px;width:880px; margin-right:750px; margin-bottom:82px;}
+	.snippet .shelfComponent{margin-left:290px; min-width:880px;width:880px; margin-right:750px; margin-bottom:119px;}
 	.snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;} 
 }
 
@@ -210,6 +210,7 @@
     .cmp-snippet p{line-height:24px;}
     .snippet .shelfComponent{
     padding:60px 60px 82px 60px;
+
 
 }
   .cmp-snippet .headingWrapper p {

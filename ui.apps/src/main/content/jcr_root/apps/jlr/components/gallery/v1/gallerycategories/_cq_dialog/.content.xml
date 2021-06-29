@@ -63,10 +63,9 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="cq/gui/components/authoring/dialog/richtext"
                                 dfs-required="true"
-                                fieldDescription="The Information copy to be displayed."
-                                fieldLabel="Information Copy"
+                                fieldDescription="The Gallery Category Description to be displayed."
+                                fieldLabel="Gallery Category Description"
                                 name="./copy"
-                                required="{Boolean}true"
                                 useFixedInlineToolbar="{Boolean}true">
                                 <rtePlugins jcr:primaryType="nt:unstructured">
                                     <subsuperscript
@@ -111,7 +110,7 @@
                     </properties>
                     <categories
                         jcr:primaryType="nt:unstructured"
-                        jcr:title="Thumbnail Images"
+                        jcr:title="Gallery Categories"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
@@ -148,6 +147,10 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"
                                                     path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                                <damAltText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                    path="/mnt/overlay/jlr/components/globalfields/image/damAltText"/>
                                                 <decorative
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/include"

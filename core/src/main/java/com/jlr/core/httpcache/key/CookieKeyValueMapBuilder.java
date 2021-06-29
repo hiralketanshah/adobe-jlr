@@ -1,6 +1,7 @@
 package com.jlr.core.httpcache.key;
 
 import javax.servlet.http.Cookie;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -17,8 +18,8 @@ public class CookieKeyValueMapBuilder {
 
     public CookieKeyValueMapBuilder(Set<String> allowedKeys, Set<Cookie> presentCookies) {
 
-        this.allowedKeys = allowedKeys;
-        this.presentCookies = presentCookies;
+        this.allowedKeys = new HashSet<>(allowedKeys);
+        this.presentCookies = new HashSet<>(presentCookies);
     }
 
 

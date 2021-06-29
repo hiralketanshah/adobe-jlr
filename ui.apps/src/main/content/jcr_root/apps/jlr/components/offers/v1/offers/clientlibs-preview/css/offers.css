@@ -1,0 +1,14 @@
+
+@media screen and (min-width: 1280px) {
+  .cmp-offersContainer {
+    margin-left: 60px;
+    margin-right: 60px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .cmp-offersContainer {
+    margin-left: 290px;
+    margin-right: 290px;
+  }
+}

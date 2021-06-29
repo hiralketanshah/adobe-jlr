@@ -2,6 +2,7 @@
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" 
 data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" data-sly-call="${clientlib.all @ categories=['jlr.components.cplayer.v1']}" />
 	<div class="cmp-cplayer cmp-cplayer-hidden sectioncss groupcss" data-vechicle-id="${model.nameplateId}" data-model-year="${model.modelyear}" data-vechicle-name="${model.nameplateId}">
 		<div class="col span_1_of_3 cplayerCopy">
 			<div class="grid-container">
@@ -38,10 +39,13 @@ data-sly-test.hasContent="${model.headerCopy}" id="${component.id}">
 			</div>
 		</div>
 		<div class="col span_2_of_3 cplayerImageDiv">
-			<div class="cplayerImage">
-				<picture class="Picture Picture--background">
-                </picture>
-              </div>
+			<div class="ConfiguratorPrompt fontSmooth">
+			<div class="ConfiguratorPrompt__image">
+				<div class="canvas-container">
+				</div>
+			</div>
+			<div class="ConfiguratorPrompt__saved-build-data" data-cplayer-api-key="DXlive8ApPc9JQrZajavktj74ZKByExdWBxhEu"></div>
+		  </div>
 		</div>
 	</div>
 	

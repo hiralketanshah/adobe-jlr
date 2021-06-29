@@ -27,6 +27,7 @@
     <modules>
         <module>all</module>
         <module>core</module>
+		<module>core.wf</module>
         <!-- <module>ui.frontend</module> -->
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
@@ -950,13 +951,19 @@ Bundle-DocURL:
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>3.3.3</version>
+                <version>3.4.4</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-inline</artifactId>
+                <version>3.4.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-junit-jupiter</artifactId>
-                <version>3.3.3</version>
+                <version>3.4.4</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -996,6 +1003,23 @@ Bundle-DocURL:
                 <artifactId>accesscontroltool-oakindex-package</artifactId>
                 <type>zip</type>
                 <version>${biz.netcentric.cq.tools.accesscontroltool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.sling</groupId>
+                <artifactId>dynamic-include</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.akamai.edgegrid/edgegrid-signer-core -->
+            <dependency>
+                <groupId>com.akamai.edgegrid</groupId>
+                <artifactId>edgegrid-signer-core</artifactId>
+                <version>4.0.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.akamai.edgegrid/edgegrid-signer-google-http-client -->
+            <dependency>
+                <groupId>com.akamai.edgegrid</groupId>
+                <artifactId>edgegrid-signer-google-http-client</artifactId>
+                <version>4.0.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -36,9 +36,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
 import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
-import static com.jlr.core.utils.NavigationUtils.getBaseUrl;
+import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
+import static com.jlr.core.utils.NavigationUtils.getExternalLink;
 
 /**
  * Navigation Servlet is used to fetch the header nav based on request parameters, and also to return the json.
@@ -52,14 +54,13 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/navigation";
     protected static final String SELECTOR_JSON = "json";
-    private static final String APPLICATION_JSON = "application/json";
 
     @Reference
-    private RequestResponseFactory requestResponseFactory;
+    private transient RequestResponseFactory requestResponseFactory;
 
     @Reference
-    private SlingRequestProcessor requestProcessor;
-    private NavigationServletConfig config;
+    private transient SlingRequestProcessor requestProcessor;
+    private transient NavigationServletConfig config;
 
     @Activate
     protected void activate(NavigationServletConfig config) {
@@ -78,53 +79,62 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         Boolean yourRetailer = request.getParameter("yourRetailer") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("yourRetailer"));
         Boolean retailerLocatorLink =
                         request.getParameter("retailerLocatorLink") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("retailerLocatorLink"));
-        Boolean myLandRover = Boolean.valueOf(request.getParameter("myLandRover"));
+        Boolean myJLRProfile = Boolean.valueOf(request.getParameter("myJLRProfile"));
         Boolean mrp = Boolean.valueOf(request.getParameter("mrp"));
 
-        if(StringUtils.isEmpty(locale)) {
+        if (StringUtils.isEmpty(locale)) {
             sendResponseStatus(response, HttpStatus.SC_NOT_FOUND, "Request parameter is not found");
             return;
         }
 
         String requestPath = config.deHeaderPath();
-        if (locale.equalsIgnoreCase("en_AU")) {
+        if (locale.equalsIgnoreCase("en_AU") || locale.equalsIgnoreCase("en-AU")) {
             requestPath = config.auHeaderPath();
         }
         ResourceResolver resourceResolver = request.getResourceResolver();
+
         ByteArrayOutputStream out = processRequest(request, response, mrp, requestPath, resourceResolver);
         String html = out.toString();
+
         Document document = null;
         if (fullyQualifyDxLinks) {
-            document = Jsoup.parse(html, getBaseUrl(resourceResolver));
+            document = Jsoup.parse(html, getExternalLink(StringUtils.EMPTY, locale, resourceResolver));
             NavigationUtils.processUrls(document);
         } else {
             document = Jsoup.parse(html);
         }
         Elements header = document.select("header");
-        NavigationUtils.setCacheHeaderResponse(response, cache, header);
+        NavigationUtils.setCacheHeaderResponse(request, response, cache, header);
         NavigationUtils.changeAttributeValue("data-retailer-name", retailerName, header);
         NavigationUtils.changeAttributeValue("data-retailer-url", retailerUrl, header);
         NavigationUtils.changeAttributeValue("data-locale", locale, header);
         NavigationUtils.changeAttributeValue("data-yourretailer-allowed", Boolean.toString(yourRetailer), header);
 
         /* Get the retailer and search divs */
+        if (!mrp) {
+            NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-showprices");
+            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-prices.MarketRegionalPricing-triggerer");
+            NavigationUtils.removeAttribute(document, "div.dxnav-NaasMarketRegionalPricing-cta");
+            NavigationUtils.removeAttribute(document, "span.dxnav__item-prices-label");
+        }
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
+            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-search");
         }
         if (!retailerLocatorLink) {
             NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-retailer");
             NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-retailer");
         }
-        if (myLandRover) {
+        if (myJLRProfile) {
             document.select("a.dxnav-profile").removeAttr("style");
         } else {
             NavigationUtils.removeAttribute(document, "a.dxnav-profile");
         }
-
-        sendResponse(response, cache, document);
+        sendResponse(response, cache, document, locale, request.getResourceResolver());
     }
 
-    private ByteArrayOutputStream processRequest(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean mrp, String requestPath, ResourceResolver resourceResolver) {
+    private ByteArrayOutputStream processRequest(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean mrp, String requestPath,
+                    ResourceResolver resourceResolver) {
         HttpServletRequest req = requestResponseFactory.createRequest("GET", requestPath);
         req.setAttribute(JLR_LOCALE_PRICING, request.getCookie(JLR_LOCALE_PRICING));
         if (Boolean.FALSE.equals(mrp)) {
@@ -141,21 +151,21 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         try {
             requestProcessor.processRequest(req, resp, resourceResolver);
         } catch (ServletException | IOException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION,
-                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_GENERIC_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                            ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
             sendResponseStatus(response, HttpStatus.SC_INTERNAL_SERVER_ERROR, "Unable to fetch the header");
         }
         return out;
     }
 
-    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document) {
+    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document, String locale, ResourceResolver resolver) {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
-            responseObject.put("cssFontImportsLink", config.cssFontImportsLink());
-            responseObject.put("cssLink", config.cssLink());
+            responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
+            responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             responseObject.put("html", document.getElementsByTag("header").outerHtml());
-            responseObject.put("javascriptLink", config.javascriptLink());
+            responseObject.put("javascriptLink", getExternalLink(config.javascriptLink(), locale, resolver));
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
@@ -170,21 +180,8 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             printOut.flush();
         } catch (IOException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                    ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
+                            ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
         }
     }
 
-    private void sendResponseStatus(SlingHttpServletResponse response, int statusCode, String message) {
-        try {
-            response.setContentType(APPLICATION_JSON);
-            response.setCharacterEncoding(CharEncoding.UTF_8);
-            response.setStatus(statusCode);
-            response.sendError(statusCode, message);
-            PrintWriter printOut = response.getWriter();
-            printOut.flush();
-        } catch (IOException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION,
-                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
-        }
-    }
 }

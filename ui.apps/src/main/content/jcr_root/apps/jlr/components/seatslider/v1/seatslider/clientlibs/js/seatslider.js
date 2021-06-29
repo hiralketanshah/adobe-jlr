@@ -1,3 +1,4 @@
+
 /******/ (function (modules) { // webpackBootstrap
 /******/             // The module cache
 /******/             var installedModules = {};
@@ -731,14 +732,14 @@
                   }
     
                   this._setupWaypointDivs();
-                  // this._resizeElements();
+                  this._resizeElements();
     
                   $(window).resize(function () {
                     clearTimeout(_this.waypointTimeout);
     
                     _this.waypointTimeout = setTimeout(function () {
                       _this._setupWaypointDivs(true);
-                      // _this._resizeElements();
+                      _this._resizeElements();
                     }, _this._resizeTimeout);
                   });
                 },
@@ -749,23 +750,77 @@
     
                   this.$element.find('.frameSliderItem').height(newHeight);
                 },
-                // _resizeElements: function _resizeElements() {
-                //   var infoContainer = $('.infoContainer', this.$element);
-    
-                //   if (window.innerWidth <= 740 && this.isOldSlider) {
-                //     var infoContainerHeight = infoContainer.height();
-                //     var frameSliderBgHeight = $('.frameSliderBg', this.$element).height();
-                //     var newHeight = infoContainerHeight + frameSliderBgHeight;
-    
-                //     $('.frameSliderItem', this.$element).height(newHeight);
-                //   } else if (window.innerWidth <= 740 && !this.isOldSlider) {
-                //     var _frameSliderBgHeight = $('.frameSliderBg', this.$element).height();
-                //     var _infoContainerHeight = infoContainer.height();
-                //     var _newHeight = _frameSliderBgHeight + _infoContainerHeight;
-    
-                //     $('.frameSliderItem', this.$element).height(_newHeight);
-                //   }
-                // },
+              
+                _resizeElements: function _resizeElements() {
+                
+                  var contentheight = $(".infoContainer .content").css("height");
+                  var spriteContainerheight = $(".spriteContainer").css("height");
+
+                  if(window.innerWidth == 1280){
+                    $('.cmp-interactiveSlider').css({ height: 632 });
+                  }
+                  else if(window.innerWidth == 1920){
+                    $('.cmp-interactiveSlider').css({ height: 710 });
+                  }
+                  else{
+                    $('.cmp-interactiveSlider').removeAttr('style');
+                  }
+
+
+                  if(window.innerWidth >= 901){
+                  var maxheightcontent = Math.max(parseInt(contentheight),parseInt(spriteContainerheight))
+                  $('.frameSliderItem').css({ height: maxheightcontent });
+                  $('.infoContainer', this.$element).css({
+                    top: 0
+                   });
+                  } 
+
+
+                  if(window.innerWidth >= 601  && window.innerWidth <= 900){
+                    var maxheightcontentab = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
+                     $('.frameSliderItem').css({ height: maxheightcontentab});
+
+                     var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
+                    
+                    $('.infoContainer', this.$element).css({
+                    top: topCalculation 
+                   });
+
+                   
+                  }
+                  if(window.innerWidth >= 1  && window.innerWidth <= 600){
+                   
+                   if(parseInt(contentheight)<313){
+                     console.log(parseInt(contentheight));
+                     parseInt(contentheight)
+                     var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+372;
+                     $('.frameSliderItem').css({ height: maxheightcontentmobile});
+                     var topCalculation = maxheightcontentmobile - $(this.$arrangementInformationContainer).outerHeight();
+                     console.log(topCalculation);
+                     $('.infoContainer', this.$element).css({
+                      top: topCalculation -344
+                      });
+                   }
+                   else
+                   {
+                   
+                    var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
+                    console.log("maxheightcontentmobile",maxheightcontentmobile);
+                    $('.frameSliderItem').css({ height: maxheightcontentmobile});
+
+                     var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
+
+                     console.log($('.frameSliderItem').height());
+                     console.log($(this.$arrangementInformationContainer).outerHeight());
+                     $('.infoContainer', this.$element).css({
+                      top: topCalculation
+                      });
+                   }
+                 
+                  }
+
+                  
+                },
                 _setupWaypointDivs: function _setupWaypointDivs(resize) {
                   var sliderFlexWidth = this.$sliderContainerUpper.width() - 64;
     
@@ -785,9 +840,17 @@
     
                   }
                   let mm = (len * 2) - 2;
-    
-                  sliderWith += mm * 22;
-    
+                  
+                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                    
+                    sliderWith += mm * 16
+
+                  }
+                  else{
+                    
+                    sliderWith += mm * 22
+
+                  }
     
                   sliderFlexWidth = sliderWith;
     
@@ -803,7 +866,6 @@
                     this.$sliderControls.css({
     
                       width: sliderFlexWidth
-                      // width:"530px"         
                     });
     
                   }
@@ -829,6 +891,7 @@
                   this._initDragDealer();
     
                   var cti = $('.clickToInteract', this.$element);
+                  var ctiupper = $('.sliderContainerUpper', this.$element);
                   var onCtiClick = function onCtiClick() {
                     cti.hide().attr('aria-hidden', 'true');
                     _this2._loadingOverlay();
@@ -843,6 +906,14 @@
                     }
                   };
                   cti.one('click', onCtiClick);
+                  ctiupper.one('click', onCtiClick);
+                  ctiupper.on('keypress', function (evt) {
+                    if (evt.which === _aria.KeyCode.RETURN || evt.which === _aria.KeyCode.SPACE) {
+                      evt.preventDefault();
+                      onCtiClick();
+                    }
+                  });
+
                   cti.on('keypress', function (evt) {
                     if (evt.which === _aria.KeyCode.RETURN || evt.which === _aria.KeyCode.SPACE) {
                       evt.preventDefault();
@@ -854,11 +925,11 @@
                   var dragControl = this.activeframeSliderItem.dragControl;
     
     
-                  if (site.rtl) {
-                    dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([1, 1]), false);
-                  } else {
-                    dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([0, 1]), false);
-                  }
+                  // if (site.rtl) {
+                  //   dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([1, 1]), false);
+                  // } else {
+                  //   dragControl.setTargetValueByOffset(dragControl.getOffsetsByRatios([0, 1]), false);
+                  // }
                 },
                 _loadingOverlay: function _loadingOverlay() {
                   // Overlay
@@ -927,9 +998,9 @@
                     _this4.activeframeSliderItem.dragControl.enable();
                   }, 1500);
                 },
-                init_rtl: function init_rtl() {
-                  this._frameSliderItemDefaults.frameState.direction = 'backward';
-                },
+                // init_rtl: function init_rtl() {
+                //   this._frameSliderItemDefaults.frameState.direction = 'backward';
+                // },
                 _initframeSliderItem: function _initframeSliderItem($element) {
                   this.activeframeSliderItem = false;
     
@@ -1095,11 +1166,21 @@
                   let len = this.$sliderContainerUpper[0].children.length;
                   let sliderWith = 0;
                   let sliderBtn = [];
+                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                    for (var i = 0; i < len; i++) {
+                      sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
+                      let ss = (sliderWith + ((i + 1) * 34) - 17) - 52;
+                      sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 16)) / sliderWidth)}`));
+                    }
+
+                  }
+                  else{
                   for (var i = 0; i < len; i++) {
                     sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
                     let ss = (sliderWith + ((i + 1) * 44) - 22) - 60;
                     sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 22)) / sliderWidth)}`));
                   }
+                }
                   sliderBtn[0] = 0;
                   sliderBtn[sliderBtn.length - 1] = 0.90;
                   if (sliderBtn.length == 3) {
@@ -1126,6 +1207,7 @@
                   var $controlElement = $(this.sliderElementRef, $element);
     
                   if ($element.hasClass('backgroundOverlay')) {
+                    alert("overlay");
                     $element.prepend($('<div class="backgroundOverlayElement"/>'));
                     // Show Background Overlay when hovering controls
                     $controlElement.on('mouseenter touchstart', function () {
@@ -1203,6 +1285,9 @@
                 _centerInfoContainer: function _centerInfoContainer() {
                   if (this.currentState !== 'mobile') {
                     var topCalculation = ($('.frameSliderBg', this.$element).height() - $(this.$arrangementInformationContainer).outerHeight()) / 2;
+                    //$('.infoContainer', this.$element).css({
+                    //   top: topCalculation
+                    //  });
     
                   }
                 },
@@ -1271,15 +1356,15 @@
                   if (!this.isOldSlider) {
                     this.odometer = $(this.$contentContainer).find('.odo').get(0);
                     var initial = $(this.odometer).html();
-                    var format = this.odometer.getAttribute('data-format');
-    
+                    // var format = this.odometer.getAttribute('data-format');
+                    
                     if (initial !== '') {
                       new Odometer({ // eslint-disable-line no-new
                         el: this.odometer,
                         value: initial,
-                        format: format,
+                        //format: '(,ddd).dd',
                         theme: 'default',
-                        duration: 2000
+                        duration: 9000
                       });
     
                       this._noOdometer = false;

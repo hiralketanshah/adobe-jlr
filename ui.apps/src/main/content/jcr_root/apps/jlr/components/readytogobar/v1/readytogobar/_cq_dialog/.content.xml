@@ -119,33 +119,6 @@
                                 name="./enableFAB"
                                 text="Enable Floating Action Button"
                                 value="{Boolean}true"/>
-                            <hideDesktop
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Desktop Viewport"
-                                name="./hideDesktop"
-                                text="Supress desktop view"
-                                uncheckedValue="true"
-                                value="{Boolean}false"/>
-                            <hideTablet
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Tablet  Viewport"
-                                name="./hideTablet"
-                                text="Supress tablet view"
-                                uncheckedValue="true"
-                                value="{Boolean}false"/>
-                            <hideMobile
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Mobile Viewport"
-                                name="./hideMobile"
-                                text="Supress mobile view"
-                                uncheckedValue="true"
-                                value="{Boolean}false"/>
                             <listType
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/select"

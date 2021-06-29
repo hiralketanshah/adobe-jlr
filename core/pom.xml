@@ -43,8 +43,8 @@
                         </goals>
                         <configuration>
                             <bnd><![CDATA[
-Import-Package: javax.annotation;version=0.0.0,*
-Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalayer,com.jlr.core.datalayer.impl,com.jlr.core.models,com.jlr.core.utils.*,com.jlr.core.services,com.jlr.core.pojos.*,com.jlr.core.internal.models.v1.*,com.jlr.core.servlets
+Import-Package: javax.annotation;version=0.0.0,com.google.common.collect;version=15.0.0,*
+Export-Package: com.google.api.client.*,com.akamai.edgegrid.signer.*,com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalayer,com.jlr.core.datalayer.impl,com.jlr.core.models,com.jlr.core.utils.*,com.jlr.core.services,com.jlr.core.pojos.*,com.jlr.core.internal.models.v1.*,com.jlr.core.servlets
                                 ]]>      
                                 </bnd>
                         </configuration>
@@ -184,6 +184,10 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
 
         <!-- Testing -->
         <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
@@ -222,6 +226,16 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.akamai.edgegrid/edgegrid-signer-core -->
+		<dependency>
+		    <groupId>com.akamai.edgegrid</groupId>
+		    <artifactId>edgegrid-signer-core</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.akamai.edgegrid/edgegrid-signer-google-http-client -->
+		<dependency>
+		    <groupId>com.akamai.edgegrid</groupId>
+		    <artifactId>edgegrid-signer-google-http-client</artifactId>
+		</dependency>
         <!-- Required to be able to support injection with @Self and @Via -->
         <dependency>
             <groupId>org.apache.sling</groupId>
@@ -234,5 +248,16 @@ Export-Package: com.jlr.core.config,com.jlr.core.constants,com.jlr.core.datalaye
             <artifactId>acs-aem-commons-bundle</artifactId>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+		    <groupId>com.google.code.gson</groupId>
+		    <artifactId>gson</artifactId>
+		    <version>2.3.1</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>com.day.commons.osgi.wrapper</groupId>
+		    <artifactId>com.day.commons.osgi.wrapper.commons-httpclient</artifactId>
+		    <version>3.1.0.018</version>
+		</dependency>
     </dependencies>
 </project>

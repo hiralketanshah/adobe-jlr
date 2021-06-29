@@ -41,22 +41,4 @@ public interface HeroItemModel {
     default String getCaveat() {
         return StringUtils.EMPTY;
     }
-
-    /**
-     * Gets the price.
-     *
-     * @return the price
-     */
-    default String getPrice() {
-        return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    default String getPriceConfigValue() {
-        return StringUtils.EMPTY;
-    }
 }

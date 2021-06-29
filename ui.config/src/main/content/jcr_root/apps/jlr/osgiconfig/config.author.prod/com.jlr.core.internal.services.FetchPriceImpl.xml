@@ -4,4 +4,5 @@
 	jcr:primaryType="sling:OsgiConfig"
 	listOfStageEndpoints="[]" 
 	stageApiKey=""
+	replicationAgent="publish1euwest2,publish2euwest2"
 	listOfDestinationPaths="[prod|/var/jlr/pricing/prd/]"/>

@@ -15,5 +15,16 @@
     "imageLink": "/content/jlr/au",
     "imageCaptionLink": "/content/jlr/au",
     "imageCaptionText": "Image Caption Text",
-    "jcr:primaryType": "nt:unstructured"
+    "jcr:primaryType": "nt:unstructured",
+    "videoId": "V1CZan9Tb34",
+    "videoPath": "/content/dam/test.mp4",
+    "altTextFromDAM": false,
+    "posterImage": "/content/dam/test.png",
+    "videoTitle": "Test Video Title",
+    "icon": "icon-arrow-right",
+    "assetType": "video",
+    "price": "$12345",
+    "date": "2021-02-25T14:41:24.047+05:30",
+    "headerIcon": "icon-arrow-right",
+    "price": "$12345"
 }

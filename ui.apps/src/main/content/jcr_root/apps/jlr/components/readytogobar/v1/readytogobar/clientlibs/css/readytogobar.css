@@ -90,12 +90,19 @@
 	text-align: left
 }
 
-.cmp-readyToGoBar__copy {
+h2.cmp-readyToGoBar__heading.heading.fontH5.headingH5 {
+    margin-bottom: 9px;
+	padding: 0;
+}
+
+.cmp-readyToGoBar__copy p{
 	color: #4a4f54;
 	transition: all .4s;
 	font-size:14px !important;
-	padding-top:9px;
-    font-family: "AvenirNext-Regular,Regular";
+	padding: 0;
+    font-family: "AvenirNext-Regular";
+    font-weight: normal;
+    font-style: normal;
 }
 
 .cmp-readyToGoBar__copy p:first-child::first-letter {
@@ -254,6 +261,7 @@
 		font-size:16px;
 		letter-spacing: 0.8px;
 		line-height:16px;
+		height: 31px !important;
 
 	}
 

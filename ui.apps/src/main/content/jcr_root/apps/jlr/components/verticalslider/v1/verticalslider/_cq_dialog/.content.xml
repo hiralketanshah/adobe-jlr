@@ -13,77 +13,6 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <carousel
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Carousel Behavior"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <autoplayGroup
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/well">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <delay
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
-                                                fieldDescription="The delay (in seconds) before automatically transitioning to the next slide."
-                                                fieldLabel="Transition Delay (seconds)"
-                                                max="60"
-                                                min="0"
-                                                name="./delay"
-                                                step="1"
-                                                value="6">
-                                            </delay>
-                                            <autopauseDisabled
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                                checked="false"
-                                                fieldDescription="If checked, display play pause buttons."
-                                                name="./autopauseDisabled"
-                                                text="Disable play pause options"
-                                                uncheckedValue="false"
-                                                value="true">
-                                            </autopauseDisabled>
-                                        </items>
-                                        <granite:data
-                                            jcr:primaryType="nt:unstructured"
-                                            cmp-carousel-v1-dialog-hook="autoplayGroup"/>
-                                    </autoplayGroup>
-                                </items>
-                            </columns>
-                        </items>
-                    </carousel>
-                    <copy
-                        jcr:primaryType="nt:unstructured"
-                        jcr:title="Properties"
-                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                        margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <column
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <id
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/include"
-                                        path="/mnt/overlay/jlr/components/globalfields/general/id"/>
-                                    <pipIcon
-                                        jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
-                                        checked="true"
-                                        fieldDescription="Disable numbered items and change to pip icon"
-                                        name="./pipIcon"
-                                        text="Choose pip icon instead of numbers"
-                                        uncheckedValue="false"
-                                        value="true"/>
-                                </items>
-                            </column>
-                        </items>
-                    </copy>
                     <slider
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Slider Item"
@@ -101,14 +30,26 @@
                                     fieldDescription="Maximum 4 Items are allowed"
                                     name="./verticalSliderList">
                                     <items jcr:primaryType="nt:unstructured">
+                                        <rte1heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Header Copy"/>
                                         <header
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte1"/>
+                                        <rte2heading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Summary"/>
                                         <summary
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/rte2"/>
+                                        <imagePathHeading
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Image"/>
                                         <imagePath
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -121,12 +62,16 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                        <damAltText
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                            path="/mnt/overlay/jlr/components/globalfields/image/damAltText"/>
                                         <ctaList
                                             granite:class="horizontal-line"
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                            fieldDescription="Maximum 1 CTAs are allowed"
                                             composite="{Boolean}true"
+                                            fieldDescription="Maximum 1 CTAs are allowed"
                                             fieldLabel="CTA List">
                                             <field
                                                 jcr:primaryType="nt:unstructured"
@@ -180,6 +125,76 @@
                             </sliderItem>
                         </items>
                     </slider>
+                    <carousel
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Carousel Behavior"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <autoplayGroup
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <delay
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                fieldDescription="The delay (in milliseconds) before automatically transitioning to the next slide."
+                                                fieldLabel="Transition Delay (milliseconds)"
+                                                required="true"
+                                                max="60000"
+                                                min="0"
+                                                name="./delay"
+                                                step="100"
+                                                value="1000"/>
+                                            <autopauseDisabled
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                checked="false"
+                                                fieldDescription="If checked, display play pause buttons."
+                                                name="./autopauseDisabled"
+                                                text="Disable play pause options"
+                                                uncheckedValue="false"
+                                                value="true"/>
+                                        </items>
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cmp-carousel-v1-dialog-hook="autoplayGroup"/>
+                                    </autoplayGroup>
+                                </items>
+                            </columns>
+                        </items>
+                    </carousel>
+                    <copy
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <id
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                        path="/mnt/overlay/jlr/components/globalfields/general/id"/>
+                                    <pipIcon
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        checked="true"
+                                        fieldDescription="Disable numbered items and change to pip icon"
+                                        name="./pipIcon"
+                                        text="Choose pip icon instead of numbers"
+                                        uncheckedValue="false"
+                                        value="true"/>
+                                </items>
+                            </column>
+                        </items>
+                    </copy>
                 </items>
             </tabs>
         </items>

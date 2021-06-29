@@ -1,0 +1,16 @@
+{
+  "stateList": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "stateName": "state1",
+      "stateValue": "value1"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "stateName": "state2",
+      "stateValue": "value2"
+    }
+  },
+  "jcr:primaryType": "nt:unstructured"
+}

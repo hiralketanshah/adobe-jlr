@@ -6,10 +6,16 @@ import java.util.List;
 
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
-import com.jlr.core.models.HeroItemModel;
+import com.day.cq.commons.inherit.InheritanceValueMap;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.services.TcoService;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -23,7 +29,17 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 class HeroItemModelImplTest extends GlobalModelImplTest {
 
     /** The hero item model. */
-    private HeroItemModel heroItemModel;
+    @InjectMocks
+    private HeroItemModelImpl heroItemModel;
+
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private InheritanceValueMap pageProperties;
+
+    @Mock
+    private TcoService tcoService;
 
     /**
      * Sets the up.
@@ -33,6 +49,7 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setup(AemContext context) {
+        MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
         heroItemModel = resource.adaptTo(HeroItemModelImpl.class);
@@ -41,6 +58,7 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     /**
      * Test properties.
      */
+    @Test
     void testProperties() {
         List<CTAPojo> list = heroItemModel.getCtaList();
         assertEquals(1, list.size());
