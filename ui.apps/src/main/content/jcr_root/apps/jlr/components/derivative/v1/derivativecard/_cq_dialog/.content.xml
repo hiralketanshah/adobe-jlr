@@ -665,18 +665,86 @@
                                                                 <items jcr:primaryType="nt:unstructured">
                                                                     <heading
                                                                         jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                        dfs-required="true"
                                                                         fieldDescription="Heading for the engine"
                                                                         fieldLabel="Heading"
                                                                         name="./heading"
-                                                                        required="{Boolean}true"/>
+                                                                        required="{Boolean}true"
+                                                                        useFixedInlineToolbar="{Boolean}true">
+                                                                        <rtePlugins jcr:primaryType="nt:unstructured">
+                                                                            <subsuperscript
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                features="*"/>
+                                                                            <misctools
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                features="*">
+                                                                                <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                                                    <chars jcr:primaryType="nt:unstructured">
+                                                                                        <non-breaking-space
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            entity="&amp;nbsp;"
+                                                                                            name="Non-breaking space"/>
+                                                                                        <non-breaking-hyphen
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            entity="&amp;#8209"
+                                                                                            name="Non-breaking hyphen"/>
+                                                                                    </chars>
+                                                                                </specialCharsConfig>
+                                                                            </misctools>
+                                                                        </rtePlugins>
+                                                                        <uiSettings jcr:primaryType="nt:unstructured">
+                                                                            <cui jcr:primaryType="nt:unstructured">
+                                                                                <inline
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                                                <dialogFullScreen
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                                            </cui>
+                                                                        </uiSettings>
+                                                                    </heading>
                                                                     <data
                                                                         jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                        dfs-required="true"
                                                                         fieldDescription="Data for the engine"
                                                                         fieldLabel="Data"
                                                                         name="./data"
-                                                                        required="{Boolean}true"/>
+                                                                        required="{Boolean}true"
+                                                                        useFixedInlineToolbar="{Boolean}true">
+                                                                        <rtePlugins jcr:primaryType="nt:unstructured">
+                                                                            <subsuperscript
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                features="*"/>
+                                                                            <misctools
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                features="*">
+                                                                                <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                                                    <chars jcr:primaryType="nt:unstructured">
+                                                                                        <non-breaking-space
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            entity="&amp;nbsp;"
+                                                                                            name="Non-breaking space"/>
+                                                                                        <non-breaking-hyphen
+                                                                                            jcr:primaryType="nt:unstructured"
+                                                                                            entity="&amp;#8209"
+                                                                                            name="Non-breaking hyphen"/>
+                                                                                    </chars>
+                                                                                </specialCharsConfig>
+                                                                            </misctools>
+                                                                        </rtePlugins>
+                                                                        <uiSettings jcr:primaryType="nt:unstructured">
+                                                                            <cui jcr:primaryType="nt:unstructured">
+                                                                                <inline
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                                                <dialogFullScreen
+                                                                                    jcr:primaryType="nt:unstructured"
+                                                                                    toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                                            </cui>
+                                                                        </uiSettings>
+                                                                    </data>
                                                                 </items>
                                                             </column>
                                                         </items>
