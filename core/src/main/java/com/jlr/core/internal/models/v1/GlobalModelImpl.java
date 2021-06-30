@@ -250,7 +250,7 @@ public class GlobalModelImpl implements GlobalModel {
 			return null;
 		} else {
 			if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == Boolean.TRUE) {
-				altDAMText = damAltText;
+				altDAMText = imageAlt;
 			} else if (imageAlt != null && !imageAlt.isEmpty() && altTextFromDAM == Boolean.FALSE) {
 				altDAMText = imageAlt;
 			} else if (imageAlt != null && imageAlt.isEmpty() && altTextFromDAM == Boolean.FALSE) {
