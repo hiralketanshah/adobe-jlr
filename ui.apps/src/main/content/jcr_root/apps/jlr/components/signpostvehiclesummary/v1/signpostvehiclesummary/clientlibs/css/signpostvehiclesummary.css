@@ -797,7 +797,7 @@ height: 493px;
 
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px;}
-    .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px;}
+    .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
  .cmp-vehicleSummary .headingWrapper{
 	font-size:24px; 
 	line-height:24px;
@@ -939,20 +939,17 @@ height: 493px;
 margin-bottom:10px;
   }
  .cmp-signPost .linkContainer{padding-top:0px;}
- .cmp-signPost:first-child{padding:71px 290px 60px 290px;}
-.cmp-signPost:last-child{padding:0px 290px 135px 290px;}
-.cmp-signPost{padding:0px 290px 60px 290px;}
+ .cmp-signPost{padding:71px 290px 60px 290px;}
+
 .cmp-signPost{min-height:auto;max-height:525px;}
 .cmp-signPost.grey{padding:71px 290px 60px 290px;}
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1919px){
-    .cmp-signPost.grey:first-child{padding-top:60px;margin-bottom:60px}
+   
     .cmp-signPost{min-height:auto; max-height:525px;}
-    .cmp-signPost:first-child{padding:71px 60px 69px 60px;}
-	.cmp-signPost:last-child{padding:0px 60px 70px 60px;}
-	.cmp-signPost{padding:0px 60px 69px 60px;}
-    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+    .cmp-signPost{padding:71px 60px 69px 60px;}
+	.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
 	 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 
     .cmp-signPost .cmp-signPost__image{
@@ -986,9 +983,8 @@ margin-bottom:10px;
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
     .cmp-signPost{min-height:auto; max-height:525px;}
-    .cmp-signPost:first-child{padding:49px 30px 68px 30px;}
-	.cmp-signPost:last-child{padding:0px 30px 63px 30px;}
-	.cmp-signPost{padding:0px 30px 68px 30px;}
+    .cmp-signPost{padding:49px 30px 68px 30px;}
+	
     .cmp-signPost .cmp-signPost__center{
 
     top:0;
@@ -1019,10 +1015,8 @@ object-fit: unset;
 }
 
 @media screen and (min-width: 300px) and (max-width: 766px){
-    .cmp-signPost{min-height:auto; max-height:525px;}
-    .cmp-signPost:first-child{padding:25px 25px 60px 25px;}
-	.cmp-signPost:last-child{padding:0px 25px 60px 25px;}
-	.cmp-signPost{padding:0px 25px 60px 25px;}
+.cmp-signPost{min-height:auto; max-height:525px;}
+.cmp-signPost{padding:25px 25px 60px 25px;}
 .cmp-signPost .headingWrapper{font-family:LandRoverWeb-Bold; font-size:20px; line-height:24px; letter-spacing:0.9px;}
  .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
   .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}
