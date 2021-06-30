@@ -3400,18 +3400,11 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	margin-right: 1px
 }
 
-/* highlight for both hover and focus*/
-/* .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):focus,
+.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):focus,
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover,
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):focus,
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):hover {
 	background-color: #e9ecec
-} */
-
-/* highlight for hover but not focus - 957*/
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover, 
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):hover {
-	background: #e9ecec
 }
 
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) .dxnav-icon,
@@ -4672,4 +4665,9 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 
 /* -------------code fix for 856----------*/
 
+/* -------------code fix for KESTREL-654----------*/
+.dxnav-cta-container{
+	text-transform:uppercase !important;
+}
+  /* -------------code fix for KESTREL-654----------*/
 /*# sourceMappingURL=landrover.css.map*/
