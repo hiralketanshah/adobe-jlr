@@ -90,6 +90,9 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
 
     private int getCount(String galleryPath) {
         int count = 0;
+        if(galleryPath.contains(".html")) {
+        	galleryPath=galleryPath.substring(0,galleryPath.indexOf("."));
+        }
         Resource galleryResource = resourceResolver.getResource(galleryPath);
         if (null != galleryResource) {
             Resource galleryComp = galleryResource.getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH
