@@ -13,4 +13,38 @@
     </div>
   </div>
 </div>
+<sly data-sly-test="${wcmmode.edit || wcmmode.preview || !wcmmode.disabled}">
+  <div>
+    <table style="width: 100%;border: solid 3px">
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">ID</th>
+        <td style="border: solid 3px;padding: 10px;">${model.id}</td>
+      </tr>
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">HEADER COPY</th>
+        <td style="border: solid 3px;padding: 10px;">${model.headerCopy @context='html'}</td>
+      </tr>
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">SUMMARY</th>
+        <td style="border: solid 3px;padding: 10px;">${model.copy @context='html'}</td>
+      </tr>
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">PAGE PATH</th>
+        <td style="border: solid 3px;padding: 10px;">${model.componentURL}</td>
+      </tr>
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">COOKIE EXPIRY DAYS</th>
+        <td style="border: solid 3px;padding: 10px;">${model.cookieRentention}</td>
+      </tr>
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">CLOSE BUTTON COPY</th>
+        <td style="border: solid 3px;padding: 10px;">${model.closeButtonCopy}</td>
+      </tr>
+      <tr style="text-align: left;">
+        <th style="border: solid 3px;padding: 10px;">CLOSE BUTTON ARIALABEL</th>
+        <td style="border: solid 3px;padding: 10px;">${model.closeButtonArialabel}</td>
+      </tr>
+    </table>
+  </div>
+</sly>
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
