@@ -32,9 +32,11 @@ import javax.jcr.Session;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
-import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
+import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
+import static com.jlr.core.constants.CommonConstants.*;
 import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
 
@@ -61,10 +63,10 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public String getFullJson(String searchText, ResourceResolver resolver) {
+    public String getFullJson(String searchText, String locale, ResourceResolver resolver) {
         log.trace("Entering method getFullJson");
         List<ResultPojo> results = new ArrayList<>();
-        Query query = queryBuilder.createQuery(createQueryPredicate(config.searchRootPath(), searchText),
+        Query query = queryBuilder.createQuery(createQueryPredicate(searchText, locale),
                 resolver.adaptTo(Session.class));
         SearchResult result = query.getResult();
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -93,25 +95,40 @@ public class SearchServiceImpl implements SearchService {
     }
 
     private String getDescription(Resource resource) {
-        ValueMap valueMap = resource.getValueMap();
-        if(valueMap != null) {
-            return valueMap.get(JCR_DESCRIPTION, String.class);
+        if(resource.getChild(JCR_CONTENT) != null) {
+            ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
+            if(valueMap != null) {
+                return valueMap.get(JCR_DESCRIPTION, String.class);
+            }
         }
         return StringUtils.EMPTY;
     }
 
     private String getExternalUrl(String path, String locale, ResourceResolver resolver) {
         String externalizerDomain = getExternalizerDomainByLocale(locale);
-        String externalPath = externalizer.externalLink(resolver, externalizerDomain, path);
+        String externalPath = StringUtils.EMPTY;
+        try{
+            externalPath = externalizer.externalLink(resolver, externalizerDomain, path);
+        } catch (IllegalArgumentException e){
+            if(StringUtils.isEmpty(externalPath)) {
+                externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY) + path.replaceFirst("/",StringUtils.EMPTY);
+            }
+        }
         return externalPath + ".html";
     }
 
-    private PredicateGroup createQueryPredicate(String searchRoot, String searchText) {
-        log.debug("Entering method getQueryPredicateData");
+    private PredicateGroup createQueryPredicate(String searchText, String locale) {
+        log.debug("Entering method getQueryPredicateData of SearchService");
         final Map<String, String> predicate = new HashMap<>();
+        String searchRoot = StringUtils.EMPTY;
+        if(locale.equalsIgnoreCase(LOCALE_AU)) {
+            searchRoot = config.auSearchRootPath();
+        } else if(locale.equalsIgnoreCase(LOCALE_DE)) {
+            searchRoot = config.deSearchRootPath();
+        }
         //search the pages with fulltext
         predicate.put("path", searchRoot);
-        predicate.put("type", "cq:Page");
+        predicate.put("type", NT_PAGE);
         predicate.put(FULLTEXT, searchText);
         predicate.put("p.limit", "-1");
         return PredicateGroup.create(predicate);
@@ -124,14 +141,17 @@ public class SearchServiceImpl implements SearchService {
         Map<String, String> exclusionMap = getExclusion(resolver, searchPojo.getLocale());
         Map<String, String> priorityMap = getPriority(resolver, searchPojo.getLocale());
 
+
         searchPojo.getResults().stream().forEach(resultPojo -> {
             if(resultPojo.getLink() != null) {
                 String path = resultPojo.getLink().getUrl();
-                if(priorityMap.containsKey(path)) {
+                if(MapUtils.isNotEmpty(priorityMap) && priorityMap.containsKey(path)) {
                     String priority = priorityMap.get(path);
                     resultPojo.setPriority(Integer.parseInt(priority));
                 }
-                resultsPojoMap.put(path, resultPojo);
+                if(!path.contains("/config/")) {
+                    resultsPojoMap.put(path, resultPojo);
+                }
             }
         });
 
@@ -144,8 +164,6 @@ public class SearchServiceImpl implements SearchService {
                     if (Boolean.valueOf(excludeChildPages) && result.getKey().startsWith(key)) {
                         resultsIterator.remove();
                     } else if (result.getKey().equals(key)) {
-                        resultsIterator.remove();
-                    } else if(result.getKey().contains("/config/")) {
                         resultsIterator.remove();
                     }
                 }
@@ -178,7 +196,7 @@ public class SearchServiceImpl implements SearchService {
         searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
         if (page <= 0 || total <= 0) {
             searchPojo.setMaxPage(0l);
-            return null;
+            return new ArrayList<>();
         }
         if (total <= PAGE_SIZE) {
             searchPojo.setMaxPage(1l);
@@ -200,31 +218,31 @@ public class SearchServiceImpl implements SearchService {
     }
 
     private Map<String, String> getExclusion(ResourceResolver resolver, String locale) {
-        String searchConfigPath = StringUtils.EMPTY;
-        if(locale.equalsIgnoreCase("en_AU")) {
-            searchConfigPath = config.auSearchConfigPath();
-        } else if(locale.equalsIgnoreCase("de_DE")) {
-            searchConfigPath = config.deSearchConfigPath();
-        }
+        String searchConfigPath = getSearchConfigPath(locale);
         Resource exclusion = resolver.getResource(searchConfigPath+"/jcr:content/root/container/searchconfig/exclusion");
         if (null != exclusion) {
             return getResourceMap(exclusion, CommonConstants.PN_PATHS_TO_EXCLUDE, CommonConstants.PN_EXCLUDE_CHILD_PAGES);
         }
-        return null;
+        return new HashMap<>();
+    }
+
+    private String getSearchConfigPath(String locale) {
+        String searchConfigPath = StringUtils.EMPTY;
+        if (locale.equalsIgnoreCase(LOCALE_AU)) {
+            searchConfigPath = config.auSearchConfigPath();
+        } else if (locale.equalsIgnoreCase(LOCALE_DE)) {
+            searchConfigPath = config.deSearchConfigPath();
+        }
+        return searchConfigPath;
     }
 
     public Map<String, String> getPriority(ResourceResolver resolver, String locale) {
-        String searchConfigPath = StringUtils.EMPTY;
-        if(locale.equalsIgnoreCase("en_AU")) {
-            searchConfigPath = config.auSearchConfigPath();
-        } else if(locale.equalsIgnoreCase("de_DE")) {
-            searchConfigPath = config.deSearchConfigPath();
-        }
+        String searchConfigPath = getSearchConfigPath(locale);
         Resource priority = resolver.getResource(searchConfigPath + "/jcr:content/root/container/searchconfig/priority");
         if (null != priority) {
             return getResourceMap(priority, CommonConstants.PN_PRIORITY_PATHS, PN_PRIORITY);
         }
-        return null;
+        return new HashMap<>();
     }
 
     private Map<String, String> getResourceMap(Resource resource, String pathProperty, String otherProperty) {

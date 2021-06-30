@@ -36,7 +36,10 @@
                 </div>
                 <sly data-sly-test="${model.price}">
                     <div class="offerPrice">
-                        <p class="Offers__price heading price">${model.priceConfigValue} ${model.price}</p>
+                        <p class="Offers__price heading price">
+							<sly data-sly-test="${model.isStaticPrice}"> ${model.priceConfigValue} ${model.price} </sly>
+							<sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
+						</p>
                     </div>
                 </sly>
                 <div class="offerBody">
@@ -103,8 +106,10 @@
                             <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</div>
                             <p class="heading Offers__amount headingH1">
                                 <span class="headingWrapper" role="text">
-                                    <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
-                                        @context='html'}</small>
+                                    <span class="currency">
+                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
+                                            @context='html'}</small>
+                                    </span>
                                     <span class="amount">${offers.offerValue @context='html'}</span>
                                     <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix
                                         @context='html'}</small>

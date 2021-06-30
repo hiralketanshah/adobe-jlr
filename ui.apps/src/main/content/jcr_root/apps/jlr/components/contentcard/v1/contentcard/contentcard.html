@@ -54,7 +54,8 @@
                                                 ${content.headerCopy @ context="html"}
                                             </h2>
                                             <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price">
-                                                ${content.priceConfigValue} ${content.price}
+                                                <sly data-sly-test="${content.isStaticPrice}"> ${content.priceConfigValue} ${content.price} </sly>
+												<sly data-sly-test="${!content.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=content.price, wcmmode='disabled'}"></sly>
                                             </p>
                                             <p data-sly-test="${content.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
                                                 ${content.copy @ context="html"}

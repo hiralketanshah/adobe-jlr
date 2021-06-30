@@ -51,6 +51,7 @@
                                 fieldDescription="Add the table HTML Markup without the &lt;table> tag. "
                                 fieldLabel="HTML"
                                 required="{Boolean}true"
+                                rows="{Long}25"
                                 name="./tableHtml">
                                         <granite:data
                                         jcr:primaryType="nt:unstructured"

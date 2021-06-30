@@ -5,7 +5,7 @@
      data-sly-call="${renderVehicleSpec @ vehicleSpecs=vehicleSpecsModel, pageConfig=pageConfigModel, page=pageModel, vehicleConfig=vehicleConfigModel}"/>
 <template data-sly-template.renderVehicleSpec="${ @ vehicleSpecs, pageConfig, page, vehicleConfig }">
 
-   <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.vsreStack?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${page.language}">
+    <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.vsreStack?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${page.language}">
 
       <section class="RulesEngineDropdown">
          <div class="RulesEngineDropdown__dropdowns-container" id="${vehicleSpecs.id}">
@@ -102,18 +102,19 @@
          </div>
 
 
-
-      </div>
-      <div class="VehicleSpecsRulesEngine__specs-cta">
-         <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
-            <sly data-sly-test="${cta.text}">
-                 <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
-                    <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'}" "${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
-                    <span aria-hidden="true">${cta.text @context='html'}</span>
-                    </a>
-                 </span>
+         
+         <div class="VehicleSpecsRulesEngine__specs-cta">
+            <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
+               <sly data-sly-test="${cta.text}">
+                    <span class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkType secondaryLinkContainer'}">
+                       <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}" aria-label="${cta.ariaLabel}" href="${cta.link}" target="${cta.target}" data-target="${cta.target}">
+                       <span aria-hidden="true">${cta.text @context='html'}</span>
+                       </a>
+                    </span>
+               </sly>
             </sly>
-         </sly>
+         </div>
       </div>
+  
    </section>
 </template>

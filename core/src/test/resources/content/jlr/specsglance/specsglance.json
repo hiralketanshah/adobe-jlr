@@ -1,0 +1,32 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "copy":"copy",
+  "sling:resourceType":"jlr/components/specsglance/v1/specsglance",
+  "headerCopy":"headerCopy",
+  "cq:styleIds":[
+    "1621446997067",
+    "1621447005203"
+  ],
+  "dataItems":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "prefix":"prefix",
+      "suffix":"suffix",
+      "copy":"copy",
+      "value":"777",
+      "headerCopy":"headerCopy"
+    }
+  },
+  "ctaList":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "target":"_blank",
+      "icon":"icon-360-view",
+      "link":"/content/jlr/au",
+      "text":"Find out more",
+      "linkType":"primary"
+    }
+  }
+}

@@ -22,14 +22,12 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
 
     private RequestKeyValueMap cookieKeyValueMap;
     private RequestKeyValueMap requestKeyValueMap;
-    private String selector;
     private String extension;
 
     public NavigationCacheKey(SlingHttpServletRequest request, HttpCacheConfig cacheConfig, RequestKeyValueMap cookieKeyValueMap, RequestKeyValueMap requestKeyValueMap) {
         super(request, cacheConfig);
         RequestPathInfo pathInfo = request.getRequestPathInfo();
         this.cookieKeyValueMap = cookieKeyValueMap;
-        this.selector = pathInfo.getSelectorString();
         this.extension = pathInfo.getExtension();
         this.requestKeyValueMap = requestKeyValueMap;
     }
@@ -37,7 +35,6 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
     public NavigationCacheKey(String uri, HttpCacheConfig cacheConfig, RequestKeyValueMap cookieKeyValueMap, RequestKeyValueMap requestKeyValueMap) {
         super(uri, cacheConfig);
         RequestPathInfo pathInfo = new PathInfo(uri);
-        this.selector = pathInfo.getSelectorString();
         this.extension = pathInfo.getExtension();
         this.cookieKeyValueMap = cookieKeyValueMap;
         this.requestKeyValueMap = requestKeyValueMap;
@@ -56,7 +53,6 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
                 .append(cookieKeyValueMap, that.cookieKeyValueMap)
                 .append(requestKeyValueMap, that.requestKeyValueMap)
                 .append(getExtension(), that.getExtension())
-                .append(getSelector(), that.getSelector())
                 .isEquals();
     }
 
@@ -66,24 +62,19 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
                 .append(resourcePath)
                 .append(cookieKeyValueMap)
                 .append(getExtension())
-                .append(getSelector())
                 .append(getAuthenticationRequirement())
                 .toHashCode();
     }
 
     @Override
     public String toString() {
-        StringBuilder formattedString = new StringBuilder(resourcePath + "." + getSelector() + "." + getExtension() + ".");
+        StringBuilder formattedString = new StringBuilder(resourcePath + "." + getExtension() + ".");
         formattedString.append(cookieKeyValueMap.toString());
         formattedString.append(requestKeyValueMap.toString());
         formattedString.append(getAuthenticationRequirement());
         return formattedString.toString();
     }
 
-
-    public String getSelector() {
-        return selector;
-    }
 
     public String getExtension() {
         return extension;
@@ -100,7 +91,6 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
     /** For Serialization **/
     private void writeObject(ObjectOutputStream o) throws IOException {
         parentWriteObject(o);
-        o.writeObject(selector);
         o.writeObject(extension);
         o.writeObject(new HashMap<>(requestKeyValueMap));
         o.writeObject(new HashMap<>(cookieKeyValueMap));
@@ -109,7 +99,6 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
     /** For De-serialization **/
     private void readObject(ObjectInputStream o) throws IOException, ClassNotFoundException {
         parentReadObject(o);
-        selector = (String) o.readObject();
         extension = (String) o.readObject();
         requestKeyValueMap = (RequestKeyValueMap) o.readObject();
         cookieKeyValueMap = (RequestKeyValueMap) o.readObject();

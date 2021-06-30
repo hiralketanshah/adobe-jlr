@@ -18498,7 +18498,7 @@ function(a, b) {
                 var f = a(".placeholderVideo", this.$element),
                     g = f.data("video-id").trim(),
                     h = a(".a11yResourceLabels").attr("data-a11y-video-youtube-iframetitle"),
-                    i = "https://www.youtube-nocookie.com/embed/" + g + "?autoplay=" + c + "&wmode=opaque&iv_load_policy=3&color=white&probably_logged_in=0";
+                    i = "https://www.youtube-nocookie.com/embed/" + g + "?autoplay=" + c + "&mute=1&wmode=opaque&iv_load_policy=3&color=white&probably_logged_in=0";
                 Object.keys(this.playerVars).forEach(function(a) {
                     i += "&" + a + "=" + d.playerVars[a]
                 }), navigator.userAgent.toLowerCase().indexOf("firefox") > -1 && (i += "&html5=1");

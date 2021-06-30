@@ -1488,7 +1488,39 @@
                         </policy_1623840580238>
                     </sitenotification>
                 </v1>
-            </sitenotification>            
+            </sitenotification>
+            <vehiclespecs jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclespecs jcr:primaryType="nt:unstructured">
+                        <policy_1624904253125
+                            jcr:lastModified="{Date}2021-06-28T23:48:34.185+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Specs"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1624904266983"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1624904309168"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1624904253125>
+                    </vehiclespecs>
+                </v1>
+            </vehiclespecs>           
         </components>
     </jlr>
     <rep:policy/>

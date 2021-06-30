@@ -154,4 +154,7 @@ public class WorkflowConstants {
 
     /** The Constant JLR_XF_PATH. */
     public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
+
+    /** The Constant RUNMODE_AUTHOR. */
+    public static final String RUNMODE_AUTHOR = "author";
 }

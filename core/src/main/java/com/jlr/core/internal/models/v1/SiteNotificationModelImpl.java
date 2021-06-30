@@ -1,6 +1,6 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
@@ -38,6 +38,10 @@ public class SiteNotificationModelImpl extends GlobalModelImpl implements SiteNo
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String id;
 	
+	/** The cookie rentention. */
+	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String cookieRentention;
+	
 	/** The component URL. */
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String componentURL;
@@ -62,7 +66,7 @@ public class SiteNotificationModelImpl extends GlobalModelImpl implements SiteNo
     public void init() throws PersistenceException {
 		if(StringUtils.isEmpty(id)) {
 		ModifiableValueMap valuemap= resource.adaptTo(ModifiableValueMap.class);
-		Random rnd = new Random();
+		SecureRandom rnd = new SecureRandom();
 		int uniqueID = rnd.nextInt(999999);
 		GenerateduniqueID= String.format("%06d", uniqueID);
 		if(valuemap!= null) {
@@ -83,6 +87,16 @@ public class SiteNotificationModelImpl extends GlobalModelImpl implements SiteNo
 			return GenerateduniqueID;
 		}
 		return id;
+	}
+	
+	/**
+	 * Gets the cookie rentention.
+	 *
+	 * @return the cookie rentention
+	 */
+	@Override
+	public String getCookieRentention() {
+		return cookieRentention;
 	}
 
 	/**
