@@ -1,0 +1,16 @@
+{
+  "nameplateList": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "nameplateId": "l1405",
+      "modelYear": "k22"
+    },
+    "item1": {
+      "jcr:primaryType": "nt:unstructured",
+      "nameplateId": "l1655",
+      "modelYear": "k23"
+    }
+  },
+  "jcr:primaryType": "nt:unstructured"
+}

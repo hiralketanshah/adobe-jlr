@@ -51,7 +51,9 @@
                <a class="primaryLinkWithStyle skipLink" href="#content" tabindex="1">${pageConfig.skipToMainTitle}</a>
             </div>
             <sly data-sly-test="${pageConfig.marketRegionPath}" data-sly-resource="${pageConfig.marketRegionPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
-
+            <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/gallery-page-template'}">
+            <sly data-sly-test="${pageConfig.siteNotificationPath}" data-sly-resource="${pageConfig.siteNotificationPath @ appendPath='jcr:content/root', wcmmode='disabled'}"></sly>
+            </sly>
             <sly data-sly-test.isRedirectPage="${page.redirectTarget && (wcmmode.edit || wcmmode.preview)}"
                data-sly-call="${redirect.redirect @ redirectTarget = page.redirectTarget}"></sly>
             <sly data-sly-test="${!isRedirectPage}">

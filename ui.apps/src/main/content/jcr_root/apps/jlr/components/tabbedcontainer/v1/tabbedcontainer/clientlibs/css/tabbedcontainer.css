@@ -73,6 +73,7 @@ margin: 0px 20px;
 padding: 0;
 border: 0;
 border-bottom:5px solid #fff; 
+height: 45px !important;
 }
 .cmp-tabbedContainer .DxTabs__tab:hover{
     border: 0;  
@@ -87,7 +88,7 @@ border-bottom:5px solid #fff;
 .cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active){
     background-color: transparent;
     color: #0C121C;
-    border-bottom: 2px solid #4A4F544D; 
+    border-bottom: 5px solid #4A4F5400; 
     border-right: 0;
     outline: none;
     box-shadow: unset;
@@ -291,9 +292,11 @@ margin-bottom: 0 !important;
         min-height: 211px;
         
     }
+    .cmp-tabbedContainer .swiper-container{
+        height:auto;
+    }
     .cmp-tabbedContainer .cmp-carousel__bgImage,
     .cmp-tabbedContainer .Exterior360__canvas,
-    .cmp-tabbedContainer .swiper-container,
     .cmp-tabbedContainer .videoCustom img,
     .cmp-tabbedContainer .videoCustom,
     .cmp-tabbedContainer .cmp-genericItem__element-poster,
@@ -308,7 +311,8 @@ margin-bottom: 0 !important;
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 25px;
-    padding-right: 25px;
+        padding-right: 25px;
+        margin: 0;
     }
     .cmp-tabbedContainer .DxTabs__tablist.leftShade {
         -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
@@ -331,14 +335,28 @@ margin-bottom: 0 !important;
         margin: 0px 25px;
         width: calc(100% - 50px);
     }
+    .cmp-tabbedContainer .videoCustom:after{
+        top: 65px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs__tablist{
+        top: 1px;
+    }
+    .cmp-tabbedContainer .Interior360__pano-controls{
+        bottom: 40px;
+    }
 }
 @media screen and (min-width: 1px) and (max-width: 375px) {
     .cmp-tabbedContainer{
         padding-top: 30px;
     }
     .cmp-tabbedContainer .videoCustom:after{
-        left: 35%;
-        top: 30%;
+        top: 60px;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
     }
     }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -369,7 +387,8 @@ margin-bottom: 0 !important;
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
-    padding-right: 30px;
+        padding-right: 30px;
+        margin: 0;
     }
     .cmp-tabbedContainer .headerClass{
         max-width: 100%;
@@ -377,7 +396,27 @@ margin-bottom: 0 !important;
     .cmp-tabbedContainer .DxTabs{
         bottom: -50px;
     }
+    .cmp-tabbedContainer .Interior360__pano-controls{
+        bottom: 80px;
     }
+    .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs__tablist{
+        top: 1px;
+    }
+    .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner {
+        display: flex;
+        flex-wrap:wrap;
+      }
+      .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner.swiper-wrapper{
+        display: flex;
+        flex-wrap:nowrap;
+      }
+      .cmp-tabbedContainer .videoCustom:after {
+        top: 155px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
     .cmp-tabbedContainer {
         padding: 60px 130px;
@@ -432,4 +471,20 @@ margin-bottom: 0 !important;
     .Accordion .accordion-group-content-inner > .DualFrameCarousel ~ .cmp-tabbedContainer {
         border-top: 1px solid #c0c0c0;
     }
+    .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner {
+        display: flex;
+        flex-wrap:wrap;
+      }
+      .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner.swiper-wrapper{
+        display: flex;
+        flex-wrap:nowrap;
+      }
+
+       .touch .cmp-tabbedContainer .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-ContentCard .imageContainer,
+       .touch .cmp-tabbedContainer .cmp-ContentBlocksContainer[data-template="swiping-2column"] .cmp-ContentCard .imageContainer,
+      .touch .cmp-tabbedContainer .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .cmp-ContentCard .imageContainer, 
+      .touch .cmp-tabbedContainer .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"] .cmp-ContentCard .imageContainer,
+       .touch .cmp-tabbedContainer .cmp-ContentBlocksContainer[data-template="feature-swiping"] .cmp-ContentCard .imageContainer{
+        margin-left: 10px;
+      }
 }

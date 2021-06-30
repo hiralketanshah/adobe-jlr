@@ -427,7 +427,7 @@ label {
   .cmp-hero-carousel .cmp-carousel__controls {
     position: absolute;
     margin-left: 30px;
-    width: 134px;
+    width: fit-content;
     top: 25%;
   }
   .cmp-hero-carousel .emissionDetails {
@@ -574,6 +574,11 @@ label {
     margin-left: 130px;
     margin-right: 130px;
   }
+ .cmp-carousel.cmp-hero-carousel .heroFooterSection,
+  .cmp-carousel.cmp-hero-carousel .caveat{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
   .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
     position: relative;
     min-width: auto;
@@ -581,7 +586,7 @@ label {
     height: auto;
 }
 .cmp-hero .shelfComponent{
-  margin-left: 130px;
+  margin-left: 160px;
   padding-right: 341px;
 }
 }
@@ -829,7 +834,7 @@ padding-bottom: 0%;
 }
 @media screen and (min-width: 1920px){
   .cmp-hero-carousel .cmp-carousel__controls {
-    margin-left: 115px;  
+    margin-left: 150px;  
   }
 }
 .grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
@@ -906,4 +911,15 @@ padding-bottom: 0%;
 .cmp-hero .videoCustom{
   position: unset;
   padding-bottom: 0%;
+}
+.videoCustom:after,.cmp-hero .videoCustom:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+#landrover .cmp-hero .primaryLinkWithStyle {
+  font-family: AvenirNext-DemiBold, arial, helvetica, sans-serif;
 }

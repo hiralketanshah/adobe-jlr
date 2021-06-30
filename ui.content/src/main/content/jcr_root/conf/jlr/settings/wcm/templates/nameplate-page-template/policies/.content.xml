@@ -193,6 +193,14 @@
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
                         </specsglance>
+                        <vehiclespecs jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <vehiclespecs
+                                    cq:policy="jlr/components/vehiclespecs/v1/vehiclespecs/policy_1624904253125"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </vehiclespecs>
                     </components>
                 </jlr>
             </container>

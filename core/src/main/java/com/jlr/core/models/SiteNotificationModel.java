@@ -42,5 +42,14 @@ public interface SiteNotificationModel {
 	default String getComponentURL() {
 		return StringUtils.EMPTY;
 	}
+	
+	/**
+	 * Gets the cookie rentention.
+	 *
+	 * @return the cookie rentention
+	 */
+	default String getCookieRentention() {
+		return StringUtils.EMPTY;
+	}
 
 }

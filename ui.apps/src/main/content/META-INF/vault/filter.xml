@@ -7,4 +7,5 @@
     <filter root="/apps/sling"/>
     <filter root="/apps/msm/jlr" mode="merge"/>
     <filter root="/apps/wcm/core"/>
+    <filter root="/apps/cq/experience-fragments/components/xfpage"/>
 </workspaceFilter>

@@ -314,12 +314,15 @@
   
   }
   .gallerylist .Fullscreen a.mfp-close{
-    font-size:13px;
+    font-size:15px;
   }
   .gallerylist .Fullscreen__gallery-categories-button:before {
   
-      font-size: 18px;
+      font-size: 34px;
   }
+  .gallerylist .Fullscreen a.mfp-close:before{font-size:15px;}
+  .gallerylist .Gallery__next{padding-right:10px;}
+.gallerylist .Gallery__previous{padding-left:10px;}
   .gallerylist .swiper-button svg {
       width: auto;
       height: 24px;
