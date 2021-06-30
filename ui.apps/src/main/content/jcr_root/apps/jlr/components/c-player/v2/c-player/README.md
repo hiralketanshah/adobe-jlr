@@ -1,5 +1,5 @@
 <!-- Jaguar Component -->
-C-Player (v1)
+C-Player (v2)
 ====
 C-Player component written in HTL.
 
@@ -27,6 +27,6 @@ The edit dialog allows the page to be refreshed after editing the component
 
 ## Information
 * **Vendor**: Jaguar
-* **Version**: v1
+* **Version**: v2
 * **Compatibility**: AEM 6.5
 * **Component Library**: 
