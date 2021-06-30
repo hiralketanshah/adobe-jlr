@@ -43,6 +43,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
     private Set<String> requestParameterValues;
     private Map<String, String[]> allowedParameters;
     private String cacheKeyId;
+    private String origin;
 
     public Map<String, String[]> getAllowedKeyValues() {
         return allowedParameters;
@@ -50,7 +51,10 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Override
     public boolean accepts(SlingHttpServletRequest request, HttpCacheConfig cacheConfig) throws HttpCacheRepositoryAccessException {
-
+        this.origin = request.getHeader("Origin");
+        if(StringUtils.isEmpty(origin)) {
+            this.origin = request.getHeader("Host");
+        }
         if (!matches(extensionPatterns, request.getRequestPathInfo().getExtension())) {
             return false;
         }
@@ -141,7 +145,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Override
     public CacheKey build(String resourcePath, HttpCacheConfig httpCacheConfig) throws HttpCacheKeyCreationException {
-        return new NavigationCacheKey(resourcePath, httpCacheConfig, new RequestKeyValueMap("CookieKeyValueMap"), new RequestKeyValueMap("RequestKeyValueMap"));
+        return new NavigationCacheKey(resourcePath, httpCacheConfig, new RequestKeyValueMap("CookieKeyValueMap"), new RequestKeyValueMap("RequestKeyValueMap"), origin);
     }
 
     @Override
@@ -153,7 +157,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
         NavigationCacheKey thatKey = (NavigationCacheKey) key;
 
-        return new NavigationCacheKey(thatKey.getUri(), cacheConfig, thatKey.getCookieKeyValueMap(), thatKey.getRequestKeyValueMap()).equals(key);
+        return new NavigationCacheKey(thatKey.getUri(), cacheConfig, thatKey.getCookieKeyValueMap(), thatKey.getRequestKeyValueMap(), origin).equals(key);
     }
 
     @Activate
