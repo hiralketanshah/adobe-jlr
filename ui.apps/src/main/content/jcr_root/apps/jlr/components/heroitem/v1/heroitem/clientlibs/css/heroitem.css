@@ -39,9 +39,9 @@
     justify-content: left;
   }
 }
-.cmp-carousel.cmp-hero-carousel .swiper-button {
+/* .cmp-carousel.cmp-hero-carousel .swiper-button {
   display: block;
-}
+} */
 .cmp-carousel.cmp-hero-carousel .swiper-button[aria-disabled="true"] {
   display: none;
 }
@@ -840,7 +840,7 @@ padding-bottom: 0%;
 .grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
 .white .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
 .light .cmp-hero-carousel .Pagination__pause-timer-icon-countdown {
-  stroke: grey;
+  stroke: white;
 }
 .grey .cmp-hero-carousel .st0--swiper-pagination,
 .white  .cmp-hero-carousel .st0--swiper-pagination,

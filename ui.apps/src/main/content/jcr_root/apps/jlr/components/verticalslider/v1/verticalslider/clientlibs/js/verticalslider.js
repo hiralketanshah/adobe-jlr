@@ -4102,6 +4102,10 @@
    */
   var isNumberedImage;
   var isMobileVersion = document.getElementsByClassName('notimer');
+  var verticalAuthorMode;
+  
+
+
   /*!
    * InteractiveNumberedImage
    * Copyright 2017: Connect Group. All rights reserved.
@@ -4155,7 +4159,8 @@
        */
       init: function init() {
         var _this = this;
-        
+        verticalAuthorMode = $('#vertical-author').val(); 
+
         
         isNumberedImage = this.element.getAttribute('data-numbered-image');//("#numberedImage").val();
         if(isNumberedImage) {
@@ -4353,8 +4358,7 @@
         });
         this._isVerticalSlider = false;
         this._hasVerticalSlider = false;
-  
-        if ( isMobileVersion.length > 0) {
+        if ( isMobileVersion.length > 0 ) {
            this._removeAutoplayEvents();
           this._stopPlaying();
         }
@@ -4419,6 +4423,15 @@
       },
       _handleSizes: function _handleSizes(force) {
         var mode = this._getMode();
+
+        if ( isMobileVersion.length > 0) {
+          if(verticalAuthorMode ==='verticalauthor'){
+            this._stopPlaying();
+
+          }
+        }
+
+
   
         //var isMobileVersion = document.getElementsByClassName('notimer');
         
@@ -4427,6 +4440,7 @@
             // added for mobile and tab start
           if ( isMobileVersion.length > 0) {
             this.ui('controls').get(0).style.display = 'none';
+            
            // $('.cmp-interactiveNumberedImage__controls').css({top:auto})
           }
           else{

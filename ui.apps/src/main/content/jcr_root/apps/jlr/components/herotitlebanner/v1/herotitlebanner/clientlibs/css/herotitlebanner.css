@@ -182,7 +182,7 @@ label {
 }
 .Pagination__pause:before,
 .cmp-herotitle-carousel .Pagination__play:before {
-  border: 2px solid #000;
+	border: 2px solid #A8AAAE;
 }
 .Pagination__pause-control-icon,
 .cmp-herotitle-carousel .Pagination__play-control-icon {
@@ -198,9 +198,15 @@ label {
 .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
   stroke: #fff;
 }
-.Pagination__pause:before {
-  border: 2px solid #fff;
-}
+.slateblue .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
+	stroke: black;
+	}
+	.cmp-herotitle-carousel .Pagination__pause:before {
+		border: 2px solid #A8AAAE;
+	}
+	.cmp-herotitle-carousel .Pagination__button-wrapper--play-pause:before {
+		border: 2px solid transparent;
+	}
 .cmp-herotitle-carousel .Pagination__pause-control-icon {
   fill: #fff;
 }
@@ -561,7 +567,7 @@ label {
 .cmp-carousel__controls.cmp-heroTitleBanner_pagination {
 	padding-left: 0px;
 	bottom: 6%;
-  }
+	}
 }
 
 /* COMMON */
@@ -583,7 +589,7 @@ label {
 .grey .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown,
 .white .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown,
 .light .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
-  stroke: #D7D8D9;
+  stroke: #000000;
 }
 .grey .cmp-herotitle-carousel .st0--swiper-pagination,
 .white  .cmp-herotitle-carousel .st0--swiper-pagination, .light .st0--swiper-pagination,
@@ -604,7 +610,7 @@ label {
 	.light .cmp-herotitle-carousel .Pagination .Pagination__pip:after,
 	.grey .cmp-herotitle-carousel .Pagination .Pagination__pip:after
 	 {
-	  border: 2px solid #000;
+	  border: 2px solid #A8AAAE;
 	}
 	.grey .cmp-herotitle-carousel .Pagination__pip--active:after, .grey .cmp-herotitle-carousel .Pagination__pip--active:hover:after,
 	.light .cmp-herotitle-carousel .Pagination__pip--active:after, .light .cmp-herotitle-carousel .Pagination__pip--active:hover:after,
@@ -619,7 +625,7 @@ label {
 	.white .cmp-herotitle-carousel .Pagination .Pagination__play:before,
 	.white .cmp-herotitle-carousel .Pagination .Pagination__pause:before  
 	{
-	  border: 2px solid #000;
+	  border: 2px solid #A8AAAE;
 	  background-color: transparent;
   }
   @media screen and (max-width: 1279px){
