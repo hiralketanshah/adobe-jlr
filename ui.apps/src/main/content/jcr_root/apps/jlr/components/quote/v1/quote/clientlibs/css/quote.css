@@ -231,5 +231,9 @@
     .cmp-quote .cmp-quote__content{width:325px;}
 
 }
-.cmp-quote__content-text p{ max-height:100%; min-height:184px; height:auto;}
+.cmp-quote__content-text p{ 
+    max-height:100%; 
+    min-height:auto; /*bugfix-1050*/
+    height:auto;
+}
 /*--------------- code fix --------------*/
