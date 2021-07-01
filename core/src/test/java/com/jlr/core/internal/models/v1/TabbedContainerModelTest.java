@@ -22,7 +22,7 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 @ExtendWith(AemContextExtension.class)
 class TabbedContainerModelTest extends GlobalModelImplTest {
 
-	private TabbedContainerModel tabbedContainerModel;
+	private TabbedContainerModelImpl tabbedContainerModel;
 	
     /**
      * Sets the up.
@@ -37,8 +37,8 @@ class TabbedContainerModelTest extends GlobalModelImplTest {
     }
     
     @Test
-    void testGetTabHeading() {
-    	assertEquals("Tab1", tabbedContainerModel.getTabHeading());
+    void testGetId() {
+    	assertEquals("1234", tabbedContainerModel.getId());
     }
     
 }

@@ -1,5 +1,5 @@
 {
   "jcr:primaryType":"nt:unstructured",
-  "TabHeading":"Tab 1",
+  "id":"1234",
   "sling:resourceType":"jlr/components/tabbedcontainer/v1/tabbedcontainer"
 }
