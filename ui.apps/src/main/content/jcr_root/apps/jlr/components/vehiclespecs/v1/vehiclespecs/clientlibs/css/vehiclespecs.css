@@ -434,6 +434,9 @@ h2.heading,
       padding: 0px;
       padding-bottom: 40px;
       }
+      .VehicleSpecsRulesEngine__specs-title {
+        margin-bottom: 17px;
+      }
   }
   @media screen and (min-width: 1280px) {
     .VehicleSpecsRulesEngine__specs-cta{
@@ -608,6 +611,12 @@ h2.heading,
       }
     }
     @media screen and (min-width: 1280px){
+      .cmp-vehicleSpecsRulesEngine .TechSpecsTable__heading{
+        width: 73.9%;
+      }
+      .cmp-vehicleSpecsRulesEngine .TechSpecsTable__heading, .TechSpecsTable__cell{
+        padding-left: 40px;
+      }
 
      /* vechicle title  */
      .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
@@ -728,9 +737,16 @@ h2.heading,
   }
    .RulesEngineDropdown__dropdown--model .dxDropdown__button,
    .RulesEngineDropdown__dropdown--bodystyle .dxDropdown__button,
-   .RulesEngineDropdown__dropdown--specpack .dxDropdown__button{
+   .RulesEngineDropdown__dropdown--specpack .dxDropdown__button,
+   .RulesEngineDropdown__dropdown--engine .dxDropdown__button
+   {
     padding-top: 13px;
     height: 42px;
+   }
+  .stack .RulesEngineDropdown__dropdown--engine .dxDropdown__button
+   {
+    padding-top: 13px;
+    height: fit-content;
    }
 
   .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-title{
@@ -747,6 +763,12 @@ h2.heading,
     max-width: 360px;
   }
   .stack [data-items="3"] .RulesEngineDropdown__dropdown {
+    min-width: 100%;
+  }
+  [data-items="4"] .RulesEngineDropdown__dropdown {
+    max-width: 260px;
+  }
+  .stack [data-items="4"] .RulesEngineDropdown__dropdown {
     min-width: 100%;
   }
   .VehicleSpecsRulesEngine__specs-title {
@@ -776,6 +798,12 @@ h2.heading,
   max-width: 420px;
 }
  .stack [data-items="3"] .RulesEngineDropdown__dropdown {
+  min-width: 100%;
+}
+[data-items="4"] .RulesEngineDropdown__dropdown {
+  max-width: 330px;
+}
+.stack [data-items="4"] .RulesEngineDropdown__dropdown {
   min-width: 100%;
 }
 
@@ -880,4 +908,8 @@ h2.heading,
 .VehicleSpecsRulesEngine .TechSpecsTable__heading,.VehicleSpecsRulesEngine .TechSpecsTable__cell{
  padding-top: 19px;
  padding-bottom: 21px;
+}
+
+.cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown .dxDropdown__button:hover {
+  background-color: #F0F0F0;
 }
