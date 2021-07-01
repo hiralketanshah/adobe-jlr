@@ -1,0 +1,6 @@
+{
+  "folderpath": "/content/dam/landrover",
+  "summary": "list",
+  "jcr:primaryType": "nt:unstructured",
+  "sling:resourceType":"jlr/components/exterior360/v1/exterior360"
+}
