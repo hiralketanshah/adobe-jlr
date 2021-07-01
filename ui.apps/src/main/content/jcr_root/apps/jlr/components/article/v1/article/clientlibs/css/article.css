@@ -11,6 +11,9 @@
     margin: 0 auto;
   }
 
+.cmp-article .primaryLinkWithStyle {
+	float: none;
+}
 @media screen and (max-width: 375px) {
     .cmp-article__videoframe {
         max-width: 325px;
