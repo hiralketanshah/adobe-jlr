@@ -913,3 +913,6 @@ h2.heading,
 .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown .dxDropdown__button:hover {
   background-color: #F0F0F0;
 }
+.cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading{
+  text-transform: capitalize;
+}
