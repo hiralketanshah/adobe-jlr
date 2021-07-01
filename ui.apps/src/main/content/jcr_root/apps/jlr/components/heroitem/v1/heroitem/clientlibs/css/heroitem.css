@@ -444,6 +444,12 @@ label {
   .cmp-hero-carousel .cmp-carousel__previous {
     top: 200px !important;
   }
+  .cmp-hero-carousel .cmp-carousel__next {
+    right: 20px;
+  }
+  .cmp-hero-carousel .cmp-carousel__previous {
+    left: 20px;
+  }
   .cmp-hero-carousel .linkContainer {
     padding-top: 0;
   }
@@ -705,6 +711,10 @@ padding-bottom: 0%;
     letter-spacing: 0.5px;
     line-height: 14px;
     font-size: 10px;
+  }
+  .cmp-hero .heroFooterSection:not(.emissionDetails){
+    padding-top: 17px;
+    padding-bottom: 0px;
   }
 }
 
