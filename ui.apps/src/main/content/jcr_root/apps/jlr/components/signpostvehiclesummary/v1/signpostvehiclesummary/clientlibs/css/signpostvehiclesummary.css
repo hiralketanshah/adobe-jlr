@@ -793,6 +793,15 @@ height: 493px;
  .cmp-vehicleSummary.grey p,  .cmp-vehicleSummary.light p,  .cmp-vehicleSummary.white p {
     color: #4A4F54;
 }
+.cmp-vehicleSummary.slateblue .headingWrapper{
+    color:#FFF;
+}
+.cmp-vehicleSummary.slateblue .cmp-vehicleSummary__content .cmp-vehicleSummary__price{
+    color:#FFF !important;
+}
+
+
+
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
 
