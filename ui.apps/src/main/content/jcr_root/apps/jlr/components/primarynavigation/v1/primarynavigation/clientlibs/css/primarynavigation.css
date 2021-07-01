@@ -3729,6 +3729,11 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	.dxnav-unique-nav .dxnav__item.dxnav__item-retailer.dxnav-active .dxnav-icon {
 		fill: #0c121c
 	}
+	/* bugfix-1020  styling as per XD*/
+	.dxnav-unique-nav .dxnav__breadcrumb-text{
+		padding-right: 30px;
+	}
+	/* bugfix-1020 end*/
 }
 
 @media screen and (min-width:1251px) {
@@ -4652,11 +4657,17 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 
 /* -------------code fix for 856----------*/
 .primarynavigation .dxnav-unique-nav .dxnav__breadcrumb .dxnav-icon{
-	width:6px;
+	width:10px; /*bugfix 1020 styling as per the XD*/
+	height:6px;
     min-width:6px;
 }
 .dxnav-unique-nav .dxnav__breadcrumb-text{font-size:10px; line-height:13px; letter-spacing:1.7px;}
 
 /* -------------code fix for 856----------*/
 
+/* -------------code fix for KESTREL-654----------*/
+.dxnav-cta-container{
+	text-transform:uppercase !important;
+}
+  /* -------------code fix for KESTREL-654----------*/
 /*# sourceMappingURL=landrover.css.map*/

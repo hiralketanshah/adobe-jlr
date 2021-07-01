@@ -1201,7 +1201,7 @@
 
 .cmp-subFooter p {
 	padding-bottom: 20px;
-	font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
+	font-family: "AvenirNext", "arial", "helvetica", sans-serif; /* bugfix-1058 */
 	color: #0C121C99;
 }
 

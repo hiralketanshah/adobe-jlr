@@ -1,3 +1,3 @@
-if($(".cmp-vehicleSummary").hasClass("light")){
-	$(".cmp-vehicleSummary").removeClass("light").addClass("white");
+if($(".cmp-vehicleSummary").hasClass("grey")){
+	$(".cmp-vehicleSummary").removeClass("grey").addClass("white");
 }

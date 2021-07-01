@@ -1472,6 +1472,14 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 }
 
 @font-face {
+	font-family: "icons-dx";
+	src: url("../resources/fonts/icons-dx/icons-dx.eot");
+	src: url("../resources/fonts/icons-dx/icons-dx.eot?#iefix") format("embedded-opentype"), url("../resources/fonts/icons-dx/icons-dx.woff") format("woff"), url("../resources/fonts/icons-dx/icons-dx.ttf") format("truetype"), url("../resources/fonts/icons-dx/icons-dx.svg?#icons") format("svg");
+	font-weight: normal;
+	font-style: normal
+}
+
+@font-face {
 	font-family: "icons";
 	src: url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.html");
 	src: url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8d41d.html?#iefix") format("embedded-opentype"), url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.woff") format("woff"), url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8.ttf") format("truetype"), url("../resources/fonts/icons/icons-d8360df94e5d54f099f2371a18e794f8d41d.svg?#icons") format("svg");
@@ -1482,7 +1490,7 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
 	content: "";
-	font-family: "icons";
+	font-family: "icons", "icons-dx";
 	font-style: normal;
 	font-weight: normal;
 	speak: none;
@@ -2733,6 +2741,283 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 	content: "\e134"
 }
 
+/* font-family: icons-dx  */
+.icon-360-view:before {
+	content: "\e900"
+}
+
+.icon-accessories:before {
+	content: "\e901"
+}
+
+.icon-approved-used:before {
+	content: "\e902"
+}
+
+.icon-app-download:before {
+	content: "\e903"
+}
+
+.icon-arrow-left:before {
+	content: "\e904"
+}
+
+.icon-arrow-right:before {
+	content: "\e905"
+}
+
+.icon-bodyshop:before {
+	content: "\e906"
+}
+
+.icon-driveonroad:before {
+	content: "\e907"
+}
+
+.icon-dx-car-tax-calculators:before {
+    content: "\e908"
+}
+
+.icon-comment:before {
+	content: "\e909"
+}
+
+.icon-close:before {
+	content: "\e90a"
+}
+
+.icon-compare:before {
+	content: "\e90b"
+}
+
+.icon-ignite-configure:before {
+	content: "\e90c"
+}
+
+.icon-contact-evo-jaguar:before {
+	content: "\e90d"
+}
+
+.icon-dx-contract-hire-calculator:before {
+    content: "\e90e"
+}
+
+.icon-credit-card:before {
+    content: "\e90f"
+}
+
+.icon-download:before {
+    content: "\e910"
+}
+
+.icon-edit-evo-jaguar:before {
+    content: "\e911"
+}
+
+.icon-dx-events:before {
+    content: "\e912"
+}
+
+.icon-dx-experience:before {
+    content: "\e913"
+}
+
+.icon-fax:before {
+    content: "\e914"
+}
+
+.icon-filter:before {
+    content: "\e915"
+}
+
+.icon-filter-close:before {
+    content: "\e916"
+}
+
+.icon-finance-calculator:before {
+    content: "\e917"
+}
+
+.icon-dx-find-a-retailer:before {
+    content: "\e918"
+}
+
+.icon-dx-fuel:before {
+    content: "\e919"
+}
+
+.icon-fullscreen:before {
+    content: "\e91a"
+}
+
+.icon-gallery-evo-jaguar:before {
+    content: "\e91b"
+}
+
+.icon-guides-evo-jaguar:before {
+    content: "\e91c"
+}
+
+.icon-incontrol:before {
+    content: "\e91d"
+}
+
+.icon-information-landrover:before {
+    content: "\e91e"
+}
+
+.icon-insurance:before {
+    content: "\e91f"
+}
+
+.icon-land-rover-to-you:before {
+    content: "\e920"
+}
+
+.icon-dx-login:before {
+    content: "\e921"
+}
+
+.icon-minus:before {
+    content: "\e922"
+}
+
+.icon-mute:before {
+    content: "\e923"
+}
+
+.icon-dx-news:before {
+    content: "\e924"
+}
+
+.icon-notes:before {
+    content: "\e925"
+}
+
+.icon-dx-offers-euro:before {
+    content: "\e926"
+}
+
+.icon-owners:before {
+    content: "\e92a"
+}
+
+.icon-parts:before {
+    content: "\e92b"
+}
+
+.icon-pause:before {
+    content: "\e92c"
+}
+
+.icon-phone:before {
+    content: "\e92d"
+}
+
+.icon-play:before {
+    content: "\e92e"
+}
+
+.icon-plus:before {
+    content: "\e92f"
+}
+
+.icon-print:before {
+    content: "\e930"
+}
+
+.icon-question-mark:before {
+    content: "\e931"
+}
+
+.icon-dx-reduce-view:before {
+    content: "\e932"
+}
+
+.icon-reminder-evo-jaguar:before {
+    content: "\e933"
+}
+
+.icon-download-brochure:before {
+    content: "\e934"
+}
+
+.icon-request-quote-dollar:before {
+    content: "\e935"
+}
+
+.icon-dx-save:before {
+    content: "\e936"
+}
+
+.icon-search:before {
+    content: "\e937"
+}
+
+.icon-dx-search-inventory:before {
+    content: "\e938"
+}
+
+.icon-dx-secure:before {
+    content: "\e939"
+}
+
+.icon-service:before {
+    content: "\e93a"
+}
+
+.icon-servicehistory:before {
+    content: "\e93b"
+}
+
+.icon-servicepreferred-evo-jaguar:before {
+    content: "\e93c"
+}
+
+.icon-dx-share:before {
+    content: "\e93d"
+}
+
+.icon-shop:before {
+    content: "\e93e"
+}
+
+.icon-sound:before {
+    content: "\e93f"
+}
+
+.icon-dx-keep-me-informed:before {
+    content: "\e940"
+}
+
+.icon-dx-time:before {
+    content: "\e941"
+}
+
+.icon-videoguides-evo-jaguar:before {
+    content: "\e942"
+}
+
+.icon-view-vehicles:before {
+    content: "\e943"
+}
+
+.icon-dx-warning:before {
+    content: "\e944"
+}
+
+.icon-dx-web-link:before {
+    content: "\e945"
+}
+
+.icon-zoom_in:before {
+	content: "\e946"
+}
+
+.icon-zoom_out:before {
+	content: "\e947"
+}
+
 html {
 	min-height: 100%;
 	position: relative;
@@ -2745,7 +3030,7 @@ body {
 }
 
 body:not(.isFullscreen) {
-	max-width: 2000px;
+	max-width: 2600px;
 	margin: 0 auto
 }
 
@@ -2888,7 +3173,7 @@ html.noScroll.forceScrollBar.no-touch .pageWrapper {
 body .container {
 	padding: 0;
 	position: relative;
-	max-width: 2000px;
+	max-width: 2600px;
 	margin: 0 auto
 }
 
