@@ -29,7 +29,7 @@
                                         <rte1heading
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/text"
-                                            text="Question"/>
+                                            text="Question *"/>
                                         <question
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -37,7 +37,7 @@
                                         <rte2heading
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/text"
-                                            text="Answer"/>
+                                            text="Answer *"/>
                                         <answer
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
