@@ -986,7 +986,7 @@ fill:black;
   text-transform:uppercase;
 }
 .cmp-fullframe .fontBodyCopyLarge{
-  text-transform:capitalize;
+  text-transform:none;
 }
 .cmp-fullframe .headingWrapper {
     font-weight:normal;
@@ -1039,8 +1039,25 @@ fill:black;
 }
 .cmp-fullframe .linkContainer{padding-top:0;}
 .cmp-fullframe .fontBodyCopyLarge{margin-bottom:0px; min-width:524px; min-height:76px; height:auto;margin:0 auto;}
-
-
+.slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important; text-decoration:underline!important;}
+.cmp-fullframe .secondaryLinkWithStyle:hover{text-decoration:underline!important;}
+.cmp-fullframe .videoCustom:after {
+    content: "";
+    font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+    color: #fff;
+    background: unset;
+    background-color: #0c121c;
+    font-size: 68px;
+    line-height: 98px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 30;
+    cursor: pointer;
+    opacity: 80%;
+}
 @media screen and (min-width:1920px) and (max-width:2700px){
 .cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:32px;letter-spacing:1.2px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
@@ -1049,7 +1066,7 @@ fill:black;
   display: block;
   padding:28px 0 0 30px;
   -webkit-font-smoothing: antialiased;
-  margin-left: 100px;
+  margin-left: 15%;
   width: 1200px;
 }
 .cmp-fullframe .headerClass{min-height:150px;}
@@ -1077,14 +1094,22 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
+  .cmp-fullframe .shelfComponent {
+    display: block;
+    padding: 28px 0 0 30px;
+    -webkit-font-smoothing: antialiased;
+    margin-left:10%;
+    width: 1200px;
+}
   .cmp-fullframe .headerClass{min-height:150px;}
   .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:50px;
     margin-right:50px;
     position: relative;
     min-width: 1160px;
-    max-width: 1280px;
-    height: 653px;
+    max-width: 1919px;
+    min-height:780px;
+    height: auto;
   }  
   .cmp-fullframe .shelfComponent{padding:28px 0 0 50px;}
   .cmp-fullframe-carousel .cmp-carousel__controls{margin-left:-15px;}
