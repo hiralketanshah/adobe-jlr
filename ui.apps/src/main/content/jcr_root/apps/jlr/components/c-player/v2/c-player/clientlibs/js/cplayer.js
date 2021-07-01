@@ -1,10 +1,9 @@
 setTimeout(()=>{
-    var cplayers = document.getElementsByClassName("cmp-cplayer");
-    if(cplayers.length>0){
-  
 
+    var cplayers = document.getElementsByClassName("cmp-cplayerV2");
+    if(cplayers.length>0){
 (function() {
-    var cplayers = document.getElementsByClassName("cmp-cplayer");
+    var cplayers = document.getElementsByClassName("cmp-cplayerV2");
     if(cplayers.length>0){
         var buildItem = localStorage.getItem("ConfiguratorPrompt_lr");
         if(buildItem){
@@ -27,7 +26,7 @@ setTimeout(()=>{
                         
                         }
                         if(cplayer){
-                            cplayer.classList.remove("cmp-cplayer-hidden");
+                            cplayer.classList.remove("cmp-cplayerV2-hidden");
                             window.vechicle =item[1];
                             cplayer.style.display = 'flex';
                             var summary = item[1].vehicleDetail.join(" | ");
@@ -95,7 +94,7 @@ setTimeout(()=>{
                     value: e
                 })
             }
-            if (t(327), t(328), t(2), n._babelPolyfill) console.log("babel instance");
+            if (t(327), t(328), t(2), n._babelPolyfill) return;
             n._babelPolyfill = !0;
             var r = "defineProperty";
             define(String.prototype, "padLeft", "".padStart), define(String.prototype, "padRight", "".padEnd), "pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function(t) {
@@ -25595,8 +25594,8 @@ setTimeout(()=>{
          */
         constructor(element, datastore) {
             this.element = element;
-            this.nameplate = this.element.querySelector('.ConfiguratorPrompt__nameplate');
-            this.subheader = this.element.querySelector('.ConfiguratorPrompt__derivatives');
+            this.nameplate = this.element.querySelector('.ConfiguratorPromptV2__nameplate');
+            this.subheader = this.element.querySelector('.ConfiguratorPromptV2__derivatives');
             this.primaryCTA = this.element.querySelector('.primaryLinkWithStyle');
             this.secondaryCTA = this.element.querySelector('.secondaryLinkWithStyle');
             this.datastore = datastore;
@@ -25619,8 +25618,8 @@ setTimeout(()=>{
             (0,_macro__WEBPACK_IMPORTED_MODULE_5__.default)(this.element, this.json.vehicleId);
     
             this.element.setAttribute('data-vehicle-id', this.json.vehicleId);
-            this.element.classList.add('ConfiguratorPrompt--show');
-            (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_0__.eventTrigger)(this.element, 'ConfiguratorPrompt:shown', {}, true);
+            this.element.classList.add('ConfiguratorPromptV2--show');
+            (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_0__.eventTrigger)(this.element, 'ConfiguratorPromptV2:shown', {}, true);
     
             this.initEnquire();
            // this.initUIdata();
@@ -25682,7 +25681,7 @@ setTimeout(()=>{
     }
     
     function main() {
-        const ConfiguratorPromptElements = [...document.querySelectorAll('.ConfiguratorPrompt')];
+        const ConfiguratorPromptElements = [...document.querySelectorAll('.ConfiguratorPromptV2')];
     
         if (ConfiguratorPromptElements.length === 0) {
             return;
@@ -25700,8 +25699,8 @@ setTimeout(()=>{
     (0,_customer_portal_override__WEBPACK_IMPORTED_MODULE_7__.customerPortalOverride)()
         .then((results) => {
             if (results) {
-                const target = document.querySelector('.ConfiguratorPrompt');
-                const savedBuildElem = document.querySelector('.ConfiguratorPrompt__saved-build-data');
+                const target = document.querySelector('.ConfiguratorPromptV2');
+                const savedBuildElem = document.querySelector('.ConfiguratorPromptV2__saved-build-data');
                 (0,_saved_build_template__WEBPACK_IMPORTED_MODULE_8__.appendSavedView)(results, target, savedBuildElem);
             } else {
                 main();
@@ -25731,7 +25730,7 @@ setTimeout(()=>{
     
     
     
-    const apiKey = document.querySelector('.ConfiguratorPrompt__saved-build-data') && document.querySelector('.ConfiguratorPrompt__saved-build-data').getAttribute('data-cplayer-api-key');
+    const apiKey = document.querySelector('.ConfiguratorPromptV2__saved-build-data') && document.querySelector('.ConfiguratorPromptV2__saved-build-data').getAttribute('data-cplayer-api-key');
     
     // object-fit like logic for CPlayer canvas
     const adjustCPlayerImage = (elem) => {
@@ -25739,7 +25738,7 @@ setTimeout(()=>{
             return;
         }
         const cPlayerInnerDiv = elem.querySelector('.CPlayer__innerdiv');
-        const imgContainer = elem.querySelector('.ConfiguratorPrompt__image');
+        const imgContainer = elem.querySelector('.ConfiguratorPromptV2__image');
         const canvas = elem.querySelector('canvas');
         const canvasContainer = elem.querySelector('.canvas-container');
         if (!canvas || !cPlayerInnerDiv || !imgContainer) {
@@ -25877,14 +25876,14 @@ setTimeout(()=>{
     };
     
     const getValidNameplates = () => {
-        return [...document.querySelectorAll('.ConfiguratorPrompt[data-nameplate]')]
+        return [...document.querySelectorAll('.ConfiguratorPromptV2[data-nameplate]')]
             .map(el => el.getAttribute('data-nameplate'));
     };
     
     const customerPortalOverride = async () => {
         const endpointURL = getCustomerPortalEndpointUrl();
         const nameplates = getValidNameplates();
-        const savedBuildElem = document.querySelector('.ConfiguratorPrompt__saved-build-data').dataset;
+        const savedBuildElem = document.querySelector('.ConfiguratorPromptV2__saved-build-data').dataset;
     
         if (!savedBuildElem.cdxEnabled || savedBuildElem.cdxEnabled !== 'true') {
             return false;
@@ -28532,6 +28531,4 @@ setTimeout(()=>{
     /******/ 	
     /******/ })()
     ;
-}  
-}
-,100);
+}},1000);
