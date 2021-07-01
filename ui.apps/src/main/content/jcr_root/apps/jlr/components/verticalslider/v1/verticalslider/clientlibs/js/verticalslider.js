@@ -4160,6 +4160,13 @@
       init: function init() {
         var _this = this;
         verticalAuthorMode = $('#vertical-author').val(); 
+        if ( isMobileVersion.length > 0) {
+          if(verticalAuthorMode ==='verticalauthor'){  
+            this._removeAutoplayEvents();
+            this._stopPlaying();
+
+          }
+        }
 
         
         isNumberedImage = this.element.getAttribute('data-numbered-image');//("#numberedImage").val();
@@ -4252,6 +4259,7 @@
         this.ui('controls').get(0).setAttribute('aria-label', this._ariaAutoplayStop);
       },
       _stopPlaying: function _stopPlaying() {
+
         this.ui('controls').get(0).classList.remove('cmp-interactiveNumberedImage__controls--playing');
         window.cancelAnimationFrame(this._animationFrame);
         this.ui('controls').get(0).setAttribute('aria-label', this._ariaAutoplayStart);
@@ -4424,18 +4432,6 @@
       _handleSizes: function _handleSizes(force) {
         var mode = this._getMode();
 
-        if ( isMobileVersion.length > 0) {
-          if(verticalAuthorMode ==='verticalauthor'){
-            this._stopPlaying();
-
-          }
-        }
-
-
-  
-        //var isMobileVersion = document.getElementsByClassName('notimer');
-        
-       
         if (mode !== 'desktop') {
             // added for mobile and tab start
           if ( isMobileVersion.length > 0) {
@@ -4486,6 +4482,7 @@
           this._setAccordionAriaState(selectedLink, tabContainer);
           if ( isMobileVersion.length > 0) {
             this.ui('controls').get(0).style.display = 'none';
+            this._removeAutoplayEvents();
             this._stopPlaying();
           }
           else{
