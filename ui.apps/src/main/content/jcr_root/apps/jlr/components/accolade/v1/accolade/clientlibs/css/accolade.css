@@ -4,9 +4,9 @@
 .cmp-accolades-carousel .cmp-carousel__controls {	
   height: 50px !important;	
 }
-.slateblue .cmp-accolades__img .Picture__img{
+/* .slateblue .cmp-accolades__img .Picture__img{
   filter: invert(1);
-}
+} */
 .cmp-carousel.cmp-accolades-carousel .carousel .cmp-carousel__slide {
   display: block;
 }
@@ -97,6 +97,24 @@
   .cmp-accolades__copy--secondary {
     -webkit-font-smoothing: antialiased;
   }
+
+  /* fix for  1055 start*/
+  #landrover .slateblue .cmp-accolades .secondaryLinkWithStyle:before
+  {
+    color:#FFF;
+  }
+  .slateblue .Pagination__pause-control-icon, .cmp-accolades-carousel .Pagination__play-control-icon{
+    fill: #FFF;
+  }
+  .slateblue .cmp-accolades .cmp-accolades__copy--tertiary{
+    color:#FFF;
+  }
+  #landrover .slateblue .cmp-accolades .secondaryLinkWithStyle:before
+  {
+    text-decoration: none;
+  }
+
+    /* fix for  1055 end*/
   
   /* NEW DEVELOPMENT */
 
@@ -371,6 +389,7 @@
   }
   #landrover .cmp-accolades .secondaryLinkWithStyle:hover::before {
     color: #C9C9C9 !important;
+    text-decoration: none;
   }
   .cmp-accolades .secondaryLinkWithStyle:hover
    {
