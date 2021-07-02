@@ -7,7 +7,6 @@ import javax.inject.Inject;
 
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -78,8 +77,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 * @return the bodyStyleHeader
 	 */
 	@Override
-	public String getBodyStyleHeader() {
-		return bodyStyleHeader.toUpperCase();
+	public String getBodyStyleHeader() { return bodyStyleHeader;
 	}
 
 	/**
@@ -89,7 +87,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getModelHeader() {
-		return modelHeader.toUpperCase();
+		return modelHeader;
 	}
 
 	/**
@@ -99,7 +97,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getEngineHeader() {
-		return engineHeader.toUpperCase();
+		return engineHeader;
 	}
 
 	/**
@@ -109,7 +107,7 @@ public class VehicleSpecsModelImpl extends GlobalModelImpl implements VehicleSpe
 	 */
 	@Override
 	public String getSpecHeader() {
-		return specHeader.toUpperCase();
+		return specHeader;
 	}
 
 	/**
