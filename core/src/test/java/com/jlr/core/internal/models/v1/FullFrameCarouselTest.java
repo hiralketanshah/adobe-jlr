@@ -40,6 +40,10 @@ class FullFrameCarouselTest extends GlobalModelImplTest {
         fullFrameCarouselModel = resource.adaptTo(FullFrameCarouselImpl.class);
     }
 
+    @Test
+    void testProperties(){
+        assertEquals("image",fullFrameCarouselModel.getAssetType());
+    }
     /* (non-Javadoc)
      * @see com.jlr.core.internal.models.v1.GlobalModelImplTest#testCtaProperties()
      */

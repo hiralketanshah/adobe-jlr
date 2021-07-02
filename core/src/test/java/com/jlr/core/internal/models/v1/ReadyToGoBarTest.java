@@ -39,12 +39,33 @@ class ReadyToGoBarTest extends GlobalModelImplTest {
         readyToGoBarModel = resource.adaptTo(ReadyToGoBarImpl.class);
     }
 
+    @Test
+    void testProperties(){
+        assertEquals("true",readyToGoBarModel.getEnableFAB());
+        assertEquals("true",readyToGoBarModel.getHideDesktop());
+        assertEquals("true",readyToGoBarModel.getHideMobile());
+        assertEquals("true",readyToGoBarModel.getHideTablet());
+        assertEquals("listdefault",readyToGoBarModel.getListType());
+    }
     /**
      * Test rtgb properties.
      */
     @Test
     void testRtgbProperties() {
         List<CTAPojo> list = readyToGoBarModel.getRtgb();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("/content/jlr/au", item.getLink());
+            assertEquals("_blank", item.getTarget());
+            assertEquals("description", item.getCopy());
+            assertEquals("link text", item.getText());
+            assertEquals("icon", item.getIcon());
+            assertEquals("primary", item.getLinkType());
+        });
+    }
+    @Test
+    void testFabOverride() {
+        List<CTAPojo> list = readyToGoBarModel.getFaboverride();
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("/content/jlr/au", item.getLink());

@@ -736,7 +736,7 @@ height: 493px;
         right: auto;
         overflow: hidden;
         padding-left: 0;
-        min-height: 399px;
+        min-height: auto;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture,
     .cmp-vehicleSummary.right .cmp-vehicleSummary__image .Picture {
@@ -885,9 +885,11 @@ height: 493px;
 }
 @media screen and (min-width: 320px) and (max-width: 767px){
 .cmp-vehicleSummary{ padding:25px 25px 42px 25px;}
-.cmp-vehicleSummary .Picture__img{width:325px;}
 .cmp-vehicleSummary .summaryItemContent {width:325px;}
-  .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
+  .cmp-vehicleSummary .Picture--background .Picture__img{
+    object-fit: cover;
+    object-position: center;      
+}
 .cmp-vehicleSummary .cmp-vehicleSummary__content {
     margin-top: 16px;
 }
