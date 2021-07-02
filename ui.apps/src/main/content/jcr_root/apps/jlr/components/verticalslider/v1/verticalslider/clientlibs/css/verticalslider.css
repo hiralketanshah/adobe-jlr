@@ -460,7 +460,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	font-weight: 400;
 	display: inline;
 	line-height: 14px;
-    color:#000000 !important;
+    color:#0C121C !important;
     font-family:"AvenirNext-DemiBold" !important;
 	font-weight:normal;
 }
@@ -502,6 +502,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* wide screen */
 @media screen and (min-width: 1920px){
+	.verticalslider .cmp-interactiveNumberedImage__toggle-text p{font-size:11px;color:#0C121C;}
 	.cmp-interactiveNumberedImage__images {
 		margin-bottom: 80px ;
 		margin-top:60px;
@@ -514,7 +515,8 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		height:auto !important; 
 	}
 	.verticalslider .cmp-interactiveBtn{margin-top:20px}
-	.cmp-interactiveNumberedImage__controls{padding-top:40px; bottom:43px;left:283px}
+	.verticalslider .cmp-interactiveNumberedImage__controls{ bottom:80px;left:283px}
+	.verticalslider .secondaryLinkContainer{margin-top:23px;}
 	
 	.cmp-interactiveNumberedImage__content {
 		padding-top:60px;
@@ -664,7 +666,10 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		margin-right: 0;
 	}
 	.cmp-interactiveNumberedImage__toggle-text{font-size:11px;}
-	.cmp-interactiveNumberedImage__controls{bottom: 36px;left: 55px; margin-bottom:0; padding-top:40px}
+	.verticalslider .cmp-interactiveNumberedImage__controls{bottom: 80px;left: 55px; margin-bottom:0; padding-top:40px}
+	.verticalslider .cmp-interactiveNumberedImage__verticalSlider-item:last-child {
+    margin-bottom: 40px;
+}
 	.verticalslider .cmp-interactiveNumberedImage{
 		height:auto !important; }
 }
@@ -762,7 +767,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		line-height: 14px;
 		letter-spacing: 1.68px;
 		font-weight: bold;
-        color:#000000;
+        color:#0C121C;
 		text-transform: uppercase;
 
 	}
@@ -935,7 +940,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		line-height: 9px;
 		letter-spacing: 1.68px;
 		font-weight: bold;
-    	color:#000000;
+    	color:#0C121C;
 		text-transform: uppercase;
 	}
 	
@@ -989,7 +994,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	.verticalslider .primaryLinkWithStyle{
 		margin-bottom: 0 !important;
 	}
-	.verticalslider .ContentCard__heading p{color:#000000;}
+	.verticalslider .ContentCard__heading p{color:#0C121C;}
 
 
 }
