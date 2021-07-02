@@ -40,7 +40,7 @@
 .cmp-cplayer .col {
   display: block;
   float: left;
-  margin: 0% 0 0 0%;
+  margin: 3.91% 0 0 0%;
 }
 .cmp-cplayer .col:first-child {
   margin-left: 0;
@@ -59,9 +59,12 @@
   zoom: 1; /* For IE 6/7 */
 }
 .cmp-cplayer .cplayerImageDiv {
+  /* height: 77.13vh; */
+  padding-top: 10px;
   height: auto;
 }
 .cmp-cplayer .cplayerCopy {
+  padding-top: 1px;
   padding-left: 4.7%;
 }
 .center .col.cplayerCopy {
@@ -79,6 +82,7 @@
 }
 .cmp-cplayer .span_2_of_3 {
   width: 66.66%;
+  padding-right: 4.7%;
   padding-left: 2.58%;
 }
 .cmp-cplayer .span_1_of_3 {
@@ -146,7 +150,7 @@
 }
 /* COMMON END */
 /* MOBILE */
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   .cmp-cplayer {
     margin-bottom: 41px;
   }
@@ -174,9 +178,7 @@
   }
   .cmp-cplayer .col.span_2_of_3 {
     margin: 0%;
-    padding: 0%;
-    padding-left: 0.333px;
-    margin-bottom: 16px;
+    padding: 6.67% 6.67% 4.3% 6.67%;
   }
   .cmp-cplayer .span_3_of_3,
   .cmp-cplayer .span_2_of_3,
@@ -208,16 +210,16 @@
     margin: 0%;
   }
   .cmp-cplayer .cplayerCopy {
-    padding-top: 0%;
+    padding-top: 2.61%;
     padding-left: 3.91%;
     padding-right: 3.91%;
   }
   .cmp-cplayer .summaryItemContentCplayer {
-    padding-top: 1px;
+    padding-top: 4px;
   }
   .cmp-cplayer .col.span_2_of_3 {
     margin: 0%;
-    padding: 0%;
+    padding: 5.21% 3.91% 0% 3.91%;
   }
   /* .cmp-cplayer .col.span_1_of_3 {  margin: 0%;padding: 0% 6.67% 4.3% 6.67%; }; */
   .cmp-cplayer {
@@ -237,7 +239,7 @@
     border-left: 1px solid #e0e0e0;
     margin-top: 0px;
     padding-top: 0px;
-    margin-top: 5px;
+    margin-top: 8px;
     padding-left: 3.959%;
     padding-right: 0px;
     width: 52.3%;
@@ -267,22 +269,23 @@
 }
 /* DESKTOP */
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {
+  .cmp-cplayer {
+    margin-bottom: 80px;
+  }
   .cmp-cplayer .secondaryLinkWithStyle {
     margin-top: 23px;
   }
   .left .span_2_of_3 {
     width: 66.66%;
     padding-right: 2.58%;
-    padding-left: 0%;
+    padding-left: 4.7%;
   }
   .left .span_1_of_3 {
     width: 33.33%;
     padding-left: 0.5%;
   }
-  .cplayerCopy {
-    padding-top: 40px;
-  }
   .left .cplayerCopy {
+    padding-top: 1px;
     padding-right: 4.7%;
   }
   .left .cmp-cplayer {
@@ -292,6 +295,12 @@
 }
 /* WIDESCREEN */
 @media only screen and (min-width: 1920px) {
+  .cmp-cplayer .col {
+    margin-top: 2.61%;
+  }
+  .cmp-cplayer {
+    margin-bottom: 80px;
+  }
   .cmp-cplayer .secondaryLinkWithStyle {
     margin-top: 23px;
   }
@@ -307,28 +316,28 @@
     padding-right: 0%;
   }
   .cmp-cplayer .cplayerCopy {
-    padding-top: 40px;
+    padding-top: 1px;
     padding-left: 0px;
     margin-right: 10px;
     padding-right: 1.53%;
   }
   .cmp-cplayer .col:first-child {
-    margin-left: 290px;
+    margin-left: 15.11%;
   }
   .cmp-cplayer .cplayerImageDiv {
-    margin-right: 290px;
+    margin-right: 15.11%;
     padding-left: 0px;
   }
   .left .cmp-cplayer .cplayerCopy {
-    padding-top: 40px;
+    padding-top: 1px;
     padding-left: 0px;
     margin-left: 10px;
-    margin-right: 290px;
+    margin-right: 15.11%;
     padding-right: 0px;
     padding-left: 1.53%;
   }
   .left .cmp-cplayer .cplayerImageDiv {
-    margin-left: 290px;
+    margin-left: 15.11%;
     margin-right: 0px;
     padding-right: 0px;
   }
@@ -359,13 +368,14 @@
   color: #0c121c;
   box-shadow: 0 0 0 1px #0c121c inset;
 }
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
   .cmp-cplayer .heading {
     line-height: 20px;
     font-size: 20px;
     text-align: left;
     letter-spacing: 0.64px;
     text-transform: uppercase;
+    /* margin-bottom: 19px; */
   }
   .cmp-cplayer .vechicleSummary {
     text-align: left;
@@ -381,6 +391,7 @@
     letter-spacing: 1.12px;
     line-height: 16px;
     font-size: 14px;
+    /* color: #4A4F54; */
     text-transform: uppercase;
   }
 }
@@ -411,7 +422,7 @@
     text-transform: uppercase;
   }
   .cmp-cplayer .col.span_2_of_3 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {

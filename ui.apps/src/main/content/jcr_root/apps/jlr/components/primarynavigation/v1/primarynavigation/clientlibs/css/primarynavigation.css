@@ -3400,18 +3400,11 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	margin-right: 1px
 }
 
-/* highlight for both hover and focus*/
-/* .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):focus,
+.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):focus,
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover,
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):focus,
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):hover {
 	background-color: #e9ecec
-} */
-
-/* highlight for hover but not focus - 957*/
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover, 
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):hover {
-	background: #e9ecec
 }
 
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) .dxnav-icon,
@@ -3736,6 +3729,11 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	.dxnav-unique-nav .dxnav__item.dxnav__item-retailer.dxnav-active .dxnav-icon {
 		fill: #0c121c
 	}
+	/* bugfix-1020  styling as per XD*/
+	.dxnav-unique-nav .dxnav__breadcrumb-text{
+		padding-right: 30px;
+	}
+	/* bugfix-1020 end*/
 }
 
 @media screen and (min-width:1251px) {
@@ -3747,7 +3745,8 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 @media screen and (max-width:376px) {
     .dxnav-unique-nav .dxnav__breadcrumb-prev-text{
         letter-spacing: 0.62px !important;
-    	font-weight: 700 !important;            
+		font-weight: 700 !important;
+		line-height: 13px;           
     }
 }
 
@@ -4486,10 +4485,10 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		height: 12px
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-prev-text {
-		font-size: 1.3em;
+		font-size: 13px;
 		font-weight: 600;
 		letter-spacing: .055em;
-		font-family: lr_ot4, arial, helvetica, sans-serif;
+		font-family: "lr_ot4";
 		color: #0c121c;
 		text-transform: uppercase;
 	}
@@ -4659,11 +4658,17 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 
 /* -------------code fix for 856----------*/
 .primarynavigation .dxnav-unique-nav .dxnav__breadcrumb .dxnav-icon{
-	width:6px;
+	width:10px; /*bugfix 1020 styling as per the XD*/
+	height:6px;
     min-width:6px;
 }
 .dxnav-unique-nav .dxnav__breadcrumb-text{font-size:10px; line-height:13px; letter-spacing:1.7px;}
 
 /* -------------code fix for 856----------*/
 
+/* -------------code fix for KESTREL-654----------*/
+.dxnav-cta-container{
+	text-transform:uppercase !important;
+}
+  /* -------------code fix for KESTREL-654----------*/
 /*# sourceMappingURL=landrover.css.map*/

@@ -4,6 +4,7 @@
   "imageAlt":"image",
   "id":"hero title",
   "copy":"<p>test_copy</p>\r\n",
+  "caveat": "caveatText",
   "sling:resourceType":"jlr/components/herotitlebanner/v1/herotitlebanner",
   "textIsRich":[
     "true",
@@ -18,6 +19,14 @@
       "link":"http://www.google.com",
       "text":"test_text",
       "linkType":"primary"
+    }
+  },
+  "footerList": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "header": "Header",
+      "copy": "Copy"
     }
   }
 }

@@ -175,7 +175,6 @@
     .cmp-onlyCopy .cmp-accolades__copy{
       padding-top: 0px;
       width: 100%;
-      /* min-height: 177px; */
     }
     .cmp-accolades .fontQuote{
       width: 100%;
@@ -243,15 +242,7 @@
       max-height: 278px;
       padding-bottom: 0px;
     }
-    /* .cmp-onlyCopy .cmp-accolades__copy{
-      padding-top: 0px;
-      min-width: 708px;
-      max-width: 100%;
-      min-height: 177px;
-    } */
-  
     .cmp-accolades .fontQuote{
-      /* min-height: 83px; */
       width: 100%;
     }
     .cmp-accolades__copy--primary + .cmp-accolades__copy--secondary {
@@ -301,10 +292,8 @@
   .cmp-accolades__copy{
     padding-top: 60px;
     width: 100%;
-    /* min-height: 177px; */
   }
   .cmp-accolades .fontQuote{
-    /* min-height: 83px; */
     width: 100%;
   }
   .cmp-accolades__copy--secondary{
@@ -322,9 +311,6 @@
   .secondaryLinkWithStyle{
     margin-top: 0px;
   } 
-  .swiper-button {
-    position:fixed;
-  }
   .cmp-carousel__controls.cmp-accolades_pagination{
     position: absolute;
     justify-content: left;
@@ -351,7 +337,6 @@
   @media screen and (min-width: 1280px)   {
     .cmp-accolades__copy{
       padding-right: 140px;
-      /* min-height: 177px; */
     }
     .cmp-accolades__copy{
       margin: 0px;
@@ -369,7 +354,6 @@
   @media screen and (min-width: 1920px)   {
     .cmp-accolades__copy{
       padding-right: 155px;
-      /* min-height: 177px; */
     }
   }
   /* CAROUSEL CONTROL ISSUES END*/
