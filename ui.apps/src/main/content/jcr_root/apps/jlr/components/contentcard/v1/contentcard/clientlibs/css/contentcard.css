@@ -1459,8 +1459,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
       margin-right: auto;
   }
   .GridListWrapper .items .swiper-wrapper .ContentCard__Youtube .mediaOverlay .mediaOverlayBg{
-    left: 7px;
-    width: 96%;
+    left: 10px;
+    width: 95%;
   }
   /* bugfix for 1052 end  */
 
