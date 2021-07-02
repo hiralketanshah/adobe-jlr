@@ -936,8 +936,9 @@
 		margin-top: 17px;
 	}
 	.article .primaryLinkContainer{
-	margin-top:30px;
+		margin-top:30px;
 	}
+	
 	}
 	
 	@media screen and (min-width: 1px) and (max-width: 1080px){
@@ -996,4 +997,8 @@
 
 .slateblue .cmp-article .Article__heading p {
     color: #FFFFFF;
+}
+
+.cmp-article .article {
+	margin-top:30px;
 }
