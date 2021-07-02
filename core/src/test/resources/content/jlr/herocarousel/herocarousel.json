@@ -3,6 +3,7 @@
   "description":"description_test",
   "sling:resourceType":"jlr/components/herocarousel/v1/herocarousel",
   "enableTco" : "true",
+  "caveat": "caveatText",
   "ctaList":{
     "jcr:primaryType":"nt:unstructured",
     "item0":{
@@ -11,6 +12,14 @@
       "link":"http://www.google.com",
       "text":"test_text",
       "linkType":"primary"
+    }
+  },
+  "footerList": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "header": "Header",
+      "copy": "Copy"
     }
   }
 }

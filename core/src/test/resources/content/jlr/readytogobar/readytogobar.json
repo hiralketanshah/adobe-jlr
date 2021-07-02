@@ -5,7 +5,25 @@
   "jcr:created":"Fri Mar 05 2021 11:40:29 GMT+0530",
   "jcr:lastModified":"Fri Mar 05 2021 11:41:15 GMT+0530",
   "sling:resourceType":"jlr/components/readytogobar/v1/readytogobar",
+  "listType": "listdefault",
+  "hideMobile": "true",
+  "hideTablet": "true",
+  "hideDesktop": "true",
+  "enableFAB": "true",
   "rtgb":{
+    "jcr:primaryType":"nt:unstructured",
+    "item0":{
+      "jcr:primaryType":"nt:unstructured",
+      "copy":"description",
+      "icon":"icon",
+      "target":"_blank",
+      "link":"/content/jlr/au",
+      "text":"link text",
+      "imageAlt":"alternate text",
+      "linkType":"primary"
+    }
+  },
+  "faboverride":{
     "jcr:primaryType":"nt:unstructured",
     "item0":{
       "jcr:primaryType":"nt:unstructured",
