@@ -24,6 +24,12 @@
 .cmp-carousel[data-total="1"] .cmp-carousel__controls {
   display: none;
 }
+.cmp-carousel[data-total="1"] .Pagination__button-wrapper--pip{
+  display: none;
+}
+.cmp-carousel[data-total="1"] .Pagination__pause:before, .cmp-carousel[data-total="1"] .cmp-herotitle-carousel .Pagination__play:before {
+  border: 2px solid white;
+}
 .cmp-carousel .TargetLinks {
   display: inline-block;
   color: #fff;
