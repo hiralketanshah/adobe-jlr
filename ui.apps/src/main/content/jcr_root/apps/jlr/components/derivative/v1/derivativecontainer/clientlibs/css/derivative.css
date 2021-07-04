@@ -792,6 +792,9 @@ text-transform: uppercase;
     letter-spacing: 0.2px;
     font-weight: 400;
 }
+.Derivative__grouped-feature-column ul li::marker {
+    font-size: 16px;
+}
 .cmp-derivativesOverview .DxTabs__tab{
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -1050,7 +1053,7 @@ text-transform: uppercase;
         display: flex;
         flex-direction: column;
         flex: 1 0 auto;
-        border-left: 1px solid;
+        border-left: 1px solid #4A4F544D;
         margin-left: 20px;
         margin-top: 24px;
     }

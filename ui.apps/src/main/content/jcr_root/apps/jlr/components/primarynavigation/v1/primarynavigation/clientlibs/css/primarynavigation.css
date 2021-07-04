@@ -4502,7 +4502,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		color: #e9ecec;
 		line-height: 1em;
 		letter-spacing: .173em;
-		font-weight: 500;
+		font-weight: normal;
 		font-size: 10px
 	}
 	.dxnav-unique-nav .dxnav__dropdown-overlay {
