@@ -16,8 +16,19 @@
   
   
   class Pagination {
-      constructor(elem, options) {
+      constructor(elem, options,parent) {
           this._elem = elem;
+          this._elemParent = parent;
+          this.videomp4List = this._elemParent.querySelectorAll('video');  
+          this.mp4List = {};
+          this.videomp4List.forEach((videomp4,index)=>{
+           videomp4.removeAttribute("controls");         
+           this.mp4List[index] =  setInterval(function() {
+              videomp4.currentTime = 0;
+                videomp4.play();
+            }, 6000);
+
+          });   
           this._defaults = {
               className: 'Pagination',
               selector: '.Pagination',
@@ -343,6 +354,14 @@
       }
   
       _resumeTimerAnimation(control, event) {
+        this.videomp4List.forEach((videomp4,index)=>{     
+          videomp4.play();
+          this.mp4List[index] =  setInterval(function() {
+             videomp4.currentTime = 0;
+               videomp4.play();
+           }, 6000);
+
+         }); 
           if (event === 'hover' && this.options._nonHoverPaused) {
               return;
           }
@@ -354,6 +373,14 @@
       }
   
       _pauseTimerAnimation(control, event) {
+        this.videomp4List.forEach((videomp4,index)=>{  
+          videomp4.pause();
+          clearInterval(this.mp4List[index]);     
+         });
+        var mp4 = this._elemParent.querySelectorAll('video'); 
+        if(mp4.length){
+          var mp4insatnce = mp4[0];
+        } 
           if (event !== 'hover') {
               this.options._nonHoverPaused = true;
           }
@@ -11674,115 +11701,7 @@
   /* harmony import */ var _resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../resources/dev/js/utils/browserDetection */ "../../resources/dev/js/utils/browserDetection.js");
   /* harmony import */ var _resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../resources/dev/js/utils/index */ "../../resources/dev/js/utils/index.js");
   
-  
-  
-  
-  
-  
-  class Accolades {
-    constructor(element,isBlack) {
-      this.isBlack = isBlack;
-      this.element = element;
-      this._slider = null;
-      this._startSlide = 0;
-      this._totalSlides = 0;
-      this._autoPlayduration = 4000;
-      this._randomiseSlides = false;
-      this._loop = true;
-      this._sliderSpeed = 600;
-      this.__autoPlay = true;
-  
-      this.init();
-    }
-  
-    init() {
-      this._totalSlides = parseInt(this.element.getAttribute('data-total'), 10);
-      this.__autoPlay = this.element.getAttribute('data-autoplay') && this.element.getAttribute('data-autoplay') =="true"?true:false;
-      this._sliderSpeed = parseInt(this.element.getAttribute('data-speed')) || 600;
-      this._autoPlayduration = parseInt(this.element.getAttribute('data-duration'))||4000;
-      if (this._totalSlides < 2) { return; }
-      this._randomiseSlides = this.element.getAttribute('data-randomized');
-      this._handleSlideRandomisation();
-      this._getLabels();
-      window.addEventListener('load', () => this._initSlider()); // LRA-23798
-    }
-  
-    _getLabels() {
-      const getAttribute = labelSuffix => this.element.getAttribute(`data-label-${labelSuffix}`);
-      const labelSuffixes = ['next', 'previous', 'slideChanged', 'play', 'pause', 'pip', 'paused', 'playing'];
-      const labels = Object.assign({}, ...labelSuffixes.map(label => ({ [label]: getAttribute(label) })));
-      return labels;
-    }
-  
-    _handleSlideRandomisation() {
-      if (this._randomizeSlides) {
-        (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_4__.randomiseElements)(this.element.querySelectorAll('.cmp-carousel__slide'));
-      }
-    }
-  
-    _initSlider() {
-      const labels = this._getLabels();
-      const paginationOptions = {
-        isBlack:this.isBlack,
-        labels,
-        numberOfPips: this._totalSlides,
-        autoplay: {
-          enabled: this.__autoPlay,
-          duration: this._autoPlayduration,
-          delay: this._sliderSpeed,
-        },
-        loop: this._loop,
-        defaultSelected: this._startSlide,
-      };
-  
-      const paginationElement = this.element.querySelector('.cmp-carousel__controls');
-      const paginationObject = new _Pagination_es6_Pagination__WEBPACK_IMPORTED_MODULE_1__.default(paginationElement, paginationOptions);
-      const accordionWrapper = this.element.closest('.Accordion');
-      const sliderElement = this.element.querySelector('.cmp-carousel__slider');
-  
-      sliderElement.insertAdjacentHTML('beforeend', `
-        <button class="cmp-carousel__previous swiper-button swiper-button--prev"></button>
-        <button class="cmp-carousel__next swiper-button swiper-button--next"></button>
-      `);
-  
-  
-      const carouselNavPrevious = this.element.querySelector('.cmp-carousel__previous');
-      const carouselNavNext = this.element.querySelector('.cmp-carousel__next');
-      const sliderOptions = {
-        autoHeight: false,
-        initialSlide: this._startSlide,
-        loop: this._loop,
-        grabCursor: true,
-        speed: this._sliderSpeed,
-        pagination: false,
-        preloadImages: true,
-        updateOnImagesReady: true,
-        a11y: true,
-        navigation: {
-          prevEl: carouselNavPrevious,
-          nextEl: carouselNavNext,
-        },
-        breakpoints: {
-          740: {
-            autoHeight: true,
-          }
-        },
-        on: {
-          transitionEnd() {
-            // if component is in a mobile Accordion, trigger height calculation after transition
-            if (accordionWrapper && accordionWrapper.length) {
-              accordionWrapper.Accordion('calculateNewHeight');
-            }
-          }
-        }
-      };
-  
-      this._slider = new swiper__WEBPACK_IMPORTED_MODULE_0__.default(this.element.querySelector('.cmp-carousel__slider'), sliderOptions);
-      const swiperA11yHelperConfig = { paginationObject, labels };
-      (0,_resources_dev_js_utils_swiper__WEBPACK_IMPORTED_MODULE_2__.swiperA11yHelper)(this._slider, swiperA11yHelperConfig);
-    }
-  }
-  // Accolades End
+
   // Full frame start
   const FullFrameCarouselInit = (($, window,cmp_name="FullFrameCarousel",isBlack=false) => {
     
@@ -11868,18 +11787,7 @@
           if (!this._isInsideTabbedContainer || (this._isInsideTabbedContainer && !this._isMobile)) {
             this._throttledSlideResize();
           }
-        });
-        let videomp4List = this.element.querySelectorAll('video');  
-          videomp4List.forEach((videomp4)=>{
-            if(cmp_name!="HeroCarousel" && cmp_name!="HeroTitleBanner"){
-              videomp4.removeAttribute("controls");
-            }
-            setInterval(function() {
-              videomp4.currentTime = 0;
-                videomp4.play();
-            }, 6000);
-
-          });                   
+        });               
         
         if (this._total > 1) {
           this._initGallery();
@@ -11888,6 +11796,7 @@
           // }
           
         } else {
+          this._initGallery();
           this._$currentSlide = this.$element;
   
           this._throttledSlideResize();
@@ -12151,7 +12060,7 @@
         };
   
         const paginationElement = this.element.querySelector('.cmp-carousel__controls');
-        const paginationObject = new _Pagination_es6_Pagination__WEBPACK_IMPORTED_MODULE_1__.default(paginationElement, paginationOptions);
+        const paginationObject = new _Pagination_es6_Pagination__WEBPACK_IMPORTED_MODULE_1__.default(paginationElement, paginationOptions,this.element);
   
   
         const FullFrameCarouselNavPrevious = this.element.querySelector('.cmp-carousel__previous');
@@ -12406,6 +12315,8 @@
       },
   
       _setupSingleImageComponents() {
+        var mp4Check = this.element.querySelectorAll('video'); 
+       if(mp4Check.length == 0){
         this.singleHeaderBox = $('.headerBox', this.$element);
   
         // Remove slider controls as they wont be needed.
@@ -12415,7 +12326,10 @@
   
         // Default to show for the content
         this.singleHeaderBox.addClass('visible');
-  
+       }
+       else{
+        $('.cmp-carousel__controls', this.$element).show();
+       }
         this._$videoPlayer = $('.VideoPlayer', this.$element);
         if (this._$videoPlayer.length) {
           this._setupSingleVideoControls();
@@ -12580,21 +12494,6 @@
   });
   // Full frame end
   const isBlack = document.getElementsByClassName("grey").length>0 || document.getElementsByClassName("white").length>0 || document.getElementsByClassName("light").length>0 ;
-  // Component initialization below
-  // const FullframeElements = document.querySelectorAll('.cmp-carousel.cmp-contentFullframe');
-  // if(FullframeElements.length>0){
-  //   FullFrameCarouselInit(jQuery, window);
-  // }
-  // $('.cmp-carousel.cmp-contentFullframe').each((index, element) => {
-  //   const comp = $(element);
-  //   if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
-  //     comp.FullFrameCarousel();
-  //   }
-  // });
-  // const AccoladesElements = document.querySelectorAll('.cmp-carousel.cmp-contentAccolades');
-  // if (AccoladesElements.length) {
-  //   Array.prototype.forEach.call(AccoladesElements, el => new Accolades(el,isBlack));
-  // }
   const carousalElements = document.querySelectorAll('.cmp-carousel');
   if (carousalElements.length) {
     carousalElements.forEach((el)=>{
@@ -12654,7 +12553,6 @@
                   let height = accolades.clientHeight ;      
                    controlsFFC.style.top = "0px";
                    controlsFFC.style.top = (height)+"px";      
-                  // accolades.style.marginBottom="50px";
                 } 
                 if(window.innerWidth >=1280){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
@@ -12670,7 +12568,6 @@
                 let height = accolades.clientHeight ;      
                  controlsFFC.style.top = "0px";
                  controlsFFC.style.top = (height)+"px";      
-                // accolades.style.marginBottom="50px";
               } 
               if(window.innerWidth >=1280){
                 let controlsFFC = el.querySelector('.cmp-accolades_pagination');
@@ -12683,7 +12580,6 @@
             }
         };
         },200);
-        //new Accolades(el,isBlack)
       }
     });
   }

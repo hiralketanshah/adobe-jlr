@@ -4,6 +4,7 @@
    "headerCopy":"title_test",
    "sling:resourceType":"jlr/components/Snippet/v1/snippet",
    "enablePricing":"true",
+   "marketRegionPath": "/content/jlr/au",
    "cq:styleIds":[
       "1614597950157"
    ],
