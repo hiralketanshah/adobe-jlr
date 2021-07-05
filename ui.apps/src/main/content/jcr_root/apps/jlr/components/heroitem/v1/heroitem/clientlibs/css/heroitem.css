@@ -270,14 +270,6 @@ label {
     margin-bottom: 14px;
     display: block;
   }
-  #landrover .secondaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 24px;
-  }
-  .cmp-hero .primaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 24px;
-  }
   .cmp-hero .heroFooterSection {
     display: flex;
     flex-direction: column-reverse;
@@ -322,6 +314,17 @@ label {
   .cmp-hero-carousel .cmp-carousel__controls {
     justify-content: left;
     padding-left: 25px;
+  }
+  #landrover .cmp-hero .secondaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
+  #landrover .cmp-hero .primaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
+  .cmp-hero .linkContainer .primaryLinkContainer:nth-child(2), .cmp-hero .linkContainer .secondaryLinkContainer:nth-child(2){
+    margin-top: 24px;
   }
 }
 .cmp-hero-carousel .cmp-carousel__slider {
@@ -900,6 +903,12 @@ padding-bottom: 0%;
   .cmp-hero .videoCustom:after{
     top: 35%;
     left: 43%;
+  }
+  .cmp-hero:not(.caveat){
+    margin-bottom: 32px;
+  }
+  .cmp-hero .heroFooterSection+.caveat{
+    margin-top: 24px;
   }
 }
 @media screen and (max-width: 600px){
