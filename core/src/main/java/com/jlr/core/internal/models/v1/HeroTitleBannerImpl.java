@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -23,7 +25,7 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         HeroTitleBannerModel.class }, resourceType = HeroTitleBannerImpl.RESOURCE_TYPE)
 public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBannerModel {
 
@@ -33,11 +35,13 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     /** The cta list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource ctaList;
 
     /** The footer list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource footerList;
 
     /** The resource resolver. */

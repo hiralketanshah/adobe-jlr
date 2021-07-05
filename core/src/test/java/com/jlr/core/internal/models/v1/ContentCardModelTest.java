@@ -40,7 +40,8 @@ class ContentCardModelTest extends GlobalModelImplTest {
         MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/contentcard/contentcard.json", "/content/jlr/contentcard.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/contentcard.html");
-        contentCardModel = resource.adaptTo(ContentCardImpl.class);
+        context.currentResource(resource);
+        contentCardModel = context.request().adaptTo(ContentCardImpl.class);
     }
 
     /**
@@ -52,7 +53,7 @@ class ContentCardModelTest extends GlobalModelImplTest {
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("https://google.com", item.getImageLink());
-           // assertEquals("imageAlt", item.getImageAlt());
+            // assertEquals("imageAlt", item.getImageAlt());
             assertEquals("$98.05", item.getPrice());
             assertEquals("headerCopy", item.getHeaderCopy());
             assertEquals("copy", item.getCopy());

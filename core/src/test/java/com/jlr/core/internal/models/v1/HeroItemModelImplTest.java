@@ -52,7 +52,8 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
         MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
-        heroItemModel = resource.adaptTo(HeroItemModelImpl.class);
+        context.currentResource(resource);
+        heroItemModel = context.request().adaptTo(HeroItemModelImpl.class);
     }
 
     /**

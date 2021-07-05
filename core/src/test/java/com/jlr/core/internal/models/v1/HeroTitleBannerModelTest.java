@@ -37,7 +37,8 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
     public void setup(AemContext context) {
         context.load().json("/content/jlr/herotitlebanner/herotitlebanner.json", "/content/jlr/herotitlebanner.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herotitlebanner.html");
-        heroTitleBannerModel = resource.adaptTo(HeroTitleBannerImpl.class);
+        context.currentResource(resource);
+        heroTitleBannerModel = context.request().adaptTo(HeroTitleBannerImpl.class);
     }
 
     /**

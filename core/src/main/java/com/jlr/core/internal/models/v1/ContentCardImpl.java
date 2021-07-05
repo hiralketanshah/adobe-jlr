@@ -5,10 +5,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
 
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.models.ContentCardModel;
@@ -20,7 +22,7 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         ContentCardModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel {
 
@@ -30,18 +32,22 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
 
     /** The content type. */
     @Inject
+    @Via("resource")
     private String column;
 
     /** The enable stacking. */
     @Inject
+    @Via("resource")
     private String enableStacking;
 
     /** The content card list. */
     @Inject
+    @Via("resource")
     public List<ContentCardListModel> contentCardList;
 
     /** The cta list. */
     @Inject
+    @Via("resource")
     private Resource ctaList;
 
     /** The lists. */

@@ -15,16 +15,23 @@ public interface TcoService {
     /**
      * Gets model price.
      *
-     * @param resourceResolver the resource resolver
-     * @param request          the request
-     * @param currentPage      the current page
-     * @param pageProperties   the page properties
-     * @param priceMacro       the price macro
-     * @param configKey        the config key
+     * @param resourceResolver
+     *            the resource resolver
+     * @param request
+     *            the request
+     * @param currentPage
+     *            the current page
+     * @param pageProperties
+     *            the page properties
+     * @param priceMacro
+     *            the price macro
+     * @param configKey
+     *            the config key
      * @return the model price
      */
-    Map<String,String> getModelPrice(ResourceResolver resourceResolver,
-                                     SlingHttpServletRequest request,
-                                     Page currentPage, InheritanceValueMap pageProperties,
-                                     String priceMacro, String configKey);
+    Map<String, String> getModelPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
+            Page currentPage, InheritanceValueMap pageProperties, String priceMacro, String configKey);
+
+    String getPriceConfigForStaticPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
+            Page currentPage, String configKey);
 }

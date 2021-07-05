@@ -1,18 +1,20 @@
 package com.jlr.core.internal.models.v1;
 
-import com.jlr.core.models.DerivativeCardModel;
-import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.pojos.DerivativeEnginePojo;
-import io.wcm.testing.mock.aem.junit5.AemContext;
-import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
+
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import java.util.List;
+import com.jlr.core.models.DerivativeCardModel;
+import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.pojos.DerivativeEnginePojo;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import io.wcm.testing.mock.aem.junit5.AemContext;
+import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
 /**
  * The Class DerivativeCardModelImplTest.
@@ -20,15 +22,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @author Adobe
  */
 @ExtendWith(AemContextExtension.class)
-public class DerivativeCardModelImplTest extends GlobalModelImplTest{
+public class DerivativeCardModelImplTest extends GlobalModelImplTest {
 
     private DerivativeCardModel derivativeCardModel;
 
     /**
      * Sets the up.
      *
-     * @param context the new up
-     * @throws Exception the exception
+     * @param context
+     *            the new up
+     * @throws Exception
+     *             the exception
      */
     @BeforeEach
     void setUp(AemContext context) {
@@ -45,10 +49,11 @@ public class DerivativeCardModelImplTest extends GlobalModelImplTest{
         assertEquals("test_caveat", derivativeCardModel.getCaveat());
         assertEquals("test_feature_label", derivativeCardModel.getFeatureLabel());
         assertEquals("test_left_column", derivativeCardModel.getLeftColumn());
-        derivativeCardModel.setPrice("test_price");
-        assertEquals("test_price", derivativeCardModel.getPrice());
-        derivativeCardModel.setPriceConfigValue("test_price_config_value");
-        assertEquals("test_price_config_value", derivativeCardModel.getPriceConfigValue());
+        // derivativeCardModel.setPrice("test_price");
+        // assertEquals("test_price", derivativeCardModel.getPrice());
+        // derivativeCardModel.setPriceConfigValue("test_price_config_value");
+        // assertEquals("test_price_config_value",
+        // derivativeCardModel.getPriceConfigValue());
         assertEquals("test_right_column", derivativeCardModel.getRightColumn());
         assertEquals("test_specs_at_glance_heading", derivativeCardModel.getSpecsAtaGlanceHeading());
         assertEquals(true, derivativeCardModel.getOverride());
