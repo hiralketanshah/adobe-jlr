@@ -458,7 +458,7 @@
                                             <imagePathHeading
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/text"
-                                                text="Image"/>
+                                                text="Image *"/>
                                             <imagePath
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
