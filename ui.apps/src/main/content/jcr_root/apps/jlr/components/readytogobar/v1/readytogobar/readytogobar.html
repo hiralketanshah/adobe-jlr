@@ -9,7 +9,7 @@
                <span data-sly-test="${item.icon}" class="cmp-readyToGoBar__icon">
                <i class="${item.icon}"></i></span>
                <h2 data-sly-test="${item.text}" class="cmp-readyToGoBar__heading heading fontH5 headingH5">
-                  <span class="cmp-readyToGoBar__heading-inner">${item.text}</span>
+                  <span class="cmp-readyToGoBar__heading-inner">${item.text @ context="html"}</span>
                </h2>
                <span data-sly-test="${item.copy}" class="cmp-readyToGoBar__copy fontBodyCopy">${item.copy @ context="html"}</span>
                </span>

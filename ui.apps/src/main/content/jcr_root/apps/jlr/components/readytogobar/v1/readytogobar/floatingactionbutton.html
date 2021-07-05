@@ -18,7 +18,7 @@ data-sly-call="${renderModel @ readytogobar=model, pageConfig=pageConfig}" />
                <ul data-sly-test="${readytogobar.faboverride}" class="cmp-floatingActionButton__items cmp-floatingActionButton__items-hide" data-sly-list.item="${readytogobar.faboverride}">
                   <li class="cmp-floatingActionButton__item">
                      <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" aria-label="${item.ariaLabel}" target="${item.target}" data-target="${item.target}" >
-                     <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text}</span>
+                     <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text @ context="html"}</span>
                      </a>
                   </li>
                </ul>
