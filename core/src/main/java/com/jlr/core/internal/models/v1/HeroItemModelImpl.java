@@ -9,6 +9,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -32,12 +33,12 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
     public static final String RESOURCE_TYPE = "jlr/components/heroitem/v1/heroitem";
 
     /** The cta list. */
-    @Inject
+    @ChildResource
     @Optional
     private Resource ctaList;
 
     /** The footer list. */
-    @Inject
+    @ChildResource
     @Optional
     private Resource footerList;
 

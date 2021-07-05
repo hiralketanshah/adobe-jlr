@@ -2672,13 +2672,14 @@
               if (!this.checkModalCookie()) {
                 if (cookieURL) {
                   if (window.location.href.indexOf(cookieURL) > -1) {
-                    var modalContent = this.generateModalContent();
-                    this.displayModal(modalContent);
-                    this.setupEvents();
+                    if ($(".Modal__content").length == 0) {
+                      var modalContent = this.generateModalContent();
+                      this.displayModal(modalContent);
+                      this.setupEvents();
+                    }
                   }
                 }
               }
-              console.log(this.element.parentElement.classList[1]);
 
               if (this.element.parentElement.classList[1] == 'slateblue' || this.element.parentElement.classList[1] == 'light') {
                 $('.Modal__content-wrapper').addClass(this.element.parentElement.classList[1]);
@@ -2701,6 +2702,7 @@
               } else {
                 (0, _cookieManager.createCookie)('JLR_DxPopupShown_' + this.cookieID, true, this.retentionPeriod);
               }
+              $('html').css('overflow', 'auto');
             }
           }, {
             key: 'generateModalContent',
@@ -2715,19 +2717,18 @@
               var closeLabel = modalContent.getAttribute('data-close-label');
               this.modal = new _Modal2.default(modalTrigger, { closeLabel: closeLabel });
               this.modal.open(modalContent);
+              $('html').css('overflow', 'hidden');
             }
           }, {
             key: 'setupEvents',
             value: function setupEvents() {
               var _this = this;
-
               var cta = document.querySelector('.Modal .cmp-popupModal__body-cta');
               if (cta) {
                 cta.addEventListener('click', function () {
                   _this.modal.close();
                 });
               }
-
               if (this.forcePreventCookie === 'false') {
                 this.element.addEventListener('Modal:closed', function () {
                   _this.setCookieForModalDisplay();
