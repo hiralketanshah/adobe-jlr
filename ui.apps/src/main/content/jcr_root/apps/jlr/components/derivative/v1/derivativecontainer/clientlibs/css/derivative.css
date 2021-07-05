@@ -904,11 +904,13 @@ text-transform: uppercase;
         line-height: 15px;
         letter-spacing: 0.45px;
     }
-    .js .Derivative__price .Derivative__price-label{
+    .js .Derivative__price .Derivative__price-label,
+    .js .Derivative__price p:first-child{
         font-size: 10px;
         line-height: 14px;
     }
-    .js .Derivative__price .Derivative__from-price{
+    .js .Derivative__price .Derivative__from-price,
+    .js .Derivative__price p:last-child{
         font-size: 18px;
         line-height: 20px;
         margin-top: 0;
