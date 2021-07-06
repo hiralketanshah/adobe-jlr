@@ -275,9 +275,9 @@
 }
 /* DESKTOP */
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {
-  /* .cmp-cplayerV2 {
-    margin-bottom: 80px;
-  } */
+  .ConfiguratorPromptV2__image{
+    width: 100%
+  }
   .cmp-cplayerV2 .secondaryLinkWithStyle {
     margin-top: 23px;
   }
@@ -303,12 +303,9 @@
 }
 /* WIDESCREEN */
 @media only screen and (min-width: 1920px) {
-  /* .cmp-cplayerV2 .col {
-    margin-top: 2.61%;
-  } */
-  /* .cmp-cplayerV2 {
-    margin-bottom: 80px;
-  } */
+  .ConfiguratorPromptV2__image{
+    width: 100%
+  }
   .cmp-cplayerV2 .secondaryLinkWithStyle {
     margin-top: 23px;
   }
@@ -500,5 +497,15 @@
   .ConfiguratorPromptV2 {
     max-height: 460px;
     min-height: 460px;
+  }
+}
+@media only screen and (min-width: 1600px) and (max-width: 1750px){
+  .cmp-cplayerV2 .CPlayer__innerdiv{
+    width: 150.201% !important;
+  }
+}
+@media only screen and (min-width: 1750px) and (max-width: 1919px){
+  .cmp-cplayerV2 .CPlayer__innerdiv{
+    width: 130.201% !important;
   }
 }
