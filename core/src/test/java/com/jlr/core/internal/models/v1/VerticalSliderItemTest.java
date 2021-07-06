@@ -30,7 +30,7 @@ public class VerticalSliderItemTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setUp(AemContext context) throws Exception {
-        context.load().json("/content/jlr/verticalSlider/verticalslideritem.json", "/content/jlr/verticalslideritem.html");
+        context.load().json("/content/jlr/verticalslider/verticalslideritem.json", "/content/jlr/verticalslideritem.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/verticalslideritem.html");
         verticalSliderItem = resource.adaptTo(VerticalSliderItem.class);
     }
