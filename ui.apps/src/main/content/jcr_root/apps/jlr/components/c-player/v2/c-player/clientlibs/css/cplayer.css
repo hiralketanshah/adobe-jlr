@@ -217,6 +217,8 @@
   }
   .cmp-cplayerV2 .summaryItemContentCplayer {
     padding-top: 1px;
+    display: flex;
+    flex-direction: column;
   }
   .cmp-cplayerV2 .col.span_2_of_3 {
     margin: 0%;
