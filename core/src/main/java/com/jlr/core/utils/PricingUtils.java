@@ -6,16 +6,20 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jackrabbit.commons.JcrUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
+import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -145,4 +149,44 @@ public class PricingUtils {
         return new Gson().fromJson(response, JsonObject.class);
     }
 
+    public static String getResourceType(SlingHttpServletRequest request) {
+        String resourceType = StringUtils.EMPTY;
+        if (null != request) {
+            Resource priceResource = request.getResource();
+            String path = priceResource.getPath();
+            int index = path.lastIndexOf("/");
+            path = path.substring(0, index);
+            Resource finalResource = request.getResourceResolver().getResource(path);
+            if (null != finalResource) {
+                ValueMap properties = finalResource.adaptTo(ValueMap.class);
+                resourceType = properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class);
+            }
+        }
+        return resourceType;
+    }
+
+    public static String getResourceTypeForStaticPrice(SlingHttpServletRequest request) {
+        String resourceType = StringUtils.EMPTY;
+        if (null != request) {
+            Resource priceResource = request.getResource();
+            if (null != priceResource) {
+                ValueMap properties = priceResource.adaptTo(ValueMap.class);
+                resourceType = properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class);
+            }
+        }
+        return resourceType;
+    }
+
+    public static String getKey(String resourceType) {
+        String key = StringUtils.EMPTY;
+        if (StringUtils.isNotBlank(resourceType)) {
+            Map<String, String> map = CommonUtils.getMapOfFomCopy();
+            Optional<String> firstKey = map.entrySet().stream().filter(entry -> resourceType.contains(entry.getKey()))
+                    .map(Map.Entry::getValue).findFirst();
+            if (firstKey.isPresent()) {
+                key = firstKey.get();
+            }
+        }
+        return key;
+    }
 }

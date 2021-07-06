@@ -12714,6 +12714,15 @@
                 controlsFFC.style.top = offsetheight+25+"px";
               }   
               if(window.innerWidth >=768 && window.innerWidth<=1024){
+                let shelfComponent = el.querySelector(".shelfComponent");
+                if(shelfComponent.querySelectorAll('[class^="icon-"]').length>0){
+                  let heroFooter = el.querySelectorAll(".heroFooterSection");
+                  if(heroFooter.length){
+                    heroFooter.forEach((e)=>{
+                      e.style.marginTop="86px";
+                    })
+                  }
+                }
                 let offsetheight = el.querySelector(".cmp-genericItem__element-poster").offsetHeight;
                 let elm = el.querySelectorAll(".cmp-genericItem__element-poster");
                 elm.forEach((e)=>{

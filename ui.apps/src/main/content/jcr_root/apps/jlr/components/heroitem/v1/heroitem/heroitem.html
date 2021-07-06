@@ -111,8 +111,8 @@
          
         </div>
       </div>
-      <div data-sly-test="${heroCarousel.footerList}" class="heroFooterSection">
-        <div class="emissionDetails">
+      <div data-sly-test="${heroCarousel.footerList || heroCarousel.caveat}" class="heroFooterSection">
+        <div class="emissionDetails" data-sly-test="${heroCarousel.footerList}">
           <sly data-sly-list="${heroCarousel.footerList}">
             <sly data-sly-test="${itemList}">
               <div class="emissionDe">

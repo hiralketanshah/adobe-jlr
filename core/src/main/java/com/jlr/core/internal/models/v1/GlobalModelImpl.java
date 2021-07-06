@@ -7,18 +7,24 @@ import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GlobalModel;
+import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.AltTextUtils;
 import com.jlr.core.utils.CtaUtils;
 import com.jlr.core.utils.LinkUtils;
+import com.jlr.core.utils.PricingUtils;
 import com.jlr.core.utils.TcoUtils;
 
 /**
@@ -26,22 +32,33 @@ import com.jlr.core.utils.TcoUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = { GlobalModel.class })
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = { GlobalModel.class })
 public class GlobalModelImpl implements GlobalModel {
 
-	Logger logger = Logger.getLogger(GlobalModelImpl.class);
+    Logger logger = Logger.getLogger(GlobalModelImpl.class);
 
-	/** The id. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String id;
+    @Inject
+    @Optional
+    private SlingHttpServletRequest request;
 
-	/** The date. */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private Calendar date;
+    @Inject
+    @Optional
+    private Page currentPage;
 
-	/** The date format. */
-	@HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private String dateFormat;
+    @OSGiService
+    private TcoService tcoService;
+
+    /** The id. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String id;
+
+    /** The date. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private Calendar date;
+
+    /** The date format. */
+    @HierarchicalPageProperty(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String dateFormat;
 
     /** The header title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -70,10 +87,10 @@ public class GlobalModelImpl implements GlobalModel {
     /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String imageAlt;
-    
+
     /** To get altTextFromDAM when user checked the check box */
-	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	private Boolean altTextFromDAM;
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private Boolean altTextFromDAM;
 
     /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -140,6 +157,7 @@ public class GlobalModelImpl implements GlobalModel {
     private ResourceResolver resourceResolver;
 
     private Boolean isStaticPrice;
+    private String priceConfigValue;
 
     /*
      * (non-Javadoc)
@@ -227,40 +245,35 @@ public class GlobalModelImpl implements GlobalModel {
         return fileReference;
     }
 
-	@Override
-	public String getAltTextFromDAM() {
-		String damAltText = "";
-		if (resourceResolver != null) {
-			damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
-		}
-		return damAltText;
-
-	}
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see com.jlr.core.models.GlobalModel#getImageAlt()
-     */
     @Override
-	public String getImageAlt() {
-		String altDAMText = "";
-		String damAltText = getAltTextFromDAM();
-		if (isDecorative) {
-			return null;
-		} else {
-			if (imageAlt != null && altTextFromDAM == Boolean.TRUE) {
-				altDAMText = imageAlt;
-			} else if (imageAlt != null && altTextFromDAM == Boolean.FALSE) {
-				altDAMText = imageAlt;
-			} else if (imageAlt == null && altTextFromDAM == Boolean.FALSE) {
-				altDAMText = StringUtils.EMPTY;
-			} else if (imageAlt == null && altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
-				altDAMText = damAltText;
-			}
-		}
-		return altDAMText;
-	}
+    public String getAltTextFromDAM() {
+        String damAltText = "";
+        if (resourceResolver != null) {
+            damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
+        }
+        return damAltText;
+
+    }
+
+    @Override
+    public String getImageAlt() {
+        String altDAMText = "";
+        String damAltText = getAltTextFromDAM();
+        if (isDecorative) {
+            return null;
+        } else {
+            if (imageAlt != null && altTextFromDAM == Boolean.TRUE) {
+                altDAMText = imageAlt;
+            } else if (imageAlt != null && altTextFromDAM == Boolean.FALSE) {
+                altDAMText = imageAlt;
+            } else if (imageAlt == null && altTextFromDAM == Boolean.FALSE) {
+                altDAMText = StringUtils.EMPTY;
+            } else if (imageAlt == null && altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
+                altDAMText = damAltText;
+            }
+        }
+        return altDAMText;
+    }
 
     /*
      * (non-Javadoc)
@@ -403,10 +416,30 @@ public class GlobalModelImpl implements GlobalModel {
     }
 
     @Override
+    public String getPriceConfigValue() {
+        if (Boolean.TRUE.equals(isStaticPrice)) {
+            SlingHttpServletRequest newreq = resourceResolver.adaptTo(SlingHttpServletRequest.class);
+            String resourceType = PricingUtils.getResourceTypeForStaticPrice(request);
+            String configKey = PricingUtils.getKey(resourceType);
+            priceConfigValue = tcoService.getPriceConfigForStaticPrice(resourceResolver, request, currentPage,
+                    configKey);
+        }
+        return priceConfigValue;
+    }
+
+    @Override
     public Boolean getIsStaticPrice() {
         if (!StringUtils.isBlank(price)) {
             isStaticPrice = TcoUtils.isStaticPrice(price);
         }
         return isStaticPrice;
+    }
+
+    public void setRequest(SlingHttpServletRequest request) {
+        this.request = request;
+    }
+
+    public void setCurrentPage(Page currentPage) {
+        this.currentPage = currentPage;
     }
 }

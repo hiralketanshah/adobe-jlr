@@ -212,11 +212,11 @@ public final class CommonUtils {
 
     public static Map<String, String> getMapOfFomCopy() {
         Map<String, String> mapOfFomCopy = new HashMap<>();
-        mapOfFomCopy.put(PricingConstants.NN_VEHICLE_SUMMARY, PricingConstants.HERO_FROM_TEXT);
+        mapOfFomCopy.put(PricingConstants.NN_VEHICLE_SUMMARY, PricingConstants.VEHICLE_SUMAMRY_FROM_TEXT);
         mapOfFomCopy.put(PricingConstants.NN_HERO_ITEM, PricingConstants.HERO_FROM_TEXT);
         mapOfFomCopy.put(PricingConstants.NN_HERO_TITLE, PricingConstants.HERO_FROM_TEXT);
         mapOfFomCopy.put(PricingConstants.NN_OFFERS, PricingConstants.OFFERS_FROM_TEXT);
-        mapOfFomCopy.put(PricingConstants.NN_DERIVATIVE, PricingConstants.HERO_FROM_TEXT);
+        mapOfFomCopy.put(PricingConstants.NN_DERIVATIVE, PricingConstants.DERIVATIVE_FROM_TEXT);
         mapOfFomCopy.put(PricingConstants.NN_CONTENT_CARD, PricingConstants.CONTENTCARD_FROM_TEXT);
         return mapOfFomCopy;
     }

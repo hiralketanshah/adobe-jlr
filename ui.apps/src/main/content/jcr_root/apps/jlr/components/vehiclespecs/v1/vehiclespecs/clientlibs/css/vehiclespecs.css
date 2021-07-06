@@ -370,6 +370,11 @@ h2.heading,
     .VehicleSpecsRulesEngine__specs {
       padding: 0px;
   }
+  .VehicleSpecsRulesEngine__specs-cta{
+    min-height: 45px;
+    margin-top: 35px;
+    margin-left: 30px;
+  }
   }
   @media screen and (min-width: 768px) and (max-width: 1279px)  {
     .VehicleSpecsRulesEngine__specs-cta{
@@ -539,7 +544,7 @@ h2.heading,
     @media screen and (min-width: 768px) and (max-width: 1279px){
       .VehicleSpecsRulesEngine__specs-title{
         width: 524px;
-        height: 40px;
+        min-height: 40px;
       }
       /* vechicle title  */
       .VehicleSpecsRulesEngine__specs-heading .heading.headingH2,.VehicleSpecsRulesEngine__specs-title h2{
@@ -574,7 +579,7 @@ h2.heading,
         line-height: 24px;
       }
       .cmp-vehicleSpecsRulesEngine .dxAccordion__trigger .dxAccordion__title{
-        height: 20px;
+        min-height: 20px;
       }
     }
     @media screen and (max-width: 767px){
@@ -699,12 +704,12 @@ h2.heading,
   color:#0c121c;
 }
 .RulesEngineDropdown__engine-label{
-  max-height: 15px;
+  min-height: 15px;
   color: #4A4F54;
 }
 .RulesEngineDropdown__engine-consumption{
   color:#4A4F54B2;
-  max-height: 15px;
+  min-height: 15px;
 }
 @media screen and (min-width: 768px)  and (max-width: 1279px){
   .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p{
@@ -715,7 +720,7 @@ h2.heading,
     font-weight: 400;
   }
   .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p{
-    height: 15px;
+    min-height: 15px;
   }
 }
 @media screen and (min-width: 1280px){
@@ -741,7 +746,7 @@ h2.heading,
    .RulesEngineDropdown__dropdown--engine .dxDropdown__button
    {
     padding-top: 13px;
-    height: 42px;
+    min-height: 42px;
    }
   .stack .RulesEngineDropdown__dropdown--engine .dxDropdown__button
    {
@@ -751,7 +756,7 @@ h2.heading,
 
   .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-title{
     width: 760px;
-    height: 51px;
+    min-height: 51px;
   }
   .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-engine{
     width: 760px;

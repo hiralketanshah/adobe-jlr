@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
@@ -21,7 +22,7 @@ import com.jlr.core.utils.CtaUtils;
 /**
  * The Class OffersModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         OffersModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
@@ -33,6 +34,7 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
     /** The offer list. */
     @Inject
+    @Via("resource")
     public List<OffersList> offerList = new ArrayList<>();
 
     /** The offers header copy. */
@@ -49,6 +51,7 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
     /** The cta list. */
     @Inject
+    @Via("resource")
     private Resource ctaList;
 
     /** The price. */
