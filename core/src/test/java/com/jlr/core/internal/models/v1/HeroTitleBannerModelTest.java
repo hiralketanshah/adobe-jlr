@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.jlr.core.pojos.FooterPojo;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,11 +42,15 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
         heroTitleBannerModel = context.request().adaptTo(HeroTitleBannerImpl.class);
     }
 
+    @Test
+    void testProperties(){
+        assertEquals("caveatText",heroTitleBannerModel.getCaveat());
+    }
     /**
      * Test properties.
      */
     @Test
-    void testProperties() {
+    void testCtaProperties() {
         List<CTAPojo> list = heroTitleBannerModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
@@ -53,6 +58,16 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
             assertEquals("http://www.google.com", item.getLink());
             assertEquals("_self", item.getTarget());
             assertEquals("primary", item.getLinkType());
+        });
+    }
+
+    @Test
+    void testFooterList() {
+        List<FooterPojo> list = heroTitleBannerModel.getFooterList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("Copy", item.getCopy());
+            assertEquals("Header", item.getHeader());
         });
     }
 

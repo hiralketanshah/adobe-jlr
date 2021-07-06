@@ -1,3 +1,7 @@
+
+.swiper-button{
+  opacity: 1;
+}
 .cmp-carousel.cmp-dualframe-carousel{
   padding-top: 51px;
   padding-bottom: 80px;
@@ -69,16 +73,14 @@ fill: #ffffff;
   fill: #000;
 }
 .cmp-dualframe-carousel .Pagination__pip:after{
-  border: 2px solid #000;
+  border: 2px solid #A8AAAE;
 }
 .cmp-dualframe-carousel .Pagination__pip--active:after, .Pagination__pip--active:hover:after{
   background: #000;
-}
-.cmp-dualframe-carousel .Pagination__pause-timer-icon-countdown{
-  stroke: white;
+  border: 2px solid #000;
 }
 .cmp-dualframe-carousel .Pagination__pause:before {
-  border: 2px solid #7D7D7D;
+  border: 2px solid #A8AAAE;
 }
 .cmp-dualframe-carousel .Pagination__pause-control-icon {
   fill: #000000;
@@ -98,9 +100,11 @@ fill: #ffffff;
 .cmp-dualframe-carousel .Pagination__pause-timer-icon-countdown{
   stroke: #000000;
 }
-
+.slateblue .cmp-dualframe-carousel .Pagination__pause-timer-icon-countdown{
+  stroke: #ffffff;
+}
 .slateblue .cmp-dualframe-carousel .st0--swiper-pagination{
-  fill: #ffffff
+  fill: white
   }
 
 .slateblue .cmp-dualframe-carousel .Pagination--black .Pagination__play-control-icon,
@@ -110,7 +114,7 @@ fill:#ffffff;
 .slateblue .cmp-dualframe-carousel .Pagination__pause:before,
 .slateblue .cmp-dualframe-carousel .Pagination--black .Pagination__play:before, 
 .slateblue .cmp-dualframe-carousel .Pagination--black .Pagination__pause:before{
-    border: 2px solid white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 .slateblue .cmp-dualframe-carousel .Pagination--black .Pagination__pip:after{
     border: 2px solid #fff;
@@ -672,10 +676,6 @@ html.no-js .cmp-carousel.cmp-dualframe-carousel .carousel .cmp-carousel__slide .
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* .cmp-dualframe-carousel .cmp-carousel__slider{
-  max-height: 428px !important;
-} */
-
 .cmp-dualFrameItem .cmp-dualFrameItem__image {        
     position: relative;
     
@@ -1193,9 +1193,6 @@ order:1;
   .cmp-dualFrameItem .summaryItemContent h2{
     margin-bottom: 12px;
   }
-  #landrover .cmp-dualFrameItem .secondaryLinkContainer{
-    width: max-content;
-  }
 }
 @media screen and (min-width: 1280px) {
   .cmp-dualFrameItem__image{
@@ -1304,10 +1301,10 @@ order:1;
   left: 63%;
 }
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--prev {
-  left: 150px;
+  left: -59px;
 }
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--next {
-  right: 150px;
+  right: -59px;
 }
 .cmp-carousel.cmp-dualframe-carousel {
   padding-left: 290px;

@@ -43,13 +43,13 @@ class ContentCardModelTest extends GlobalModelImplTest {
         context.currentResource(resource);
         contentCardModel = context.request().adaptTo(ContentCardImpl.class);
     }
-
     /**
      * Test properties.
      */
     @Test
     void testProperties() {
         List<ContentCardListModel> list = contentCardModel.getContentCardList();
+        assertEquals("2", contentCardModel.getColumn());
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("https://google.com", item.getImageLink());
@@ -82,12 +82,22 @@ class ContentCardModelTest extends GlobalModelImplTest {
             assertEquals("primary", item.getLinkType());
         });
     }
-
     /**
-     * Test column.
+     * Test cta properties.
      */
-    void testColumn() {
-        assertEquals("2", contentCardModel.getColumn());
+    @Override
+    @Test
+    void testCtaProperties() {
+        List<CTAPojo> list = contentCardModel.getCtaList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("text", item.getText());
+            assertEquals("https://google.com", item.getLink());
+            assertEquals("_blank", item.getTarget());
+            assertEquals("primary", item.getLinkType());
+        });
     }
+
+
 
 }

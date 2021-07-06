@@ -40,6 +40,10 @@ class DualFrameCarouselTest extends GlobalModelImplTest {
         dualFrameModel = resource.adaptTo(DualFrameCarouselImpl.class);
     }
 
+    @Test
+    void testProperties(){
+        assertEquals("image",dualFrameModel.getAssetType());
+    }
     /* (non-Javadoc)
      * @see com.jlr.core.internal.models.v1.GlobalModelImplTest#testCtaProperties()
      */

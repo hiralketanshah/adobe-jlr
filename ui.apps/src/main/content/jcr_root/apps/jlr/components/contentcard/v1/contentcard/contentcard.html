@@ -18,7 +18,7 @@
                 <div class="cmp-contentCards items" data-total="${contentCard.column}">
                     <div class="cmp-contentCardsCarousel">
                         <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
-                            <li class="el gridEl">
+                             <li class="el gridEl ${content.fileReference || content.posterImage ?'hasMedia':''}"> <!--added condition for image/video authored for bugfix-1083 -->
                                 <div class="cmp-ContentCard">
                                     <div class="imageContainer mediaOverlay__wrapper">
                                         <sly data-sly-test="${content.assestType=='video'}">
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </sly>
-        <div class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
+        <div data-sly-test="${contentCard.ctaList}" class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
             <div data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
                 <a class="linkContainer primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}"
                     aria-label="${cta.ariaLabel}">

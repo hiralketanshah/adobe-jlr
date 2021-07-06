@@ -65,5 +65,6 @@ class SnippetModelImplTest extends GlobalModelImplTest {
     @Test
     void testGetEnablePricing() {
         assertEquals("true", snippetModel.getEnablePricing());
+        assertEquals("/content/jlr/au",snippetModel.getMarketRegionPath());
     }
 }
