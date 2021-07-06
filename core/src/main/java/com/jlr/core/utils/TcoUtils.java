@@ -1,16 +1,17 @@
 package com.jlr.core.utils;
 
-import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.pojos.PricingPojo;
+import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
+import static com.jlr.core.constants.PricingConstants.PN_YYY;
+
+import java.text.DecimalFormat;
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.DecimalFormat;
-
-import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
-import static com.jlr.core.constants.PricingConstants.PN_YYY;
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.pojos.PricingPojo;
 
 public class TcoUtils {
 
@@ -25,8 +26,8 @@ public class TcoUtils {
 
         String currencyString = StringUtils.EMPTY;
         DecimalFormat currencyFormatter = null;
-        String newPattern = StringUtils.EMPTY;
-        if(pattern.contains(".")){
+        String newPattern = pattern;
+        if (pattern.contains(".")) {
             newPattern = pattern.replace(".", ",");
         }
         try {
@@ -41,8 +42,8 @@ public class TcoUtils {
         if (value.intValue() != 0) {
             currencyString = currencyFormatter.format(value);
         }
-        if(pattern.contains(".")){
-            currencyString = currencyString.replace(",",".");
+        if (pattern.contains(".")) {
+            currencyString = currencyString.replace(",", ".");
         }
         return currencyString;
     }

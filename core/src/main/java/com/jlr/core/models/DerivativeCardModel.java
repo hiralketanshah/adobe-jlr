@@ -60,31 +60,9 @@ public interface DerivativeCardModel {
         return StringUtils.EMPTY;
     }
 
-    /**
-     * Gets the price.
-     *
-     * @return the price
-     */
-    default String getPrice() {
-        return StringUtils.EMPTY;
-    }
-
     default boolean getOverride() {
         return false;
     }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    default String getPriceConfigValue() {
-        return StringUtils.EMPTY;
-    }
-
-    void setPriceConfigValue(String priceConfigValue);
-
-    void setPrice(String price);
 
     default String getFeatureLabel() {
         return StringUtils.EMPTY;

@@ -41,7 +41,8 @@ class VehicleSummaryImplTest extends GlobalModelImplTest {
         MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/vehiclesummary/vehiclesummary.json", "/content/jlr/vehiclesummary.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/vehiclesummary.html");
-        vehicleSummaryModel = resource.adaptTo(VehicleSummaryImpl.class);
+        context.currentResource(resource);
+        vehicleSummaryModel = context.request().adaptTo(VehicleSummaryImpl.class);
     }
 
     /**
