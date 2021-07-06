@@ -322,6 +322,10 @@ label {
 	width: 100%;
 	
 	}
+	.cmp-heroTitleBanner .summaryItemContent{
+		display: flex;
+		flex-direction: column;
+	  }
 	}
 @media screen and (min-width: 1280px){
 	.cmp-heroTitleBanner .secondaryLinkWithStyle,
@@ -519,6 +523,10 @@ label {
 #landrover .cmp-heroTitleBanner .secondaryLinkWithStyle{
 	margin-bottom: 0px;
 }
+.cmp-heroTitleBanner .summaryItemContent{
+	display: flex;
+	flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 1920px){
