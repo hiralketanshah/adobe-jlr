@@ -1247,13 +1247,19 @@
 	color: #4a4f54
 }
 
+/* bugfix 1058 start*/
 .cmp-subFooter a {
-	color: #4a4f54
+	color: #4a4f54;
+	text-decoration: none;
+	border-bottom: 1px solid;
+	font-family: "AvenirNext", "arial", "helvetica", sans-serif;
 }
 
 .cmp-subFooter a:hover {
-	color: #a4a7a9
+	color: #005a2b;
+	text-decoration: none;
 }
+/* bugfix 1058 end*/
 
 .cmp-subFooter .cmp-subFooter__container p:first-child::first-letter {
 	text-transform: capitalize;

@@ -3745,7 +3745,8 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 @media screen and (max-width:376px) {
     .dxnav-unique-nav .dxnav__breadcrumb-prev-text{
         letter-spacing: 0.62px !important;
-    	font-weight: 700 !important;            
+		font-weight: 700 !important;
+		line-height: 13px;           
     }
 }
 
@@ -4484,10 +4485,10 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		height: 12px
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-prev-text {
-		font-size: 1.3em;
+		font-size: 13px;
 		font-weight: 600;
 		letter-spacing: .055em;
-		font-family: lr_ot4, arial, helvetica, sans-serif;
+		font-family: "lr_ot4";
 		color: #0c121c;
 		text-transform: uppercase;
 	}
@@ -4501,7 +4502,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		color: #e9ecec;
 		line-height: 1em;
 		letter-spacing: .173em;
-		font-weight: 500;
+		font-weight: normal;
 		font-size: 10px
 	}
 	.dxnav-unique-nav .dxnav__dropdown-overlay {

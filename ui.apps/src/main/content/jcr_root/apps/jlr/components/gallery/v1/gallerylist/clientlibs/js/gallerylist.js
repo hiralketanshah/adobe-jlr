@@ -3178,7 +3178,7 @@ function getdomain() {
       let referrerUrl = (new URL(referrer));
       let referrerDomain = referrerUrl.hostname;
       let domain = document.domain;
-      if(referrerDomain == domain) {
+      if(referrerDomain == domain && !referrerUrl.href.includes("gallery")) {
           return referrerUrl.href;
       }
   }

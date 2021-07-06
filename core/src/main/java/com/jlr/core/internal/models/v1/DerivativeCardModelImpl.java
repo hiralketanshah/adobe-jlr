@@ -150,26 +150,6 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
     }
 
     @Override
-    public String getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    @Override
-    public String getPriceConfigValue() {
-        return priceConfigValue;
-    }
-
-    @Override
-    public void setPriceConfigValue(String priceConfigValue) {
-        this.priceConfigValue = priceConfigValue;
-    }
-
-    @Override
     public String getFeatureLabel() {
         return featureLabel;
     }

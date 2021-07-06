@@ -188,6 +188,12 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
+                            <v2 jcr:primaryType="nt:unstructured">
+                                <c-player
+                                    cq:policy="jlr/components/c-player/v2/c-player/policy_1625074940910"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v2>
                         </c-player>
                         <exterior360 jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">

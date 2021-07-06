@@ -5,7 +5,7 @@
      data-sly-call="${renderVehicleSpec @ vehicleSpecs=vehicleSpecsModel, pageConfig=pageConfigModel, page=pageModel, vehicleConfig=vehicleConfigModel}"/>
 <template data-sly-template.renderVehicleSpec="${ @ vehicleSpecs, pageConfig, page, vehicleConfig }">
 
-    <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.vsreStack?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${page.language}">
+    <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.vsreStack?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${pageConfig.locale=='de_DE'?'de':(pageConfig.locale=='en_AU'?'en':'')}">
 
       <section class="RulesEngineDropdown">
          <div class="RulesEngineDropdown__dropdowns-container" id="${vehicleSpecs.id}">

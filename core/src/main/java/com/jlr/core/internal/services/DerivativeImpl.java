@@ -52,7 +52,9 @@ public class DerivativeImpl implements Derivative {
                 while (containerResourceIterator.hasNext()) {
                     Resource cardResource = containerResourceIterator.next();
                     if (null != cardResource) {
+                        SlingHttpServletRequest newRequest = cardResource.adaptTo(SlingHttpServletRequest.class);
                         DerivativeCardModelImpl card = cardResource.adaptTo(DerivativeCardModelImpl.class);
+                        card.setRequest(request);
                         listOfCards.add(card);
                     }
                 }

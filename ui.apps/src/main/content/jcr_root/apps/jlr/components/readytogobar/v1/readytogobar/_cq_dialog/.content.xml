@@ -39,10 +39,50 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
-                                        <text
+                                        <rte1heading
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Header Copy *"/>
+                                        <header
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            dfs-required="true"
+                                            fieldDescription="The Header copy to be displayed."
+                                            name="./text"
+                                            required="{Boolean}true"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </header>
                                         <link
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"

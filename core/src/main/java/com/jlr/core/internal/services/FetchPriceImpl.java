@@ -396,6 +396,7 @@ public class FetchPriceImpl implements FetchPrice {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_INTERRUPTED_EXCEPTION,
                     ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
                     this.getClass().getSimpleName(), e));
+          //Thread.currentThread().interrupt();
         }
     }
 }
