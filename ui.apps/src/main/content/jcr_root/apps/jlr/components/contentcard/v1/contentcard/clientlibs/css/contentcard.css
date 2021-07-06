@@ -1821,11 +1821,15 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   width: 100%;
   }
 
-@media screen and (min-width: 1251px) and (max-width: 2000px){
+@media screen and (min-width: 1281px) {
   .contentCard_ModalContent iframe{
      height: 653px;
-     margin: 60px 290px 87px;
+     margin: 0;
+     margin-top: 60px;     
      width: calc(100% - 580px);
+     max-width: 1340px;
+     left: 50%;
+    transform: translate(-50%, 0);
   }
 }
   
