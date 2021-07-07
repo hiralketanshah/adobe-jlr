@@ -2672,7 +2672,7 @@
               if (!this.checkModalCookie()) {
                 if (cookieURL) {
                   if (window.location.href.indexOf(cookieURL) > -1) {
-                    if ($(".Modal__content").length == 0) {
+                    if ($(".Modal__content .cmp-popupModal__body").length == 0) {
                       var modalContent = this.generateModalContent();
                       this.displayModal(modalContent);
                       this.setupEvents();

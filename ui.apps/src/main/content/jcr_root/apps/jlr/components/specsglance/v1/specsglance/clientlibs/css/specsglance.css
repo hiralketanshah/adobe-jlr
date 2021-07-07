@@ -226,6 +226,9 @@
     .cmp-specificationsAtAGlance__heading .cmp-specificationsAtAGlance__heading-wrapper p {
         width: 760px;
     }
+    .cmp-specificationsAtAGlance .items .el {
+        float: left;
+    }
 }
 
 

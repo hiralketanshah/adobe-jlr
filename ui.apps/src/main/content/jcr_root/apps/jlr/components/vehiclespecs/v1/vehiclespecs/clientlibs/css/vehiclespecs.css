@@ -525,11 +525,11 @@ h2.heading,
      .RulesEngineDropdown__dropdown-button span{
        font-family: 'AvenirNext';
        text-align: left;
-       font-size: 11px;
+       font-size: 10px; /*bugfix-1065*/
        letter-spacing: 0.45px;
        color: #0C121CCC;
        text-transform: uppercase;
-       line-height: 19px;
+       line-height: 12px; /*bugfix-1065*/
      }
     /* table coloumn  */
     .TechSpecsTable__heading,.TechSpecsTable__cell{
@@ -733,6 +733,7 @@ h2.heading,
   }
   .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p{
     height: 19px;
+    line-height: 18px; /*bugfix-1065*/
   }
   .stack .RulesEngineDropdown__dropdown{
     margin-right: 0px;
