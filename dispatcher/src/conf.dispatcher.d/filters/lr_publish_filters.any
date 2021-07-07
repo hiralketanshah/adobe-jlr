@@ -49,5 +49,6 @@
 /0025 { /type "allow" /extension '(json)' /path "/content/nav/*" }
 /0026 { /type "allow" /extension '(html)' /path "/content/nav/naasconfig/*" }
 
-
-
+/0027 { /type "deny" /url "/content/landrover/*/config/*" }
+/0028 { /type "deny" /url "/content/landrover/*/global-master/*" }
+/0029 { /type "deny" /url "/content/landrover/*/language-master/*" }
