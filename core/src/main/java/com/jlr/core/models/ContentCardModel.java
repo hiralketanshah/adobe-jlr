@@ -33,6 +33,15 @@ public interface ContentCardModel {
     default String getColumn() {
         return StringUtils.EMPTY;
     }
+    
+    /**
+     * Gets the enable pricing.
+     *
+     * @return the enable pricing
+     */
+    default String getEnablePricing() {
+        return StringUtils.EMPTY;
+    }
 
     /**
      * Gets the enable stacking.
