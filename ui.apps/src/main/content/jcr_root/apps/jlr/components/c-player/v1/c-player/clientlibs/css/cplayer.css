@@ -216,6 +216,8 @@
   }
   .cmp-cplayer .summaryItemContentCplayer {
     padding-top: 4px;
+    display: flex;
+    flex-direction: column;
   }
   .cmp-cplayer .col.span_2_of_3 {
     margin: 0%;
@@ -426,10 +428,10 @@
   .cmp-cplayer .col.span_2_of_3 {
     margin-bottom: 20px;
   }
-  #landrover .cmp-cplayerV2 .secondaryLinkWithStyle {
+  #landrover .cmp-cplayer .secondaryLinkWithStyle {
     margin-bottom: 0px;
   }
-  .cmp-cplayerV2 .linkContainer .links:nth-child(2){
+  .cmp-cplayer .linkContainer .links:nth-child(2){
     margin-top: 23px;
   }
 }

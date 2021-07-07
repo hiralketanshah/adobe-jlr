@@ -670,7 +670,7 @@ height: 493px;
     .cmp-signPost{
         max-height: 525px;
         min-height: 525px;
-        padding: 80px 290px;
+        padding: 60px 290px;
     }
     .cmp-signPost__content{
         width: 50%;
@@ -922,13 +922,17 @@ height: 493px;
     color: #4A4F54;
 }
 @media screen and (min-width: 1920px) and (max-width: 2560px){
+.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
+.cmp-signPost.grey + .cmp-signPost.grey{padding:0px 290px 60px 290px;}
+.cmp-signPost.light + .cmp-signPost.light{padding:0px 290px 60px 290px;}
+.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 290px 60px 290px;}
     .cmp-signPost .cmp-signPost__image {height: calc((40.3vw - 40px) / 2)!important;}
     .cmp-signPost .Picture--background .Picture__img{width:650px;}
     .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
 	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 
     .cmp-signPost .cmp-signPost__image{
-     width:50%;
+     width:50%; padding-bottom:5px;
   }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
@@ -950,24 +954,24 @@ height: 493px;
 margin-bottom:10px;
   }
  .cmp-signPost .linkContainer{padding-top:0px;}
- .cmp-signPost{padding:71px 290px 60px 290px;}
+ .cmp-signPost{min-height:auto;max-height:525px;}
 
-.cmp-signPost{min-height:auto;max-height:525px;}
-.cmp-signPost.grey{padding:71px 290px 60px 290px;}
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1919px){
-
-    .cmp-signPost .cmp-signPost__image {height:calc((52.4vw - 40px) / 2)}
-    .cmp-signPost .Picture--background .Picture__img{width:560px;}
+.cmp-signPost.white + .cmp-signPost.white{padding:0px  60px 60px  60px;}
+.cmp-signPost.grey + .cmp-signPost.grey{padding:0px 60px 60px  60px;}
+.cmp-signPost.light + .cmp-signPost.light{padding:0px 60px 60px  60px;}
+.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 60px 60px  60px;}
+.cmp-signPost .cmp-signPost__image {height:calc((52.4vw - 40px) / 2)}
+.cmp-signPost .Picture--background .Picture__img{width:560px;}
     
-    .cmp-signPost{min-height:auto; max-height:525px;}
-    .cmp-signPost{padding:71px 60px 69px 60px;}
-	.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
-	 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
+.cmp-signPost{min-height:auto; max-height:525px;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+.cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 
-    .cmp-signPost .cmp-signPost__image{
-     width:50%;   }
+.cmp-signPost .cmp-signPost__image{
+     width:50%;   padding-bottom:5px;   }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
 .cmp-signPost .cmp-signPost__center{
@@ -992,6 +996,10 @@ margin-bottom:10px;
 }
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
+    .cmp-signPost.white + .cmp-signPost.white{padding:0px  30px 68px  30px;}
+    .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  30px 68px  30px;}
+    .cmp-signPost.light + .cmp-signPost.light{padding:0px  30px 68px  30px;}
+    .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  30px 68px  30px;}
     .cmp-signPost .cmp-signPost__image {height:calc((55.1vw - 40px) / 2);}
     .cmp-signPost .Picture--background .Picture__img{width:340px;}
     .cmp-signPost{min-height:auto; max-height:525px;}
@@ -1026,7 +1034,10 @@ object-fit: unset;
 }
 
 @media screen and (min-width: 300px) and (max-width: 766px){
-
+.cmp-signPost.white + .cmp-signPost.white{padding:0px  25px 60px  25px;}
+.cmp-signPost.grey + .cmp-signPost.grey{padding:0px  25px 60px  25px;}
+.cmp-signPost.light + .cmp-signPost.light{padding:0px  25px 60px  25px;}
+.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  25px 60px  25px;}
 .cmp-signPost{min-height:auto; max-height:525px;}
 .cmp-signPost{padding:25px 25px 60px 25px;}
 
