@@ -20,7 +20,7 @@
 		<div data-sly-test="${card.caveat}" class="Derivative__caveat">
 			${card.caveat @context='html'}
 		</div>
-		<div class="Derivative__price">
+		<div data-sly-test="${card.price}" class="Derivative__price">
 			<sly data-sly-test="${card.isStaticPrice}">
                     <p>${card.priceConfigValue}</p>
                     <p><strong>${card.price}</strong></p>

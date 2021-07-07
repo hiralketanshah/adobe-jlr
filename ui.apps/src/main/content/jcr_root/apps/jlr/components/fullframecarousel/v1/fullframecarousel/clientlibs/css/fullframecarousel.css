@@ -1047,8 +1047,13 @@ fill:black;
 }
 .cmp-fullframe .secondaryLinkWithStyle:hover span,
 .cmp-fullframe .secondaryLinkWithStyle:active span,
+
 .cmp-fullframe .secondaryLinkWithStyle:focus span{border-bottom: 1px solid transparent!important;}
-.cmp-fullframe .secondaryLinkWithStyle:hover{text-decoration:underline!important;}
+
+.cmp-fullframe .secondaryLinkWithStyle span:hover,
+.cmp-fullframe .secondaryLinkWithStyle span:active, 
+.cmp-fullframe .secondaryLinkWithStyle span:focus
+{text-decoration:underline;}
 .cmp-fullframe .videoCustom:after {
     content: "";
     font-family: "icons";

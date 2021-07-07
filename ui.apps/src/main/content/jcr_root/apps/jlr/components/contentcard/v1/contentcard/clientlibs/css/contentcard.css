@@ -1888,8 +1888,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 
 /* 939 fix */
 .cmp-ContentCard .textContainer .textContainerTop h5.heading, .heading.headingH5 {
-    font-size: 18px !important;
-    line-height: 18px !important;
+    font-size: 18px; /* removed important to fix the bug 1065 and adhere best practices*/
+    line-height: 18px; /* removed important to fix the bug 1065 and adhere best practices*/
 }
 /* 939 fix ends */
 

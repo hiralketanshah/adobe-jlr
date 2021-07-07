@@ -4667,7 +4667,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 /* -------------code fix for 856----------*/
 
 /* -------------code fix for KESTREL-654----------*/
-.dxnav-cta-container{
+.dxnav-cta-container,.dxnav-cta-secondary{
 	text-transform:uppercase !important;
 }
   /* -------------code fix for KESTREL-654----------*/

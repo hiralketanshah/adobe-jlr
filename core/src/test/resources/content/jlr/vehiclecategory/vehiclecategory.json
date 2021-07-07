@@ -1,0 +1,9 @@
+{
+  "vehicleTabName": "tab_name",
+  "compareText": "text",
+  "compareTarget": "target",
+  "compareLink": "/content/landrover/au",
+  "compareAriaLabel": "arial_text",
+  "vehicleFamily": "family",
+  "jcr:primaryType": "nt:unstructured"
+}

@@ -101,7 +101,7 @@
   {
     color:#FFF;
   }
-  .slateblue .Pagination__pause-control-icon, .cmp-accolades-carousel .Pagination__play-control-icon{
+  .slateblue .Pagination__pause-control-icon, .slateblue .cmp-accolades-carousel .Pagination__play-control-icon{
     fill: #FFF;
   }
   .slateblue .cmp-accolades .cmp-accolades__copy--tertiary{
@@ -331,6 +331,14 @@
     position: absolute;
     justify-content: left;
     padding-left: 290px;
+  }
+  .cmp-accolades-carousel .swiper-button--next{
+    left: auto;
+    right: 235px;
+  }
+  .cmp-accolades-carousel .swiper-button--prev{
+    left: 235px;
+    right: auto;
   }
   }
   .cmp-carousel__controls.cmp-accolades_pagination {
