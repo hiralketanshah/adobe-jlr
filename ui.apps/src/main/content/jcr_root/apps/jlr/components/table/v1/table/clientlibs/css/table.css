@@ -359,7 +359,7 @@
 		padding-top: 63px;
 	}
 
-    
+
 	.cmp-engineSpecifications .ResponsiveTable {
 		padding-left:30px;
     	padding-right:30px;
@@ -554,11 +554,13 @@
 /*---------code fix for 585----------*/
 .cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive){border: 1px solid #ffffff}
 @media screen and (min-width:1280px) and (max-width: 1920px){
+
 	.cmp-engineSpecifications .ctaContainer,
 	.cmp-engineSpecifications .bottomCta	{
 		padding-left: 60px;
 		padding-bottom : 80px;
 	}
+
 	.cmp-table .cmp-engineSpecifications .ResponsiveTable {
 		padding-left: 60px;
 		padding-right: 60px;

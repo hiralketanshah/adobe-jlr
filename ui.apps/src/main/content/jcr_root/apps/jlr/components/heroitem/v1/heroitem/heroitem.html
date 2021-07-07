@@ -55,7 +55,7 @@
         </div>
         <div data-sly-test="${heroCarousel.price || heroCarousel.ctaList || heroCarousel.priceConfigValue}" class="contentClass">
           <div class="priceAndCta">
-            <sly data-sly-test="${heroCarousel.price || heroCarousel.priceConfigValue}">
+            <sly data-sly-test="${heroCarousel.price}">
             <div class="pricing">
                 <sly data-sly-test="${heroCarousel.isStaticPrice}">
                     <p data-sly-test="${heroCarousel.priceConfigValue}">${heroCarousel.priceConfigValue}</p>
