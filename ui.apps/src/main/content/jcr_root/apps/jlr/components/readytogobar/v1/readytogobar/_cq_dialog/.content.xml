@@ -155,27 +155,27 @@
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                 defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Desktop Viewport"
+                                fieldDescription="Select to suppress FAB for Desktop Viewport"
                                 name="./hideDesktop"
-                                text="Supress desktop view"
+                                text="Suppress desktop view"
                                 uncheckedValue="true"
                                 value="{Boolean}false"/>
                             <hideTablet
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                 defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Tablet  Viewport"
+                                fieldDescription="Select to suppress FAB for Tablet  Viewport"
                                 name="./hideTablet"
-                                text="Supress tablet view"
+                                text="Suppress tablet view"
                                 uncheckedValue="true"
                                 value="{Boolean}false"/>
                             <hideMobile
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                 defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Mobile Viewport"
+                                fieldDescription="Select to suppress FAB for Mobile Viewport"
                                 name="./hideMobile"
-                                text="Supress mobile view"
+                                text="Suppress mobile view"
                                 uncheckedValue="true"
                                 value="{Boolean}false"/>
                             <listType
