@@ -42,7 +42,7 @@ public class LinkUtils {
         } else {
             if (null != path && !path.startsWith(CommonConstants.PATH_CONTENT)
                     && !path.startsWith(GuideConstants.PROTOCOL_HTTP)
-                    && !path.startsWith(GuideConstants.PROTOCOL_HTTPS)) {
+                    && !path.startsWith(GuideConstants.PROTOCOL_HTTPS) && !path.startsWith("#")) {
                 reqUrl = CommonConstants.PREFIX_HTTPS.concat(path);
             }
         }

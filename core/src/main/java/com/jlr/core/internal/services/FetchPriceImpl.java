@@ -245,7 +245,10 @@ public class FetchPriceImpl implements FetchPrice {
         destinationPathBuilder.append(destinationPath);
         try {
             Session session = resolver.adaptTo(Session.class);
-            HttpClient httpClient = PricingUtils.getHttpClient();
+            HttpClient httpClient = new HttpClient();
+            httpClient.getHttpConnectionManager().getParams()
+                    .setConnectionTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
+            httpClient.getHttpConnectionManager().getParams().setSoTimeout(PricingConstants.HTTP_CLIENT_TIMEOUT);
             GetMethod method = new GetMethod(endpoint);
             for (Map.Entry<String, String> entry : header.entrySet()) {
                 method.setRequestHeader(entry.getKey(), entry.getValue());
@@ -253,7 +256,6 @@ public class FetchPriceImpl implements FetchPrice {
             if (LOGGER.isDebugEnabled()) {
                 LOGGER.debug("Started fetching response from {}. {}", endpoint, new java.util.Date());
             }
-
             httpClient.executeMethod(method);
             String response = method.getResponseBodyAsString();
             if (LOGGER.isDebugEnabled()) {
@@ -386,10 +388,15 @@ public class FetchPriceImpl implements FetchPrice {
         try {
             throttledTaskRunner.waitForLowCpuAndLowMemory();
             replicator.replicate(session, ReplicationActionType.ACTIVATE, path, replicationOptions);
-        } catch (ReplicationException | InterruptedException e) {
+        } catch (ReplicationException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION,
                     ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
                     this.getClass().getSimpleName(), e));
+        } catch (InterruptedException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_INTERRUPTED_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
+          
         }
     }
 }

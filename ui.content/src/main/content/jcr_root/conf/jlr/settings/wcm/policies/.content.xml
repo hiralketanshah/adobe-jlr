@@ -643,7 +643,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <table jcr:primaryType="nt:unstructured">
                         <policy_1617608375376
-                            cq:styleDefaultClasses="cmp-table--white white"
+                            cq:styleDefaultClasses="cmp-table--white white cmp-table--padSpace28"
                             jcr:lastModified="{Date}2021-04-05T13:12:52.493+05:30"
                             jcr:lastModifiedBy="admin"
                             jcr:primaryType="nt:unstructured"
@@ -1160,6 +1160,7 @@
                 <v1 jcr:primaryType="nt:unstructured">
                     <tabbedcontainer jcr:primaryType="nt:unstructured">
                         <policy_1620031717860
+                                cq:styleDefaultClasses="white"
                                 jcr:lastModified="{Date}2021-06-14T15:40:14.614+05:30"
                                 jcr:lastModifiedBy="admin"
                                 jcr:primaryType="nt:unstructured"
@@ -1360,6 +1361,63 @@
                         </policy_1621317733304>
                     </c-player>
                 </v1>
+                <v2 jcr:primaryType="nt:unstructured">
+                    <c-player jcr:primaryType="nt:unstructured">
+                        <policy_1625074940910
+                            cq:styleDefaultClasses="right slateblue"
+                            jcr:lastModified="{Date}2021-06-30T23:17:43.440+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="C-Player"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1625074971983"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1625074979797"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1625074986770"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                                <item1
+                                    cq:styleGroupLabel="Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="left"
+                                            cq:styleId="1625075217245"
+                                            cq:styleLabel="Left"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="right"
+                                            cq:styleId="1625075224821"
+                                            cq:styleLabel="Right"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="center"
+                                            cq:styleId="1625075226133"
+                                            cq:styleLabel="Center"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item1>
+                            </cq:styleGroups>
+                        </policy_1625074940910>
+                    </c-player>
+                </v2>
             </c-player>
             <specsglance jcr:primaryType="nt:unstructured">
                 <v1 jcr:primaryType="nt:unstructured">
@@ -1450,7 +1508,76 @@
                         </policy_1621876679634>
                     </cardcontainer>
                 </v1>
-            </derivative>            
+            </derivative>
+            <sitenotification jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <sitenotification jcr:primaryType="nt:unstructured">
+                        <policy_1623840580238
+                            jcr:lastModified="{Date}2021-06-16T16:28:31.762+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Site Notification"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1623840584699"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1623840596946"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item2
+                                            cq:styleClasses="slateblue"
+                                            cq:styleId="1623840598968"
+                                            cq:styleLabel="Slate Blue"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1623840580238>
+                    </sitenotification>
+                </v1>
+            </sitenotification>
+            <vehiclespecs jcr:primaryType="nt:unstructured">
+                <v1 jcr:primaryType="nt:unstructured">
+                    <vehiclespecs jcr:primaryType="nt:unstructured">
+                        <policy_1624904253125
+                            jcr:lastModified="{Date}2021-06-28T23:48:34.185+05:30"
+                            jcr:lastModifiedBy="admin"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Vehicle Specs"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                            <jcr:content jcr:primaryType="nt:unstructured"/>
+                            <cq:styleGroups jcr:primaryType="nt:unstructured">
+                                <item0
+                                    cq:styleGroupLabel="Theme"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="white"
+                                            cq:styleId="1624904266983"
+                                            cq:styleLabel="White"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="light"
+                                            cq:styleId="1624904309168"
+                                            cq:styleLabel="Light"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item0>
+                            </cq:styleGroups>
+                        </policy_1624904253125>
+                    </vehiclespecs>
+                </v1>
+            </vehiclespecs>           
         </components>
     </jlr>
     <rep:policy/>

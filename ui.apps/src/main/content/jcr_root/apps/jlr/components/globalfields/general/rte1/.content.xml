@@ -47,8 +47,10 @@
         dual-frame-header="true"
         seat-slider-header="true"
         specs-glance-header="true"
+        full-frame-headerr="true"
 		legacy-browser-header="true"
         hero-title-banner-header="true"
         derivative-container-header="true"
-        derivative-header="true"/>
+        derivative-header="true"
+        site-notification-header="true"/>
 </jcr:root>

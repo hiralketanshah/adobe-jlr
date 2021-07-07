@@ -19,4 +19,13 @@
             page-info-provider="approvalTypeProvider"
             page-info-provider-property="approvedDate"
             sortable="{Boolean}true"/>
+    <embargoLiftDate
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Should Publish After"
+            columnGroup="approval"
+            columnResourceType="cq/gui/components/common/admin/listview/customcell"
+            default="{Boolean}true"
+            page-info-provider="approvalTypeProvider"
+            page-info-provider-property="embargoLiftDate"
+            sortable="{Boolean}true"/>
 </jcr:root>

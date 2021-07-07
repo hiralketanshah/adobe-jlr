@@ -330,6 +330,10 @@
 }
 
 @media screen and (min-width: 1280px) {
+
+  .cmp-offersContainer {
+        margin: 60px;
+  }
   .cmp-offersContainer .offer .offerImage {
     padding: 0 0 36.9%;
   }
@@ -363,16 +367,16 @@
     margin-top: 13px;
   }
 
-  .offerImage {
+  /*.offerImage {
     margin-top: 62px;
-  }
+  }*/
 
   .cmp-offersContainer .offerHeading h2 {
     margin-bottom: 0.34em;
   }
 
   .cmp-offersContainer .offer .offerDescription {
-    margin-top: 51px;
+   /* margin-top: 51px; */
     padding-left: 0px;
     width: calc(33.333% + 12px);
   }
@@ -394,6 +398,10 @@
 }
 
 @media screen and (min-width: 1920px) {
+  .cmp-offersContainer {  
+    margin-left: 290px;
+    margin-right: 290px;
+  }
   .cmp-offersContainer .offer .offerImage {
     padding: 0 0 37.02%;
   }
@@ -418,9 +426,9 @@
   }
 
   .cmp-offersContainer .offer .offerImage {
-    margin-top: 5.21%;
-    margin-left: 3.92%;
-    margin-right: 3.92%;
+    margin-top: 24px;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 
   .offerFinanceBoxes {

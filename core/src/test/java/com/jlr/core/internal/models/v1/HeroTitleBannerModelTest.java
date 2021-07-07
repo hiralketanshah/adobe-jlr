@@ -1,24 +1,17 @@
 package com.jlr.core.internal.models.v1;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.lenient;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import com.jlr.core.pojos.FooterPojo;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 
-import com.day.cq.commons.inherit.InheritanceValueMap;
-import com.day.cq.wcm.api.Page;
 import com.jlr.core.pojos.CTAPojo;
-import com.jlr.core.services.TcoService;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
@@ -35,15 +28,6 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
     @InjectMocks
     private HeroTitleBannerImpl heroTitleBannerModel;
 
-    @Mock
-    private Page currentPage;
-
-    @Mock
-    private InheritanceValueMap pageProperties;
-
-    @Mock
-    private TcoService tcoService;
-
     /**
      * Sets the up.
      *
@@ -52,28 +36,21 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setup(AemContext context) {
-        MockitoAnnotations.initMocks(this);
-        context.registerService(TcoService.class, tcoService);
-        context.registerService(InheritanceValueMap.class, pageProperties);
-        context.registerService(Page.class, currentPage);
-
-        Map<String, String> priceMap = new HashMap<>();
-        lenient().when(tcoService.getModelPrice(context.resourceResolver(), context.request(), currentPage,
-                pageProperties, "12345", "test")).thenReturn(priceMap);
-
-        context.request().setAttribute("key", "test");
-        context.addModelsForClasses(HeroTitleBannerImpl.class);
         context.load().json("/content/jlr/herotitlebanner/herotitlebanner.json", "/content/jlr/herotitlebanner.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herotitlebanner.html");
         context.currentResource(resource);
         heroTitleBannerModel = context.request().adaptTo(HeroTitleBannerImpl.class);
     }
 
+    @Test
+    void testProperties(){
+        assertEquals("caveatText",heroTitleBannerModel.getCaveat());
+    }
     /**
      * Test properties.
      */
     @Test
-    void testProperties() {
+    void testCtaProperties() {
         List<CTAPojo> list = heroTitleBannerModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
@@ -81,6 +58,16 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
             assertEquals("http://www.google.com", item.getLink());
             assertEquals("_self", item.getTarget());
             assertEquals("primary", item.getLinkType());
+        });
+    }
+
+    @Test
+    void testFooterList() {
+        List<FooterPojo> list = heroTitleBannerModel.getFooterList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("Copy", item.getCopy());
+            assertEquals("Header", item.getHeader());
         });
     }
 

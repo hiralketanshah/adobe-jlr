@@ -144,6 +144,8 @@ public class WorkflowConstants {
     public static final String WORKFLOW_TITLE = "workflowTitle";
     /** The Constant JLR_WORKFLOW_SUBSERVICE. */
     public static final String JLR_WORKFLOW_SUBSERVICE = "jlrworkflow";
+    /** The Constant JLR_WORKFLOW_SERVICE. */
+    public static final String JLR_WORKFLOW_SERVICE = "jlr-workflow-service";
     /** The Constant JLR_CONTENT_PATH. */
     public static final String JLR_CONTENT_PATH = "/content/landrover/";
 
@@ -152,4 +154,7 @@ public class WorkflowConstants {
 
     /** The Constant JLR_XF_PATH. */
     public static final String JLR_XF_PATH = "/content/experience-fragments/landrover/";
+
+    /** The Constant RUNMODE_AUTHOR. */
+    public static final String RUNMODE_AUTHOR = "author";
 }

@@ -39,9 +39,9 @@
     justify-content: left;
   }
 }
-.cmp-carousel.cmp-hero-carousel .swiper-button {
+/* .cmp-carousel.cmp-hero-carousel .swiper-button {
   display: block;
-}
+} */
 .cmp-carousel.cmp-hero-carousel .swiper-button[aria-disabled="true"] {
   display: none;
 }
@@ -270,14 +270,6 @@ label {
     margin-bottom: 14px;
     display: block;
   }
-  #landrover .secondaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 24px;
-  }
-  .cmp-hero .primaryLinkWithStyle {
-    margin-top: 0;
-    margin-bottom: 24px;
-  }
   .cmp-hero .heroFooterSection {
     display: flex;
     flex-direction: column-reverse;
@@ -322,6 +314,17 @@ label {
   .cmp-hero-carousel .cmp-carousel__controls {
     justify-content: left;
     padding-left: 25px;
+  }
+  #landrover .cmp-hero .secondaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
+  #landrover .cmp-hero .primaryLinkWithStyle {
+    margin-top: 0;
+    margin-bottom: 0px;
+  }
+  .cmp-hero .linkContainer .primaryLinkContainer:nth-child(2), .cmp-hero .linkContainer .secondaryLinkContainer:nth-child(2){
+    margin-top: 24px;
   }
 }
 .cmp-hero-carousel .cmp-carousel__slider {
@@ -427,7 +430,7 @@ label {
   .cmp-hero-carousel .cmp-carousel__controls {
     position: absolute;
     margin-left: 30px;
-    width: 134px;
+    width: fit-content;
     top: 25%;
   }
   .cmp-hero-carousel .emissionDetails {
@@ -443,6 +446,12 @@ label {
   .cmp-hero-carousel .cmp-carousel__next,
   .cmp-hero-carousel .cmp-carousel__previous {
     top: 200px !important;
+  }
+  .cmp-hero-carousel .cmp-carousel__next {
+    right: 20px;
+  }
+  .cmp-hero-carousel .cmp-carousel__previous {
+    left: 20px;
   }
   .cmp-hero-carousel .linkContainer {
     padding-top: 0;
@@ -574,6 +583,11 @@ label {
     margin-left: 130px;
     margin-right: 130px;
   }
+ .cmp-carousel.cmp-hero-carousel .heroFooterSection,
+  .cmp-carousel.cmp-hero-carousel .caveat{
+    margin-left: 160px;
+    margin-right: 160px;
+  }
   .cmp-carousel.cmp-hero-carousel .carousel .cmp-genericItem__element-poster {
     position: relative;
     min-width: auto;
@@ -581,11 +595,15 @@ label {
     height: auto;
 }
 .cmp-hero .shelfComponent{
-  margin-left: 130px;
+  margin-left: 160px;
   padding-right: 341px;
 }
+.cmp-hero-carousel .cmp-carousel__next,
+.cmp-hero-carousel .cmp-carousel__previous {
+  top: 300px !important;
 }
-.cmp-hero .None{
+}
+.cmp-hero .logo.None{
   width: auto;
   height: auto;
   margin: 0px;
@@ -630,7 +648,13 @@ label {
 position:unset;
 padding-bottom: 0%;
 }
+.cmp-hero .heading .headingWrapper p{
+  font-family: 'LandRoverWeb-Bold';
+}
 @media screen and (min-width: 1280px){
+  .cmp-hero-carousel .Pagination__play-control-icon, .cmp-hero-carousel  .Pagination__pause-control-icon {
+    fill:white;
+}
   .cmp-hero .priceAndCta{
     display: flex;
     flex-direction: row;
@@ -694,6 +718,13 @@ padding-bottom: 0%;
     letter-spacing: 0.5px;
     line-height: 14px;
     font-size: 10px;
+  }
+  .cmp-hero .heroFooterSection:not(.emissionDetails){
+    padding-top: 17px;
+    padding-bottom: 0px;
+  }
+  .cmp-hero .logo{
+    margin-top: 12px;
   }
 }
 
@@ -823,13 +854,13 @@ padding-bottom: 0%;
 }
 @media screen and (min-width: 1920px){
   .cmp-hero-carousel .cmp-carousel__controls {
-    margin-left: 115px;  
+    margin-left: 150px;  
   }
 }
 .grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
 .white .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
 .light .cmp-hero-carousel .Pagination__pause-timer-icon-countdown {
-  stroke: grey;
+  stroke: white;
 }
 .grey .cmp-hero-carousel .st0--swiper-pagination,
 .white  .cmp-hero-carousel .st0--swiper-pagination,
@@ -880,6 +911,12 @@ padding-bottom: 0%;
     top: 35%;
     left: 43%;
   }
+  .cmp-hero:not(.caveat){
+    margin-bottom: 32px;
+  }
+  .cmp-hero .heroFooterSection+.caveat{
+    margin-top: 24px;
+  }
 }
 @media screen and (max-width: 600px){
   .cmp-hero .videoCustom:after{
@@ -900,4 +937,15 @@ padding-bottom: 0%;
 .cmp-hero .videoCustom{
   position: unset;
   padding-bottom: 0%;
+}
+.videoCustom:after,.cmp-hero .videoCustom:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+#landrover .cmp-hero .primaryLinkWithStyle {
+  font-family: AvenirNext-DemiBold, arial, helvetica, sans-serif;
 }

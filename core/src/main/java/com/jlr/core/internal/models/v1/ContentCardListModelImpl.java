@@ -26,7 +26,8 @@ import com.jlr.core.utils.LinkUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {ContentCardListModel.class}, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class, adapters = {
+        ContentCardListModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ContentCardListModelImpl extends GlobalModelImpl implements ContentCardListModel {
 
     /** The resource resolver. */
@@ -40,12 +41,12 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
     /** The assest type. */
     @Inject
     private String assestType;
-    
+
     /** The poster image. */
     @Inject
     private String posterImage;
 
-	/** The price. */
+    /** The price. */
     @Inject
     private String price;
 
@@ -58,7 +59,7 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
-    
+
     /** The price config value. */
     String priceConfigValue;
 
@@ -84,7 +85,7 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
     public String getAssestType() {
         return assestType;
     }
-    
+
     /**
      * Gets the poster image.
      *
@@ -92,8 +93,8 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
      */
     @Override
     public String getPosterImage() {
-		return posterImage;
-	}
+        return posterImage;
+    }
 
     /**
      * Gets the first cta link.
@@ -102,55 +103,15 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
      */
     @Override
     public String getFirstCtaLink() {
-    	if(resource.hasChildren()) {
-    		Resource contentCta = resource.listChildren().next();
+        if (resource.hasChildren()) {
+            Resource contentCta = resource.listChildren().next();
             Iterator<Resource> contentCtaRes = contentCta.listChildren();
             Resource contentCtaLink = contentCtaRes.next();
             ValueMap properties = contentCtaLink.adaptTo(ValueMap.class);
             String firstCtaLink = properties.get(CommonConstants.PN_CTA_LINK, String.class);
             return LinkUtils.appendLinkExtension(firstCtaLink, resourceResolver);
-            }
-    	return StringUtils.EMPTY;
-    }
-
-    /**
-     * Gets the price.
-     *
-     * @return the price
-     */
-    @Override
-    public String getPrice() {
-        return price;
-    }
-
-    /**
-     * Sets the price.
-     *
-     * @param price the new price
-     */
-    @Override
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    /**
-     * Gets the price config value.
-     *
-     * @return the price config value
-     */
-    @Override
-    public String getPriceConfigValue() {
-        return priceConfigValue;
-    }
-
-    /**
-     * Sets the price config value.
-     *
-     * @param priceConfigValue the new price config value
-     */
-    @Override
-    public void setPriceConfigValue(String priceConfigValue) {
-        this.priceConfigValue = priceConfigValue;
+        }
+        return StringUtils.EMPTY;
     }
 
 }

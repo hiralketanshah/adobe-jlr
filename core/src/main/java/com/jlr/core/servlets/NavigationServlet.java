@@ -1,15 +1,12 @@
 package com.jlr.core.servlets;
 
-import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
-import static com.jlr.core.utils.NavigationUtils.getBaseUrl;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.Servlet;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.day.cq.contentsync.handler.util.RequestResponseFactory;
+import com.day.cq.wcm.api.WCMMode;
+import com.jlr.core.config.NavigationServletConfig;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.PricingConstants;
+import com.jlr.core.utils.ErrorUtils;
+import com.jlr.core.utils.NavigationUtils;
 import org.apache.commons.lang.CharEncoding;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpStatus;
@@ -30,13 +27,20 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.day.cq.contentsync.handler.util.RequestResponseFactory;
-import com.day.cq.wcm.api.WCMMode;
-import com.jlr.core.config.NavigationServletConfig;
-import com.jlr.core.constants.ErrorUtilsConstants;
-import com.jlr.core.constants.PricingConstants;
-import com.jlr.core.utils.ErrorUtils;
-import com.jlr.core.utils.NavigationUtils;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
+import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
+import static com.jlr.core.utils.NavigationUtils.getExternalLink;
 
 /**
  * Navigation Servlet is used to fetch the header nav based on request parameters, and also to return the json.
@@ -50,14 +54,13 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/navigation";
     protected static final String SELECTOR_JSON = "json";
-    private static final String APPLICATION_JSON = "application/json";
 
     @Reference
-    private RequestResponseFactory requestResponseFactory;
+    private transient RequestResponseFactory requestResponseFactory;
 
     @Reference
-    private SlingRequestProcessor requestProcessor;
-    private NavigationServletConfig config;
+    private transient SlingRequestProcessor requestProcessor;
+    private transient NavigationServletConfig config;
 
     @Activate
     protected void activate(NavigationServletConfig config) {
@@ -85,7 +88,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         }
 
         String requestPath = config.deHeaderPath();
-        if (locale.equalsIgnoreCase("en_AU")) {
+        if (locale.equalsIgnoreCase("en_AU") || locale.equalsIgnoreCase("en-AU")) {
             requestPath = config.auHeaderPath();
         }
         ResourceResolver resourceResolver = request.getResourceResolver();
@@ -95,7 +98,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         Document document = null;
         if (fullyQualifyDxLinks) {
-            document = Jsoup.parse(html, getBaseUrl(resourceResolver));
+            document = Jsoup.parse(html, getExternalLink(StringUtils.EMPTY, locale, resourceResolver));
             NavigationUtils.processUrls(document);
         } else {
             document = Jsoup.parse(html);
@@ -127,7 +130,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         } else {
             NavigationUtils.removeAttribute(document, "a.dxnav-profile");
         }
-        sendResponse(response, cache, document);
+        sendResponse(response, cache, document, locale, request.getResourceResolver());
     }
 
     private ByteArrayOutputStream processRequest(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean mrp, String requestPath,
@@ -155,14 +158,14 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         return out;
     }
 
-    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document) {
+    private void sendResponse(SlingHttpServletResponse response, Boolean cache, Document document, String locale, ResourceResolver resolver) {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
-            responseObject.put("cssFontImportsLink", config.cssFontImportsLink());
-            responseObject.put("cssLink", config.cssLink());
+            responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
+            responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             responseObject.put("html", document.getElementsByTag("header").outerHtml());
-            responseObject.put("javascriptLink", config.javascriptLink());
+            responseObject.put("javascriptLink", getExternalLink(config.javascriptLink(), locale, resolver));
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
@@ -181,17 +184,4 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         }
     }
 
-    private void sendResponseStatus(SlingHttpServletResponse response, int statusCode, String message) {
-        try {
-            response.setContentType(APPLICATION_JSON);
-            response.setCharacterEncoding(CharEncoding.UTF_8);
-            response.setStatus(statusCode);
-            response.sendError(statusCode, message);
-            PrintWriter printOut = response.getWriter();
-            printOut.flush();
-        } catch (IOException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                            ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
-        }
-    }
 }

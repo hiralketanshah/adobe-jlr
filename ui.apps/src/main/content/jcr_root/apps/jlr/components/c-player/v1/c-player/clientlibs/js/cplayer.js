@@ -1,3 +1,8 @@
+setTimeout(()=>{
+    var cplayers = document.getElementsByClassName("cmp-cplayer");
+    if(cplayers.length>0){
+  
+
 (function() {
     var cplayers = document.getElementsByClassName("cmp-cplayer");
     if(cplayers.length>0){
@@ -54,6 +59,8 @@
 }
  
 })();
+
+
 ! function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
@@ -88,7 +95,7 @@
                     value: e
                 })
             }
-            if (t(327), t(328), t(2), n._babelPolyfill) throw new Error("only one instance of babel-polyfill is allowed");
+            if (t(327), t(328), t(2), n._babelPolyfill) console.log("babel instance");
             n._babelPolyfill = !0;
             var r = "defineProperty";
             define(String.prototype, "padLeft", "".padStart), define(String.prototype, "padRight", "".padEnd), "pop,reverse,shift,keys,values,entries,indexOf,every,some,forEach,map,filter,find,findIndex,includes,join,slice,concat,push,splice,unshift,sort,lastIndexOf,reduce,reduceRight,copyWithin,fill".split(",").forEach(function(t) {
@@ -28525,3 +28532,6 @@
     /******/ 	
     /******/ })()
     ;
+}  
+}
+,100);

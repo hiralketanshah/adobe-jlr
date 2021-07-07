@@ -21,10 +21,11 @@
 			${card.caveat @context='html'}
 		</div>
 		<div class="Derivative__price">
-			<div data-sly-test="${card.priceConfigValue}" class="Derivative__price-label">
-				${card.priceConfigValue}
-			</div>
-			<div data-sly-test="${card.price}" class="Derivative__from-price">${card.price}</div>
+			<sly data-sly-test="${card.isStaticPrice}">
+                    <p>${card.priceConfigValue}</p>
+                    <p><strong>${card.price}</strong></p>
+                </sly>
+				<sly data-sly-test="${!card.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=card.price, wcmmode='disabled'}"></sly>
 		</div>
 		<p class="Derivative__lease"></p>
 		<div class="Derivative__emissions-wrapper"></div>

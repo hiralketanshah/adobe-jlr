@@ -12,28 +12,31 @@
                      <!-- <iframe width="100%" height="100%" src="${model.videoId}" frameborder="0" allowfullscreen></iframe> -->
                 </div>
 				
-				<video data-sly-test="${model.assetType == 'video' && model.videoPath}" class="video customControl" loop autoplay="true" muted="true"controls="controls" height="100%" preload="none" width="100%">
+				<video data-sly-test="${model.assetType == 'video' && model.videoPath}" class="video customControl" loop playsinline autoplay="true" muted="true"controls="controls" height="100%" preload="none" width="100%">
 					<source src="${model.videoPath}#t=0,6" type="video/mp4" />
 				</video>
              
               </div>
               <div class="summaryItemContent cmp-genericItem__content">
-                <div class="${model.headerIcon} logo">
+                <div class="${model.headerIcon} logo" data-sly-test="${model.headerIcon}">
                 </div>
-                <h2 class="summaryItemHeader heading headingH4 cmp-heroTitleBanner__header fontQuote">
+                <h2 data-sly-test="${model.headerCopy}" class="summaryItemHeader heading headingH4 cmp-heroTitleBanner__header fontQuote">
                   <span class="headingWrapper">${model.headerCopy @context='html'}</span>
                 </h2>
-                <div class="headingCopy">${model.copy @ context='html'}</div>
+                <div class="headingCopy" data-sly-test="${model.copy}">${model.copy @ context='html'}</div>
                
 
 				<div data-sly-test="${model.price}" class="pricing">
                   <div class="firstPrice">
-                    <p>From</p>
-                  <p><strong>${model.price}</strong></p>
+                    <sly data-sly-test="${model.isStaticPrice}">
+                      <p>${model.priceConfigValue}</p>
+                      <p><strong>${model.price}</strong></p>
+                    </sly>
+					<sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
                   </div> 
                 </div>
 
-				<div class="linkContainer">
+				<div class="linkContainer" data-sly-test="${model.ctaList}">
 					<sly data-sly-list.cta="${model.ctaList}">
 						<sly data-sly-test="${cta.text}">
 							<div class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
@@ -44,13 +47,13 @@
 						</sly>
 					</sly>
 				</div>
-                <div class="caveat">
+                <div class="caveat" data-sly-test="${model.caveat}">
                   ${model.caveat @ context='html'}
                  </div>
               
               </div>
             </div>
-            <div class="heroFooterSection">
+            <div class="heroFooterSection" data-sly-test="${model.footerList}">
               <div class="emissionDetails">
 			  
 				<sly data-sly-list.footer="${model.footerList}">

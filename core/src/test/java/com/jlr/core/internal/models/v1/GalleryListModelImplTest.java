@@ -37,7 +37,8 @@ class GalleryListModelImplTest extends GlobalModelImplTest {
     void setUp(AemContext context) throws Exception {
         context.load().json("/content/jlr/gallery/gallerylist.json", "/content/jlr/gallerylist.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/gallerylist.html");
-        galleryListModelImpl = resource.adaptTo(GalleryListModelImpl.class);
+        context.currentResource(resource);
+        galleryListModelImpl = context.request().adaptTo(GalleryListModelImpl.class);
     }
 
     @Override

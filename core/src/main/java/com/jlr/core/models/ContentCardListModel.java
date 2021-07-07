@@ -14,72 +14,50 @@ import com.jlr.core.pojos.CTAPojo;
 @ConsumerType
 public interface ContentCardListModel extends GlobalModel {
 
-	/**
-	 * Gets the cta list.
-	 *
-	 * @return the cta list
-	 */
-	default List<CTAPojo> getCtaList() {
+    /**
+     * Gets the cta list.
+     *
+     * @return the cta list
+     */
+    default List<CTAPojo> getCtaList() {
         return new ArrayList<>();
     }
-	
-	/**
-	 * Gets the assest type.
-	 *
-	 * @return the assest type
-	 */
-	default String getAssestType() {
-        return StringUtils.EMPTY;
-    }
-	
-	/**
-	 * Gets the poster image.
-	 *
-	 * @return the poster image
-	 */
-	default String getPosterImage() {
-        return StringUtils.EMPTY;
-    }
-	
-	/**
-	 * Gets the first cta link.
-	 *
-	 * @return the first cta link
-	 */
-	default String getFirstCtaLink() {
-        return StringUtils.EMPTY;
-    }
-	
-	/**
-	 * Gets the price config value.
-	 *
-	 * @return the price config value
-	 */
-	default String getPriceConfigValue() {
-        return StringUtils.EMPTY;
-    }
-	
-	/**
-	 * Gets the gallery link.
-	 *
-	 * @return the gallery link
-	 */
-	default String getGalleryLink() {
+
+    /**
+     * Gets the assest type.
+     *
+     * @return the assest type
+     */
+    default String getAssestType() {
         return StringUtils.EMPTY;
     }
 
-	/**
-	 * Sets the price.
-	 *
-	 * @param price the new price
-	 */
-	void setPrice(String price);
+    /**
+     * Gets the poster image.
+     *
+     * @return the poster image
+     */
+    @Override
+    default String getPosterImage() {
+        return StringUtils.EMPTY;
+    }
 
-	/**
-	 * Sets the price config value.
-	 *
-	 * @param priceConfigValue the new price config value
-	 */
-	void setPriceConfigValue(String priceConfigValue);
+    /**
+     * Gets the first cta link.
+     *
+     * @return the first cta link
+     */
+    default String getFirstCtaLink() {
+        return StringUtils.EMPTY;
+    }
+
+    /**
+     * Gets the gallery link.
+     *
+     * @return the gallery link
+     */
+    default String getGalleryLink() {
+        return StringUtils.EMPTY;
+    }
 
 }

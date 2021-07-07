@@ -1,5 +1,39 @@
 package com.jlr.core.internal.services;
 
+import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+import static com.jlr.core.constants.PricingConstants.DEFAULT_PRICE_TYPE;
+import static com.jlr.core.constants.PricingConstants.DOT_REGEX;
+import static com.jlr.core.constants.PricingConstants.FALLBACK_PRICE_TYPE;
+import static com.jlr.core.constants.PricingConstants.PRICING_CURRENT_FORMAT;
+import static com.jlr.core.constants.PricingConstants.PRICING_READ_SUBSERVICE;
+import static com.jlr.core.constants.PricingConstants.PRICING_SUPPRESSION;
+import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
+import static com.jlr.core.utils.TcoUtils.BASE_PATH;
+import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
+
+import javax.servlet.http.Cookie;
+
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.LoginException;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
+import org.apache.sling.api.resource.ValueMap;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.config.PricingConfig;
@@ -12,29 +46,6 @@ import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.TcoUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.*;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.metatype.annotations.Designate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.servlet.http.Cookie;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
-
-import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-import static com.jlr.core.constants.PricingConstants.*;
-import static com.jlr.core.utils.CommonUtils.getSiteRootPath;
-import static com.jlr.core.utils.TcoUtils.BASE_PATH;
-import static com.jlr.core.utils.TcoUtils.getNamePlatePath;
 
 @Component(immediate = true, service = TcoService.class)
 @Designate(ocd = PricingConfig.class)
@@ -58,6 +69,42 @@ public class TcoServiceImpl implements TcoService {
     }
 
     @Override
+    public String getPriceConfigForStaticPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
+            Page currentPage, String configKey) {
+
+        String region = getRegionFromPage(currentPage, resourceResolver);
+        PricingPojo pricingPojo = new PricingPojo();
+        if (region.equalsIgnoreCase("en_au")) {
+
+            Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
+
+            if (null == stateCode) {
+                stateCode = (Cookie) request.getAttribute(JLR_LOCALE_PRICING);
+            }
+
+            if (null == stateCode || !validState(stateCode.getValue(), listOfStates)) {
+                return StringUtils.EMPTY;
+            }
+
+            String stateCookieValue = stateCode.getValue();
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.info("Australian state detected from cookies is {}", stateCookieValue);
+            }
+            pricingPojo.setStateCode(stateCookieValue.toLowerCase());
+        }
+        Map<String, String> configMap = dictionary.getConfigMap(resourceResolver, request.getResource(), currentPage);
+        String configValue = configMap.get(configKey);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.info("Config Key : {} and Price : {}", configKey, pricingPojo.getModelPrice());
+        }
+        if (StringUtils.isNotEmpty(pricingPojo.getStateCode()) && StringUtils.isNotEmpty(configValue)) {
+            configValue = configValue.replace("{state}", pricingPojo.getStateCode().toUpperCase());
+        }
+        return configValue;
+
+    }
+
+    @Override
     public Map<String, String> getModelPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
             Page currentPage, InheritanceValueMap pageProperties, String priceMacro, String configKey) {
 
@@ -69,7 +116,11 @@ public class TcoServiceImpl implements TcoService {
         String region = getRegionFromPage(currentPage, resourceResolver);
 
         if (StringUtils.isEmpty(region)) {
-            modelPriceMap.put(StringUtils.EMPTY, StringUtils.EMPTY);
+            if (TcoUtils.isStaticPrice(priceMacro)) {
+                modelPriceMap.put(StringUtils.EMPTY, priceMacro);
+            } else {
+                modelPriceMap.put(StringUtils.EMPTY, StringUtils.EMPTY);
+            }
             return modelPriceMap;
         }
         pricingPojo.setRegion(region);
@@ -87,7 +138,7 @@ public class TcoServiceImpl implements TcoService {
         }
 
         if (StringUtils.isNotEmpty(priceMacro)) {
-            if ((priceMacro.contains("{{") && priceMacro.contains("}}")) && StringUtils.isNotEmpty(region)) {
+            if (!TcoUtils.isStaticPrice(priceMacro) && StringUtils.isNotEmpty(region)) {
 
                 if (LOGGER.isDebugEnabled()) {
                     LOGGER.info("Valid marco with pricing supression: False");

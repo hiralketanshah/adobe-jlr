@@ -2,7 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="nt:unstructured"
     jcr:title="Content Card"
-    sling:resourceType="cq/gui/components/authoring/dialog">
+    sling:resourceType="cq/gui/components/authoring/dialog"
+    extraClientlibs="[jlr.authoring.dialog]">
     <content
         granite:class="cmp-contentfragmentlist__editor"
         jcr:primaryType="nt:unstructured"
@@ -116,7 +117,8 @@
                                         path="/mnt/overlay/jlr/components/globalfields/general/tabHeading"/>
                                     <enableStacking
                                         jcr:primaryType="nt:unstructured"
-                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        sling:resourceType="granite/ui/components/foundation/form/checkbox"
+                                        defaultChecked="{Boolean}true"
                                         fieldDescription="Check to disable the swiping mode in mobile and enable data-blocks."
                                         name="./enableStacking"
                                         text="Disable Swiping / Enable Stacking in mobile"
@@ -171,12 +173,11 @@
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/general/price"/>
                                         <assestType
+                                            granite:class="cq-dialog-dropdown-showhide-multival"
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/foundation/form/select"
-                                            class="cq-dialog-dropdown-showhide"
-                                            cq-dialog-dropdown-showhide-target=".image-video-hide-show"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                             fieldDescription="Select Content Type as Video or Image"
-                                            fieldLabel="Choose Image or Video assest"
+                                            fieldLabel="Choose Image or Video assets"
                                             name="./assestType">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <image
@@ -188,12 +189,14 @@
                                                     text="Video"
                                                     value="video"/>
                                             </items>
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                cq-dialog-dropdown-showhide-target=".list-option-listfrom-showhide-target"/>
                                         </assestType>
                                         <image
+                                            granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/foundation/container"
-                                            class="hide image-video-hide-show"
-                                            showhidetargetvalue="image">
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <well
                                                     jcr:primaryType="nt:unstructured"
@@ -215,15 +218,21 @@
                                                             jcr:primaryType="nt:unstructured"
                                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                                             path="/mnt/overlay/jlr/components/globalfields/image/imageAlt"/>
+                                                        <damAltText
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                            path="/mnt/overlay/jlr/components/globalfields/image/damAltText"/>
                                                     </items>
                                                 </well>
                                             </items>
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                showhidetargetvalue="image"/>
                                         </image>
                                         <video
+                                            granite:class="hide list-option-listfrom-showhide-target foundation-layout-util-vmargin"
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/foundation/container"
-                                            class="hide image-video-hide-show"
-                                            showhidetargetvalue="video">
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
                                             <items jcr:primaryType="nt:unstructured">
                                                 <well
                                                     jcr:primaryType="nt:unstructured"
@@ -246,6 +255,9 @@
                                                     </items>
                                                 </well>
                                             </items>
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                showhidetargetvalue="video"/>
                                         </video>
                                         <target
                                             jcr:primaryType="nt:unstructured"

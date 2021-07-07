@@ -1,7 +1,6 @@
 package com.jlr.core.utils;
 
-import java.util.Calendar;
-import java.util.Date;
+import com.day.cq.commons.Externalizer;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -12,7 +11,11 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import com.day.cq.commons.Externalizer;
+
+import java.util.Calendar;
+import java.util.Date;
+
+import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 
 public class NavigationUtils {
 
@@ -27,6 +30,8 @@ public class NavigationUtils {
     }
 
     public static void setCacheHeaderResponse(SlingHttpServletRequest request, SlingHttpServletResponse response, Boolean cache, Elements header) {
+        response.setHeader("Access-Control-Allow-Methods", "GET");
+        response.setHeader("Access-Control-Allow-Headers", "Content-Type");
         if (cache) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(new Date());
@@ -34,10 +39,12 @@ public class NavigationUtils {
             header.attr("data-web-app-cache-time", cal.getTime().toString());
             response.setHeader(HttpHeaders.CACHE_CONTROL, "max-age=900");
             response.setDateHeader("Expires", cal.getTime().getTime());
+            response.setHeader("Access-Control-Max-Age", "900");
         } else {
             header.attr("data-web-app-cache-time", new Date().toString());
             response.setHeader(HttpHeaders.CACHE_CONTROL, "max-age=0");
             response.setDateHeader("Expires", new Date().getTime());
+            response.setHeader("Access-Control-Max-Age", "0");
         }
 
         String clientOrigin = request.getHeader("Origin");
@@ -100,5 +107,17 @@ public class NavigationUtils {
     public static String getBaseUrl(ResourceResolver resourceResolver) {
         Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
         return externalizer.publishLink(resourceResolver, StringUtils.EMPTY);
+    }
+
+    public static String getExternalLink(String link, String locale, ResourceResolver resolver) {
+        Externalizer externalizer = resolver.adaptTo(Externalizer.class);
+        String externalizerDomain = getExternalizerDomainByLocale(locale);
+        String externalPath = StringUtils.EMPTY;
+        try {
+            externalPath = externalizer.externalLink(resolver, externalizerDomain, link);
+        } catch (IllegalArgumentException e) {
+            externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY).replaceFirst("/",StringUtils.EMPTY);
+        }
+        return externalPath;
     }
 }

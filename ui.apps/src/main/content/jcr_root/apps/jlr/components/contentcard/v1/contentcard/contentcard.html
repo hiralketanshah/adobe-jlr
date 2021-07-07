@@ -1,7 +1,7 @@
 <sly data-sly-use.contentCard="${'com.jlr.core.models.ContentCardModel' @ key='content.blocks.from.text'}" data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
     data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" />
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
-<div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="${contentCard.enableStacking== 'swiping'? 'swiping' : 'data-blocks'}">
+<div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="${contentCard.enableStacking== 'swiping'? 'swiping' : 'data-blocks'}" id="${contentCard.id}">
     <div class="GridListWrapper" data-wrapper="float">
         <sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
             <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
@@ -18,7 +18,7 @@
                 <div class="cmp-contentCards items" data-total="${contentCard.column}">
                     <div class="cmp-contentCardsCarousel">
                         <ul class="cmp-contentCardsInner" data-sly-list.content="${contentCard.contentCardList}">
-                            <li class="el gridEl">
+                             <li class="el gridEl ${content.fileReference || content.posterImage ?'hasMedia':''}"> <!--added condition for image/video authored for bugfix-1083 -->
                                 <div class="cmp-ContentCard">
                                     <div class="imageContainer mediaOverlay__wrapper">
                                         <sly data-sly-test="${content.assestType=='video'}">
@@ -54,7 +54,8 @@
                                                 ${content.headerCopy @ context="html"}
                                             </h2>
                                             <p data-sly-test="${content.price}" class="price .cmp-ContentCard__price">
-                                                ${content.priceConfigValue}: ${content.price}
+                                                <sly data-sly-test="${content.isStaticPrice}"> ${content.priceConfigValue} ${content.price} </sly>
+												<sly data-sly-test="${!content.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=content.price, wcmmode='disabled'}"></sly>
                                             </p>
                                             <p data-sly-test="${content.copy}" class="body .cmp-ContentCard__body fontBodyCopy">
                                                 ${content.copy @ context="html"}
@@ -95,7 +96,7 @@
                 </div>
             </div>
         </sly>
-        <div class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
+        <div data-sly-test="${contentCard.ctaList}" class="ctaContainer" data-sly-list.cta="${contentCard.ctaList}">
             <div data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
                 <a class="linkContainer primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}" data-target="${cta.target}" href="${cta.link}"
                     aria-label="${cta.ariaLabel}">

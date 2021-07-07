@@ -5,12 +5,14 @@
 <!-- SpecificationsAtAGlance -->
 <div id="${specsglance.id}"
     class="cmp-specificationsAtAGlance cmp-gridListWrapper GridListWrapper fontSmooth cmp-itemsAtAGlance">
-    <h2 class="heading headingCentre fontH2 cmp-specificationsAtAGlance__heading">
-        <span class="cmp-specificationsAtAGlance__heading-wrapper">
-            ${specsglance.headerCopy @ context='html'}
-        </span>
-    </h2>
-    <div class=" cmp-specificationsAtAGlance__copy">${specsglance.copy @ context='html'}</div>
+     <div class="cmp-header_div">
+    	<h2 class="heading headingCentre fontH2 cmp-specificationsAtAGlance__heading">
+        	<span class="cmp-specificationsAtAGlance__heading-wrapper">
+            	${specsglance.headerCopy @ context='html'}
+        	</span>
+    	</h2>
+    	<div class=" cmp-specificationsAtAGlance__copy">${specsglance.copy @ context='html'}</div>
+    </div>
     <div class="cmp-specificationsAtAGlance__items items clearfix" data-sly-list="${specsglance.dataItems}"
         data-total="${specsglance.count}">
         <div class="el">

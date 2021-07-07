@@ -25,6 +25,7 @@
       <video
         class="video customControl"
         loop
+        playsinline
         autoplay="true"
         muted="true"
         controls="controls"
@@ -46,21 +47,24 @@
 					  ${heroCarousel.headerCopy @ context='html'}
 					</span>
 				  </h2>
-				  <div class="headerCopy">
+				  <div data-sly-test="${heroCarousel.copy}" class="headerCopy">
 					<p>${heroCarousel.copy @context='html'}</p>
 				  </div>
 			</div>
        
         </div>
-        <div class="contentClass">
+        <div data-sly-test="${heroCarousel.price || heroCarousel.ctaList || heroCarousel.priceConfigValue}" class="contentClass">
           <div class="priceAndCta">
+            <sly data-sly-test="${heroCarousel.price || heroCarousel.priceConfigValue}">
             <div class="pricing">
-              <p data-sly-test="${heroCarousel.price}">
-                ${heroCarousel.priceConfigValue}
-              </p>
-              <p><strong> ${heroCarousel.price}</strong></p>
+                <sly data-sly-test="${heroCarousel.isStaticPrice}">
+                    <p data-sly-test="${heroCarousel.priceConfigValue}">${heroCarousel.priceConfigValue}</p>
+                    <p data-sly-test="${heroCarousel.price}"><strong>${heroCarousel.price}</strong></p>
+                </sly>
+				<sly data-sly-test="${!heroCarousel.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=heroCarousel.price, wcmmode='disabled'}"></sly>
             </div>
-            <div class="linkContainer">
+          </sly>
+            <div data-sly-test="${heroCarousel.ctaList}" class="linkContainer">
               <sly data-sly-list="${heroCarousel.ctaList}">
                 <sly data-sly-test="${itemList}">
                   <div
@@ -107,8 +111,8 @@
          
         </div>
       </div>
-      <div class="heroFooterSection">
-        <div class="emissionDetails">
+      <div data-sly-test="${heroCarousel.footerList || heroCarousel.caveat}" class="heroFooterSection">
+        <div class="emissionDetails" data-sly-test="${heroCarousel.footerList}">
           <sly data-sly-list="${heroCarousel.footerList}">
             <sly data-sly-test="${itemList}">
               <div class="emissionDe">
@@ -119,7 +123,7 @@
           </sly>
         </div>
       </div>
-	  <div class="caveat">
+	  <div data-sly-test="${heroCarousel.caveat}" class="caveat">
 		${heroCarousel.caveat @ context='html'}
 	  </div>
     </div>

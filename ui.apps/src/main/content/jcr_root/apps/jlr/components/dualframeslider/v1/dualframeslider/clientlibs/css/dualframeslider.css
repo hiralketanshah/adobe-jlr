@@ -188,6 +188,32 @@ line-height: 12.5px;
 {
     color: #fff;
 }
+.leftHr{
+    position: absolute;
+    height: 2px;
+    background: black;
+    left: -20px;
+    width: 20px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%);
+    top: 0px;
+    -webkit-tap-highlight-color: transparent;
+    border: 0;
+}
+.rightHr{
+    position: absolute;
+    height: 2px;
+    background: black;
+    right: -18px;
+    width: 18px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%);
+    top: 0px;
+    -webkit-tap-highlight-color: transparent;
+    border: 0;
+}
+.dualframeslider .cmp-dualFrameSlider .Slider__left{
+    margin-top: -5px;
+}
+
 @media screen and (min-width: 1px) and (max-width: 740px) {
     .cmp-dualFrameSlider .Slider__left {
         padding-top: 29px;
@@ -199,7 +225,9 @@ line-height: 12.5px;
     .cmp-dualFrameSlider .Slider__left .headerBox__copy {
         margin: 14px 0 0;
     }
-    
+    .dualframeslider .cmp-dualFrameSlider .Slider__left{
+        margin-top: 0px;
+    }
 }
 
 @media screen and (min-width: 741px) {
@@ -250,6 +278,7 @@ line-height: 12.5px;
     .cmp-dualFrameSlider .mobileSliderFrame {
         display: block;
         height: calc((109.12vw - 40px) / 2) !important;
+        width: 100% !important;
     }
     .dualframeslider.right .cmp-dualFrameSlider .Slider__left,
     .dualframeslider .cmp-dualFrameSlider .Slider__left,
@@ -317,6 +346,8 @@ line-height: 12.5px;
     }
     .cmp-dualFrameSlider__slider{
         padding: 0 0px;
+        margin: 0px 22px;
+        width: calc(100% - 44px);
     }
     .dualframeslider.right .cmp-dualFrameSlider .Slider__left {
         padding-right: 0px;
@@ -327,6 +358,7 @@ line-height: 12.5px;
     }
     .cmp-dualFrameSlider .Slider__right .mobileSliderFrame {
         height: calc((108.3vw - 40px) / 2) !important;
+        width: 100% !important;
     }
     .dualframeslider.right .cmp-dualFrameSlider .Slider__left, .dualframeslider .cmp-dualFrameSlider .Slider__left{
         padding-top: 10px;
@@ -358,5 +390,11 @@ line-height: 12.5px;
 {
     color: #0C121C;
 }
+html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
+    background: #ffffff
+    }
+    .dualframeslider .cmp-dualFrameSlider .Slider__left{
+        margin-top: -5px;
+    }
 }
 

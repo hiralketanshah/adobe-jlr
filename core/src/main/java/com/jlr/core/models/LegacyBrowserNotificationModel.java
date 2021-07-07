@@ -5,7 +5,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import javax.inject.Inject;
 
-@Model(adaptables = Resource.class, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = Resource.class, adapters = {LegacyBrowserNotificationModel.class},defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class LegacyBrowserNotificationModel {
 
     /** The headerCopy. */
