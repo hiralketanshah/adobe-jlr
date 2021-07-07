@@ -30,7 +30,6 @@ PassEnv DISP_ID
 			SetEnvIf Request_URI "/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/fonts/(.*)$" is_font
 			Header always add Access-Control-Allow-Origin "*" env=is_font
 			#### Make sure proxies don't deliver the wrong content
-			Header append Vary User-Agent env=!dont-vary
 			## Force SSL for author
 			## Add HSTS for avoiding man in the middle during browser redirect to SSL
 			Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains;"
