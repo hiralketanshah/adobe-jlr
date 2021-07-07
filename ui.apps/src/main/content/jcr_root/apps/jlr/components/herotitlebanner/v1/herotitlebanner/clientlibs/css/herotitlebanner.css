@@ -556,8 +556,8 @@ label {
 		padding:0px;
 	  }
 .cmp-carousel.cmp-herotitle-carousel {
-	padding: 0px;
-	margin: 0px 290px 0px 290px;
+	margin: 0px;
+	padding: 0px 290px 0px 290px;
 }
 .cmp-heroTitleBanner .cmp-heroTitleBanner__image {
 	position: relative;
@@ -576,6 +576,17 @@ label {
 	padding-left: 0px;
 	bottom: 6%;
 	}
+	.cmp-carousel__controls.cmp-heroTitleBanner_pagination{
+		left: 290px;
+	}
+	.cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--next{
+    left: auto;
+    right: -59px;
+  }
+  .cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--prev{
+    left: -59px;
+    right: auto;
+  }
 }
 
 /* COMMON */
@@ -633,8 +644,14 @@ label {
 	.white .cmp-herotitle-carousel .Pagination .Pagination__play:before,
 	.white .cmp-herotitle-carousel .Pagination .Pagination__pause:before  
 	{
-	  border: 2px solid #A8AAAE;
+	  border: 2px solid #000;
 	  background-color: transparent;
+	}
+	.grey .cmp-herotitle-carousel .Pagination .Pagination__pause:before,
+	.light .cmp-herotitle-carousel .Pagination .Pagination__pause:before ,
+	.white .cmp-herotitle-carousel .Pagination .Pagination__pause:before  
+	{
+	  border: 2px solid rgba(0, 0, 0, 0.4);
   }
   @media screen and (max-width: 1279px){
 	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--next,

@@ -598,6 +598,10 @@ label {
   margin-left: 160px;
   padding-right: 341px;
 }
+.cmp-hero-carousel .cmp-carousel__next,
+.cmp-hero-carousel .cmp-carousel__previous {
+  top: 300px !important;
+}
 }
 .cmp-hero .logo.None{
   width: auto;
