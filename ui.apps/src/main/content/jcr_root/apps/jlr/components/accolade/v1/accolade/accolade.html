@@ -11,7 +11,13 @@
     </picture>
 </div>
 <div class="cmp-accolades__copy ${model.logoImage ? '' : 'cmp-onlyCopy'}">
-    <div data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</div>
+    ${model.firstPosition}
+    <sly data-sly-test.forSEO="${model.firstPosition==true}">
+        <h1 data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</h1>
+    </sly>
+    <sly data-sly-test="${!forSEO}">
+        <div data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</div>
+    </sly>
     <div  class="cmp-accolades__copy--secondary">${model.copy @context='html'}</div>
     <a data-sly-test="${model.text}" class="cmp-accolades__copy--link secondaryLinkWithStyle ${model.target=='overlay' ? '' : model.icon}" aria-label="${model.ariaLabel}" target="${model.target}" data-target="${model.target}" href="${model.link}">${model.text}</a>
     <p data-sly-test="${model.date}" class="cmp-accolades__copy--tertiary">${model.date}</p>

@@ -16,8 +16,13 @@
      <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
     </div>
    </div>
-   <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
-   <div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
+   ${article.firstPosition}
+   <sly data-sly-test.forSEO="${article.firstPosition==true}">
+    <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
+   </sly>
+   <sly data-sly-test="${!forSEO}">
+    <h2 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h2>
+   </sly><div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
    <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'below'}">
    <picture class="Picture Article__Picture Article__Picture--bottom">
     <a href="${article.imageLink}">

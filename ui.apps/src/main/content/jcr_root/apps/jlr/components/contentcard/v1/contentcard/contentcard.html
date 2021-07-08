@@ -7,11 +7,21 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
     <div class="GridListWrapper" data-wrapper="float">
         <sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
             <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
-                <h2 class="heading headingThick">
+                ${contentCard.firstPosition}
+                <sly data-sly-test.forSEO="${contentCard.firstPosition==true}">
+                    <h1 class="heading headingThick">
                     <span data-sly-test="${contentCard.headerCopy}" class="headingWrapper fontH2">
                         ${contentCard.headerCopy @ context="html"}
                     </span>
-                </h2>
+                    </h1>
+                </sly>
+                <sly data-sly-test="${!forSEO}">
+                    <h2 class="heading headingThick">
+                    <span data-sly-test="${contentCard.headerCopy}" class="headingWrapper fontH2">
+                        ${contentCard.headerCopy @ context="html"}
+                    </span>
+                    </h2>
+                </sly>
                 <div data-sly-test="${contentCard.copy}" class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
                 <div data-sly-test="${contentCard.enablePricing}" class="ContentBlocksContainer__MarketRegionalPricing">
                     <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
