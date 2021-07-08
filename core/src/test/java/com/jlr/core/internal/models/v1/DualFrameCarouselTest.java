@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,9 @@ import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import org.mockito.Mock;
+
+import javax.jcr.Node;
 
 /**
  * The Class DualFrameCarouselTest.
@@ -26,6 +30,12 @@ class DualFrameCarouselTest extends GlobalModelImplTest {
     /** The dual frame model. */
     private DualFrameCarouselModel dualFrameModel;
 
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
+
     /**
      * Sets the up.
      *
@@ -34,10 +44,13 @@ class DualFrameCarouselTest extends GlobalModelImplTest {
      */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/dualframecarousel/dualframecarousel.json",
                 "/content/jlr/duelframecarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/duelframecarousel.html");
-        dualFrameModel = resource.adaptTo(DualFrameCarouselImpl.class);
+        context.currentResource(resource);
+        dualFrameModel = context.request().adaptTo(DualFrameCarouselImpl.class);
     }
 
     @Test

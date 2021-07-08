@@ -21,6 +21,8 @@ import com.jlr.core.services.TcoService;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+import javax.jcr.Node;
+
 /**
  * The Class HeroCarouselModelImplTest.
  *
@@ -37,6 +39,9 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     private Page currentPage;
 
     @Mock
+    private Node currentNode;
+
+    @Mock
     private InheritanceValueMap pageProperties;
 
     @Mock
@@ -51,6 +56,8 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     @BeforeEach
     public void setup(AemContext context) {
         MockitoAnnotations.initMocks(this);
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
         context.currentResource(resource);

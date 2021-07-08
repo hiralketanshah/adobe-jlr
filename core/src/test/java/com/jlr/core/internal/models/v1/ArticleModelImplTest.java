@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,9 @@ import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import org.mockito.Mock;
+
+import javax.jcr.Node;
 
 /**
  * Simple JUnit test verifying the ArticleModelImpl.
@@ -26,6 +30,12 @@ class ArticleModelImplTest extends GlobalModelImplTest {
     /** The article model. */
     private ArticleModel articleModel;
 
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
+
     /**
      * Sets the up.
      *
@@ -33,10 +43,13 @@ class ArticleModelImplTest extends GlobalModelImplTest {
      *            the new up
      */
     @BeforeEach
-    public void setup(AemContext context) {
+    public void setup(AemContext context){
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/article/article.json", "/content/jlr/article.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/article.html");
-        articleModel = resource.adaptTo(ArticleModelImpl.class);
+        context.currentResource(resource);
+        articleModel = context.request().adaptTo(ArticleModelImpl.class);
     }
 
     /**
