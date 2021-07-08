@@ -1,4 +1,6 @@
-<sly data-sly-use.contentCard="${'com.jlr.core.models.ContentCardModel' @ key='content.blocks.from.text'}" data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+<sly data-sly-use.contentCard="${'com.jlr.core.models.ContentCardModel' @ key='content.blocks.from.text'}" 
+data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}"
+data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
     data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html" />
 <div class="cq-placeholder" data-emptytext="Content Card Component"></div>
 <div class="cmp-ContentBlocksContainer" data-filter-tags="" data-template="${contentCard.enableStacking== 'swiping'? 'swiping' : 'data-blocks'}" id="${contentCard.id}">
@@ -10,7 +12,10 @@
                         ${contentCard.headerCopy @ context="html"}
                     </span>
                 </h2>
-                <div class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
+                <div data-sly-test="${contentCard.copy}" class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
+                <div data-sly-test="${contentCard.enablePricing}" class="ContentBlocksContainer__MarketRegionalPricing">
+                    <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+                </div>
             </div>
         </sly>
         <sly data-sly-test="${contentCard.contentCardList}">
