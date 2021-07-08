@@ -27,7 +27,7 @@ property = { Constants.SERVICE_DESCRIPTION + "= JLR Fulltext Search",
 public class FullSearchServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(FullSearchServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/fullsearch";
     protected static final String EXTENSION_HTML = "html";
     private static final String APPLICATION_JSON = "application/json";

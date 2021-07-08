@@ -156,4 +156,8 @@ public class PricingConstants {
 
     public static final String CONTENTCARD_FROM_TEXT = "content.blocks.from.text";
 
+    public static final String DERIVATIVE_FROM_TEXT = "derivative.tco.from.txt";
+
+    public static final String VEHICLE_SUMAMRY_FROM_TEXT = "vehiclesummary.tco.from.txt";
+
 }

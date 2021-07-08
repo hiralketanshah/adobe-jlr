@@ -124,6 +124,14 @@
                                         text="Disable Swiping / Enable Stacking in mobile"
                                         uncheckedValue="swiping"
                                         value="data-blocks"/>
+                                    <enablePricing
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                        fieldDescription="A check box that enables the market regional pricing button"
+                                        name="./enablePricing"
+                                        text="Enable Market Regional Pricing"
+                                        uncheckedValue="false"
+                                        value="true"/>
                                 </items>
                             </column>
                         </items>

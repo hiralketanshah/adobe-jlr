@@ -25,8 +25,8 @@ public class TcoUtils {
 
         String currencyString = StringUtils.EMPTY;
         DecimalFormat currencyFormatter = null;
-        String newPattern = StringUtils.EMPTY;
-        if(pattern.contains(".")){
+        String newPattern = pattern;
+        if (pattern.contains(".")) {
             newPattern = pattern.replace(".", ",");
         }
         try {
@@ -41,8 +41,8 @@ public class TcoUtils {
         if (value.intValue() != 0) {
             currencyString = currencyFormatter.format(value);
         }
-        if(pattern.contains(".")){
-            currencyString = currencyString.replace(",",".");
+        if (pattern.contains(".")) {
+            currencyString = currencyString.replace(",", ".");
         }
         return currencyString;
     }

@@ -40,19 +40,20 @@ class ContentCardModelTest extends GlobalModelImplTest {
         MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/contentcard/contentcard.json", "/content/jlr/contentcard.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/contentcard.html");
-        contentCardModel = resource.adaptTo(ContentCardImpl.class);
+        context.currentResource(resource);
+        contentCardModel = context.request().adaptTo(ContentCardImpl.class);
     }
-
     /**
      * Test properties.
      */
     @Test
     void testProperties() {
         List<ContentCardListModel> list = contentCardModel.getContentCardList();
+        assertEquals("2", contentCardModel.getColumn());
         assertEquals(1, list.size());
         list.forEach(item -> {
             assertEquals("https://google.com", item.getImageLink());
-           // assertEquals("imageAlt", item.getImageAlt());
+            // assertEquals("imageAlt", item.getImageAlt());
             assertEquals("$98.05", item.getPrice());
             assertEquals("headerCopy", item.getHeaderCopy());
             assertEquals("copy", item.getCopy());
@@ -81,12 +82,22 @@ class ContentCardModelTest extends GlobalModelImplTest {
             assertEquals("primary", item.getLinkType());
         });
     }
-
     /**
-     * Test column.
+     * Test cta properties.
      */
-    void testColumn() {
-        assertEquals("2", contentCardModel.getColumn());
+    @Override
+    @Test
+    void testCtaProperties() {
+        List<CTAPojo> list = contentCardModel.getCtaList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("text", item.getText());
+            assertEquals("https://google.com", item.getLink());
+            assertEquals("_blank", item.getTarget());
+            assertEquals("primary", item.getLinkType());
+        });
     }
+
+
 
 }

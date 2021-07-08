@@ -51,6 +51,7 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Override
     public boolean accepts(SlingHttpServletRequest request, HttpCacheConfig cacheConfig) throws HttpCacheRepositoryAccessException {
+
         this.origin = request.getHeader("Origin");
         if(StringUtils.isEmpty(origin)) {
             this.origin = request.getHeader("Host");

@@ -1,9 +1,8 @@
-<sly data-sly-use.model="com.jlr.core.models.ReadyToGoBarModel" data-sly-call="${renderReadytogobar @ readytogobar=model}" />
-<template data-sly-template.renderReadytogobar="${ @ readytogobar }">
+<template data-sly-template.fabEnable="${ @ readytogobar, pageConfig }">
    <span data-sly-test="${readytogobar.listType == 'listoverride'}">
       <div class="pageWrapper">
          <div id="FloatingActionEnabler">
-            <div class="cmp-floatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideMobile}" data-visibility-tablet="${readytogobar.hideTablet}">
+            <div class="cmp-floatingActionButton fontSmooth" data-visibility-desktop="${pageConfig.fabDesktopActive || readytogobar.hideDesktop}" data-visibility-mobile="${pageConfig.fabMobileActive || readytogobar.hideMobile}" data-visibility-tablet="${pageConfig.fabTabletActive || readytogobar.hideTablet}">
                <button aria-expanded="false" aria-label="Further Actions" class="cmp-floatingActionButton__trigger">
                   <div class="cmp-floatingActionButton__trigger-container">
                      <div class="cmp-floatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
@@ -29,7 +28,7 @@
    <span data-sly-test="${readytogobar.listType == 'listdefault'}">
       <div class="pageWrapper">
          <div id="FloatingActionEnabler">
-            <div class="cmp-floatingActionButton fontSmooth" data-visibility-desktop="${readytogobar.hideDesktop}" data-visibility-mobile="${readytogobar.hideMobile}" data-visibility-tablet="${readytogobar.hideTablet}">
+            <div class="cmp-floatingActionButton fontSmooth" data-visibility-desktop="${pageConfig.fabDesktopActive && readytogobar.hideDesktop}" data-visibility-mobile="${pageConfig.fabMobileActive && readytogobar.hideMobile}" data-visibility-tablet="${pageConfig.fabTabletActive && readytogobar.hideTablet}">
                <button aria-expanded="false" aria-label="Further Actions" class="cmp-floatingActionButton__trigger">
                   <div class="cmp-floatingActionButton__trigger-container">
                      <div class="cmp-floatingActionButton__trigger-close icon-filterclose-evo-jaguar"></div>
@@ -43,7 +42,7 @@
                <ul data-sly-test="${readytogobar.rtgb}" class="cmp-floatingActionButton__items cmp-floatingActionButton__items-hide" data-sly-list.item="${readytogobar.rtgb}">
                   <li class="cmp-floatingActionButton__item">
                      <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.target=='overlay' ? '' : item.icon} TargetLinks" href="${item.link}" aria-label="${item.ariaLabel}" target="${item.target}" data-target="${item.target}" >
-                     <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text}</span>
+                     <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text @context="html"}</span>
                      </a>
                   </li>
                </ul>

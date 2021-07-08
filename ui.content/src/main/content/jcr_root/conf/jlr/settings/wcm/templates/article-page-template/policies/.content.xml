@@ -190,6 +190,12 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
+                            <v2 jcr:primaryType="nt:unstructured">
+                                <c-player
+                                    cq:policy="jlr/components/c-player/v2/c-player/policy_1625074940910"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v2>
                         </c-player> 
                         <sitenotification jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
@@ -198,7 +204,15 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </sitenotification>                       
+                        </sitenotification>
+                        <vehiclespecs jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <vehiclespecs
+                                    cq:policy="jlr/components/vehiclespecs/v1/vehiclespecs/policy_1624904253125"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </vehiclespecs>                       
                     </components>
                 </jlr>
             </container>
@@ -367,6 +381,12 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
+                            <v2 jcr:primaryType="nt:unstructured">
+                                <c-player
+                                    cq:policy="jlr/components/c-player/v2/c-player/policy_1625074940910"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v2>
                         </c-player>
                         <caveat jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
@@ -383,7 +403,15 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </sitenotification> 
+                        </sitenotification>
+                        <vehiclespecs jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <vehiclespecs
+                                    cq:policy="jlr/components/vehiclespecs/v1/vehiclespecs/policy_1624904253125"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </vehiclespecs> 
                     </components>
                 </jlr>
             </container_1838800311>
@@ -404,6 +432,12 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
+                            <v2 jcr:primaryType="nt:unstructured">
+                                <c-player
+                                    cq:policy="jlr/components/c-player/v2/c-player/policy_1625074940910"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v2>
                         </c-player>
                         <caveat jcr:primaryType="nt:unstructured">
                             <v1 jcr:primaryType="nt:unstructured">
@@ -572,7 +606,15 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="wcm/core/components/policies/mapping"/>
                             </v1>
-                        </sitenotification>    
+                        </sitenotification>
+                        <vehiclespecs jcr:primaryType="nt:unstructured">
+                            <v1 jcr:primaryType="nt:unstructured">
+                                <vehiclespecs
+                                    cq:policy="jlr/components/vehiclespecs/v1/vehiclespecs/policy_1624904253125"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </v1>
+                        </vehiclespecs>    
                     </components>
                 </jlr>
             </container_1992655900>

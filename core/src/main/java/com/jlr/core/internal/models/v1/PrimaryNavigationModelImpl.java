@@ -342,7 +342,7 @@ public class PrimaryNavigationModelImpl implements PrimaryNavigationModel{
      */
     @Override
     public String getLogoImageLink() {
-    	logoImageLink = CommonUtils.getSiteRootPath(currentPage);
+    	logoImageLink = CommonUtils.getSiteRootPath(currentPage).concat("/index.html");
         return logoImageLink;
     }
 

@@ -5,7 +5,7 @@
 </sly>
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
 
-<section id="${verticalslider.id}"  class="cmp-interactiveNumberedImage" data-numbered-image="${verticalslider.pipIcon ? '' : 'true'}" data-duration-indicator-time="${verticalslider.delay}"  data-total="${verticalslider.verticalSliderItems.size}">
+<section id="${verticalslider.id}"  class="cmp-interactiveNumberedImage ${verticalslider.autopauseDisabled ? 'notimer': ''}" data-numbered-image="${verticalslider.pipIcon ? '' : 'true'}" data-duration-indicator-time="${verticalslider.delay}"  data-total="${verticalslider.verticalSliderItems.size}">
     <!-- content start -->
 	<div class="cmp-interactiveNumberedImage__content">
 		<!-- navigation start -->
@@ -59,7 +59,7 @@
 		<!-- tab content end -->
 	</div>
 	<!-- content end -->
-      <button class="cmp-interactiveNumberedImage__controls cmp-interactiveNumberedImage__controls--playing ${verticalslider.autopauseDisabled ? 'notimer': ''}">
+      <button class="cmp-interactiveNumberedImage__controls cmp-interactiveNumberedImage__controls--playing ">
         <span class="cmp-interactiveNumberedImage__controls-icon-pause icon-pause-evo-jaguar"></span>
         <span class="cmp-interactiveNumberedImage__controls-icon-play icon-play-evo-jaguar"></span>
         <svg class="cmp-interactiveNumberedImage__controls-progress">
@@ -83,14 +83,28 @@
           <!-- images end -->
        </div>
    </div>
+   <input data-sly-test="${wcmmode.edit||wcmmode.preview}" type="hidden" name="verticalwcmmode" id="vertical-author" value="verticalauthor" />
 </section> 
 <style>
-.cmp-interactiveNumberedImage__images {
-	width: calc(( ( 100% - 140px) * (.66666)) + (50px));
+@media screen and (min-width: 1920px){
+.cmp-interactiveNumberedImage__images
+{
+	width: calc(( ( 100% - 108px) * (0.586)));
+} 
+.cmp-interactiveNumberedImage__content {
+	width: calc(( ( 100% - 980px) * (0.89)))
+} 
+}
+@media screen and (min-width: 901px) and (max-width: 1919px) {
+	.cmp-interactiveNumberedImage__images {
+		width: calc(( ( 100% - 99px) * (0.73)));
 }
 
+
+	
 .cmp-interactiveNumberedImage__content {
-	width: calc(( ( 100% - 140px) * (.33333)) + (90px));
+	width: calc(( ( 100% - 159px) * (.33333)) + (133px));
+} 
 }
 
 @media screen and (min-width: 500px) and (max-width: 900px) {

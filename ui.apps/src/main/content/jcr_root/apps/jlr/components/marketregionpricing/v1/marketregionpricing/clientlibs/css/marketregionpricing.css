@@ -28,7 +28,8 @@
 }
 
 .MarketRegionalPricing__cta {
-    margin-top: 0
+    margin-top: 0;
+    margin-bottom: 0 !important;
 }
 
 @media only screen and (min-width: 740px) and (max-width: 1080px) and (orientation: landscape) {
@@ -49,4 +50,7 @@
 }
 .cmp-hidemarket{
     display:none;
+}
+.slateblue .Modal__title{
+    color: #FFFF;
 }

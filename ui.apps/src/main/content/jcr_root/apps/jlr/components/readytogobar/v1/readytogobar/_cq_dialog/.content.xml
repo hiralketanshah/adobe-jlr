@@ -39,10 +39,50 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
                                             path="/mnt/overlay/jlr/components/globalfields/cta/icon"/>
-                                        <text
+                                        <rte1heading
                                             jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/include"
-                                            path="/mnt/overlay/jlr/components/globalfields/cta/text"/>
+                                            sling:resourceType="granite/ui/components/coral/foundation/text"
+                                            text="Header Copy *"/>
+                                        <header
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                            dfs-required="true"
+                                            fieldDescription="The Header copy to be displayed."
+                                            name="./text"
+                                            required="{Boolean}true"
+                                            useFixedInlineToolbar="{Boolean}true">
+                                            <rtePlugins jcr:primaryType="nt:unstructured">
+                                                <subsuperscript
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*"/>
+                                                <misctools
+                                                    jcr:primaryType="nt:unstructured"
+                                                    features="*">
+                                                    <specialCharsConfig jcr:primaryType="nt:unstructured">
+                                                        <chars jcr:primaryType="nt:unstructured">
+                                                            <non-breaking-space
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;nbsp;"
+                                                                name="Non-breaking space"/>
+                                                            <non-breaking-hyphen
+                                                                jcr:primaryType="nt:unstructured"
+                                                                entity="&amp;#8209"
+                                                                name="Non-breaking hyphen"/>
+                                                        </chars>
+                                                    </specialCharsConfig>
+                                                </misctools>
+                                            </rtePlugins>
+                                            <uiSettings jcr:primaryType="nt:unstructured">
+                                                <cui jcr:primaryType="nt:unstructured">
+                                                    <inline
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                    <dialogFullScreen
+                                                        jcr:primaryType="nt:unstructured"
+                                                        toolbar="[subsuperscript#subscript,subsuperscript#superscript,misctools#specialchars]"/>
+                                                </cui>
+                                            </uiSettings>
+                                        </header>
                                         <link
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/include"
@@ -111,39 +151,31 @@
                         sling:resourceType="granite/ui/components/coral/foundation/container"
                         margin="{Boolean}true">
                         <items jcr:primaryType="nt:unstructured">
-                            <enableFAB
-                                jcr:primaryType="nt:unstructured"
-                                sling:resourceType="granite/ui/components/foundation/form/checkbox"
-                                defaultChecked="{Boolean}true"
-                                fieldDescription="If checked 'Floating Action Bar' will be visible"
-                                name="./enableFAB"
-                                text="Enable Floating Action Button"
-                                value="{Boolean}true"/>
                             <hideDesktop
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                 defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Desktop Viewport"
+                                fieldDescription="Select to suppress FAB for Desktop Viewport"
                                 name="./hideDesktop"
-                                text="Supress desktop view"
+                                text="Suppress desktop view"
                                 uncheckedValue="true"
                                 value="{Boolean}false"/>
                             <hideTablet
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                 defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Tablet  Viewport"
+                                fieldDescription="Select to suppress FAB for Tablet  Viewport"
                                 name="./hideTablet"
-                                text="Supress tablet view"
+                                text="Suppress tablet view"
                                 uncheckedValue="true"
                                 value="{Boolean}false"/>
                             <hideMobile
                                 jcr:primaryType="nt:unstructured"
                                 sling:resourceType="granite/ui/components/foundation/form/checkbox"
                                 defaultChecked="{Boolean}false"
-                                fieldDescription="Select to supress FAB for Mobile Viewport"
+                                fieldDescription="Select to suppress FAB for Mobile Viewport"
                                 name="./hideMobile"
-                                text="Supress mobile view"
+                                text="Suppress mobile view"
                                 uncheckedValue="true"
                                 value="{Boolean}false"/>
                             <listType

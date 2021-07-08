@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.jlr.core.pojos.FooterPojo;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -52,14 +53,20 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
         MockitoAnnotations.initMocks(this);
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
-        heroItemModel = resource.adaptTo(HeroItemModelImpl.class);
+        context.currentResource(resource);
+        heroItemModel = context.request().adaptTo(HeroItemModelImpl.class);
+    }
+
+    @Test
+    void testProperties(){
+        assertEquals("caveatText",heroItemModel.getCaveat());
     }
 
     /**
      * Test properties.
      */
     @Test
-    void testProperties() {
+    void testCtaProperties() {
         List<CTAPojo> list = heroItemModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
@@ -71,4 +78,13 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
 
     }
 
+    @Test
+    void testFooterList() {
+        List<FooterPojo> list = heroItemModel.getFooterList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("Copy", item.getCopy());
+            assertEquals("Header", item.getHeader());
+        });
+    }
 }
