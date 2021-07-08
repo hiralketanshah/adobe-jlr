@@ -59,10 +59,10 @@
 
 						<div class="Derivative__engine-body">
 						  <span class="Derivative__engine-attribute-wrapper">
-							<span class="Derivative__engine-attribute-value ${item.engineData[engineData]}">
-							<sly data-sly-repeat.data="${item.engineData[engineData]}">
-							  <span data-sly-test="${data=='false'}"class="Derivative__engine-attribute-primary-value">${item.engineData[engineData][data] @context='html'}</span>
-							  <span data-sly-test="${data=='true'}" class="Derivative__engine-attribute-secondary-value">${item.engineData[engineData][data] @context='html'}</span>
+							<span class="Derivative__engine-attribute-value">
+							<sly data-sly-list.data="${item.engineData[engineData]}">
+							  <span data-sly-test="${item.engineData[engineData][data]=='false'}" class="Derivative__engine-attribute-primary-value">${data}</span>
+							  <span data-sly-test="${item.engineData[engineData][data]=='true'}" class="Derivative__engine-attribute-secondary-value">${data}</span>
 							</sly>
 							</span>
 						  </span>

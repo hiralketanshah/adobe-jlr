@@ -31,8 +31,8 @@ Engine Names: <div data-sly-repeat.engineNames="${model.engineNames}">${engineNa
         <span data-sly-repeat.engineData="${item.engineData}"><span>
             <u>Engine Data Headings:</u> ${engineData @context='html'}
             <sly data-sly-list.data="${item.engineData[engineData]}">
-                <div><u>Engine Data:</u> ${item.engineData[engineData][data] @context='html'}</div>
-                <div><u>Engine Data Secondary Enabled:</u> ${data}</div>
+                <div>Engine Data: ${data}</div>
+                <div>Engine Data Secondary Enabled: ${item.engineData[engineData][data]}</div>
             </sly></span>
         </span>
     </div>

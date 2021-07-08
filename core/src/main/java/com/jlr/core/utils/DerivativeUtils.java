@@ -8,6 +8,8 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 import com.day.cq.commons.jcr.JcrConstants;
 import com.jlr.core.constants.CommonConstants;
@@ -35,9 +37,9 @@ public class DerivativeUtils {
                     while(dataTypeResource.hasNext()) {
                     	Resource dataTypeResourceData = dataTypeResource.next();
                         ValueMap dataProperties = dataTypeResourceData.adaptTo(ValueMap.class);
-                        String pricedata=dataProperties.get("dataValue",String.class);
-                        String enableSecondary=dataProperties.get("enableSecondary",String.class);
-                        mapOfDataItems.put(enableSecondary, pricedata);
+                        String pricedata=Jsoup.clean(dataProperties.get("dataValue",String.class), Whitelist.none());
+                        String enableSecondary=Jsoup.clean(dataProperties.get("enableSecondary",String.class), Whitelist.none());
+                        mapOfDataItems.put(pricedata, enableSecondary);
                     }
                 }
                 mapOfData.put(properties.get(DerivativeConstants.PN_ENGINE_HEADING, String.class),
