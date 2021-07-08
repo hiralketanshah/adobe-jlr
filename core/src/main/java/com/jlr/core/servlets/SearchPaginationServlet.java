@@ -36,7 +36,7 @@ import com.jlr.core.utils.ErrorUtils;
 public class SearchPaginationServlet extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SearchPaginationServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/pagination/search";
     protected static final String EXTENSION_HTML = "html";
     private static final String APPLICATION_JSON = "application/json";

@@ -3400,11 +3400,10 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	margin-right: 1px
 }
 
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):focus,
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover,
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):focus,
+/* highlight for hover but not focus */
+.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover, 
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):hover {
-	background-color: #e9ecec
+	background: #e9ecec
 }
 
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) .dxnav-icon,

@@ -1477,6 +1477,7 @@
 			$(document).on('click','.MarketRegionalPricing-triggerer',()=>{
           this.marketPricing.classList.remove('cmp-hidemarket');
           this.marketPricing.classList.add('cmp-showmarket');
+          $('.cmp-showmarket').focus();
 		});
 
           this.closeModal.addEventListener('click',e=>{

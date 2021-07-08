@@ -61,6 +61,11 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @ChildResource
     @Via("resource")
     private Resource ctaList;
+    
+    /** The enable pricing. */
+    @Inject
+    @Via("resource")
+    private String enablePricing;
 
     /** The lists. */
     List<CTAPojo> lists = new ArrayList<>();
@@ -87,6 +92,17 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     public String getColumn() {
         return column;
     }
+    
+    /**
+     * Gets the enable pricing.
+     *
+     * @return the enable pricing
+     */
+    @Override
+    public String getEnablePricing() {
+        return enablePricing;
+    }
+
 
     /**
      * Gets the enable stacking.
