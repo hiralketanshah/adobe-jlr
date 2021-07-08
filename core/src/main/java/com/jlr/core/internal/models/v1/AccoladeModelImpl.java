@@ -56,7 +56,7 @@ public class AccoladeModelImpl extends GlobalModelImpl implements AccoladeModel 
 
     @Override
     public boolean getFirstPosition() throws RepositoryException {
-        String pagecontainerPath = currentPage.getPath().concat("/jcr:content/root/container");
-        return ComponentPositionUtils.getComponentPosition(pagecontainerPath, currentNode, resourceResolver);
+        String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
     }
 }

@@ -97,7 +97,7 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
 
     @Override
     public boolean getFirstPosition() throws RepositoryException {
-        String pagecontainerPath= currentPage.getPath().concat("/jcr:content/root/container");
-        return ComponentPositionUtils.getComponentPosition(pagecontainerPath,currentNode, resourceResolver);
+        String pageContainerPath= currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath,currentNode, resourceResolver);
     }
 }
