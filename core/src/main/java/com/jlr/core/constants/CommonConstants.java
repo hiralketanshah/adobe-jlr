@@ -58,6 +58,15 @@ public class CommonConstants {
     /** The Constant JLR_CONTAINER. */
     public static final String JLR_CONTAINER = "container";
 
+    /** The Constant JLR_PARSYS. */
+    public static final String JLR_PARSYS = "/parsys";
+
+    /** The Constant JLR_CAROUSEL. */
+    public static final String JLR_CAROUSEL = "carousel";
+
+    /** The Constant JLR_DERIVATIVECONTAINER. */
+    public static final String JLR_DERIVATIVECONTAINER = "derivativecontainer";
+
     /** The Constant JLR_LANGUAGE_MASTER. */
     public static final String JLR_LANGUAGE_MASTER = "/language-masters";
 

@@ -11,7 +11,10 @@ import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -49,9 +52,13 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
     @Inject
     private SlingHttpServletRequest request;
 
+    /** The current page. */
     @Inject
-    @Optional
     private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
 
     /** The resource resolver. */
     @Inject
@@ -237,5 +244,11 @@ public class DerivativeContainerModelImpl extends GlobalModelImpl implements Der
 
     public String getSelector() {
         return selector;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pagecontainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pagecontainerPath, currentNode, resourceResolver);
     }
 }

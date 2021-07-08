@@ -3,10 +3,17 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.ArticleModel;
@@ -18,7 +25,7 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {ArticleModel.class}, resourceType = ArticleModelImpl.RESOURCE_TYPE)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {ArticleModel.class}, resourceType = ArticleModelImpl.RESOURCE_TYPE)
 public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
 
     /** The Constant RESOURCE_TYPE. */
@@ -28,25 +35,37 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
     /** The image position. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String imagePosition;
 
     /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String assetType;
 
     /** The video type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String videoType;
 
     /** The caption. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String caption;
 
     /** The cta list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource ctaList;
 
     /** The list. */
@@ -93,5 +112,11 @@ public class ArticleModelImpl extends GlobalModelImpl implements ArticleModel {
     @Override
     public String getCaption() {
         return caption;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pagecontainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pagecontainerPath, currentNode, resourceResolver);
     }
 }

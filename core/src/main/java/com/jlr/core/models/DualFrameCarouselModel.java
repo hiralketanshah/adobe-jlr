@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 
+import javax.jcr.RepositoryException;
+
 
 /**
  * The Interface DualFrameCarouselModel.
@@ -30,5 +32,7 @@ public interface DualFrameCarouselModel {
     default String getAssetType() {
         return StringUtils.EMPTY;
     }
+
+    default boolean getFirstPosition() throws RepositoryException { return false; }
 
 }

@@ -3,10 +3,17 @@ package com.jlr.core.internal.models.v1;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.DualFrameCarouselModel;
@@ -18,7 +25,7 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {DualFrameCarouselModel.class}, resourceType = DualFrameCarouselImpl.RESOURCE_TYPE)
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {DualFrameCarouselModel.class}, resourceType = DualFrameCarouselImpl.RESOURCE_TYPE)
 public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameCarouselModel {
 
     /** The Constant RESOURCE_TYPE. */
@@ -28,13 +35,22 @@ public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameC
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
     /** The cta list. */
     @Inject
     @Optional
+    @Via("resource")
     private Resource ctaList;
 
     /** The content type. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String assetType;
 
     /** The list. */
@@ -62,5 +78,11 @@ public class DualFrameCarouselImpl extends GlobalModelImpl implements DualFrameC
     @Override
     public String getAssetType() {
         return assetType;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pagecontainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pagecontainerPath, currentNode, resourceResolver);
     }
 }

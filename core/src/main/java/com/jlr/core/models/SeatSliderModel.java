@@ -3,9 +3,12 @@ package com.jlr.core.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
 import com.jlr.core.internal.models.v1.SeatSliderItem;
+
+import javax.jcr.RepositoryException;
 
 /**
  * The Interface SeatSliderModel.
@@ -31,4 +34,5 @@ public interface SeatSliderModel {
 	default String getMobileFrames() {
 		return null;
 	}
+	default boolean getFirstPosition() throws RepositoryException { return false; }
 }

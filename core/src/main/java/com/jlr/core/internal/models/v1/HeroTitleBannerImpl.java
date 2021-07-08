@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -32,6 +36,15 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/herotitlebanner/v1/herotitlebanner";
+
+    /**
+     * The current page.
+     */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
 
     /** The cta list. */
     @ChildResource
@@ -101,5 +114,12 @@ public class HeroTitleBannerImpl extends GlobalModelImpl implements HeroTitleBan
     @Override
     public String getCaveat() {
         return caveat;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pagecontainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pagecontainerPath, currentNode, resourceResolver);
+
     }
 }
