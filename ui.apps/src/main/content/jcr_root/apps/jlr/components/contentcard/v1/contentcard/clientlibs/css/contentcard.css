@@ -1052,11 +1052,11 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .cmp-contentCardsInner {
-    -webkit-transform: translate(40px);
-    -moz-transform: translate(40px);
-    -ms-transform: translate(40px);
-    -o-transform: translate(40px);
-    transform: translate(40px);
+    -webkit-transform: translate(-10px); 
+    -moz-transform: translate(-10px);
+    -ms-transform: translate(-10px);
+    -o-transform: translate(-10px);
+    transform: translate(-10px); /*issue fix for 1083*/
   }
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
   .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
@@ -1424,7 +1424,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     padding-bottom: 25px;
   }
   .cmp-ContentBlocksContainer[data-template="swiping"] .GridListWrapper { 
-    padding: 30px 5px 0;/*bugfix kestrel-966 */
+    padding: 30px 5px 30px;/*bugfix kestrel-966  and 1052*/
   }
   .GridListWrapper .headerBlock{
     padding-left: 0px;/*bugfix kestrel-966 */
@@ -1452,6 +1452,17 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 /* MOBILE END */
 /* TABLET START */
 @media screen and (min-width: 768px) and (max-width: 1279px){
+  /* bugfix for 1052 start  */
+  .GridListWrapper .items .swiper-wrapper .ContentCard__Youtube + picture>img{
+      width:95%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .GridListWrapper .items .swiper-wrapper .ContentCard__Youtube .mediaOverlay .mediaOverlayBg{
+    left: 10px;
+    width: 95%;
+  }
+  /* bugfix for 1052 end  */
 
   /* kestrel-966, kestrel-970,kestrel-971 bug fix :start */
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
@@ -1552,8 +1563,24 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 /* DESKTOP START */
 @media screen and (min-width: 1280px) and (max-width: 1389px) {
   .contentcard  .cmp-ContentBlocksContainer .GridListWrapper{
-    padding-top: 51px;
+    padding-top: 60px; /*issue fix for 1083*/
+    padding-right: 60px;
   } 
+  /* bug fix for KESTREL-1020 start*/
+  .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="2"] .el:nth-child(odd) {
+    padding-left: 0px;
+    width:50%;
+   }
+   .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="2"] .el:nth-child(even) {
+    padding-right: 0px;
+    width:50%;
+   }
+   .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el:nth-child(3n), 
+   .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el:nth-child(4n){
+     margin-right: 0;
+   }
+  /* bug fix for KESTREL-1020 end*/
+
     .GridListWrapper .items .el{
         padding-left: 0px;
         padding-right: 40px;
@@ -1565,11 +1592,6 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     .cmp-ContentBlocksContainer .GridListWrapper .headerBlock .subHeading{
         margin-top:-12px;
     }
-    .cmp-ContentBlocksContainer .GridListWrapper{
-        padding-top: 60px;
-        padding-left: 60px;
-        padding-right: 0px;
-    }
     .cmp-ContentBlocksContainer .headerBlock .headingWrapper{
         max-width:760px;
         max-height: 51px;
@@ -1579,31 +1601,31 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         padding-top: 23px;
         width: 63.3%;
     }
-   .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
-        width: 300px; 
-    }
     .GridListWrapper .items[data-total="2"] .el img{
         width: 100%;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="2"] .el {
-      width: 600px;
-      height: 100%;
-      margin-bottom: 28px;
-  }
     .GridListWrapper .items[data-total="3"] .cmp-ContentCard {
         clear: left;
-        width: 360px;
     }
-    .GridListWrapper .items[data-total="3"] .el{
-      width:32.80%
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el{
+      width: 31%;
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 40px;
     }
-    .GridListWrapper .items[data-total="3"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el{
+      margin-right: 40px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 22.4%;
+  }
+  .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el img{
         width: 100%;
         height: 100%;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="4"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el img{
         width: 100%;
         height: 146px;
         margin-bottom: 28px;
@@ -1623,7 +1645,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     .cmp-ContentBlocksContainer .GridListWrapper{
         padding-top: 60px;
         padding-left: 60px;
-        padding-right: 0px;
+        padding-right: 60px; /* bugfix 1052 */
     }
     .cmp-ContentBlocksContainer .headerBlock .headingWrapper{
         max-width:760px;
@@ -1633,27 +1655,47 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         margin-top: 0px;
         padding-top: 23px;
     }
-   /* .GridListWrapper .items[data-total="1"] .el,.GridListWrapper .items[data-total="4"] .el, .GridListWrapper .items[data-total="7"] .el, .GridListWrapper .items[data-total="8"] .el {
-        min-width: 345px; 
-    } */
-    .GridListWrapper .items[data-total="2"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="2"] .el img{
         width: 100%;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="3"] .items .el {
-        clear: left;
-        width: 400px;
-    }
-    .GridListWrapper .items[data-total="3"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el img{
         width: 100%;
         height: auto;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="4"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el img{
         width: 100%;
         height: auto;
         margin-bottom: 28px;
     }
+    /* bugfix 1052 start */
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .items .el {
+      clear: left;
+      width: 31%;
+      padding-left: 0;
+      padding-right: 0;
+      margin-right: 40px;
+  }
+  .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el{
+      margin-right: 40px;
+      padding-left: 0;
+      padding-right: 0;
+      width: 22.4%;
+  }
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="2"] .el:nth-child(odd) {
+      padding-left: 0px;
+      width:50%;
+     }
+     .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="2"] .el:nth-child(even) {
+      padding-right: 0px;
+      width:50%;
+     }
+     .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el:nth-child(3n), 
+     .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el:nth-child(4n){
+       margin-right: 0;
+     }
+     /* bugfix 1052 end */
   }
   /* Widescreen end */
 
@@ -1779,11 +1821,15 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   width: 100%;
   }
 
-@media screen and (min-width: 1251px) and (max-width: 2000px){
+@media screen and (min-width: 1281px) {
   .contentCard_ModalContent iframe{
      height: 653px;
-     margin: 60px 290px 87px;
+     margin: 0;
+     margin-top: 60px;     
      width: calc(100% - 580px);
+     max-width: 1340px;
+     left: 50%;
+    transform: translate(-50%, 0);
   }
 }
   
@@ -1842,8 +1888,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 
 /* 939 fix */
 .cmp-ContentCard .textContainer .textContainerTop h5.heading, .heading.headingH5 {
-    font-size: 18px !important;
-    line-height: 18px !important;
+    font-size: 18px; /* removed important to fix the bug 1065 and adhere best practices*/
+    line-height: 18px; /* removed important to fix the bug 1065 and adhere best practices*/
 }
 /* 939 fix ends */
 
@@ -1892,8 +1938,11 @@ h5.heading, .heading.headingH5 {
 
  /*962 fix starts */
  @media screen and (min-width: 768px) and (max-width: 1279px){
-  .cmp-ContentBlocksContainer .GridListWrapper .items .el {
+  .cmp-ContentBlocksContainer .GridListWrapper .items .el.hasMedia { /*1083 fix */
      padding-bottom: 62px;
+   }
+   .cmp-ContentBlocksContainer .GridListWrapper .items .el{
+     padding-bottom: 40px; /*1083 fix */
    }
  }
  /*962 fix ends */

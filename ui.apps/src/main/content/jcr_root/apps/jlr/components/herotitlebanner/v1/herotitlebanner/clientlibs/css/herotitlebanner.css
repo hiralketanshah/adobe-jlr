@@ -182,7 +182,7 @@ label {
 }
 .Pagination__pause:before,
 .cmp-herotitle-carousel .Pagination__play:before {
-  border: 2px solid #000;
+	border: 2px solid #A8AAAE;
 }
 .Pagination__pause-control-icon,
 .cmp-herotitle-carousel .Pagination__play-control-icon {
@@ -198,9 +198,15 @@ label {
 .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
   stroke: #fff;
 }
-.Pagination__pause:before {
-  border: 2px solid #fff;
-}
+.slateblue .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
+	stroke: black;
+	}
+	.cmp-herotitle-carousel .Pagination__pause:before {
+		border: 2px solid #A8AAAE;
+	}
+	.cmp-herotitle-carousel .Pagination__button-wrapper--play-pause:before {
+		border: 2px solid transparent;
+	}
 .cmp-herotitle-carousel .Pagination__pause-control-icon {
   fill: #fff;
 }
@@ -316,6 +322,10 @@ label {
 	width: 100%;
 	
 	}
+	.cmp-heroTitleBanner .summaryItemContent{
+		display: flex;
+		flex-direction: column;
+	  }
 	}
 @media screen and (min-width: 1280px){
 	.cmp-heroTitleBanner .secondaryLinkWithStyle,
@@ -331,12 +341,6 @@ label {
 	
 	.short .cmp-heroTitleBanner__image {
 		max-height: 349px
-	}
-	
-	.short .heroFooterSection,
-	.short .logo,
-	.short .pricing {
-		display: none
 	}
 	.short .summaryItemImage.cmp-heroTitleBanner__image{
 		padding-bottom: 28.65%
@@ -513,6 +517,10 @@ label {
 #landrover .cmp-heroTitleBanner .secondaryLinkWithStyle{
 	margin-bottom: 0px;
 }
+.cmp-heroTitleBanner .summaryItemContent{
+	display: flex;
+	flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 1920px){
@@ -541,10 +549,10 @@ label {
 	.cmp-heroTitleBanner {
 		padding:0px;
 	  }
-.cmp-carousel.cmp-herotitle-carousel {
-	padding: 0px;
-	margin: 0px 290px 0px 290px;
-}
+		.cmp-carousel.cmp-herotitle-carousel {
+			margin: 0px;
+			padding: 0px 290px 0px 290px;
+		}
 .cmp-heroTitleBanner .cmp-heroTitleBanner__image {
 	position: relative;
 }
@@ -561,6 +569,17 @@ label {
 .cmp-carousel__controls.cmp-heroTitleBanner_pagination {
 	padding-left: 0px;
 	bottom: 6%;
+	}
+	.cmp-carousel__controls.cmp-heroTitleBanner_pagination{
+		left: 290px;
+	}
+	.cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--next{
+    left: auto;
+    right: -59px;
+  }
+  .cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--prev{
+    left: -59px;
+    right: auto;
   }
 }
 
@@ -583,7 +602,7 @@ label {
 .grey .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown,
 .white .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown,
 .light .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
-  stroke: #D7D8D9;
+  stroke: #000000;
 }
 .grey .cmp-herotitle-carousel .st0--swiper-pagination,
 .white  .cmp-herotitle-carousel .st0--swiper-pagination, .light .st0--swiper-pagination,
@@ -604,7 +623,7 @@ label {
 	.light .cmp-herotitle-carousel .Pagination .Pagination__pip:after,
 	.grey .cmp-herotitle-carousel .Pagination .Pagination__pip:after
 	 {
-	  border: 2px solid #000;
+	  border: 2px solid #A8AAAE;
 	}
 	.grey .cmp-herotitle-carousel .Pagination__pip--active:after, .grey .cmp-herotitle-carousel .Pagination__pip--active:hover:after,
 	.light .cmp-herotitle-carousel .Pagination__pip--active:after, .light .cmp-herotitle-carousel .Pagination__pip--active:hover:after,
@@ -619,8 +638,14 @@ label {
 	.white .cmp-herotitle-carousel .Pagination .Pagination__play:before,
 	.white .cmp-herotitle-carousel .Pagination .Pagination__pause:before  
 	{
-	  border: 2px solid #000;
+		border: 2px solid #000;
 	  background-color: transparent;
+	}
+	.grey .cmp-herotitle-carousel .Pagination .Pagination__pause:before,
+	.light .cmp-herotitle-carousel .Pagination .Pagination__pause:before ,
+	.white .cmp-herotitle-carousel .Pagination .Pagination__pause:before  
+	{
+	  border: 2px solid rgba(0, 0, 0, 0.4);
   }
   @media screen and (max-width: 1279px){
 	.cmp-herotitle-carousel .cmp-carousel__slider .swiper-button--next,
@@ -852,6 +877,23 @@ label {
 	position: unset;
 	padding-bottom: 0%;
 }
+.cmp-heroTitleBanner .videoCustom::after{
+		content: "";
+		font-family: "icons";
+		font-style: normal;
+		font-weight: normal;
+		color: #fff;
+		background: unset;
+		background-color: #0c121c;
+		font-size: 68px;
+		line-height: 98px;
+		position: absolute;
+		width: 100px;
+		height: 100px;
+		z-index: 30;
+		cursor: pointer;
+		opacity: 80%;
+}
 .slateblue .cmp-herotitle-carousel .Pagination__play:before, .slateblue .cmp-herotitle-carousel .Pagination__pause:before{
 	border: 2px solid #fff;
   }
@@ -879,3 +921,8 @@ label {
   .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__pip:after{
 	  border: 2px solid #fff;
   }
+.short .heroFooterSection,
+.short .logo,
+.short .pricing {
+	display: none
+}

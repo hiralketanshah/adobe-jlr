@@ -348,10 +348,10 @@
 	.cmp-engineSpecifications .headerBlock .heading {
 		padding-top: 60px;
 		padding-bottom:23px;
-		padding-left: 60px;
+		padding-left: 30px;
 	}
 	.cmp-engineSpecifications__summary{
-		padding-left: 60px;
+		padding-left: 30px;
     	padding-bottom: 60px;
 		max-width: 760px;
 	}
@@ -361,12 +361,12 @@
 
     .cmp-engineSpecifications .ctaContainer,
 	.cmp-engineSpecifications .bottomCta	{
-		padding-left: 60px;
+		padding-left: 30px;
 		padding-bottom : 80px;
 	}
 	.cmp-engineSpecifications .ResponsiveTable {
-		padding-left:60px;
-    	padding-right:60px;
+		padding-left:30px;
+    	padding-right:30px;
 
 	}
 	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
@@ -556,7 +556,15 @@
 
 }
 /*---------code fix for 585----------*/
+.cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive){border: 1px solid #ffffff}
 @media screen and (min-width:1280px) and (max-width: 1920px){
+	.cmp-table .cmp-engineSpecifications .ResponsiveTable {
+		padding-left: 60px;
+		padding-right: 60px;
+	}
+		.cmp-table .cmp-engineSpecifications .headerBlock .heading{ padding-left: 60px;}
+	 .cmp-table .cmp-engineSpecifications__summary{padding-left: 60px;}
+	 .cmp-table .cmp-engineSpecifications .bottomCta {padding-left: 60px;}
 	.cmp-table .cmp-engineSpecifications th:first-child span{width:119px;}
 	.cmp-table .cmp-engineSpecifications table:not(.nonResponsive) tbody tr th:first-child{width:119px;}
     .cmp-table .tableHeadingWrapper p{letter-spacing:1.9px;width:760px;}
@@ -581,7 +589,7 @@
 	.cmp-table .tableHeadingWrapper p{width:589px;}
 	.cmp-table .cmp-engineSpecifications__summary p{width:524px;}
 	.cmp-table .cmp-engineSpecifications .bottomCta {
-		padding: 60px 60px 0 60px;
+		padding: 60px 60px 0 30px;
 	}
 	.cmp-table .primaryLinkWithStyle {margin-bottom:0;padding-bottom:0}
         .cmp-table .tableHeadingWrapper p{font-size:33px; line-height:33px;letter-spacing:1.65px;}
@@ -614,7 +622,7 @@
     background-color: #F8F9F9;
     border: 1px solid #ffffff;
 	border-left: 20px solid #e4e8e8;
-    border-right: 20px solid #fff;
+    border-right: 20px solid #f8f9f9;
 }
 .cmp-table--padSpace28 table tbody tr td,
 .cmp-table--padSpace28 table tbody tr th {
