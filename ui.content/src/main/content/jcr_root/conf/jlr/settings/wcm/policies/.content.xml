@@ -256,7 +256,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Config]">
+                    components="[group:JLR - Content,/apps/jlr/components/form/container,group:JLR - Config,/apps/jlr/components/carousel/v1/carousel]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
