@@ -11,9 +11,9 @@ public class DerivativeEnginePojo {
 
     private String count;
 
-    private Map<String, String> engineData;
+    private Map<String, Map<String, String>> engineData;
 
-    public DerivativeEnginePojo(String count, Map<String, String> engineData) {
+    public DerivativeEnginePojo(String count, Map<String, Map<String, String>> engineData) {
         super();
         this.count = count;
         this.engineData = engineData;
@@ -23,7 +23,7 @@ public class DerivativeEnginePojo {
         return count;
     }
 
-    public Map<String, String> getEngineData() {
+    public Map<String, Map<String, String>> getEngineData() {
         return engineData;
     }
 
