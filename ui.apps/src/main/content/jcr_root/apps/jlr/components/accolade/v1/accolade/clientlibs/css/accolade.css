@@ -384,7 +384,7 @@
   
   
   /* FIXES */
-  a {
+  .cmp-accolades a {
     font-family:"AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
   }
   #landrover .cmp-accolades .secondaryLinkWithStyle:before {
