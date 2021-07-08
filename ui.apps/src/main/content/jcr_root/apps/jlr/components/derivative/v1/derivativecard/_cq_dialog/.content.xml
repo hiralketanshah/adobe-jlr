@@ -773,9 +773,6 @@
                                                                                 </column>
                                                                             </items>
                                                                         </field>
-                                                                        <granite:data
-                                                                            jcr:primaryType="nt:unstructured"
-                                                                            maxlimit="4"/>
                                                                     </dataValues>
                                                                 </items>
                                                             </column>
