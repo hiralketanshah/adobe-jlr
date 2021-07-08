@@ -99,44 +99,5 @@ public class SnippetModelImpl extends GlobalModelImpl implements SnippetModel {
     public boolean getFirstPosition() throws RepositoryException {
         String pagecontainerPath= currentPage.getPath().concat("/jcr:content/root/container");
         return ComponentPositionUtils.getComponentPosition(pagecontainerPath,currentNode, resourceResolver);
-
-       /* String val=null;
-        Resource pageContainer = resourceResolver.getResource(currentPage.getPath().concat("/jcr:content/root/container"));
-        if (null != pageContainer) {
-            Node node = pageContainer.adaptTo(Node.class);
-            NodeIterator iterator= node.getNodes();
-            while(iterator.hasNext()){
-                Node componentNode=iterator.nextNode();
-                if (componentNode.getName().contains("container") && iterator.getPosition()==1){
-                    Resource childContainer = resourceResolver.getResource((currentPage.getPath().concat("/jcr:content/root/container/").concat(componentNode.getName()).concat("/parsys")));
-                    if (null != childContainer) {
-                        Node childNode = childContainer.adaptTo(Node.class);
-                        NodeIterator childIterator = childNode.getNodes();
-                        while (childIterator.hasNext()) {
-                            Node childComponentNode = childIterator.nextNode();
-                            if (childComponentNode.getPath().equals(currentNode.getPath()))
-                                val = String.valueOf(childIterator.getPosition());
-                        }
-                    }
-                }
-                else if (componentNode.getName().contains("carousel") && iterator.getPosition()==1){
-                    Resource childContainer = resourceResolver.getResource((currentPage.getPath().concat("/jcr:content/root/container/").concat(componentNode.getName())));
-                    if (null != childContainer) {
-                        Node childNode = childContainer.adaptTo(Node.class);
-                        NodeIterator childIterator = childNode.getNodes();
-                        while (childIterator.hasNext()) {
-                            Node childComponentNode = childIterator.nextNode();
-                            if (childComponentNode.getPath().equals(currentNode.getPath()))
-                                val = String.valueOf(childIterator.getPosition());
-                        }
-                    }
-                }
-                else if(componentNode.getPath().equals(currentNode.getPath())) {
-                    val = String.valueOf(iterator.getPosition());
-                }
-                else continue;
-            }
-        }
-        return val;*/
     }
 }
