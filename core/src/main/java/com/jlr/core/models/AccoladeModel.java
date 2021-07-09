@@ -3,8 +3,6 @@ package com.jlr.core.models;
 import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 
-import javax.jcr.RepositoryException;
-
 /**
  * The Interface AccoladeModel.
  *
@@ -21,6 +19,4 @@ public interface AccoladeModel {
     default String getBackgroundImage() {
         return StringUtils.EMPTY;
     }
-
-    default boolean getFirstPosition() throws RepositoryException { return false; }
 }

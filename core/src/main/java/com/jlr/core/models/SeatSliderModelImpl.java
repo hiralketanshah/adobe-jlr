@@ -5,17 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.utils.ComponentPositionUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
-import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -30,31 +24,19 @@ import com.jlr.core.utils.DAMFolderUtils;
  * @author Adobe
  *
  */
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {SeatSliderModel.class}, resourceType = SeatSliderModelImpl.RESOURCE_TYPE)
+@Model(adaptables = Resource.class, adapters = {SeatSliderModel.class}, resourceType = SeatSliderModelImpl.RESOURCE_TYPE)
 public class SeatSliderModelImpl extends GlobalModelImpl implements SeatSliderModel {
 
 	public static final String RESOURCE_TYPE = "jlr/components/seatslider/v1/seatslider";
 
-	/**
-	 * The current page.
-	 */
-	@Inject
-	private Page currentPage;
-
-	@Inject
-	private Node currentNode;
-
 	@ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-	@Via("resource")
 	private String folderPath;
 
 	@Inject
 	@Optional
-	@Via("resource")
 	private Resource seatSliderList;
 
 	@Inject
-	@Via("resource")
 	private ResourceResolver resourceResolver;
 
 
@@ -111,12 +93,5 @@ public class SeatSliderModelImpl extends GlobalModelImpl implements SeatSliderMo
 			return getImageList().get(0);
 		}
 		return null;
-	}
-
-	@Override
-	public boolean getFirstPosition() throws RepositoryException {
-		String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
-		return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
-
 	}
 }
