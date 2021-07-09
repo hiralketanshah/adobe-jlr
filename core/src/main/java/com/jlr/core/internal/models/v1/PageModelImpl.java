@@ -594,10 +594,10 @@ public class PageModelImpl implements PageModel {
                         pageProperties.get(CommonConstants.PN_MODELYEAR, String.class) != null ? StringUtils
                                         .substringAfterLast(pageProperties.get(CommonConstants.PN_MODELYEAR, String.class), CommonConstants.FORWARD_SLASH)
                                         : CommonConstants.BLANK_SPACE);
+        dataLayerProperties.put(CommonConstants.DL_PLATFORM, "Kestrel");
 
         try {
-            return String.format("{\"%s\":%s}", ComponentUtils.getId(this.resource, this.currentPage, this.componentContext),
-                            new ObjectMapper().writeValueAsString(dataLayerProperties));
+            return String.format("%s", new ObjectMapper().writeValueAsString(dataLayerProperties));
         } catch (JsonProcessingException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
