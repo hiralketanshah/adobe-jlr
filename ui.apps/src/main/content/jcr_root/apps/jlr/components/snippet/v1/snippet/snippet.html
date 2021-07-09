@@ -3,8 +3,7 @@
    <div class="cq-placeholder"
       data-sly-test="${!snippet.headerCopy || !snippet.copy || !snippet.ctaList}" data-emptytext="Snippet Component"></div>
    <div class="cmp-snippet shelfComponent" id="${snippet.id}">
-      ${snippet.firstPosition}
-      <sly data-sly-test.forSEO="${snippet.firstPosition==true}">
+     <sly data-sly-test.forSEO="${snippet.firstPosition==true}">
          <h1 data-sly-test="${snippet.headerCopy}" class="heading headingThick fontH2">
             <span class="headingWrapper">${snippet.headerCopy @ context="html"}</span>
          </h1>

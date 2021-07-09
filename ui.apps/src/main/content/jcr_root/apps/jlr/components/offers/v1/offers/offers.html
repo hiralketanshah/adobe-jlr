@@ -32,8 +32,7 @@
            
             <div class="offerDescription">
                 <div class="offerHeading">
-                    ${model.firstPosition}
-                    <sly data-sly-test.forSEO="${model.firstPosition==true}">
+                   <sly data-sly-test.forSEO="${model.firstPosition==true}">
                         <h1 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h1>
                     </sly>
                     <sly data-sly-test="${!forSEO}">

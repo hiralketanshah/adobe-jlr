@@ -7,8 +7,7 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
     <div class="GridListWrapper" data-wrapper="float">
         <sly data-sly-test="${contentCard.headerCopy || contentCard.copy}">
             <div data-sly-test="${contentCard.headerCopy || contentCard.copy}" class="headerBlock">
-                ${contentCard.firstPosition}
-                <sly data-sly-test.forSEO="${contentCard.firstPosition==true}">
+               <sly data-sly-test.forSEO="${contentCard.firstPosition==true}">
                     <h1 class="heading headingThick">
                     <span data-sly-test="${contentCard.headerCopy}" class="headingWrapper fontH2">
                         ${contentCard.headerCopy @ context="html"}
