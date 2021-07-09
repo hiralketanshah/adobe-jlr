@@ -10,6 +10,7 @@
         <img alt="carouselContainer" class="Picture__img" alt="${model.imageAlt}" data-dimensions="350x198" srcset="${model.logoImage}" />
     </picture>
 </div>
+<input type="hidden" name="bgimage" id="bgimagevalue" value="${model.backgroundImage ? model.backgroundImage : 'none'}"/>
 <div class="cmp-accolades__copy ${model.logoImage ? '' : 'cmp-onlyCopy'}">
     <div data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</div>
     <div  class="cmp-accolades__copy--secondary">${model.copy @context='html'}</div>
