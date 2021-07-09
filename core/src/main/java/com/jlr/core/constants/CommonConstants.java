@@ -290,6 +290,9 @@ public class CommonConstants {
     /** The Data Layer Constants. */
     public static final String DL_APPLICATION = "Application";
 
+    /** The Data Layer Constants. */
+    public static final String DL_PLATFORM = "Platform";
+
     /** The Constant DL_MARKET. */
     public static final String DL_MARKET = "Market";
 
