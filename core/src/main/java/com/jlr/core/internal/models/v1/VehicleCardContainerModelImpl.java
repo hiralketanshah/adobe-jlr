@@ -25,6 +25,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.constants.VehicleCardConstants;
 import com.jlr.core.models.VehicleCardContainerModel;
@@ -185,6 +186,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         if (CollectionUtils.isNotEmpty(vehicleCardModel.getCtaList())) {
             vehicleCardModel.getCtaList().stream().forEach(ctaPojo -> {
                 if (VehicleCardConstants.PRIMARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
+                	 if(ctaPojo.getIcon().equals("None")) {
+                     	ctaPojo.setIcon(CommonConstants.DEFAULT_PRIMARY_ICON);
+                     }
                     vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else if (VehicleCardConstants.SECONDARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                 	ctaPojo.setIcon("Chevron_Right");
