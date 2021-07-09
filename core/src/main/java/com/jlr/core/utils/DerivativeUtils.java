@@ -8,6 +8,8 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 import com.day.cq.commons.jcr.JcrConstants;
 import com.jlr.core.constants.CommonConstants;
@@ -18,8 +20,8 @@ public class DerivativeUtils {
     private DerivativeUtils() {
     }
 
-    public static Map<String, String> getDataMap(Resource engine) {
-        Map<String, String> mapOfData = new LinkedHashMap<>();
+    public static Map<String, Map<String, String>> getDataMap(Resource engine) {
+        Map<String, Map<String, String>> mapOfData = new LinkedHashMap<>();
 
         Resource dataListResource = engine.getChild(DerivativeConstants.NN_ENGINE_DATA_LIST);
         if (null != dataListResource) {
@@ -27,11 +29,23 @@ public class DerivativeUtils {
             while (data.hasNext()) {
                 Resource dataResource = data.next();
                 ValueMap properties = dataResource.adaptTo(ValueMap.class);
+                Map<String, String> mapOfDataItems = new LinkedHashMap<>();
+                Iterator<Resource> itemResource = dataResource.listChildren();
+                while(itemResource.hasNext()) {
+                	Resource itemResourceData = itemResource.next();
+                    Iterator<Resource> dataTypeResource = itemResourceData.listChildren();
+                    while(dataTypeResource.hasNext()) {
+                    	Resource dataTypeResourceData = dataTypeResource.next();
+                        ValueMap dataProperties = dataTypeResourceData.adaptTo(ValueMap.class);
+                        String pricedata=Jsoup.clean(dataProperties.get("dataValue",String.class), Whitelist.none());
+                        String enableSecondary=Jsoup.clean(dataProperties.get("enableSecondary",String.class), Whitelist.none());
+                        mapOfDataItems.put(pricedata, enableSecondary);
+                    }
+                }
                 mapOfData.put(properties.get(DerivativeConstants.PN_ENGINE_HEADING, String.class),
-                        properties.get(DerivativeConstants.PN_ENGINE_DATA, String.class));
+                		mapOfDataItems);
             }
         }
-
         return mapOfData;
 
     }
