@@ -19,7 +19,7 @@
 
 .cmp-specificationsAtAGlance__copy p, li{
     letter-spacing: 0.2px;
-    font-family: "AvenirNext-Regular";
+    font-family: "AvenirNext";
     font-size: 18px;
     line-height: 24px;
     color: #4A4F54;
@@ -82,10 +82,13 @@
 }
 
 .cmp-specificationsAtAGlance__items .description p {
-    font: normal normal bold 14px/19px AvenirNext-Regular;
+    font-family: 'AvenirNext';
+    font-weight: 700;
+	font-style: normal;
     letter-spacing: 0.2px;
     color: #4A4F54;
     text-transform: capitalize;
+    line-height: 19px;
 }
 
 .cmp-specificationsAtAGlance .cmp-ctaContainer .primaryLinkWithStyle {
