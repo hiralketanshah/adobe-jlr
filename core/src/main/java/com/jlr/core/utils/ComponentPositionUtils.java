@@ -38,7 +38,7 @@ public class ComponentPositionUtils {
                 else val=false;
             }
         } else {
-            LOGGER.error("No component Node found at : {}", pageContainer.getPath());
+            LOGGER.error("No component Node found at : {}", pageContainerPath);
         }
         return val;
     }
