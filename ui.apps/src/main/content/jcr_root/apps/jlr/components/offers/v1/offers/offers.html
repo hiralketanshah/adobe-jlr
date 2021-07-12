@@ -25,8 +25,14 @@
                         srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                     <source data-dimensions="500x216" media="(min-width: 0px)"
                         srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
-                    <img alt="" class="Picture__img" data-dimensions="1600x696"
+                    <sly data-sly-test="${model.imageAlt}">
+                        <img class="Picture__img" data-dimensions="1600x696"
                         srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
+                    </sly>
+                    <sly data-sly-test="${!model.imageAlt}">
+                        <img class="Picture__img" data-dimensions="1600x696"
+                            srcset="${model.offersImageFileReference}" alt=" " />
+                    </sly>
                 </picture>
             </div>
            

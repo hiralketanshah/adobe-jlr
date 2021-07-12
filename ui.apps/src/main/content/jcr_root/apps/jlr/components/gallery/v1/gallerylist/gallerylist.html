@@ -43,7 +43,12 @@
                       <source media="(min-width: 1025px)" srcset="${gallery.fileReference}" />
                       <source media="(min-width: 569px)" srcset="${gallery.fileReference}" />
                       <source media="(min-width: 0px)" srcset="${gallery.fileReference}" />
-                      <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
+                      <sly data-sly-test="${gallery.imageAlt}">
+                        <img alt="${gallery.imageAlt}" class="Picture__img" srcset="${gallery.fileReference}" />
+                      </sly>
+                      <sly data-sly-test="${!gallery.imageAlt}">
+                        <img alt=" " class="Picture__img" srcset="${gallery.fileReference}" />
+                      </sly>
                     </picture>
                     <h4 class="Gallery__title">${gallery.headerCopy ? gallery.headerCopy : model.mainHeaderCopy @context='html'}</h4>
                     <div class="Gallery__text">${gallery.copy @context='html'}</div>

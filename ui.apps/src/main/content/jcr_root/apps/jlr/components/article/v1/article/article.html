@@ -6,7 +6,12 @@
    <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'above'}">
    <picture class="Picture Article__Picture Article__Picture--top">
     <a href="${article.imageLink}">
+    <sly data-sly-test="${article.imageAlt}">
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </sly>
+    <sly data-sly-test="${!article.imageAlt}">
+      <img alt=" " class="Picture__img" src="${article.fileReference}"/>
+     </sly>
     </a>   
    </picture>
    <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
@@ -26,7 +31,12 @@
    <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'below'}">
    <picture class="Picture Article__Picture Article__Picture--bottom">
     <a href="${article.imageLink}">
-     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+      <sly data-sly-test="${article.imageAlt}">
+        <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+       </sly>
+       <sly data-sly-test="${!article.imageAlt}">
+         <img alt=" " class="Picture__img" src="${article.fileReference}"/>
+        </sly>
     </a>
    </picture>
    <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
