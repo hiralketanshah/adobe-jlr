@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -35,27 +39,46 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
      */
     public static final String RESOURCE_TYPE = "jlr/components/heroitem/v1/heroitem";
 
-    /** The cta list. */
+    /**
+     * The current page.
+     */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
+    /**
+     * The cta list.
+     */
     @ChildResource
     @Optional
     @Via("resource")
     private Resource ctaList;
 
-    /** The footer list. */
+    /**
+     * The footer list.
+     */
     @ChildResource
     @Optional
     @Via("resource")
     private Resource footerList;
 
-    /** The resource resolver. */
+    /**
+     * The resource resolver.
+     */
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The caveat. */
+    /**
+     * The caveat.
+     */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String caveat;
 
-    /** The price. */
+    /**
+     * The price.
+     */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String price;
 
@@ -103,5 +126,12 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
     @Override
     public String getCaveat() {
         return caveat;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
+
     }
 }

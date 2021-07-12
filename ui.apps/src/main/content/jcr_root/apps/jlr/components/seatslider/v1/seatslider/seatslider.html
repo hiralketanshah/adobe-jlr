@@ -68,8 +68,8 @@
           <!-- for when there are multiple.. tab.. things -->
           <sly data-sly-list="${seatslider.seatSliderItems}">
 	          <div class="multi tabData" data-desktop-title="${item.title}" data-item-position="${itemList.index}" data-mobile-title="${item.title}">
-	            <h1 class="largeTitle">${item.headerCopy  @ context='html'}</h1>
-	            <div class="literage">
+                <h2 class="largeTitle">${item.headerCopy  @ context='html'}</h2>
+                <div class="literage">
 	              <span class="odo-label" role="text" aria-label="${item.value}"><span aria-hidden="true" class="odo">${item.value}</span><span aria-hidden="true" class="litres">${seatslider.headerCopy @ context='html'}</span></span>
 	            </div>
 	            <div class="copy">${item.copy  @ context='html'}</div>

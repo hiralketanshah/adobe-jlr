@@ -7,7 +7,6 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.AccoladeModel;
 
-
 /**
  * The Class AccoladeModelImpl.
  *

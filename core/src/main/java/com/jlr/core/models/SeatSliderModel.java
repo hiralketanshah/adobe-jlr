@@ -7,6 +7,7 @@ import org.osgi.annotation.versioning.ConsumerType;
 
 import com.jlr.core.internal.models.v1.SeatSliderItem;
 
+
 /**
  * The Interface SeatSliderModel.
  */

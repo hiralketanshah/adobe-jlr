@@ -4,11 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.jlr.core.models.ContentCardListModel;
@@ -16,6 +18,8 @@ import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+
+import javax.jcr.Node;
 
 /**
  * The Class ContentCardModelTest.
@@ -29,6 +33,12 @@ class ContentCardModelTest extends GlobalModelImplTest {
     @InjectMocks
     private ContentCardImpl contentCardModel;
 
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
+
     /**
      * Sets the up.
      *
@@ -38,6 +48,8 @@ class ContentCardModelTest extends GlobalModelImplTest {
     @BeforeEach
     public void setup(AemContext context) {
         MockitoAnnotations.initMocks(this);
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/contentcard/contentcard.json", "/content/jlr/contentcard.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/contentcard.html");
         context.currentResource(resource);

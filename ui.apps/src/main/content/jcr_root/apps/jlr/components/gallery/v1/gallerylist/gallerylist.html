@@ -8,8 +8,13 @@
           <div class="Fullscreen__header" data-close-target="#">
               <div class="Fullscreen__header-overlay-box"></div>
               <div class="Fullscreen__information-wrapper">
+                <sly data-sly-test.forSEO="${model.firstPosition==true}">
+                    <h1 class="heading fontH3Brand Fullscreen__information-heading"></h1>
+                </sly>
+                <sly data-sly-test="${!forSEO}">
                   <h4 class="heading fontH3Brand Fullscreen__information-heading"></h4>
-                  <p class="Fullscreen__information-text"></p>
+                </sly>
+                <p class="Fullscreen__information-text"></p>
               </div>
 
               <div class="Fullscreen__buttons">
