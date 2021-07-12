@@ -1,7 +1,6 @@
 package com.jlr.core.internal.models.v1;
 
 import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,11 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
 import javax.annotation.Nullable;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -24,10 +21,10 @@ import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
+import org.apache.sling.settings.SlingSettingsService;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
 import com.adobe.cq.wcm.core.components.util.ComponentUtils;
@@ -45,7 +42,6 @@ import com.jlr.core.models.PageModel;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.DerivativeUtils;
 import com.jlr.core.utils.ErrorUtils;
-import com.jlr.core.utils.NavigationUtils;
 
 /**
  * The Class PageModelImpl.
@@ -107,6 +103,9 @@ public class PageModelImpl implements PageModel {
     /** The externalizer. */
     @Reference
     private transient Externalizer externalizer;
+
+    @Inject
+    private transient SlingSettingsService slingSettingsService;
 
     /** The page properties. */
     @ScriptVariable
@@ -178,19 +177,19 @@ public class PageModelImpl implements PageModel {
     /** The enable inline cookie js. */
     @HierarchicalPageProperty("enableInlineCookieJs")
     private String enableInlineCookieJs;
-    
+
     /** The fab desktop active. */
     @HierarchicalPageProperty("fabDesktopActive")
     private String fabDesktopActive;
-    
+
     /** The fab tablet active. */
     @HierarchicalPageProperty("fabTabletActive")
     private String fabTabletActive;
-    
+
     /** The fab mobile active. */
     @HierarchicalPageProperty("fabMobileActive")
     private String fabMobileActive;
-    
+
     /** The site notification path. */
     @HierarchicalPageProperty("siteNotificationPath")
     private String siteNotificationPath;
@@ -324,14 +323,18 @@ public class PageModelImpl implements PageModel {
      */
     private void buildImageSchemaJSON(List<String> heroImageList) {
         String externalizerDomain;
-        if (currentPage.getPath().contains("/au")) {
-            externalizerDomain = CommonConstants.AU_EXTERNALIZER_DOMAIN;
-        } else if (currentPage.getPath().contains("/de")) {
-            externalizerDomain = CommonConstants.DE_EXTERNALIZER_DOMAIN;
-        } else {
-            externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
-        }
 
+        if (slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
+            externalizerDomain = CommonConstants.RUNMODE_AUTHOR;
+        } else {
+            if (currentPage.getPath().contains("/au")) {
+                externalizerDomain = CommonConstants.AU_EXTERNALIZER_DOMAIN;
+            } else if (currentPage.getPath().contains("/de")) {
+                externalizerDomain = CommonConstants.DE_EXTERNALIZER_DOMAIN;
+            } else {
+                externalizerDomain = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
+            }
+        }
 
         JsonObject root = new JsonObject();
         root.addProperty("@type", "http://schema.org/ImageObject");
@@ -413,7 +416,14 @@ public class PageModelImpl implements PageModel {
      * @return the domain url
      */
     public String getDomainUrl() {
-        return NavigationUtils.getBaseUrl(resourceResolver);
+        String runmode;
+        if (slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
+            runmode = CommonConstants.AUTHOR_EXTERNALIZER_DOMAIN;
+        } else {
+            runmode = CommonConstants.DEFAULT_EXTERNALIZER_DOMAIN;
+        }
+
+        return CommonUtils.getBaseUrl(resourceResolver, runmode, currentPage.getPath());
     }
 
     /**
@@ -431,29 +441,32 @@ public class PageModelImpl implements PageModel {
      *
      * @return the fab desktop active
      */
+    @Override
     public String getFabDesktopActive() {
-		return fabDesktopActive;
-	}
+        return fabDesktopActive;
+    }
 
-	/**
-	 * Gets the fab tablet active.
-	 *
-	 * @return the fab tablet active
-	 */
-	public String getFabTabletActive() {
-		return fabTabletActive;
-	}
+    /**
+     * Gets the fab tablet active.
+     *
+     * @return the fab tablet active
+     */
+    @Override
+    public String getFabTabletActive() {
+        return fabTabletActive;
+    }
 
-	/**
-	 * Gets the fab mobile active.
-	 *
-	 * @return the fab mobile active
-	 */
-	public String getFabMobileActive() {
-		return fabMobileActive;
-	}
+    /**
+     * Gets the fab mobile active.
+     *
+     * @return the fab mobile active
+     */
+    @Override
+    public String getFabMobileActive() {
+        return fabMobileActive;
+    }
 
-	/**
+    /**
      * Gets the market region path.
      *
      * @return the market region path
@@ -479,7 +492,7 @@ public class PageModelImpl implements PageModel {
     public String getCookieNotificationPath() {
         return cookieNotificationPath;
     }
-    
+
     /**
      * Gets the site notification path.
      *
