@@ -350,6 +350,8 @@ public class CommonConstants {
      */
     public static final String NAMEPLATE_PATH = "/jcr:content/nameplateDetails/item0";
 
+    public static final String LOCAL_EXTERNALIZER_DOMAIN = "local";
+    public static final String AUTHOR_EXTERNALIZER_DOMAIN = "author";
     public static final String AU_EXTERNALIZER_DOMAIN = "publish-au";
     public static final String DE_EXTERNALIZER_DOMAIN = "publish-de";
     public static final String DEFAULT_EXTERNALIZER_DOMAIN = "publish";
@@ -395,6 +397,8 @@ public class CommonConstants {
      * The constant EMBARGO_LIFT_DATE.
      */
     public static final String EMBARGO_LIFT_DATE = "embargoLiftDate";
+
+
 
     /**
      * The constant LOCALE_AU.

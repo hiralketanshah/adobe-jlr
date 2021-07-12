@@ -2,21 +2,29 @@ package com.jlr.core.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.Principal;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.jackrabbit.api.security.user.UserManager;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
+import org.apache.sling.jcr.base.util.AccessControlUtil;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.propertytypes.ServiceDescription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.services.AkamaiPurge;
 import com.jlr.core.services.AkamaiPurgeConfig;
+import com.jlr.core.utils.CommonUtils;
+import com.jlr.core.utils.ErrorUtils;
 
 
 /**
@@ -43,7 +51,6 @@ public class AkamaiCachePurgeServlet extends SlingAllMethodsServlet {
 
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        LOGGER.trace("Processing GET Method => Page path: {}", request.getHeader("CQ-Path"));
         doThis(request, response);
     }
 
@@ -51,17 +58,38 @@ public class AkamaiCachePurgeServlet extends SlingAllMethodsServlet {
 
     @Override
     protected void doPost(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
-        LOGGER.trace("Processing POST Method => Page path: {}", request.getHeader("CQ-Path"));
         doThis(request, response);
 
     }
 
-    private void doThis(SlingHttpServletRequest request, SlingHttpServletResponse response) throws ServletException, IOException {
+    private void doThis(SlingHttpServletRequest request, SlingHttpServletResponse response) throws  IOException {
+        request.getUserPrincipal().getName();
         if (akamaiPurgeConfig.getEnableAkamaiAgent().equalsIgnoreCase("false")) {
-            LOGGER.trace("Osgi :: Enable Akamai Replication Agent is off, exiting!!!");
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace("Osgi :: Enable Akamai Replication Agent is off, exiting!!!");
+            }
             return;
         }
         final ResourceResolver resourceResolver = request.getResourceResolver();
+
+        UserManager userManager;
+        try {
+            userManager = AccessControlUtil.getUserManager(resourceResolver.adaptTo(Session.class));
+            Principal userPrincipal = request.getUserPrincipal();
+            LOGGER.info("Request User: {}", userPrincipal.getName());
+            if (!(CommonUtils.isUserPartOfGroup(userPrincipal, userManager, akamaiPurgeConfig.getAkamaiCacheClearGroup())
+                            || userPrincipal.getName().equalsIgnoreCase("replication-receiver"))) {
+                if (LOGGER.isTraceEnabled()) {
+                    LOGGER.trace("Preparing to exit, user not part of {} group or replication-receiver", akamaiPurgeConfig.getAkamaiCacheClearGroup());
+                }
+                return;
+            }
+        } catch (RepositoryException e) {
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
+                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, AkamaiCachePurgeServlet.class.getName(), e));
+        }
+
+
 
         String pathToPurge = request.getHeader("CQ-Path");
         if (StringUtils.isBlank(pathToPurge)) {
@@ -80,11 +108,14 @@ public class AkamaiCachePurgeServlet extends SlingAllMethodsServlet {
 
         // From Akamai Replication Agent
         if (StringUtils.isNotBlank(pathToPurge) && StringUtils.isBlank(domain)) {
-            LOGGER.trace("Processing Replication Agent condition: {}", pathToPurge);
-
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace("Processing Replication Agent condition: {}", pathToPurge);
+            }
             pathToPurge = akamaiPurgeService.buildPurgeObjectsFromReplicationAgent(resourceResolver, pathToPurge);
         } else if (StringUtils.isNotBlank(pathToPurge) && StringUtils.isNotBlank(domain)) {
-            LOGGER.trace("Processing Servlet Agent condition with domain: {} and path: {}", domain, pathToPurge);
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace("Processing Servlet Agent condition with domain: {} and path: {}", domain, pathToPurge);
+            }
             pathToPurge = akamaiPurgeService.buildPurgeObjectsFromServlet(pathToPurge, domain);
             servlet = true;
         } else {

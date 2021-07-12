@@ -34,7 +34,8 @@
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>
                         <filter><root>/apps/jlr</root></filter>
-                        
+                        <filter><root>/apps/jlr/config</root></filter>
+                        <filter><root>/apps/jlr/config/rewriter</root></filter>
 
                         <!-- Common overlay roots -->
                         <filter><root>/apps/sling</root></filter>

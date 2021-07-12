@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:OsgiConfig"
-    externalizer.domains="[local http://author-jlrstage65.adobecqms.net,author http://author-jlrstage65.adobecqms.net,publish http://jlr-stage65.adobecqms.net]"/>
+    externalizer.domains="[local https://author-jlr-stage65.adobecqms.net,author https://author-jlr-stage65.adobecqms.net,publish https://jlr-stage65.adobecqms.net,publish-de https://jlr-stage65.adobecqms.net,publish-au https://jlr-stage65.adobecqms.net]"/>

@@ -1,6 +1,8 @@
 package com.jlr.core.utils;
 
-import com.day.cq.commons.Externalizer;
+import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
+import java.util.Calendar;
+import java.util.Date;
 import org.apache.commons.lang.StringUtils;
 import org.apache.http.HttpHeaders;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -11,11 +13,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Calendar;
-import java.util.Date;
-
-import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
+import com.day.cq.commons.Externalizer;
 
 public class NavigationUtils {
 
@@ -50,7 +48,7 @@ public class NavigationUtils {
         String clientOrigin = request.getHeader("Origin");
 
         if (null != clientOrigin) {
-            if (clientOrigin.contains("myadobe") || clientOrigin.contains("jlr-dev.com")) {
+            if (clientOrigin.contains("landrover.com") || clientOrigin.contains("jlr-dev.com") || clientOrigin.contains("landrover_com_au")) {
                 LOGGER.debug("Origin Match found: {}", clientOrigin);
                 response.setHeader("Access-Control-Allow-Origin", clientOrigin);
                 response.setHeader("Access-Control-Allow-Credentials", "true");
@@ -116,7 +114,7 @@ public class NavigationUtils {
         try {
             externalPath = externalizer.externalLink(resolver, externalizerDomain, link);
         } catch (IllegalArgumentException e) {
-            externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY).replaceFirst("/",StringUtils.EMPTY);
+            externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY).replaceFirst("/", StringUtils.EMPTY);
         }
         return externalPath;
     }
