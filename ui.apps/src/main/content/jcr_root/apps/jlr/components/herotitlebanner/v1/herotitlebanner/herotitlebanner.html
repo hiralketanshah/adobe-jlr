@@ -5,7 +5,12 @@
             <div class="cmp-heroTitleBannerGridContext">
               <div class="summaryItemImage cmp-heroTitleBanner__image">
                 <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
+                <sly data-sly-test="${model.imageAlt}">
                   <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}" />
+                </sly>
+                <sly data-sly-test="${!model.imageAlt}">
+                  <img alt=" " class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}" />
+                </sly>
                 </picture>
 				<div data-sly-test="${model.assetType == 'video' && model.videoId && !model.videoPath}" class="videoCustom">
                     <img src="${model.posterImage}">

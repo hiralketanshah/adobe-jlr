@@ -16,11 +16,20 @@
         data-sly-test="${heroCarousel.assetType == 'image'}"
         class="Picture Picture--background cmp-carousel__bgImage"
       >
+      <sly data-sly-test="${heroCarousel.imageAlt}">
         <img
           alt="${heroCarousel.imageAlt}"
           class="Picture__img"
           srcset="${heroCarousel.fileReference}"
         />
+      </sly>
+      <sly data-sly-test="${!heroCarousel.imageAlt}">
+        <img
+          alt=" "
+          class="Picture__img"
+          srcset="${heroCarousel.fileReference}"
+        />
+      </sly>
       </picture>
       <video
         class="video customControl"

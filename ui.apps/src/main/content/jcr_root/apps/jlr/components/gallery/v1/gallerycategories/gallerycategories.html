@@ -39,13 +39,23 @@
                             <picture data-total="${model.categoriesCount}" class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--portrait" >
                                 <source data-orientation="portrait" media="(min-width: 550px)" srcset="${category.bgImage}" />
                                 <source data-orientation="portrait" media="(min-width: 0px)" srcset="${category.bgImage}" />
-                                <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.bgImage}" />
+                                <sly data-sly-test="${category.imageAlt}">
+                                    <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.bgImage}" />
+                                </sly>
+                                <sly data-sly-test="${!category.imageAlt}">
+                                    <img alt=" " class="Picture__img" srcset="${category.bgImage}" />
+                                </sly>
                             </picture>
 
                             <picture data-total="${model.categoriesCount}" class="Picture Picture--background GalleryCategories__background-image GalleryCategories__background-image--landscape" >
                                 <source data-orientation="landscape" media="(min-width: 1200px)" srcset="${category.bgImage}" />
                                 <source data-orientation="landscape" media="(min-width: 0px)" srcset="${category.bgImage}" />
-                                <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.bgImage}" />
+                                <sly data-sly-test="${category.imageAlt}">
+                                    <img alt="${category.imageAlt}" class="Picture__img" srcset="${category.bgImage}" />
+                                </sly>
+                                <sly data-sly-test="${!category.imageAlt}">
+                                    <img alt=" " class="Picture__img" srcset="${category.bgImage}" />
+                                </sly>
                             </picture>
 
 
