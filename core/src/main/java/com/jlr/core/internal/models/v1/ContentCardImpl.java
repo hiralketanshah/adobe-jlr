@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Via;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.models.ContentCardModel;
@@ -20,7 +27,7 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         ContentCardModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel {
 
@@ -28,21 +35,37 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
     /** The content type. */
     @Inject
+    @Via("resource")
     private String column;
 
     /** The enable stacking. */
     @Inject
+    @Via("resource")
     private String enableStacking;
 
     /** The content card list. */
     @Inject
+    @Via("resource")
     public List<ContentCardListModel> contentCardList;
 
     /** The cta list. */
-    @Inject
+    @ChildResource
+    @Via("resource")
     private Resource ctaList;
+    
+    /** The enable pricing. */
+    @Inject
+    @Via("resource")
+    private String enablePricing;
 
     /** The lists. */
     List<CTAPojo> lists = new ArrayList<>();
@@ -69,6 +92,17 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     public String getColumn() {
         return column;
     }
+    
+    /**
+     * Gets the enable pricing.
+     *
+     * @return the enable pricing
+     */
+    @Override
+    public String getEnablePricing() {
+        return enablePricing;
+    }
+
 
     /**
      * Gets the enable stacking.
@@ -90,4 +124,9 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
         return contentCardList;
     }
 
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
+    }
 }

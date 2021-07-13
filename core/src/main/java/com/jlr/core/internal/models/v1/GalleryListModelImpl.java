@@ -6,7 +6,11 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -39,9 +43,17 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
     @Inject
     private SlingHttpServletRequest request;
 
-    /** The resource resolver. */
+     /** The resource resolver. */
     @Inject
     private ResourceResolver resourceResolver;
+
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
 
     /** The previousPageLink. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -149,5 +161,11 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
      */
     public int getStartSlide() {
         return startSlide;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath= currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath,currentNode, resourceResolver);
     }
 }

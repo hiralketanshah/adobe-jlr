@@ -4,7 +4,12 @@
 		<div class="Derivative__carousel">
 		  <div class="Derivative__carousel__item">
 			<picture class="Derivative__picture Picture Picture--background" data-align="center">
+			<sly data-sly-test="${card.imageAlt}">
 			  <img alt="${card.imageAlt}" class="Picture__img lazyloaded" data-object-fit="" src="${card.fileReference}" data-srcset="${card.fileReference}" srcset="${card.fileReference}">
+			</sly>
+			<sly data-sly-test="${!card.imageAlt}">
+				<img alt=" " class="Picture__img lazyloaded" data-object-fit="" src="${card.fileReference}" data-srcset="${card.fileReference}" srcset="${card.fileReference}">
+			</sly>
 			</picture>
 		  </div>
 		</div>
@@ -20,11 +25,12 @@
 		<div data-sly-test="${card.caveat}" class="Derivative__caveat">
 			${card.caveat @context='html'}
 		</div>
-		<div class="Derivative__price">
-			<div data-sly-test="${card.priceConfigValue}" class="Derivative__price-label">
-				${card.priceConfigValue}
-			</div>
-			<div data-sly-test="${card.price}" class="Derivative__from-price">${card.price}</div>
+		<div data-sly-test="${card.price}" class="Derivative__price">
+			<sly data-sly-test="${card.isStaticPrice}">
+                    <p>${card.priceConfigValue}</p>
+                    <p><strong>${card.price}</strong></p>
+                </sly>
+				<sly data-sly-test="${!card.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=card.price, wcmmode='disabled'}"></sly>
 		</div>
 		<p class="Derivative__lease"></p>
 		<div class="Derivative__emissions-wrapper"></div>
@@ -59,7 +65,10 @@
 						<div class="Derivative__engine-body">
 						  <span class="Derivative__engine-attribute-wrapper">
 							<span class="Derivative__engine-attribute-value">
-							  <span class="Derivative__engine-attribute-primary-value">${item.engineData[engineData] @context='html'}</span>
+							<sly data-sly-list.data="${item.engineData[engineData]}">
+							  <span data-sly-test="${item.engineData[engineData][data]=='false'}" class="Derivative__engine-attribute-primary-value">${data}</span>
+							  <span data-sly-test="${item.engineData[engineData][data]=='true'}" class="Derivative__engine-attribute-secondary-value">${data}</span>
+							</sly>
 							</span>
 						  </span>
 						</div>

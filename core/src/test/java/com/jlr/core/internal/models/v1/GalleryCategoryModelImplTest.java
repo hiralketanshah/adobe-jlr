@@ -4,16 +4,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.GalleryCategoryModel;
 import com.jlr.core.pojos.GalleryCategory;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import org.mockito.Mock;
+
+import javax.jcr.Node;
 
 /**
  * The Class GalleryCategoryModelImplTest.
@@ -23,7 +26,13 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 @ExtendWith(AemContextExtension.class)
 class GalleryCategoryModelImplTest extends GlobalModelImplTest {
 
-    private GalleryCategoryModel galleryCategoryModel;
+    private GalleryCategoryModelImpl galleryCategoryModel;
+
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
 
     /**
      * Sets the up.
@@ -35,9 +44,12 @@ class GalleryCategoryModelImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     void setUp(AemContext context) {
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/gallery/gallerycategory.json", "/content/jlr/gallerycategory.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/gallerycategory.html");
-        galleryCategoryModel = resource.adaptTo(GalleryCategoryModelImpl.class);
+        context.currentResource(resource);
+        galleryCategoryModel = context.request().adaptTo(GalleryCategoryModelImpl.class);
     }
 
     @Override

@@ -20,9 +20,14 @@
 	font-weight: normal;
 
 }
+
+.cmp-quote__content-text p::first-letter{
+    text-transform: capitalize;
+}
+
 .cmp-quote__content-giver-name p{
     width:360px;
-    height:19px;
+    min-height:19px;
     font-family:"lr_ot4";
 	font-style: normal;
 	font-weight: bold;

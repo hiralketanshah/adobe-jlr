@@ -42,7 +42,12 @@
         <div class="dxnav-vehicle-info">
             <a class="dxnav-vehicle-info__hotspot" href="${vehicleCard.imageLink}" target="_self">
                 <picture class="dxnav-vehicle-info__image">
+                <sly data-sly-test="${vehicleCard.imageAlt}">
                     <img alt="${vehicleCard.imageAlt}" class="Picture__img" srcset="${vehicleCard.fileReference}" />
+                </sly>
+                <sly data-sly-test="${!vehicleCard.imageAlt}">
+                    <img alt=" " class="Picture__img" srcset="${vehicleCard.fileReference}" />
+                </sly>
                 </picture>
             </a>
             <ul class="dxnav-vehicle-info__icons">

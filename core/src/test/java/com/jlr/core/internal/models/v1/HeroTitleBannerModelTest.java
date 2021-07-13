@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.pojos.FooterPojo;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,9 @@ import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import org.mockito.Mock;
+
+import javax.jcr.Node;
 
 /**
  * The Class HeroTitleBannerModelTest.
@@ -28,6 +32,12 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
     @InjectMocks
     private HeroTitleBannerImpl heroTitleBannerModel;
 
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
+
     /**
      * Sets the up.
      *
@@ -36,9 +46,12 @@ class HeroTitleBannerModelTest extends GlobalModelImplTest {
      */
     @BeforeEach
     public void setup(AemContext context) {
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/herotitlebanner/herotitlebanner.json", "/content/jlr/herotitlebanner.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herotitlebanner.html");
-        heroTitleBannerModel = resource.adaptTo(HeroTitleBannerImpl.class);
+        context.currentResource(resource);
+        heroTitleBannerModel = context.request().adaptTo(HeroTitleBannerImpl.class);
     }
 
     @Test

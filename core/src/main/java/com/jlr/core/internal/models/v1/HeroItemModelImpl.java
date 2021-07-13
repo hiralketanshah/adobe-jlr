@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -23,7 +30,8 @@ import com.jlr.core.utils.CtaUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = { HeroItemModel.class }, resourceType = HeroItemModelImpl.RESOURCE_TYPE)
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
+        HeroItemModel.class }, resourceType = HeroItemModelImpl.RESOURCE_TYPE)
 public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel {
 
     /**
@@ -31,25 +39,46 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
      */
     public static final String RESOURCE_TYPE = "jlr/components/heroitem/v1/heroitem";
 
-    /** The cta list. */
+    /**
+     * The current page.
+     */
     @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
+    /**
+     * The cta list.
+     */
+    @ChildResource
     @Optional
+    @Via("resource")
     private Resource ctaList;
 
-    /** The footer list. */
-    @Inject
+    /**
+     * The footer list.
+     */
+    @ChildResource
     @Optional
+    @Via("resource")
     private Resource footerList;
 
-    /** The resource resolver. */
+    /**
+     * The resource resolver.
+     */
     @Inject
     private ResourceResolver resourceResolver;
 
-    /** The caveat. */
+    /**
+     * The caveat.
+     */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String caveat;
 
-    /** The price. */
+    /**
+     * The price.
+     */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String price;
 
@@ -97,5 +126,12 @@ public class HeroItemModelImpl extends GlobalModelImpl implements HeroItemModel 
     @Override
     public String getCaveat() {
         return caveat;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
+
     }
 }

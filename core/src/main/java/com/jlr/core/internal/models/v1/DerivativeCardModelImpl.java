@@ -92,7 +92,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
                 if (null != properties) {
                     String engineName = properties.get(DerivativeConstants.PN_ENGINE_NAME, String.class);
                     engineNames.add(engineName);
-                    Map<String, String> dataMap = DerivativeUtils.getDataMap(engine);
+                    Map<String, Map<String, String>> dataMap = DerivativeUtils.getDataMap(engine);
                     engineDataList.add(new DerivativeEnginePojo(String.valueOf(dataMap.size()), dataMap));
                 }
 
@@ -147,26 +147,6 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
     @Override
     public String getSpecsAtaGlanceHeading() {
         return specsAtaGlanceHeading;
-    }
-
-    @Override
-    public String getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    @Override
-    public String getPriceConfigValue() {
-        return priceConfigValue;
-    }
-
-    @Override
-    public void setPriceConfigValue(String priceConfigValue) {
-        this.priceConfigValue = priceConfigValue;
     }
 
     @Override

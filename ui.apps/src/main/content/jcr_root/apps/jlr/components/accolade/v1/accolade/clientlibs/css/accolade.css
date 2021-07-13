@@ -4,9 +4,7 @@
 .cmp-accolades-carousel .cmp-carousel__controls {	
   height: 50px !important;	
 }
-.slateblue .cmp-accolades__img .Picture__img{
-  filter: invert(1);
-}
+
 .cmp-carousel.cmp-accolades-carousel .carousel .cmp-carousel__slide {
   display: block;
 }
@@ -97,6 +95,43 @@
   .cmp-accolades__copy--secondary {
     -webkit-font-smoothing: antialiased;
   }
+
+  /* fix for  1055 start*/
+  #landrover .slateblue .cmp-accolades .secondaryLinkWithStyle:before
+  {
+    color:#FFF;
+  }
+  .slateblue .Pagination__pause-control-icon, .slateblue .cmp-accolades-carousel .Pagination__play-control-icon{
+    fill: #FFF;
+  }
+  .slateblue .cmp-accolades .cmp-accolades__copy--tertiary{
+    color:#FFF;
+  }
+  #landrover .slateblue .cmp-accolades .secondaryLinkWithStyle:before
+  {
+    text-decoration: none;
+  }
+
+  .slateblue .Pagination--black .Pagination__pip:after{
+    border: 2px solid #FFF;
+  }
+  .slateblue .Pagination--black .Pagination__pip--active:after, .Pagination--black .Pagination__pip--active:hover:after
+  {
+    background: #FFF;
+  }
+.slateblue .Pagination--black .Pagination__play:before, .Pagination--black .Pagination__pause:before
+{
+  border: 2px solid #FFF;
+}
+.slateblue .Pagination--black .Pagination__pause:before{
+  border: 2px solid #FFFF;
+}
+.slateblue .Pagination--black .Pagination__play-control-icon, .Pagination--black .Pagination__pause-control-icon{
+  fill: #FFF;
+}
+
+
+    /* fix for  1055 end*/
   
   /* NEW DEVELOPMENT */
 
@@ -316,6 +351,14 @@
     justify-content: left;
     padding-left: 290px;
   }
+  .cmp-accolades-carousel .swiper-button--next{
+    left: auto;
+    right: 235px;
+  }
+  .cmp-accolades-carousel .swiper-button--prev{
+    left: 235px;
+    right: auto;
+  }
   }
   .cmp-carousel__controls.cmp-accolades_pagination {
     position: fixed;
@@ -360,7 +403,7 @@
   
   
   /* FIXES */
-  a {
+  .cmp-accolades a {
     font-family:"AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
   }
   #landrover .cmp-accolades .secondaryLinkWithStyle:before {
@@ -371,6 +414,7 @@
   }
   #landrover .cmp-accolades .secondaryLinkWithStyle:hover::before {
     color: #C9C9C9 !important;
+    text-decoration: none;
   }
   .cmp-accolades .secondaryLinkWithStyle:hover
    {
@@ -485,5 +529,4 @@ color:#0C121C ;
     position: sticky;
   }
 }
-
 

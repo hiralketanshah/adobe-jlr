@@ -3400,11 +3400,10 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 	margin-right: 1px
 }
 
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):focus,
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover,
-.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):focus,
+/* highlight for hover but not focus */
+.dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) a:not(.cdx__list__link):hover, 
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item-showprices) a:not(.cdx__list__link):hover {
-	background-color: #e9ecec
+	background: #e9ecec
 }
 
 .dxnav-unique-nav .dxnav__secondary-items .dxnav__item:not(.dxnav__item--language-selector) .dxnav-icon,
@@ -4502,7 +4501,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		color: #e9ecec;
 		line-height: 1em;
 		letter-spacing: .173em;
-		font-weight: 500;
+		font-weight: normal;
 		font-size: 10px
 	}
 	.dxnav-unique-nav .dxnav__dropdown-overlay {
@@ -4667,7 +4666,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 /* -------------code fix for 856----------*/
 
 /* -------------code fix for KESTREL-654----------*/
-.dxnav-cta-container{
+.dxnav-cta-container,.dxnav-cta-secondary{
 	text-transform:uppercase !important;
 }
   /* -------------code fix for KESTREL-654----------*/

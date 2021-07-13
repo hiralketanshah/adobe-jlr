@@ -15,6 +15,7 @@ $('.ContentCard__Youtube').click(function () {
     url = url + '?autoplay=1';
     $('.contentCardVideo').attr('src', url);
     modal.style.display = "block";
+    $('html').css('overflow', 'hidden');
 });
 if (closeBtn) {
     closeBtn.onclick = function () {
@@ -23,6 +24,8 @@ if (closeBtn) {
             $(this).attr("src", "");
         });
         modal.style.display = "none";
+        $('html').css('overflow', 'auto');
+
     }
 }
 window.onclick = function (event) {
@@ -30,9 +33,11 @@ window.onclick = function (event) {
         if (event.target == modal) {
             $('.contentCardVideo').each(function () {
                 var el_src = $(this).attr("src");
-                $(this).attr("src", el_src);
+                $(this).attr("src", "");
             });
             modal.style.display = "none";
+            $('html').css('overflow', 'auto');
         }
     }
+ 
 }

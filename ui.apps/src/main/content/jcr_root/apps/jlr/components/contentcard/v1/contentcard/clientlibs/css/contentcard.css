@@ -1052,11 +1052,11 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   .touch
     .cmp-ContentBlocksContainer[data-template="feature-swiping"]
     .cmp-contentCardsInner {
-    -webkit-transform: translate(40px);
-    -moz-transform: translate(40px);
-    -ms-transform: translate(40px);
-    -o-transform: translate(40px);
-    transform: translate(40px);
+    -webkit-transform: translate(-10px); 
+    -moz-transform: translate(-10px);
+    -ms-transform: translate(-10px);
+    -o-transform: translate(-10px);
+    transform: translate(-10px); /*issue fix for 1083*/
   }
   .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
   .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
@@ -1563,7 +1563,7 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 /* DESKTOP START */
 @media screen and (min-width: 1280px) and (max-width: 1389px) {
   .contentcard  .cmp-ContentBlocksContainer .GridListWrapper{
-    padding-top: 51px;
+    padding-top: 60px; /*issue fix for 1083*/
     padding-right: 60px;
   } 
   /* bug fix for KESTREL-1020 start*/
@@ -1608,24 +1608,24 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     .GridListWrapper .items[data-total="3"] .cmp-ContentCard {
         clear: left;
     }
-    .GridListWrapper .items[data-total="3"] .el{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el{
       width: 31%;
       padding-left: 0;
       padding-right: 0;
       margin-right: 40px;
     }
-    .GridListWrapper .items[data-total="4"] .el{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el{
       margin-right: 40px;
       padding-left: 0;
       padding-right: 0;
       width: 22.4%;
   }
-    .GridListWrapper .items[data-total="3"] .el img{
+  .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el img{
         width: 100%;
         height: 100%;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="4"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el img{
         width: 100%;
         height: 146px;
         margin-bottom: 28px;
@@ -1655,29 +1655,29 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
         margin-top: 0px;
         padding-top: 23px;
     }
-    .GridListWrapper .items[data-total="2"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="2"] .el img{
         width: 100%;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="3"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el img{
         width: 100%;
         height: auto;
         margin-bottom: 28px;
     }
-    .GridListWrapper .items[data-total="4"] .el img{
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el img{
         width: 100%;
         height: auto;
         margin-bottom: 28px;
     }
     /* bugfix 1052 start */
-    .GridListWrapper .items[data-total="3"] .items .el {
+    .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .items .el {
       clear: left;
       width: 31%;
       padding-left: 0;
       padding-right: 0;
       margin-right: 40px;
   }
-    .GridListWrapper .items[data-total="4"] .el{
+  .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="4"] .el{
       margin-right: 40px;
       padding-left: 0;
       padding-right: 0;
@@ -1821,11 +1821,15 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   width: 100%;
   }
 
-@media screen and (min-width: 1251px) and (max-width: 2000px){
+@media screen and (min-width: 1281px) {
   .contentCard_ModalContent iframe{
      height: 653px;
-     margin: 60px 290px 87px;
+     margin: 0;
+     margin-top: 60px;     
      width: calc(100% - 580px);
+     max-width: 1340px;
+     left: 50%;
+    transform: translate(-50%, 0);
   }
 }
   
@@ -1884,8 +1888,8 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
 
 /* 939 fix */
 .cmp-ContentCard .textContainer .textContainerTop h5.heading, .heading.headingH5 {
-    font-size: 18px !important;
-    line-height: 18px !important;
+    font-size: 18px; /* removed important to fix the bug 1065 and adhere best practices*/
+    line-height: 18px; /* removed important to fix the bug 1065 and adhere best practices*/
 }
 /* 939 fix ends */
 
@@ -1934,8 +1938,25 @@ h5.heading, .heading.headingH5 {
 
  /*962 fix starts */
  @media screen and (min-width: 768px) and (max-width: 1279px){
-  .cmp-ContentBlocksContainer .GridListWrapper .items .el {
+  .cmp-ContentBlocksContainer .GridListWrapper .items .el.hasMedia { /*1083 fix */
      padding-bottom: 62px;
+   }
+   .cmp-ContentBlocksContainer .GridListWrapper .items .el{
+     padding-bottom: 40px; /*1083 fix */
    }
  }
  /*962 fix ends */
+.ContentBlocksContainer__MarketRegionalPricing {
+  text-align: left;
+  margin-top: 23px;
+}
+@media screen and (max-width: 767px){
+  .ContentBlocksContainer__MarketRegionalPricing {
+    margin-top: 16px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .ContentBlocksContainer__MarketRegionalPricing {
+    margin-top: 17px;
+  }
+}

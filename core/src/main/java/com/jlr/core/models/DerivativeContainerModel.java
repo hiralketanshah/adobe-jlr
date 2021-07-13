@@ -12,6 +12,8 @@ import org.osgi.annotation.versioning.ConsumerType;
 
 import com.jlr.core.internal.models.v1.DerivativeCardModelImpl;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface DerivativeContainerModel.
  *
@@ -59,4 +61,7 @@ public interface DerivativeContainerModel {
     default Map<String, Map<String, List<DerivativeCardModelImpl>>> getListOfDropdown() {
         return new HashMap<>();
     }
+
+    default boolean getFirstPosition() throws RepositoryException { return false; }
+
 }

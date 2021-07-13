@@ -1039,8 +1039,21 @@ fill:black;
 }
 .cmp-fullframe .linkContainer{padding-top:0;}
 .cmp-fullframe .fontBodyCopyLarge{margin-bottom:0px; min-width:524px; min-height:76px; height:auto;margin:0 auto;}
-.slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important; text-decoration:underline!important;}
-.cmp-fullframe .secondaryLinkWithStyle:hover{text-decoration:underline!important;}
+.slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important;}
+.slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important; }
+.slateblue .cmp-fullframe .secondaryLinkWithStyle:hover span, .slateblue .cmp-fullframe .secondaryLinkWithStyle:active span,
+.slateblue .cmp-fullframe .secondaryLinkWithStyle:focus span {
+    border-bottom: 1px solid transparent!important;
+}
+.cmp-fullframe .secondaryLinkWithStyle:hover span,
+.cmp-fullframe .secondaryLinkWithStyle:active span,
+
+.cmp-fullframe .secondaryLinkWithStyle:focus span{border-bottom: 1px solid transparent!important;}
+
+.cmp-fullframe .secondaryLinkWithStyle span:hover,
+.cmp-fullframe .secondaryLinkWithStyle span:active, 
+.cmp-fullframe .secondaryLinkWithStyle span:focus
+{text-decoration:underline;}
 .cmp-fullframe .videoCustom:after {
     content: "";
     font-family: "icons";
@@ -1098,7 +1111,7 @@ left: 50px;
     display: block;
     padding: 28px 0 0 30px;
     -webkit-font-smoothing: antialiased;
-    margin-left:10%;
+    margin-left:0;
     width: 1200px;
 }
   .cmp-fullframe .headerClass{min-height:150px;}

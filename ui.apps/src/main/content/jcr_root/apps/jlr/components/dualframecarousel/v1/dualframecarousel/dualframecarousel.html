@@ -9,9 +9,9 @@
 
             <div class="cmp-dualFrameItemGridContext ">
               <div class="summaryItemContent cmp-genericItem__content">
-                <h2 class="summaryItemHeader heading headingH4 cmp-dualFrameItem__header fontQuote">
-                  <span class="headingWrapper">${model.headerCopy @context='html'}</span>
-                </h2>
+                  <h2 class="summaryItemHeader heading headingH4 cmp-dualFrameItem__header fontQuote">
+                      <span class="headingWrapper">${model.headerCopy @context='html'}</span>
+                  </h2>
                 <p>${model.copy @context='html'}</p>
 
 				<div class="linkContainer">
@@ -28,7 +28,12 @@
               </div>
               <div class="summaryItemImage cmp-dualFrameItem__image">
                 <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
-                  <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}"/>
+                  <sly data-sly-test="${model.imageAlt}">
+                    <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}"/>
+                  </sly>
+                  <sly data-sly-test="${!model.imageAlt}">
+                    <img alt=" " class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}"/>
+                  </sly>
                 </picture>
 				<div data-sly-test="${model.assetType == 'video'}" class="videoCustom">
                   <img src="${model.posterImage}">

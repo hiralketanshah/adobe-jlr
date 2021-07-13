@@ -6,7 +6,12 @@
 	 <div class="cmp-fullframe" id="${model.id}">
 	<div class="cmp-genericItem__element-poster">
       <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
-        <img alt="${model.imageAlt}" class="Picture__img" srcset="${model.fileReference}" />
+        <sly data-sly-test="${model.imageAlt}">
+          <img alt="${model.imageAlt}" class="Picture__img" srcset="${model.fileReference}" />
+        </sly>
+        <sly data-sly-test="${!model.imageAlt}">
+          <img alt=" " class="Picture__img" srcset="${model.fileReference}" />
+        </sly>
       </picture>
         <div data-sly-test="${model.assetType == 'video'}" class="videoCustom">
            <img src="${model.posterImage}">
