@@ -163,6 +163,7 @@ text-transform: uppercase;
 .grey .cmp-dualFrameSlider p, .light .cmp-dualFrameSlider p, .white .cmp-dualFrameSlider p {
 
     color: #4A4F54;
+    
 }
 .cmp-dualFrameSlider .primaryLinkWithStyle,
 .cmp-dualFrameSlider .secondaryLinkWithStyle{
@@ -411,3 +412,4 @@ html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
         letter-spacing: 1.07px;
     }
 }
+.cmp-dualFrameSlider .fontBodyCopy p{font-family:'AvenirNext-Regular' ;}

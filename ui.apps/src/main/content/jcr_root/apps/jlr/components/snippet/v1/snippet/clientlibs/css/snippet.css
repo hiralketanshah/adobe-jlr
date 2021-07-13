@@ -284,6 +284,7 @@
 .snippet .primaryLinkContainer {margin-top: 24px!important;}
 .snippet .primaryLinkWithStyle{margin-bottom:0px;}
 }
+.snippet .fontBodyCopyLarge p{font-family: 'AvenirNext-Regular';}
   /* code fix for defect 567 */
 
 
