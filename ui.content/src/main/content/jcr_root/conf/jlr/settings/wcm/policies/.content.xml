@@ -543,6 +543,22 @@
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item2>
+                                <item3
+                                    cq:styleGroupLabel="Vertical Alignment"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="top"
+                                            cq:styleId="1626157994648"
+                                            cq:styleLabel="Top"
+                                            jcr:primaryType="nt:unstructured"/>
+                                        <item1
+                                            cq:styleClasses="center"
+                                            cq:styleId="1626157998746"
+                                            cq:styleLabel="Center"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item3>
                             </cq:styleGroups>
                         </policy_1616070143899>
                     </signpostvehiclesummary>
