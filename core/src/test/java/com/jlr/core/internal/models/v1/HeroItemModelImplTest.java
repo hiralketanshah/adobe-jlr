@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.jlr.core.pojos.FooterPojo;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,6 +20,8 @@ import com.jlr.core.services.TcoService;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+
+import javax.jcr.Node;
 
 /**
  * The Class HeroCarouselModelImplTest.
@@ -36,6 +39,9 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     private Page currentPage;
 
     @Mock
+    private Node currentNode;
+
+    @Mock
     private InheritanceValueMap pageProperties;
 
     @Mock
@@ -50,16 +56,24 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
     @BeforeEach
     public void setup(AemContext context) {
         MockitoAnnotations.initMocks(this);
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/herocarousel/herocarousel.json", "/content/jlr/herocarousel.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/herocarousel.html");
-        heroItemModel = resource.adaptTo(HeroItemModelImpl.class);
+        context.currentResource(resource);
+        heroItemModel = context.request().adaptTo(HeroItemModelImpl.class);
+    }
+
+    @Test
+    void testProperties(){
+        assertEquals("caveatText",heroItemModel.getCaveat());
     }
 
     /**
      * Test properties.
      */
     @Test
-    void testProperties() {
+    void testCtaProperties() {
         List<CTAPojo> list = heroItemModel.getCtaList();
         assertEquals(1, list.size());
         list.forEach(item -> {
@@ -71,4 +85,13 @@ class HeroItemModelImplTest extends GlobalModelImplTest {
 
     }
 
+    @Test
+    void testFooterList() {
+        List<FooterPojo> list = heroItemModel.getFooterList();
+        assertEquals(1, list.size());
+        list.forEach(item -> {
+            assertEquals("Copy", item.getCopy());
+            assertEquals("Header", item.getHeader());
+        });
+    }
 }

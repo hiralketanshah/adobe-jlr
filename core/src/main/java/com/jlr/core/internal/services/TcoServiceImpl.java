@@ -69,6 +69,42 @@ public class TcoServiceImpl implements TcoService {
     }
 
     @Override
+    public String getPriceConfigForStaticPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
+            Page currentPage, String configKey) {
+
+        String region = getRegionFromPage(currentPage, resourceResolver);
+        PricingPojo pricingPojo = new PricingPojo();
+        if (region.equalsIgnoreCase("en_au")) {
+
+            Cookie stateCode = request.getCookie(JLR_LOCALE_PRICING);
+
+            if (null == stateCode) {
+                stateCode = (Cookie) request.getAttribute(JLR_LOCALE_PRICING);
+            }
+
+            if (null == stateCode || !validState(stateCode.getValue(), listOfStates)) {
+                return StringUtils.EMPTY;
+            }
+
+            String stateCookieValue = stateCode.getValue();
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.info("Australian state detected from cookies is {}", stateCookieValue);
+            }
+            pricingPojo.setStateCode(stateCookieValue.toLowerCase());
+        }
+        Map<String, String> configMap = dictionary.getConfigMap(resourceResolver, request.getResource(), currentPage);
+        String configValue = configMap.get(configKey);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.info("Config Key : {} and Price : {}", configKey, pricingPojo.getModelPrice());
+        }
+        if (StringUtils.isNotEmpty(pricingPojo.getStateCode()) && StringUtils.isNotEmpty(configValue)) {
+            configValue = configValue.replace("{state}", pricingPojo.getStateCode().toUpperCase());
+        }
+        return configValue;
+
+    }
+
+    @Override
     public Map<String, String> getModelPrice(ResourceResolver resourceResolver, SlingHttpServletRequest request,
             Page currentPage, InheritanceValueMap pageProperties, String priceMacro, String configKey) {
 

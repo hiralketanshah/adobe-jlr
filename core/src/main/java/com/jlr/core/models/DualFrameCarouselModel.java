@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 
-
 /**
  * The Interface DualFrameCarouselModel.
  *
@@ -30,5 +29,4 @@ public interface DualFrameCarouselModel {
     default String getAssetType() {
         return StringUtils.EMPTY;
     }
-
 }

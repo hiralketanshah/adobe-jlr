@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,9 @@ import com.jlr.core.pojos.CTAPojo;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import org.mockito.Mock;
+
+import javax.jcr.Node;
 
 /**
  * The Class SnippetModelImplTest.
@@ -24,6 +28,12 @@ class SnippetModelImplTest extends GlobalModelImplTest {
 
     /** The snippet model. */
     SnippetModelImpl snippetModel;
+
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
 
     /** The resource. */
     private Resource resource;
@@ -38,9 +48,12 @@ class SnippetModelImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/snippet/snippet.json", "/content/jlr/snippet.html");
         resource = context.resourceResolver().getResource("/content/jlr/snippet.html");
-        snippetModel = resource.adaptTo(SnippetModelImpl.class);
+        context.currentResource(resource);
+        snippetModel = context.request().adaptTo(SnippetModelImpl.class);
     }
 
     /**
@@ -65,5 +78,6 @@ class SnippetModelImplTest extends GlobalModelImplTest {
     @Test
     void testGetEnablePricing() {
         assertEquals("true", snippetModel.getEnablePricing());
+        assertEquals("/content/jlr/au",snippetModel.getMarketRegionPath());
     }
 }

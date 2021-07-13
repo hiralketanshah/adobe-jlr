@@ -2762,7 +2762,7 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 	content: "\e904"
 }
 
-.icon-arrow-right:before {
+.icon-chevron-right:before {
 	content: "\e905"
 }
 
@@ -2946,76 +2946,80 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
     content: "\e935"
 }
 
-.icon-dx-save:before {
-    content: "\e936"
+.icon-arrow-right:before {
+	content: "\e936"
 }
 
-.icon-search:before {
+.icon-dx-save:before {
     content: "\e937"
 }
 
-.icon-dx-search-inventory:before {
+.icon-search:before {
     content: "\e938"
 }
 
-.icon-dx-secure:before {
+.icon-dx-search-inventory:before {
     content: "\e939"
 }
 
-.icon-service:before {
+.icon-dx-secure:before {
     content: "\e93a"
 }
 
-.icon-servicehistory:before {
+.icon-service:before {
     content: "\e93b"
 }
 
-.icon-servicepreferred-evo-jaguar:before {
+.icon-servicehistory:before {
     content: "\e93c"
 }
 
-.icon-dx-share:before {
+.icon-servicepreferred-evo-jaguar:before {
     content: "\e93d"
 }
 
-.icon-shop:before {
+.icon-dx-share:before {
     content: "\e93e"
 }
 
-.icon-sound:before {
+.icon-shop:before {
     content: "\e93f"
 }
 
-.icon-dx-keep-me-informed:before {
+.icon-sound:before {
     content: "\e940"
 }
 
-.icon-dx-time:before {
+.icon-dx-keep-me-informed:before {
     content: "\e941"
 }
 
-.icon-videoguides-evo-jaguar:before {
+.icon-dx-time:before {
     content: "\e942"
 }
 
-.icon-view-vehicles:before {
+.icon-videoguides-evo-jaguar:before {
     content: "\e943"
 }
 
-.icon-dx-warning:before {
+.icon-view-vehicles:before {
     content: "\e944"
 }
 
-.icon-dx-web-link:before {
+.icon-dx-warning:before {
     content: "\e945"
 }
 
+.icon-dx-web-link:before {
+    content: "\e946"
+}
+
 .icon-zoom_in:before {
-	content: "\e946"
+	content: "\e947"
 }
 
 .icon-zoom_out:before {
-	content: "\e947"
+	content: "\e948"
 }
 
 html {

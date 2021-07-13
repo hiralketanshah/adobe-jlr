@@ -53,6 +53,7 @@ public class DerivativeImpl implements Derivative {
                     Resource cardResource = containerResourceIterator.next();
                     if (null != cardResource) {
                         DerivativeCardModelImpl card = cardResource.adaptTo(DerivativeCardModelImpl.class);
+                        card.setRequest(request);
                         listOfCards.add(card);
                     }
                 }

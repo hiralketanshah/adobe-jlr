@@ -7,6 +7,8 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jlr.core.pojos.GalleryCategory;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface GalleryCategoryModel.
  */
@@ -38,5 +40,7 @@ public interface GalleryCategoryModel {
     default int getCategoriesCount() {
         return 0;
     }
+
+    default boolean getFirstPosition() throws RepositoryException { return false; }
 
 }

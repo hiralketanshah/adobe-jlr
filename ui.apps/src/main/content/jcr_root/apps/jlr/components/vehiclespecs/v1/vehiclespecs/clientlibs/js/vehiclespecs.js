@@ -1,3 +1,24 @@
+// bugfix 1065 start
+$(document).ready(function(){
+  $(window).on('load', function(){
+    if($(".RulesEngineDropdown__dropdowns").hasClass("displayBlock")){
+      $(".RulesEngineDropdown__dropdowns").removeClass("displayBlock");
+      $(".RulesEngineDropdown__dropdowns-container").show();
+
+    }
+    else{
+      $(".RulesEngineDropdown__dropdowns-container").hide();
+      $(".RulesEngineDropdown__dropdowns").addClass("displayBlock");
+    }
+  });
+});
+setTimeout(displayRuleEngineBlock, 10);
+function displayRuleEngineBlock(){
+  $(".RulesEngineDropdown__dropdowns").addClass("displayBlock");
+  $(".RulesEngineDropdown__dropdowns-container").hide();
+}
+// bugfix 1065 end
+
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

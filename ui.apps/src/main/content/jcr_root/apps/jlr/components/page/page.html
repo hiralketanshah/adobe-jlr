@@ -37,15 +37,9 @@
          </sly>
          <div id="landrover">
             <div class="sharedNavigation" data-fallback-status="None" data-response-status-code="200">
-               <sly data-sly-test.cqTemplate="${pageProperties.cq:template}">
-                  <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/gallery-page-template'}">
-                     <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/empty-page-template'}">
-                        <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/redirect-page-template'}">
-                           <sly data-sly-test="${pageConfig.headerPath}" data-sly-resource="${pageConfig.headerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
-                        </sly>
-                     </sly>
-                  </sly>
-                </sly>
+               <sly data-sly-test="${pageConfig.includeHeaderFooter}">
+                  <sly data-sly-test="${pageConfig.headerPath}" data-sly-resource="${pageConfig.headerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
+               </sly>
             </div>
             <div class="skip-link">
                <a class="primaryLinkWithStyle skipLink" href="#content" tabindex="1">${pageConfig.skipToMainTitle}</a>
@@ -63,15 +57,9 @@
                <sly data-sly-call="${footer.footer @ page = page}"></sly>
                <sly data-sly-include="body.socialmedia_end.html"></sly>
             </sly>
-            <sly data-sly-test.cqTemplate="${pageProperties.cq:template}">
-            <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/gallery-page-template'}">
-               <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/empty-page-template'}">
-                  <sly data-sly-test="${cqTemplate != '/conf/jlr/settings/wcm/templates/redirect-page-template'}">
-                     <sly data-sly-test="${pageConfig.footerPath}" data-sly-resource="${pageConfig.footerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
-                  </sly>
-               </sly>
+            <sly data-sly-test="${pageConfig.includeHeaderFooter}">
+               <sly data-sly-test="${pageConfig.footerPath}" data-sly-resource="${pageConfig.footerPath @ appendPath='jcr:content/root', wcmmode='disabled'}"/>
             </sly>
-         </sly>
          </div>
       </body>
       </sly>

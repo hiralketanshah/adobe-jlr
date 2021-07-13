@@ -4,7 +4,8 @@
 }
 
 .cmp-specificationsAtAGlance__heading {
-    margin: 0 auto 23px;
+    margin: 0;
+    padding: 0;
 }
 
 .cmp-specificationsAtAGlance__heading .cmp-specificationsAtAGlance__heading-wrapper p {
@@ -16,20 +17,24 @@
     text-transform: uppercase;
 }
 
-.cmp-specificationsAtAGlance__copy p {
+.cmp-specificationsAtAGlance__copy p, li{
     letter-spacing: 0.2px;
-    font-family: "AvenirNext-Regular";
+    font-family: "AvenirNext";
     font-size: 18px;
     line-height: 24px;
     color: #4A4F54;
 }
 
-.cmp-specificationsAtAGlance__copy p:First-letter {
+.cmp-specificationsAtAGlance__copy p:First-letter, li::first-letter {
     text-transform: capitalize;
 }
 
 .cmp-specificationsAtAGlance__copy {
-    margin-bottom: 81px;
+    margin-top: 23px;
+}
+
+.cmp-header_div {
+    margin-bottom: 80px;
 }
 
 .cmp-specificationsAtAGlance h3.feature p {
@@ -64,7 +69,7 @@
 }
 
 .cmp-specificationsAtAGlance .measurement.dividerBlock {
-    margin-bottom: 18px;
+    margin-bottom: 19px;
 }
 
 .cmp-specificationsAtAGlance__items.items .measurement span.unitLarge {
@@ -77,21 +82,32 @@
 }
 
 .cmp-specificationsAtAGlance__items .description p {
-    font: normal normal bold 14px/19px AvenirNext-Regular;
+    font-family: 'AvenirNext';
+    font-weight: 700;
+	font-style: normal;
     letter-spacing: 0.2px;
     color: #4A4F54;
     text-transform: capitalize;
+    line-height: 19px;
 }
 
 .cmp-specificationsAtAGlance .cmp-ctaContainer .primaryLinkWithStyle {
-    margin: 13px 26px 14px 0;
+    margin: 13px 26px 0 0;
 }
 
 .cmp-specificationsAtAGlance .cmp-specificationsAtAGlance__items .el {
     padding-right: 40px;
     padding-bottom: 27px;
+    padding-left: 0;
 }
 
+.cmp-specificationsAtAGlance__copy ol {
+	list-style: auto;
+}
+
+.cmp-specificationsAtAGlance__copy ul {
+	list-style: initial;
+}
 
 /* mobile view */
 
@@ -103,28 +119,30 @@
         font-size: 26px;
         letter-spacing: 1.3px;
         line-height: 26px;
-    }
-    .cmp-specificationsAtAGlance__heading {
-        margin-bottom: 16px;
-    }
-    .cmp-specificationsAtAGlance__copy {
-        margin-bottom: 40px;
         width: 325px;
     }
-    .cmp-specificationsAtAGlance__copy p {
+    .cmp-specificationsAtAGlance__heading {
+       margin: 0;
+    }
+    .cmp-specificationsAtAGlance__copy {
+        margin-top: 16px;
+        width: 325px;
+    }
+    .cmp-specificationsAtAGlance__copy p, li {
         font-size: 14px;
         line-height: 19px;
     }
-    /* .cmp-specificationsAtAGlance h3.feature p {
+    .cmp-specificationsAtAGlance h3.feature p {
         font-size: 14px;
         letter-spacing: 0.71px;
-    } */
+    }
     .cmp-specificationsAtAGlance .measurement.dividerBlock {
-        margin-bottom: 19px;
+        margin-bottom: 18px;
     }
     .cmp-specificationsAtAGlance .items .el {
         margin-bottom: 24px;
         display: inline-block;
+        padding: 0;
     }
     .cmp-specificationsAtAGlance .items .el,
     .cmp-specificationsAtAGlance .items[data-total="1"] .el,
@@ -136,6 +154,15 @@
     .cmp-specificationsAtAGlance .items[data-total="8"] .el {
         width: 100%
     }
+    .cmp-header_div {
+        margin-bottom: 40px;
+    }
+    .cmp-specificationsAtAGlance h3.feature {
+        margin-bottom: 0;
+    }
+    .cmp-specificationsAtAGlance .cmp-ctaContainer .primaryLinkWithStyle {
+        margin-top: 16px;
+    }
 }
 
 
@@ -146,10 +173,11 @@
         padding: 40px 30px 80px 30px;
     }
     .cmp-specificationsAtAGlance__heading {
-        margin-bottom: 17px;
+        margin: 0;
+        width: 524px;
     }
     .cmp-specificationsAtAGlance__copy {
-        margin-bottom: 60px;
+        margin-top: 17px;
         width: 519px;
     }
     .cmp-specificationsAtAGlance__heading .cmp-specificationsAtAGlance__heading-wrapper p {
@@ -157,7 +185,7 @@
         letter-spacing: 1.5px;
         line-height: 30px;
     }
-    .cmp-specificationsAtAGlance__copy p {
+    .cmp-specificationsAtAGlance__copy p, li {
         font-size: 14px;
         line-height: 19px;
     }
@@ -180,6 +208,15 @@
     .cmp-specificationsAtAGlance .items .el {
         float: left;
     }
+    .cmp-header_div {
+        margin-bottom: 60px;
+    }
+    .cmp-specificationsAtAGlance .cmp-ctaContainer .primaryLinkWithStyle {
+        margin-top: 20px;
+    }
+    .cmp-specificationsAtAGlance .measurement.dividerBlock {
+        margin-bottom: 18px;
+    }
 }
 
 
@@ -188,6 +225,12 @@
 @media screen and (min-width: 1280px) and (max-width: 1919px) {
     .cmp-specificationsAtAGlance__copy {
         width: 760px;
+    }
+    .cmp-specificationsAtAGlance__heading .cmp-specificationsAtAGlance__heading-wrapper p {
+        width: 760px;
+    }
+    .cmp-specificationsAtAGlance .items .el {
+        float: left;
     }
 }
 
@@ -200,6 +243,12 @@
     }
     .cmp-specificationsAtAGlance__copy {
         width: 880px;
+    }
+    .cmp-specificationsAtAGlance__heading .cmp-specificationsAtAGlance__heading-wrapper p {
+        width: 765px;
+    }
+    .cmp-specificationsAtAGlance .items .el {
+        float: left;
     }
 }
 

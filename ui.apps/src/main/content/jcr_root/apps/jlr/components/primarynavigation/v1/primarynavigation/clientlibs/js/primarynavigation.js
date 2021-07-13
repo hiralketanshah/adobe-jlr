@@ -4371,9 +4371,7 @@
 				t = s.querySelector(".dxnav__dropdown-container .dxnav-dropdown.dxnav-active"),
 				n = s.querySelector(".dxnav__dropdown");
 			if (!e) return a.cssVars.set(i.CSS_VAR_MAIN_DROPDOWN_HEIGHT, 0);
-			a.cssVars.set(i.CSS_VAR_MAIN_DROPDOWN_HEIGHT, t.clientHeight + "px"), setTimeout(function () {
-				return n.scroll(0, 0)
-			}, 200)
+            a.cssVars.set(i.CSS_VAR_MAIN_DROPDOWN_HEIGHT, t.clientHeight + "px")
 		};
 	t.setDropdownHeightOnMutation = function () {
 		s = document.querySelector(".dxnav__primary"), new MutationObserver((0, a.debounce)(o)).observe(s, r)

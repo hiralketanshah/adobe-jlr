@@ -370,6 +370,11 @@ h2.heading,
     .VehicleSpecsRulesEngine__specs {
       padding: 0px;
   }
+  .VehicleSpecsRulesEngine__specs-cta{
+    min-height: 45px;
+    margin-top: 35px;
+    margin-left: 30px;
+  }
   }
   @media screen and (min-width: 768px) and (max-width: 1279px)  {
     .VehicleSpecsRulesEngine__specs-cta{
@@ -434,6 +439,9 @@ h2.heading,
       padding: 0px;
       padding-bottom: 40px;
       }
+      .VehicleSpecsRulesEngine__specs-title {
+        margin-bottom: 17px;
+      }
   }
   @media screen and (min-width: 1280px) {
     .VehicleSpecsRulesEngine__specs-cta{
@@ -459,7 +467,12 @@ h2.heading,
           display: flex;
           flex-wrap: wrap;
           flex: 1;
+        } 
+        /*bugfix 1065 start*/
+         .RulesEngineDropdown__dropdowns.displayBlock {
+          display: inline-flex;
         }
+        /*bugfix 1065 end*/
       .cmp-vehicleSpecsRulesEngine.stack  .RulesEngineDropdown__dropdowns{
         display: flex;
         flex-direction: column;
@@ -517,11 +530,11 @@ h2.heading,
      .RulesEngineDropdown__dropdown-button span{
        font-family: 'AvenirNext';
        text-align: left;
-       font-size: 11px;
+       font-size: 10px; /*bugfix-1065*/
        letter-spacing: 0.45px;
        color: #0C121CCC;
        text-transform: uppercase;
-       line-height: 19px;
+       line-height: 12px; /*bugfix-1065*/
      }
     /* table coloumn  */
     .TechSpecsTable__heading,.TechSpecsTable__cell{
@@ -536,7 +549,7 @@ h2.heading,
     @media screen and (min-width: 768px) and (max-width: 1279px){
       .VehicleSpecsRulesEngine__specs-title{
         width: 524px;
-        height: 40px;
+        min-height: 40px;
       }
       /* vechicle title  */
       .VehicleSpecsRulesEngine__specs-heading .heading.headingH2,.VehicleSpecsRulesEngine__specs-title h2{
@@ -571,7 +584,7 @@ h2.heading,
         line-height: 24px;
       }
       .cmp-vehicleSpecsRulesEngine .dxAccordion__trigger .dxAccordion__title{
-        height: 20px;
+        min-height: 20px;
       }
     }
     @media screen and (max-width: 767px){
@@ -608,6 +621,12 @@ h2.heading,
       }
     }
     @media screen and (min-width: 1280px){
+      .cmp-vehicleSpecsRulesEngine .TechSpecsTable__heading{
+        width: 73.9%;
+      }
+      .cmp-vehicleSpecsRulesEngine .TechSpecsTable__heading, .TechSpecsTable__cell{
+        padding-left: 40px;
+      }
 
      /* vechicle title  */
      .VehicleSpecsRulesEngine__specs-heading .heading.headingH2{
@@ -706,9 +725,20 @@ h2.heading,
     font-weight: 400;
   }
   .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p{
-    height: 15px;
+    min-height: 15px;
   }
 }
+/*bugfix 1065 start*/
+.RulesEngineDropdown__dropdown-button{
+  padding: 13px 34px 13px 14px;
+  letter-spacing: 0.45px;
+  font-weight: normal;
+  font-size: 11px;
+  color: #0C121CCC;
+  line-height: 16px;
+ }
+ /*bugfix 1065 end*/
+
 @media screen and (min-width: 1280px){
   .VehicleSpecsRulesEngine__specs-heading{
     padding-left: 0px;
@@ -719,6 +749,7 @@ h2.heading,
   }
   .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p{
     height: 19px;
+    line-height: 18px; /*bugfix-1065*/
   }
   .stack .RulesEngineDropdown__dropdown{
     margin-right: 0px;
@@ -728,14 +759,21 @@ h2.heading,
   }
    .RulesEngineDropdown__dropdown--model .dxDropdown__button,
    .RulesEngineDropdown__dropdown--bodystyle .dxDropdown__button,
-   .RulesEngineDropdown__dropdown--specpack .dxDropdown__button{
+   .RulesEngineDropdown__dropdown--specpack .dxDropdown__button,
+   .RulesEngineDropdown__dropdown--engine .dxDropdown__button
+   {
     padding-top: 13px;
-    height: 42px;
+    min-height: 42px;
+   }
+  .stack .RulesEngineDropdown__dropdown--engine .dxDropdown__button
+  {
+    padding-top: 13px;
+    height: fit-content;
    }
 
   .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-title{
     width: 760px;
-    height: 51px;
+    min-height: 51px;
   }
   .cmp-vehicleSpecsRulesEngine .VehicleSpecsRulesEngine__specs-engine{
     width: 760px;
@@ -747,6 +785,12 @@ h2.heading,
     max-width: 360px;
   }
   .stack [data-items="3"] .RulesEngineDropdown__dropdown {
+    min-width: 100%;
+  }
+  [data-items="4"] .RulesEngineDropdown__dropdown {
+    max-width: 260px;
+  }
+  .stack [data-items="4"] .RulesEngineDropdown__dropdown {
     min-width: 100%;
   }
   .VehicleSpecsRulesEngine__specs-title {
@@ -776,6 +820,12 @@ h2.heading,
   max-width: 420px;
 }
  .stack [data-items="3"] .RulesEngineDropdown__dropdown {
+  min-width: 100%;
+}
+[data-items="4"] .RulesEngineDropdown__dropdown {
+  max-width: 330px;
+}
+.stack [data-items="4"] .RulesEngineDropdown__dropdown {
   min-width: 100%;
 }
 
@@ -832,6 +882,7 @@ h2.heading,
 }
 .cmp-vehicleSpecsRulesEngine .dxDropdown__button {
   border: none;
+  padding-right: 34px; /*bugfix 1065 */
 }
 .cmp-vehicleSpecsRulesEngine .dxDropdown__button:after, .cmp-vehicleSpecsRulesEngine .dxDropdown__button:after {
   border: 1px solid #0C121C4D;
@@ -873,3 +924,18 @@ h2.heading,
 }
 /* THEME */
 /* KESTREL-926 */
+
+.VehicleSpecsRulesEngine .TechSpecsTable__row{
+  height: 54px;
+}
+.VehicleSpecsRulesEngine .TechSpecsTable__heading,.VehicleSpecsRulesEngine .TechSpecsTable__cell{
+ padding-top: 19px;
+ padding-bottom: 21px;
+}
+
+.cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown .dxDropdown__button:hover {
+  background-color: #F0F0F0;
+}
+.cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading{
+  text-transform: capitalize;
+}

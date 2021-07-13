@@ -16,11 +16,20 @@
         data-sly-test="${heroCarousel.assetType == 'image'}"
         class="Picture Picture--background cmp-carousel__bgImage"
       >
+      <sly data-sly-test="${heroCarousel.imageAlt}">
         <img
           alt="${heroCarousel.imageAlt}"
           class="Picture__img"
           srcset="${heroCarousel.fileReference}"
         />
+      </sly>
+      <sly data-sly-test="${!heroCarousel.imageAlt}">
+        <img
+          alt=" "
+          class="Picture__img"
+          srcset="${heroCarousel.fileReference}"
+        />
+      </sly>
       </picture>
       <video
         class="video customControl"
@@ -42,27 +51,38 @@
         <div class="headerClass">
 			<div class="${heroCarousel.headerIcon} logo"></div>
 			<div class="headingAndCopy">
-				<h2 class="heading headingThick fontH2">
+             <sly data-sly-test.forSEO="${heroCarousel.firstPosition==true}">
+                <h1 class="heading headingThick fontH2">
 					<span class="headingWrapper">
 					  ${heroCarousel.headerCopy @ context='html'}
 					</span>
-				  </h2>
-				  <div class="headerCopy">
+                </h1>
+              </sly>
+              <sly data-sly-test="${!forSEO}">
+                <h2 class="heading headingThick fontH2">
+					<span class="headingWrapper">
+					  ${heroCarousel.headerCopy @ context='html'}
+					</span>
+                </h2>
+              </sly>
+				  <div data-sly-test="${heroCarousel.copy}" class="headerCopy">
 					<p>${heroCarousel.copy @context='html'}</p>
 				  </div>
 			</div>
        
         </div>
-        <div class="contentClass">
+        <div data-sly-test="${heroCarousel.price || heroCarousel.ctaList || heroCarousel.priceConfigValue}" class="contentClass">
           <div class="priceAndCta">
+            <sly data-sly-test="${heroCarousel.price}">
             <div class="pricing">
                 <sly data-sly-test="${heroCarousel.isStaticPrice}">
-                    <p>${heroCarousel.priceConfigValue}</p>
-                    <p><strong>${heroCarousel.price}</strong></p>
+                    <p data-sly-test="${heroCarousel.priceConfigValue}">${heroCarousel.priceConfigValue}</p>
+                    <p data-sly-test="${heroCarousel.price}"><strong>${heroCarousel.price}</strong></p>
                 </sly>
 				<sly data-sly-test="${!heroCarousel.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=heroCarousel.price, wcmmode='disabled'}"></sly>
             </div>
-            <div class="linkContainer">
+          </sly>
+            <div data-sly-test="${heroCarousel.ctaList}" class="linkContainer">
               <sly data-sly-list="${heroCarousel.ctaList}">
                 <sly data-sly-test="${itemList}">
                   <div
@@ -109,8 +129,8 @@
          
         </div>
       </div>
-      <div class="heroFooterSection">
-        <div class="emissionDetails">
+      <div data-sly-test="${heroCarousel.footerList || heroCarousel.caveat}" class="heroFooterSection">
+        <div class="emissionDetails" data-sly-test="${heroCarousel.footerList}">
           <sly data-sly-list="${heroCarousel.footerList}">
             <sly data-sly-test="${itemList}">
               <div class="emissionDe">
@@ -121,7 +141,7 @@
           </sly>
         </div>
       </div>
-	  <div class="caveat">
+	  <div data-sly-test="${heroCarousel.caveat}" class="caveat">
 		${heroCarousel.caveat @ context='html'}
 	  </div>
     </div>

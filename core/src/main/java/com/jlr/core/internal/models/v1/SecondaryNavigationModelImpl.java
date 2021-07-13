@@ -145,9 +145,15 @@ public class SecondaryNavigationModelImpl implements SecondaryNavigationModel {
     private boolean getShowInSecNav(Page page) {
         LOGGER.debug("getShowInSecNav page : {}", page.getPath());
         LOGGER.debug("getShowInSecNav getContentResource : {}", page.getContentResource());
-        ValueMap propMap = page.getContentResource().adaptTo(ValueMap.class);
-        return null != propMap.get(CommonConstants.PN_SHOW_IN_SECONDARY_NAVIGATION)
-                        && Boolean.parseBoolean(propMap.get(CommonConstants.PN_SHOW_IN_SECONDARY_NAVIGATION).toString());
+       if(page.getContentResource()!=null) {
+           ValueMap propMap = page.getContentResource().adaptTo(ValueMap.class);
+           return null != propMap.get(CommonConstants.PN_SHOW_IN_SECONDARY_NAVIGATION)
+                   && Boolean.parseBoolean(propMap.get(CommonConstants.PN_SHOW_IN_SECONDARY_NAVIGATION).toString());
+       }
+       else{
+           LOGGER.error("jcr:content not found at : {}",page.getPath());
+           return false;
+       }
     }
 
     /**

@@ -1477,6 +1477,7 @@
 			$(document).on('click','.MarketRegionalPricing-triggerer',()=>{
           this.marketPricing.classList.remove('cmp-hidemarket');
           this.marketPricing.classList.add('cmp-showmarket');
+          $('.cmp-showmarket').focus();
 		});
 
           this.closeModal.addEventListener('click',e=>{
@@ -1491,6 +1492,32 @@
            });
           window.addEventListener('click', e => this.handleWindowClick(e));
       }
+
+     /*   code for 1100 */
+      window.addEventListener('keydown', handleKey);
+      function handleKey(e) {
+          if (e.keyCode === 9) {
+              let focusable = document.querySelector('.cmp-marketregionalpricing').querySelectorAll('dxDropdown,button');
+              if (focusable.length) {
+                  let first = focusable[0];
+                  let last = focusable[focusable.length - 1];
+                  let shift = e.shiftKey;
+                  if (shift) {
+                      if (e.target === first) { // shift-tab pressed on first input in dialog
+                          last.focus();
+                          e.preventDefault();
+                      }
+                  } 
+                  else {
+                      if (e.target === last) { // tab pressed on last input in dialog
+                          last.focus();
+                          e.preventDefault();
+                      }
+                  }
+              }
+          }
+      }
+      /*  1100 end */
   
     }
     getCookieValue(name){

@@ -1,5 +1,8 @@
 <sly data-sly-use.model="com.jlr.core.models.DerivativeCardModel" data-sly-call="${render @ model=model}"/>
 <template data-sly-template.render="${ @ model }">
+    
+<u><b>${model.headerCopy @context='html'}</b></u><br/>
+
 
 <u> Image </u><br/>
 Image Path : ${model.fileReference} <br/>
@@ -23,6 +26,17 @@ CTA Target : "${cta.target} <br/>
 <u> Group Data </u><br/>
 Specs At A Glance Header : ${model.specsAtaGlanceHeading @context='html'} <br/>
 Engine Names: <div data-sly-repeat.engineNames="${model.engineNames}">${engineNames}</div>
+    <div data-sly-repeat="${model.engineDataList}">
+        <div><u>Engine Data Count:</u> ${item.count}</div>
+        <span data-sly-repeat.engineData="${item.engineData}"><span>
+            <u>Engine Data Headings:</u> ${engineData @context='html'}
+            <sly data-sly-list.data="${item.engineData[engineData]}">
+                <div>Engine Data: ${data}</div>
+                <div>Engine Data Secondary Enabled: ${item.engineData[engineData][data]}</div>
+            </sly></span>
+        </span>
+    </div>
+
 Spec CTA Text : ${model.text} <br/>
 Spec CTA LinkType : ${model.linkType} <br/>
 Spec CTA Icon : ${model.icon} <br/>

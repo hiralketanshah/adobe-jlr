@@ -5,7 +5,12 @@
             <div class="cmp-heroTitleBannerGridContext">
               <div class="summaryItemImage cmp-heroTitleBanner__image">
                 <picture data-sly-test="${model.assetType == 'image'}" class="Picture Picture--background cmp-carousel__bgImage">
+                <sly data-sly-test="${model.imageAlt}">
                   <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}" />
+                </sly>
+                <sly data-sly-test="${!model.imageAlt}">
+                  <img alt=" " class="Picture__img" data-dimensions="1600x900" srcset="${model.fileReference}" />
+                </sly>
                 </picture>
 				<div data-sly-test="${model.assetType == 'video' && model.videoId && !model.videoPath}" class="videoCustom">
                     <img src="${model.posterImage}">
@@ -18,12 +23,19 @@
              
               </div>
               <div class="summaryItemContent cmp-genericItem__content">
-                <div class="${model.headerIcon} logo">
+                <div class="${model.headerIcon} logo" data-sly-test="${model.headerIcon}">
                 </div>
-                <h2 class="summaryItemHeader heading headingH4 cmp-heroTitleBanner__header fontQuote">
-                  <span class="headingWrapper">${model.headerCopy @context='html'}</span>
-                </h2>
-                <div class="headingCopy">${model.copy @ context='html'}</div>
+                  <sly data-sly-test.forSEO="${model.firstPosition==true}">
+                      <h1 data-sly-test="${model.headerCopy}" class="summaryItemHeader heading headingH4 cmp-heroTitleBanner__header fontQuote">
+                          <span class="headingWrapper">${model.headerCopy @context='html'}</span>
+                      </h1>
+                  </sly>
+                  <sly data-sly-test="${!forSEO}">
+                      <h2 data-sly-test="${model.headerCopy}" class="summaryItemHeader heading headingH4 cmp-heroTitleBanner__header fontQuote">
+                          <span class="headingWrapper">${model.headerCopy @context='html'}</span>
+                      </h2>
+                  </sly>
+                <div class="headingCopy" data-sly-test="${model.copy}">${model.copy @ context='html'}</div>
                
 
 				<div data-sly-test="${model.price}" class="pricing">
@@ -36,7 +48,7 @@
                   </div> 
                 </div>
 
-				<div class="linkContainer">
+				<div class="linkContainer" data-sly-test="${model.ctaList}">
 					<sly data-sly-list.cta="${model.ctaList}">
 						<sly data-sly-test="${cta.text}">
 							<div class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer'}">
@@ -47,13 +59,13 @@
 						</sly>
 					</sly>
 				</div>
-                <div class="caveat">
+                <div class="caveat" data-sly-test="${model.caveat}">
                   ${model.caveat @ context='html'}
                  </div>
               
               </div>
             </div>
-            <div class="heroFooterSection">
+            <div class="heroFooterSection" data-sly-test="${model.footerList}">
               <div class="emissionDetails">
 			  
 				<sly data-sly-list.footer="${model.footerList}">
