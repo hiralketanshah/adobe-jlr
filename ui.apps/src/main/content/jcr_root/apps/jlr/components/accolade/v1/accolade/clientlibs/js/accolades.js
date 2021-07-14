@@ -18,7 +18,7 @@ if (accoladesElements.length) {
 				var accimagebannerheight = $(`#${el_id} .cmp-accolades__copy--primary`).height() + 469;
 				$(`#${el_id} .cmp-accolades__copy--primary`).height()
 				
-				$(`#${el_id}`).css({height : accimagebannerheight,"padding-top": "20px","margin-bottom": "40px"});
+				$(`#${el_id}`).css({height : accimagebannerheight,"padding-top": "20px","margin-bottom": "40px","background-color": "#FFF"});
 			
 			
 				$(`#${el_id} .cmp-accolades__copy--primary`).css({ "font-size":"38px","padding": "203px 44px 146px 40px","line-height":"48px","letter-spacing":"0.38px","background":"url("+ bgimageval + ")"});
@@ -51,7 +51,7 @@ if (accoladesElements.length) {
 			else{
 				$(`#${el_id} .cmp-accolades__copy--primary`).css({ "font-size":"38px","padding": "142px 60px 134px 60px","line-height":"48px","letter-spacing":"0.38px","background":"url("+ bgimageval + ")"});
 				var accimagebannerheight = $(`#${el_id} .cmp-accolades__copy--primary`).height() + 436;
-				$(`#${el_id}`).css({height : accimagebannerheight,"padding-top": "80px"});
+				$(`#${el_id}`).css({height : accimagebannerheight,"padding-top": "80px","background-color": "#FFF"});
 				if($(`#${el_id} #bgimagetextcolorvalue`).val() === '#0C121C'){
 					$(`#${el_id} .cmp-accolades__copy--primary p`).attr('style', 'color: #0C121C !important')
 										
