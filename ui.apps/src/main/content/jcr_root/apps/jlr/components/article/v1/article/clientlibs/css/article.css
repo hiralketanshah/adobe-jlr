@@ -14,6 +14,7 @@
 .cmp-article .primaryLinkWithStyle {
 	float: none;
 }
+
 @media screen and (max-width: 375px) {
     .cmp-article__videoframe {
         max-width: 325px;
@@ -981,7 +982,11 @@
 	.cmp-article .primaryLinkWithStyle{margin-top:0; margin-bottom:0;}
 	}
 
-.cmp-article .secondaryLinkContainer{clear:both;}
+.cmp-article .secondaryLinkContainer{
+	clear:both;
+	float: none;
+	margin-top:23px;
+}
 
 /*----------code fix for defect 568---------*/
 
