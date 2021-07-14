@@ -15,6 +15,7 @@
     </sly>
     </picture>
 </div>
+<input type="hidden" name="bgimagetextcolor" id="bgimagetextcolorvalue" value="${properties.color @context='html'}"/>
 <input type="hidden" name="bgimage" id="bgimagevalue" value="${model.backgroundImage ? model.backgroundImage : 'none'}"/>
 <div class="cmp-accolades__copy ${model.logoImage ? '' : 'cmp-onlyCopy'}">
     <div data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</div>
