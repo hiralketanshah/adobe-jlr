@@ -156,13 +156,14 @@ text-transform: uppercase;
 }
 .cmp-dualFrameSlider .Slider__left .headerBox__copy {
     margin: 0;
-    font-family:"AvenirNext, arial, helvetica, sans-serif";
+    font-family:"AvenirNext-Regular";
     font-size: 14px;
 }
 
 .grey .cmp-dualFrameSlider p, .light .cmp-dualFrameSlider p, .white .cmp-dualFrameSlider p {
 
     color: #4A4F54;
+    
 }
 .cmp-dualFrameSlider .primaryLinkWithStyle,
 .cmp-dualFrameSlider .secondaryLinkWithStyle{
@@ -411,3 +412,4 @@ html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
         letter-spacing: 1.07px;
     }
 }
+.cmp-dualFrameSlider .fontBodyCopy p{font-family:'AvenirNext-Regular' ;}

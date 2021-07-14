@@ -75,7 +75,8 @@
 
 .cmp-engineSpecifications tr:first-child th span {
 	font-weight: 400;
-	display: block
+	display: block;
+	font-family: 'AvenirNext-Regular';
 }
 
 .cmp-engineSpecifications .ctaContainer,
@@ -270,7 +271,8 @@
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
-	color: #4a4f54
+	color: #4a4f54;
+	font-family:'AvenirNext-Regular';
 }
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td a {
@@ -625,7 +627,7 @@
     text-transform: uppercase;
     font-family: LandRoverWeb-Bold;
 }
- .cmp-table .cmp-engineSpecifications__summary p{color:#4A4F54;}
+ .cmp-table .cmp-engineSpecifications__summary p{color:#4A4F54; font-family: 'AvenirNext-Regular';}
   .cmp-table--table-light .cmp-engineSpecifications table:not(.nonResponsive) {
     background-color: #F8F9F9;
     border: 1px solid #ffffff;
