@@ -435,7 +435,7 @@ body.focusStylesOn .cmp_interactiveOptionPicker__option-card:focus:before {
     margin-top: 10px;
 }
 .cmp_interactiveOptionPicker__theme .cmp_interactiveOptionPicker__otr {
-    font-family: "AvenirNext-Regular";
+    font-family: "AvenirNext";
     font-size: 14px;
     color: #4A4F54;
     font-weight: 400;
@@ -489,7 +489,7 @@ text-transform: capitalize;
 .slateblue .cmp_interactiveOptionPicker__header__box h2,
 .slateblue .cmp_interactiveOptionPicker__bottom-title{
     color:#FFFFFF;
-    font-family: "AvenirNext-Regular"
+    font-family: "AvenirNext"
 }
 .wheel .cmp_interactiveOptionPicker__option-card{
     width: 88px;

@@ -7,6 +7,8 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jlr.core.pojos.GalleryItem;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface GalleryListModel.
  */
@@ -47,4 +49,7 @@ public interface GalleryListModel {
     default String getMainHeaderCopy() {
         return StringUtils.EMPTY;
     }
+
+    default boolean getFirstPosition() throws RepositoryException { return false; }
+
 }

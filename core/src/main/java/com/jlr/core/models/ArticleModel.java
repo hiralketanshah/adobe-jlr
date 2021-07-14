@@ -6,6 +6,8 @@ import org.apache.commons.lang.StringUtils;
 import org.osgi.annotation.versioning.ConsumerType;
 import com.jlr.core.pojos.CTAPojo;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface ArticleModel.
  *
@@ -49,4 +51,6 @@ public interface ArticleModel {
     default String getCaption() {
         return StringUtils.EMPTY;
     }
+    default boolean getFirstPosition() throws RepositoryException { return false; }
+
 }

@@ -100,6 +100,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
 
     private static final String REDIRECT_PAGE_TEMPLATE = "/conf/jlr/settings/wcm/templates/redirect-page-template";
     private static final String EMPTY_PAGE_TEMPLATE = "/conf/jlr/settings/wcm/templates/empty-page-template";
+    private static final String HOME_PAGE_TEMPLATE = "/conf/jlr/settings/wcm/templates/homepage-template";
 
     private static final String DEFAULT_PN_SEO_FREQUENCY = "seoFrequency";
     private static final String DEFAULT_PN_SEO_PRIORITY = "seoPriority";
@@ -181,7 +182,7 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         this.extensionlessUrls = PropertiesUtil.toBoolean(false, DEFAULT_EXTENSIONLESS_URLS);
         this.urlRewrites = ParameterUtil.toMap(PropertiesUtil.toStringArray(StringUtils.EMPTY, new String[0]), ":", false, "");
         this.removeTrailingSlash = PropertiesUtil.toBoolean(DEFAULT_REMOVE_TRAILING_SLASH, DEFAULT_REMOVE_TRAILING_SLASH);
-        this.excludedPageTemplates = Arrays.asList(REDIRECT_PAGE_TEMPLATE, EMPTY_PAGE_TEMPLATE);
+        this.excludedPageTemplates = Arrays.asList(REDIRECT_PAGE_TEMPLATE, EMPTY_PAGE_TEMPLATE, HOME_PAGE_TEMPLATE);
         this.useVanityUrl = PropertiesUtil.toBoolean(false, DEFAULT_USE_VANITY_URL);
     }
 

@@ -13,7 +13,12 @@
             <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
                <div class="dxnav-promo-panel dxnav-promo-panel--image">
                   <a class="dxnav-promo-panel__link" href="${model.rightPaneImageLink}" data-target="${model.rightPaneImageTarget}" target="${model.rightPaneImageTarget}">
-                     <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" alt="${model.isImageDecorative =='true' ? '': model.rightPaneImageAlt}" src="${model.fileReferenceImage}"> </div>
+                     <sly data-sly-test="${model.rightPaneImageAlt}">
+                        <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" alt="${model.isImageDecorative =='true' ? '': model.rightPaneImageAlt}" src="${model.fileReferenceImage}"> </div>
+                     </sly>
+                     <sly data-sly-test="${!model.rightPaneImageAlt}">
+                        <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" alt=" " src="${model.fileReferenceImage}"> </div>
+                     </sly>
                   </a>
                </div>
             </div>
@@ -47,7 +52,14 @@
             </div>
             <div data-sly-test="${model.fileReferenceImage}" class="dxnav-primary-tab-columns__promo-panel">
                <div class="dxnav-promo-panel dxnav-promo-panel--image">
-                  <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" alt="${model.isImageDecorative =='true' ? '': model.rightPaneImageAlt}" src="${model.fileReferenceImage}"> </div>
+                  <div class="dxnav-promo-panel__image-container"> 
+                     <sly data-sly-test="${model.rightPaneImageAlt}">
+                        <img class="dxnav-promo-panel__image" alt="${model.isImageDecorative =='true' ? '': model.rightPaneImageAlt}" src="${model.fileReferenceImage}">
+                     </sly>
+                     <sly data-sly-test="${!model.rightPaneImageAlt}">
+                        <img class="dxnav-promo-panel__image" alt=" " src="${model.fileReferenceImage}">
+                     </sly>
+                   </div>
                </div>
             </div>
          </div>
@@ -163,7 +175,14 @@
             </div>
             <div class="dxnav-primary-tab-columns__promo-panel dxnav-primary-tab-columns__promo-panel--large-promo-image">
                <div data-sly-test="${model.fileReferenceImage}" class="dxnav-promo-panel dxnav-promo-panel--image">
-                  <div class="dxnav-promo-panel__image-container"> <img class="dxnav-promo-panel__image" alt="${model.isImageDecorative =='true' ? '': model.rightPaneImageAlt}" src="${model.fileReferenceImage}"> </div>
+                  <div class="dxnav-promo-panel__image-container"> 
+                     <sly data-sly-test="${model.rightPaneImageAlt}">
+                        <img class="dxnav-promo-panel__image" alt="${model.isImageDecorative =='true' ? '': model.rightPaneImageAlt}" src="${model.fileReferenceImage}">
+                     </sly>
+                     <sly data-sly-test="${!model.rightPaneImageAlt}">
+                        <img class="dxnav-promo-panel__image" alt=" " src="${model.fileReferenceImage}">
+                     </sly>
+                   </div>
                </div>
             </div>
          </div>

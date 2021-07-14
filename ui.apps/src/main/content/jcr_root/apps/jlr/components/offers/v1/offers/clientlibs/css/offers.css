@@ -371,7 +371,7 @@
     margin-top: 62px;
   }*/
 
-  .cmp-offersContainer .offerHeading h2 {
+  .cmp-offersContainer .offerHeading h1,h2 {
     margin-bottom: 0.34em;
   }
 
@@ -517,7 +517,7 @@
     margin-top: 0px;
   }
 
-  .cmp-offersContainer .offerHeading h2 {
+  .cmp-offersContainer .offerHeading h1,h2 {
     margin-bottom: 0.45em;
   }
 
@@ -611,7 +611,7 @@
     margin-top: 60px;
   }
 
-  .cmp-offersContainer .offerHeading h2 {
+  .cmp-offersContainer .offerHeading h1,h2 {
     margin-bottom: 0.34em;
   }
 

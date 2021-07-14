@@ -118,14 +118,9 @@
   text-transform: uppercase;
 }
 .cmp-cplayerV2 .actionItems {
-  border-top: 1px solid #e0e0e0;
   margin-top: 30px;
   padding-top: 30px;
 }
-.slateblue .actionItems {
-  border-top: 1px solid #4a4f54;
-}
-
 .cmp-cplayerV2 .primaryLinkWithStyle {
   margin-top: 24px;
 }
@@ -150,6 +145,12 @@
 /* COMMON END */
 /* MOBILE */
 @media only screen and (max-width: 767px) {
+  .slateblue .cmp-cplayerV2 .actionItems {
+    border-top: 1px solid #4a4f54;
+  }
+  .cmp-cplayerV2 .actionItems {
+    border-top: 1px solid #e0e0e0;
+  }
   .cmp-cplayerV2 {
     margin-bottom: 41px;
   }
@@ -275,6 +276,9 @@
 }
 /* DESKTOP */
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {
+  .slateblue .actionItems {
+    border-top: 1px solid #4a4f54;
+  }
   .ConfiguratorPromptV2__image{
     width: 100%
   }
@@ -494,6 +498,12 @@
   }
 }
 @media only screen and (min-width: 1280px) {
+  .slateblue .cmp-cplayerV2 .actionItems {
+    border-top: 1px solid #4a4f54;
+  }
+  .cmp-cplayerV2 .actionItems {
+    border-top: 1px solid #e0e0e0;
+  }
   .ConfiguratorPromptV2 {
     max-height: 460px;
     min-height: 460px;

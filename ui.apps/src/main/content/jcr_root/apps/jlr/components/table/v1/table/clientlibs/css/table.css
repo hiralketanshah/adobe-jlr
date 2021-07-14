@@ -75,7 +75,8 @@
 
 .cmp-engineSpecifications tr:first-child th span {
 	font-weight: 400;
-	display: block
+	display: block;
+	font-family: 'AvenirNext-Regular';
 }
 
 .cmp-engineSpecifications .ctaContainer,
@@ -270,7 +271,8 @@
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
-	color: #4a4f54
+	color: #4a4f54;
+	font-family:'AvenirNext-Regular';
 }
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td a {
@@ -359,11 +361,7 @@
 		padding-top: 63px;
 	}
 
-    .cmp-engineSpecifications .ctaContainer,
-	.cmp-engineSpecifications .bottomCta	{
-		padding-left: 30px;
-		padding-bottom : 80px;
-	}
+
 	.cmp-engineSpecifications .ResponsiveTable {
 		padding-left:30px;
     	padding-right:30px;
@@ -558,6 +556,13 @@
 /*---------code fix for 585----------*/
 .cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive){border: 1px solid #ffffff}
 @media screen and (min-width:1280px) and (max-width: 1920px){
+
+	.cmp-engineSpecifications .ctaContainer,
+	.cmp-engineSpecifications .bottomCta	{
+		padding-left: 60px;
+		padding-bottom : 80px;
+	}
+
 	.cmp-table .cmp-engineSpecifications .ResponsiveTable {
 		padding-left: 60px;
 		padding-right: 60px;
@@ -585,6 +590,11 @@
 	}
 	.cmp-table .cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,.cmp-table .cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{width:auto;}
 	@media screen and (min-width: 768px) and (max-width:1279px){
+		.cmp-engineSpecifications .ctaContainer,
+		.cmp-engineSpecifications .bottomCta	{
+			padding-left: 30px;
+			padding-bottom : 60px;
+		}
 	.cmp-table .table th, tr, td{font-size:14px; line-height:19px; letter-spacing:0.2px;}
 	.cmp-table .tableHeadingWrapper p{width:589px;}
 	.cmp-table .cmp-engineSpecifications__summary p{width:524px;}
@@ -617,7 +627,7 @@
     text-transform: uppercase;
     font-family: LandRoverWeb-Bold;
 }
- .cmp-table .cmp-engineSpecifications__summary p{color:#4A4F54;}
+ .cmp-table .cmp-engineSpecifications__summary p{color:#4A4F54; font-family: 'AvenirNext-Regular';}
   .cmp-table--table-light .cmp-engineSpecifications table:not(.nonResponsive) {
     background-color: #F8F9F9;
     border: 1px solid #ffffff;

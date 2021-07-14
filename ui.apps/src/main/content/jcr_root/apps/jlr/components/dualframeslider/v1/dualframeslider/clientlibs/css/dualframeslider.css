@@ -156,13 +156,14 @@ text-transform: uppercase;
 }
 .cmp-dualFrameSlider .Slider__left .headerBox__copy {
     margin: 0;
-    font-family:"AvenirNext, arial, helvetica, sans-serif";
+    font-family:"AvenirNext-Regular";
     font-size: 14px;
 }
 
 .grey .cmp-dualFrameSlider p, .light .cmp-dualFrameSlider p, .white .cmp-dualFrameSlider p {
 
     color: #4A4F54;
+    
 }
 .cmp-dualFrameSlider .primaryLinkWithStyle,
 .cmp-dualFrameSlider .secondaryLinkWithStyle{
@@ -192,8 +193,8 @@ line-height: 12.5px;
     position: absolute;
     height: 2px;
     background: black;
-    left: -20px;
-    width: 20px;
+    left: -21px;
+    width: 21px;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%);
     top: 0px;
     -webkit-tap-highlight-color: transparent;
@@ -203,8 +204,8 @@ line-height: 12.5px;
     position: absolute;
     height: 2px;
     background: black;
-    right: -18px;
-    width: 18px;
+    right: -20px;
+    width: 20px;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%);
     top: 0px;
     -webkit-tap-highlight-color: transparent;
@@ -212,6 +213,10 @@ line-height: 12.5px;
 }
 .dualframeslider .cmp-dualFrameSlider .Slider__left{
     margin-top: -5px;
+}
+.DxRangeSlider .noUi-handle, .DxRangeSlider.noUi-horizontal .noUi-handle{
+    width: 40px;
+    height: 40px;
 }
 
 @media screen and (min-width: 1px) and (max-width: 740px) {
@@ -395,6 +400,16 @@ html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
     }
     .dualframeslider .cmp-dualFrameSlider .Slider__left{
         margin-top: -5px;
+    }    
+}
+@media screen and (max-width: 375px)  {
+    .DxRangeSlider.noUi-target{
+        width: 101.1%;
     }
 }
-
+@media screen and (min-width: 740px) and (max-width: 768px) {
+    .cmp-dualFrameSlider__Heading.heading.headingH3 {
+        letter-spacing: 1.07px;
+    }
+}
+.cmp-dualFrameSlider .fontBodyCopy p{font-family:'AvenirNext-Regular' ;}

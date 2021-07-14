@@ -2,6 +2,7 @@ package com.jlr.core.pojos;
 
 import com.google.gson.annotations.Expose;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -139,7 +140,7 @@ public class SearchPojo {
      * @return the results
      */
     public List<ResultPojo> getResults() {
-        return results;
+        return new ArrayList<>(results);
     }
 
     /**
@@ -148,7 +149,7 @@ public class SearchPojo {
      * @param results the results
      */
     public void setResults(List<ResultPojo> results) {
-        this.results = results;
+        this.results= new ArrayList<>(results);
     }
 
     /**
@@ -157,7 +158,7 @@ public class SearchPojo {
      * @return the suggestions
      */
     public List<Object> getSuggestions() {
-        return suggestions;
+        return new ArrayList<>(suggestions);
     }
 
     /**
@@ -166,6 +167,7 @@ public class SearchPojo {
      * @param suggestions the suggestions
      */
     public void setSuggestions(List<Object> suggestions) {
-        this.suggestions = suggestions;
+
+        this.suggestions = new ArrayList<>(suggestions);
     }
 }

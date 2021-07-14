@@ -7,6 +7,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 
+import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.PrimaryNavLeftTextCTAModel;
 import com.jlr.core.utils.LinkUtils;
 
@@ -74,6 +75,9 @@ public class PrimaryNavLeftTextCTAModelImpl implements PrimaryNavLeftTextCTAMode
      */
     @Override
     public String getLeftPaneCopyCtaIcon() {
+    	if (leftPaneCopyCtaLinkType.equals("primary") && leftPaneCopyCtaIcon.equals("None")) {
+            return CommonConstants.DEFAULT_PRIMARY_ICON;
+        }
         return leftPaneCopyCtaIcon;
     }
 

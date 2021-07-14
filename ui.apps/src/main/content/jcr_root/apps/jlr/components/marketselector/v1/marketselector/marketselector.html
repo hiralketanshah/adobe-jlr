@@ -12,7 +12,12 @@
     <source media="(min-width: 1280px)" srcset="${market.fileReference}" />
     <source media="(min-width: 1024px)" srcset="${market.fileReference}" />
     <source media="(min-width: 0px)" srcset="${market.fileReference}" />
-    <img alt="${market.imageAlt}" class="Picture__img" data-object-fit="" src="${market.fileReference}" srcset="${market.fileReference}"/>
+    <sly data-sly-test="${market.imageAlt}">
+      <img alt="${market.imageAlt}" class="Picture__img" data-object-fit="" src="${market.fileReference}" srcset="${market.fileReference}"/>
+    </sly>
+    <sly data-sly-test="${!market.imageAlt}">
+      <img alt=" " class="Picture__img" data-object-fit="" src="${market.fileReference}" srcset="${market.fileReference}"/>
+    </sly>
   </picture>
 
   <div class="headerBlock headerBlockWithForm MarketSelector__heading-wrapper">

@@ -1,5 +1,7 @@
 <sly data-sly-use.readytogobar="com.jlr.core.models.ReadyToGoBarModel"
    data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
+   data-sly-use.pageConfig="com.jlr.core.models.PageModel"
+   data-sly-use.fab="floatingactionbutton.html"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
    <div data-sly-test=${!readytogobar.rtgb}></div>
    <div class="cmp-readyToGoBar container fontSmooth"  id="${readytogobar.id}">
@@ -17,7 +19,7 @@
          </li>
       </ul>
    </div>
-   <span data-sly-test="${readytogobar.enableFAB}">
-      <div data-sly-include="floatingactionbutton.html"></div>
+   <span data-sly-test="${pageConfig.fabDesktopActive && readytogobar.hideDesktop || pageConfig.fabMobileActive && readytogobar.hideMobile || pageConfig.fabTabletActive && readytogobar.hideTablet}">
+      <div data-sly-call="${fab.fabEnable @ readytogobar=readytogobar, pageConfig = pageConfig}"></div>
    </span>
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>

@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -31,6 +35,13 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
     /** The content type. */
     @Inject
     @Via("resource")
@@ -50,6 +61,11 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     @ChildResource
     @Via("resource")
     private Resource ctaList;
+    
+    /** The enable pricing. */
+    @Inject
+    @Via("resource")
+    private String enablePricing;
 
     /** The lists. */
     List<CTAPojo> lists = new ArrayList<>();
@@ -76,6 +92,17 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     public String getColumn() {
         return column;
     }
+    
+    /**
+     * Gets the enable pricing.
+     *
+     * @return the enable pricing
+     */
+    @Override
+    public String getEnablePricing() {
+        return enablePricing;
+    }
+
 
     /**
      * Gets the enable stacking.
@@ -97,4 +124,9 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
         return contentCardList;
     }
 
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
+    }
 }

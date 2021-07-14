@@ -71,7 +71,12 @@
     <div class="cmp-interactiveNumberedImage__images">
            <div class="cmp-interactiveNumberedImage__image" data-sly-repeat.item="${verticalslider.verticalSliderItems}">
 	          <picture class="cmp-interactiveNumberedImage__picture Picture Picture--background" data-align="center">
-	             <img alt="${item.imageAlt}" class="Picture__img" data-object-fit="" srcset="${item.fileReference}">
+				<sly data-sly-test="${item.imageAlt}">
+	            	<img alt="${item.imageAlt}" class="Picture__img" data-object-fit="" srcset="${item.fileReference}">
+				</sly>
+				<sly data-sly-test="${!item.imageAlt}">
+	            	<img alt=" " class="Picture__img" data-object-fit="" srcset="${item.fileReference}">
+				</sly>
 	          </picture>
        	  </div>
     </div>

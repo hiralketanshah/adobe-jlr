@@ -7,7 +7,12 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
     <div class="summaryItemImage cmp-vehicleSummary__image">
      <picture data-sly-test="${model.fileReference}" class="Picture Picture--background">
       <a href="${model.imageLink}">
-       <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+        <sly data-sly-test="${model.imageAlt}">
+          <img alt="${model.imageAlt}" class="Picture__img" src="${model.fileReference}"/>
+        </sly>
+        <sly data-sly-test="${!model.imageAlt}">
+          <img alt=" " class="Picture__img" src="${model.fileReference}"/>
+        </sly>
       </a>
      </picture>
     </div>
@@ -42,7 +47,12 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
       <div class="cmp-signPost__image">
         <picture data-sly-test="${model.fileReference}" class="cmp-signPost__image Picture Picture--background cmp-signPost__picture" data-align="center" data-lazy="unless-first-component">
 		 <a href="${model.imageLink}">
+        <sly data-sly-test="${model.imageAlt}">
           <img alt="${model.imageAlt}" class="Picture__img" data-dimensions="1290x357" srcset="${model.fileReference}"/>
+        </sly>
+        <sly data-sly-test="${!model.imageAlt}">
+          <img alt=" " class="Picture__img" data-dimensions="1290x357" srcset="${model.fileReference}"/>
+        </sly>
 		  </a>
         </picture>
       </div>

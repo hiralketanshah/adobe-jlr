@@ -16,11 +16,20 @@
         data-sly-test="${heroCarousel.assetType == 'image'}"
         class="Picture Picture--background cmp-carousel__bgImage"
       >
+      <sly data-sly-test="${heroCarousel.imageAlt}">
         <img
           alt="${heroCarousel.imageAlt}"
           class="Picture__img"
           srcset="${heroCarousel.fileReference}"
         />
+      </sly>
+      <sly data-sly-test="${!heroCarousel.imageAlt}">
+        <img
+          alt=" "
+          class="Picture__img"
+          srcset="${heroCarousel.fileReference}"
+        />
+      </sly>
       </picture>
       <video
         class="video customControl"
@@ -42,11 +51,20 @@
         <div class="headerClass">
 			<div class="${heroCarousel.headerIcon} logo"></div>
 			<div class="headingAndCopy">
-				<h2 class="heading headingThick fontH2">
+             <sly data-sly-test.forSEO="${heroCarousel.firstPosition==true}">
+                <h1 class="heading headingThick fontH2">
 					<span class="headingWrapper">
 					  ${heroCarousel.headerCopy @ context='html'}
 					</span>
-				  </h2>
+                </h1>
+              </sly>
+              <sly data-sly-test="${!forSEO}">
+                <h2 class="heading headingThick fontH2">
+					<span class="headingWrapper">
+					  ${heroCarousel.headerCopy @ context='html'}
+					</span>
+                </h2>
+              </sly>
 				  <div data-sly-test="${heroCarousel.copy}" class="headerCopy">
 					<p>${heroCarousel.copy @context='html'}</p>
 				  </div>

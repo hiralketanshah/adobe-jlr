@@ -7,6 +7,8 @@ import org.apache.commons.lang.StringUtils;
 
 import com.jlr.core.pojos.CTAPojo;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface OffersModel.
  */
@@ -47,5 +49,7 @@ public interface OffersModel {
     default List<OffersList> getOfferList() {
         return new ArrayList<>();
     }
+
+    default boolean getFirstPosition() throws RepositoryException { return false; }
 
 }
