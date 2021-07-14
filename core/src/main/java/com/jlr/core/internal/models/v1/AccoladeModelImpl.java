@@ -22,6 +22,19 @@ public class AccoladeModelImpl extends GlobalModelImpl implements AccoladeModel 
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String backgroundImage;
 
+
+    /** The color. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String color;
+
+    /**
+     * Gets the color.
+     *
+     * @return the color
+     */
+
+    public String getColor() { return color; }
+
     /**
      * Gets the background image.
      *
