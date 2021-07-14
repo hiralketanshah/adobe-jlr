@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-(function() {
+ (function() {
     "use strict";
 
     var dataLayerEnabled;
-    var dataLayer;
+    var dl;
 
     function addComponentToDataLayer(component) {
-        dataLayer.push({
+        dl.push({
             component: getComponentObject(component)
         });
     }
@@ -47,7 +47,7 @@
         var element = event.currentTarget;
         var componentId = getClickId(element);
 
-        dataLayer.push({
+        dl.push({
             event: "cmp:click",
             eventInfo: {
                 path: "component." + componentId
@@ -72,7 +72,7 @@
 
     function onDocumentReady() {
         dataLayerEnabled = document.body.hasAttribute("data-cmp-data-layer-enabled");
-        dataLayer        = (dataLayerEnabled) ? window.jlrDataLayer = window.jlrDataLayer || [] : undefined;
+        dl        = (dataLayerEnabled) ? window.dataLayer = window.dataLayer || [] : undefined;
 
         if (dataLayerEnabled) {
 
@@ -87,7 +87,7 @@
                 attachClickEventListener(element);
             });
 
-            dataLayer.push({
+            dl.push({
                 event: "cmp:loaded"
             });
         }
