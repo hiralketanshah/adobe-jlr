@@ -6,7 +6,7 @@
             <span class="dxnav__breadcrumb-text">${parent.title}</span>
               <span class="dxnav-breadcrumb__ellipsis dxnav-hide">...</span>
               <svg class="dxnav-icon">
-               <use xlink:href="#icon-arrow-right"></use> <!--bugfix-1020 -->
+               <use xlink:href="#Chevron_Right"></use> <!--bugfix-1020 -->
             </svg>
             <span class="dxnav__breadcrumb-secondary-title">${model.secondaryNavParentList[parentList.count].title}</span>
           </a>
@@ -16,14 +16,14 @@
               <a class="dxnav__breadcrumb-dropdown-link ${item.path in model.secondaryNavParentPathList ? 'dxnav-selected' : ''}" href="${item.link @ extension='html'}"  target="${item.target}" data-target="${item.target}" >
                 <span class="dxnav__breadcrumb-text">${item.title}</span>
                 <svg class="dxnav-icon" data-sly-test="${item.hasChild}">
-                  <use xlink:href="#icon-arrow-right"></use>
+                  <use xlink:href="#Chevron_Right"></use>
                 </svg>
               </a>
             </li>
           </ul>
           <a data-sly-test="${(!parentList.first || !parentList.last) && parent.previousLink.link}" class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.link @ extension='html'}">
             <svg class="dxnav-icon">
-              <use xlink:href="#icon-arrow-right"></use>
+              <use xlink:href="#Chevron_Right"></use>
             </svg>
             <span class="dxnav__breadcrumb-prev-text">${parent.previousLink.title}</span>
           </a>
@@ -35,7 +35,7 @@
           </span>
           <a class="dxnav__breadcrumb-prev-link" href="${parent.previousLink.link @ extension='html'}">
             <svg class="dxnav-icon">
-              <use xlink:href="#icon-arrow-right"></use>
+              <use xlink:href="#Chevron_Right"></use>
             </svg>
             <span class="dxnav__breadcrumb-prev-text">${parent.previousLink.title}</span>
           </a>

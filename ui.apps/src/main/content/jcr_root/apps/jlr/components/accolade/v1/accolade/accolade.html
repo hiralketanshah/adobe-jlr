@@ -7,7 +7,12 @@
 <div class="cmp-accolades__img">
     <picture data-sly-test="${model.logoImage}" class="Picture">
 
+    <sly data-sly-test="${model.imageAlt}">
         <img alt="carouselContainer" class="Picture__img" alt="${model.imageAlt}" data-dimensions="350x198" srcset="${model.logoImage}" />
+    </sly>
+    <sly data-sly-test="${!model.imageAlt}">
+        <img alt="carouselContainer" class="Picture__img" alt=" " data-dimensions="350x198" srcset="${model.logoImage}" />
+    </sly>
     </picture>
 </div>
 <input type="hidden" name="bgimage" id="bgimagevalue" value="${model.backgroundImage ? model.backgroundImage : 'none'}"/>

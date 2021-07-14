@@ -6,11 +6,20 @@
 	<div class="cmp-derivativesOverview js" id="${model.id}" data-template="${model.layout}">
 		<div class="cmp-derivative__range  light" data-initial-tab="0">
 			<div class="cmp-derivative__copy">
-				<h2 data-sly-test="${model.headerCopy}" class="heading headingThick">
+				<sly data-sly-test.forSEO="${model.firstPosition==true}">
+					<h1 data-sly-test="${model.headerCopy}" class="heading headingThick">
 				  <span class="headingWrapper">
 					<p>${model.headerCopy @context='html'}</p>
 				  </span>
-				</h2>
+					</h1>
+				</sly>
+				<sly data-sly-test="${!forSEO}">
+					<h2 data-sly-test="${model.headerCopy}" class="heading headingThick">
+				  <span class="headingWrapper">
+					<p>${model.headerCopy @context='html'}</p>
+				  </span>
+					</h2>
+				</sly>
 	
 	            <div data-sly-test="${model.enablePricing}" class="Snippet__MarketRegionalPricing">
                     <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
@@ -39,7 +48,7 @@
 							${item @context='html'}</span>
 						</span>
 					  </button>
-				  <sly>
+				  </sly>
 				  <span class="DxTabs__mask" style="width: 947px;"></span>
 				</div>
 			</div>
@@ -109,7 +118,7 @@
                             </sly>
 						</sly>			
 					</div>
-				<sly>
+				</sly>
 			</div>
 		</div>
 

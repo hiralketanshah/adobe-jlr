@@ -418,7 +418,6 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getPriceConfigValue() {
         if (Boolean.TRUE.equals(isStaticPrice)) {
-            SlingHttpServletRequest newreq = resourceResolver.adaptTo(SlingHttpServletRequest.class);
             String resourceType = PricingUtils.getResourceTypeForStaticPrice(request);
             String configKey = PricingUtils.getKey(resourceType);
             priceConfigValue = tcoService.getPriceConfigForStaticPrice(resourceResolver, request, currentPage,

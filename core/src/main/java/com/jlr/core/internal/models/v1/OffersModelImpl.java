@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -28,6 +32,13 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
 
     /** The Constant RESOURCE_TYPE. */
     public static final String RESOURCE_TYPE = "jlr/components/offers/v1/offers";
+
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
 
     /** The list. */
     List<CTAPojo> list = new ArrayList<>();
@@ -101,4 +112,9 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
         return offersImageFileReference;
     }
 
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath= currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath,currentNode, resourceResolver);
+    }
 }

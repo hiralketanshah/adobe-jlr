@@ -142,6 +142,12 @@
           permission: allow
           actions: read,create,modify,delete,replicate
 
+    - content-admins:
+
+        - path: /content/misc/unlockpage
+          permission: allow
+          actions: read
+
     - global-leads:
 
         - path: /apps/cq/core/content/nav/tools/acs-commons/reports
@@ -165,6 +171,10 @@
           actions: read,create,modify,delete,replicate
 
         - path: /content/nav
+          permission: allow
+          actions: read
+
+        - path: /content/misc/unlockpage
           permission: allow
           actions: read
 

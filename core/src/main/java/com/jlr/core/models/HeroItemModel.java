@@ -8,6 +8,8 @@ import org.apache.commons.lang.StringUtils;
 import com.jlr.core.pojos.CTAPojo;
 import com.jlr.core.pojos.FooterPojo;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface HeroItemModel.
  *
@@ -41,4 +43,6 @@ public interface HeroItemModel {
     default String getCaveat() {
         return StringUtils.EMPTY;
     }
+    default boolean getFirstPosition() throws RepositoryException { return false; }
+
 }
