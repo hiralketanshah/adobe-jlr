@@ -68,10 +68,11 @@
               <body>
                <sly data-sly-include="body.html"></sly>
              </body>
-             <sly data-sly-test="${pageConfig.locale} == 'de_DE'}">
-               <div id="consent_blackbar"></div>
-                  <div id="teconsent"></div>
-              </sly>
+           
+           </sly>
+           <sly data-sly-test="${pageConfig.locale == 'de_DE'}">
+            <div id="consent_blackbar"></div>
+               <div id="teconsent"></div>
            </sly>
 	<style>
 		.videoCustom:after {
