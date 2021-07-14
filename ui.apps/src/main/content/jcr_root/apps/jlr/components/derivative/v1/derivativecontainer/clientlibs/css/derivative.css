@@ -617,11 +617,11 @@ width: 760px;
     text-transform: uppercase;
 }
 .Derivative__engine-attribute-label {
-    font-family: "avenir", "arial", "helvetica", sans-serif;
+    font-family: "AvenirNext-Regular";
     font-weight: 400;
     font-size: 11px;
     letter-spacing: 0.2px;
-    line-height: 15px;
+    line-height: 14px;
     color: #4a4f54;
     margin-bottom: 13px;
 }
