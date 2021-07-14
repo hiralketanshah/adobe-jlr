@@ -12497,9 +12497,11 @@
   const carousalElements = document.querySelectorAll('.cmp-carousel');
   if (carousalElements.length) {
     carousalElements.forEach((el)=>{
+      
       el.classList.add('cmp-accolades-carousel');
       let accolades = el.querySelector('.cmp-accolades');
       el.querySelectorAll('.cmp-accolades').forEach((el)=>{
+        var bgimagevalacc = $( `#${accolades.id} #bgimagevalue`).val();
         let onlyCopy = el.querySelector('.cmp-onlyCopy');
         let handleOnlyCopy = ()=>{
           let onlyCopy = el.querySelector('.cmp-onlyCopy');
@@ -12509,18 +12511,38 @@
           if(img){
             img.style.display="none";
           }
-          if(window.innerWidth>=1280){
-            el.style.paddingTop = "60px";
-            el.style.paddingBottom = "80px";
+          if(window.innerWidth>=1920){
+          
+            if(bgimagevalacc === 'none'){
+             
+              el.style.height = "";
+              el.style.paddingTop = "60px";
+              el.style.paddingBottom = "80px";             
+              
+            }          
+           
+          }
+          if(window.innerWidth>=1280 && window.innerWidth<=1919){
+            if(bgimagevalacc === 'none'){
+             
+              el.style.height = "";
+              el.style.paddingTop = "60px";
+              el.style.paddingBottom = "80px";
+                           
+              
+            }         
+
           }
          
           if(window.innerWidth>=768 && window.innerWidth<=1279 ){
             el.style.paddingTop = "40px";
             el.style.paddingBottom = "60px";
+            el.style.backgroundImage= 'none';
           }
           if(window.innerWidth<=767){
             el.style.paddingTop = "30px";
             el.style.paddingBottom = "40px";
+            el.style.backgroundImage= 'none';
           }
         }
         if(onlyCopy){
