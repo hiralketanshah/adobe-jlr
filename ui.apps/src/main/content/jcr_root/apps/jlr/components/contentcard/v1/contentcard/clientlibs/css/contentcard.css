@@ -1946,3 +1946,17 @@ h5.heading, .heading.headingH5 {
    }
  }
  /*962 fix ends */
+.ContentBlocksContainer__MarketRegionalPricing {
+  text-align: left;
+  margin-top: 23px;
+}
+@media screen and (max-width: 767px){
+  .ContentBlocksContainer__MarketRegionalPricing {
+    margin-top: 16px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1279px){
+  .ContentBlocksContainer__MarketRegionalPricing {
+    margin-top: 17px;
+  }
+}

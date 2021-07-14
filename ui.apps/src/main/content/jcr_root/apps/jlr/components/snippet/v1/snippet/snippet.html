@@ -3,9 +3,16 @@
    <div class="cq-placeholder"
       data-sly-test="${!snippet.headerCopy || !snippet.copy || !snippet.ctaList}" data-emptytext="Snippet Component"></div>
    <div class="cmp-snippet shelfComponent" id="${snippet.id}">
-      <h2 data-sly-test="${snippet.headerCopy}" class="heading headingThick fontH2">
-         <span class="headingWrapper">${snippet.headerCopy @ context="html"}</span>
-      </h2>
+     <sly data-sly-test.forSEO="${snippet.firstPosition==true}">
+         <h1 data-sly-test="${snippet.headerCopy}" class="heading headingThick fontH2">
+            <span class="headingWrapper">${snippet.headerCopy @ context="html"}</span>
+         </h1>
+      </sly>
+      <sly data-sly-test="${!forSEO}">
+         <h2 data-sly-test="${snippet.headerCopy}" class="heading headingThick fontH2">
+            <span class="headingWrapper">${snippet.headerCopy @ context="html"}</span>
+         </h2>
+      </sly>
       <span data-sly-test="${snippet.copy}" class="copy fontBodyCopyLarge">${snippet.copy @ context="html"}</span>
 
       <div data-sly-test="${snippet.enablePricing}" class="Snippet__MarketRegionalPricing">

@@ -20,9 +20,9 @@
         protocolHTTPMethod="GET"
         retryDelay="60000"
         serializationType="flush"
-        transportPassword="\{7680edd772909cbc8dfcd1add7fc73829398a8394abf35b09163ceb5394464c3}"
-        transportUri="http://localhost:4504/content/misc/akamai"
+        transportPassword=""
+        transportUri="http://localhost:4503/content/misc/akamai"
         triggerReceive="true"
         triggerSpecific="true"
-        userId="admin"/>
+        userId="/>
 </jcr:root>

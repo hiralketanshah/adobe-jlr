@@ -7,7 +7,6 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import com.jlr.core.models.AccoladeModel;
 
-
 /**
  * The Class AccoladeModelImpl.
  *
@@ -22,6 +21,19 @@ public class AccoladeModelImpl extends GlobalModelImpl implements AccoladeModel 
     /** The background image. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String backgroundImage;
+
+
+    /** The color. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String color;
+
+    /**
+     * Gets the color.
+     *
+     * @return the color
+     */
+
+    public String getColor() { return color; }
 
     /**
      * Gets the background image.

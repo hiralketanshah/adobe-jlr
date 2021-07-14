@@ -4,16 +4,19 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 
+import com.day.cq.wcm.api.Page;
 import org.apache.sling.api.resource.Resource;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import com.jlr.core.models.GalleryListModel;
 import com.jlr.core.pojos.GalleryItem;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
+import org.mockito.Mock;
+
+import javax.jcr.Node;
 
 /**
  * The Class GalleryListModelImplTest.
@@ -23,7 +26,13 @@ import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 @ExtendWith(AemContextExtension.class)
 class GalleryListModelImplTest extends GlobalModelImplTest {
 
-    private GalleryListModel galleryListModelImpl;
+    private GalleryListModelImpl galleryListModelImpl;
+
+    @Mock
+    private Page currentPage;
+
+    @Mock
+    private Node currentNode;
 
     /**
      * Sets the up.
@@ -35,6 +44,8 @@ class GalleryListModelImplTest extends GlobalModelImplTest {
      */
     @BeforeEach
     void setUp(AemContext context) throws Exception {
+        context.registerService(Page.class, currentPage);
+        context.registerService(Node.class, currentNode);
         context.load().json("/content/jlr/gallery/gallerylist.json", "/content/jlr/gallerylist.html");
         Resource resource = context.resourceResolver().getResource("/content/jlr/gallerylist.html");
         context.currentResource(resource);

@@ -8,6 +8,8 @@ import org.osgi.annotation.versioning.ConsumerType;
 
 import com.jlr.core.pojos.CTAPojo;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Interface ContentCardModel.
  *
@@ -33,6 +35,15 @@ public interface ContentCardModel {
     default String getColumn() {
         return StringUtils.EMPTY;
     }
+    
+    /**
+     * Gets the enable pricing.
+     *
+     * @return the enable pricing
+     */
+    default String getEnablePricing() {
+        return StringUtils.EMPTY;
+    }
 
     /**
      * Gets the enable stacking.
@@ -51,4 +62,6 @@ public interface ContentCardModel {
     default List<CTAPojo> getCtaList() {
         return new ArrayList<>();
     }
+
+    default boolean getFirstPosition() throws RepositoryException { return false; }
 }

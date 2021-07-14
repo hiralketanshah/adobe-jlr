@@ -6,7 +6,12 @@
    <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'above'}">
    <picture class="Picture Article__Picture Article__Picture--top">
     <a href="${article.imageLink}">
+    <sly data-sly-test="${article.imageAlt}">
      <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+    </sly>
+    <sly data-sly-test="${!article.imageAlt}">
+      <img alt=" " class="Picture__img" src="${article.fileReference}"/>
+     </sly>
     </a>   
    </picture>
    <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
@@ -16,12 +21,22 @@
      <iframe  src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
     </div>
    </div>
-   <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
+   <sly data-sly-test.forSEO="${article.firstPosition==true}">
+    <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
+   </sly>
+   <sly data-sly-test="${!forSEO}">
+    <h2 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h2>
+   </sly>
    <div data-sly-test="${article.copy}" class="richText">${article.copy @context='html'}</div>
    <sly data-sly-test="${article.assetType == 'image' && article.fileReference && article.imagePosition == 'below'}">
    <picture class="Picture Article__Picture Article__Picture--bottom">
     <a href="${article.imageLink}">
-     <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+      <sly data-sly-test="${article.imageAlt}">
+        <img alt="${article.imageAlt}" class="Picture__img" src="${article.fileReference}"/>
+       </sly>
+       <sly data-sly-test="${!article.imageAlt}">
+         <img alt=" " class="Picture__img" src="${article.fileReference}"/>
+        </sly>
     </a>
    </picture>
    <div data-sly-test="${article.caption}" class="imageCaption bottom">${article.caption @context='html'}</div>
@@ -41,4 +56,5 @@
     </div>
 	</sly>
   </div>
+  <div class="clearfix"></div>
 </template>

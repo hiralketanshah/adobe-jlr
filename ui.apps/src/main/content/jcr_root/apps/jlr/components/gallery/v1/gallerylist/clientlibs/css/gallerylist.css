@@ -334,5 +334,16 @@
   }
   }
   /*-----------Code fix for gallery bugs----------*/
-  
+
+.gallerylist h1.heading,
+    .heading.headingH1 {
+    font-size: 18px;
+    line-height:18px;
+}
+
+.gallerylist h2.heading,
+    .heading.headingH2 {
+    font-size: 18px;
+    line-height:18px;
+}
   

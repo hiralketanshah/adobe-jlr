@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:OsgiConfig"
-    externalizer.domains="[local http://author-jlrprod65.adobecqms.net,author http://author-jlrprod65.adobecqms.net,publish https://www.landrover.com.au,publish-au https://www.landrover.com.au,publish-de https://www.landrover.de]"/>
+        externalizer.domains="[local https://author-jlr-prod65.adobecqms.net,author https://author-jlr-prod65.adobecqms.net,publish https://www.landrover.com.au,publish-au https://www.landrover.com.au,publish-de https://www.landrover.de]"/>
