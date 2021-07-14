@@ -294,13 +294,13 @@ width: 760px;
 .Derivative__spec-title,.Derivative__spec-subTitle {
     white-space: normal;
     text-overflow: unset;
-    font-family: "Avenir Next", "arial", "helvetica", sans-serif;
+    font-family: "AvenirNext-Regular";
     font-weight: 500;
     color: #4A4F54;
     letter-spacing: 0.45px;
     padding-bottom: 0;
     font-size: 11px;
-    line-height: 14px;
+    line-height: 19px;
     text-transform: uppercase;
 }
 .Derivative__spec-subTitle{
@@ -617,11 +617,11 @@ width: 760px;
     text-transform: uppercase;
 }
 .Derivative__engine-attribute-label {
-    font-family: "avenir", "arial", "helvetica", sans-serif;
+    font-family: "AvenirNext-Regular";
     font-weight: 400;
     font-size: 11px;
     letter-spacing: 0.2px;
-    line-height: 15px;
+    line-height: 14px;
     color: #4a4f54;
     margin-bottom: 13px;
 }
@@ -746,7 +746,8 @@ padding-bottom: 20px;
     text-overflow: inherit;
     letter-spacing: 0.45px;
     font-size: 11px;
-    line-height: 14px;       
+    line-height: 14px;  
+    border: 1px solid #4A4F544D;     
 }
 .Derivative__controls-form .dxDropdown__button{
 text-transform: uppercase;

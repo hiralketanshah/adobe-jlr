@@ -1038,7 +1038,7 @@ fill:black;
   -webkit-font-smoothing: antialiased;
 }
 .cmp-fullframe .linkContainer{padding-top:0;}
-.cmp-fullframe .fontBodyCopyLarge{margin-bottom:0px; min-width:524px; min-height:76px; height:auto;margin:0 auto;}
+.cmp-fullframe .fontBodyCopyLarge{font-family:"AvenirNext-Regular";margin-bottom:0px; min-width:524px; min-height:76px; height:auto;margin:0 auto;}
 .slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important;}
 .slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important; }
 .slateblue .cmp-fullframe .secondaryLinkWithStyle:hover span, .slateblue .cmp-fullframe .secondaryLinkWithStyle:active span,
@@ -1107,6 +1107,7 @@ left: 50px;
 }
 }   
 @media screen and (min-width: 900px) and (max-width: 1919px){
+  .cmp-fullframe  .Picture__img{width:1160px;}
   .cmp-fullframe .shelfComponent {
     display: block;
     padding: 28px 0 0 30px;
