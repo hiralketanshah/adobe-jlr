@@ -1,0 +1,6 @@
+{
+  "jcr:primaryType":"nt:unstructured",
+  "prefix":"Prefix",
+  "suffix":"Suffix",
+  "value":"77"
+}
