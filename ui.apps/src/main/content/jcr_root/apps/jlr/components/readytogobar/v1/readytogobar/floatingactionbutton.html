@@ -15,7 +15,7 @@
                </button>
                <ul data-sly-test="${readytogobar.faboverride}" class="cmp-floatingActionButton__items cmp-floatingActionButton__items-hide" data-sly-list.item="${readytogobar.faboverride}">
                   <li class="cmp-floatingActionButton__item">
-                     <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" aria-label="${item.ariaLabel}" target="${item.target}" data-target="${item.target}" >
+                     <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link || true}" aria-label="${item.ariaLabel}" target="${item.target}" data-target="${item.target}" >
                      <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text}</span>
                      </a>
                   </li>
@@ -41,7 +41,7 @@
                </button>
                <ul data-sly-test="${readytogobar.rtgb}" class="cmp-floatingActionButton__items cmp-floatingActionButton__items-hide" data-sly-list.item="${readytogobar.rtgb}">
                   <li class="cmp-floatingActionButton__item">
-                     <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link}" aria-label="${item.ariaLabel}" target="${item.target}" data-target="${item.target}" >
+                     <a data-sly-test="${item.text}" class="cmp-floatingActionButton__item-link ${item.icon} TargetLinks" href="${item.link || true}" aria-label="${item.ariaLabel}" target="${item.target}" data-target="${item.target}" >
                      <span class="cmp-floatingActionButton__item-text" aria-hidden="true">${item.text @context="html"}</span>
                      </a>
                   </li>
