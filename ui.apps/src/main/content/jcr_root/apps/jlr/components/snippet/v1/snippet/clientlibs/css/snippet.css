@@ -194,11 +194,11 @@
 .snippet.grey p, .snippet.light p,.snippet.white p{
 	color:#4A4F54;
  }
- .cmp-snippet .headingWrapper p{color:#0C121C;font-family:"LandRoverWeb-Bold", "arial", "helvetica", sans-serif;}
+ .cmp-snippet .headingWrapper p{color:#0C121C;font-family:"LandRoverWeb-Bold";}
 @media screen and (min-width:1920px) and (max-width: 2700px){
 
 	.cmp-snippet .linkContainer .primaryLinkContainer, .cmp-snippet .linkContainer .secondaryLinkContainer {
-		margin-top: 26px;
+		margin-top: 25px;
 		margin-right: 20px;
 		display: inline-block;
 		vertical-align: middle;
@@ -213,7 +213,7 @@
 	.snippet .secondaryLinkContainer{clear:both; margin-top:23px!important;} 
 }
 
- @media screen and (min-width:1024px) and (max-width: 1919px){
+ @media screen and (min-width:1024px) and (max-width: 1919.9px){
 	.cmp-snippet .linkContainer .primaryLinkContainer, .cmp-snippet .linkContainer .secondaryLinkContainer {
 		margin-top: 26px;
 		margin-right: 20px;
@@ -229,7 +229,7 @@
 	.snippet .primaryLinkContainer{margin-right:24px!important;}
     .cmp-snippet p{line-height:24px;}
     .snippet .shelfComponent{
-    padding:60px 60px 82px 60px;
+    padding:60px 0px 82px 60px;
 
 
 }
@@ -242,18 +242,27 @@
 .cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 }
-@media screen and (min-width: 767px) and (max-width: 1278px){
+@media screen and (min-width: 767px) and (max-width: 1279.9px){
 .cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 .cmp-snippet .primaryLinkWithStyle {margin-top: 0; margin-bottom: 0px; }
 .cmp-snippet .secondaryLinkWithStyle {margin-top: 0;margin-bottom: 0px!important;}
-.snippet .shelfComponent{padding:40px 30px;}
+.snippet .shelfComponent{padding:40px 0px 40px 30px;}
 .snippet .headingWrapper p    {margin-top:0}
 .snippet .headingWrapper p{width:524px; margin-right:214px; }
 .snippet .headingThick {width:524px;}
 .cmp-snippet .linkContainer{padding:0;}
 .snippet .primaryLinkContainer{margin-top: 24px!important; float: left;  }
 .cmp-snippet .secondaryLinkContainer{margin-top:23px!important;}
+.snippet .cmp-snippet h1.heading{
+	margin-bottom: 0;
+	line-height:30px;
+	font-size: 30px;
+
+}
+.snippet .fontBodyCopyLarge p{
+	font-size:14px;
+}
 }
 
 @media screen and (min-width: 766px) and (max-width: 900px){
@@ -261,6 +270,16 @@
 .snippet .cmp-snippet p {
     margin-top: 17px;
 }
+.snippet .cmp-snippet h1.heading{
+	margin-bottom: 0;
+	line-height:30px;
+	font-size: 30px;
+
+}
+.snippet .fontBodyCopyLarge p{
+	font-size:14px;
+}
+
 .cmp-snippet .linkContainer{display:block;}
 .snippet .fontBodyCopyLarge p{width:519px;}
 .snippet .shelfComponent{
@@ -272,6 +291,7 @@
 	margin-right:219px;
     min-height:150px;
     height:auto;
+	padding-right: 0;
    }
 .cmp-snippet .headingWrapper p {
     color: #0C121C;
@@ -284,12 +304,12 @@
 
 @media screen and (min-width: 300px) and (max-width: 766px){
 .snippet .headingWrapper p    {margin-top:0}
-.snippet .cmp-snippet p {margin-top: 17px;width:325px;}
+.snippet .cmp-snippet p {margin-top: 17px;width:100%;}
 .snippet .primaryLinkContainer{margin-right:0!important;}
 .snippet .cmp-snippet p {margin-top: 17px;margin-bottom:24px;}
 .cmp-snippet .headingWrapper p {margin-top:8px;}
-.snippet .headingThick {width:325px;}  
-.snippet .shelfComponent{min-height: auto; width:325px; min-width:325px; margin-bottom:18px;padding:25px 25px 0 25px;}         
+.snippet .headingThick {width:100%;margin-bottom: 0;}  
+.snippet .shelfComponent{min-height: auto; width:100%; min-width:170px; margin-bottom:18px;padding:25px 25px 0 25px;}         
 .cmp-snippet .secondaryLinkWithStyle {line-height:12.5px; margin-top:0px!important; margin-bottom:23px!important;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 .snippet .cmp-snippet p { margin-top: 16px;}
