@@ -160,4 +160,9 @@ public class PricingConstants {
 
     public static final String VEHICLE_SUMAMRY_FROM_TEXT = "vehiclesummary.tco.from.txt";
 
+    public static final String DEFAULT_DE_FORMAT = "€ ###.###,##^";
+
+    public static final String EURO_SIGN = "€ ";
+
+    public static final String DEFAULT_DE_CURRENCY_POST_SYMBOL = "^ ";
 }
