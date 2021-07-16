@@ -1,7 +1,6 @@
 package com.jlr.core.utils;
 
 import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.internal.models.v1.SecondaryNavigationModelImpl;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.slf4j.Logger;
