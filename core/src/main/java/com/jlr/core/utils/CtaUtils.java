@@ -105,10 +105,10 @@ public class CtaUtils {
      * @return the icon
      */
     public static String getIcon(String icon, String linkType) {
-        if (StringUtils.isNotBlank(icon) && !icon.equals("None")) {
+        if (StringUtils.isNotBlank(icon)) {
             return icon;
         }
-        if (StringUtils.isNotBlank(icon) && null != linkType && linkType.equals("primary") && icon.equals("None")) {
+        if (StringUtils.isNotBlank(icon) && null != linkType && linkType.equals("primary")) {
             return CommonConstants.DEFAULT_PRIMARY_ICON;
         }
         return CommonConstants.DEFAULT_SECONDARY_ICON; 
