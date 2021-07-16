@@ -12,7 +12,7 @@
 
         - name: 'Global Leads'
           isMemberOf: internal-group, template-authors, tag-administrators, internal-tools-nav-group,
-            projects-administrators, de-content-approvers, au-content-approvers, global-approvers
+            projects-administrators, de-content-approvers, au-content-approvers, global-approvers, internal-launches-group
           path: ${groupPath}
 
     - global-qas:
@@ -25,7 +25,7 @@
     - global-authors:
 
         - name: 'Global Authors'
-          isMemberOf: internal-group, internal-tools-nav-group, projects-administrators
+          isMemberOf: internal-group, internal-tools-nav-group, projects-administrators, internal-launches-group
           path: ${groupPath}
 
     - read-only:
@@ -48,6 +48,11 @@
     - internal-tools-nav-group:
 
         - name: 'JLR Internal Tools Nav Group'
+          path: ${groupPath}
+
+    - internal-launches-group:
+
+        - name: 'JLR Internal Launches Group'
           path: ${groupPath}
 
 - ace_config:
@@ -141,6 +146,21 @@
         - path: /etc/acs-commons/lists
           permission: allow
           actions: read,create,modify,delete,replicate
+
+    - internal-launches-group:
+
+        - path: /libs/cq/core/content/nav/tools/sites
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /libs/cq/core/content/nav/tools/sites/launches
+          permission: allow
+          actions: read
+
+        - path: /content/launches
+          permission: allow
+          actions: read,create,modify,delete
 
     - content-admins:
 

@@ -4435,7 +4435,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		font-size: 100%
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-dropdown {
-		max-height: calc(100vh - 148px)
+		max-height: calc(100vh - 160px)
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-dropdown-link {
 		padding: 0 16px;
@@ -4473,7 +4473,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		width: 100%;
 		position: relative;
 		align-items: center;
-		padding: 0 16px 0 45px
+		padding: 13px 16px 13px 45px;
 	}
 	.dxnav-unique-nav .dxnav__breadcrumb-prev-link .dxnav-icon {
 		transform: rotate(180deg) translateY(50%);
@@ -4501,7 +4501,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 		color: #e9ecec;
 		line-height: 1em;
 		letter-spacing: .173em;
-		font-weight: normal;
+		font-weight: 500;
 		font-size: 10px
 	}
 	.dxnav-unique-nav .dxnav__dropdown-overlay {
