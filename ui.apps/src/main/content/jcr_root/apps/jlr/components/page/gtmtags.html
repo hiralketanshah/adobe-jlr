@@ -15,33 +15,35 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 
   <template data-sly-template.gtmTags="${@ additionalPage}">
-  <sly data-sly-test="${additionalPage.CommaSeparatedGtmTagsListWithQuotes}">
-    <script data-id="gtmTags">
-      var gtmTags = ['${additionalPage.CommaSeparatedGtmTagsListWithQuotes @context = "html"}'];
-    </script>
-
-    <script id="gtm">
-      function initGTM(gtmId) {
-        if (!gtmId) return;
-        (function(w, d, s, l, i) {
-          w[l] = w[l] || [];
-          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-          j.async = true;
-          j.src = "//www.googletagmanager.com/gtm.js?id=" + i + dl;
-          f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "jlrDataLayer", gtmId);
-      }
-      function loadGTM(tags) {
-        if (tags == null) return;
-        for (var i = 0; i < tags.length; i++) {
-          initGTM(tags[i]);
+    <sly data-sly-test="${additionalPage.CommaSeparatedGtmTagsListWithQuotes}">
+      <script data-id="gtmTags">
+        var gtmTags = ['${additionalPage.CommaSeparatedGtmTagsListWithQuotes @context = "html"}'];
+      </script>
+  
+      <script id="gtm">
+        function initGTM(gtmId) {
+          if (!gtmId) return;
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "//www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, "script", "dataLayer", gtmId);
         }
-      }
-    </script>
-
-   </sly> 
-
+        function loadGTM(tags) {
+          if (tags == null) return;
+          for (var i = 0; i < tags.length; i++) {
+            initGTM(tags[i]);
+          }
+        }
+      </script>
+  
+    
+  
+    </sly>
+  
   </template>

@@ -4,6 +4,8 @@ import static com.jlr.core.constants.PricingConstants.JLR_LOCALE_DE;
 import static com.jlr.core.constants.PricingConstants.PN_YYY;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.pojos.PricingPojo;
 
 public class TcoUtils {
@@ -23,8 +26,20 @@ public class TcoUtils {
         if (StringUtils.isBlank(pattern)) {
             return StringUtils.EMPTY;
         }
-
         String currencyString = StringUtils.EMPTY;
+        if (pattern.equalsIgnoreCase(PricingConstants.DEFAULT_DE_FORMAT)) {
+            NumberFormat numberFormat = NumberFormat.getCurrencyInstance(Locale.GERMANY);
+            DecimalFormat decimalFormat = (DecimalFormat) numberFormat;
+            if (value.intValue() != 0) {
+                currencyString = decimalFormat.format(value);
+                currencyString = PricingConstants.EURO_SIGN
+                        .concat(currencyString.substring(0, currencyString.length() - 2))
+                        .concat(PricingConstants.DEFAULT_DE_CURRENCY_POST_SYMBOL);
+
+            }
+            return currencyString;
+        }
+
         DecimalFormat currencyFormatter = null;
         String newPattern = pattern;
         if (pattern.contains(".")) {
