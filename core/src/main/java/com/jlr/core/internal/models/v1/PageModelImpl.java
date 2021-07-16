@@ -22,12 +22,10 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ScriptVariable;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.settings.SlingSettingsService;
-import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.adobe.acs.commons.models.injectors.annotation.HierarchicalPageProperty;
 import com.adobe.aemds.guide.utils.JcrResourceConstants;
-import com.adobe.cq.wcm.core.components.util.ComponentUtils;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.commons.jcr.JcrConstants;
 import com.day.cq.wcm.api.components.ComponentContext;
@@ -101,7 +99,7 @@ public class PageModelImpl implements PageModel {
     private ResourceResolver resourceResolver;
 
     /** The externalizer. */
-    @Reference
+    @Inject
     private transient Externalizer externalizer;
 
     @Inject
