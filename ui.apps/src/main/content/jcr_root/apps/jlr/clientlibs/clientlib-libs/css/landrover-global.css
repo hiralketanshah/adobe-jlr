@@ -21110,3 +21110,12 @@ color:#FFFFFF;
 #landrover .secondaryLinkWithStyle,#landrover .primaryLinkWithStyle {
  text-transform: uppercase !important;
 }
+html{
+	scroll-padding-top:52px;
+	scroll-behavior: smooth;
+}
+@media screen and (min-width:1021px) {
+	html{
+	 scroll-padding-top:78px;
+	}	
+}
