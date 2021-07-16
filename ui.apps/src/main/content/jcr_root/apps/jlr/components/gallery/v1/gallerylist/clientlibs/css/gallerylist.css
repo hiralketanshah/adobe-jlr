@@ -205,7 +205,7 @@
       min-width:230px;
       max-width:400px;
     letter-spacing:0.1px;
-    font-family:LandRover;
+    font-family: "lr_ot4","arial","helvetica",sans-serif;
   }
   .gallerylist .Fullscreen__information-text{
     padding: 5px 20px 5px 48px;
@@ -258,7 +258,7 @@
     font-size:16px;
     line-height:18px;
     letter-spacing:0.1px;
-    font-family:LandRoverWeb-Bold;
+    font-family: "lr_ot4","arial","helvetica",sans-serif;
     margin-bottom:16px;
   }
   .gallerylist .Fullscreen__footer-text{
@@ -334,5 +334,16 @@
   }
   }
   /*-----------Code fix for gallery bugs----------*/
-  
+
+.gallerylist h1.heading,
+    .heading.headingH1 {
+    font-size: 18px;
+    line-height:18px;
+}
+
+.gallerylist h2.heading,
+    .heading.headingH2 {
+    font-size: 18px;
+    line-height:18px;
+}
   

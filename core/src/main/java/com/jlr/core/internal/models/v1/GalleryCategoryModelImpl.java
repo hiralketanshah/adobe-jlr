@@ -6,12 +6,18 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
+import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.ComponentPositionUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
@@ -25,7 +31,7 @@ import com.jlr.core.utils.LinkUtils;
 /**
  * The Class GalleryCategoryModelImpl.
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {
         GalleryCategoryModel.class }, resourceType = GalleryCategoryModelImpl.RESOURCE_TYPE)
 public class GalleryCategoryModelImpl extends GlobalModelImpl implements GalleryCategoryModel {
 
@@ -38,12 +44,21 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
     @Inject
     private ResourceResolver resourceResolver;
 
+    /** The current page. */
+    @Inject
+    private Page currentPage;
+
+    @Inject
+    private Node currentNode;
+
     /** The exitPageLink. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    @Via("resource")
     private String exitPageLink;
 
     @Inject
     @Optional
+    @Via("resource")
     private Resource categoryList;
 
     List<GalleryCategory> listOfCategoryItems = new ArrayList<>();
@@ -105,5 +120,11 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
         }
 
         return count;
+    }
+
+    @Override
+    public boolean getFirstPosition() throws RepositoryException {
+        String pageContainerPath= currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath,currentNode, resourceResolver);
     }
 }

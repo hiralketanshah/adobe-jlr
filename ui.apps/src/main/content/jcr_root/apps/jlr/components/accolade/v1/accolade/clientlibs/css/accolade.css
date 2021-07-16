@@ -112,6 +112,25 @@
     text-decoration: none;
   }
 
+  .slateblue .Pagination--black .Pagination__pip:after{
+    border: 2px solid #FFF;
+  }
+  .slateblue .Pagination--black .Pagination__pip--active:after, .Pagination--black .Pagination__pip--active:hover:after
+  {
+    background: #FFF;
+  }
+.slateblue .Pagination--black .Pagination__play:before, .Pagination--black .Pagination__pause:before
+{
+  border: 2px solid #FFF;
+}
+.slateblue .Pagination--black .Pagination__pause:before{
+  border: 2px solid #FFFF;
+}
+.slateblue .Pagination--black .Pagination__play-control-icon, .Pagination--black .Pagination__pause-control-icon{
+  fill: #FFF;
+}
+
+
     /* fix for  1055 end*/
   
   /* NEW DEVELOPMENT */
@@ -510,5 +529,4 @@ color:#0C121C ;
     position: sticky;
   }
 }
-
 

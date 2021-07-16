@@ -4,7 +4,12 @@
 		<div class="Derivative__carousel">
 		  <div class="Derivative__carousel__item">
 			<picture class="Derivative__picture Picture Picture--background" data-align="center">
+			<sly data-sly-test="${card.imageAlt}">
 			  <img alt="${card.imageAlt}" class="Picture__img lazyloaded" data-object-fit="" src="${card.fileReference}" data-srcset="${card.fileReference}" srcset="${card.fileReference}">
+			</sly>
+			<sly data-sly-test="${!card.imageAlt}">
+				<img alt=" " class="Picture__img lazyloaded" data-object-fit="" src="${card.fileReference}" data-srcset="${card.fileReference}" srcset="${card.fileReference}">
+			</sly>
 			</picture>
 		  </div>
 		</div>

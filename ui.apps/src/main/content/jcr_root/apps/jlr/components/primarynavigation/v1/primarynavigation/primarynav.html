@@ -12,8 +12,15 @@
                <span class="dxnav-hamburger__bar"></span>
                <span class="dxnav-hamburger__bar"></span> </span> </button>
          <a href="${model.logoImageLink}" class="dxnav__logo">
-            <img src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/logo/logo.png"
-               alt="${model.logoImageAlt}"></a>
+            <sly data-sly-test="${model.logoImageAlt}">
+               <img src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/logo/logo.png"
+               alt="${model.logoImageAlt}">
+            </sly>
+            <sly data-sly-test="${!model.logoImageAlt}">
+               <img src="/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/logo/logo.png"
+               alt=" ">
+            </sly>
+         </a>
          <div class="dxnav__mobile-icons">
             <sly data-sly-test="${pageConfig.marketRegionPath}">
                <a class="dxnav__mobile-icons-prices cmp-marketButton MarketRegionalPricing-triggerer" href="#"

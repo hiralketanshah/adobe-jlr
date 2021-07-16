@@ -17,7 +17,7 @@ public @interface SearchConfig {
     public String deSearchRootPath() default "/content/landrover/global/europe/published-sites/de_de";
 
     @AttributeDefinition(name = "Root path to be searched", description = "AU Root path to be searched", type = AttributeType.STRING)
-    public String auSearchRootPath() default "/content/landrover";
+    public String auSearchRootPath() default "/content/landrover/global/row/published-sites/en_au";
 
     @AttributeDefinition(name = "DE Search Config Path", description = "DE search config path for exclusions and priorities", type = AttributeType.STRING)
     public String deSearchConfigPath() default "/content/landrover/global/europe/published-sites/de_de/config/search-config";

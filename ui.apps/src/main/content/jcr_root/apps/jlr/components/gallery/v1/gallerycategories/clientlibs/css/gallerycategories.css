@@ -9,6 +9,19 @@
 .gallerycategories .GalleryCategories__category-title-inner {
     text-transform: uppercase;
 }
+
+.gallerycategories h1.heading,
+    .heading.headingH1 {
+    font-size: 18px;
+    line-height:18px;
+}
+
+.gallerycategories h2.heading,
+    .heading.headingH2 {
+    font-size: 18px;
+    line-height:18px;
+}
+
 /*-------------bug fix for 744-------------*/
    
    .GalleryCategories__category-title-inner p{ border-bottom:3px solid transparent;}

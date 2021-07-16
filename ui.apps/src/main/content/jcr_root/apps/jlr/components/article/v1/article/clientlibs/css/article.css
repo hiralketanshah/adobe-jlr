@@ -14,6 +14,7 @@
 .cmp-article .primaryLinkWithStyle {
 	float: none;
 }
+
 @media screen and (max-width: 375px) {
     .cmp-article__videoframe {
         max-width: 325px;
@@ -874,7 +875,7 @@
 
 /*----------code fix for defect 568---------*/
 .cmp-article .Article__heading p{color:#0C121C;}
-.cmp-article a{font-family:AvenirNext-Regular}
+.cmp-article a{font-family: 'AvenirNext'}
  .cmp-article .plwsLight:hover, .primaryLinkWithStyle:hover{background-color: #fff!important;
     color: #0c121c!important;
     box-shadow: 0 0 0 1px #0c121c inset!important;}
@@ -981,7 +982,11 @@
 	.cmp-article .primaryLinkWithStyle{margin-top:0; margin-bottom:0;}
 	}
 
-.cmp-article .secondaryLinkContainer{clear:both;}
+.cmp-article .secondaryLinkContainer{
+	clear:both;
+	float: none;
+	margin-top:23px;
+}
 
 /*----------code fix for defect 568---------*/
 
