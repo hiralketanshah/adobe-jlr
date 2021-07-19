@@ -664,7 +664,7 @@ height: 493px;
 
 @media screen and (min-width: 1920px) and (max-width: 2560px) {
     .cmp-vehicleSummary {      
-        padding: 60px 295px 80px;
+        padding: 60px 295px 80px 290px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
@@ -814,7 +814,7 @@ height: 493px;
 	font-size:24px; 
 	line-height:24px;
         color: #0C121C;
-    font-family: LandRoverWeb-Bold;
+    font-family: "LandRoverWeb-Bold";
             }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
@@ -833,7 +833,7 @@ height: 493px;
     padding-left: 1em;
     line-height: 19px;
     margin-top: 24px;
-    margin-bottom: 24px;
+    margin-bottom: 0px;
 }
 .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;margin-top:5px}
 .cmp-vehicleSummary .primaryLinkWithStyle{    
@@ -851,7 +851,7 @@ height: 493px;
     min-height: 426px;
     display: block;
 }
-            .cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
+.cmp-vehicleSummary .Picture--background .Picture__img{object-fit: unset;}
         }
 
 @media screen and (min-width: 1401px){
@@ -860,15 +860,15 @@ height: 493px;
  }}
   @media screen and (min-width: 768px) and (max-width: 1279px){
 
- .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px; line-height:19px;}
-
+ .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
+ .slateblue.cmp-vehicleSummary ul li{color:#fff;}
 .cmp-vehicleSummary .cmp-vehicleSummary__image{width:100%;}
 
  .cmp-vehicleSummary .headingWrapper{
 	font-size:21px; 
 	line-height:21px;
     color: #0C121C;
-    font-family: LandRoverWeb-Bold;
+    font-family: "LandRoverWeb-Bold";
 }
   .cmp-vehicleSummary .cmp-vehicleSummary__content {
     width: 100%;
@@ -880,7 +880,7 @@ height: 493px;
     padding-left: 1em;
     line-height: 19px;
     margin-top: 24px!important;
-    margin-bottom: 24px!important;
+    margin-bottom: 0px!important;
 }
 .cmp-vehicleSummary .linkContainer{padding-top:0}
 .cmp-vehicleSummary .primaryLinkWithStyle { margin-bottom:0px!important;}
@@ -901,12 +901,13 @@ height: 493px;
 	font-size:20px; 
 	line-height:20px;
   color: #0C121C;
-  font-family: LandRoverWeb-Bold;
+  font-family: "LandRoverWeb-Bold";
 }
-        .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
+ .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 23px!important;}
 .cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
-.cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px;}
-.cmp-vehicleSummary ul{margin-top:12px; margin-bottom:24px;}
+.cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
+.slateblue.cmp-vehicleSummary ul li{color:#fff;}
+.cmp-vehicleSummary ul{margin-top:12px; margin-bottom:0px;}
 .cmp-vehicleSummary .primaryLinkWithStyle { margin-bottom:0!important;}
 .cmp-vehicleSummary .linkContainer{padding-top:0;margin-top:0;}
   }
@@ -938,7 +939,7 @@ height: 493px;
      width:50%; padding-bottom:5px;
   }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
-  .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
+  .cmp-signPost__content .fontH3{line-height:24px;font-family:"LandRoverWeb-Bold";}
 .cmp-signPost .cmp-signPost__center{
     top:0;
     transform:none;
@@ -993,7 +994,7 @@ margin-bottom:10px;
 .cmp-signPost .cmp-signPost__image{
      width:50%;   padding-bottom:5px;   }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
-  .cmp-signPost__content .fontH3{line-height:24px;font-family:LandRoverWeb-Bold;}
+  .cmp-signPost__content .fontH3{line-height:24px;font-family:"LandRoverWeb-Bold";}
 .cmp-signPost .cmp-signPost__center{
     top:0;
     transform:none;
@@ -1094,7 +1095,7 @@ object-fit: unset;
     .cmp-signPost .cmp-signPost__image {height: calc((108.3vw - 40px) / 2);}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:525px;}
-   .cmp-signPost .headingWrapper{font-family:LandRoverWeb-Bold; font-size:20px; line-height:24px; letter-spacing:0.9px;}
+   .cmp-signPost .headingWrapper{font-family:"LandRoverWeb-Bold"; font-size:20px; line-height:24px; letter-spacing:0.9px;}
  .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
   .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}
 
