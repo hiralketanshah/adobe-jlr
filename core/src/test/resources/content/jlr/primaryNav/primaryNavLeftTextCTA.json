@@ -1,0 +1,9 @@
+{
+  "leftPaneCopyCtaAriaLabel": "Leftpane_cta_arialabel",
+  "leftPaneCopyCtaIcon": "None",
+  "leftPaneCopyCtaLink": "ctalink",
+  "leftPaneCopyCtaLinkType": "primary",
+  "leftPaneCopyCtaTarget": "Leftpane_cta_target",
+  "leftPaneCopyCtaText": "Leftpane_cta_text",
+  "jcr:primaryType": "nt:unstructured"
+}
