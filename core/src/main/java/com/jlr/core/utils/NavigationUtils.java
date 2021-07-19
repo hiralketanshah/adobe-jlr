@@ -48,7 +48,10 @@ public class NavigationUtils {
         String clientOrigin = request.getHeader("Origin");
 
         if (null != clientOrigin) {
-            if (clientOrigin.contains("landrover.com") || clientOrigin.contains("jlr-dev.com") || clientOrigin.contains("landrover_com_au")) {
+            if (clientOrigin.contains("landrover.com") || clientOrigin.contains("jlr-dev.com")
+                            || clientOrigin.contains("retailers_landrover_com_au.yextpages.net") || clientOrigin.contains("retailers.landrover.com.au")
+                            || clientOrigin.contains("retailers.landrover.com.au.yextpages.net") || clientOrigin.contains("landrover.com.au")
+                            || clientOrigin.contains("landrover.de")) {
                 LOGGER.debug("Origin Match found: {}", clientOrigin);
                 response.setHeader("Access-Control-Allow-Origin", clientOrigin);
                 response.setHeader("Access-Control-Allow-Credentials", "true");

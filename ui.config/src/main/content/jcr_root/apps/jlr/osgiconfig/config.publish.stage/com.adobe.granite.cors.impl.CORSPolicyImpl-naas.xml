@@ -2,7 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
   xmlns:jcr="http://www.jcp.org/jcr/1.0" jcr:primaryType="sling:OsgiConfig"
   alloworiginregexp="[https://de.landrover.preview.dev.jlr-dev.com,https://de.landrover.preview.qa.jlr-dev.com,https://au.landrover.preview.dev.jlr-dev.com,https://au.landrover.preview.qa.jlr-dev.com,https://retailers.landrover.com.au,https://retailers_landrover_com_au.yextpages.net,https://retailers.landrover.com.au.yextpages.net]" 
-  supportedmethods="[GET]" 
+  supportedmethods="[GET]"
+  allowedpaths="[/content/nav/naas.content.json]"
   supportscredentials="{Boolean}true"
   supportedheaders="[Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers]"
   maxage="1800"/>
