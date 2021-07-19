@@ -643,3 +643,10 @@
         padding:18px !important;
 }
 	/*---------code fix for 585----------*/
+	@media screen and (min-width:1920px) {
+	
+		.cmp-table {
+			padding-left: 290px;
+			padding-right: 290px;
+		}
+}
