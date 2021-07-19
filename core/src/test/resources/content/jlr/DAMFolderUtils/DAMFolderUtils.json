@@ -1,0 +1,9 @@
+{
+  "image1.jpg":{
+    "jcr:primaryType":"nt:unstructured"
+  },
+  "image2.jpg":{
+    "jcr:primaryType":"nt:unstructured"
+  },
+  "jcr:primaryType": "nt:unstructured"
+}

@@ -5280,7 +5280,7 @@
     updateOnImagesReady: true,
   
     // loop
-    loop: false,
+    loop: true,
     loopAdditionalSlides: 0,
     loopedSlides: null,
     loopFillGroupWithBlank: false,
@@ -12041,6 +12041,11 @@
   
       _initGallery() {
         let startingSlideId = 0;
+        if(this._total == 1){
+          this._loop = false;
+        }else{
+          this._loop = true;
+        }
   
         if (this._direction === 'slideFromLeft') {
           startingSlideId = this.$element.data('total') - 1;
@@ -12243,6 +12248,9 @@
         setTimeout(() => {
           this.$element.addClass('loaded');
         }, 100);
+        
+        let selectedSlideHeight = this.$element.find('.swiper-slide-active .fullframecarousel').height();    //active slide height    
+        $slider.height(selectedSlideHeight);
       },
   
       _onResize(event) {
@@ -12278,29 +12286,29 @@
             }
           });
         }
-  
+        
         if (!(0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)()) {
           getHighestText();
           textHeight += 264; // Add some padding above and below
+          let selectedSlideHeight = this.$element.find('.swiper-slide-active .fullframecarousel').height();    //active slide height    
   
           let idealHeight = windowHeight - (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_4__.getStickyNavHeight)(this.$element.offset().top); // This is the option to match viewport
-  
+          
           // To prevent car being cropped on deep screens, limit component's height, relative to its width
           const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
           idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
   
-          reqSliderHeight = $left.height();
+          reqSliderHeight = $left.height();          
+          
           if (windowWidth > 1) {
             reqSliderHeight = idealHeight < textHeight ? textHeight : idealHeight;
           }
-  
+          reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;
           // Resize slider
           // added to fix LRA-10847 safari sub pixel rendering causing black line
           // reqSliderHeight = Math.floor(reqSliderHeight);
-          $slider.height(reqSliderHeight);
-        }
-       
-
+          $slider.height(reqSliderHeight);         
+        }       
       },
   
       _userFinishedInteraction() {
