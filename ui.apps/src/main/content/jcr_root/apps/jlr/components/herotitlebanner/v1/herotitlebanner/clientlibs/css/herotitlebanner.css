@@ -36,13 +36,13 @@
 .cmp-carousel .swiper-button[aria-disabled="true"] {
   display: none;
 }
-.cmp-carousel .carousel {
+.cmp-heroTitleBanner.cmp-carousel .carousel {
   text-align: center;
   direction: ltr;
   height: 100% !important;
   overflow: unset;
 }
-.cmp-carousel .carousel .cmp-carousel__slide {
+.cmp-heroTitleBanner.cmp-carousel .carousel .cmp-carousel__slide {
   display: flex;
   align-items: center;
   width: 100%;

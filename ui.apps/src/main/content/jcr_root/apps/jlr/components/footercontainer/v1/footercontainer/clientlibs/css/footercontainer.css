@@ -222,7 +222,7 @@
 .cmp_footerNav .socialLinksFloat ul li a {
 	text-indent: -9999px
 }
-
+.cmp_footerNav__hygieneLinks li{line-height:14px;}
 .cmp_footerNav__evidon-link a:hover,
 .cmp_footerNav__trustarc-link a:hover {
 	text-decoration: underline
@@ -660,7 +660,7 @@
 	}
 
 	.cmp_footerNav__socialLinks .cmp_footerNav__heading {
-		text-align: center;
+		text-align: left;
 		font-size: 11px;
 		letter-spacing: 1.5px;
 		font-family: "avenir", "arial", "helvetica", sans-serif;
@@ -673,11 +673,12 @@
 		right: auto;
 		margin-left: -0.67em
 	}
-
+	.cmp_footerNav__heading:first-child{padding: 20px 0 21px 0px;}
+	.cmp_footerNav__socialLinks ul li:first-child{padding:0 7.5px 15px 0;}
 	.cmp_footerNav__socialLinks ul {
 		display: block;
-		text-align: center;
-		margin: 28px auto 0;
+		text-align: left;
+		margin: 0px auto 0;
 		padding: 0
 	}
 
@@ -765,7 +766,7 @@
 .cmp_footerNav__navWrapper li a {
 	font-size: .9rem;
 	letter-spacing: .18rem;
-	line-height: 1.1px;
+	line-height: 1.1rem;
 }
 
 .cmp_footerNav__navWrapper li a:hover,
@@ -876,19 +877,19 @@
 .cmp_footerNav__socialLinks ul .social_facebook:hover span,
 .cmp_footerNav__socialLinks ul .social_facebook:focus span,
 .cmp_footerNav__socialLinks ul .social_facebook:active span {
-	background-color: #305891
+	background-color: #4267b2;
 }
 
 .cmp_footerNav__socialLinks ul .social_twitter:hover span,
 .cmp_footerNav__socialLinks ul .social_twitter:focus span,
 .cmp_footerNav__socialLinks ul .social_twitter:active span {
-	background-color: #2ca8d2
+	background-color: #1da1f2;
 }
 
 .cmp_footerNav__socialLinks ul .social_linkedin:hover span,
 .cmp_footerNav__socialLinks ul .social_linkedin:focus span,
 .cmp_footerNav__socialLinks ul .social_linkedin:active span {
-	background-color: #007bb6
+	background-color: #2867b2;
 }
 
 .cmp_footerNav__socialLinks ul .social_google:hover span,
@@ -936,7 +937,7 @@
 .cmp_footerNav__socialLinks ul .social_youtube:hover span,
 .cmp_footerNav__socialLinks ul .social_youtube:focus span,
 .cmp_footerNav__socialLinks ul .social_youtube:active span {
-	background-color: #e62d27
+	background-color: #ff0000;
 }
 
 .cmp_footerNav__socialLinks ul .social_blogger:hover span,
@@ -948,7 +949,7 @@
 .cmp_footerNav__socialLinks ul .social_instagram:hover span,
 .cmp_footerNav__socialLinks ul .social_instagram:focus span,
 .cmp_footerNav__socialLinks ul .social_instagram:active span {
-	background-color: #DD287B
+	background-color: #e1306c;
 }
 
 .cmp_footerNav__socialLinks ul .social_wechat:hover span,
@@ -1034,6 +1035,7 @@
 	margin: 0 20px 16px;
 	padding: 16px 0 0;
 	text-transform: uppercase;
+	font-weight:700;
 }
 
 .cmp_footerNav__hygieneLinks li .TargetLinks:hover,
@@ -1284,7 +1286,7 @@
 
 @media screen and (min-width: 1px) and (max-width: 411px) {
 	.cmp_footerNav__navWrapper {
-		padding: 0 12px;
+		padding: 0px;
 	}
 }
 

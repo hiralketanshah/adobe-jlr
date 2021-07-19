@@ -92,7 +92,7 @@ public class DerivativeCardModelImpl extends GlobalModelImpl implements Derivati
                 if (null != properties) {
                     String engineName = properties.get(DerivativeConstants.PN_ENGINE_NAME, String.class);
                     engineNames.add(engineName);
-                    Map<String, Map<String, String>> dataMap = DerivativeUtils.getDataMap(engine);
+                    Map<String, String> dataMap = DerivativeUtils.getDataMap(engine);
                     engineDataList.add(new DerivativeEnginePojo(String.valueOf(dataMap.size()), dataMap));
                 }
 

@@ -24,6 +24,8 @@ import com.jlr.core.utils.AltTextUtils;
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
+import javax.jcr.RepositoryException;
+
 /**
  * The Class GlobalModelImplTest.
  *
@@ -68,7 +70,7 @@ class GlobalModelImplTest {
      * Test general properties.
      */
     @Test
-    void testGeneralProperties() {
+    void testGeneralProperties() throws RepositoryException {
         assertEquals("12345", globalModel.getId());
         assertEquals("test_header_title", globalModel.getHeaderTitle());
         assertEquals("test_header_Copy", globalModel.getHeaderCopy());

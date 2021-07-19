@@ -1909,8 +1909,8 @@ a.primaryLinkWithStyle[class*=" icon-"]:before {
 /* 955 fix */
 @media screen and (min-width: 1px) and (max-width: 740px){
 h5.heading, .heading.headingH5 {
-    font-size: 16px !important;
-    line-height: 16px !important;
+    font-size: 16px ;/* removed important to fix the bug 566 and adhere best practices*/
+    line-height: 16px ;/* removed important to fix the bug 566 and adhere best practices*/
   }
 }
 /* 955 fix ends */
