@@ -1,6 +1,21 @@
 {
-  "folderpath": "/content/dam/landrover",
-  "summary": "list",
-  "jcr:primaryType": "nt:unstructured",
-  "sling:resourceType":"jlr/components/exterior360/v1/exterior360"
+  "folderPath": "/content/dam/landrover",
+  "ctaList": {
+    "jcr:primaryType": "nt:unstructured",
+    "item0": {
+      "jcr:primaryType": "nt:unstructured",
+      "target": "_self",
+      "link": "/content/jlr/au",
+      "text": "test_cta_text",
+      "linkType": "primary",
+      "icon": "test_icon",
+      "ariaLabel": "test_aria_label"
+    }
+  },
+  "isSlider": "true",
+  "ariaLabel": "arial_text",
+  "altTextFromDAM": "alt_text",
+  "assetType": "video",
+  "imageList": "list",
+  "jcr:primaryType": "nt:unstructured"
 }
