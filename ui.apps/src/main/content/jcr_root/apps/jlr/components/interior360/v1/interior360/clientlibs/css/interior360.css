@@ -1002,6 +1002,7 @@ html.no-js .cmp-interior360 .carousel > * {
   width: 100%;
   text-align: center;
   height: 100%;
+  padding: 0;
 }
 .Interior360__load-button:hover,
 .Interior360__load-button:focus {
@@ -1351,8 +1352,9 @@ html.no-js .cmp-interior360 .carousel > * {
 /* FIXES for Image */
 @media screen and (min-width: 1920px) {
   .cmp-interior360 .cmp-genericItem__element-poster {
-    width: 99.3%;
+    width: 100%;
     min-height: 935px;
+    max-width: 1660px;
   }
     .Interior360__panorama,
     .Interior360__panorama-holder {
@@ -1369,7 +1371,7 @@ html.no-js .cmp-interior360 .carousel > * {
     padding: 0px !important;
   }
   .cmp-interiorInner {
-   min-width: 1672px;
+   min-width: 1660px;
    min-height:937px;
   }
 }

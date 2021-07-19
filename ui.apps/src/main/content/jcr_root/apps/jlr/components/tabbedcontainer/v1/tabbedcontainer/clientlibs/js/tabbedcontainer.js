@@ -8183,12 +8183,16 @@
                             var _this3 = this;
                             this._selectedTab = payload.selectedPanel;
                             setTimeout(() => {
-                                this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
+                                let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 60;
+                                this.$element.parent().animate({ height: `${initialHeight}px` }, 200);
+                                //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
                                 if ($(this._selectedTab).find('.shelfComponent:visible').length != 0) {
                                     $(this._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(this._selectedTab).height() - $(this._selectedTab).find('.shelfComponent').outerHeight());
 
-                                }else{
-                                    this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 160);
+                                } else {
+                                    let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 160;
+                                    this.$element.parent().animate({ height: `${initialHeight}px` }, 200);
+                                    //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 160);
                                 }
 
                             }, 500);
@@ -8283,12 +8287,15 @@
                             if (this._selectedTab) {
                                 if (isDesktop && !this.destroyed) {
                                     setTimeout(function () {
-
-                                        _this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 60);
+                                        let initialHeight = $(_this4._selectedTab).parent('.DxTabs__panels').height() + 60;
+                                        _this4.$element.parent().animate({ height: `${initialHeight}px` }, 200);
+                                        //_this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 60);
                                         if ($(_this4._selectedTab).find('.shelfComponent:visible').length != 0) {
                                             $(_this4._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(_this4._selectedTab).height() - $(_this4._selectedTab).find('.shelfComponent').outerHeight());
-                                        }else{
-                                            _this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 160);
+                                        } else {
+                                            let initialHeight = $(_this4._selectedTab).parent('.DxTabs__panels').height() + 160;
+                                            _this4.$element.parent().animate({ height: `${initialHeight}px` }, 200);
+                                            //_this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 160);
                                         }
                                         // _this4.$element.height($(_this4._selectedTab).height());
                                     }, 50);
