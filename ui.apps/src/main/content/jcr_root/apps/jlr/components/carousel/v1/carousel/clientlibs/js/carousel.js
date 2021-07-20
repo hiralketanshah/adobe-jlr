@@ -12249,8 +12249,10 @@
           this.$element.addClass('loaded');
         }, 100);
         
+        
         let selectedSlideHeight = this.$element.find('.swiper-slide-active .fullframecarousel').height();    //active slide height    
-        $slider.height(selectedSlideHeight);
+        
+        // $slider.height(selectedSlideHeight);
       },
   
       _onResize(event) {
@@ -12276,7 +12278,9 @@
         }  
         let reqSliderHeight;
         let textHeight = 0;
-  
+        let imageHeight = 0;
+        let footerSectionHeight = 0;
+        let caveatHeight = 0;
         function getHighestText() {
           // Get the highest text of all slides
           $textContainers.each((i, element) => {
@@ -12288,26 +12292,44 @@
         }
         
         if (!(0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)()) {
-          getHighestText();
-          textHeight += 264; // Add some padding above and below
+           getHighestText();
+           
+           textHeight = this.$element.find('.cmp-carousel__item--active .summaryItemContent').outerHeight();  
+           imageHeight = this.$element.find('.cmp-carousel__item--active .summaryItemImage').outerHeight();
+           footerSectionHeight = this.$element.find('.cmp-carousel__item--active .heroFooterSection').outerHeight();
+           caveatHeight = this.$element.find('.cmp-carousel__item--active .caveat').outerHeight();
+           
+           console.log('footerSectionHeight', footerSectionHeight);
+           
+           //textHeight += 264; // Add some padding above and below
+          
           let selectedSlideHeight = this.$element.find('.swiper-slide-active .fullframecarousel').height();    //active slide height    
-  
+         
           let idealHeight = windowHeight - (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_4__.getStickyNavHeight)(this.$element.offset().top); // This is the option to match viewport
           
           // To prevent car being cropped on deep screens, limit component's height, relative to its width
-          const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
-          idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
+          //const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
+          //idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
   
           reqSliderHeight = $left.height();          
-          
-          if (windowWidth > 1) {
-            reqSliderHeight = idealHeight < textHeight ? textHeight : idealHeight;
+          if(!textHeight){
+            $slider.height('');
+          }else{
+          if (windowWidth > 1279) {          
+            reqSliderHeight = imageHeight + footerSectionHeight + caveatHeight + 40;
+          }else{
+            reqSliderHeight = imageHeight + textHeight  + 40;
           }
-          reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;
+         if(selectedSlideHeight){
+          reqSliderHeight =selectedSlideHeight;
+         }
+          
+         // reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;
           // Resize slider
           // added to fix LRA-10847 safari sub pixel rendering causing black line
           // reqSliderHeight = Math.floor(reqSliderHeight);
-          $slider.height(reqSliderHeight);         
+          $slider.height(reqSliderHeight);
+        }        
         }       
       },
   
@@ -12564,7 +12586,10 @@
       })
       if(accolades){
         let controls = el.querySelector('.cmp-carousel__controls');
-        controls.classList.add('cmp-accolades_pagination');
+        if(controls){
+          controls.classList.add('cmp-accolades_pagination');
+        }
+        
         FullFrameCarouselInit(jQuery, window,"Accolades",isBlack);
         const comp = $(el);
         if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
@@ -12784,6 +12809,7 @@
             //pagination enabled
             let controls = el.querySelector('.cmp-heroTitleBanner_pagination');
             let adjustHeroTitleBanner = ()=>{
+              
             if(controls){
               if(window.innerWidth >=1280){
                 let elm = el.querySelectorAll(".heroFooterSection");
