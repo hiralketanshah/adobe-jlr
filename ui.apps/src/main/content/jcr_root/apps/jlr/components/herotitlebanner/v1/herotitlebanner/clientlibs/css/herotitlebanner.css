@@ -452,9 +452,7 @@ label {
 .cmp-heroTitleBanner .caveat {
 	float: right;
 }
-.cmp-heroTitleBanner .cmp-genericItem__content{
-	margin-bottom: 30px;
-}
+
 .cmp-heroTitleBanner .emissionDetails label p {
 	padding-left: 0;
 }
@@ -597,12 +595,15 @@ label {
 	}
 	.cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--next{
     left: auto;
-    right: -59px;
+    right: 20px;
   }
   .cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--prev{
     left: -59px;
     right: auto;
-  }
+	}
+	.cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button{
+		top: 253px;
+	}
 }
 
 /* COMMON */
