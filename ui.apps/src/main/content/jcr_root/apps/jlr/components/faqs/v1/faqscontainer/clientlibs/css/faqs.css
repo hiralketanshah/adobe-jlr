@@ -249,18 +249,7 @@
 .cmp-faqmodel__list__title p{
     font-family: 'LandRoverWeb-Bold';
 }
-.cmp-faqmodel__list__content__caveat p a{
-    font-size: 10px;
-    text-align: left;
-    letter-spacing: 2.5px;
-    line-height: 12.5px;
-}
-.cmp-faqmodel__list__content__caveat p a{
-    font-size: 10px;
-    text-align: left;
-    letter-spacing: 2.5px;
-    line-height: 12.5px;
-}
+
 .cmp-faqmodel__list__item {
     padding-right: 0px;
 }
