@@ -1,4 +1,25 @@
 
+// bugfix-569 start
+$(document).ready(function(){
+  $(window).on('load', function(){
+    if($(".cmp-ContentBlocksContainer").length){
+      if($(window).width()>=1280){
+        var contentCard = $(".cmp-ContentBlocksContainer");
+        console.log(contentCard+"content cards")
+        console.log(contentCard.length+"content cards")
+        $( ".cmp-ContentBlocksContainer" ).each(function() {
+          $(this).attr("data-template","");
+          $(this).attr("data-template","data-blocks");
+
+          $(this).find(".cmp-contentCardsCarousel").removeClass("swiper-container swiper-container-horizontal swiper-container-free-mode swiper-container-android")
+
+        });
+      }
+    }
+  });
+});
+// bugfix-569 end
+
 /* 
  * 	Author:		Connect Group
  * 	Website:	connect-group.com
