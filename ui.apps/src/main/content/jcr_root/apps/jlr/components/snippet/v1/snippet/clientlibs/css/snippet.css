@@ -1,5 +1,6 @@
 .cmp-snippet .Snippet__MarketRegionalPricing {
     padding-top:16px;
+	padding-bottom: 16px;
 }
 
 .cmp-snippet {
@@ -155,6 +156,16 @@
 .snippet .fontBodyCopyLarge p{font-family: 'AvenirNext-Regular';}
   /* code fix for defect 567 */
 
+  .cmp-snippet .headingThick {
+	margin-bottom: 0;
+	font-size: 38px;
+	} 
+	.cmp-snippet h1.heading{
+		font-size: 38px;
+	}
+	.cmp-snippet .linkContainer div:first-child .secondaryLinkWithStyle{
+		margin-top: 0;
+	}
 /* wide desktop */
 @media screen and (min-width: 1920px){
 	.cmp-snippet .copy p{
@@ -163,6 +174,7 @@
 	.snippet .shelfComponent{
 		padding: 60px 750px 82px 290px;
 		width: 100%;
+		margin-left: 0;
 	}
 	.cmp-snippet .primaryLinkWithStyle{
 		line-height: 14px;
@@ -257,6 +269,9 @@
 
 /* Mobile */
 @media screen and (min-width: 1px) and (max-width:767.9px){
+	.cmp-snippet h1.heading{
+		font-size: 26px;
+	}
 	.cmp-snippet.shelfComponent{
 		padding: 25px 25px 42px 25px;
 		width: 100%;
