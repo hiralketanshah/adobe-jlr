@@ -6264,11 +6264,12 @@
                                 tab.setAttribute('aria-selected', 'false');
                                 tab.setAttribute('id', tabId);
                                 tab.setAttribute('aria-controls', panelId);
-
-                                panel.setAttribute('tabindex', '0');
-                                panel.setAttribute('data-index', index);
-                                panel.setAttribute('id', panelId);
-                                panel.setAttribute('aria-labelledby', tabId);
+                                if (panel) {
+                                    panel.setAttribute('tabindex', '0');
+                                    panel.setAttribute('data-index', index);
+                                    panel.setAttribute('id', panelId);
+                                    panel.setAttribute('aria-labelledby', tabId);
+                                }
                             });
                             (0, _index.tablistNavigation)(this.element);
                             this.collapseWhitespaceBetweenTabs();
