@@ -4,7 +4,7 @@
           jcr:primaryType="sling:OsgiConfig"
           deHeaderPath="/content/landrover/global/europe/published-sites/de_de/config/navigation/header.html"
           auHeaderPath="/content/landrover/global/row/published-sites/en_au/config/navigation/header.html"
-          cssLink="/clientlibs/naas/css/naas.css"
-          cssFontImportsLink="/clientlibs/naas-fonts/css/fonts.css"
-          javascriptLink="/clientlibs/naas/js/naas.js"
+          cssLink="/etc.clientlibs/jlr/clientlibs/naas.css"
+          cssFontImportsLink="/etc.clientlibs/jlr/clientlibs/naas-fonts.css"
+          javascriptLink="/etc.clientlibs/jlr/clientlibs/naas.js"
 />

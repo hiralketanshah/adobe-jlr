@@ -9,7 +9,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
  * @author Adobe
  *
  */
-@ObjectClassDefinition(name = "Replication Access Configuration", description = "Replication Access Configuration")
+@ObjectClassDefinition(name = "JLR Replication Access Configuration", description = "Replication Access Configuration")
 public @interface ReplicationAccessConfig {
 
 	/**

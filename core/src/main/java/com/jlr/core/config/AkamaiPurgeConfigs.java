@@ -8,7 +8,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
  *
  * @author Adobe
  */
-@ObjectClassDefinition(name = "AkamaiPurge Configs")
+@ObjectClassDefinition(name = "JLR AkamaiPurge Configs")
 public @interface AkamaiPurgeConfigs {
 
     /**

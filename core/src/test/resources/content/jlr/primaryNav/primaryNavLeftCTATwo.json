@@ -1,0 +1,7 @@
+{
+  "leftPaneCtaTargetTwo": "Leftpane_cta_target",
+  "leftPaneCtaTextTwo": "Leftpane_cta_text",
+  "leftPaneCtaLinkTwo": "ctalink",
+  "leftPaneCtaAriaLabelTwo": "Leftpane_cta_arialabel",
+  "jcr:primaryType": "nt:unstructured"
+}

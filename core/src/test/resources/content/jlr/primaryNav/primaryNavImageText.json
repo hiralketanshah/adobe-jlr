@@ -1,0 +1,11 @@
+{
+  "fileReferenceImageTxt": "fileReferance_Img_Text",
+  "rightPaneBodyCopy": "Rightpane_body_copy",
+  "rightPaneCopyCtaAriaLabel": "Rightpane_cta_arialabel",
+  "rightPaneCopyCtaLink": "ctalink",
+  "rightPaneCopyCtaTarget": "Rightpane_cta_target",
+  "rightPaneCopyCtaText": "Rightpane_cta_text",
+  "rightPaneHeaderCopy": "Rightpane_heade_copy",
+  "rightPaneImageTextAlt": "Rightpane_image_text",
+  "jcr:primaryType": "nt:unstructured"
+}

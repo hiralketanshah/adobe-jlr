@@ -18,11 +18,12 @@
 	}
 }
 .cmp-tabbedContainer_box{
-    width: 1160px;
+    width: 100%;
     margin: 0 auto;
-    max-height:653px;
+    max-height:934px;
     height: auto;
     position: relative;
+    max-width: 1660px;
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer{
     padding-top: 60px;
@@ -39,12 +40,13 @@
 .cmp-tabbedContainer .DxTabs {
     position: absolute;
     width: 100%;
-    bottom: -41px;
+    bottom: -63px;
+    height: 65px;
     left: 0;
     z-index: 1;
     padding: 0;
     top:unset !important;
-    border-bottom: 2px solid #4A4F544D;
+    border-bottom: 1px solid #4A4F544D;
 }
 .cmp-tabbedContainer .DxTabs__panels {
     position: relative;
@@ -55,25 +57,27 @@
     padding: 0;
 }
 .cmp-tabbedContainer .DxTabs__tablist{
-width: 100%;
-text-align: left;
-padding: 0px;
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
-position: relative;
-top: 2px;
+    width: 100%;
+    text-align: left;
+    padding: 0px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    position: relative;
+    top: 1px;
+    height: 64px;
 }
 .cmp-tabbedContainer .DxTabs__tablist::-webkit-scrollbar {
     display: none;
   }
 .cmp-tabbedContainer .DxTabs__tab{
-max-width: 500px;
-outline: none;
-margin: 0px 20px;
-padding: 0;
-border: 0;
-border-bottom:5px solid #fff; 
-height: 45px !important;
+    max-width: 500px;
+    outline: none;
+    margin: 0px 20px;
+    padding: 0;
+    border: 0;
+    border-bottom:5px solid #fff; 
+    height: 64px !important;
+    font-size: 11px;
 }
 .cmp-tabbedContainer .DxTabs__tab:hover{
     border: 0;  
@@ -92,6 +96,14 @@ height: 45px !important;
     border-right: 0;
     outline: none;
     box-shadow: unset;
+}
+
+.cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active) p{
+    color: #0c121ca8;
+}
+
+.slateblue .cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active) p{
+    color: #ffffffa8 !important;
 }
 .cmp-tabbedContainer .DxTabs__tab:not(.DxTabs__tab--active):hover{
     background-color: transparent;
@@ -158,24 +170,18 @@ height: 45px !important;
     margin-top: 45px;
     display: inline-block;
 }
-.cmp-tabbedContainer .shelfComponent{
-    padding: 80px 0px 40px;
-}
+
 .cmp-tabbedContainer .cmp-carousel__bgImage{
     position: inherit;
     height: 653px;
 }
 .cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge{
-color: #4A4F54;
-text-transform:unset;
+    color: #4A4F54;
+    text-transform:unset;
 }
 .cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge p:first-child::first-letter{
     text-transform:capitalize;
 }
-.cmp-tabbedContainer .headerClass{
-    max-width: 360px;
-}
-
 .cmp-tabbedContainer .emissionDetails label, p{
     padding-left: 0px;
 }
@@ -200,53 +206,48 @@ text-transform:unset;
     z-index: 1;
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs {
-    top: -47px !important;
+    top: -40px !important;
     bottom: unset;
-    margin: 0px 60px;
     width: calc(100% - 120px);
-    height: 47px;
+    height: 65px;
+    margin: 0 60px;
+    max-width: 1660px;
 }
 
 .cmp-contentBlocksContainer .cmp-tabbedContainer  .DxTabs__panels{
     margin-top: 47px;
 }
 .cmp-tabbedContainer .GridListWrapper{
-position: relative;
+    position: relative;
 }
 .cmp-tabbedContainer .videoCustom{
     height: 653px;
     position: relative;
 }
-.cmp-tabbedContainer .videoCustom img{
-    height: 653px;
-}
+
 .cmp-tabbedContainer .cmp-exterior360{
     margin: 0;
 }
 .cmp-tabbedContainer .DxTabs__tab-inner{
-text-transform: uppercase;
+    text-transform: uppercase;
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer .cmp-tabbedContainer_box{
     height: auto;
     max-height:unset;
     min-height: unset;
-    margin: 0;
+    margin: 0 auto;
     width: 100%;
 }
-
 .cmp-contentBlocksContainer .cmp-tabbedContainer .swiper-container{
-height: auto;
+    height: auto;
 }
-
 .cmp-tabbedContainer .cmp-interior360{
     margin: 0;
 }
-
 .cmp-tabbedContainer .Interior360__panorama, 
 .cmp-tabbedContainer .Interior360__panorama-holder{
     height: 653px !important;
 }
-
 .cmp-tabbedContainer .Exterior360__canvas-container{
     margin: 0;
 }
@@ -264,16 +265,20 @@ height: auto;
     padding-top: 0 !important;
 }
 .cmp-tabbedContainer .cmp-fullframe .primaryLinkWithStyle {
-    margin-top: 0 !important;
-margin-bottom: 0 !important;
+    margin-bottom: 0 
 }
 .cmp-tabbedContainer .shelfComponent {
-    padding: 80px 0px 0px 40px;
+    padding: 96px 0px 0px 0px;
+}
+.cmp-tabbedContainer .fullframecarousel .shelfComponent {
+    padding-bottom: 40px;
 }
 .tabbedcontainer .cmp-tabbedContainer {
-    padding-bottom: 0px;
+    padding-bottom: 80px;
 }
-
+.cmp-tabbedContainer .videoCustom:after{
+    text-align: center
+}
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
     .cmp-tabbedContainer{
@@ -307,7 +312,16 @@ margin-bottom: 0 !important;
     .cmp-tabbedContainer .DxTabs{
         margin: 0px 0 0 25px;
         width: calc(100% - 25px);
-
+        height: 48px;
+    }
+    .cmp-tabbedContainer .DxTabs__tablist{
+        height: 47px;
+    }
+    .cmp-tabbedContainer .DxTabs__tab{
+        height: 47px !important;
+    }
+    .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs{
+        height: 48px;
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 25px;
@@ -337,15 +351,39 @@ margin-bottom: 0 !important;
     }
     .cmp-tabbedContainer .videoCustom:after{
         top: 65px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center
     }
     .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs__tablist{
         top: 1px;
     }
     .cmp-tabbedContainer .Interior360__pano-controls{
         bottom: 40px;
+    }
+    .cmp-tabbedContainer .cmp-fullframe .shelfComponent{ 
+        padding-bottom: 40px;
+    }
+    .tabbedcontainer .cmp-tabbedContainer{
+        padding-bottom: 0px;
+    }
+    .tabbedcontainer .cmp-genericItem__element-poster{
+        min-height: 211px;
+    }
+    .tabbedcontainer .Interior360__panorama, .Interior360__panorama-holder,
+    .tabbedcontainer .cmp-interior360{
+        min-height:211px;
+    }
+    .cmp-tabbedContainer .shelfComponent{
+        padding-top: 63px ;
+        min-width: 100%;
+    }
+    .cmp-tabbedContainer .DxTabs__tab{
+        margin: 0px 10px;
+    }
+    .cmp-tabbedContainer .cmp-interior360 .shelfComponent{
+        min-height: 24px;
     }
 }
 @media screen and (min-width: 1px) and (max-width: 375px) {
@@ -354,21 +392,23 @@ margin-bottom: 0 !important;
     }
     .cmp-tabbedContainer .videoCustom:after{
         top: 60px;
-    margin: 0;
-    margin-left: auto;
-    margin-right: auto;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
     }
+    .cmp-tabbedContainer .DxTabs__tab{
+        margin: 0px 10px;
     }
+}
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 
     .cmp-tabbedContainer{
-    padding: 60px 0px;
+        padding: 60px 0px;
     }
     .cmp-tabbedContainer_box{
         width: 100%;
         max-height:432px;
-        min-height: 432px;
-        
+        min-height: 432px;        
     }
     .cmp-tabbedContainer .cmp-carousel__bgImage, 
     .cmp-tabbedContainer .Exterior360__canvas,
@@ -383,12 +423,28 @@ margin-bottom: 0 !important;
     
     .cmp-tabbedContainer .DxTabs{
         margin: 0px 30px;
-    width: calc(100% - 60px);
+        width: calc(100% - 60px);
+        height: 48px;
+    }
+    .cmp-tabbedContainer .DxTabs__tablist{
+        height: 47px;
+    }
+    .cmp-tabbedContainer .DxTabs__tab{
+        height: 47px !important;
+    }
+    .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs{
+        height: 48px;
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
-        padding-right: 30px;
+        padding-right: 30px;        
         margin: 0;
+    }
+    .cmp-tabbedContainer .cmp-fullframe .shelfComponent{ 
+        padding-bottom: 40px;
+    }
+    .tabbedcontainer .cmp-tabbedContainer{
+        padding-bottom: 60px;
     }
     .cmp-tabbedContainer .headerClass{
         max-width: 100%;
@@ -405,16 +461,25 @@ margin-bottom: 0 !important;
     .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner {
         display: flex;
         flex-wrap:wrap;
-      }
-      .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner.swiper-wrapper{
+    }
+    .cmp-tabbedContainer .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner.swiper-wrapper{
         display: flex;
         flex-wrap:nowrap;
-      }
-      .cmp-tabbedContainer .videoCustom:after {
+    }
+    .cmp-tabbedContainer .videoCustom:after {
         top: 155px;
         margin: 0;
         margin-left: auto;
         margin-right: auto;
+    }
+    .cmp-tabbedContainer .DxTabs__tab{
+        margin: 0px 10px;
+    }
+    .cmp-tabbedContainer .cmp-fullframe .headerClass{
+        min-block-size: 24px;
+    }
+    .cmp-tabbedContainer .cmp-fullframe .headerClass h2{
+        margin-bottom: 0px
     }
 }
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
@@ -437,16 +502,25 @@ margin-bottom: 0 !important;
         height: 935px !important;
     }
     .cmp-tabbedContainer .DxTabs{
-        margin: 0 150px;
-    width: calc(100% - 300px);
+        margin: 0 160px;
+        width: 100%;
+        max-width: 1340px;
     }
     .cmp-tabbedContainer .shelfComponent{
-       
-        margin: 0 150px;
-    width: calc(100% - 300px) !important;
+        margin: 0 auto;
+        width: 100% !important;
+        max-width: 1340px;
+        left: 50%;
     }
     .cmp-tabbedContainer .secondaryLinkWithStyle{
         margin-top: 24px;
+    }
+    .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs {  
+        width: 100%;      
+        margin: 0 auto;
+        max-width: 1340px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 

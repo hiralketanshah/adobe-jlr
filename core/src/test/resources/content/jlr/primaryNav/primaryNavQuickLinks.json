@@ -1,0 +1,8 @@
+{
+  "quickLinksCopyCtaAriaLabel": "Quick_cta_arialabel",
+  "quickLinksCopyCtaIcon": "icon-arrow-right",
+  "quickLinksCopyCtaLink": "ctalink",
+  "quickLinksCopyCtaTarget": "Quick_cta_target",
+  "quickLinksCtaText": "Quick_cta_text",
+  "jcr:primaryType": "nt:unstructured"
+}
