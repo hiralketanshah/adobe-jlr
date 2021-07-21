@@ -389,9 +389,7 @@ height: 493px;
 }
 
 
-.cmp-vehicleSummary .cmp-vehicleSummary__content p {
-    margin-top: 3px;
-}
+
 
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
     margin-bottom: 8px;
@@ -803,7 +801,7 @@ height: 493px;
 }
 
 
-
+.cmp-vehicleSummary  li , .cmp-vehicleSummary p{ font-family:"AvenirNext-Regular";}
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
 .cmp-vehicleSummary.slateblue li,.cmp-vehicleSummary.slateblue p{color:#fff; font-family:"AvenirNext-Regular";}
