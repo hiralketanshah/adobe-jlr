@@ -52,3 +52,10 @@
 /0027 { /type "deny" /url "/content/landrover/*/config/*" }
 /0028 { /type "deny" /url "/content/landrover/*/global-master/*" }
 /0029 { /type "deny" /url "/content/landrover/*/language-master/*" }
+
+/0030 { /type "allow" /url "/content/landrover/global/*/index.sitemap.xml" }
+
+/0031 { /glob "*.nocache.html*" /type "allow"}
+
+/0032 { /type "allow" /url "/content/landrover/global/*/de_de/_jcr_content.robots.txt" }
+/0033 { /type "allow" /url "/content/landrover/global/*/en_au/_jcr_content.robots.txt" }    

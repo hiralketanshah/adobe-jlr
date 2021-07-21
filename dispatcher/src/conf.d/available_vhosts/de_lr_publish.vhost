@@ -26,8 +26,9 @@ PassEnv DISP_ID
 			SetEnvIf Request_URI "/content/nav/naasconfig/(en_au|de_de).html" is_naas
 			Header always add X-Frame-Options "SAMEORIGIN"  env=!is_naas
 			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
-			SetEnvIf Request_URI "/etc.clientlibs/jlr/clientlibs/clientlib-libs/resources/fonts/(.*)$" is_font
-			Header always add Access-Control-Allow-Origin "*" env=is_font
+			SetEnvIf Request_URI "(\.min)?\.[a-f0-9]+\.js" long_expires=true
+            SetEnvIf Request_URI "(\.min)?\.[a-f0-9]+\.css" long_expires=true
+            Header always add Cache-Control max-age=2592000 env=long_expires
 			#### Make sure proxies don't deliver the wrong content
 			## Force SSL for author
 			## Add HSTS for avoiding man in the middle during browser redirect to SSL
@@ -49,7 +50,8 @@ PassEnv DISP_ID
 				## Enable the dispatcher file handler for apache to fetch files from AEM
 				SetHandler dispatcher-handler
 			</IfModule>
-			Options FollowSymLinks
+			Options FollowSymLinks Includes
+			AddOutputFilter INCLUDES .html
 			AllowOverride None
 			#### Insert filter
 			SetOutputFilter DEFLATE
@@ -78,4 +80,7 @@ PassEnv DISP_ID
 				Include /etc/httpd/conf.d/rewrites/xforwarded_forcessl_rewrite.rules
 			</If>
         </IfModule>
+		<LocationMatch ^/content/landrover/global/europe/published-sites/de_de/>
+                ErrorDocument 404 /error/404.html
+        </LocationMatch>                                                     
 </VirtualHost>
