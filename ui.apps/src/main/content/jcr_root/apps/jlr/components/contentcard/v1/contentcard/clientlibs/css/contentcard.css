@@ -1026,6 +1026,16 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
   }
 }
 @media screen and (min-width: 1px) and (max-width: 767.9px) {
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items .el,
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="1"] .el, 
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="2"] .el, 
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="4"] .el,
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="5"] .el,
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="6"] .el,
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="7"] .el,
+  .cmp-ContentBlocksContainer[data-template="data-blocks"] .GridListWrapper .items[data-total="8"] .el{
+    width: 100%;
+  }
   /* 955 fix */
   .cmp-ContentBlocksContainer h5.heading,.cmp-ContentBlocksContainer .heading.headingH5 {
     font-size: 16px ;/* removed important to fix the bug 566 and adhere best practices*/
@@ -1493,6 +1503,181 @@ padding: 0 0 42px;
   }
 }
 /* MOBILE END */
+@media screen and (min-width:900px) and (max-width:1279.9px) {
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .swiper-scrollbar,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .swiper-scrollbar {
+    left: 40px; /*bugfix kestrel-966 */
+    right: 45px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-contentCardsInner {
+    -webkit-transform: translate(-10px); 
+    -moz-transform: translate(-10px);
+    -ms-transform: translate(-10px);
+    -o-transform: translate(-10px);
+    transform: translate(-10px); /*issue fix for 1083*/
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-light-links"] .el,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el,
+  .touch .cmp-ContentBlocksContainer[data-template="feature-swiping"] .el {
+    width: calc(33.333% - 26.6px);
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .el:last-child,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .el:last-child {
+    margin-right: 80px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .textContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .textContainer {
+    padding-left: 50px; /*bugfix kestrel-966 */
+    margin-right: -40px;
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .cmp-ContentCard
+    .imageContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .cmp-ContentCard
+    .imageContainer {
+    margin-left: 40px;
+    margin-right: -35px;
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .ctaContainer,
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .ctaContainer,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .ctaContainer {
+    padding: 20px 0 0 20px; /*bugfix kestrel-970 */
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping-2column"] .el {
+    width: calc(50% - 40px);
+  }
+  .touch .cmp-ContentBlocksContainer[data-template="swiping"] .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"]
+    .swiper-container,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"]
+    .swiper-container {
+    margin-left: -20px; /*bugfix kestrel-966 */
+    margin-right: -20px; /*bugfix kestrel-966 */
+  }
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-2column"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="swiping-light-links"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="insideMultiCatQuestionnaire"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="true"]
+    .cmp-contentCardsInner,
+  .touch
+    .cmp-ContentBlocksContainer[data-template="feature-swiping"][data-in-viewport="initial-load"]
+    .cmp-contentCardsInner {
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+}
 /* TABLET START */
 @media screen and (min-width: 768px) and (max-width: 1279.9px){
   .cmp-ContentBlocksContainer .headerBlock{
