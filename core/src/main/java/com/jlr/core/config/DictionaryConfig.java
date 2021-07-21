@@ -9,7 +9,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
  * @author Adobe
  *
  */
-@ObjectClassDefinition(name = "Dictionary Configuration", description = "Dictionary Configuration")
+@ObjectClassDefinition(name = "JLR Dictionary Configuration", description = "Dictionary Configuration")
 public @interface DictionaryConfig {
 
 	/**

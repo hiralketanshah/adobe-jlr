@@ -82,14 +82,14 @@ public class PricingScheduler implements Runnable {
     public void run() {
 
         if (isEnabled && this.slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
-            LOGGER.debug("JLR pricing scheduler : In Run method");
+            
             StringBuilder responseBuilder = new StringBuilder();
             responseBuilder.append(fetchPrice.fetchAndStorePrice(PricingConstants.JLR_PRICING_MARKET_ALL));
-            LOGGER.debug(responseBuilder.toString());
+            
         }
     }
 
-    @ObjectClassDefinition(name = "Pricing Scheduler Configuration", description = "Pricing Scheduler Configuration")
+    @ObjectClassDefinition(name = "JLR Pricing Scheduler Configuration", description = "Pricing Scheduler Configuration")
     public @interface SchedulerConfig {
 
         @AttributeDefinition(name = "Enabled", description = "Enable Scheduler", type = AttributeType.BOOLEAN)
