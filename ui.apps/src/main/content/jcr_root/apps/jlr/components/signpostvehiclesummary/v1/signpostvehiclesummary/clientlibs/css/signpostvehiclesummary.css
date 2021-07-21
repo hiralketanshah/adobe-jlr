@@ -388,9 +388,6 @@ height: 493px;
     padding-left: 0px;
 }
 
-
-
-
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
     margin-bottom: 8px;
     text-transform:uppercase;
@@ -687,7 +684,7 @@ height: 493px;
         width: 34%;
     }
 }
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
     .cmp-vehicleSummary {
         padding: 60px 60px 80px;
         min-height: 570px;
@@ -697,6 +694,9 @@ height: 493px;
       }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 428px;
+        width: 1280px;
+        height: auto;
+        margin: 0 auto;
     }
     
     .cmp-vehicleSummary .cmp-vehicleSummary__image{      
@@ -807,12 +807,13 @@ height: 493px;
 .cmp-vehicleSummary.slateblue li,.cmp-vehicleSummary.slateblue p{color:#fff; font-family:"AvenirNext-Regular";}
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{font-size:14px;}
 .cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px;}
-    .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
+    .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px!important;margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
  .cmp-vehicleSummary .headingWrapper{
 	font-size:24px; 
 	line-height:24px;
-        color: #0C121C;
+    color: #0C121C;
     font-family: "LandRoverWeb-Bold";
+    letter-spacing:1.2px;
             }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
@@ -856,9 +857,9 @@ height: 493px;
 .cmp-vehicleSummary .summaryItemContent {
     padding-top: 0px; 
  }}
-  @media screen and (min-width: 768px) and (max-width: 1279px){
+  @media screen and (min-width: 768px) and (max-width: 1279.9px){
 
- .cmp-vehicleSummary .cmp-vehicleSummary__price  {margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
+ .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px;margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
  .slateblue.cmp-vehicleSummary ul li{color:#fff;}
 .cmp-vehicleSummary .cmp-vehicleSummary__image{width:100%;}
 
@@ -882,9 +883,9 @@ height: 493px;
 }
 .cmp-vehicleSummary .linkContainer{padding-top:0}
 .cmp-vehicleSummary .primaryLinkWithStyle { margin-bottom:0px!important;}
-.cmp-vehicleSummary{ padding:40px 30px 60px 30px;} 
+.cmp-vehicleSummary{ padding:40px 30px 62px 30px;} 
 }
-@media screen and (min-width: 320px) and (max-width: 767px){
+@media screen and (min-width: 320px) and (max-width: 767.9px){
 .cmp-vehicleSummary{ padding:25px 25px 42px 25px;}
 .cmp-vehicleSummary .Picture__img{width:100%;min-width:325px;}
 .cmp-vehicleSummary .summaryItemContent {width:325px;}
