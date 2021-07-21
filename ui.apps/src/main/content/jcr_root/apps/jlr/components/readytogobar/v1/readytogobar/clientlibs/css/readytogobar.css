@@ -134,7 +134,7 @@ h2.cmp-readyToGoBar__heading.heading.fontH5.headingH5 {
 }
 
 .cmp-readyToGoBar__link:focus {
-	outline:2px solid #4a90e2 !important;
+	border:2px solid #4a90e2 !important;
 }
 
 /* theme start  */
@@ -156,12 +156,6 @@ h2.cmp-readyToGoBar__heading.heading.fontH5.headingH5 {
 .light .cmp-readyToGoBar .cmp-readyToGoBar__link ,
 .grey .cmp-readyToGoBar .cmp-readyToGoBar__link {
 	border-color:#4A4F5433;
-}
-
-.grey .cmp-readyToGoBar__link:focus,
-.light .cmp-readyToGoBar__link:focus,
-.dark .cmp-readyToGoBar__link:focus {
-	outline:2px solid #4a90e2 !important;
 }
 
 .light .cmp-readyToGoBar .heading,
