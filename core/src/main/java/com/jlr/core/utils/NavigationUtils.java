@@ -72,6 +72,9 @@ public class NavigationUtils {
         Elements link = document.select("link");
         iterateElements(link, "href");
 
+        Elements divEle = document.select("div");
+        iterateElements(divEle, "href");
+
         Elements img = document.getElementsByTag("img");
         iterateElements(img, "src");
 
@@ -102,6 +105,15 @@ public class NavigationUtils {
         Element element = document.select(elementName).first();
         if (element != null) {
             element.remove();
+        }
+    }
+
+    public static void removeAttributes(Document document, String elementName) {
+        Elements elements = document.select(elementName);
+        for (Element element : elements) {
+            if (element != null) {
+                element.remove();
+            }
         }
     }
 

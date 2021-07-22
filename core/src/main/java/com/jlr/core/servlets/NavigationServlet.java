@@ -112,10 +112,12 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         /* Get the retailer and search divs */
         if (!mrp) {
-            NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-showprices");
-            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-prices.MarketRegionalPricing-triggerer");
-            NavigationUtils.removeAttribute(document, "div.dxnav-NaasMarketRegionalPricing-cta");
-            NavigationUtils.removeAttribute(document, "span.dxnav__item-prices-label");
+            NavigationUtils.removeAttributes(document, "li.dxnav__item.dxnav__item-showprices");
+            NavigationUtils.removeAttributes(document, "a.dxnav__mobile-icons-prices.MarketRegionalPricing-triggerer");
+            NavigationUtils.removeAttributes(document, "div.dxnav-NaasMarketRegionalPricing-cta");
+            NavigationUtils.removeAttributes(document, "span.NaasMarketRegionalPricing-cta__label");
+            NavigationUtils.removeAttributes(document, "div.dxnav-NaasMarketRegionalPricing");
+            NavigationUtils.removeAttributes(document, "span.dxnav-NaasMarketRegionalPricing__label");
         }
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
