@@ -8,5 +8,5 @@
           resourceTypes="[jlr/components/request/navigation,jlr/components/request/fullsearch]"
           extensions="[json,html]"
           requestParameters="[locale,cache,fullyQualifyDxLinks,retailerName,retailerUrl,search,yourRetailer,retailerLocatorLink,myJLRProfile,mrp,query]"
-          requestParameterValues="[locale=de_DE;en_AU;de-DE;en-AU]"
+          requestParameterValues="[locale=de_DE;en_AU;de-DE;en-AU;de_de;en_au;de-de;en-au]"
 />
