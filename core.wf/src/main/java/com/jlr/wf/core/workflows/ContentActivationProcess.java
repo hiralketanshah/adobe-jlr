@@ -92,6 +92,9 @@ public class ContentActivationProcess implements WorkflowProcess {
                     }
                 } else {
                     notifyInitiatorOfRejection(workItem, resourceResolver, inboxNotificationSender);
+                    if(page != null) {
+                        lockUnlockService.lockUnlockPage(page.getPath(), UNLOCK);
+                    }
                 }
             }
 
