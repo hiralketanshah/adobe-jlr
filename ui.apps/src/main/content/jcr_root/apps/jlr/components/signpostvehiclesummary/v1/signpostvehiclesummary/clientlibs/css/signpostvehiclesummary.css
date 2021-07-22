@@ -659,7 +659,7 @@ height: 493px;
 
 @media screen and (min-width: 1920px) and (max-width: 2560px) {
     .cmp-vehicleSummary {      
-        padding: 60px 295px 80px 290px;
+        padding: 60px 295px 80px 295px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
@@ -800,7 +800,25 @@ height: 493px;
     color:#FFF !important;
 }
 
+.cmp-vehicleSummary .plwsLight:hover, 
+.primaryLinkWithStyle:hover{
+    background-color:transparent!important; 
+    color: #fff!important;
+    box-shadow: none!important;
+    border:1px solid #fff;
+    border-bottom: 1px solid #fff!important;
+}
+#landrover .cmp-vehicleSummary .cmp-vehicleSummary__secondaryLinks .secondaryLinkWithStyle:hover,
+ #landrover .cmp-signPost .secondaryLinkWithStyle:hover{color: #fff !important;
+    text-decoration: none !important;}
+#landrover .cmp-vehicleSummary  .secondaryLinkWithStyle:hover span, 
+ #landrover .cmp-vehicleSummary .secondaryLinkWithStyle:active span,
+ #landrover .cmp-vehicleSummary  .secondaryLinkWithStyle:focus span{
 
+    border-bottom: 1px solid #fff!important;
+}
+#landrover .cmp-vehicleSummary .secondaryLinkWithStyle:focus
+   { color: #fff!important;} 
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{ font-family:"AvenirNext-Regular";}
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
@@ -870,7 +888,7 @@ height: 493px;
     font-family: "LandRoverWeb-Bold";
 }
   .cmp-vehicleSummary .cmp-vehicleSummary__content {
-    width: 100%;
+    width: 432px;
     margin-top: 24px!important;
     padding: 0;
 }
