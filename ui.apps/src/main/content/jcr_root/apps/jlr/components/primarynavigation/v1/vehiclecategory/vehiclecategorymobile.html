@@ -24,12 +24,28 @@ data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregion
        </li>
        <sly data-sly-list.item="${model.vehicleFamily}">
        <li>
+         <sly data-sly-test="${item.vehicleFamilyName}">
           <div class="dxnav-vehicle-nav__category-block">
-             <div data-sly-test="${item.vehicleFamilyName}" class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
+             <div class="dxnav-vehicle-nav__category-title">${item.vehicleFamilyName}</div>
              <sly data-sly-list.item1="${item.vehiclesList}">
                 <sly data-sly-resource="${item1.vehicleCardLink @appendPath='/jcr:content/root/container',selectors='vehiclecarditem'}"/>
              </sly>
           </div>
+         </sly>
+         <sly data-sly-test="${!item.vehicleFamilyName && itemList.index!=0}">
+            <div class="dxnav-vehicle-nav__category-block dxnav-vehicle-nav__category-block--non-nameplate">
+               <sly data-sly-list.item1="${item.vehiclesList}">
+                  <sly data-sly-resource="${item1.vehicleCardLink @appendPath='/jcr:content/root/container',selectors='vehiclecarditem'}"/>
+               </sly>
+            </div>
+           </sly>
+           <sly data-sly-test="${itemList.index==0 && !item.vehicleFamilyName}">
+            <div class="dxnav-vehicle-nav__category-block">
+               <sly data-sly-list.item1="${item.vehiclesList}">
+                  <sly data-sly-resource="${item1.vehicleCardLink @appendPath='/jcr:content/root/container',selectors='vehiclecarditem'}"/>
+               </sly>
+            </div>
+           </sly>
        </li>
        </sly>
        <sly data-sly-test="${model.compareText}">
