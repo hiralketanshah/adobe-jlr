@@ -12,11 +12,11 @@
         <list jcr:primaryType="nt:unstructured">
             <item0
                     jcr:primaryType="nt:unstructured"
-                    jcr:title="None"/>
-            <item1
-                    jcr:primaryType="nt:unstructured"
                     jcr:title="Default"
                     value="icon-arrow-right"/>
+            <item1
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="None"/>
             <item2
                     jcr:primaryType="nt:unstructured"
                     jcr:title="360"

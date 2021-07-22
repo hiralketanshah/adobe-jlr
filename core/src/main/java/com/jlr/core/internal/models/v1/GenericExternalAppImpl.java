@@ -134,7 +134,10 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
      */
     @Override
     public String[] getConsentCategory() {
-        return consentCategory.clone();
+    	if(consentCategory!=null) {
+    		return consentCategory.clone();
+    	}
+        return null;
     }
 
     /**
@@ -144,10 +147,13 @@ public class GenericExternalAppImpl extends GlobalModelImpl implements GenericEx
      */
     @Override
     public List<String> getConsentCategoryData() {
-        for (String consent : consentCategory) {
-            category.add('"' + consent.toLowerCase() + '"');
-        }
-        return category;
+    	if(consentCategory!=null) {
+    		for (String consent : consentCategory) {
+                category.add('"' + consent.toLowerCase() + '"');
+            }
+            return category;
+    	}
+    	return null;
     }
 
     /**

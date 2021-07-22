@@ -5280,7 +5280,7 @@
     updateOnImagesReady: true,
   
     // loop
-    loop: false,
+    loop: true,
     loopAdditionalSlides: 0,
     loopedSlides: null,
     loopFillGroupWithBlank: false,
@@ -12041,6 +12041,11 @@
   
       _initGallery() {
         let startingSlideId = 0;
+        if(this._total == 1){
+          this._loop = false;
+        }else{
+          this._loop = true;
+        }
   
         if (this._direction === 'slideFromLeft') {
           startingSlideId = this.$element.data('total') - 1;
@@ -12243,6 +12248,11 @@
         setTimeout(() => {
           this.$element.addClass('loaded');
         }, 100);
+        
+        
+        let selectedSlideHeight = this.$element.find('.swiper-slide-active .fullframecarousel').height();    //active slide height    
+        
+        // $slider.height(selectedSlideHeight);
       },
   
       _onResize(event) {
@@ -12268,7 +12278,9 @@
         }  
         let reqSliderHeight;
         let textHeight = 0;
-  
+        let imageHeight = 0;
+        let footerSectionHeight = 0;
+        let caveatHeight = 0;
         function getHighestText() {
           // Get the highest text of all slides
           $textContainers.each((i, element) => {
@@ -12278,29 +12290,47 @@
             }
           });
         }
-  
+        
         if (!(0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)()) {
-          getHighestText();
-          textHeight += 264; // Add some padding above and below
-  
+           getHighestText();
+           
+           textHeight = this.$element.find('.cmp-carousel__item--active .summaryItemContent').outerHeight();  
+           imageHeight = this.$element.find('.cmp-carousel__item--active .summaryItemImage').outerHeight();
+           footerSectionHeight = this.$element.find('.cmp-carousel__item--active .heroFooterSection').outerHeight();
+           caveatHeight = this.$element.find('.cmp-carousel__item--active .caveat').outerHeight();
+           
+           console.log('footerSectionHeight', footerSectionHeight);
+           
+           //textHeight += 264; // Add some padding above and below
+          
+          let selectedSlideHeight = this.$element.find('.swiper-slide-active .fullframecarousel').height();    //active slide height    
+         
           let idealHeight = windowHeight - (0,_resources_dev_js_utils_index__WEBPACK_IMPORTED_MODULE_4__.getStickyNavHeight)(this.$element.offset().top); // This is the option to match viewport
-  
+          
           // To prevent car being cropped on deep screens, limit component's height, relative to its width
-          const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
-          idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
+          //const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
+          //idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
   
-          reqSliderHeight = $left.height();
-          if (windowWidth > 1) {
-            reqSliderHeight = idealHeight < textHeight ? textHeight : idealHeight;
+          reqSliderHeight = $left.height();          
+          if(!textHeight){
+            $slider.height('');
+          }else{
+          if (windowWidth > 1279) {          
+            reqSliderHeight = imageHeight + footerSectionHeight + caveatHeight + 40;
+          }else{
+            reqSliderHeight = imageHeight + textHeight  + 40;
           }
-  
+         if(selectedSlideHeight){
+          reqSliderHeight =selectedSlideHeight;
+         }
+          
+         // reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;
           // Resize slider
           // added to fix LRA-10847 safari sub pixel rendering causing black line
           // reqSliderHeight = Math.floor(reqSliderHeight);
           $slider.height(reqSliderHeight);
-        }
-       
-
+        }        
+        }       
       },
   
       _userFinishedInteraction() {
@@ -12497,9 +12527,11 @@
   const carousalElements = document.querySelectorAll('.cmp-carousel');
   if (carousalElements.length) {
     carousalElements.forEach((el)=>{
+      
       el.classList.add('cmp-accolades-carousel');
       let accolades = el.querySelector('.cmp-accolades');
       el.querySelectorAll('.cmp-accolades').forEach((el)=>{
+        var bgimagevalacc = $( `#${accolades.id} #bgimagevalue`).val();
         let onlyCopy = el.querySelector('.cmp-onlyCopy');
         let handleOnlyCopy = ()=>{
           let onlyCopy = el.querySelector('.cmp-onlyCopy');
@@ -12509,18 +12541,38 @@
           if(img){
             img.style.display="none";
           }
-          if(window.innerWidth>=1280){
-            el.style.paddingTop = "60px";
-            el.style.paddingBottom = "80px";
+          if(window.innerWidth>=1920){
+          
+            if(bgimagevalacc === 'none'){
+             
+              el.style.height = "";
+              el.style.paddingTop = "60px";
+              el.style.paddingBottom = "80px";             
+              
+            }          
+           
+          }
+          if(window.innerWidth>=1280 && window.innerWidth<=1919){
+            if(bgimagevalacc === 'none'){
+             
+              el.style.height = "";
+              el.style.paddingTop = "60px";
+              el.style.paddingBottom = "80px";
+                           
+              
+            }         
+
           }
          
           if(window.innerWidth>=768 && window.innerWidth<=1279 ){
             el.style.paddingTop = "40px";
             el.style.paddingBottom = "60px";
+            el.style.backgroundImage= 'none';
           }
           if(window.innerWidth<=767){
             el.style.paddingTop = "30px";
             el.style.paddingBottom = "40px";
+            el.style.backgroundImage= 'none';
           }
         }
         if(onlyCopy){
@@ -12534,7 +12586,10 @@
       })
       if(accolades){
         let controls = el.querySelector('.cmp-carousel__controls');
-        controls.classList.add('cmp-accolades_pagination');
+        if(controls){
+          controls.classList.add('cmp-accolades_pagination');
+        }
+        
         FullFrameCarouselInit(jQuery, window,"Accolades",isBlack);
         const comp = $(el);
         if (!comp.parents('.TabbedContainer').length || comp.parents('.DxTabs__panel').data('index') === 0) {
@@ -12754,6 +12809,7 @@
             //pagination enabled
             let controls = el.querySelector('.cmp-heroTitleBanner_pagination');
             let adjustHeroTitleBanner = ()=>{
+              
             if(controls){
               if(window.innerWidth >=1280){
                 let elm = el.querySelectorAll(".heroFooterSection");

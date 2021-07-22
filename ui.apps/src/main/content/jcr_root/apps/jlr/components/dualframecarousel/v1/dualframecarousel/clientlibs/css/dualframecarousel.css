@@ -1145,6 +1145,7 @@ order:1;
     opacity: 1;
     font-size: 14px;
     line-height: 19px;
+    font-family:"AvenirNext-Regular";
   }
   /* primary */
   #landrover .cmp-dualFrameItem .primaryLinkContainer span{
@@ -1200,6 +1201,12 @@ order:1;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .cmp-dualFrameItem .cmp-genericItem__content {
+    width: 100%;
+    margin-top: 24px;
+    padding: 0 !important;
+    order: 2;
+}
   .cmp-dualFrameItem .summaryItemContent.cmp-genericItem__content{
     width: 74.02%;
   }
@@ -1248,6 +1255,12 @@ order:1;
   }
 }
 @media screen and (max-width: 767px){
+  .cmp-dualFrameItem .cmp-genericItem__content {
+    width: 100%;
+    margin-top: 16px;
+    padding: 0 !important;
+    order: 2;
+}
   .cmp-dualframe-carousel .videoCustom:after {
     top: 21%;
     left: 40%;
@@ -1298,7 +1311,7 @@ order:1;
     left: 290px;
 }
 .cmp-dualframe_pagination.left {
-  left: 63%;
+  left: 67%;
 }
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--prev {
   left: -59px;
@@ -1307,8 +1320,8 @@ order:1;
   right: -59px;
 }
 .cmp-carousel.cmp-dualframe-carousel {
-  padding-left: 290px;
-  padding-right: 290px;
+  margin-left: 230px;
+  margin-right: 230px;
 }
 }
 #landrover .cmp-dualFrameItem .primaryLinkContainer:first-of-type {
@@ -1336,4 +1349,14 @@ order:1;
   right: 0;
   bottom: 0;
   margin: auto;
+}
+
+.cmp-dualframe-carousel .primaryLinkWithStyle:hover,
+.cmp-dualframe-carousel .primaryLinkWithStyle:focus,
+.cmp-dualframe-carousel .primaryLinkWithStyle:active
+{
+  border:1px solid #fff!important; 
+  background:#0C121C!important; 
+  box-shadow: none!important;
+  color: #fff!important;
 }

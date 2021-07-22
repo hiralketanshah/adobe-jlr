@@ -36,13 +36,13 @@
 .cmp-carousel .swiper-button[aria-disabled="true"] {
   display: none;
 }
-.cmp-carousel .carousel {
+.cmp-heroTitleBanner.cmp-carousel .carousel {
   text-align: center;
   direction: ltr;
   height: 100% !important;
   overflow: unset;
 }
-.cmp-carousel .carousel .cmp-carousel__slide {
+.cmp-heroTitleBanner.cmp-carousel .carousel .cmp-carousel__slide {
   display: flex;
   align-items: center;
   width: 100%;
@@ -199,7 +199,7 @@ label {
   stroke: #fff;
 }
 .slateblue .cmp-herotitle-carousel .Pagination__pause-timer-icon-countdown {
-	stroke: black;
+	stroke: #fff;
 	}
 	.cmp-herotitle-carousel .Pagination__pause:before {
 		border: 2px solid #A8AAAE;
@@ -219,6 +219,23 @@ label {
 }
 .cmp-heroTitleBanner .headingWrapper {
   font-weight: 400;
+}
+.cmp-heroTitleBanner .summaryItemContent .logo{
+	margin-bottom: 8px;
+}
+.cmp-heroTitleBanner .emissionDe label p{
+	font-weight: 500;
+}
+.cmp-carousel__controls.cmp-heroTitleBanner_pagination .Pagination__controls{
+	justify-content: left;
+}
+.cmp-carousel[data-total="1"] .Pagination__pause:before,
+.cmp-carousel[data-total="1"] .cmp-herotitle-carousel .Pagination__play:before{
+	border: 2px solid #000 !important;
+}
+.slateblue .cmp-carousel[data-total="1"] .Pagination__pause:before,
+.slateblue .cmp-carousel[data-total="1"] .cmp-herotitle-carousel .Pagination__play:before{
+	border: 2px solid white !important;
 }
 @media screen and (max-width: 767px) {
 	.cmp-heroTitleBanner .emissionDetails {
@@ -266,6 +283,7 @@ label {
 		width: 100%;
 		margin-top: 16px;
 		padding-left: 25px;
+		padding-right: 25px;
 		order: 2;
 	}
 	.cmp-heroTitleBanner .pricing {
@@ -306,6 +324,7 @@ label {
 	}
 	.cmp-heroTitleBanner .linkContainer div:nth-of-type(2) {
 		margin-top: 23px;
+		display: inline-block;
 	}
 	.cmp-heroTitleBanner .linkContainer .secondaryLinkWithStyle,#landrover .cmp-heroTitleBanner .linkContainer .secondaryLinkWithStyle  {
 		margin-top: 0;
@@ -347,9 +366,10 @@ label {
 	}
 	.short .cmp-genericItem__content{
 		margin: auto;
+		padding-top: 0 !important;
 	}
 	.tall .cmp-genericItem__content{
-		margin: auto;
+		margin: 0;
 	}
 	.short.topAlign .cmp-genericItem__content {
 		margin: 0px;
@@ -414,6 +434,7 @@ label {
 	}
 	.cmp-heroTitleBanner .linkContainer div:nth-of-type(2) {
 		margin-top: 23px;
+		display: inline-block;
 	}
 	.cmp-heroTitleBanner .caveat{
 		margin-top: 24px;
@@ -431,9 +452,7 @@ label {
 .cmp-heroTitleBanner .caveat {
 	float: right;
 }
-.cmp-heroTitleBanner .cmp-genericItem__content{
-	margin-bottom: 30px;
-}
+
 .cmp-heroTitleBanner .emissionDetails label p {
 	padding-left: 0;
 }
@@ -449,6 +468,7 @@ label {
 }
 .cmp-heroTitleBanner .linkContainer div:nth-of-type(2) {
 	margin-top: 23px;
+	display: inline-block;
 }
 .cmp-heroTitleBanner .primaryLinkWithStyle {
 	margin-bottom: 0;
@@ -468,7 +488,7 @@ label {
 	display: block;
 }
 .summaryItemContent.cmp-genericItem__content {
-	width: 60.1%;
+	width: 62.7%;
 	padding-right: 19px;
 	float: left;
 	padding-left: 30px;
@@ -575,12 +595,15 @@ label {
 	}
 	.cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--next{
     left: auto;
-    right: -59px;
+    right: 20px;
   }
   .cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button--prev{
     left: -59px;
     right: auto;
-  }
+	}
+	.cmp-herotitle-carousel.cmp-accolades-carousel .swiper-button{
+		top: 253px;
+	}
 }
 
 /* COMMON */
@@ -629,7 +652,8 @@ label {
 	.light .cmp-herotitle-carousel .Pagination__pip--active:after, .light .cmp-herotitle-carousel .Pagination__pip--active:hover:after,
 	.white .cmp-herotitle-carousel .Pagination__pip--active:after, .white .cmp-herotitle-carousel .Pagination__pip--active:hover:after
 	{
-	  background:black;
+		background:black;
+		border: 2px solid #000 !important;
 	}
 	.grey .cmp-herotitle-carousel .Pagination .Pagination__play:before,
 	.grey .cmp-herotitle-carousel .Pagination .Pagination__pause:before,
@@ -916,8 +940,9 @@ label {
   .slateblue .cmp-herotitle-carousel .Pagination__pause:before,
   .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__play:before, 
   .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__pause:before{
-	  border: 2px solid white;
-  }
+	  border: 2px solid rgba(255, 255, 255, 0.3);
+	}
+
   .slateblue .cmp-herotitle-carousel .Pagination--black .Pagination__pip:after{
 	  border: 2px solid #fff;
   }

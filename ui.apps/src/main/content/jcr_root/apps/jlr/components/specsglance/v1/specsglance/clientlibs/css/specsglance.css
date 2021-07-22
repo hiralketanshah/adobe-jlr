@@ -19,7 +19,7 @@
 
 .cmp-specificationsAtAGlance__copy p, li{
     letter-spacing: 0.2px;
-    font-family: "AvenirNext";
+    font-family: "AvenirNext-Regular";
     font-size: 18px;
     line-height: 24px;
     color: #4A4F54;
@@ -82,8 +82,8 @@
 }
 
 .cmp-specificationsAtAGlance__items .description p {
-    font-family: 'AvenirNext';
-    font-weight: 700;
+    font-family: 'AvenirNext-Regular';
+    font-weight: normal;
 	font-style: normal;
     letter-spacing: 0.2px;
     color: #4A4F54;
@@ -253,10 +253,13 @@
 }
 
 @media screen and (min-width: 1280px) {
+    .cmp-specificationsAtAGlance .items[data-total="4"] .el:last-child{
+        padding-right: 0;
+    }
     .cmp-specificationsAtAGlance .items[data-total="4"] .el,
     .cmp-specificationsAtAGlance .items[data-total="7"] .el,
     .cmp-specificationsAtAGlance .items[data-total="8"] .el {
-        width: 24%;
+        width: 25%;
     }
 }
 

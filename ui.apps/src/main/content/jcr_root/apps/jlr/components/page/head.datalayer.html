@@ -1,18 +1,24 @@
 <template data-sly-template.gtmTags="${@ page, additionalPage}">
 
 
-<script data-sly-test.dataLayerEnabled="${page.data}">
-    window.jlrDataLayer = window.jlrDataLayer || [];
-    jlrDataLayer.push({
-      page: {
-        basic: JSON.parse("${page.data.json @ context='scriptString'}"),
-        advanced: JSON.parse("${additionalPage.PageData @ context='scriptString'}")
-      },
-      event: 'cmp:show',
-      eventInfo: {
-        path: 'page.${page.id @ context="scriptString"}'
-      }
-    });
- </script>
+  <script data-sly-test.dataLayerEnabled="${page.data}">
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        page: {
+          basic: JSON.parse("${page.data.json @ context='scriptString'}"),
+          advanced: JSON.parse("${additionalPage.PageData @ context='scriptString'}")
+        },
+        event: 'cmp:show',
+        eventInfo: {
+          path: 'page.${page.id @ context="scriptString"}'
+        }
+      });
+   </script>
 
- </template>
+<script>
+  //prehiding snippet for Adobe Target with asynchronous Launch deployment
+  (function (g, b, d, f) { (function (a, c, d) { if (a) { var e = b.createElement("style"); e.id = c; e.innerHTML = d; a.appendChild(e) } })(b.getElementsByTagName("head")[0], "at-body-style", d); setTimeout(function () { var a = b.getElementsByTagName("head")[0]; if (a) { var c = b.getElementById("at-body-style"); c && a.removeChild(c) } }, f) })(window, document, "body {opacity: 0 !important}", 3E3);
+</script>
+  
+   </template>
+  

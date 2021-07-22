@@ -26,17 +26,6 @@ CTA Target : "${cta.target} <br/>
 <u> Group Data </u><br/>
 Specs At A Glance Header : ${model.specsAtaGlanceHeading @context='html'} <br/>
 Engine Names: <div data-sly-repeat.engineNames="${model.engineNames}">${engineNames}</div>
-    <div data-sly-repeat="${model.engineDataList}">
-        <div><u>Engine Data Count:</u> ${item.count}</div>
-        <span data-sly-repeat.engineData="${item.engineData}"><span>
-            <u>Engine Data Headings:</u> ${engineData @context='html'}
-            <sly data-sly-list.data="${item.engineData[engineData]}">
-                <div>Engine Data: ${data}</div>
-                <div>Engine Data Secondary Enabled: ${item.engineData[engineData][data]}</div>
-            </sly></span>
-        </span>
-    </div>
-
 Spec CTA Text : ${model.text} <br/>
 Spec CTA LinkType : ${model.linkType} <br/>
 Spec CTA Icon : ${model.icon} <br/>

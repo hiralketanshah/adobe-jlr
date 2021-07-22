@@ -75,7 +75,8 @@
 
 .cmp-engineSpecifications tr:first-child th span {
 	font-weight: 400;
-	display: block
+	display: block;
+	font-family: 'AvenirNext-Regular';
 }
 
 .cmp-engineSpecifications .ctaContainer,
@@ -270,7 +271,8 @@
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
-	color: #4a4f54
+	color: #4a4f54;
+	font-family:'AvenirNext-Regular';
 }
 
 .cmp-engineSpecifications table:not(.nonResponsive) tbody tr td a {
@@ -355,9 +357,9 @@
     	padding-bottom: 60px;
 		max-width: 760px;
 	}
-	.cmp-engineSpecifications .bottomCta {
+	/* .cmp-engineSpecifications .bottomCta {
 		padding-top: 63px;
-	}
+	} */
 
 
 	.cmp-engineSpecifications .ResponsiveTable {
@@ -553,7 +555,7 @@
 }
 /*---------code fix for 585----------*/
 .cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive){border: 1px solid #ffffff}
-@media screen and (min-width:1280px) and (max-width: 1920px){
+@media screen and (min-width:1280px) and (max-width: 1919px){
 
 	.cmp-engineSpecifications .ctaContainer,
 	.cmp-engineSpecifications .bottomCta	{
@@ -574,7 +576,7 @@
 	.cmp-table .cmp-engineSpecifications__summary p{width:760px;font-size:14px; line-height:19px; letter-spacing:0.2px;}
 	.cmp-table .table th, tr, td{font-size:14px; line-height:19px; letter-spacing:0.2px;}
 	.cmp-table .cmp-engineSpecifications__summary {
-		padding-bottom: 60px!important;
+		padding-bottom: 60px;
 	}
 
 			}
@@ -625,7 +627,7 @@
     text-transform: uppercase;
     font-family: LandRoverWeb-Bold;
 }
- .cmp-table .cmp-engineSpecifications__summary p{color:#4A4F54;}
+ .cmp-table .cmp-engineSpecifications__summary p{color:#4A4F54; font-family: 'AvenirNext-Regular';}
   .cmp-table--table-light .cmp-engineSpecifications table:not(.nonResponsive) {
     background-color: #F8F9F9;
     border: 1px solid #ffffff;
@@ -634,10 +636,39 @@
 }
 .cmp-table--padSpace28 table tbody tr td,
 .cmp-table--padSpace28 table tbody tr th {
-    padding: 28px !important;    
+    padding: 28px;    
 }
 .cmp-table--padSpace18 table tbody tr td,
 .cmp-table--padSpace18 table tbody tr th {
-        padding:18px !important;
+        padding:18px;
 }
 	/*---------code fix for 585----------*/
+	@media screen and (min-width:1920px) {	
+		.cmp-table {
+			padding-left: 290px;
+			padding-right: 290px;
+		}
+		.cmp-engineSpecifications .tableHeadingWrapper p{
+			width: 765px;
+		}
+		.cmp-table .cmp-engineSpecifications__summary p {			
+			font-size: 18px;
+			line-height: 24px;
+		}
+		.cmp-table .cmp-engineSpecifications table:not(.nonResponsive) tbody tr th:first-child {
+			width: 119px;
+			padding: 20px;
+		}
+		
+		.cmp-engineSpecifications .ctaContainer,
+		.cmp-engineSpecifications {
+				padding-left: 30px;
+				/* padding-top: 60px; */
+				padding-bottom : 80px;
+	    }
+		.bottomCta {
+			padding-top: 60px;
+			padding-left: 30px;
+			padding-bottom : 0x;
+		}
+}
