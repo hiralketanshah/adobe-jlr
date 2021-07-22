@@ -127,7 +127,7 @@
  
 }
 /* desktop view 901-1250 */
-@media screen and (min-width: 1200px) and (max-width: 1919.9px){
+@media screen and (min-width: 1280px) and (max-width: 1919.9px){
     .Article+.cmp-quote.cmp-quote--in-article {
         padding: 0 0 52px 0
     }
@@ -157,7 +157,7 @@
 }
 
 /* tab view  741-900*/
-@media screen and (min-width: 768px) and (max-width:1199.9px){
+@media screen and (min-width: 768px) and (max-width:1279.9px){
    
     .Article+.cmp-quote.cmp-quote--in-article {
             padding: 0 30px 38px

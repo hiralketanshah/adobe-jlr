@@ -26,9 +26,9 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
 		<sly data-sly-test="${model.isStaticPrice}"> ${model.priceConfigValue}: ${model.price} </sly>
 		<sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
      </p>
-     <p data-sly-test="${model.copy}" class="subheading cmp-vehicleSummary__subheading fontH1Copy">
+     <span data-sly-test="${model.copy}" class="subheading cmp-vehicleSummary__subheading fontH1Copy">
       ${model.copy @context='html'}
-     </p>
+     </span>
      <div class="cmp-vehicleSummary__secondaryLinks">
       	<div class="linkContainer">
 			<sly data-sly-list="${model.ctaList}">

@@ -129,7 +129,7 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                CONFIGS="[140:100:false,48:48:false,319:319:false]"
+                CONFIGS="[140:100:false,48:48:false,319:319:false,650:366:false,800:450:false]"
                 HEIGHT="1280"
                 MIME_TYPE="image/jpeg"
                 PROCESS="com.adobe.cq.dam.dm.process.workflow.DMImageProcess"
@@ -144,7 +144,7 @@
             type="PROCESS">
             <metaData
                 jcr:primaryType="nt:unstructured"
-                CONFIGS="[140:100:false,48:48:false,319:319:false]"
+                CONFIGS="[140:100:false,48:48:false,319:319:false,650:366:false,800:450:false]"
                 CREATE_FPO_MIMETYPES="[image/pjpeg,image/jpeg,image/jpg,image/gif,image/x-png,image/tiff,image/png,application/x-photoshop,application/photoshop,image/vnd.adobe.photoshop,application/vnd.adobe.photoshop,image/bmp,image/x-tiff]"
                 FPO_QUALITY="10"
                 HEIGHT="1280"

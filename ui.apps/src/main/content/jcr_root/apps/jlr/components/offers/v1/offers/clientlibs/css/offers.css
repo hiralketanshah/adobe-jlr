@@ -407,7 +407,7 @@
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
 
   .offerMainFrame {
     margin-bottom: 61px;
@@ -498,9 +498,17 @@
     flex: 0 4 100%;
   }
 
+  .cmp-offersContainer .offer .offerDescription .bullets {
+    margin-bottom: 0;
+  }
+
+  .cmp-offersContainer .offer .linkContainer .primaryLinkContainer a.primaryLinkWithStyle{
+    margin-top: 0 !important;
+  }
+
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .cmp-offersContainer .primaryLinkWithStyle {
     margin-bottom: 23px;
   }
@@ -641,7 +649,7 @@
 }
 
 /* FONT DEF MOBILE */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .cmp-offersContainer .offerHeading p {
     font-family: 'LandRoverWeb-Bold';
     color: #0C121C;
@@ -726,7 +734,7 @@
 }
 
 /* FONT DEF TABLET */
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
 
   /* heading */
   .cmp-offersContainer .offerHeading p {
@@ -976,3 +984,6 @@
  }
 
 /* ends */
+.slateblue .offerBody ul li{
+  color: #ffffff;
+ }
