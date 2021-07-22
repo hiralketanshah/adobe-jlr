@@ -119,7 +119,7 @@ public class WorkflowUtils {
             String approvalStatus =  valueMap.get(APPROVAL_STATUS, String.class);
             String date = valueMap.get(WorkflowConstants.APPROVED_DATE, String.class);
             String lastModified = valueMap.get(PN_PAGE_LAST_MOD, String.class);
-            if(StringUtils.isNotEmpty(lastModified)) {
+            if(StringUtils.isEmpty(lastModified)) {
                 lastModified = valueMap.get(PN_LAST_MOD, String.class);
             }
         try {
@@ -170,6 +170,8 @@ public class WorkflowUtils {
                             && (embargoLiftDate.equals(contentPublishingDate) || embargoLiftDate.before(contentPublishingDate))) {
                         return true;
                     }
+                } else {
+                    return true;
                 }
             }
         }
