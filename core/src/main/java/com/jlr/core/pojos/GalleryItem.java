@@ -1,6 +1,16 @@
 package com.jlr.core.pojos;
 
-public class GalleryItem {
+import javax.inject.Inject;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.jlr.core.internal.models.v1.GlobalModelImpl;
+import com.jlr.core.utils.AltTextUtils;
+
+public class GalleryItem extends GlobalModelImpl{
 
     private String headerCopy;
     private String copy;
@@ -16,6 +26,11 @@ public class GalleryItem {
     private String icon;
     private String ariaLabel;
     private String target;
+    
+    @Inject
+    private ResourceResolver resourceResolver;
+    
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
             boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
@@ -68,16 +83,41 @@ public class GalleryItem {
     public void setFileReference(String fileReference) {
         this.fileReference = fileReference;
     }
-
-    public String getImageAlt() {
-        if (isDecorative) {
-            return null;
+    
+    @Override
+    public String getAltTextFromDAM() {
+        String damAltText = "";
+        if (resourceResolver != null) {
+            damAltText = AltTextUtils.getAltTextFromDAM(this.fileReference, resourceResolver);
         }
-        return imageAlt;
+        logger.info("damAltText {}",damAltText);
+        return damAltText;
     }
 
     public void setImageAlt(String imageAlt) {
         this.imageAlt = imageAlt;
+    }
+    
+    @Override
+    public String getImageAlt() {
+        String altDAMText = "";
+        String damAltText = getAltTextFromDAM();
+        logger.info("damAltText2 {}",damAltText);
+        if (isDecorative) {
+            return null;
+        } else {
+            if (imageAlt != null && altTextFromDAM == Boolean.TRUE) {
+                altDAMText = imageAlt;
+            } else if (imageAlt != null && altTextFromDAM == Boolean.FALSE) {
+                altDAMText = imageAlt;
+            } else if (imageAlt == null && altTextFromDAM == Boolean.FALSE) {
+                altDAMText = StringUtils.EMPTY;
+            } else if (imageAlt == null && altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
+                altDAMText = damAltText;
+            }
+        }
+        logger.info("altDAMText {}",altDAMText);
+        return altDAMText;
     }
 
     public boolean getIsDecorative() {
