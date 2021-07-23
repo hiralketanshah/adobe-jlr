@@ -16,7 +16,7 @@
     max-height: 357px;
     min-height: 357px;
     justify-content: space-between;
-    padding: 60px;
+    padding: 0px 60px 60px 60px;
 }
 .cmp-signpostGridContext{
     display: flex;
@@ -1096,7 +1096,7 @@ margin-bottom:10px;
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:525px;}
 
-    .cmp-signPost{padding:49px 30px 68px 30px;}
+    .cmp-signPost{padding:0px 30px 68px 30px;}
     .cmp-signPost .cmp-signPost__center{
     top:0;
     transform:none;

@@ -559,6 +559,17 @@
                                             jcr:primaryType="nt:unstructured"/>
                                     </cq:styles>
                                 </item3>
+                                <item4
+                                    cq:styleGroupLabel="Add Padding"
+                                    jcr:primaryType="nt:unstructured">
+                                    <cq:styles jcr:primaryType="nt:unstructured">
+                                        <item0
+                                            cq:styleClasses="signpost-theme-padding"
+                                            cq:styleId="1627035200815"
+                                            cq:styleLabel="Top"
+                                            jcr:primaryType="nt:unstructured"/>
+                                    </cq:styles>
+                                </item4>
                             </cq:styleGroups>
                         </policy_1616070143899>
                     </signpostvehiclesummary>
