@@ -684,10 +684,17 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 /* tab view  */
 
 @media screen and (min-width: 501px) and (max-width: 900px) {
+	#landrover .verticalslider .secondaryLinkWithStyle{margin-top:23px;}
+	.verticalslider  .cmp-interactiveNumberedImage__image.target
+	{
+		padding-left:30px ;
+		padding-top:40px;
+		padding-right:30px;
+	}
 	.cmp-interactiveNumberedImage__images {
-		padding-left: 0px ;
-		padding-top:0px;
-		padding-right:0px;
+		padding-left: 30px ;
+		padding-top:40px;
+		padding-right:30px;
 	}
 	.cmp-interactiveNumberedImage__images{height: calc((119.6vw - 40px) / 2);} 
 	.cmp-interactiveNumberedImage__content {
@@ -701,7 +708,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		margin-top:23px;
 	}
 	.notimer .cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 0;
+		margin-top: 23px;
 	}
 	.focusStylesOn .cmp-interactiveNumberedImageNumber__toggle:focus:before,
 	.focusStylesOn .cmp-interactiveNumberedImage__toggle:focus:before {
@@ -712,6 +719,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		flex-direction: row;
 		flex-wrap: nowrap;
 		padding-bottom: 0px;
+		margin-top: -30px;
 	}
 	
 	
@@ -812,7 +820,8 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
     	height: 42px;
     	left: 25px;
 		bottom: 23px;
-		top:460px!important;
+		top:0!important;
+		position:static;
 		}
 	.verticalslider	.fontBodyCopy p{width:488px;}
 	.verticalslider	.cmp-interactiveNumberedImage__tabitem{width:507px;}
@@ -837,6 +846,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		}
 		.notimer .cmp-interactiveNumberedImage__toggles{
 			padding-left: 0;
+			padding-top:24px;
 		}
 	
 	
@@ -844,14 +854,21 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* mobile view */
 @media screen and (min-width: 1px) and (max-width: 500px) {
+	
+	.verticalslider  .cmp-interactiveNumberedImage__image.target
+	{
+		padding-left: 25px ;
+		padding-top:25px;
+		padding-right:25px;
+	}
 	.leftalign .cmp-interactiveNumberedImage__content {
 		order: 2;
 		padding: 24px 90px 48px 40px;
 	}
 	.cmp-interactiveNumberedImage__images {
-		padding-left: 0px ;
-		padding-top:0px;
-		padding-right:0px;
+		padding-left: 25px ;
+		padding-top:25px;
+		padding-right:25px;
 	}
 	.cmp-interactiveNumberedImage__images{
 		height: calc((121.8vw - 40px) / 2);}
@@ -862,16 +879,16 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		padding-bottom: 40px;
 	}
 	.cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 30px;
+		margin-top:23px;
 		margin-bottom: 17px;
-		padding-top:23px;
+		
 	}
 	.notimer .cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 0;
+		margin-top: 23px;
 	}
 
 	.notimer .cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 0;
+		margin-top: 23px;
 		margin-bottom: 17px;
 	}
 	.focusStylesOn .cmp-interactiveNumberedImageNumber__toggle:focus:before,
@@ -882,7 +899,8 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		padding-bottom: 0px
+		padding-bottom: 0px;
+		margin-top:-30px;
 	}
 	
 	.cmp-interactiveNumberedImageNumber__toggle,
@@ -980,7 +998,8 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
     	height: 42px;
     	left: 25px;
 		bottom: 23px;
-		top: 233px!important;
+		top:0!important;
+		position:static;
 		margin-right:20px;
 	}
 	.verticalslider .cmp-interactiveNumberedImage__navigation{margin-top:9px;}
@@ -1004,6 +1023,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	}
 	.notimer .cmp-interactiveNumberedImage__toggles{
 		padding-left: 0;
+		padding-top:24px;
 	}
 
 

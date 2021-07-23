@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:cloudservicename="translation"
+        cq:lastModified="{Date}2021-07-22T07:10:42.885Z"
+        cq:lastModifiedBy="hiral"
+        cq:template="/libs/cq/translation/templates/mt-servicepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="SDL Translation Integration"
+        sling:resourceType="cq/translation/components/mt-cloudconfig"
+        assets_contentFragmentAssets="donottranslate"
+        assets_defaultCategory="general"
+        assets_defaultPostEditProvider="SDL"
+        assets_translateAssets="true"
+        assets_translateMetadata="true"
+        assets_translateTags="true"
+        assets_translationWorkflow="humanTranslation"
+        defaultCategory="general"
+        defaultTranslationProvider="microsoft"
+        sites_defaultCategory="general"
+        sites_defaultPostEditProvider="SDL"
+        sites_translateComponentStrings="true"
+        sites_translateEmbeddedAssets="sitetranslation"
+        sites_translateTags="true"
+        sites_translationWorkflow="humanTranslation"
+        ugcPath="de_at"/>
+</jcr:root>

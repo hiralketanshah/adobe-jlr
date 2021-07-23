@@ -7,14 +7,19 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Optional;
+import org.apache.sling.models.annotations.Via;
+import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.pojos.CTAPojo;
@@ -26,9 +31,16 @@ import com.jlr.core.utils.LinkUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = Resource.class, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         ContentCardListModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class ContentCardListModelImpl extends GlobalModelImpl implements ContentCardListModel {
+
+    @SlingObject
+    private SlingHttpServletRequest request;
+
+    @Inject
+    @Optional
+    private Page currentPage;
 
     /** The resource resolver. */
     @Inject
@@ -40,18 +52,22 @@ public class ContentCardListModelImpl extends GlobalModelImpl implements Content
 
     /** The assest type. */
     @Inject
+    @Via("resource")
     private String assestType;
 
     /** The poster image. */
     @Inject
+    @Via("resource")
     private String posterImage;
 
     /** The price. */
     @Inject
+    @Via("resource")
     private String price;
 
     /** The cta list. */
     @Inject
+    @Via("resource")
     private Resource ctaList;
 
     /** The logger. */

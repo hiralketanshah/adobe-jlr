@@ -170,6 +170,9 @@ public class PricingUtils {
         if (null != request) {
             Resource priceResource = request.getResource();
             if (null != priceResource) {
+                if (priceResource.getPath().contains("contentCardList")) {
+                    priceResource = priceResource.getParent().getParent();
+                }
                 ValueMap properties = priceResource.adaptTo(ValueMap.class);
                 resourceType = properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class);
             }

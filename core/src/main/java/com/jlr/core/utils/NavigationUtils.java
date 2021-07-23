@@ -75,6 +75,9 @@ public class NavigationUtils {
         Elements divEle = document.select("div");
         iterateElements(divEle, "href");
 
+        Elements liEle = document.select("li");
+        iterateElements(liEle, "data-search-results-url");
+
         Elements img = document.getElementsByTag("img");
         iterateElements(img, "src");
 
