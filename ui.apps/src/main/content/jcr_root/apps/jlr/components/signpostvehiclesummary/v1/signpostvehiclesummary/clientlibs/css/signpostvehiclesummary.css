@@ -656,10 +656,11 @@ height: 493px;
      text-shadow: none;
      box-shadow: 0 0 0 1px #fff, 0 0 2px 3px #4a90e2;
     }
+    
 
 @media screen and (min-width: 1920px) and (max-width: 2560px) {
     .cmp-vehicleSummary {      
-        padding: 60px 295px 80px 290px;
+        padding: 60px 295px 80px 295px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
@@ -694,9 +695,10 @@ height: 493px;
       }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 428px;
-        width: 1280px;
+        width: 100%;
         height: auto;
         margin: 0 auto;
+        max-width: 1285px;
     }
     
     .cmp-vehicleSummary .cmp-vehicleSummary__image{      
@@ -799,8 +801,29 @@ height: 493px;
 .cmp-vehicleSummary.slateblue .cmp-vehicleSummary__content .cmp-vehicleSummary__price{
     color:#FFF !important;
 }
+.slateblue.cmp-vehicleSummary a{color:#fff; text-decoration: none;}
+.slateblue.cmp-vehicleSummary a:hover{color:#fff; text-decoration: underline;}
+.cmp-vehicleSummary a{color:#000;}
+.cmp-vehicleSummary a:hover{text-decoration: underline;}
+.slateblue.cmp-vehicleSummary .plwsLight:hover, 
+.slateblue.primaryLinkWithStyle:hover{
+    background-color:transparent!important; 
+    color: #fff!important;
+    box-shadow: none!important;
+    border:1px solid #fff;
+    border-bottom: 1px solid #fff!important;
+}
+#landrover .slateblue.cmp-vehicleSummary .secondaryLinkWithStyle:hover,
+ #landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:hover{color: #fff !important;
+    text-decoration: none !important;}
+#landrover .slateblue.cmp-vehicleSummary  .secondaryLinkWithStyle:hover span, 
+ #landrover .slateblue.cmp-vehicleSummary .secondaryLinkWithStyle:active span,
+ #landrover.slateblue.cmp-vehicleSummary  .secondaryLinkWithStyle:focus span{
 
-
+    border-bottom: 1px solid #fff!important;
+}
+#landrover .slateblue.cmp-vehicleSummary .secondaryLinkWithStyle:focus
+   { color: #fff!important;} 
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{ font-family:"AvenirNext-Regular";}
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
@@ -870,7 +893,7 @@ height: 493px;
     font-family: "LandRoverWeb-Bold";
 }
   .cmp-vehicleSummary .cmp-vehicleSummary__content {
-    width: 100%;
+    width: 432px;
     margin-top: 24px!important;
     padding: 0;
 }
@@ -924,13 +947,42 @@ height: 493px;
 .cmp-signPost p a{
     color: #4A4F54;
 }
+.slateblue.cmp-signPost  a{
+    color: #fff;
+    text-decoration: none;
+}
+.slateblue.cmp-signPost  a:hover{
+    color: #fff;
+    text-decoration:underline;
+}
+.slateblue.cmp-signPost .plwsLight:hover, 
+.slateblue.primaryLinkWithStyle:hover{
+    background-color:transparent!important; 
+    color: #fff!important;
+    box-shadow: none!important;
+    border:1px solid #fff;
+    border-bottom: 1px solid #fff!important;
+}
+#landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:hover,
+ #landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:hover{color: #fff !important;
+    text-decoration: none !important;}
+#landrover .slateblue.cmp-signPost  .secondaryLinkWithStyle:hover span, 
+ #landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:active span,
+ #landrover.slateblue.cmp-signPost  .secondaryLinkWithStyle:focus span{
+
+    border-bottom: 1px solid #fff!important;
+}
+#landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:focus
+   { color: #fff!important;} 
+
 @media screen and (min-width: 1920px) and (max-width: 2560px){
-.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
+    .signpost-theme-padding{padding-top:60px;}
+/*.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 290px 60px 290px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 290px 60px 290px;}
-.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 290px 60px 290px;}
-    .cmp-signPost .cmp-signPost__image {height: calc((40.3vw - 40px) / 2)!important;}
-    .cmp-signPost .Picture--background .Picture__img{width:100%;}
+.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 290px 60px 290px;}*/
+    .cmp-signPost .cmp-signPost__image {height: calc((41.3vw - 40px) / 2)!important;}
+    .cmp-signPost .Picture--background .Picture__img{width:100%; height: 366px;}
     .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
 	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 
@@ -977,19 +1029,21 @@ margin-bottom:10px;
     padding-right:0;
 }
 }
-
-@media screen and (min-width: 1280px) and (max-width: 1919px){
-.cmp-signPost.white + .cmp-signPost.white{padding:0px  60px 60px  60px;}
+.cmp-signPost .primaryLinkWithStyle{padding-left:26px; padding-right: 26px;}
+@media screen and (min-width: 1280px) and (max-width: 1919.9px){
+    .signpost-theme-padding{padding-top:60px;}
+.cmp-signPost .cmp-signPost__content-copy-wrapper{margin-bottom:0px!important;}
+/*.cmp-signPost.white + .cmp-signPost.white{padding:0px  60px 60px  60px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 60px 60px  60px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 60px 60px  60px;}
-.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 60px 60px  60px;}
-.cmp-signPost .cmp-signPost__image {height:calc((52.4vw - 40px) / 2)}
+.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 60px 60px  60px;}*/
+.cmp-signPost .cmp-signPost__image {height:calc((52.4vw - 40px) / 2);}
 .cmp-signPost .Picture--background .Picture__img{width:100%;}
-    
+.cmp-signpostGridContext  {width:100%; max-width: 1280px; height: auto;margin:0 auto;}
 .cmp-signPost{min-height:auto; max-height:525px;}
 .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
-
+.cmp-signPost .Picture--background .Picture__img{width:560px;height:315px;}
 .cmp-signPost .cmp-signPost__image{
      width:50%;   padding-bottom:5px;   }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
@@ -1033,10 +1087,11 @@ margin-bottom:10px;
 }
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
-    .cmp-signPost.white + .cmp-signPost.white{padding:0px  30px 68px  30px;}
+    .signpost-theme-padding{padding-top:40px;}
+   /* .cmp-signPost.white + .cmp-signPost.white{padding:0px  30px 68px  30px;}
     .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  30px 68px  30px;}
     .cmp-signPost.light + .cmp-signPost.light{padding:0px  30px 68px  30px;}
-    .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  30px 68px  30px;}
+    .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  30px 68px  30px;}*/
     .cmp-signPost .cmp-signPost__image {height:calc((55.1vw - 40px) / 2);}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:525px;}
@@ -1083,17 +1138,27 @@ object-fit: unset;
 
 }
 
-@media screen and (min-width: 300px) and (max-width: 767px){
-.cmp-signPost.white + .cmp-signPost.white{padding:0px  25px 60px  25px;}
+@media screen and (min-width: 300px) and (max-width: 767.9px){
+    .cmp-signPost .cmp-signPost__center {
+        margin: 0;
+        position: relative;
+        top: 50%;
+        left: 0;
+        transform:none;
+        padding-right: 20px;
+        width: 100%;
+    }
+    .signpost-theme-padding{padding-top:25px;}
+/*.cmp-signPost.white + .cmp-signPost.white{padding:0px  25px 60px  25px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  25px 60px  25px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px  25px 60px  25px;}
-.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  25px 60px  25px;}
+.cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  25px 60px  25px;}*/
 .cmp-signPost{min-height:auto; max-height:525px;}
 .cmp-signPost{padding:25px 25px 60px 25px;}
 
     .cmp-signPost .cmp-signPost__image {height: calc((108.3vw - 40px) / 2);}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
-    .cmp-signPost{min-height:auto; max-height:525px;}
+    .cmp-signPost{min-height:auto; max-height:580px;}
    .cmp-signPost .headingWrapper{font-family:"LandRoverWeb-Bold"; font-size:20px; line-height:24px; letter-spacing:0.9px;}
  .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
   .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}

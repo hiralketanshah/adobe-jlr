@@ -1,5 +1,7 @@
 package com.jlr.core.pojos;
 
+import org.apache.sling.api.resource.ResourceResolver;
+
 public class GalleryItem {
 
     private String headerCopy;
@@ -16,10 +18,11 @@ public class GalleryItem {
     private String icon;
     private String ariaLabel;
     private String target;
+    private Boolean altTextFromDAM;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-            boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
-            String icon, String ariaLabel, String target) {
+    		boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
+            String icon, String ariaLabel, String target, Boolean altTextFromDAM) {
         super();
         this.headerCopy = headerCopy;
         this.copy = copy;
@@ -35,6 +38,7 @@ public class GalleryItem {
         this.icon = icon;
         this.ariaLabel = ariaLabel;
         this.target = target;
+        this.altTextFromDAM = altTextFromDAM;
     }
 
     public String getHeaderCopy() {
@@ -68,16 +72,21 @@ public class GalleryItem {
     public void setFileReference(String fileReference) {
         this.fileReference = fileReference;
     }
-
-    public String getImageAlt() {
-        if (isDecorative) {
-            return null;
-        }
-        return imageAlt;
+    
+    public Boolean getAltTextFromDAM() {
+        return altTextFromDAM;
     }
 
-    public void setImageAlt(String imageAlt) {
+    public void setAltTextFromDAM(Boolean altTextFromDAM) {
+		this.altTextFromDAM = altTextFromDAM;
+	}
+
+	public void setImageAlt(String imageAlt, ResourceResolver resolver) {
         this.imageAlt = imageAlt;
+    }
+    
+    public String getImageAlt() {
+        return imageAlt;
     }
 
     public boolean getIsDecorative() {

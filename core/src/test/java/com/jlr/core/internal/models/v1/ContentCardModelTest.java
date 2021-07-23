@@ -5,23 +5,26 @@ import static org.mockito.Mockito.when;
 
 import java.util.List;
 
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.utils.ComponentPositionUtils;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockedStatic;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.utils.ComponentPositionUtils;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
-
-import javax.jcr.Node;
-import javax.jcr.RepositoryException;
 
 /**
  * The Class ContentCardModelTest.
@@ -57,19 +60,20 @@ class ContentCardModelTest extends GlobalModelImplTest {
         context.currentResource(resource);
         contentCardModel = context.request().adaptTo(ContentCardImpl.class);
     }
+
     /**
      * Test properties.
      */
-    @Test
     void testProperties() throws RepositoryException {
         List<ContentCardListModel> list = contentCardModel.getContentCardList();
         assertEquals("2", contentCardModel.getColumn());
         when(currentPage.getPath()).thenReturn("/content/jlr/page");
         try (MockedStatic<ComponentPositionUtils> mock = Mockito.mockStatic(ComponentPositionUtils.class)) {
             mock.when(() -> {
-                ComponentPositionUtils.getComponentPosition(Mockito.any(String.class), Mockito.any(Node.class),Mockito.any(ResourceResolver.class));
+                ComponentPositionUtils.getComponentPosition(Mockito.any(String.class), Mockito.any(Node.class),
+                        Mockito.any(ResourceResolver.class));
             }).thenReturn(true);
-            assertEquals(true,contentCardModel.getFirstPosition());
+            assertEquals(true, contentCardModel.getFirstPosition());
         }
         assertEquals(1, list.size());
         list.forEach(item -> {
@@ -103,11 +107,11 @@ class ContentCardModelTest extends GlobalModelImplTest {
             assertEquals("primary", item.getLinkType());
         });
     }
+
     /**
      * Test cta properties.
      */
     @Override
-    @Test
     void testCtaProperties() {
         List<CTAPojo> list = contentCardModel.getCtaList();
         assertEquals(1, list.size());
@@ -118,7 +122,5 @@ class ContentCardModelTest extends GlobalModelImplTest {
             assertEquals("primary", item.getLinkType());
         });
     }
-
-
 
 }

@@ -7,8 +7,6 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -16,10 +14,14 @@ import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.Via;
 import org.apache.sling.models.annotations.injectorspecific.ChildResource;
+import org.apache.sling.models.factory.ModelFactory;
 
+import com.adobe.acs.commons.models.injectors.annotation.ChildResourceFromRequest;
+import com.day.cq.wcm.api.Page;
 import com.jlr.core.models.ContentCardListModel;
 import com.jlr.core.models.ContentCardModel;
 import com.jlr.core.pojos.CTAPojo;
+import com.jlr.core.utils.ComponentPositionUtils;
 import com.jlr.core.utils.CtaUtils;
 
 /**
@@ -40,6 +42,9 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     private Page currentPage;
 
     @Inject
+    private ModelFactory modelFactory;
+
+    @Inject
     private Node currentNode;
 
     /** The content type. */
@@ -53,15 +58,14 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     private String enableStacking;
 
     /** The content card list. */
-    @Inject
-    @Via("resource")
+    @ChildResourceFromRequest(name = "contentCardList")
     public List<ContentCardListModel> contentCardList;
 
     /** The cta list. */
     @ChildResource
     @Via("resource")
     private Resource ctaList;
-    
+
     /** The enable pricing. */
     @Inject
     @Via("resource")
@@ -92,7 +96,7 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     public String getColumn() {
         return column;
     }
-    
+
     /**
      * Gets the enable pricing.
      *
@@ -102,7 +106,6 @@ public class ContentCardImpl extends GlobalModelImpl implements ContentCardModel
     public String getEnablePricing() {
         return enablePricing;
     }
-
 
     /**
      * Gets the enable stacking.

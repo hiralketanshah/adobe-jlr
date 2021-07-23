@@ -1,5 +1,6 @@
 package com.jlr.core.utils;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 
@@ -15,5 +16,28 @@ public class AltTextUtils {
 			altTextDAMProperty = asset.getMetadataValue("dam:altText");
 			}
 		return altTextDAMProperty;
+		}
+	
+	public static String getAltTextFromDAMGallery(String imagePath, String imageAlt, Boolean isDecorative,Boolean altTextFromDAM, ResourceResolver resolver) {
+		Resource resource = resolver.getResource(imagePath);
+		String altTextDAMProperty = "";
+		if (resource != null) {
+			Asset asset = resource.adaptTo(Asset.class);
+			altTextDAMProperty = asset.getMetadataValue("dam:altText");
+			}
+		if (isDecorative) {
+            return null;
+        } else {
+            if (imageAlt != null && altTextFromDAM == Boolean.TRUE) {
+            	return imageAlt;
+            } else if (imageAlt != null && altTextFromDAM == Boolean.FALSE) {
+            	return imageAlt;
+            } else if (imageAlt == null && altTextFromDAM == Boolean.FALSE) {
+                return StringUtils.EMPTY;
+            } else if (imageAlt == null && altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
+            	imageAlt = altTextDAMProperty;
+            }
+        }
+		return imageAlt;
 		}
 	}

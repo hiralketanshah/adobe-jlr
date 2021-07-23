@@ -179,15 +179,19 @@ line-height: 12.5px;
     width: 21px;
     height: 10px;
 }
-.DxRangeSlider--image .noUi-handle:hover, 
-.DxRangeSlider--image .noUi-handle.noUi-active, 
-.DxRangeSlider--image.noUi-horizontal .noUi-handle:hover, 
-.DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active{
-    background: #fff0;
+.cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle:hover, 
+.cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle.noUi-active, 
+.cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover, 
+.cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active{
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%), inset 0 0 4px 0 transparent;
+    background: #fff;
 }
-.DxRangeSlider--image .noUi-handle:hover .noUi-touch-area:after, .DxRangeSlider--image .noUi-handle.noUi-active .noUi-touch-area:after, .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover .noUi-touch-area:after, .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active .noUi-touch-area:after
+.cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle:hover .noUi-touch-area:after,
+.cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle.noUi-active .noUi-touch-area:after, 
+.cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover .noUi-touch-area:after, 
+.cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active .noUi-touch-area:after
 {
-    color: #fff;
+    color: #4A4F54;
 }
 .leftHr{
     position: absolute;
@@ -242,6 +246,9 @@ line-height: 12.5px;
     }
 }
 @media screen and (min-width: 1px) and (max-width: 1279px) {
+    .dualframeslider .cmp-dualFrameSlider .Slider__left{
+        margin-top: 0px;
+    }
     .cmp-dualFrameSlider .Slider__left {
         width: auto;
         padding-top: 24px;
@@ -391,7 +398,10 @@ line-height: 12.5px;
     .cmp-dualFrameSlider .Slider__left .headerBox__copy {
         margin: 8px 0 0;
     }
-    .DxRangeSlider--image .noUi-handle:hover .noUi-touch-area:after, .DxRangeSlider--image .noUi-handle.noUi-active .noUi-touch-area:after, .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover .noUi-touch-area:after, .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active .noUi-touch-area:after
+    .cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle:hover .noUi-touch-area:after, 
+    .cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle.noUi-active .noUi-touch-area:after,
+    .cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover .noUi-touch-area:after,
+    .cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active .noUi-touch-area:after
 {
     color: #0C121C;
 }
@@ -413,3 +423,32 @@ html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
     }
 }
 .cmp-dualFrameSlider .fontBodyCopy p{font-family:'AvenirNext-Regular' ;}
+
+@media screen and (max-width:767.9px) {
+    .cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle:hover, 
+    .cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle.noUi-active, 
+    .cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover, 
+    .cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active{
+        box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%), inset 0 0 4px 0 transparent;
+        background: #0C121C;
+    }
+    .cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle:hover .noUi-touch-area:after,
+    .cmp-dualFrameSlider .DxRangeSlider--image .noUi-handle.noUi-active .noUi-touch-area:after,
+    .cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle:hover .noUi-touch-area:after,
+    .cmp-dualFrameSlider .DxRangeSlider--image.noUi-horizontal .noUi-handle.noUi-active .noUi-touch-area:after
+    {
+        color: #FFF;
+    }
+    html:not([dir=rtl]) .cmp-dualFrameSlider .DxRangeSlider.noUi-horizontal .noUi-handle{
+        box-shadow: none;
+    }
+    html:not([dir=rtl]) .cmp-dualFrameSlider .DxRangeSlider.noUi-horizontal .noUi-handle:hover{
+        background-color: #0C121C;
+    }
+    .cmp-dualFrameSlider .DxRangeSlider .noUi-touch-area:before{
+        filter: none;
+    }
+    .cmp-dualFrameSlider .DxRangeSlider--image .DxRangeSlider__custom-connect{
+        box-shadow: none;
+    }
+}

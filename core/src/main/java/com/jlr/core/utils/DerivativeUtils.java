@@ -8,6 +8,8 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 import com.day.cq.commons.jcr.JcrConstants;
 import com.jlr.core.constants.CommonConstants;
@@ -25,10 +27,13 @@ public class DerivativeUtils {
         if (null != dataListResource) {
             Iterator<Resource> data = dataListResource.listChildren();
             while (data.hasNext()) {
-                Resource dataResource = data.next();
+            	Resource dataResource = data.next();
+            	Whitelist whitelist = Whitelist.none();
                 ValueMap properties = dataResource.adaptTo(ValueMap.class);
+                String engineData=properties.get(DerivativeConstants.PN_ENGINE_DATA, String.class);
+                String modEngineData=Jsoup.clean(engineData, whitelist.addTags("sub","sup"));
                 mapOfData.put(properties.get(DerivativeConstants.PN_ENGINE_HEADING, String.class),
-                        properties.get(DerivativeConstants.PN_ENGINE_DATA, String.class));
+                		modEngineData);
             }
         }
 
