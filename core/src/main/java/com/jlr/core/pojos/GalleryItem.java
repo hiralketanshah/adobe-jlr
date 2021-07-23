@@ -1,16 +1,8 @@
 package com.jlr.core.pojos;
 
-import javax.inject.Inject;
-
-import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import com.jlr.core.internal.models.v1.GlobalModelImpl;
-import com.jlr.core.utils.AltTextUtils;
-
-public class GalleryItem extends GlobalModelImpl{
+public class GalleryItem {
 
     private String headerCopy;
     private String copy;
@@ -26,15 +18,11 @@ public class GalleryItem extends GlobalModelImpl{
     private String icon;
     private String ariaLabel;
     private String target;
-    
-    @Inject
-    private ResourceResolver resourceResolver;
-    
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Boolean altTextFromDAM;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-            boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
-            String icon, String ariaLabel, String target) {
+    		boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
+            String icon, String ariaLabel, String target, Boolean altTextFromDAM) {
         super();
         this.headerCopy = headerCopy;
         this.copy = copy;
@@ -50,6 +38,7 @@ public class GalleryItem extends GlobalModelImpl{
         this.icon = icon;
         this.ariaLabel = ariaLabel;
         this.target = target;
+        this.altTextFromDAM = altTextFromDAM;
     }
 
     public String getHeaderCopy() {
@@ -84,40 +73,20 @@ public class GalleryItem extends GlobalModelImpl{
         this.fileReference = fileReference;
     }
     
-    @Override
-    public String getAltTextFromDAM() {
-        String damAltText = "";
-        if (resourceResolver != null) {
-            damAltText = AltTextUtils.getAltTextFromDAM(this.fileReference, resourceResolver);
-        }
-        logger.info("damAltText {}",damAltText);
-        return damAltText;
+    public Boolean getAltTextFromDAM() {
+        return altTextFromDAM;
     }
 
-    public void setImageAlt(String imageAlt) {
+    public void setAltTextFromDAM(Boolean altTextFromDAM) {
+		this.altTextFromDAM = altTextFromDAM;
+	}
+
+	public void setImageAlt(String imageAlt, ResourceResolver resolver) {
         this.imageAlt = imageAlt;
     }
     
-    @Override
     public String getImageAlt() {
-        String altDAMText = "";
-        String damAltText = getAltTextFromDAM();
-        logger.info("damAltText2 {}",damAltText);
-        if (isDecorative) {
-            return null;
-        } else {
-            if (imageAlt != null && altTextFromDAM == Boolean.TRUE) {
-                altDAMText = imageAlt;
-            } else if (imageAlt != null && altTextFromDAM == Boolean.FALSE) {
-                altDAMText = imageAlt;
-            } else if (imageAlt == null && altTextFromDAM == Boolean.FALSE) {
-                altDAMText = StringUtils.EMPTY;
-            } else if (imageAlt == null && altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
-                altDAMText = damAltText;
-            }
-        }
-        logger.info("altDAMText {}",altDAMText);
-        return altDAMText;
+        return imageAlt;
     }
 
     public boolean getIsDecorative() {

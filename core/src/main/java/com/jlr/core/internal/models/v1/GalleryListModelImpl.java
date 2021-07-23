@@ -10,6 +10,7 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.AltTextUtils;
 import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -137,7 +138,7 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
                             properties.get(CommonConstants.PN_DESCRIPTION, String.class),
                             properties.get(CommonConstants.PN_ASSET_TYPE, String.class),
                             properties.get(CommonConstants.PN_FILE_REFERENCE, String.class),
-                            properties.get(CommonConstants.PN_IMAGE_ALT, String.class),
+                            AltTextUtils.getAltTextFromDAMGallery(properties.get(CommonConstants.PN_FILE_REFERENCE, String.class), properties.get(CommonConstants.PN_IMAGE_ALT, String.class), properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class), properties.get(CommonConstants.PN_ALT_TEXT_DAM, Boolean.class), resourceResolver),
                             properties.get(CommonConstants.PN_IS_DECORATIVE, Boolean.class),
                             properties.get(CommonConstants.PN_VIDEO_ID, String.class),
                             properties.get(CommonConstants.PN_POSTER_IMAGE, String.class),
@@ -147,7 +148,8 @@ public class GalleryListModelImpl extends GlobalModelImpl implements GalleryList
                                     resourceResolver),
                             properties.get(CommonConstants.PN_ICON, String.class),
                             properties.get(CommonConstants.PN_CTA_ARIALABEL, String.class),
-                            properties.get(CommonConstants.PN_CTA_TARGET, String.class)));
+                            properties.get(CommonConstants.PN_CTA_TARGET, String.class),
+                            properties.get(CommonConstants.PN_ALT_TEXT_DAM, Boolean.class)));
                 }
             }
         }

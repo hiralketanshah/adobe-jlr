@@ -252,7 +252,6 @@ public class GlobalModelImpl implements GlobalModel {
             damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
         }
         return damAltText;
-
     }
 
     @Override

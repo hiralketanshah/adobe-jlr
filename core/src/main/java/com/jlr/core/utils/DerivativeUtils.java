@@ -28,9 +28,10 @@ public class DerivativeUtils {
             Iterator<Resource> data = dataListResource.listChildren();
             while (data.hasNext()) {
             	Resource dataResource = data.next();
+            	Whitelist whitelist = Whitelist.none();
                 ValueMap properties = dataResource.adaptTo(ValueMap.class);
                 String engineData=properties.get(DerivativeConstants.PN_ENGINE_DATA, String.class);
-                String modEngineData=Jsoup.clean(engineData, Whitelist.none());
+                String modEngineData=Jsoup.clean(engineData, whitelist.addTags("sub","sup"));
                 mapOfData.put(properties.get(DerivativeConstants.PN_ENGINE_HEADING, String.class),
                 		modEngineData);
             }
