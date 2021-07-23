@@ -25,15 +25,16 @@
     <description>JLR</description>
 
     <modules>
-        <module>all</module>
+       <!-- <module>all</module>
         <module>core</module>
 		<module>core.wf</module>
-        <!-- <module>ui.frontend</module> -->
+        <module>ui.frontend</module> 
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.config</module>
         <module>ui.content</module>
-		<module>acl</module>
+		<module>acl</module>-->
+		<module>dispatcher</module>
         <!-- <module>it.tests</module>
              <module>dispatcher</module> 
              <module>ui.tests</module> -->
