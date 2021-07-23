@@ -695,9 +695,10 @@ height: 493px;
       }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 428px;
-        width: 1280px;
+        width: 100%;
         height: auto;
         margin: 0 auto;
+        max-width: 1285px;
     }
     
     .cmp-vehicleSummary .cmp-vehicleSummary__image{      
