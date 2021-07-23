@@ -194,7 +194,7 @@
           permission: allow
           actions: read
 
-        - path: /content/misc/unlockpage
+        - path: /content/misc
           permission: allow
           actions: read
 
@@ -212,6 +212,10 @@
           permission: allow
           actions: read,create,modify,delete,replicate
 
+        - path: /content/misc
+          permission: allow
+          actions: read
+
     - global-authors:
 
         - path: /content/landrover
@@ -225,6 +229,10 @@
         - path: /content/experience-fragments/landrover
           permission: allow
           actions: read,create,modify,delete
+
+        - path: /content/misc
+          permission: allow
+          actions: read
 
     - read-only:
 
