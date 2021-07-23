@@ -184,6 +184,11 @@ html.no-js .cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
   padding-top: 15px;
   border-top: 1px solid #4a4f544d;
 }
+.slateblue .cmp-hero .heroFooterSection{
+    border-top: 1px solid;
+    border-top-color: rgb(255 255 255 / 50%);
+
+  }
 .cmp-hero-carousel .emissionDetails {
   width: 100%;
   text-align: left;
@@ -265,16 +270,17 @@ label {
     margin-bottom: 0;
     width: 100%;
   }
-  .cmp-hero .headerClass h2 {
+  .cmp-hero .headerClass h2,
+  .cmp-hero .headerClass h1 {
     margin-top: 0;
-    margin-bottom: 14px;
+    margin-bottom: 13px;
     display: block;
   }
   .cmp-hero .heroFooterSection {
     display: flex;
     flex-direction: column-reverse;
     border: none;
-    padding-top: 0px;
+    padding-top: 24px;
   }
   .cmp-hero .headerClass {
     display: flex;
@@ -392,9 +398,10 @@ label {
     margin-bottom: 0;
     width: 100%;
   }
+  .cmp-hero .headerClass h1,
   .cmp-hero .headerClass h2 {
     margin-top: 0;
-    margin-bottom: 12px;
+    margin-bottom: 13px;
     display: block;
   }
   #landrover .secondaryLinkWithStyle {
@@ -528,7 +535,7 @@ label {
   margin-top: 10px;
 }
 .cmp-hero .linkContainer{
-  padding-top: 4px;
+  padding-top: 0;
 }
 .cmp-carousel.cmp-hero-carousel {
   margin-bottom: 16px;
@@ -685,7 +692,7 @@ padding-bottom: 0%;
     letter-spacing: 0.2px;
     line-height: 11px;
     font-size: 11px;
-    margin-bottom: 11px;
+    margin-bottom: 6px;
   }
   /* actual price */
   .cmp-hero .contentClass .pricing p strong{
@@ -854,7 +861,7 @@ padding-bottom: 0%;
 }
 @media screen and (min-width: 1920px){
   .cmp-hero-carousel .cmp-carousel__controls {
-    margin-left: 150px;  
+    margin-left: 160px;  
   }
 }
 .grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
@@ -964,5 +971,5 @@ padding-bottom: 0%;
   margin: auto;
 }
 #landrover .cmp-hero .primaryLinkWithStyle {
-  font-family: AvenirNext-DemiBold, arial, helvetica, sans-serif;
+  font-family:"AvenirNext-DemiBold";
 }
