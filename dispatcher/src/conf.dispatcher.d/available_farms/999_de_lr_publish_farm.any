@@ -38,7 +38,7 @@
 		# document root of the webserver. when an activation request for some
 		# handle is received, only files within the same subtree are affected
 		# by the invalidation.
-		/statfileslevel "2"
+		/statfileslevel "8"
 		# caches also authorized data
 		/allowAuthorized "0"
 		# Flag indicating whether the dispatcher should serve stale content if

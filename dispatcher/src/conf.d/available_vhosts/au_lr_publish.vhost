@@ -51,12 +51,12 @@ PassEnv DISP_ID
 				## Enable the dispatcher file handler for apache to fetch files from AEM
 				SetHandler dispatcher-handler
 			</IfModule>
-			Options FollowSymLinks Includes
-			AddOutputFilter INCLUDES .html			
+			Options FollowSymLinks Includes			
 			AllowOverride None
 			#### Insert filter
 			SetOutputFilter DEFLATE
 			#### Don't compress images
+			AddOutputFilter INCLUDES .html
 			SetEnvIfNoCase Request_URI \
 			\.(?:gif|jpe?g|png)$ no-gzip dont-vary
         </Directory>

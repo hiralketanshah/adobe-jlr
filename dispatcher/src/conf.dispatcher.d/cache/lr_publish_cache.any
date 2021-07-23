@@ -15,3 +15,15 @@
 	/glob "/libs/granite/csrf/token.json"
 	/type "deny"
 }
+/0002 {
+	/glob "/content/nav/*"
+	/type "deny"
+}
+/0003 {
+	/glob "/*.sitemap.xml"
+	/type "deny"
+}
+/0004 {
+	/glob "/*.robots.txt"
+	/type "deny"
+}

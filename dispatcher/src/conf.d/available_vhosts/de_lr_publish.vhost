@@ -51,11 +51,11 @@ PassEnv DISP_ID
 				SetHandler dispatcher-handler
 			</IfModule>
 			Options FollowSymLinks Includes
-			AddOutputFilter INCLUDES .html
 			AllowOverride None
 			#### Insert filter
 			SetOutputFilter DEFLATE
 			#### Don't compress images
+			AddOutputFilter INCLUDES .html
 			SetEnvIfNoCase Request_URI \
 			\.(?:gif|jpe?g|png)$ no-gzip dont-vary
         </Directory>
