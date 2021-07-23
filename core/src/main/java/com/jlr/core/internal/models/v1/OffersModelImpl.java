@@ -8,7 +8,10 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import com.day.cq.wcm.api.Page;
+import com.jlr.core.utils.AltTextUtils;
 import com.jlr.core.utils.ComponentPositionUtils;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -80,6 +83,36 @@ public class OffersModelImpl extends GlobalModelImpl implements OffersModel {
             list = CtaUtils.createCtaList(ctaList, super.getHeaderCopy(), resourceResolver);
         }
         return list;
+    }
+    
+    @Override
+    public String getAltTextFromDAM() {
+        String damAltText = "";
+        if (resourceResolver != null) {
+            damAltText = AltTextUtils.getAltTextFromDAM(offersImageFileReference, resourceResolver);
+        }
+        return damAltText;
+
+    }
+    
+    @Override
+    public String getImageAlt() {
+        String altDAMText = "";
+        String damAltText = getAltTextFromDAM();
+        if (isDecorative) {
+            return null;
+        } else {
+            if (imageAlt != null && altTextFromDAM == Boolean.TRUE) {
+                altDAMText = imageAlt;
+            } else if (imageAlt != null && altTextFromDAM == Boolean.FALSE) {
+                altDAMText = imageAlt;
+            } else if (imageAlt == null && altTextFromDAM == Boolean.FALSE) {
+                altDAMText = StringUtils.EMPTY;
+            } else if (imageAlt == null && altTextFromDAM != null && altTextFromDAM == Boolean.TRUE) {
+                altDAMText = damAltText;
+            }
+        }
+        return altDAMText;
     }
 
     /**

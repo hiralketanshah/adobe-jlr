@@ -151,6 +151,9 @@ public class CommonConstants {
 
     /** The Constant PN_FILE_REFERENCE. */
     public static final String PN_FILE_REFERENCE = "fileReference";
+    
+    /** The Constant PN_ALT_TEXT_DAM. */
+    public static final String PN_ALT_TEXT_DAM = "altTextFromDAM";
 
     /** The Constant PN_IMAGE_ALT. */
     public static final String PN_IMAGE_ALT = "imageAlt";
