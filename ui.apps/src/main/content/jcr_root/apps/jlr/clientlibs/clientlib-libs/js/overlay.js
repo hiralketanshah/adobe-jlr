@@ -1,4 +1,5 @@
 function openOverlay(event, url) {
+    var evnt = event;
     event.preventDefault();
     var modalUrl = url;
     if (isBreakpointSmall() || isMobileDevice())
@@ -28,6 +29,7 @@ function openOverlay(event, url) {
                 $('<button type="button" class="mfp-close alt"></button>').insertBefore('.mfp-iframe');
                 $('.mfp-bg').addClass('mfp-bg--whitened');
                 //document.querySelector('.pageWrapper').setAttribute('aria-hidden', 'true');
+                evnt.stopImmediatePropagation();
             }
         }
     });
@@ -54,7 +56,7 @@ var isMobileDevice = () => {
     return (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch || navigator.msMaxTouchPoints); // eslint-disable-line
 };
 $(document).ready(function() {
-    $("a[data-target=overlay]").click(function() {
+    $("a[data-target=overlay]").click(function(event) {
         var url = $(this).attr('href');
         openOverlay(event, url);
     });

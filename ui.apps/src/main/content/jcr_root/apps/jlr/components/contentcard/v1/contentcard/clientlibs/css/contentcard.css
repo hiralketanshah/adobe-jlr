@@ -1839,6 +1839,9 @@ padding: 0 0 42px;
   .cmp-ContentBlocksContainer .headerBlock .heading{
     max-width: 760px;
   }
+  .cmp-ContentBlocksContainer .GridListWrapper .textContainerTop .heading p{
+    font-size: 18px;
+  }
   .cmp-ContentBlocksContainer .GridListWrapper .textContainerTop p{
     font-size: 14px;
   }
@@ -2201,6 +2204,9 @@ a.primaryLinkWithStyle[class*=" icon-"]:before {
   }
   .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner{
     flex-wrap:wrap;
+  }
+  .cmp-ContentBlocksContainer .GridListWrapper .textContainerTop .heading p{
+    font-size: 18px;
   }
   .cmp-ContentBlocksContainer .GridListWrapper .textContainerTop p{
     font-size: 14px;
