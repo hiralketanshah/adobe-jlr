@@ -3,7 +3,7 @@
 RewriteRule ^/?$ /${AU_CONTENT_PATH}/index.html [PT,L]
 
 
-RewriteRule ^/sitemap.xml$ /${AU_CONTENT_PATH}/index.sitemap.xml [PT,L]
+RewriteRule ^/sitemap.xml$ /${AU_CONTENT_PATH}.sitemap.xml [PT,L]
 
 RewriteRule ^/robots.txt$ /${AU_CONTENT_PATH}/_jcr_content.robots.txt [PT,L] 
 
