@@ -9,7 +9,7 @@ public class GalleryItem {
     private String assetType;
     private String fileReference;
     private String imageAlt;
-    private boolean isDecorative;
+    private Boolean isDecorative;
     private String videoId;
     private String posterImage;
     private String thumbnail;
@@ -21,7 +21,7 @@ public class GalleryItem {
     private Boolean altTextFromDAM;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-    		boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
+    		Boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
             String icon, String ariaLabel, String target, Boolean altTextFromDAM) {
         super();
         this.headerCopy = headerCopy;

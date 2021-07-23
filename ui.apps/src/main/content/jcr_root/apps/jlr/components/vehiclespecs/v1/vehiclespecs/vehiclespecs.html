@@ -4,6 +4,8 @@
      data-sly-use.vehicleConfigModel="${'com.jlr.core.models.SiteConfigModel' @ key='vsre.error.message.copy,vsre.submit.button,vsre.gross.price.caveat,vsre.net.price.caveat,vsre.retail.price.caveat,vsre.pricing.accordion.copy,vsre.gross.price.copy,vsre.net.price.copy,vsre.retail.price.copy'}"
      data-sly-call="${renderVehicleSpec @ vehicleSpecs=vehicleSpecsModel, pageConfig=pageConfigModel, page=pageModel, vehicleConfig=vehicleConfigModel}"/>
 <template data-sly-template.renderVehicleSpec="${ @ vehicleSpecs, pageConfig, page, vehicleConfig }">
+   <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+   data-sly-call="${clientlib.all @ categories=['jlr.components.vehiclespecs.v1']}"/>
 
     <section class="cmp-vehicleSpecsRulesEngine ${pageConfig.vsreStack?'stack' : ''} VehicleSpecsRulesEngine fontSmooth" data-price-panel-position="vehiclespecsrulesengine.pricesection.position" data-specs-url="https://rules.config.landrover.com/rc/lr2/${pageConfig.locale @ context='html'}/${vehicleSpecs.nameplateDetails @ context='html'}/_/" data-lang="${pageConfig.locale=='de_DE'?'de':(pageConfig.locale=='en_AU'?'en':'')}">
 
