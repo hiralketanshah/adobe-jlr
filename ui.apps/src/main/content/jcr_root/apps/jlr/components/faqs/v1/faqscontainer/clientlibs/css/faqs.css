@@ -277,6 +277,9 @@
         padding: 38px 290px 40px 290px;
     }
     .faqspanel .cmp-faqmodel__list__title{color:#0C121C; }
+    .cmp-faqmodel__list__content{
+        width: 80%;
+    }
 }
 /* dektop view  */
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
@@ -287,6 +290,9 @@
    
     .cmp-faqmodel {
         padding: 38px 60px 40px 60px;
+    }
+    .cmp-faqmodel__list__content{
+        width: 80%;
     }
     .faqspanel .cmp-faqmodel__list__title{color:#0C121C;}
 }
@@ -322,7 +328,7 @@
     }
     .cmp-faqmodel__accordion__fixed-header,
     .cmp-faqmodel__accordion__header__text {
-        font-size: 1.3rem;
+        font-size: 14px;
         line-height: 1;
     }
     .cmp-faqmodel__toggle.button-tertiary {
@@ -331,7 +337,6 @@
     
     .faqspanel .cmp-faqmodel__list__item {
         padding:24px 0 30px 0px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
     }
     .faqspanel .cmp-faqmodel__list__item:first-child {
         padding-top: 0px;
