@@ -121,7 +121,7 @@ html.no-js .cmp-interior360 .carousel > * {
   padding-right: 0;
   padding-bottom: 0;
   padding-top: 32px;
-  min-height: 189px;
+  min-height: auto;
   min-width: 960px;
 }
 .cmp-interiorInner .cmp-carousel__controls {
@@ -156,6 +156,7 @@ html.no-js .cmp-interior360 .carousel > * {
     margin-left: 130px;
     margin-right: 130px;
     margin-top: 60px;
+    margin-bottom: 79px;
   }
   .cmp-interior360 .headingWrapper p{
     font-size: 24px;
@@ -240,9 +241,12 @@ html.no-js .cmp-interior360 .carousel > * {
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .cmp-interior360 .linkContainer div:last-child a{
+    margin-bottom: 0;
+  }
   .cmp-interior360{
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 59px;
     margin-left: 0px;
     margin-right: 0px;
   }
@@ -262,7 +266,7 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-left: 30px;
     padding-right: 25px;
     padding-top: 28px;
-    min-height: 247px;
+    min-height: auto;
     min-width: 40%;
     max-width: 75.4%;
   }
@@ -300,7 +304,7 @@ html.no-js .cmp-interior360 .carousel > * {
     font-size: 21px;
   }
   .cmp-interior360 .linkContainer {
-    padding-top: 19px;
+    padding-top: 24px;
   }
   .cmp-interior360 .headerClass .heading p{ 
     min-height: 28px;
@@ -326,7 +330,7 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .cmp-interior360{
     margin-top: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 39px;
     margin-left: 0px;
     margin-right: 0px;
   }
@@ -350,7 +354,7 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 16px;
-    min-height: 301px;
+    min-height: auto;
     min-width: 40%;
     max-width: 100%;
   }
@@ -737,6 +741,9 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (min-width: 1px) and (max-width: 767px) {
+  .cmp-interior360 .linkContainer div:last-child a{
+    margin-bottom: 0;
+  }
   .Interior360__panorama-holder {
     transition: height 400ms ease-out;
     transform: translate3d(0, 0, 0);
@@ -791,6 +798,18 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (min-width: 1280px) {
+  .cmp-interior360 .primaryLinkContainer+.primaryLinkContainer a{
+    margin-bottom: 0;
+  }
+  .cmp-interior360 {
+    margin-bottom: 79px;
+  }
+  .cmp-interior360 .shelfComponent{
+    min-height: auto;
+  }
+  .cmp-interior360 .headerClass{
+    min-height: auto;
+  }
     .Interior360__panorama,
     .Interior360__panorama-holder {
       min-height: 653px;
@@ -1405,6 +1424,9 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px){
+  .cmp-interior360 .fontBodyCopyLarge{
+    margin-bottom: 0;
+  }
   .Interior360__init-container{
     padding-top: 0px;
   }
@@ -1413,6 +1435,8 @@ html.no-js .cmp-interior360 .carousel > * {
     left: 0;
     right: 0;
     top: 23px;
+    width: fit-content;
+    margin: 0 auto;
   }
   .Interior360__init-container-icon-backdrop {
     top: 36%;
@@ -1429,9 +1453,9 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .headingThick{
     padding: 0px !important;
   }
-  .cmp-interiorInner {
+  .cmp-interior360 .cmp-interiorInner {
     min-width: 780px;
-    min-height:434px;
+    min-height:auto;
    }
   .Interior360__icon {
     background-size: 12px 12px;
@@ -1509,6 +1533,9 @@ html.no-js .cmp-interior360 .carousel > * {
 }
 
 @media screen and (min-width: 1280px) {
+  .cmp-interior360 .shelfComponent .heading{
+    margin-bottom: 0;
+  }
   .cmp-interior360 .cmp-genericItem__element-poster{
     margin-bottom: 32px;
   }
@@ -1520,12 +1547,17 @@ html.no-js .cmp-interior360 .carousel > * {
 @media screen and (min-width: 1280px) {
   .cmp-interior360 .headerClass .heading p{
     min-height: 32px;
+    font-size: 24px;
   }
   .cmp-interior360 .headerClass{
     width: 25.12%;
   }
 }
 @media screen and (max-width: 767px) {
+  .Interior360__init-container-caption{
+    width: fit-content;
+    margin: 0 auto;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
 }
