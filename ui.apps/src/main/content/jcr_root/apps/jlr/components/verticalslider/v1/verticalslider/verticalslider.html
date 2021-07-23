@@ -6,11 +6,23 @@
 <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
 
 <section id="${verticalslider.id}"  class="cmp-interactiveNumberedImage ${verticalslider.autopauseDisabled ? 'notimer': ''}" data-numbered-image="${verticalslider.pipIcon ? '' : 'true'}" data-duration-indicator-time="${verticalslider.delay}"  data-total="${verticalslider.verticalSliderItems.size}">
-    <!-- content start -->
+	
+	<!-- content start -->
 	<div class="cmp-interactiveNumberedImage__content">
+		
 		<!-- navigation start -->
 		<div class="cmp-interactiveNumberedImage__navigation">
+			<div ><button class="cmp-interactiveNumberedImage__controls cmp-interactiveNumberedImage__controls--playing ">
+				<span class="cmp-interactiveNumberedImage__controls-icon-pause icon-pause-evo-jaguar"></span>
+				<span class="cmp-interactiveNumberedImage__controls-icon-play icon-play-evo-jaguar"></span>
+				<svg class="cmp-interactiveNumberedImage__controls-progress">
+					 <circle class="cmp-interactiveNumberedImage__controls-progress-background" cx="22" cy="22" r="21"></circle>
+				  <circle class="cmp-interactiveNumberedImage__controls-progress-loading" cx="22" cy="22" r="21" shape-rendering="geometricPrecision"></circle>       
+				</svg>
+			  </button> 
+			</div> 
 			<div aria-orientation="vertical" class="cmp-interactiveNumberedImage__toggles" role="tablist">
+				
 				<sly data-sly-list.vsItem="${verticalslider.verticalSliderItems}">
 				     <button  aria-controls="${verticalslider.name}-tabpanel-${vsItemList.index}" class="${verticalslider.pipIcon == 'true'? 'cmp-interactiveNumberedImage__toggle' : 'cmp-interactiveNumberedImageNumber__toggle'}" id="${verticalslider.name}-tab-${vsItemList.index}" >
 				     	<span class="cmp-interactiveNumberedImage__toggle-text-wrapper">
@@ -59,14 +71,7 @@
 		<!-- tab content end -->
 	</div>
 	<!-- content end -->
-      <button class="cmp-interactiveNumberedImage__controls cmp-interactiveNumberedImage__controls--playing ">
-        <span class="cmp-interactiveNumberedImage__controls-icon-pause icon-pause-evo-jaguar"></span>
-        <span class="cmp-interactiveNumberedImage__controls-icon-play icon-play-evo-jaguar"></span>
-        <svg class="cmp-interactiveNumberedImage__controls-progress">
-             <circle class="cmp-interactiveNumberedImage__controls-progress-background" cx="22" cy="22" r="21"></circle>
-          <circle class="cmp-interactiveNumberedImage__controls-progress-loading" cx="22" cy="22" r="21" shape-rendering="geometricPrecision"></circle>       
-        </svg>
-      </button>  
+   
       <!-- images start -->
     <div class="cmp-interactiveNumberedImage__images">
            <div class="cmp-interactiveNumberedImage__image" data-sly-repeat.item="${verticalslider.verticalSliderItems}">
