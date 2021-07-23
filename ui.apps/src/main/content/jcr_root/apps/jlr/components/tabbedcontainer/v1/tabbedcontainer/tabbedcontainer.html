@@ -1,8 +1,6 @@
 <div data-sly-use.tabs="com.adobe.cq.wcm.core.components.models.Tabs" data-sly-use.model="com.jlr.core.models.TabbedContainerModel"
     data-sly-use.templates="core/wcm/components/commons/v1/templates.html" id="${tabs.id}" class="cmp-tabs cmp-tabbedContainer"
     data-cmp-is="tabs" data-cmp-data-layer="${tabs.data.json}">
-    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-   data-sly-call="${clientlib.all @ categories=['jlr.components.tabbedcontainer.v1']}"/>
 
 
     <div data-sly-test="${tabs.items && tabs.items.size > 0}" class="cmp-tabbedContainer_box">
