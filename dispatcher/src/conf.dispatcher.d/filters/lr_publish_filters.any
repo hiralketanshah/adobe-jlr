@@ -62,4 +62,4 @@
 
 /0034 { /type "allow" /url "/sitemap.xml" }
 
-/0035 { /type "allow" /url "/favicon.ico" }
+/0035 { /type "allow" /url "/favicon-landrover.ico" }

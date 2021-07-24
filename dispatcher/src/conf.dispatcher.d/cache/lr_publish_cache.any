@@ -28,6 +28,6 @@
 	/type "deny"
 }
 /0005 {
-	/glob "/*.nocache.html "
+	/glob "/*.nocache.html"
 	/type "deny"
 }
