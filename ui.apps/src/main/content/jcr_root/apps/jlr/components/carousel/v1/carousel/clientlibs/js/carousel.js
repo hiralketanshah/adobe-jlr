@@ -6756,18 +6756,30 @@
       let sliderId = swiper.slides[0].id.split('-').slice(0,2).join('-');
       e.preventDefault();
       if (swiper.isBeginning && !swiper.params.loop) return;
-      let pre = swiper.activeIndex - 1;
+     let pre = 0;
+      if(swiper.activeIndex == 1){        
+         pre = swiper.slides.length - 3;
+      }
+      else{
+       pre = swiper.activeIndex - 2;
+      }      
       $(`#${sliderId} [data-pip-index="${pre}"]`).trigger("click");
-      // swiper.slidePrev();
+      swiper.slidePrev();
       },
       onNextClick(e) {
       const swiper = this;
       let sliderId = swiper.slides[0].id.split('-').slice(0,2).join('-');
       e.preventDefault();
       if (swiper.isEnd && !swiper.params.loop) return;
-      let next = swiper.activeIndex + 1;
+      let next = 0;
+      if(swiper.activeIndex == swiper.slides.length - 2){        
+        next = 0;
+      }
+      else{
+         next = swiper.activeIndex;
+      }         
       $(`#${sliderId} [data-pip-index="${next}"]`).trigger("click");
-      //swiper.slideNext();
+      swiper.slideNext();
       },
     init() {
       const swiper = this;
@@ -12299,7 +12311,7 @@
            footerSectionHeight = this.$element.find('.cmp-carousel__item--active .heroFooterSection').outerHeight();
            caveatHeight = this.$element.find('.cmp-carousel__item--active .caveat').outerHeight();
            
-           console.log('footerSectionHeight', footerSectionHeight);
+          
            
            //textHeight += 264; // Add some padding above and below
           
@@ -12310,7 +12322,17 @@
           // To prevent car being cropped on deep screens, limit component's height, relative to its width
           //const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
           //idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
-  
+ if(this.$element.find('.cmp-fullframe-carousel')){
+  textHeight = this.$element.find('.swiper-slide-active .shelfComponent').outerHeight();   
+  imageHeight = this.$element.find('.swiper-slide-active .cmp-genericItem__element-poster').outerHeight();
+  if (windowWidth > 1279) { 
+    $slider.height(textHeight + imageHeight + 80);
+  } else if (windowWidth > 767) {
+  $slider.height(textHeight + imageHeight + 60);
+  } else if (windowWidth < 768) {
+    $slider.height(textHeight + imageHeight + 40);
+    }
+ }else{
           reqSliderHeight = $left.height();          
           if(!textHeight){
             $slider.height('');
@@ -12324,13 +12346,15 @@
           reqSliderHeight =selectedSlideHeight;
          }
           
+          
          // reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;
           // Resize slider
           // added to fix LRA-10847 safari sub pixel rendering causing black line
           // reqSliderHeight = Math.floor(reqSliderHeight);
           $slider.height(reqSliderHeight);
         }        
-        }       
+        } 
+      }      
       },
   
       _userFinishedInteraction() {
