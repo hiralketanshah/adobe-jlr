@@ -20,7 +20,6 @@ PassEnv DISP_ID
 			Header always add X-Dispatcher ${DISP_ID}
 			Header always add X-Vhost "publish"
             Header always add X-Market "de"
-			Header always add X-TEST-ORIGIN ${IP}
             #Header merge X-Frame-Options ${HEADER-SAMEORIGIN} "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
             #### Adding SAME ORIGIN Header to all requests except Naas URL
 			SetEnvIf Request_URI "/content/nav/naasconfig/(en_au|de_de).html" is_naas
@@ -81,6 +80,6 @@ PassEnv DISP_ID
 			</If>
         </IfModule>
 		<LocationMatch ^/content/landrover/global/europe/published-sites/de_de/>
-                ErrorDocument 404 /error/404.html
+                ErrorDocument 404 /404.html
         </LocationMatch>                                                     
 </VirtualHost>

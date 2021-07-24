@@ -1,5 +1,5 @@
 # rewrite for root redirect
-RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/au/en.html [PT,L]
+RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/index.html [PT,L]
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
