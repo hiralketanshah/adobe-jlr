@@ -767,7 +767,7 @@
                   }
 
 
-                  if(window.innerWidth >= 901){
+                  if(window.innerWidth >= 1280){
                   var maxheightcontent = Math.max(parseInt(contentheight),parseInt(spriteContainerheight))
                   $('.frameSliderItem').css({ height: maxheightcontent });
                   $('.infoContainer', this.$element).css({
@@ -776,7 +776,7 @@
                   } 
 
 
-                  if(window.innerWidth >= 601  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 768  && window.innerWidth <= 1279.9){
                     var maxheightcontentab = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
                      $('.frameSliderItem').css({ height: maxheightcontentab});
 
@@ -788,7 +788,7 @@
 
                    
                   }
-                  if(window.innerWidth >= 1  && window.innerWidth <= 600){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 767.9){
                    
                    if(parseInt(contentheight)<313){
                      console.log(parseInt(contentheight));
