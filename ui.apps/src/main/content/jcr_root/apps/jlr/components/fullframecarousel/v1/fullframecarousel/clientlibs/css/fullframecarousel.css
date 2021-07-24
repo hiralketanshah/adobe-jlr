@@ -1177,7 +1177,7 @@ left: 50px;
   float: left;
   width: 524px;
 }
-.cmp-carousel .carousel .cmp-genericItem__element-poster{
+.cmp-fullframe .cmp-carousel .carousel .cmp-genericItem__element-poster{
   margin-bottom: 0 !important;
 }
 .cmp-fullframe .fontBodyCopyLarge p{min-width :524px;}
