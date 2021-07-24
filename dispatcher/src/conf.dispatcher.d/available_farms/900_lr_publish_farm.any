@@ -50,7 +50,7 @@
                 ## - only requests without query parameters ( ? ) are cached
                 ## - only unauthorized pages are cached unless allowUnauthorized is set to 1
                 /rules {
-                #        $include "../cache/lr_publish_cache.any"
+                        $include "../cache/lr_publish_cache.any"
                 }
                 # the invalidate section defines those pages which are 'invalidated' after
                 # any activation. please note that, the activated page itself and all
