@@ -12322,7 +12322,9 @@
           // To prevent car being cropped on deep screens, limit component's height, relative to its width
           //const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
           //idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
- if(this.$element.find('.cmp-fullframe-carousel')){
+
+if(this.$element.find('.accolade').length > 0){
+}else if(this.$element.find('.fullframecarousel').length > 0){   
   textHeight = this.$element.find('.swiper-slide-active .shelfComponent').outerHeight();   
   imageHeight = this.$element.find('.swiper-slide-active .cmp-genericItem__element-poster').outerHeight();
   if (windowWidth > 1279) { 
