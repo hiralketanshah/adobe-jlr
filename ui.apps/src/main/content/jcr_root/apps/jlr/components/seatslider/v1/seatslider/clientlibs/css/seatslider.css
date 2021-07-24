@@ -924,9 +924,7 @@
 		margin-top: 87px;
 		padding:0;
 	}
-	.cmp-interactiveSlider:not(.old) .infoContainer .content{
-		height: 503px !important; 
-	}
+
 	.cmp-interactiveSlider .sliderContainer{
 		bottom:23px;
 	}
@@ -1037,9 +1035,7 @@
 		
 		bottom: 23px  !important;
 	}
-	.cmp-interactiveSlider:not(.old) .infoContainer .content{
-		height: 435px !important; 
-	}
+
 	.cmp-interactiveSlider__infoContainerTemplates-content-purpose{
 		margin-top: 38px;
 		padding:0;
@@ -1299,7 +1295,7 @@
 		letter-spacing: 2px;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
-		width: 86.2%;
+		width: 275px;
 		height: 119px;
 	}
 	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
