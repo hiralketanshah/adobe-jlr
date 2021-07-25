@@ -10,4 +10,5 @@
     akamaiCacheClearGroup="administrators"
     enableCacheClear="false"
     enableAkamaiAgent="false"
+    enableUrlRewrite="false"
 	purgePaths = "[/content/landrover/global]"/>

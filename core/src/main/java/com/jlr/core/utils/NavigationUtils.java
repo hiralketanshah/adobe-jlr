@@ -48,20 +48,24 @@ public class NavigationUtils {
         String clientOrigin = request.getHeader("Origin");
 
         if (null != clientOrigin) {
-            if (clientOrigin.contains("landrover.com") || clientOrigin.contains("jlr-dev.com")
+            if (clientOrigin.contains("landrover.com") || clientOrigin.contains("landrover.de") || clientOrigin.contains("jlr-dev.com")
                             || clientOrigin.contains("retailers_landrover_com_au.yextpages.net") || clientOrigin.contains("retailers.landrover.com.au")
                             || clientOrigin.contains("retailers.landrover.com.au.yextpages.net") || clientOrigin.contains("landrover.com.au")
                             || clientOrigin.contains("landrover.de")) {
-                LOGGER.debug("Origin Match found: {}", clientOrigin);
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Origin Match found: {}", clientOrigin);
+                }
                 response.setHeader("Access-Control-Allow-Origin", clientOrigin);
                 response.setHeader("Access-Control-Allow-Credentials", "true");
             } else {
-                LOGGER.debug("Origin No Match found: {}", clientOrigin);
-                response.setHeader("Access-Control-Allow-Origin", "*");
+                LOGGER.error("Origin No Match found: {}", clientOrigin);
+                // response.setHeader("Access-Control-Allow-Origin", "*");
             }
         } else {
-            LOGGER.trace("Origin No Match found: {}", clientOrigin);
-            response.setHeader("Access-Control-Allow-Origin", "*");
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace("Origin No Match found: {}", clientOrigin);
+            }
+            // response.setHeader("Access-Control-Allow-Origin", "*");
         }
     }
 
