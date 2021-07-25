@@ -14,7 +14,6 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.services.FetchPrice;
@@ -71,9 +70,10 @@ public class PricingScheduler implements Runnable {
             ScheduleOptions scheduleOptions = scheduler.EXPR(cronExpression);
             scheduleOptions.canRunConcurrently(false);
             scheduleOptions.name(schedulerName);
-            // Scheduling the job
             scheduler.schedule(this, scheduleOptions);
-            LOGGER.debug("JLR pricing scheduler is added");
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("JLR pricing scheduler is added");
+            }
         }
 
     }
@@ -82,10 +82,10 @@ public class PricingScheduler implements Runnable {
     public void run() {
 
         if (isEnabled && this.slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
-            
+
             StringBuilder responseBuilder = new StringBuilder();
             responseBuilder.append(fetchPrice.fetchAndStorePrice(PricingConstants.JLR_PRICING_MARKET_ALL));
-            
+
         }
     }
 

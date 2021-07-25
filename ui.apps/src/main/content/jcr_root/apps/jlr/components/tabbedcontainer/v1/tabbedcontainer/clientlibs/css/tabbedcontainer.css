@@ -279,6 +279,9 @@
 .cmp-tabbedContainer .videoCustom:after{
     text-align: center
 }
+.cmp-tabbedContainer .cmp-interior360 .shelfComponent{
+    padding-top: 96px;
+}
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
     .cmp-tabbedContainer{
@@ -384,7 +387,9 @@
     }
     .cmp-tabbedContainer .cmp-interior360 .shelfComponent{
         min-height: 24px;
+        padding-top: 63px;
     }
+
 }
 @media screen and (min-width: 1px) and (max-width: 375px) {
     .cmp-tabbedContainer{
@@ -398,6 +403,7 @@
     }
     .cmp-tabbedContainer .DxTabs__tab{
         margin: 0px 10px;
+        padding: 0 !important;
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
@@ -445,6 +451,7 @@
     }
     .tabbedcontainer .cmp-tabbedContainer{
         padding-bottom: 60px;
+        padding-top: 40px;
     }
     .cmp-tabbedContainer .headerClass{
         max-width: 100%;
@@ -480,6 +487,10 @@
     }
     .cmp-tabbedContainer .cmp-fullframe .headerClass h2{
         margin-bottom: 0px
+    }
+    .cmp-tabbedContainer .cmp-interior360 .shelfComponent{
+        min-height: 24px;
+        padding-top: 63px;
     }
 }
 @media screen and (min-width: 1920px) and (max-width: 2500px) {

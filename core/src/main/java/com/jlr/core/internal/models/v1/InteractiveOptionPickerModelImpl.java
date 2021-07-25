@@ -341,7 +341,6 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
-        LOGGER.trace("JSON String: {}", jsonRoot.toString());
     }
 
 
