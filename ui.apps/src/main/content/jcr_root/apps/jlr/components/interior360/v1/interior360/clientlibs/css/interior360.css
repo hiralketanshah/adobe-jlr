@@ -96,7 +96,13 @@ html.no-js .cmp-carousel.cmp-interiorInner {
 html.no-js .cmp-interior360 .carousel > * {
   float: none;
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
+  #landrover .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-bottom: 0;
+  }
+  .cmp-interior360 .fontBodyCopyLarge{
+    margin-bottom: 0;
+  }
   .cmp-carousel.cmp-interiorInner {
     min-height: 0;
   }
@@ -182,7 +188,7 @@ html.no-js .cmp-interior360 .carousel > * {
     height: 78px;
   }
 }
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
   .cmp-interior360 .cmp-genericItem__element-poster {
     min-width: 1160px;
     min-height: 653px;
@@ -203,13 +209,10 @@ html.no-js .cmp-interior360 .carousel > * {
     text-align: left;
   }
   .cmp-interior360 .primaryLinkWithStyle{
-    margin-top: 0px;
+    margin-top: 23px;
   }
   .cmp-interior360 .headingWrapper p{
     font-size: 24px;
-  }
-  .cmp-interior360 .linkContainer{
-    padding-top: 24px !important;
   }
   .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
     margin-top: 24px !important;
@@ -240,7 +243,10 @@ html.no-js .cmp-interior360 .carousel > * {
       width: 560px;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+  #landrover .cmp-interior360 .secondaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-bottom: 0;
+  }
   .cmp-interior360 .linkContainer div:last-child a{
     margin-bottom: 0;
   }
@@ -289,7 +295,6 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   #landrover .secondaryLinkWithStyle {
     margin-top: 0;
-    margin-bottom: 24px;
   }
   .primaryLinkWithStyle {
     margin-top: 0;
@@ -321,8 +326,8 @@ html.no-js .cmp-interior360 .carousel > * {
       width: 524px;
     }
 }
-@media screen and (min-width: 300px) and (max-width: 766px) {
-  .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+@media screen and (min-width: 300px) and (max-width: 767.9px) {
+  #landrover .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
     margin-bottom: 0;
   }
   .Interior360__init-container-icon {
@@ -380,7 +385,6 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   #landrover .secondaryLinkWithStyle {
     margin-top: 0;
-    margin-bottom: 24px;
   }
   .primaryLinkWithStyle {
     margin-top: 0;
@@ -739,12 +743,15 @@ html.no-js .cmp-interior360 .carousel > * {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
+  .cmp-interior360 .secondaryLinkContainer{
+    width: 100%;
+    text-align: left;
+  }
   .Interior360__panorama-holder {
     order: 1;
   }
-}
-@media screen and (min-width: 1px) and (max-width: 767px) {
   .cmp-interior360 .linkContainer div:last-child a{
     margin-bottom: 0;
   }
@@ -757,7 +764,11 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__panorama {
   cursor: -webkit-grab;
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+
+.Interior360 .headerBox {
+  z-index: 4;
+}
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
   .Interior360__panorama {
     opacity: 1;
     -webkit-backface-visibility: hidden;
@@ -765,11 +776,6 @@ html.no-js .cmp-interior360 .carousel > * {
     transition: opacity 550ms ease-out;
     overflow: hidden;
   }
-}
-.Interior360 .headerBox {
-  z-index: 4;
-}
-@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360 .headerBox {
     order: 2;
   }
@@ -1193,7 +1199,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -o-transform: rotate(180deg) translateX(0px);
   transform: rotate(180deg) translateX(0px);
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
   .Interior360 {
     display: flex;
     flex-wrap: wrap;
@@ -1315,7 +1321,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__reset-control:before {
   left: 8px;
 }
-@media screen and (min-width: 300px) and (max-width: 766px) {
+@media screen and (min-width: 300px) and (max-width: 767.9px) {
   .Interior360__init-container-icon{
     position: absolute;
  top:-45px;
@@ -1374,6 +1380,9 @@ html.no-js .cmp-interior360 .carousel > * {
 }
 /* FIXES for Image */
 @media screen and (min-width: 1920px) {
+  .cmp-interior360 .linkContainer {
+    padding-top: 24px;
+  }
   .cmp-interior360 .cmp-genericItem__element-poster {
     width: 100%;
     min-height: 935px;
@@ -1398,7 +1407,7 @@ html.no-js .cmp-interior360 .carousel > * {
    min-height:937px;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .Interior360__init-container{
     padding-top: 13px;
   }
@@ -1416,7 +1425,6 @@ html.no-js .cmp-interior360 .carousel > * {
     line-height: 12px;
   }
   .cmp-interior360 .headingThick{
-    padding: 2px !important;
     margin-bottom: 16px !important;
   }
   .cmp-interiorInner {
@@ -1427,8 +1435,8 @@ html.no-js .cmp-interior360 .carousel > * {
     line-height: 14px;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px){
-  .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+@media screen and (min-width: 768px) and (max-width: 1279.9px){
+ #landrover .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
     margin-bottom: 0;
   }
   .cmp-interior360 .fontBodyCopyLarge{
@@ -1499,7 +1507,7 @@ html.no-js .cmp-interior360 .carousel > * {
     width: 524px;
   }
 }
-@media screen and (min-width: 1280px) and (max-width: 1919px){
+@media screen and (min-width: 1280px) and (max-width: 1919.9px){
   .Interior360__init-container-caption{
     line-height: 15px !important;
   }
@@ -1560,13 +1568,11 @@ html.no-js .cmp-interior360 .carousel > * {
     width: 25.12%;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .Interior360__init-container-caption{
     width: fit-content;
     margin: 0 auto;
   }
-}
-@media screen and (min-width: 768px) and (max-width: 1279px) {
 }
 /* KESTREL-708 */
 

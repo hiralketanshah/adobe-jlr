@@ -5,8 +5,6 @@ $(document).ready(function(){
     if($(".cmp-ContentBlocksContainer").length){
       if($(window).width()>=1280){
         var contentCard = $(".cmp-ContentBlocksContainer");
-        console.log(contentCard+"content cards")
-        console.log(contentCard.length+"content cards")
         $( ".cmp-ContentBlocksContainer" ).each(function() {
           $(this).attr("data-template","");
           $(this).attr("data-template","data-blocks");
