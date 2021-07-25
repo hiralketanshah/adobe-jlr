@@ -97,6 +97,18 @@ public class PricingUtils {
             modelNode.setProperty(PricingConstants.PN_NET, Double.toString(minNet));
             modelNode.setProperty(PricingConstants.PN_RETAIL, Double.toString(minRetail));
             modelNode.setProperty(PricingConstants.PN_CURRENCY, currency);
+            JcrUtils.setLastModified(modelNode,Calendar.getInstance());
+            Node parentNode=modelNode.getParent();
+            updateParentNodeModifiedDate(parentNode);
+        }
+    }
+
+    public static void updateParentNodeModifiedDate(Node parentNode) throws RepositoryException {
+        while(!parentNode.getName().equalsIgnoreCase("prd") && !parentNode.getName().equalsIgnoreCase("stg")){
+            if(!parentNode.hasProperty("jcr:lastModified")){
+                JcrUtils.setLastModified(parentNode,Calendar.getInstance());
+            }
+            parentNode=parentNode.getParent();
         }
     }
 
@@ -106,8 +118,11 @@ public class PricingUtils {
             JsonObject priceObject = priceElement.getAsJsonObject();
             Node productNode = JcrUtils.getOrCreateByPath(destinationPath + productId, JcrConstants.NT_UNSTRUCTURED,
                     session);
-
-            productNode.setProperty(priceType, priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString());
+            if(productNode.hasProperty(priceType)==false || !productNode.getProperty(priceType).getValue().toString().equalsIgnoreCase(priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString()))
+            {
+                productNode.setProperty(priceType, priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString());
+                JcrUtils.setLastModified(productNode,Calendar.getInstance());
+            }
             double price = priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsDouble();
             if (minPrice >= price || minPrice == 0) {
                 minPrice = price;
