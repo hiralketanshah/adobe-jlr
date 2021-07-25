@@ -64,3 +64,4 @@
 
 /0035 { /type "allow" /url "/favicon-landrover.ico" }
 /0036 { /type "allow" /url "/favicon.ico" }
+/0037 { /type "deny" /url "/content/misc/akamai" }

@@ -62,8 +62,8 @@ public class AkamaiCachePurgeServlet extends SlingAllMethodsServlet {
 
     }
 
-    private void doThis(SlingHttpServletRequest request, SlingHttpServletResponse response) throws  IOException {
-        request.getUserPrincipal().getName();
+    private void doThis(SlingHttpServletRequest request, SlingHttpServletResponse response) throws IOException {
+
         if (akamaiPurgeConfig.getEnableAkamaiAgent().equalsIgnoreCase("false")) {
             if (LOGGER.isTraceEnabled()) {
                 LOGGER.trace("Osgi :: Enable Akamai Replication Agent is off, exiting!!!");
