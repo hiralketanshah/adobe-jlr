@@ -11340,7 +11340,8 @@ function(a, b, c, d) {
         },
         _openOverlay: function() {
             var b = this;
-            b._overlayTimeout && clearTimeout(b._overlayTimeout), a(".igniteOverlay").addClass("visible active")
+            b._overlayTimeout && clearTimeout(b._overlayTimeout),
+             a(".igniteOverlay").addClass("visible active")
         },
         _closeOverlay: function() {
             var b = this,
@@ -17147,7 +17148,7 @@ function(a, b, c) {
                 }
             }
         },
-        _openLinkInOverlay: function(d) {
+        _openLinkInOverlay: function(d, event) {
             var e = this.$element.attr("data-aria-title"),
                 f = this.$element.attr("data-close-button-text");
             if (site.utils.isBreakpointSmall() || site.utils.isMobileDevice()) return void b.open(d);
@@ -17164,7 +17165,8 @@ function(a, b, c) {
                 },
                 callbacks: {
                     open: function() {
-                        a(".mfp-iframe").wrap('<div class="mfp-iframe-alt-wrap"></div>'), a('<button type="button" class="mfp-close alt"></button>').insertBefore(".mfp-iframe"), a(".mfp-bg").addClass("mfp-bg--whitened"), a(".mfp-iframe").prop("title", e).removeAttr("frameborder"), a(".mfp-close").attr("aria-label", f)
+                        a(".mfp-iframe").wrap('<div class="mfp-iframe-alt-wrap"></div>'), a('<button type="button" class="mfp-close alt"></button>').insertBefore(".mfp-iframe"), a(".mfp-bg").addClass("mfp-bg--whitened"), a(".mfp-iframe").prop("title", e).removeAttr("frameborder"), a(".mfp-close").attr("aria-label", f),
+                        event.stopPropagation();
                     }
                 }
             })
