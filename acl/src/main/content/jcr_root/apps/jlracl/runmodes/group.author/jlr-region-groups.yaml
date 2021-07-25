@@ -56,7 +56,7 @@
 
         - path: /content/landrover/global/row/language-masters/aus
           permission: allow
-          actions: read,create,modify,delete,replicate
+          actions: read,create,modify,delete
 
         - path: /content/landrover/global/row/published-sites/en_au
           permission: allow
@@ -120,7 +120,7 @@
 
         - path: /content/landrover/global/europe/language-masters/deu
           permission: allow
-          actions: read,create,modify,delete,replicate
+          actions: read,create,modify,delete
 
         - path: /content/landrover/global/europe/published-sites/de_de
           permission: allow
