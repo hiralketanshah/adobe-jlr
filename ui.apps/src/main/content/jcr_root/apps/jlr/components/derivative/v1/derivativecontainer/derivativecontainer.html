@@ -22,7 +22,7 @@
 				</sly>
 	
 	            <div data-sly-test="${model.enablePricing}" class="Snippet__MarketRegionalPricing">
-                    <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+                    <div data-sly-resource="${'pricing' @ resourceType='jlr/components/pricing/v1/marketpricing'}" data-sly-unwrap="${!wcmmode.edit}"></div>
                 </div>
 
 				<div data-sly-test="${model.copy}" class="copy fontBodyCopyLarge">

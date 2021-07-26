@@ -364,13 +364,7 @@ height: 493px;
     width: 875px;
 }
 
-.cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
-    min-height: 320px;
-    position: initial;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 .cmp-vehicleSummary .BazaarVoiceRating {
     margin: 39px 0 24px
 }
@@ -659,6 +653,13 @@ height: 493px;
     
 
 @media screen and (min-width: 1920px) and (max-width: 2560px) {
+    .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
+        min-height: 320px;
+        position: initial;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .cmp-vehicleSummary {      
         padding: 60px 295px 80px 295px;
     }
@@ -686,6 +687,14 @@ height: 493px;
     }
 }
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
+
+    .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
+        min-height: 320px;
+        position: initial;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
     .cmp-vehicleSummary {
         padding: 60px 60px 80px;
         min-height: 570px;
@@ -695,10 +704,7 @@ height: 493px;
       }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 428px;
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-        max-width: 1285px;
+       
     }
     
     .cmp-vehicleSummary .cmp-vehicleSummary__image{      
@@ -826,6 +832,7 @@ height: 493px;
 #landrover .slateblue.cmp-vehicleSummary .secondaryLinkWithStyle:focus
    { color: #fff!important;} 
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{ font-family:"AvenirNext-Regular";}
+
 @media screen and (min-width: 1280px) and (max-width: 2560px){
 
 .cmp-vehicleSummary.slateblue li,.cmp-vehicleSummary.slateblue p{color:#fff; font-family:"AvenirNext-Regular";}
@@ -883,6 +890,7 @@ height: 493px;
     padding-top: 0px; 
  }}
   @media screen and (min-width: 768px) and (max-width: 1279.9px){
+  
     .cmp-vehicleSummary .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
  .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px;margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
  .slateblue.cmp-vehicleSummary ul li{color:#fff;}
@@ -932,7 +940,7 @@ height: 493px;
 .cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
 .cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
 .slateblue.cmp-vehicleSummary ul li{color:#fff;}
-.cmp-vehicleSummary ul{margin-top:12px; margin-bottom:12px;}
+.cmp-vehicleSummary ul{margin-top:12px; margin-bottom:24px;}
 .cmp-vehicleSummary .primaryLinkWithStyle { margin-top:0!important;margin-bottom:23px!important;}
 .cmp-vehicleSummary .linkContainer{padding-top:0;margin-top:0;}
   }
@@ -984,6 +992,7 @@ height: 493px;
    { color: #fff!important;} 
 
 @media screen and (min-width: 1920px) and (max-width: 2560px){
+   
     .signpost-theme-padding{padding-top:60px;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 290px 60px 290px;}
@@ -1039,6 +1048,7 @@ margin-bottom:10px;
 }
 .cmp-signPost .primaryLinkWithStyle{padding-left:26px; padding-right: 26px;}
 @media screen and (min-width: 1280px) and (max-width: 1919.9px){
+    .cmp-vehicleSummary .summaryItemContent{position: absolute;}
     .signpost-theme-padding{padding-top:60px;}
 .cmp-signPost .cmp-signPost__content-copy-wrapper{margin-bottom:0px!important;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px  60px 60px  60px;}
