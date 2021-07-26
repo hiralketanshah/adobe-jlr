@@ -42,7 +42,6 @@ class LockUnlockServiceImplTest {
         fixture.lockUnlockPage("/content/test", "lock");
 
         when(page.isLocked()).thenReturn(Boolean.TRUE);
-        when(page.canUnlock()).thenReturn(Boolean.TRUE);
         fixture.lockUnlockPage("/content/test", "unlock");
     }
 
