@@ -3497,8 +3497,6 @@
                     var previous = _this8.element.querySelector('.' + _classes.classes.panelActive) || null;
                     var bodystyle = event.currentTarget.getAttribute('data-bodystyle');
                     _this8.selectedModel = event.currentTarget.getAttribute('data-model');
-                    //console.log(bodystyle);
-                    //console.log(_this8.selectedModel);
     
                     // set active panel
                     (0, _controlDropdowns2.switchPanels)(_this8.element, previous, bodystyle);

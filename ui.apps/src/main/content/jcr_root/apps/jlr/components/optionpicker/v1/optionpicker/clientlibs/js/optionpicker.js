@@ -2649,14 +2649,6 @@
             this._sliderEl = $(this.element).find(this._sliderSelector);
             this._sliderWrapper = $('.cmp_interactiveOptionPicker__option-group-container', this.element);
             this._slidesData = $(this.element).data('json');
-            // var pickersCount = 0;
-            // this._slidesData.tabs.forEach(element => {
-            //   pickersCount += element.toggleCards.length;
-            // });
-            // if (pickersCount > 11) {
-            //   $('.cmp_interactiveOptionPicker__option-group-container').css('width', '100%');
-            //   console.log('dasa');
-            // }
             $(this.element).removeAttr('data-json');
 
             this._type = $(this.element).data('option-type').toLowerCase();
