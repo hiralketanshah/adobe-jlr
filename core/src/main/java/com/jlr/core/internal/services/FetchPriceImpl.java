@@ -325,9 +325,10 @@ public class FetchPriceImpl implements FetchPrice {
             replicationOptions.setFilter(new AgentIdsAgentFilter(agents));
 
             try {
-                if (LOGGER.isTraceEnabled()) {
+             /*   if (LOGGER.isTraceEnabled()) {
                     LOGGER.trace("Replication started at {}", new java.util.Date());
-                }
+                }*/
+                LOGGER.trace("query creation started at {}", new java.util.Date());
                 Map<String, String> parameters = new HashMap<>();
                 parameters.put(CommonConstants.QUERY_PATH, pricingDestinationPath);
                 parameters.put(CommonConstants.QUERY_TYPE, JcrConstants.NT_UNSTRUCTURED);
@@ -342,6 +343,9 @@ public class FetchPriceImpl implements FetchPrice {
 
                 Query query = builder.createQuery(PredicateGroup.create(parameters), resolver.adaptTo(Session.class));
                 SearchResult result = query.getResult();
+                LOGGER.trace("Query result recieved at {}", new java.util.Date());
+                LOGGER.trace("Result size: {}", result.getHits().size());
+                LOGGER.trace("Replication started at {}", new java.util.Date());
                 for (Hit hit : result.getHits()) {
                     activate(replicator, replicationOptions, resolver.adaptTo(Session.class), hit.getPath());
                 }

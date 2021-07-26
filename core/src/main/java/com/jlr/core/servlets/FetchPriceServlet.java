@@ -31,8 +31,8 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         try {
-			if (LOGGER.isDebugEnabled()) {
-				LOGGER.debug("FetchPriceServlet started - {}", new java.util.Date());
+			if (LOGGER.isTraceEnabled()) {
+				LOGGER.trace("FetchPriceServlet started - {}", new java.util.Date());
             }
 			String market = (null == request.getParameter(PricingConstants.JLR_PRICING_MARKET))
                     ? PricingConstants.JLR_PRICING_MARKET_ALL
@@ -44,8 +44,8 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
                             ? "Unable to process! Kindly verify if endpoints and config pages are configured/authored. Else, kindly contact administrator."
                             : resp);
 
-            if (LOGGER.isDebugEnabled()) {
-                LOGGER.debug("Completed FetchPriceServlet - {}", new java.util.Date());
+            if (LOGGER.isTraceEnabled()) {
+                LOGGER.trace("Completed FetchPriceServlet - {}", new java.util.Date());
             }
         } catch (IOException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
