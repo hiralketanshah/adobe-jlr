@@ -1274,11 +1274,14 @@ text-transform: uppercase;
 }
 @media screen and (min-width: 901px) {
     .Derivative:after,
-    .derivativecard:after, {
+    .derivativecard:after {
         bottom: -90px;
     }
 }
 @media screen and (min-width: 1920px) {
+    .cmp-derivativesOverview .Derivative__lease{
+        margin-top: 26px;
+    }
     .cmp-derivative__range .cmp-derivative__copy .headingThick p{
         font-size: 38px;
     }
