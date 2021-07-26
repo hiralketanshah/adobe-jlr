@@ -26,8 +26,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.PricingConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PricingUtils {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PricingUtils.class);
 
     public static Map<String, String> getMapOfConfigFields(String[] listOfConfigFields) {
         Map<String, String> mapOfConfigFields = new HashMap<>();
@@ -118,14 +122,22 @@ public class PricingUtils {
             JsonObject priceObject = priceElement.getAsJsonObject();
             Node productNode = JcrUtils.getOrCreateByPath(destinationPath + productId, JcrConstants.NT_UNSTRUCTURED,
                     session);
-            if(productNode.hasProperty(priceType)==false || !productNode.getProperty(priceType).getValue().toString().equalsIgnoreCase(priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString()))
-            {
-                productNode.setProperty(priceType, priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString());
-                JcrUtils.setLastModified(productNode,Calendar.getInstance());
+            String priceFetched=priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString();
+            if(productNode!=null && StringUtils.isNotBlank(priceFetched)) {
+                if (productNode.hasProperty(priceType) == false || !productNode.getProperty(priceType).getValue().toString().equalsIgnoreCase(priceFetched)) {
+                    productNode.setProperty(priceType, priceFetched);
+                    JcrUtils.setLastModified(productNode, Calendar.getInstance());
+                    if(LOGGER.isDebugEnabled()){
+                        LOGGER.debug("Pricing property Updated at {}",destinationPath + productId );
+                    }
+                }
+                double price = priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsDouble();
+                if (minPrice >= price || minPrice == 0) {
+                    minPrice = price;
+                }
             }
-            double price = priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsDouble();
-            if (minPrice >= price || minPrice == 0) {
-                minPrice = price;
+            else{
+                LOGGER.debug("Unable to get/create Node at {} or No price found",destinationPath+productId);
             }
         }
         return minPrice;
