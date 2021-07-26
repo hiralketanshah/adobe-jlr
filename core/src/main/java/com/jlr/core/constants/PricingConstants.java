@@ -165,4 +165,9 @@ public class PricingConstants {
     public static final String EURO_SIGN = "€ ";
 
     public static final String DEFAULT_DE_CURRENCY_POST_SYMBOL = "^ ";
+
+    public static final String PRODNODENAME = "prd";
+
+    public static final String STAGENODENAME = "stg";
+
 }

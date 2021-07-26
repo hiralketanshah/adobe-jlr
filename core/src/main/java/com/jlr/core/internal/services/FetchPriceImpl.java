@@ -359,14 +359,12 @@ public class FetchPriceImpl implements FetchPrice {
                 parameters.put(CommonConstants.QUERY_PATH, pricingDestinationPath);
                 parameters.put(CommonConstants.QUERY_TYPE, JcrConstants.NT_UNSTRUCTURED);
                 parameters.put(CommonConstants.QUERY_ORDERBY, CommonConstants.QUERY_PATH);
-                parameters.put("group.p.or", "true");
-                parameters.put("group.1_dateComparison.property1","jcr:lastModified");
-                parameters.put("group.1_dateComparison.property2","cq:lastReplicated");
-                parameters.put("group.1_dateComparison.operation","greater");
-                parameters.put("group.2_property","jcr:lastModified");
-                parameters.put("group.2_property.operation","not");
-                parameters.put("group.3_property","cq:lastReplicated");
-                parameters.put("group.3_property.operation","not");
+                parameters.put(CommonConstants.QUERY_GROUP_OR, CommonConstants.TRUE);
+                parameters.put(CommonConstants.QUERY_GROUP1_DATECOMPARISON_PROPERTY1,CommonConstants.JCR_LASTMODIFIED);
+                parameters.put(CommonConstants.QUERY_GROUP1_DATECOMPARISON_PROPERTY2,CommonConstants.CQ_LASTREPLICATED);
+                parameters.put(CommonConstants.QUERY_GROUP1_DATECOMPARISON_OPERATION,CommonConstants.GREATER);
+                parameters.put(CommonConstants.QUERY_GROUP2_PROPERTY,CommonConstants.CQ_LASTREPLICATED);
+                parameters.put(CommonConstants.QUERY_GROUP2_PROPERTY_OPERATION,CommonConstants.NOT);
                 parameters.put(CommonConstants.QUERY_LIMIT, "10000");
 
                 Query query = builder.createQuery(PredicateGroup.create(parameters), resolver.adaptTo(Session.class));

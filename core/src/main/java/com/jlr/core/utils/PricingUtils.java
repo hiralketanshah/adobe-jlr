@@ -104,8 +104,8 @@ public class PricingUtils {
     }
 
     public static void updateParentNodeModifiedDate(Node parentNode) throws RepositoryException {
-        while(!parentNode.getName().equalsIgnoreCase("prd") && !parentNode.getName().equalsIgnoreCase("stg")){
-            if(!parentNode.hasProperty("jcr:lastModified")){
+        while(!parentNode.getName().equalsIgnoreCase(PricingConstants.PRODNODENAME) && !parentNode.getName().equalsIgnoreCase(PricingConstants.STAGENODENAME)){
+            if(!parentNode.hasProperty(CommonConstants.JCR_LASTMODIFIED)){
                 JcrUtils.setLastModified(parentNode,Calendar.getInstance());
             }
             parentNode=parentNode.getParent();

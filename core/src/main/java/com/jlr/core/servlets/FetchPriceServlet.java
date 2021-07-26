@@ -35,7 +35,7 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         try {
-
+            LOGGER.debug("FetchPriceServlet started");
             String market = (null == request.getParameter(PricingConstants.JLR_PRICING_MARKET))
                     ? PricingConstants.JLR_PRICING_MARKET_ALL
                     : request.getParameter(PricingConstants.JLR_PRICING_MARKET);
