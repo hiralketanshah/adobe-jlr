@@ -23,7 +23,7 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
                 </sly>
                 <div data-sly-test="${contentCard.copy}" class="subHeading copy fontBodyCopyLarge">${contentCard.copy @ context="html"}</div>
                 <div data-sly-test="${contentCard.enablePricing}" class="ContentBlocksContainer__MarketRegionalPricing">
-                    <span class="cmp-marketButton NaasMarketRegionalPricing-cta__label"><button class=" button-tertiary cmp-marketButton MarketRegionalPricing-triggerer"><span>${config.configMap['marketregionpricing.dxnav.selectregion']}</span></button></span>
+                    <div data-sly-resource="${'pricing' @ resourceType='jlr/components/pricing/v1/marketpricing'}" data-sly-unwrap="${!wcmmode.edit}"></div>
                 </div>
             </div>
         </sly>
