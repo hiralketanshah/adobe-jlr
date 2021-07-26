@@ -350,6 +350,18 @@ public class CommonConstants {
     /** The Constant QUERY_ORDERBY. */
     public static final String QUERY_ORDERBY = "orderby";
 
+    public static final String QUERY_GROUP_OR = "group.p.or";
+
+    public static final String QUERY_GROUP1_DATECOMPARISON_PROPERTY1="group.1_dateComparison.property1";
+
+    public static final String QUERY_GROUP1_DATECOMPARISON_PROPERTY2="group.1_dateComparison.property2";
+
+    public static final String QUERY_GROUP1_DATECOMPARISON_OPERATION="group.1_dateComparison.operation";
+
+    public static final String QUERY_GROUP2_PROPERTY="group.3_property";
+
+    public static final String QUERY_GROUP2_PROPERTY_OPERATION="group.3_property.operation";
+
     /** The Constant GROUP_ADMINISTRATOR. */
     public static final String GROUP_ADMINISTRATOR = "administrators";
 
@@ -424,4 +436,12 @@ public class CommonConstants {
      * The constant LOCALE_AU.
      */
     public static final String LOCALE_DE = "de_DE";
+
+    public static final String JCR_LASTMODIFIED = "jcr:lastModified";
+
+    public static final String CQ_LASTREPLICATED = "cq:lastReplicated";
+
+    public static final String GREATER = "greater";
+
+    public static final String NOT = "not";
 }
