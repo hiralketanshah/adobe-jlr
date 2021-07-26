@@ -12566,30 +12566,7 @@ if(this.$element.find('.accolade').length > 0){
           let img = el.querySelector('.cmp-accolades__img');
           if(img){
             img.style.display="none";
-          }
-          if(window.innerWidth>=1920){
-          
-            if(bgimagevalacc === 'none'){
-             
-              el.style.height = "";
-              el.style.paddingTop = "60px";
-              el.style.paddingBottom = "80px";             
-              
-            }          
-           
-          }
-          if(window.innerWidth>=1280 && window.innerWidth<=1919){
-            if(bgimagevalacc === 'none'){
-             
-              el.style.height = "";
-              el.style.paddingTop = "60px";
-              el.style.paddingBottom = "80px";
-                           
-              
-            }         
-
-          }
-         
+          }         
           if(window.innerWidth>=768 && window.innerWidth<=1279 ){
             el.style.paddingTop = "40px";
             el.style.paddingBottom = "60px";
@@ -12631,14 +12608,13 @@ if(this.$element.find('.accolade').length > 0){
               $(el).resize(()=>{
                 if(window.innerWidth <=1279){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
-                  let height = accolades.clientHeight ;      
+                  let height = accolades.clientHeight ;
                    controlsFFC.style.top = "0px";
                    controlsFFC.style.top = (height)+"px";      
                 } 
                 if(window.innerWidth >=1280){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
                   let height = accolades.clientHeight ;
-                  
                   controlsFFC.style.top = "0px";
                   controlsFFC.style.top = (height+7)+"px";
                   accolades.style.marginBottom="70px";

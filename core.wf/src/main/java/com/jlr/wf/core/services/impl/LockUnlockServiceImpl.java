@@ -30,9 +30,10 @@ public class LockUnlockServiceImpl implements LockUnlockService {
      *
      * @param path            the page path
      * @param lockUnlockState the lock unlock state
+     * @return the boolean
      */
     @Override
-    public void lockUnlockPage(String path, String lockUnlockState) {
+    public boolean lockUnlockPage(String path, String lockUnlockState) {
         if(StringUtils.isNotEmpty(path)) {
             try{
                 ResourceResolver resourceResolver = resolverFactory.getAdministrativeResourceResolver(null);
@@ -40,14 +41,16 @@ public class LockUnlockServiceImpl implements LockUnlockService {
                 Page actionPage = resource.adaptTo(Page.class);
                 if("lock".equals(lockUnlockState) && !actionPage.isLocked()) {
                     actionPage.lock();
-                } else if("unlock".equals(lockUnlockState) && actionPage.isLocked() && actionPage.canUnlock()) {
+                } else if("unlock".equals(lockUnlockState) && actionPage.isLocked()) {
                     actionPage.unlock();
                 }
+                return actionPage.isLocked();
             } catch (WCMException e) {
                 LOGGER.error("Unable to lock/unlock page {}", e);
             } catch (LoginException e) {
                 LOGGER.error("Unable to get admin resolver {}", e);
             }
         }
+        return Boolean.FALSE;
     }
 }
