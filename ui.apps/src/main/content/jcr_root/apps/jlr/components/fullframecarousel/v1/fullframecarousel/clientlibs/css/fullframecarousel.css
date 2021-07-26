@@ -782,7 +782,6 @@ min-width: 360px;
 }
 .fontBodyCopyLarge{
   text-align: left;
-  padding-right: 40px;
 }
 .cmp-carousel .shelfComponent{
   padding-left: 0px;
@@ -794,6 +793,9 @@ min-width: 360px;
 }
 .cmp-fullframe-carousel .cmp-carousel__controls{
   position: relative;
+}
+.cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .Picture--background .Picture__img{
+  object-fit: inherit;
 }
 /* WIDESCREEN */
 @media screen and (min-width: 1920px){
@@ -821,10 +823,13 @@ min-width: 360px;
      margin-left: 100px;
      width: 1100px;
    }
+   .cmp-fullframe-carousel .cmp-carousel__slider{
+      padding-bottom: 80px;
+   }
 }
 /* WIDESCREEN END */
 /* DESKTOP */
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
     .cmp-genericItem__element-poster{
         min-width: 1160px;
         max-height:653px ;
@@ -1031,7 +1036,7 @@ fill:black;
 .cmp-fullframe  .headerClass h2 {
   margin-bottom: 16px;
 }
-.cmp-fullframe .headingWrapper p{font-size:21px; line-height:21px; font-family:LandRoverWeb-Bold;height:28px; letter-spacing:1.05px;}
+.cmp-fullframe .headingWrapper p{font-size:21px; line-height:21px; font-family:LandRoverWeb-Bold;height:auto; letter-spacing:1.05px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
 .cmp-fullframe-carousel .cmp-carousel__controls{top:0;}
 .cmp-fullframe .secondaryLinkWithStyle{margin-top:24px!important; line-height:12.5px;}
@@ -1041,7 +1046,7 @@ fill:black;
   -webkit-font-smoothing: antialiased;
 }
 .cmp-fullframe .linkContainer{padding-top:0;}
-.cmp-fullframe .fontBodyCopyLarge{font-family:"AvenirNext-Regular";margin-bottom:0px; min-width:524px; min-height:76px; height:auto;margin:0 auto;}
+.cmp-fullframe .fontBodyCopyLarge{font-family:"AvenirNext-Regular";margin-bottom:0px; min-width:524px; height:auto;margin:0 auto;}
 .slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important;}
 .slateblue .cmp-fullframe .secondaryLinkWithStyle:hover{color:#fff!important; }
 .slateblue .cmp-fullframe .secondaryLinkWithStyle:hover span, .slateblue .cmp-fullframe .secondaryLinkWithStyle:active span,
@@ -1075,7 +1080,7 @@ fill:black;
     opacity: 80%;
 }
 @media screen and (min-width:1920px) and (max-width:2700px){
-.cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:32px;letter-spacing:1.2px;}
+.cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:auto;letter-spacing:1.2px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
 .cmp-fullframe .secondaryLinkWithStyle{margin-top:23px!important; line-height:12.5px}
 
@@ -1111,7 +1116,7 @@ right: 50px;
 left: 50px;
 }
 }   
-@media screen and (min-width: 1280px) and (max-width: 1919px){
+@media screen and (min-width: 1280px) and (max-width: 1919.9px){
   
   .cmp-fullframe .shelfComponent {
     display: block;
@@ -1131,7 +1136,14 @@ left: 50px;
     max-height:653px;
     height: auto;
     margin-bottom: 0 !important;
-  }  
+  }
+  .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .videoCustom{
+    min-width: 1160px;
+    max-width: 1919px;
+    min-height:653px;
+    max-height:653px;
+    padding-bottom: 0;
+  }
   .cmp-fullframe .shelfComponent{padding:32px 0 0 60px;}
   .cmp-fullframe-carousel .cmp-carousel__controls{margin-left:-15px;}
   .cmp-fullframe-carousel.cmp-carousel{margin-left:0;margin-right:0;}
@@ -1196,7 +1208,7 @@ left: 50px;
 .cmp-fullframe  .headerClass h2 {
   margin-bottom: 16px;
 }
-.cmp-fullframe .headingWrapper p{font-size:20px; line-height:19px; color:#0C121C;font-family:LandRoverWeb-Bold;height:27px; letter-spacing:0.64px;}
+.cmp-fullframe .headingWrapper p{font-size:20px; line-height:19px; color:#0C121C;font-family:LandRoverWeb-Bold;height:auto; letter-spacing:0.64px;}
 /* .cmp-fullframe-carousel .cmp-carousel__controls{top:236px!important;}   */
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
 .cmp-fullframe .fontBodyCopyLarge {
