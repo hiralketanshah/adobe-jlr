@@ -126,7 +126,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279.9px){
-.snippet .cmp-snippet h1.heading,.snippet .cmp-snippet h2.heading{
+ .cmp-snippet.shelfComponent h1.heading.headingThick, .cmp-snippet.shelfComponent h2.heading.headingThick{
 	line-height:30px;
 	font-size: 30px;
 }
@@ -259,7 +259,7 @@
 	.cmp-snippet .linkContainer{
 		display: block;
 	}
-	.cmp-snippet .linkContainer .secondaryLinkType:last-child{
+	.cmp-snippet .linkContainer .secondaryLinkType+.secondaryLinkType:last-child{
 		margin-top: 23px;
 	}
 	.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}

@@ -342,6 +342,9 @@ public class FetchPriceImpl implements FetchPrice {
 
                 Query query = builder.createQuery(PredicateGroup.create(parameters), resolver.adaptTo(Session.class));
                 SearchResult result = query.getResult();
+                if (LOGGER.isTraceEnabled()) {
+                    LOGGER.trace("Total Nodes to replicate :{}", result.getHits().size());
+                }
                 for (Hit hit : result.getHits()) {
                     activate(replicator, replicationOptions, resolver.adaptTo(Session.class), hit.getPath());
                 }
