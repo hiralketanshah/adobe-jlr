@@ -162,8 +162,10 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
                 try {
 
                     if (akamaiPurgeConfig.getEnableCacheClear().equalsIgnoreCase("true")) {
-                        LOGGER.trace("Akamai Execute: {}", akamaiRequest.getUrl());
-                        LOGGER.trace("Akamai Cache clear enabled!");
+                        if (LOGGER.isTraceEnabled()) {
+                            LOGGER.trace("Akamai Execute: {}", akamaiRequest.getUrl());
+                            LOGGER.trace("Akamai Cache clear enabled!");
+                        }
                         akamaiResponse = akamaiRequest.execute();
                     }
                 } catch (IOException e) {
@@ -172,7 +174,9 @@ public class AkamaiPurgeImpl implements AkamaiPurge {
                 }
                 if (servlet) {
                     purgeResponse = akamaiResponseCheck(akamaiResponse);
-                    LOGGER.info("Akamai Cache Response {}", purgeResponse);
+                    if (LOGGER.isDebugEnabled()) {
+                        LOGGER.debug("Akamai Cache Response {}", purgeResponse);
+                    }
                 }
 
             } else {

@@ -1,19 +1,23 @@
 package com.jlr.core.internal.services;
 
-import com.day.cq.commons.Externalizer;
-import com.day.cq.search.PredicateGroup;
-import com.day.cq.search.Query;
-import com.day.cq.search.QueryBuilder;
-import com.day.cq.search.result.Hit;
-import com.day.cq.search.result.SearchResult;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.jlr.core.config.SearchConfig;
-import com.jlr.core.constants.CommonConstants;
-import com.jlr.core.pojos.LinkPojo;
-import com.jlr.core.pojos.ResultPojo;
-import com.jlr.core.pojos.SearchPojo;
-import com.jlr.core.services.SearchService;
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
+import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
+import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
+import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
+import static com.jlr.core.constants.CommonConstants.LOCALE_AU;
+import static com.jlr.core.constants.CommonConstants.LOCALE_DE;
+import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
+import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
+import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
@@ -26,25 +30,28 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
-import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
-import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
-import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
-import static com.jlr.core.constants.CommonConstants.*;
-import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
-import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
+import com.day.cq.commons.Externalizer;
+import com.day.cq.search.PredicateGroup;
+import com.day.cq.search.Query;
+import com.day.cq.search.QueryBuilder;
+import com.day.cq.search.result.Hit;
+import com.day.cq.search.result.SearchResult;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.jlr.core.config.SearchConfig;
+import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.ErrorUtilsConstants;
+import com.jlr.core.pojos.LinkPojo;
+import com.jlr.core.pojos.ResultPojo;
+import com.jlr.core.pojos.SearchPojo;
+import com.jlr.core.services.SearchService;
+import com.jlr.core.utils.ErrorUtils;
 
 @Component(immediate = true, service = SearchService.class)
 @Designate(ocd = SearchConfig.class)
 public class SearchServiceImpl implements SearchService {
 
-    private static final Logger log = LoggerFactory.getLogger(SearchServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SearchServiceImpl.class);
 
     @Reference
     private QueryBuilder queryBuilder;
@@ -64,10 +71,9 @@ public class SearchServiceImpl implements SearchService {
 
     @Override
     public String getFullJson(String searchText, String locale, ResourceResolver resolver) {
-        log.trace("Entering method getFullJson");
+
         List<ResultPojo> results = new ArrayList<>();
-        Query query = queryBuilder.createQuery(createQueryPredicate(searchText, locale),
-                resolver.adaptTo(Session.class));
+        Query query = queryBuilder.createQuery(createQueryPredicate(searchText, locale), resolver.adaptTo(Session.class));
         SearchResult result = query.getResult();
         GsonBuilder gsonBuilder = new GsonBuilder();
         Gson gson = gsonBuilder.excludeFieldsWithoutExposeAnnotation().create();
@@ -89,15 +95,16 @@ public class SearchServiceImpl implements SearchService {
             }
             searchPojo.setResults(results);
         } catch (RepositoryException e) {
-            log.error("Error during search results");
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_REPOSITORY_EXCEPTION, ErrorUtilsConstants.TECHNICAL,
+                            ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
         return gson.toJson(searchPojo);
     }
 
     private String getDescription(Resource resource) {
-        if(resource.getChild(JCR_CONTENT) != null) {
+        if (resource.getChild(JCR_CONTENT) != null) {
             ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
-            if(valueMap != null) {
+            if (valueMap != null) {
                 return valueMap.get(JCR_DESCRIPTION, String.class);
             }
         }
@@ -107,26 +114,26 @@ public class SearchServiceImpl implements SearchService {
     private String getExternalUrl(String path, String locale, ResourceResolver resolver) {
         String externalizerDomain = getExternalizerDomainByLocale(locale);
         String externalPath = StringUtils.EMPTY;
-        try{
+        try {
             externalPath = externalizer.externalLink(resolver, externalizerDomain, path);
-        } catch (IllegalArgumentException e){
-            if(StringUtils.isEmpty(externalPath)) {
-                externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY) + path.replaceFirst("/",StringUtils.EMPTY);
+        } catch (IllegalArgumentException e) {
+            if (StringUtils.isEmpty(externalPath)) {
+                externalPath = externalizer.publishLink(resolver, StringUtils.EMPTY) + path.replaceFirst("/", StringUtils.EMPTY);
             }
         }
         return externalPath + ".html";
     }
 
     private PredicateGroup createQueryPredicate(String searchText, String locale) {
-        log.debug("Entering method getQueryPredicateData of SearchService");
+
         final Map<String, String> predicate = new HashMap<>();
         String searchRoot = StringUtils.EMPTY;
-        if(locale.equalsIgnoreCase(LOCALE_AU)) {
+        if (locale.equalsIgnoreCase(LOCALE_AU)) {
             searchRoot = config.auSearchRootPath();
-        } else if(locale.equalsIgnoreCase(LOCALE_DE)) {
+        } else if (locale.equalsIgnoreCase(LOCALE_DE)) {
             searchRoot = config.deSearchRootPath();
         }
-        //search the pages with fulltext
+        // search the pages with fulltext
         predicate.put("path", searchRoot);
         predicate.put("type", NT_PAGE);
         predicate.put(FULLTEXT, searchText);
@@ -143,13 +150,13 @@ public class SearchServiceImpl implements SearchService {
 
 
         searchPojo.getResults().stream().forEach(resultPojo -> {
-            if(resultPojo.getLink() != null) {
+            if (resultPojo.getLink() != null) {
                 String path = resultPojo.getLink().getUrl();
-                if(MapUtils.isNotEmpty(priorityMap) && priorityMap.containsKey(path)) {
+                if (MapUtils.isNotEmpty(priorityMap) && priorityMap.containsKey(path)) {
                     String priority = priorityMap.get(path);
                     resultPojo.setPriority(Integer.parseInt(priority));
                 }
-                if(!path.contains("/config/")) {
+                if (!path.contains("/config/")) {
                     resultsPojoMap.put(path, resultPojo);
                 }
             }
@@ -173,7 +180,7 @@ public class SearchServiceImpl implements SearchService {
 
         List<ResultPojo> filteredResults = resultsPojoMap.values().stream().sorted().collect(Collectors.toList());
         List<ResultPojo> finalResultsForPage = getPaginationResults(searchPojo, filteredResults);
-        if(CollectionUtils.isNotEmpty(finalResultsForPage)) {
+        if (CollectionUtils.isNotEmpty(finalResultsForPage)) {
             finalResultsForPage.stream().forEach(result -> {
                 LinkPojo linkPojo = result.getLink();
                 linkPojo.setUrl(getExternalUrl(linkPojo.getUrl(), searchPojo.getLocale(), resolver));
@@ -189,8 +196,8 @@ public class SearchServiceImpl implements SearchService {
         int PAGE_SIZE = config.resultsPerPage();
         int total = filteredResults.size();
         int maxPages = filteredResults.size() / PAGE_SIZE;
-        if(filteredResults.size() % PAGE_SIZE != 0) {
-            maxPages = maxPages+1;
+        if (filteredResults.size() % PAGE_SIZE != 0) {
+            maxPages = maxPages + 1;
         }
         searchPojo.setMaxPage((long) maxPages);
         searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
@@ -207,7 +214,7 @@ public class SearchServiceImpl implements SearchService {
             int startIndex = (page - 1) * PAGE_SIZE;
             int endIndex = startIndex + PAGE_SIZE;
             if (filteredResults.size() >= startIndex) {
-                if(filteredResults.size() <= endIndex) {
+                if (filteredResults.size() <= endIndex) {
                     return filteredResults.subList(startIndex, filteredResults.size());
                 } else {
                     return filteredResults.subList(startIndex, endIndex);
@@ -219,7 +226,7 @@ public class SearchServiceImpl implements SearchService {
 
     private Map<String, String> getExclusion(ResourceResolver resolver, String locale) {
         String searchConfigPath = getSearchConfigPath(locale);
-        Resource exclusion = resolver.getResource(searchConfigPath+"/jcr:content/root/container/searchconfig/exclusion");
+        Resource exclusion = resolver.getResource(searchConfigPath + "/jcr:content/root/container/searchconfig/exclusion");
         if (null != exclusion) {
             return getResourceMap(exclusion, CommonConstants.PN_PATHS_TO_EXCLUDE, CommonConstants.PN_EXCLUDE_CHILD_PAGES);
         }

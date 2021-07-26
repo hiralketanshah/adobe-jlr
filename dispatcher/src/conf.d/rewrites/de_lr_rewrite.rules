@@ -1,5 +1,10 @@
 # rewrite for root redirect
-RewriteRule ^/?$ /content/${CONTENT_FOLDER_NAME}/au/en.html [PT,L]
+
+RewriteRule ^/?$ /${DE_CONTENT_PATH}/index.html [PT,L]
+
+RewriteRule ^/sitemap.xml$ /${DE_CONTENT_PATH}.sitemap.xml [PT,L]
+
+RewriteRule ^/robots.txt$ /${DE_CONTENT_PATH}/_jcr_content.robots.txt [PT,L] 
 
 RewriteCond %{REQUEST_URI} !^/apps
 RewriteCond %{REQUEST_URI} !^/bin
@@ -11,5 +16,8 @@ RewriteCond %{REQUEST_URI} !^/saml_login
 RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
+RewriteCond %{REQUEST_URI} !^/naas
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
-RewriteRule ^/(.*)$ /content/${CONTENT_FOLDER_NAME}/$1 [PT,L]
+RewriteRule ^/(.*)$ /${DE_CONTENT_PATH}/$1 [PT,L]
+
+RewriteRule ^/naas/nav.json(.*)$ /content/nav/naas.content.json$1 [PT,L]
