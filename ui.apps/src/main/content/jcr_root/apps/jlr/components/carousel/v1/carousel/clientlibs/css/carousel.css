@@ -36,6 +36,11 @@
   text-decoration: none;
   letter-spacing: 0.25rem;
 }
-.grey .st0--swiper-pagination,.white .st0--swiper-pagination,.light .st0--swiper-pagination{
-  fill: black;
+.grey .st0--swiper-pagination,
+.white .st0--swiper-pagination,
+.light .st0--swiper-pagination {
+  fill: #0C121C;
+}
+.slateblue .st0--swiper-pagination {
+  fill: #fff;
 }
