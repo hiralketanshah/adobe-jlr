@@ -12615,7 +12615,6 @@ if(this.$element.find('.accolade').length > 0){
                 if(window.innerWidth >=1280){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
                   let height = accolades.clientHeight ;
-                  alert(height);
                   controlsFFC.style.top = "0px";
                   controlsFFC.style.top = (height+7)+"px";
                   accolades.style.marginBottom="70px";

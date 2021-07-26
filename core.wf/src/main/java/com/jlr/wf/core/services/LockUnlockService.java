@@ -1,17 +1,17 @@
 package com.jlr.wf.core.services;
 
-import com.day.cq.wcm.api.Page;
-
 /**
  * The interface Lock unlock service.
  */
 public interface LockUnlockService {
 
+
     /**
-     * Lock unlock page.
+     * Lock unlock page boolean.
      *
-     * @param path            the page path
+     * @param path            the path
      * @param lockUnlockState the lock unlock state
+     * @return the boolean
      */
-    void lockUnlockPage(String path, String lockUnlockState);
+    boolean lockUnlockPage(String path, String lockUnlockState);
 }
