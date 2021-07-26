@@ -32,7 +32,7 @@ import java.security.Principal;
 import static com.jlr.wf.core.utils.WorkflowUtils.isUserPartOfGroup;
 
 @Component(service = Servlet.class,
-        property = {Constants.SERVICE_DESCRIPTION + "= JLR Fulltext Search",
+        property = {Constants.SERVICE_DESCRIPTION + "= JLR Unlock Page",
                 "sling.servlet.methods=" + HttpConstants.METHOD_GET,
                 "sling.servlet.extensions=" + UnlockPageServlet.EXTENSION_HTML,
                 "sling.servlet.resourceTypes=" + UnlockPageServlet.RESOURCE_TYPES})
@@ -61,10 +61,10 @@ public class UnlockPageServlet extends SlingSafeMethodsServlet {
         String pagePath = request.getParameter("page");
         if (isValidUser(request.getResourceResolver())) {
             PrintWriter printOut = response.getWriter();
-            try {
-                lockUnlockService.lockUnlockPage(pagePath, "unlock");
+            boolean isPageLocked = lockUnlockService.lockUnlockPage(pagePath, "unlock");
+            if (!isPageLocked) {
                 printOut.print("Unlock Page Completed");
-            } catch (Exception e) {
+            } else {
                 printOut.print("Unable to Unlock Page");
                 response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
