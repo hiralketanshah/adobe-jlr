@@ -3,7 +3,7 @@
     xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="sling:OsgiConfig"
     include-filter.config.enabled="{Boolean}true"
-    include-filter.config.path="/content/landrover"
+    include-filter.config.path="/content/landrover/global/row/published-sites/en_au"
     include-filter.config.resource-types="[jlr/components/primarynavigation/v1/vehiclecategory]"
     include-filter.config.include-type="SSI" 
     include-filter.config.add_comment="{Boolean}true"
