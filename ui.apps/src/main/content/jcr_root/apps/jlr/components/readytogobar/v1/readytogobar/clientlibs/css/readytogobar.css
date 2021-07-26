@@ -9,10 +9,9 @@
 }
 
 .cmp-readyToGoBar__item {
-	/* flex: 0 0 25%;
-	max-width: 25%; */
+	/* flex: 0 0 25%; */
+	max-width: 25%;
 	border-right: 1px solid #4a4f544d; 
-
 }
 
 .cmp-readyToGoBar__list .cmp-readyToGoBar__item:last-child {
@@ -22,7 +21,6 @@
 .cmp-readyToGoBar__link {
 	display: block;
 	text-decoration: none !important;
-	
 }
 
 .cmp-readyToGoBar__link:active .cmp-readyToGoBar__icon i,
