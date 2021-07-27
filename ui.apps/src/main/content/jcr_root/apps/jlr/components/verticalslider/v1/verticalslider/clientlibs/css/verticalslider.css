@@ -585,7 +585,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* desktop view  */
 
-@media screen and (min-width: 901px) and (max-width:1919px) {
+@media screen and (min-width: 1280px) and (max-width:1919.9px) {
 
 	.cmp-interactiveNumberedImage__images {
 		margin-bottom: 80px;
@@ -683,7 +683,10 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* tab view  */
 
-@media screen and (min-width: 501px) and (max-width: 900px) {
+@media screen and (min-width: 768px) and (max-width:1279.9px) {
+	.verticalslider	.cmp-interactiveNumberedImage{height: auto!important;}
+	.verticalslider	.cmp-interactiveNumberedImage__content{width:100%;}
+	.verticalslider .cmp-interactiveNumberedImage__images{width:100%;}
 	#landrover .verticalslider .secondaryLinkWithStyle{margin-top:23px;}
 	.verticalslider  .cmp-interactiveNumberedImage__image.target
 	{
@@ -853,7 +856,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 }
 
 /* mobile view */
-@media screen and (min-width: 1px) and (max-width: 500px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
 	
 	.verticalslider  .cmp-interactiveNumberedImage__image.target
 	{
