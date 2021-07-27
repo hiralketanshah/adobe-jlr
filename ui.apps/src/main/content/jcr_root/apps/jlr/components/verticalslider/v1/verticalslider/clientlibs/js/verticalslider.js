@@ -4132,7 +4132,7 @@
         progressLoading: '.cmp-interactiveNumberedImage__controls-progress-loading'
       },
   
-      _tabletBreakpoint: 901,
+      _tabletBreakpoint: 1279.9,
       _mobileBreakpoint: 740,
       _componentMinHeight: 357,
       _componentMaxHeight: 600,
@@ -4443,7 +4443,7 @@
             this.ui('controls').get(0).style.display = 'flex';
             var controlheight = parseInt($('.Picture__img').css('height'))+40;
              
-             if(window.innerWidth >= 501  && window.innerWidth <= 900){
+             if(window.innerWidth >= 768  && window.innerWidth <= 1279.9){
                if(isNumberedImage){
                 $('.cmp-interactiveNumberedImage__controls').css({top:controlheight+14})
                }

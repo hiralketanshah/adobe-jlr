@@ -151,6 +151,9 @@
 }
 .cmp-snippet .secondaryLinkWithStyle {margin-bottom:0;}
 .cmp-snippet .secondaryLinkContainer {clear:both;}
+.cmp-snippet-pad-bottom.snippet .shelfComponent {
+	min-height:38px;
+}
 }
 
 .snippet .fontBodyCopyLarge p{font-family: 'AvenirNext-Regular';}
@@ -166,6 +169,14 @@
 	}
 	.cmp-snippet .linkContainer div:first-child .secondaryLinkWithStyle{
 		margin-top: 0;
+	}
+/*  Tabbed container & Snippet */
+	.cmp-snippet-pad-bottom .cmp-snippet.shelfComponent{
+		padding-bottom: 0;
+	}
+	.cmp-snippet-pad-bottom .cmp-snippet h1.heading, 
+	.cmp-snippet-pad-bottom .cmp-snippet h2.heading {
+		margin-bottom:15px;
 	}
 /* wide desktop */
 @media screen and (min-width: 1920px){
@@ -353,6 +364,8 @@
 .cmp-snippet .linkContainer { margin-top:0; padding-top:0;}
 .cmp-snippet .secondaryLinkContainer{clear:both;}
 .snippet .primaryLinkContainer{clear:both;}
-
+.cmp-snippet-pad-bottom .cmp-snippet h1.heading, 
+.cmp-snippet-pad-bottom .cmp-snippet h2.heading {
+	margin-bottom:14px;
 }
-
+}

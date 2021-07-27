@@ -221,6 +221,19 @@ h2.cmp-readyToGoBar__heading.heading.fontH5.headingH5 {
 .default .cmp-readyToGoBar__heading-inner p,  .white .cmp-readyToGoBar__heading-inner p{
 	color: #0C121C;
 }
+.cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading-inner p,
+.cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading-inner p,
+.cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading-inner p {
+	color:#005a2b;
+}
+.slateblue .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading-inner p,
+.slateblue .cmp-readyToGoBar__link:active .cmp-readyToGoBar__heading-inner p,
+.slateblue .cmp-readyToGoBar__link:focus .cmp-readyToGoBar__heading-inner p {
+	color:#005a2b !important;
+}
+.slateblue .cmp-readyToGoBar__link:hover .cmp-readyToGoBar__heading::before{
+	color:#005a2b !important;
+}
 /* theme end  */
 
 /* media query for wide screen view*/
