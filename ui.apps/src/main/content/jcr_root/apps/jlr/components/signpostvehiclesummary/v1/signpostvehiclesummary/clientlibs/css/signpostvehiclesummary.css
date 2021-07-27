@@ -919,7 +919,7 @@ height: 493px;
 .cmp-vehicleSummary{ padding:40px 30px 62px 30px;} 
 }
 @media screen and (min-width: 320px) and (max-width: 767.9px){
-    .cmp-vehicleSummary .cmp-vehicleSummary__subheading p{margin-bottom: 14px;}
+    .cmp-vehicleSummary .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
 .cmp-vehicleSummary{ padding:25px 25px 42px 25px;}
 .cmp-vehicleSummary .Picture__img{width:100%;min-width:325px;}
 .cmp-vehicleSummary .summaryItemContent {width:325px;}

@@ -23,7 +23,7 @@
     max-height:934px;
     height: auto;
     position: relative;
-    max-width: 1660px;
+    
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer{
     padding-top: 60px;
@@ -440,6 +440,8 @@
     }
     .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs{
         height: 48px;
+        margin: 0 30px;
+        width: calc(100% - 60px);
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
@@ -495,13 +497,17 @@
     }
 }
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
+    .cmp-tabbedContainer .GridListWrapper{
+        padding-left: 165px;
+        padding-right: 165px;
+    }
     .cmp-tabbedContainer {
         padding: 60px 130px;
     }
     .cmp-tabbedContainer_box{
         width: 1660px;
         max-height:935px;
-        min-height: 935px;
+        min-height: auto;
     }
     .cmp-tabbedContainer .cmp-carousel__bgImage, 
     .cmp-tabbedContainer .Exterior360__canvas,
@@ -577,4 +583,10 @@
        .touch .cmp-tabbedContainer .cmp-ContentBlocksContainer[data-template="feature-swiping"] .cmp-ContentCard .imageContainer{
         margin-left: 10px;
       }
+}
+@media screen and (min-width:1280px) and (max-width:1919.9px){
+    .cmp-tabbedContainer .contentcard .cmp-ContentBlocksContainer .GridListWrapper{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
 }

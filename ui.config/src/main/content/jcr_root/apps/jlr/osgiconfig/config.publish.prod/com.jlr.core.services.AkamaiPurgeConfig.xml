@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:OsgiConfig"
-    accessToken="akab-h5udcp7cfy6focbx-dtbrhbhvie2dqzs4"
+    accessToken="{a205d717e796ea1677b3a7baff61eb846d0aca6e7445f001a266b88f2f6435e1f340dd934345b3d1844998cbf69d22d1b502a84556f22aa8d99f2068b254f5bb}"
     akamaiHost="akab-p2tvxj53mxlxetbw-4salip7ssme73i2k.luna.akamaiapis.net"
-    clientSecret="9owYRKw9O8DPe/80OC2MsIoGQvSZhDYMtKBLHE2to10="
-    clientToken="akab-ou6yhjmgwq3thhd4-yuu6laxyedi437mv"
+    clientSecret="{7a58c7184c195a0bd9dad5b28495d6f0662505d80c67c40b444db760ce2c512c4ffbbec6cd10ef92ce86688477c0ab29b47cc4d42c7da0e982ab6eb87ae67eaa}"
+    clientToken="{32066b2a512a3a5578b77016f2d2652dedfd3fc9a25bff7dbba40ac6a26fc322584f1b7e47af312adb76b2d3833943cadd9d5b5f404f57d1e9faa27ded1f0b40}"
     delayPurge="30000"
     environment="production"
     akamaiCacheClearGroup="everyone"
