@@ -497,10 +497,6 @@
     }
 }
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
-    .cmp-tabbedContainer .GridListWrapper{
-        padding-left: 165px;
-        padding-right: 165px;
-    }
     .cmp-tabbedContainer {
         padding: 60px 130px;
     }
@@ -584,9 +580,4 @@
         margin-left: 10px;
       }
 }
-@media screen and (min-width:1280px) and (max-width:1919.9px){
-    .cmp-tabbedContainer .contentcard .cmp-ContentBlocksContainer .GridListWrapper{
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
+
