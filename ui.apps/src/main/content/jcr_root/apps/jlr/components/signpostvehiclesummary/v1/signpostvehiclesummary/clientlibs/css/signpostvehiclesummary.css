@@ -593,8 +593,8 @@ height: 493px;
     }
 }
 
-#landrover .cmp-vehicleSummary .primaryLinkWithStyle,
-#landrover .cmp-signPost .primaryLinkWithStyle {
+#landrover .cmp-vehicleSummary .primaryLinkWithStyle
+{
     margin-top: 24px;
     margin-bottom: 0;
     font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
@@ -1193,6 +1193,9 @@ object-fit: unset;
 .cmp-signPost .Picture--background .Picture__img{
 object-fit: unset;
   }
-
+  .cmp-signPost .primaryLinkWithStyle {
+    padding-left: 49px;
+    padding-right: 24px;
+}
   /*------code fix for bug 584----- new code*/
 
