@@ -1279,7 +1279,8 @@ text-transform: uppercase;
     }
 }
 @media screen and (min-width: 1920px) {
-    .cmp-derivativesOverview .Derivative__lease{
+    .cmp-derivativesOverview .Derivative__strapline+.Derivative__caveat+.Derivative__lease,
+    .cmp-derivativesOverview .Derivative__strapline+.Derivative__lease{
         margin-top: 26px;
     }
     .cmp-derivative__range .cmp-derivative__copy .headingThick p{

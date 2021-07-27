@@ -236,6 +236,9 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width:1279.9px){
+	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkType:last-child{
+		padding-top: 23px;
+	}
 	.cmp-snippet .copy p{
 		margin-bottom: 23px;
 	}
@@ -328,7 +331,7 @@
 		line-height: 26px;
 	}
 	.cmp-snippet .linkContainer .secondaryLinkType:last-child{
-		margin-top: 23px;
+		padding-top: 23px;
 	}
 	.cmp-snippet .linkContainer .primaryLinkContainer:first-child{
 		margin-top: 0;

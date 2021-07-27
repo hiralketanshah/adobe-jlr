@@ -5,4 +5,4 @@
     fieldDescription="Link to a content page, external URL or page anchor."
     fieldLabel="Link"
     name="./link"
-    rootPath="/content/landrover/global"/>
+    rootPath="/content"/>
