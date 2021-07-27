@@ -593,8 +593,8 @@ height: 493px;
     }
 }
 
-#landrover .cmp-vehicleSummary .primaryLinkWithStyle,
-#landrover .cmp-signPost .primaryLinkWithStyle {
+#landrover .cmp-vehicleSummary .primaryLinkWithStyle
+{
     margin-top: 24px;
     margin-bottom: 0;
     font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
@@ -669,7 +669,7 @@ height: 493px;
     .cmp-signPost{
         max-height: 525px;
         min-height: 525px;
-        padding: 60px 290px;
+        padding: 0px 290px 60px 290px;
     }
     .cmp-signPost__content{
         width: 50%;
@@ -1177,7 +1177,7 @@ object-fit: unset;
 
     .cmp-signPost .cmp-signPost__image {height: calc((108.3vw - 40px) / 2);}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
-    .cmp-signPost{min-height:auto; max-height:580px;}
+    .cmp-signPost{min-height:auto; max-height:100%;}
    .cmp-signPost .headingWrapper{font-family:"LandRoverWeb-Bold"; font-size:20px; line-height:24px; letter-spacing:0.9px;}
  .cmp-signPost__content p{line-height:19px;font-size:14px; letter-spacing:0.2px}
   .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px; letter-spacing:3px;}
@@ -1186,13 +1186,16 @@ object-fit: unset;
     margin-top: 0;
 }
 .cmp-signPost.left .cmp-signPost__center{padding-left:0;}
-.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:11px;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-top:16px;margin-bottom:11px;}
 .cmp-signPost .fontBodyCopy{margin-top:0;}
     }
 
 .cmp-signPost .Picture--background .Picture__img{
 object-fit: unset;
   }
-
+  .cmp-signPost .primaryLinkWithStyle {
+    padding-left: 49px;
+    padding-right: 24px;
+}
   /*------code fix for bug 584----- new code*/
 
