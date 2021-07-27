@@ -46,7 +46,7 @@ class VehicleCardModelImplTest extends GlobalModelImplTest {
         assertEquals("disc", vehicleCardModel.getDisclaimer());
         assertEquals("disc_link", vehicleCardModel.getDisclaimerLink());
         assertEquals("disc_text",vehicleCardModel.getDisclaimerText());
-        assertEquals("image_link", vehicleCardModel.getImageLink());
+        assertEquals("https://image_link", vehicleCardModel.getImageLink());
         assertEquals("pricing_value", vehicleCardModel.getPrice());
         assertEquals("tab_name", vehicleCardModel.getTabName());
 
