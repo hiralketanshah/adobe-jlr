@@ -3022,6 +3022,50 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
 	content: "\e948"
 }
 
+.icon-battery-electric-vehicle:before {
+	content: "\e952"
+}
+
+.icon-favourite:before {
+	content: "\e94c"
+}
+
+.icon-fleet-and-business:before {
+	content: "\e94d"
+}
+
+.icon-link-out:before {
+	content: "\e951"
+}
+
+.icon-pinnacle:before {
+	content: "\e94b"
+}
+
+.icon-plug-in-hybrid-electic-vehicle:before {
+	content: "\e950"
+}
+
+.icon-request-quote-euro:before {
+	content: "\e94e"
+}
+
+.icon-dx-Seats:before {
+	content: "\e948"
+}
+
+.icon-vehicle-price-dollar:before {
+	content: "\e94f"
+}
+
+.icon-vehicle-price-euro:before {
+	content: "\e94a"
+}
+
+.icon-dx-svo:before {
+	content: "\e953"
+}
+
 html {
 	min-height: 100%;
 	position: relative;
