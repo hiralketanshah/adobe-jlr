@@ -84,9 +84,6 @@
                                                             </column>
                                                         </items>
                                                     </field>
-                                                    <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        maxlimit="5"/>
                                                 </vehicles>
                                             </items>
                                         </column>

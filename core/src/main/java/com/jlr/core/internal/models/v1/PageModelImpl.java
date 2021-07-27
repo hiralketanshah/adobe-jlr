@@ -345,7 +345,7 @@ public class PageModelImpl implements PageModel {
         context.addProperty("description", "http://schema.org/description");
         root.add("@context", context);
 
-        root.addProperty("name", pageProperties.get(DerivativeConstants.PN_META_TITLE, String.class));
+        root.addProperty("name", pageProperties.get("pageTitle", String.class));
         root.addProperty("description", pageProperties.get(JcrConstants.JCR_DESCRIPTION, String.class));
 
         JsonObject author = new JsonObject();

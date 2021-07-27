@@ -23,7 +23,7 @@
     max-height:934px;
     height: auto;
     position: relative;
-    max-width: 1660px;
+    
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer{
     padding-top: 60px;
@@ -440,6 +440,8 @@
     }
     .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs{
         height: 48px;
+        margin: 0 30px;
+        width: calc(100% - 60px);
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
