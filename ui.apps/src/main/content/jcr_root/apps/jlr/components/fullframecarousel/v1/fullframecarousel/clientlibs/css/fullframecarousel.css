@@ -1028,7 +1028,7 @@ fill:black;
 .light .cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
 .white .cmp-fullframe .fontBodyCopyLarge p{color:#4A4F54;}
 .slateblue p {
-  color: #FFFFFF!important;
+  color: #FFFFFF;
 }
 .cmp-fullframe .primaryLinkWithStyle{font-family:AvenirNext-DemiBold; line-height:14px;}
 .cmp-fullframe  .headerClass h2 {
