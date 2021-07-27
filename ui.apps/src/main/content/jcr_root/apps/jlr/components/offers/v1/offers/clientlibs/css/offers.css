@@ -656,10 +656,10 @@
 @media screen and (max-width: 767.9px) {
   .cmp-offersContainer .offerHeading p {
     font-family: 'LandRoverWeb-Bold';
+    font-size: 20px;
     color: #0C121C;
     letter-spacing: 0.64px;
     line-height: 20px;
-
   }
 
   .cmp-offersContainer .offerPrice p {

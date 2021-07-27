@@ -1420,6 +1420,11 @@ padding: 0 0 42px;
     padding-top: 0;
     padding-bottom: 5px;
   }
+  .cmp-ContentBlocksContainer .headingWrapper p{
+    letter-spacing: 1.3px;
+    font-size: 26px;
+    line-height: 26px;
+   }
 }
 
 .cmp-ContentBlocksContainer__MarketRegionalPricing {
@@ -1677,6 +1682,11 @@ padding: 0 0 42px;
     -o-transform: none;
     transform: none;
   }
+  .cmp-ContentBlocksContainer .headingWrapper p{
+    letter-spacing: 1.5px;
+    font-size: 30px;
+    line-height: 30px;
+   }
 }
 /* TABLET START */
 @media screen and (min-width: 768px) and (max-width: 1279.9px){
@@ -2216,3 +2226,8 @@ a.primaryLinkWithStyle[class*=" icon-"]:before {
   }
 }
  /* bugfix-569 end */
+ .cmp-ContentBlocksContainer .headingWrapper p{
+  letter-spacing: 1.9px;
+  font-size: 38px;
+  line-height: 38px;
+ }
