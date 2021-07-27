@@ -34,17 +34,14 @@ if (accoladesElements.length) {
 			}
           
 		}
-		if(window.innerWidth>=1280 && window.innerWidth<=1919){
+		if(window.innerWidth>=1280 && window.innerWidth<=1919.9){
 
 			if(bgimageval === 'none'){
 				$(`#${el_id} .cmp-accolades__copy--primary`).removeAttr('style');
 				
 			}
 			else{
-				$(`#${el_id} .cmp-accolades__copy--primary`).css({ "font-size":"38px","padding": "142px 60px 134px 60px","line-height":"48px","letter-spacing":"0.38px","background":"url("+ bgimageval + ")",
-				"background-repeat": "no-repeat",
-  "background-size": "1160px 631px"
-				});
+				$(`#${el_id} .cmp-accolades__copy--primary`).css({ "font-size":"38px","padding": "142px 60px 134px 60px","line-height":"48px","letter-spacing":"0.38px","background":"url("+ bgimageval + ")"});
 				var accimagebannerheight = $(`#${el_id} .cmp-accolades__copy--primary`).height() + 436;
 				$(`#${el_id}`).css({height : accimagebannerheight,"padding-top": "80px","padding-bottom": "80px","background-color": "#FFF"});
 				if($(`#${el_id} #bgimagetextcolorvalue`).val() === '#0C121C'){

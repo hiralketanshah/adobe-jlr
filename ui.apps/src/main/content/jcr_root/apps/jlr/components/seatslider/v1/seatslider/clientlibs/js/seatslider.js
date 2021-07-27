@@ -827,7 +827,7 @@
                   }
                   let mm = (len * 2) - 2;
                   
-                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 1279){
                     
                     if(this._numberOfWaypoints == 4){
                       sliderWith += mm * 12
@@ -1171,7 +1171,7 @@
                   let len = this.$sliderContainerUpper[0].children.length;
                   let sliderWith = 0;
                   let sliderBtn = [];
-                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 1279){
                     for (var i = 0; i < len; i++) {
                       sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
                       let ssm;
@@ -1195,6 +1195,7 @@
 
                   }
                   else{
+                    console.log("ass");
                   for (var i = 0; i < len; i++) {
                     sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
                     let ss;
