@@ -107,7 +107,7 @@ public interface PrimaryNavTabModel {
 	 *
 	 * @return the primar nav title
 	 */
-	default String getPrimarNavTitle() {
+	default String getPrimaryNavTitle() {
         return StringUtils.EMPTY;
     }
 	

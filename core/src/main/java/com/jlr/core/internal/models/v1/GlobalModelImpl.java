@@ -50,7 +50,7 @@ public class GlobalModelImpl implements GlobalModel {
 
     /** The id. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String id;
+	protected String id;
 
     /** The date. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)

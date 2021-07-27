@@ -259,7 +259,7 @@ public class PrimaryNavTabModelImpl implements PrimaryNavTabModel {
      * @return the primar nav title
      */
     @Override
-    public String getPrimarNavTitle() {
+    public String getPrimaryNavTitle() {
         return primaryNavTitle;
     }
 
