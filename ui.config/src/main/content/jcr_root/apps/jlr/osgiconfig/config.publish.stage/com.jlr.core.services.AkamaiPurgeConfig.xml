@@ -7,7 +7,7 @@
     clientToken="{a8e04f9136a91196cd3deacd450d4e39f8fc24c8b1de161da95879bd68f31ff197342fc85d06d08c58c4c4971ae369b18070b21fccce660f687028f42ff9f9d5}"
     delayPurge="30000"
     environment="staging"
-    akamaiCacheClearGroup="administrators"
+    akamaiCacheClearGroup="everyone"
     enableCacheClear="true"
     enableAkamaiAgent="true"
     enableUrlRewrite="true"
