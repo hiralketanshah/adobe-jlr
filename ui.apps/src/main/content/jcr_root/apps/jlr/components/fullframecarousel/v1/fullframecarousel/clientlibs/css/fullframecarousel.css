@@ -788,7 +788,7 @@ min-width: 360px;
   padding-right: 0px;
   padding-bottom: 0px;
   padding-top: 32px;
-  min-height:189px;
+  min-height:100%;
   min-width: 960px;
 }
 .cmp-fullframe-carousel .cmp-carousel__controls{
@@ -982,7 +982,7 @@ fill:black;
 
 /* FIXES */
 .cmp-fullframe-carousel .cmp-carousel__slider{
-  height: 100%;
+  height: 100%!important;
 }
 .primaryLinkWithStyle{
   float:left
@@ -1079,6 +1079,7 @@ fill:black;
     cursor: pointer;
     opacity: 80%;
 }
+.cmp-fullframe .secondaryLinkContainer{clear:both;}
 @media screen and (min-width:1920px) and (max-width:2700px){
 .cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:auto;letter-spacing:1.2px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
@@ -1086,13 +1087,13 @@ fill:black;
 
   .cmp-fullframe .shelfComponent {
   display: block;
-  padding:32px 0 0 0;
+  padding:32px 0 40px 0;
   -webkit-font-smoothing: antialiased;
   margin: 0 auto;
   width: 100%;
   max-width: 1340px;
 }
-.cmp-fullframe .headerClass{min-height:150px;}
+.cmp-fullframe .headerClass{min-height:100%;}
 .cmp-fullframe .contentClass{
 float: left;
 width: 650px;}
@@ -1120,12 +1121,12 @@ left: 50px;
   
   .cmp-fullframe .shelfComponent {
     display: block;
-    padding: 28px 0 0 30px;
+    padding: 28px 0 40px 30px;
     -webkit-font-smoothing: antialiased;
     margin-left:0;
     width: 1200px;
 }
-  .cmp-fullframe .headerClass{min-height:150px;}
+  .cmp-fullframe .headerClass{min-height:100%;}
   .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:60px;
     margin-right:60px;
@@ -1143,7 +1144,7 @@ left: 50px;
     height: calc(((100vw - 260px) / 16 )* 9);
     padding-bottom: 0;
   }
-  .cmp-fullframe .shelfComponent{padding:32px 0 0 60px;}
+  .cmp-fullframe .shelfComponent{padding:32px 0 40px 60px;}
   .cmp-fullframe-carousel .cmp-carousel__controls{margin-left:-15px;}
   .cmp-fullframe-carousel.cmp-carousel{margin-left:0;margin-right:0;}
   .cmp-fullframe-carousel .swiper-button--next, .cmp-fullframe-carousel .swiper-button--prev {
