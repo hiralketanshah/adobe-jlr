@@ -160,7 +160,7 @@
 	margin-top: -5px;
 }
 .cmp_footerNav__socialLinks ul .icon-social_instagram:before {
-	margin-top: -8px;
+	margin-top: -8px!important;
 }
 .cmp_footerNav__socialLinks ul .icon-social_google:before {
 	margin-top: -1px;
@@ -204,7 +204,7 @@
 }
 
 .cmp_footerNav__socialLinks ul .icon-social_youtube:before {
-	margin-top: 0
+	margin-top: -3px;
 }
 
 .cmp_footerNav .socialLinksFloat {
@@ -328,7 +328,7 @@
 
 .cmp_footerNav__hygieneLinks li.cmp_footerNav__selectMarket>a .flag {
 	position: absolute;
-	top: 17px;
+	top: 19px;
 	left: 20px
 }
 
