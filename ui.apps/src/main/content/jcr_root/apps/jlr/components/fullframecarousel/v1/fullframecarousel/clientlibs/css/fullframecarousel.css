@@ -830,7 +830,7 @@ min-width: 360px;
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
     .cmp-genericItem__element-poster{
         min-width: 1160px;
-        max-height:653px ;
+        
     }
     .cmp-carousel .carousel .cmp-genericItem__element-poster {
         position: relative;
