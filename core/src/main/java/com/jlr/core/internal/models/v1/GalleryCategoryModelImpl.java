@@ -9,8 +9,6 @@ import javax.inject.Inject;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
-import com.day.cq.wcm.api.Page;
-import com.jlr.core.utils.ComponentPositionUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
@@ -22,16 +20,18 @@ import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 
 import com.day.cq.commons.jcr.JcrConstants;
+import com.day.cq.wcm.api.Page;
 import com.google.common.collect.Iterators;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.models.GalleryCategoryModel;
 import com.jlr.core.pojos.GalleryCategory;
+import com.jlr.core.utils.ComponentPositionUtils;
 import com.jlr.core.utils.LinkUtils;
 
 /**
  * The Class GalleryCategoryModelImpl.
  */
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
         GalleryCategoryModel.class }, resourceType = GalleryCategoryModelImpl.RESOURCE_TYPE)
 public class GalleryCategoryModelImpl extends GlobalModelImpl implements GalleryCategoryModel {
 
@@ -105,17 +105,26 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
 
     private int getCount(String galleryPath) {
         int count = 0;
-        if(galleryPath.contains(".html")) {
-        	galleryPath=galleryPath.substring(0,galleryPath.indexOf("."));
+        if (galleryPath.contains(".html")) {
+            galleryPath = galleryPath.substring(0, galleryPath.indexOf("."));
         }
         Resource galleryResource = resourceResolver.getResource(galleryPath);
         if (null != galleryResource) {
-            Resource galleryComp = galleryResource.getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH
-                    + CommonConstants.JLR_ROOT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER
-                    + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_GALLERY_LIST);
+            Resource galleryContainerComp = galleryResource
+                    .getChild(JcrConstants.JCR_CONTENT + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_ROOT
+                            + CommonConstants.FORWARD_SLASH + CommonConstants.JLR_CONTAINER);
+            Resource galleryComp = null;
+            Iterator<Resource> childResources = galleryContainerComp.listChildren();
+            while (childResources.hasNext()) {
+                Resource child = childResources.next();
+                if (child.getName().startsWith(CommonConstants.JLR_GALLERY_LIST)) {
+                    galleryComp = child.getChild(CommonConstants.JLR_GALLERY_CHILD_LIST);
+                    break;
+                }
+            }
             if (null != galleryComp) {
-                Iterator<Resource> childResources = galleryComp.listChildren();
-                count = Iterators.size(childResources);
+                Iterator<Resource> childGalleryResources = galleryComp.listChildren();
+                count = Iterators.size(childGalleryResources);
             }
         }
 
@@ -124,7 +133,7 @@ public class GalleryCategoryModelImpl extends GlobalModelImpl implements Gallery
 
     @Override
     public boolean getFirstPosition() throws RepositoryException {
-        String pageContainerPath= currentPage.getPath().concat("/jcr:content/root/container");
-        return ComponentPositionUtils.getComponentPosition(pageContainerPath,currentNode, resourceResolver);
+        String pageContainerPath = currentPage.getPath().concat("/jcr:content/root/container");
+        return ComponentPositionUtils.getComponentPosition(pageContainerPath, currentNode, resourceResolver);
     }
 }
