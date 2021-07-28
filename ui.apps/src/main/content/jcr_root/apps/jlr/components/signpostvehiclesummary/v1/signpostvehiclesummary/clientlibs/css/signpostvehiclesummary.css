@@ -708,12 +708,13 @@ height: 493px;
     }
     
     .cmp-vehicleSummary .cmp-vehicleSummary__image{      
-        height: 428px;
-        width: 760px;
+        position: relative;
+        height: calc((70vw - 40px) / 2);
+        width: 70%;
     }
     .cmp-vehicleSummary .cmp-vehicleSummary__content{    
         padding-right: 40px;
-        width: 34%;
+        width: 30%;
     }
     .cmp-signPost__image{
         width: 560px;
@@ -832,12 +833,19 @@ height: 493px;
 #landrover .slateblue.cmp-vehicleSummary .secondaryLinkWithStyle:focus
    { color: #fff!important;} 
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{ font-family:"AvenirNext-Regular";}
-
+.cmp-vehicleSummary__header.fontQuote .headingWrapper p {
+    font-size: 24px;
+    line-height: 24px!important;
+    color: #0C121C;
+    font-family: "LandRoverWeb-Bold";
+    letter-spacing: 1.2px!important;
+    text-transform: uppercase!important;
+}
 @media screen and (min-width: 1280px) and (max-width: 2560px){
-
+  
 .cmp-vehicleSummary.slateblue li,.cmp-vehicleSummary.slateblue p{color:#fff; font-family:"AvenirNext-Regular";}
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{font-size:14px;}
-.cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px;}
+.cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px; padding-right:40px;}
     .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px!important;margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
  .cmp-vehicleSummary .headingWrapper{
 	font-size:24px; 
@@ -975,7 +983,7 @@ height: 493px;
     border-bottom: 1px solid #fff!important;
 }
 #landrover .cmp-vehicleSummary .primaryLinkWithStyle, #landrover .cmp-signPost .primaryLinkWithStyle{
-    margin-top: 24px;
+    margin-top:0px;
     margin-bottom: 23px;
     font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
 }
@@ -1006,7 +1014,7 @@ height: 493px;
     .cmp-signPost .cmp-signPost__image{
      width:50%; 
   }
-.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54;margin-bottom:24px;}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:"LandRoverWeb-Bold";}
 .cmp-signPost .cmp-signPost__center{
     top:0;
@@ -1048,7 +1056,7 @@ margin-bottom:10px;
 }
 .cmp-signPost .primaryLinkWithStyle{padding-left:26px; padding-right: 26px;}
 @media screen and (min-width: 1280px) and (max-width: 1919.9px){
-    .cmp-vehicleSummary .summaryItemContent{position: absolute;}
+    .cmp-vehicleSummary .summaryItemContent{position: relative;}
     .signpost-theme-padding{padding-top:60px;}
 .cmp-signPost .cmp-signPost__content-copy-wrapper{margin-bottom:0px!important;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px  60px 60px  60px;}
@@ -1064,7 +1072,7 @@ margin-bottom:10px;
 .cmp-signPost .Picture--background .Picture__img{width:560px;height:315px;}
 .cmp-signPost .cmp-signPost__image{
      width:50%;    }
-.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54;margin-bottom:24px;}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:"LandRoverWeb-Bold";}
 .cmp-signPost .cmp-signPost__center{
     top:0;
@@ -1105,6 +1113,7 @@ margin-bottom:10px;
 }
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
+    .cmp-signPost__content-copy-wrapper p{margin-bottom:24px;}
     .signpost-theme-padding{padding-top:40px!important;}
    /* .cmp-signPost.white + .cmp-signPost.white{padding:0px  30px 68px  30px;}
     .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  30px 68px  30px;}
@@ -1157,6 +1166,7 @@ object-fit: unset;
 }
 
 @media screen and (min-width: 300px) and (max-width: 767.9px){
+    .cmp-signPost__content-copy-wrapper p{margin-bottom:24px;}
     .cmp-signPost__content, .right .cmp-signPost__content{padding:0;}
     .cmp-signPost .cmp-signPost__center {
         margin: 0;
