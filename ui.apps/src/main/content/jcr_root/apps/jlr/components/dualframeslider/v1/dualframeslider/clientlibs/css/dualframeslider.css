@@ -223,7 +223,7 @@ line-height: 12.5px;
     height: 40px;
 }
 
-@media screen and (min-width: 1px) and (max-width: 740px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
     .cmp-dualFrameSlider .Slider__left {
         padding-top: 29px;
         padding-bottom: 40px;
@@ -245,7 +245,7 @@ line-height: 12.5px;
         padding: 0 30px;
     }
 }
-@media screen and (min-width: 1px) and (max-width: 1279px) {
+@media screen and (min-width: 1px) and (max-width: 1279.9px) {
     .dualframeslider .cmp-dualFrameSlider .Slider__left{
         margin-top: 0px;
     }
@@ -342,7 +342,7 @@ line-height: 12.5px;
     }
 }
 
-@media screen and (max-width: 740px)  {
+@media screen and (max-width: 767.9px)  {
    
 
     .dualframeslider.right .cmp-dualFrameSlider, 
