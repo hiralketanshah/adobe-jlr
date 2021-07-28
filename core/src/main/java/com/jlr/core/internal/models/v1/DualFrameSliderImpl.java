@@ -82,7 +82,7 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
                     if (null == type) {
                         type = imageName.substring(imageName.lastIndexOf(CommonConstants.DOT) + 1);
                     }
-                     if(null == trailingNumber && imageName.matches("\\w+_+\\d+.+[a-z A-Z]") ) {
+                     if(null == trailingNumber && imageName.matches("\\w+_+\\d+.+[a-z A-Z 0-9]") ) {
                          trailingNumber = imageName.substring(imageName.lastIndexOf(CommonConstants.UNDERSCORE) + 1, imageName.lastIndexOf(CommonConstants.DOT));
                          numberOfDigit = trailingNumber.toCharArray().length;
                      }
