@@ -220,12 +220,13 @@ public class TcoServiceImpl implements TcoService {
         Resource resource = resourceResolver.getResource(siteRootPath);
 
         String region = StringUtils.EMPTY;
-        if (resource.getName().contains("en_au") || resource.getPath().contains("aus/en")) {
-            region = "en_au";
-        } else if (resource.getName().contains("de") || resource.getPath().contains("/deu/")) {
-            region = "de";
+        if(null!=resource) {
+            if (resource.getName().contains("en_au") || resource.getPath().contains("aus/en")) {
+                region = "en_au";
+            } else if (resource.getName().contains("de") || resource.getPath().contains("/deu/")) {
+                region = "de";
+            }
         }
-
         return region;
     }
 
