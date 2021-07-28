@@ -229,22 +229,19 @@
 @media screen and (min-width: 1920px){
 
 	.cmp-exterior360 {
-		margin-bottom:79px;
-		margin-left:130px;
-		margin-right:130px;
-		margin-top:60px;
+	
+		margin: 60px 130px 79px 130px;
 		
 	}
 	
-	.shelfComponent {
+	.cmp-exterior360 .shelfComponent {
 		padding-left: 160px;
 		padding-right: 390px;
-		padding-bottom: 79px;
 		padding-top: 32px;
 		margin-left: 0;
 		width:1660px;
 	}
-	.headerClass {
+	.cmp-exterior360 .headerClass {
 	
 		margin-right: 40px;
 		min-height: 200px;
@@ -254,7 +251,7 @@
 		font-size: 24px;
 	}
 
-	.headerClass h2 {
+	.cmp-exterior360 .headerClass h2 {
 		margin-top: 0;
 		margin-bottom: 14px;
 		display: block;	
@@ -277,7 +274,7 @@
 		margin-bottom: 24px
 	}
 
-	.primaryLinkWithStyle {
+	.cmp-exterior360 .primaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 24px
 	}
@@ -329,23 +326,23 @@
 
 
 /* desktop view  */
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
 	.cmp-exterior360 {
 		margin-left:60px;
 		margin-right:60px;
 		margin-top:60px;
+		margin-bottom:79px;
 	}
 	
-	.shelfComponent {
+	.cmp-exterior360 .shelfComponent {
 		padding-left: 0;
 		padding-right: 0;
-		padding-bottom: 79px;
 		padding-top: 32px;		
 		width: 1160px;
     	margin: 0 auto;
 		
 	}
-	.headerClass {
+	.cmp-exterior360 .headerClass {
 		margin-right: 40px;
 		min-height: 200px;
 		min-width: 360px;
@@ -354,7 +351,7 @@
 		font-size: 24px;
 	}
 
-	.headerClass h2 {
+	.cmp-exterior360 .headerClass h2 {
 		margin-top: 0;
 		margin-bottom: 14px;
 		display: block;
@@ -375,7 +372,7 @@
 		margin-bottom: 24px
 	}
 
-	.primaryLinkWithStyle {
+	.cmp-exterior360 .primaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 24px
 	}
@@ -420,7 +417,7 @@
 
 /* tab view part  */
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
 
 	.cmp-exterior360 {
 		display: flex;
@@ -430,20 +427,18 @@
 	.Exterior360__canvas-container {
 		order: 1;
 		margin-top:40px;
+		/* margin-bottom:59px; */
 	
 	}
-	.shelfComponent{
+	.cmp-exterior360 .shelfComponent{
 		order:2;
 		float: left;
-		padding-top:16px;
-		padding-left:30px;
-		padding-right:214px;
-		padding-bottom:59px;
+		padding: 16px 214px 59px 30px;
 		min-height:247px;
-		min-width:524px;
+		min-width: 768px;
 	}
 
-	.headerClass {
+	.cmp-exterior360 .headerClass {
 				
 		min-height: 28px;
 		min-width: 524px;
@@ -452,7 +447,7 @@
 		font-size: 21px;
 	}
 
-	.headerClass h2 {
+	.cmp-exterior360 .headerClass h2 {
 		margin-top: 0;
 		margin-bottom: 0;
 		padding-bottom: 16px;
@@ -479,7 +474,7 @@
 		
 	}
 
-	.primaryLinkWithStyle {
+	.cmp-exterior360 .primaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 23px;
 		text-transform: uppercase;
@@ -507,13 +502,16 @@
 		max-height: 76px !important;
 		min-width: 524px;
 	}
+	.exterior360 .fontBodyCopyLarge {
+		padding-right: 0;
+	}
 
 
 	
 }
 
 /* mobile view  */
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
 
 	.cmp-exterior360 {
 		display: flex;
@@ -524,15 +522,16 @@
 		margin-top:30px;
 	}
 
-	.shelfComponent{
+	.cmp-exterior360 .shelfComponent{
 		order:2;
 		float: left;
 		padding-top:16px;
 		padding-left:25px;
 		padding-right:25px;
+		padding-bottom:24px;
 	}
 
-	.headerClass {
+	.cmp-exterior360 .headerClass {
 		min-height: 27px;
 		min-width: 325px;
 		line-height: 20px;
@@ -540,7 +539,7 @@
 		font-size: 20px;
 	}
 
-	.headerClass h2 {
+	.cmp-exterior360 .headerClass h2 {
 		margin-top: 0;
 		margin-bottom: 16px;
 		display: block;
@@ -565,7 +564,7 @@
 		
 	}
 
-	.primaryLinkWithStyle {
+	.cmp-exterior360 .primaryLinkWithStyle {
 		margin-top: 0;
 		margin-bottom: 23px;
 		text-transform: uppercase;
@@ -599,7 +598,7 @@
 
 
 
-@-webkit-keyframes iconAnimateRight {
+/* @-webkit-keyframes iconAnimateRight {
 
 	0%,
 	100% {
@@ -1078,11 +1077,11 @@
 		-o-transform: rotate(90deg) translateX(4px);
 		transform: rotate(90deg) translateX(4px)
 	}
-}
+} */
 
 
 /* code fix for defect 733*/
-@media screen and (min-width: 1px) and (max-width: 640px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
 	.nocopy .shelfComponent{
 		display:block !important;
 	}
