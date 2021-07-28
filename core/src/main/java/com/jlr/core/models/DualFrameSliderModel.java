@@ -46,4 +46,6 @@ public interface DualFrameSliderModel {
      */
     public String getFramePath();
 
+    public Integer getNumberOfDigit();
+
 }
