@@ -29,7 +29,7 @@
 .cmp-hero .headerClass {
   min-width: auto;
 }
-@media screen  and (min-width: 768px) and  (max-width: 1279px) {
+@media screen  and (min-width: 768px) and  (max-width: 1279.9px) {
   .cmp-hero-carousel .cmp-carousel__controls {
     padding: 0;
     left: 30px;
@@ -82,7 +82,7 @@ html.no-js .cmp-carousel.cmp-hero-carousel .carousel .cmp-carousel__slide {
     display: block;
   }
 }
-@media screen and (min-width: 1px) and (max-width: 1279px) {
+@media screen and (min-width: 1px) and (max-width: 1279.9px) {
   html.no-js
     .cmp-carousel.cmp-hero-carousel
     .carousel
@@ -220,7 +220,7 @@ label {
 .headerCopy {
   text-align: left;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .cmp-hero .linkContainer{
     display: flex;
     flex-direction: column;
@@ -332,11 +332,14 @@ label {
   .cmp-hero .linkContainer .primaryLinkContainer:nth-child(2), .cmp-hero .linkContainer .secondaryLinkContainer:nth-child(2){
     margin-top: 24px;
   }
+  .cmp-hero-carousel[data-total="1"] .cmp-carousel__controls.cmp-hero_pagination.Pagination {
+    margin-top: -20px;
+  }
 }
 .cmp-hero-carousel .cmp-carousel__slider {
   height: 100% !important;
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
   .emissionDe {
     display: flex;
     flex-direction: column;
@@ -553,7 +556,7 @@ label {
   font-size: 50px;
   margin-left: 0px;
 }
-@media screen and (min-width: 768px) and (max-width: 1279px){
+@media screen and (min-width: 768px) and (max-width: 1279.9px){
   .cmp-hero .headerClass{
     display: flex;
     flex-direction: column;
@@ -736,7 +739,7 @@ padding-bottom: 0%;
 }
 
 /* TABLET */
-@media screen and (max-width: 1279px){
+@media screen and (max-width: 1279.9px){
   .cmp-hero .priceAndCta{
     display: flex;
     flex-direction: column;
@@ -801,7 +804,7 @@ padding-bottom: 0%;
     font-size: 10px;
   }
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767.9px){
 
   /* MAIN HEADING */
   .cmp-hero .heading .headingWrapper p{
@@ -875,7 +878,7 @@ padding-bottom: 0%;
 {
   fill: white;
 }
-@media screen and (max-width: 1279px){
+@media screen and (max-width: 1279.9px){
   .grey .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
 .white .cmp-hero-carousel .Pagination__pause-timer-icon-countdown,
 .light .cmp-hero-carousel .Pagination__pause-timer-icon-countdown {
@@ -913,7 +916,7 @@ padding-bottom: 0%;
     background-color: transparent;
 }
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767.9px){
   .cmp-hero .videoCustom:after{
     top: 35%;
     left: 43%;
