@@ -278,7 +278,7 @@
     position: relative;
     padding-bottom: 0px;
     justify-content: left;
-    padding-left:  3.90%;
+    padding-left:  30px;
   }
   .cmp-onlyCopy .fontQuote,.cmp-onlyCopy .secondaryLinkWithStyle{
     padding-top: 0px;
@@ -295,7 +295,6 @@
       padding-right: 60px;
       display: flex;
       flex-direction: row-reverse;
-      /* min-height: 358px; */
   }
     .cmp-accolades__copy {
       width: 100%;
@@ -328,7 +327,7 @@
   .cmp-carousel__controls.cmp-accolades_pagination{
     position: absolute;
     justify-content: left;
-    padding-left: 4.6875%;
+    padding-left: 60px;
     margin-top: 0px;
     margin-bottom: 30px;
     padding-bottom: 0;
@@ -353,7 +352,6 @@
   @media (min-width: 1920px){
   .cmp-accolades {
       padding: 60px 290px 40px 290px;
-      /* min-height: 339px; */
       overflow: auto;
   }
   .cmp-accolades__copy{
