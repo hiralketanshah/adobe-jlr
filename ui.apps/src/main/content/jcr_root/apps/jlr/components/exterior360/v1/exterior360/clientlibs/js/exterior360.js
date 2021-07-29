@@ -2956,13 +2956,23 @@
             this.widthcal = $('body').innerWidth();
             //this.width = $('body').innerWidth();
             if(this.widthcal >= 1920){
+              //this.width = 1660
+              // this.height = 935
               this.width = $('body').innerWidth() - 260;
             }
-            else if(this.widthcal >= 1280  && this.widthcal <= 1919){
+            else if(this.widthcal >= 1280  && this.widthcal <= 1919.9){
               this.width = $('body').innerWidth() - 120;
+              //this.width = 1160
+              // this.height = 653
             }
+            // else if(this.widthcal >= 768  && this.widthcal <= 1279.9){
+            //   this.width = $('body').innerWidth() - 120;
+            //   //this.width = 768
+            //   // this.height = 653
+            // }
             else{
               this.width = $('body').innerWidth();
+           
             }
            // added code for 731
             if(authorMode == 'author') {
@@ -2993,10 +3003,12 @@
                 this.imageOffset.x = -Math.round((this.calculatedWidth - this.width) / 2);
               }
             } else {
+              
               this.height = this.width / 16 * 9;
             }
       
             this.canvas.height = this.height;
+            console.log(this.canvas.height);
             this.canvas.width = this.width;
       
             if (this.tabbedContainer) {
