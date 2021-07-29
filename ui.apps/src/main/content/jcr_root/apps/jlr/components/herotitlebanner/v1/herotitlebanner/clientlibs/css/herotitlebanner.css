@@ -320,6 +320,7 @@ label {
 	.cmp-heroTitleBanner .linkContainer div:nth-of-type(2) {
 		margin-top: 23px;
 		display: inline-block;
+		width: 100%;
 	}
 	.cmp-heroTitleBanner .linkContainer .secondaryLinkWithStyle,#landrover .cmp-heroTitleBanner .linkContainer .secondaryLinkWithStyle  {
 		margin-top: 0;
@@ -350,7 +351,6 @@ label {
 	.short .cmp-carousel__bgImage {
 		min-height: 349px;
 		height: 340px;
-		max-height: 349px
 	}
 	
 	.short .cmp-heroTitleBanner__image {
@@ -535,7 +535,10 @@ label {
 .cmp-heroTitleBanner .summaryItemContent{
 	display: flex;
 	flex-direction: column;
-  }
+	}
+	.cmp-carousel.cmp-herotitle-carousel{
+		margin-bottom: 30px;
+	}
 }
 
 @media screen and (min-width: 1920px){
