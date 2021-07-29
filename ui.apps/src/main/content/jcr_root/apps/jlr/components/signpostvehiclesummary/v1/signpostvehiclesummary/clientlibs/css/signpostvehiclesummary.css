@@ -354,15 +354,6 @@
     padding: 60px;
 }
 
-.cmp-vehicleSummary .cmp-vehicleSummary__image {        
-    order: 2;
-    flex-grow: 0;
-flex-shrink: 0;
-position: relative;
-min-height: 428px;
-height: 493px;
-    width: 875px;
-}
 
 
 .cmp-vehicleSummary .BazaarVoiceRating {
@@ -482,9 +473,9 @@ height: 493px;
 
 @media screen and (min-width: 1px) and (max-width: 1240px) {
     .cmp-vehicleSummary .cmp-vehicleSummary__image {
-        order: 1;
-        width: 70%;
-        flex-grow: 0;
+    order: 1;
+    width: 70%;
+    flex-grow: 0;
     flex-shrink: 0;
     position: relative;
     min-height: 428px;
@@ -616,7 +607,7 @@ height: 493px;
 .cmp-vehicleSummary .cmp-vehicleSummary__image .Picture {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture {
         width: 100%;
@@ -652,9 +643,35 @@ height: 493px;
     }
     
 
-@media screen and (min-width: 1920px) and (max-width: 2560px) {
+@media screen and (min-width: 1920px)  {
+    .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px!important;margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
+    .cmp-vehicleSummary .headingWrapper{font-size: 24px; letter-spacing: 1.2px;font-family: "LandRoverWeb-Bold";}
+    .cmp-vehicleSummary ul{margin-top:0;}
+    .cmp-vehicleSummary.slateblue li, .cmp-vehicleSummary.slateblue p {
+        color: #fff;
+        font-family: "AvenirNext-Regular";
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .cmp-vehicleSummary li, .cmp-vehicleSummary p {
+    
+        font-family: "AvenirNext-Regular";
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
+    .cmp-vehicleSummary .cmp-vehicleSummary__image {        
+        order: 2;
+        flex-grow: 0;
+        flex-shrink: 0;
+        position: relative;
+        min-height: 496px;
+        height:100%;
+        width: 70%;
+        }
+        
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
-        min-height: 320px;
+       
         position: initial;
         display: flex;
         flex-direction: row;
@@ -683,11 +700,26 @@ height: 493px;
         height: 100%;
     }
     .cmp-vehicleSummary .cmp-vehicleSummary__content{
-        width: 34%;
+        width: 30%;
+        
     }
+    .cmp-vehicleSummary .cmp-vehicleSummary__content {
+        width: 30%;
+        padding-right: 40px;
+    }
+    .cmp-vehicleSummary .Picture--background .Picture__img{
+        height: calc((53.8vw - 40px) / 2);
+        width: calc((93.83vw - 40px) / 2);
+        float: right;
+    }
+       
 }
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
-
+    .cmp-vehicleSummary .Picture--background .Picture__img{
+        height: calc((70.10vw - 40px) / 2);
+        width: calc((121.93vw - 40px) / 2);
+        float: right;
+    }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 320px;
         position: initial;
@@ -714,7 +746,7 @@ height: 493px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummary__content{    
         padding-right: 40px;
-        width: 30%;
+        width: 34%;
     }
     .cmp-signPost__image{
         width: 560px;
@@ -731,6 +763,7 @@ height: 493px;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 768px) {
+  
     .cmp-vehicleSummary {
         padding: 40px 30px
     }
@@ -841,7 +874,7 @@ height: 493px;
     letter-spacing: 1.2px!important;
     text-transform: uppercase!important;
 }
-@media screen and (min-width: 1280px) and (max-width: 2560px){
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
   
 .cmp-vehicleSummary.slateblue li,.cmp-vehicleSummary.slateblue p{color:#fff; font-family:"AvenirNext-Regular";}
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{font-size:14px;}
@@ -898,7 +931,19 @@ height: 493px;
     padding-top: 0px; 
  }}
   @media screen and (min-width: 768px) and (max-width: 1279.9px){
-  
+    .cmp-vehicleSummary.right .cmp-vehicleSummary__image{order: 1;
+        position: relative;
+        height: 48.8vw;
+        left: 0;
+        right: auto;
+        overflow: hidden;
+        padding-left: 0;
+        min-height: auto;
+    }
+    .cmp-vehicleSummary .Picture--background .Picture__img{
+        height: calc((109.15vw - 40px) / 2);
+        width: calc((189.79vw - 40px) / 2);
+    }
     .cmp-vehicleSummary .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
  .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px;margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
  .slateblue.cmp-vehicleSummary ul li{color:#fff;}
@@ -911,7 +956,7 @@ height: 493px;
     font-family: "LandRoverWeb-Bold";
 }
   .cmp-vehicleSummary .cmp-vehicleSummary__content {
-    width: 432px;
+    width: calc((117.79vw - 40px) / 2);
     margin-top: 24px!important;
     padding: 0;
 }
