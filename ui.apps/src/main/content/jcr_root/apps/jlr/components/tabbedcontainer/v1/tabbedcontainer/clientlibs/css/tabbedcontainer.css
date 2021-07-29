@@ -291,6 +291,10 @@
 }
 
 @media screen and (min-width: 1px) and (max-width: 767px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 63px;
+        width: auto;
+    }
     .cmp-tabbedContainer{
         padding-top: 40px;
     }
@@ -407,6 +411,9 @@
     }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 63px;
+    }
 
     .cmp-tabbedContainer{
         padding: 60px 0px;
@@ -497,6 +504,10 @@
     }
 }
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 96px;
+        width: auto;
+    }
     .cmp-tabbedContainer {
         padding: 60px 130px;
     }
@@ -580,4 +591,5 @@
         margin-left: 10px;
       }
 }
+
 
