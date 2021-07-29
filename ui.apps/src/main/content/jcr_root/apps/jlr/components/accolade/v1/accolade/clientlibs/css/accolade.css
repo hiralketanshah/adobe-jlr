@@ -101,7 +101,8 @@
   {
     color:#FFF;
   }
-  .slateblue .Pagination__pause-control-icon, .slateblue .cmp-accolades-carousel .Pagination__play-control-icon{
+  .slateblue .cmp-accolades-carousel .Pagination__pause-control-icon, 
+  .slateblue .cmp-accolades-carousel .Pagination__play-control-icon{
     fill: #FFF;
   }
   .slateblue .cmp-accolades .cmp-accolades__copy--tertiary{
@@ -111,27 +112,57 @@
   {
     text-decoration: none;
   }
-
-  .slateblue .Pagination--black .Pagination__pip:after{
+  .slateblue .cmp-accolades-carousel .Pagination--black .Pagination__pip:after{
     border: 2px solid rgb(255 255 255 / 60%);
   }
-  .slateblue .Pagination--black .Pagination__pip--active:after, .Pagination--black .Pagination__pip--active:hover:after
+  .slateblue .cmp-accolades-carousel .Pagination--black .Pagination__pip--active:after, 
+  .slateblue .cmp-accolades-carousel .Pagination--black .Pagination__pip--active:hover:after
   {
     background: #FFF;
   }
-.slateblue .Pagination--black .Pagination__play:before, .Pagination--black .Pagination__pause:before
-{
+.slateblue .cmp-accolades-carousel .Pagination--black .Pagination__play:before,
+.slateblue .cmp-accolades-carousel .Pagination--black .Pagination__pause:before {
   border: 2px solid #FFF;
 }
-.slateblue .Pagination--black .Pagination__pause:before{
-  border: 2px solid #FFFF;
-}
-.slateblue .Pagination--black .Pagination__play-control-icon, .Pagination--black .Pagination__pause-control-icon{
+.slateblue .cmp-accolades-carousel .Pagination--black .Pagination__play-control-icon,
+.slateblue .cmp-accolades-carousel .Pagination--black .Pagination__pause-control-icon {
   fill: #FFF;
 }
-
-
-    /* fix for  1055 end*/
+.slateblue .cmp-accolades-carousel .Pagination--black .Pagination__pause-timer-icon-countdown {
+  stroke:   #FFF; /* #0C121C  */  /*animated circle*/
+}
+.slateblue .cmp-accolades-carousel .st0--swiper-pagination {
+  fill: #fff;
+}
+.cmp-accolades-carousel .Pagination--black .Pagination__pip:after {
+  border: 2px solid #4A4F54;
+  box-shadow: none;
+}
+.cmp-accolades-carousel .Pagination--black .Pagination__pip--active:after {
+  background: #4A4F54;
+}
+.cmp-accolades-carousel .Pagination--black .Pagination__play-control-icon,
+.cmp-accolades-carousel .Pagination--black .Pagination__pause-control-icon {
+	fill: #4A4F54;
+}
+.cmp-accolades-carousel .Pagination--black .Pagination__play:before,
+.cmp-accolades-carousel .Pagination--black .Pagination__pause:before {
+  border: 2px solid  #4a4f544d;
+  box-shadow: none;
+}
+.cmp-accolades-carousel .Pagination--black .Pagination__pause-timer-icon-countdown {
+  stroke:  #4A4F54; /*animated circle*/
+}
+.grey.cmp-accolades-carousel .st0--swiper-pagination,
+.white.cmp-accolades-carousel .st0--swiper-pagination,
+.light.cmp-accolades-carousel .st0--swiper-pagination {
+  fill: #00000080;
+  box-shadow: 0 0 0 1px #0c121c;
+}
+.cmp-accolades-carousel .Pagination__controls{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
   
   /* NEW DEVELOPMENT */
 
@@ -199,10 +230,7 @@
     padding-bottom: 0px;
     justify-content: left;
     padding-left: 25px;
-  }
-  .Pagination__controls{
-    padding-top: 10px;
-    padding-bottom: 40px;
+    margin-bottom: 30px;
   }
   }
   /* TABLET ACCOLADES WITH LOGO - START*/
@@ -250,11 +278,7 @@
     position: relative;
     padding-bottom: 0px;
     justify-content: left;
-    padding-left:  3.90%;
-  }
-  .Pagination__controls{
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-left:  30px;
   }
   .cmp-onlyCopy .fontQuote,.cmp-onlyCopy .secondaryLinkWithStyle{
     padding-top: 0px;
@@ -265,10 +289,10 @@
   /* DESKTOP ACCOLADES WITH LOGO - START*/
   @media screen and (min-width: 1280px) {
     .cmp-accolades {
-      padding-top: 4.6875%;
-      padding-bottom: 30px;
-      padding-left: 4.6875%;
-      padding-right: 4.6875%;
+      padding-top: 60px;
+      padding-bottom: 40px;
+      padding-left: 60px;
+      padding-right: 60px;
       display: flex;
       flex-direction: row-reverse;
   }
@@ -303,8 +327,10 @@
   .cmp-carousel__controls.cmp-accolades_pagination{
     position: absolute;
     justify-content: left;
-    padding-left: 4.6875%;
+    padding-left: 60px;
     margin-top: 0px;
+    margin-bottom: 30px;
+    padding-bottom: 0;
   }
   .cmp-accolades__img{
     width: 260px;
@@ -317,13 +343,15 @@
   .cmp-accolades-carousel .swiper-button--next {
     right: 10px;
   }
+  .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
+    padding-bottom: 80px;
+  }
   }
   /* WIDESCREEN ACCOLADES WITH LOGO - START*/
   
   @media (min-width: 1920px){
   .cmp-accolades {
       padding: 60px 290px 40px 290px;
-      min-height: 339px;
       overflow: auto;
   }
   .cmp-accolades__copy{
@@ -348,9 +376,9 @@
     margin-top: 0px;
   } 
   .cmp-carousel__controls.cmp-accolades_pagination{
-    position: absolute;
     justify-content: left;
     padding-left: 290px;
+    margin-bottom: 30px;
   }
   .cmp-accolades-carousel .swiper-button--next{
     left: auto;
@@ -360,17 +388,20 @@
     left: 235px;
     right: auto;
   }
+  .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
+    padding-bottom: 80px;
   }
-  .cmp-carousel__controls.cmp-accolades_pagination {
+  }
+  /* .cmp-carousel__controls.cmp-accolades_pagination {
     position: fixed;
-  }
+  } */
   
   /* END WIDESCREEN */
   
   /* CAROUSEL CONTROL ISSUES START*/
   @media screen and (min-width: 768px)   {
     .cmp-carousel__controls.cmp-accolades_pagination {
-      position: absolute;
+      position: sticky;
   
     }
     .cmp-accolades__img .Picture__img {
@@ -384,11 +415,7 @@
     }
     .cmp-accolades__copy{
       margin: 0px;
-    }
-    .cmp-accolades{
-      padding-bottom: 40px;
-    }
- 
+    } 
     .cmp-accolades__img .Picture__img {
       width: 260px;
       height: 146px;
@@ -452,7 +479,7 @@
     padding-top: 30px;
     padding-left: 25px;
 	padding-bottom:40px;
-                    }
+  }
  }
 .cmp-accolades .swiper-button--next {
   left: auto;
@@ -493,6 +520,9 @@ color:#0C121C ;
     padding-bottom: 30px;
     padding-right: 25px;
   }
+  .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
+    padding-bottom: 40px;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 1279.9px){
   .cmp-accolades__copy--secondary{
@@ -504,8 +534,8 @@ color:#0C121C ;
     float: left;
   }
   .cmp-accolades{
-    padding-left: 3.90%;
-    padding-right:  3.90%;
+    padding-left: 30px;
+    padding-right:  30px;
     padding-top: 40px;
     padding-bottom: 30px;
     display: flex;
@@ -513,6 +543,9 @@ color:#0C121C ;
   }
   .cmp-accolades-carousel .cmp-carousel__controls {	
     position: absolute;
+  }
+  .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
+    padding-bottom: 60px;
   }
 }
 @media screen and (max-width: 1279px) {
@@ -530,3 +563,4 @@ color:#0C121C ;
     position: sticky;
   }
 }
+
