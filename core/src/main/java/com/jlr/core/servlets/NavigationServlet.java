@@ -71,7 +71,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
 
         String locale = request.getParameter("locale"); // en_AU, de_DE
-        Boolean cache = Boolean.valueOf(request.getParameter("cache"));
+        Boolean cache = request.getParameter("cache") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("cache"));
         Boolean fullyQualifyDxLinks = Boolean.valueOf(request.getParameter("fullyQualifyDxLinks"));
         String retailerName = request.getParameter("retailerName");
         String retailerUrl = request.getParameter("retailerUrl");
