@@ -503,7 +503,14 @@
         padding-top: 63px;
     }
 }
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 96px;
+        width: auto;
+    }
+}
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
+
     .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
         padding-top: 96px;
         width: auto;
