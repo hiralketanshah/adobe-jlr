@@ -12332,8 +12332,8 @@
             }else if(textHeight == 108){
               textHeight = 60;
             }  
-            else if(textHeight == 85){
-              textHeight = 40;
+            else if(textHeight == 81){
+              textHeight = 40;              
             }  
             imageHeight = this.$element.find('.swiper-slide-active .cmp-genericItem__element-poster').outerHeight();
             

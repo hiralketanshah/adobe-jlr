@@ -922,9 +922,7 @@ min-width: 360px;
     margin-right: 0px;
     margin-bottom: 0;
   }
-  .cmp-carousel.cmp-fullframe-carousel .carousel{
-    min-height: 339px;
-  }
+ 
   .cmp-fullframe .cmp-genericItem__element-poster {
       width: 100%;
       min-height: 211px;
