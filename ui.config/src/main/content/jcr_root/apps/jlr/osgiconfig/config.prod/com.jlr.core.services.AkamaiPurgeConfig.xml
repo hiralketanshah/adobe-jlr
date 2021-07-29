@@ -7,7 +7,7 @@
     clientToken=""
     delayPurge="15000"
     environment="production"
-    akamaiCacheClearGroup="administrators"
+    akamaiCacheClearGroup="everyone"
     enableCacheClear="true"
     enableAkamaiAgent="true"
 	purgePaths = "[/content/landrover/global]"/>
