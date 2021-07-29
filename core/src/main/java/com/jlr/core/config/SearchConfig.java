@@ -14,18 +14,18 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 public @interface SearchConfig {
 
     @AttributeDefinition(name = "Root path to be searched", description = "DE Root path to be searched", type = AttributeType.STRING)
-    public String deSearchRootPath() default "/content/landrover/global/europe/published-sites/de_de";
+    public String deSearchRootPath();
 
     @AttributeDefinition(name = "Root path to be searched", description = "AU Root path to be searched", type = AttributeType.STRING)
-    public String auSearchRootPath() default "/content/landrover/global/row/published-sites/en_au";
+    public String auSearchRootPath();
 
     @AttributeDefinition(name = "DE Search Config Path", description = "DE search config path for exclusions and priorities", type = AttributeType.STRING)
-    public String deSearchConfigPath() default "/content/landrover/global/europe/published-sites/de_de/config/search-config";
+    public String deSearchConfigPath();
 
     @AttributeDefinition(name = "AU Search Config Path", description = "AU search config path for exclusions and priorities", type = AttributeType.STRING)
-    public String auSearchConfigPath() default "/content/landrover/global/row/published-sites/en_au/config/search-config";
+    public String auSearchConfigPath();
 
     @AttributeDefinition(name = "search results to be shown per page", description = "search results to be shown per page", type = AttributeType.STRING)
-    public int resultsPerPage() default 20;
+    public int resultsPerPage();
 
 }

@@ -1763,7 +1763,7 @@
               this._initialiseDxRangeSlider();
             },
             _loadImageFrames: function _loadImageFrames() {
-              this.loadedFrames = { desktop: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [1, this.$element.attr('data-length')], digits: 4 }), desktopSmall: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [1, this.$element.attr('data-length')], digits: 4 }) };
+              this.loadedFrames = { desktop: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [1, this.$element.attr('data-length')], digits: this.$element.attr('data-digit') }), desktopSmall: SpriteSpin.sourceArray(this.$element.attr('data-frames') + '{frame}.' + this.$element.attr('data-imgformat'), { frame: [1, this.$element.attr('data-length')], digits: this.$element.attr('data-digit') }) };
             },
             _setBreakpointState: function _setBreakpointState(e) {
               var breakpoints = this.breakpoints;

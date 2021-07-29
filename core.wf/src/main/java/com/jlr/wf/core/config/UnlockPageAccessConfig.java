@@ -17,5 +17,5 @@ public @interface UnlockPageAccessConfig {
 	 *
 	 */
 	@AttributeDefinition(name = "Group Name", description = "Group Name", type=AttributeType.STRING)
-	String getGroupName() default "";
+	String getGroupName();
 }
