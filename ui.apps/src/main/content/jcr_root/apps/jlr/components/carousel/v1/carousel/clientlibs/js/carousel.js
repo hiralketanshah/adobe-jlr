@@ -12347,13 +12347,22 @@
                 $slider.height(textHeight + imageHeight);
               }
 
-            }else if(this.$element.find('.herotitlebanner').length > 0){  
+            }else if(this.$element.find('.herotitlebanner.short').length > 0){
+              if (windowWidth > 1279) {  
+                $slider.height(imageHeight - footerSectionHeight);
+              } else if (windowWidth > 767) {      
+              $slider.height(textHeight + imageHeight - footerSectionHeight);
+              } else if (windowWidth < 768) {
+                  $slider.height(textHeight + imageHeight + 50);
+                }
+            }
+            else if(this.$element.find('.herotitlebanner').length > 0){
               if (windowWidth > 1279) {  
                 $slider.height(imageHeight + footerSectionHeight);
               } else if (windowWidth > 767) {      
-              $slider.height(textHeight + imageHeight + footerSectionHeight);
+              $slider.height(textHeight + imageHeight - footerSectionHeight);
               } else if (windowWidth < 768) {
-                  $slider.height(textHeight + imageHeight + 50);
+                  $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
                 }
           }else{
                     reqSliderHeight = $left.height();          
