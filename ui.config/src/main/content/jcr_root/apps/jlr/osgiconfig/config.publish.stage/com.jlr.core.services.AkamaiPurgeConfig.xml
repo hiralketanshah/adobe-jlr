@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="sling:OsgiConfig"
-    accessToken="{cd8506e80f07237c5319e003567cb476ea663884c44f1c77a2352dd5a45e9e75751bd1a745b865d4dcc6baba0be824c439867c766982596d8d5d3cb83d8c22ef}"
+    accessToken="\{cd8506e80f07237c5319e003567cb476ea663884c44f1c77a2352dd5a45e9e75751bd1a745b865d4dcc6baba0be824c439867c766982596d8d5d3cb83d8c22ef\}"
     akamaiHost="akab-p2tvxj53mxlxetbw-4salip7ssme73i2k.luna.akamaiapis.net"
-    clientSecret="{dcfee047bef8c0a2e574304b8f1525c5e2216780908d604682351e3f920b1bd913e659cd6e0d40e392686b33c0c9a194cca6fa97758aae7ca5ea8911bdafe15f}"
-    clientToken="{a8e04f9136a91196cd3deacd450d4e39f8fc24c8b1de161da95879bd68f31ff197342fc85d06d08c58c4c4971ae369b18070b21fccce660f687028f42ff9f9d5}"
+    clientSecret="\{dcfee047bef8c0a2e574304b8f1525c5e2216780908d604682351e3f920b1bd913e659cd6e0d40e392686b33c0c9a194cca6fa97758aae7ca5ea8911bdafe15f\}"
+    clientToken="\{a8e04f9136a91196cd3deacd450d4e39f8fc24c8b1de161da95879bd68f31ff197342fc85d06d08c58c4c4971ae369b18070b21fccce660f687028f42ff9f9d5\}"
     delayPurge="30000"
     environment="staging"
     akamaiCacheClearGroup="everyone"
