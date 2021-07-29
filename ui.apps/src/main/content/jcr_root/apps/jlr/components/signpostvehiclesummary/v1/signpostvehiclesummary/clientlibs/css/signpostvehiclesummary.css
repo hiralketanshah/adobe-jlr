@@ -942,7 +942,8 @@
     }
     .cmp-vehicleSummary .Picture--background .Picture__img{
         height: calc((109.15vw - 40px) / 2);
-        width: calc((189.79vw - 40px) / 2);
+        min-width: calc((189.79vw - 40px) / 2);
+        width: 100%;
     }
     .cmp-vehicleSummary .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
  .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px;margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
