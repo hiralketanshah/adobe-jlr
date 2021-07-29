@@ -220,7 +220,7 @@
         position: absolute;
     }
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
     .cmp-signPost.cmp-signPost-auto {
         flex-direction: column;
     }
@@ -917,6 +917,9 @@
         }
 
 @media screen and (min-width: 1px) and (max-width: 1279px){
+    .cmp-vehicleSummary.slateblue li,
+    .cmp-vehicleSummary.slateblue p
+    {color:#fff!important; font-family:"AvenirNext-Regular";}
     .cmp-vehicleSummary.left .cmp-vehicleSummary__content{padding-left:0!important;}
     .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 0px!important; margin-bottom: 23px;}
 .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
@@ -1045,7 +1048,7 @@
 #landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:focus
    { color: #fff!important;} 
 
-@media screen and (min-width: 1920px) and (max-width: 2560px){
+@media screen and (min-width: 1920px) {
    
     .signpost-theme-padding{padding-top:60px;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
@@ -1212,6 +1215,11 @@ object-fit: unset;
 }
 
 @media screen and (min-width: 300px) and (max-width: 767.9px){
+    .cmp-signpostGridContext{
+        flex-direction: row;
+        width: 100%;
+        display:block;
+    }
     .cmp-signPost__content-copy-wrapper p{margin-bottom:24px;}
     .cmp-signPost__content, .right .cmp-signPost__content{padding:0;}
     .cmp-signPost .cmp-signPost__center {
@@ -1231,7 +1239,8 @@ object-fit: unset;
 .cmp-signPost{min-height:auto; max-height:525px;}
 .cmp-signPost{padding:0px 25px 60px 25px;}
 
-    .cmp-signPost .cmp-signPost__image {height: calc((108.3vw - 40px) / 2);}
+    .cmp-signPost .cmp-signPost__image {width:100%;height: calc((108.3vw - 40px) / 2);}
+    .cmp-signPost  .cmp-signPost__content{width:100%;}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:100%;}
    .cmp-signPost .headingWrapper{font-family:"LandRoverWeb-Bold"; font-size:20px; line-height:24px; letter-spacing:0.9px;}
