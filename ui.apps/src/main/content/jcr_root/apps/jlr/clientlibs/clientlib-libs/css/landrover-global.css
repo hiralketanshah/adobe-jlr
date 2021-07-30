@@ -16683,7 +16683,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 }
 
 .Pagination--black .Pagination__pip:after {
-	border: 2px solid #4A4F54
+	border: 2px solid #000
 }
 
 .Pagination--black .Pagination__pip:focus {
@@ -16701,7 +16701,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 
 .Pagination--black .Pagination__pip--active:after,
 .Pagination--black .Pagination__pip--active:hover:after {
-	background: #4A4F54;
+	background: #000;
 	box-shadow: 0 0 6px 3px rgba(74, 144, 226, 0), 0 1px 4px 0 rgba(74, 79, 84, 0.5), inset 0 1px 4px 0 rgba(74, 79, 84, 0)
 }
 
@@ -16721,12 +16721,6 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	fill-rule: evenodd;
 	clip-rule: evenodd
 }
-.white .Pagination--black .Pagination__play-control-icon,
-.white .Pagination--black .Pagination__pause-control-icon,
-.light .Pagination--black .Pagination__play-control-icon,
-.light .Pagination--black .Pagination__pause-control-icon {
-	fill: #4A4F54;
-}
 .Pagination--black .Pagination__pause:before {
 	border: 2px solid rgba(0, 0, 0, 0.4)
 }
@@ -16736,7 +16730,7 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	stroke-dashoffset: 0;
 	stroke-linecap: round;
 	stroke-width: 2px;
-	stroke: #4A4F54;
+	stroke: black;
 	fill: none;
 	opacity: 1
 }

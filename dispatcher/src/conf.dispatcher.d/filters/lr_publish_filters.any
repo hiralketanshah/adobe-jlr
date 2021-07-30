@@ -66,3 +66,6 @@
 /0036 { /type "allow" /url "/favicon.ico" }
 /0037 { /type "deny" /url "/content/misc/akamai" }
 /0038 { /type "allow" /url "/naas/nav.json*" }
+/0039 { /type "allow" /url "/nav/naas.json*" }
+/0040 { /type "allow" /url "/akamai/sla-test-object.html" }
+/0041 { /type "allow" /url "/akamai/sureroute-test-object.html" }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="sling:OsgiConfig"
+          deSearchRootPath="/content/landrover/global/europe/published-sites/de_de"
+          auSearchRootPath="/content/landrover/global/row/published-sites/en_au"
+          deSearchConfigPath="/content/landrover/global/europe/published-sites/de_de/config/search-config"
+          auSearchConfigPath="/content/landrover/global/row/published-sites/en_au/config/search-config"
+          resultsPerPage="20"
+/>
