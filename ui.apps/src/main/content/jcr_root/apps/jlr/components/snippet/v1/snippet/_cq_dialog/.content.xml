@@ -48,15 +48,6 @@
                                 text="Enable Market Regional Pricing"
                                 uncheckedValue="false"
                                 value="true"/>
-                            <marketRegionLink
-                                jcr:primaryType="nt:unstructured"
-                                fieldLabel="Market Region Path"
-                                sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                rootPath="/content/experience-fragments/landrover"
-                                granite:class="fields-hide-show"
-                                fieldDescription="Select the Market Region Config path"
-                                name="./marketRegionPath"
-                                text="Enable Market Regional Pricing"/>
                         </items>
                     </properties>
                     <cta
