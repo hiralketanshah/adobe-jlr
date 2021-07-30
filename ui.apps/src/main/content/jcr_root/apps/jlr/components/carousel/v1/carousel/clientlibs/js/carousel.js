@@ -12348,25 +12348,36 @@
               }
 
             }
-            else if(this.$element.find('.herotitlebanner.short').length > 0){
-              if(this.$element.find('.herotitlebanner.short').parent(".cmp-carousel__slide").length==1){
-                if (windowWidth > 1279) {  
-                  $slider.height(imageHeight - footerSectionHeight);
-                } else if (windowWidth > 767) {      
-                $slider.height(textHeight + imageHeight - footerSectionHeight);
-                } else if (windowWidth < 768) {
-                    $slider.height(textHeight + imageHeight + 50);
-                  }
-              }
-            }
             else if(this.$element.find('.herotitlebanner').length > 0){
-              if (windowWidth > 1279) {  
-                $slider.height(imageHeight + footerSectionHeight);
-              } else if (windowWidth > 767) {      
-              $slider.height(textHeight + imageHeight + footerSectionHeight);
-              } else if (windowWidth < 768) {
-                  $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
-                }
+              if(this._total == 1){ 
+                 if(this.$element.find('.herotitlebanner.short').length > 0){
+                  if (windowWidth > 1279) {  
+                    $slider.height(imageHeight - footerSectionHeight);
+                  } else if (windowWidth > 767) {      
+                  $slider.height(textHeight + imageHeight - footerSectionHeight);
+                  } else if (windowWidth < 768) {
+                      $slider.height(textHeight + imageHeight + 50);
+                    }
+                 }
+                 else{
+                  if (windowWidth > 1279) {  
+                    $slider.height(imageHeight + footerSectionHeight);
+                  } else if (windowWidth > 767) {      
+                  $slider.height(textHeight + imageHeight + footerSectionHeight);
+                  } else if (windowWidth < 768) {
+                      $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
+                    }
+                }   
+               
+              }else{
+                if (windowWidth > 1279) {  
+                  $slider.height(imageHeight + footerSectionHeight);
+                } else if (windowWidth > 767) {      
+                $slider.height(textHeight + imageHeight + footerSectionHeight);
+                } else if (windowWidth < 768) {
+                    $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
+                  }
+              }   
           }else{
                     reqSliderHeight = $left.height();          
                     if(!textHeight){
