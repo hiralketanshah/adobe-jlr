@@ -173,6 +173,10 @@
   .grey .cmp-accolades .fontQuote p,.light .cmp-accolades .fontQuote p,.white .cmp-accolades .fontQuote p{
     color: #005A2B !important;
   }
+  .cmp-accolades__copy--primary p:first-child::first-letter,
+  .cmp-accolades__copy--secondary p:first-child::first-letter {
+    text-transform: capitalize;
+  }
   .slateblue .cmp-accolades .fontQuote p{
     color: white !important;
   }
@@ -449,9 +453,6 @@
    {
     text-decoration: underline !important;
     color: #C9C9C9 !important;
-  }
-  .cmp-accolades__copy--primary p, .cmp-accolades__copy--secondary p:first-child::first-letter {
-    text-transform: capitalize;
   }
   .fontQuote p{
       font-family:"ascender-serif"
