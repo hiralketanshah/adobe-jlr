@@ -903,7 +903,7 @@
 		padding: 59px 289px 91px 291px;
 	
 	}
-	.shelfComponent {
+	.cmp-interactiveSlider .shelfComponent {
 		display: block;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -1059,7 +1059,7 @@
     	transition: top .3s;
 	}
 
-	.shelfComponent {
+	.cmp-interactiveSlider .shelfComponent {
 		display: block;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -1196,7 +1196,7 @@
 	}
 	
 	
-	.shelfComponent {
+	.cmp-interactiveSlider .shelfComponent {
 		display: block;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -1303,7 +1303,7 @@
 	}
 	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
 		width: 48.9%;
-		height: 15px;
+		min-height: 15px;
 	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons{
 		margin: 0px 12px 0 22px;
