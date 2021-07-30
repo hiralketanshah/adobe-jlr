@@ -143,6 +143,7 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .shelfComponent {
   display: flex;
   flex-direction: row;
+  padding-bottom: 79px;
   }
   .cmp-interior360 .shelfComponent {
     margin-left: 160px;
@@ -241,6 +242,7 @@ html.no-js .cmp-interior360 .carousel > * {
     .cmp-interior360 .shelfComponent {
       margin-right: 0px;
       width: 100%;
+      padding-bottom: 79px;
     }
     .cmp-interior360 .contentClass{
       width: 560px;
@@ -278,6 +280,7 @@ html.no-js .cmp-interior360 .carousel > * {
     min-height: auto;
     min-width: 40%;
     max-width: 75.4%;
+    padding-bottom: 59px;
   }
   .cmp-interior360 .headerClass {
     float: left;
@@ -312,7 +315,7 @@ html.no-js .cmp-interior360 .carousel > * {
     font-size: 21px;
   }
   .cmp-interior360 .linkContainer {
-    padding-top: 43px;
+    padding-top: 24px;
   }
   .cmp-interior360 .headerClass .heading p{ 
     min-height: 28px;
@@ -433,7 +436,7 @@ html.no-js .cmp-interior360 .carousel > * {
     font-size: 20px;
   }
   .cmp-interior360 .linkContainer{
-    margin-top: 43px !important;
+    margin-top: 24px !important;
   }
   .cmp-interior360 .headerClass .heading p{ 
     min-width: 325px;
@@ -783,16 +786,11 @@ html.no-js .cmp-interior360 .carousel > * {
     order: 2;
   }
 }
-.Interior360__panorama,
+/* .Interior360__panorama,
 .Interior360__panorama-holder {
   min-height: 250px;
-}
-@media screen and (min-width: 768px) {
-  .Interior360__panorama,
-  .Interior360__panorama-holder {
-    min-height: 500px;
-  }
-}
+} */
+
 .Interior360__panorama-init-container {
   display: none;
 }
@@ -1423,6 +1421,7 @@ html.no-js .cmp-interior360 .carousel > * {
     display: flex;
     flex-direction: column;
     max-width:96.9%;
+    padding-bottom: 40px;
   }
   .Interior360__init-container-caption{
     line-height: 12px;
@@ -1565,6 +1564,7 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .cmp-interior360 .shelfComponent{
     padding-top: 0px;
+    padding-bottom: 79px;
   }
 }
 /* KESTREL-708 */

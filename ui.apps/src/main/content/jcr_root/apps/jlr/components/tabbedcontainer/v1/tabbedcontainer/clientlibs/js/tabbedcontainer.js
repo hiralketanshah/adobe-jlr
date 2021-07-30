@@ -8184,7 +8184,11 @@
                             var _this3 = this;
                             this._selectedTab = payload.selectedPanel;
                             setTimeout(() => {
-                                let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 60;
+
+                                
+
+                                let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 30 ;
+
                                 this.$element.parent().css({ height: `${initialHeight}px` ,"min-height":`${initialHeight}px`,"max-height":`${initialHeight}px`});/*bugfix-1180*/                                   
                                 //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
                                 if ($(this._selectedTab).find('.shelfComponent:visible').length != 0) {
