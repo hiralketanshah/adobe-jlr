@@ -54,6 +54,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/navigation";
     protected static final String SELECTOR_JSON = "json";
+    private static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
+    private static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
+
 
     @Reference
     private transient RequestResponseFactory requestResponseFactory;
@@ -166,7 +169,10 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             responseObject.put("cacheIdentifier", cache);
             responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
-            responseObject.put("html", document.getElementsByTag("header").outerHtml());
+            String output = document.getElementsByTag("header").outerHtml();
+            output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
+            output = output.replaceAll(AU_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
+            responseObject.put("html", output);
             responseObject.put("javascriptLink", getExternalLink(config.javascriptLink(), locale, resolver));
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
