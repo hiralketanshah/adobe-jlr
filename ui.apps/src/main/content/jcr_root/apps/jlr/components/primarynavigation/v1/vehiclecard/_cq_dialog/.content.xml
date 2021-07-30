@@ -108,8 +108,11 @@
                                                 path="/mnt/overlay/jlr/components/globalfields/image/imagePath"/>
                                             <imageLink
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/include"
-                                                path="/mnt/overlay/jlr/components/globalfields/image/imageLink"/>
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="Make the image a link to another resource."
+                                                fieldLabel="Link"
+                                                name="./imageLink"
+                                                rootPath="/content/landrover"/>
                                             <imageAlt
                                                 jcr:primaryType="nt:unstructured"
                                                 sling:resourceType="granite/ui/components/coral/foundation/include"
