@@ -19,7 +19,8 @@
 .slateblue .cmp-cplayerV2 .secondaryLinkWithStyle:hover {
   color: #fff!important;
 }
-
+.cmp-cplayerV2 .secondaryLinkContainer,.cmp-cplayerV2 .primaryLinkContainer, 
+.cmp-cplayerV2  .thirdLinkContainer, .cmp-cplayerV2 .fourthLinkContainer{display:inline-block;}
 #landrover .slateblue .cmp-cplayerV2 .secondaryLinkWithStyle:hover span,
  #landrover .slateblue .cmp-cplayerV2 .secondaryLinkWithStyle:active span, 
  #landrover .slateblue .cmp-cplayerV2 .secondaryLinkWithStyle:focus span{border-bottom:1px solid #fff;}
