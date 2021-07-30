@@ -87,6 +87,12 @@
                             <target>/apps/jlr-packages/application/install</target>
                         </embedded>
                         <embedded>
+                            <groupId>com.jlr</groupId>
+                            <artifactId>jlr.acl</artifactId>
+                            <type>zip</type>
+                            <target>/apps/jlr-packages/application/install</target>
+                        </embedded>
+                        <embedded>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
                             <type>zip</type>
@@ -250,6 +256,12 @@
         <dependency>
             <groupId>com.jlr</groupId>
             <artifactId>jlr.ui.config</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+        </dependency>
+        <dependency>
+            <groupId>com.jlr</groupId>
+            <artifactId>jlr.acl</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>

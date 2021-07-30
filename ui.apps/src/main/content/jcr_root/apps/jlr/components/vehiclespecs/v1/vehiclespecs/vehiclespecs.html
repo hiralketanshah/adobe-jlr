@@ -101,8 +101,6 @@
             </div>
          </div>
 
-
-         
          <div class="VehicleSpecsRulesEngine__specs-cta">
             <sly data-sly-list.cta="${vehicleSpecs.ctaList}">
                <sly data-sly-test="${cta.text}">
@@ -117,4 +115,6 @@
       </div>
   
    </section>
+   <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+   data-sly-call="${clientlib.all @ categories=['jlr.components.vehiclespecs.v1']}"/>
 </template>

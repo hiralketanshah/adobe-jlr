@@ -6,6 +6,7 @@
 .cmp-specificationsAtAGlance__heading {
     margin: 0;
     padding: 0;
+    text-align: left;
 }
 
 .cmp-specificationsAtAGlance__heading .cmp-specificationsAtAGlance__heading-wrapper p {

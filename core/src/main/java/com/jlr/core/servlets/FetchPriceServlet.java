@@ -1,9 +1,7 @@
 package com.jlr.core.servlets;
 
 import java.io.IOException;
-
 import javax.servlet.Servlet;
-
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
@@ -13,15 +11,13 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.constants.PricingConstants;
 import com.jlr.core.services.FetchPrice;
 import com.jlr.core.utils.ErrorUtils;
 
-@Component(service = Servlet.class, property = { Constants.SERVICE_DESCRIPTION + "= JLR Fetch Prices",
-        "sling.servlet.methods=" + HttpConstants.METHOD_GET, "sling.servlet.extensions=json",
-        "sling.servlet.resourceTypes=" + FetchPriceServlet.RESOURCE_TYPES })
+@Component(service = Servlet.class, property = {Constants.SERVICE_DESCRIPTION + "= JLR Fetch Prices", "sling.servlet.methods=" + HttpConstants.METHOD_GET,
+                "sling.servlet.extensions=json", "sling.servlet.resourceTypes=" + FetchPriceServlet.RESOURCE_TYPES})
 public class FetchPriceServlet extends SlingSafeMethodsServlet {
 
     protected static final String RESOURCE_TYPES = "jlr/components/request/fetch-prices";
@@ -35,21 +31,25 @@ public class FetchPriceServlet extends SlingSafeMethodsServlet {
     @Override
     protected void doGet(SlingHttpServletRequest request, SlingHttpServletResponse response) {
         try {
-
-            String market = (null == request.getParameter(PricingConstants.JLR_PRICING_MARKET))
+			if (LOGGER.isDebugEnabled()) {
+				LOGGER.debug("FetchPriceServlet started - {}", new java.util.Date());
+            }
+			String market = (null == request.getParameter(PricingConstants.JLR_PRICING_MARKET))
                     ? PricingConstants.JLR_PRICING_MARKET_ALL
                     : request.getParameter(PricingConstants.JLR_PRICING_MARKET);
+
             String resp = fetchPrice.fetchAndStorePrice(market);
 
             response.getWriter().print(resp.isEmpty()
-                    ? "Unable to process! Kindly verify if endpoints and config pages are configured/authored. Else, kindly contact administrator."
-                    : resp);
+                            ? "Unable to process! Kindly verify if endpoints and config pages are configured/authored. Else, kindly contact administrator."
+                            : resp);
 
-            LOGGER.debug("Completed FetchPriceServlet - {}", new java.util.Date());
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Completed FetchPriceServlet - {}", new java.util.Date());
+            }
         } catch (IOException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION,
-                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
-                    this.getClass().getSimpleName(), e));
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
+                            ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
         }
     }
 }

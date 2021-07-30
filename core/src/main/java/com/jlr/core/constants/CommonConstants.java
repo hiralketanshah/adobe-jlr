@@ -87,7 +87,8 @@ public class CommonConstants {
 
     /** The Constant PNG_EXTENSION. */
     public static final String PNG_EXTENSION = ".png";
-    public static final String JLR_GALLERY_LIST = "gallerylist/galleryList";
+    public static final String JLR_GALLERY_LIST = "gallerylist";
+    public static final String JLR_GALLERY_CHILD_LIST = "galleryList";
 
     /** The PATH Constants. */
     public static final String PATH_CONTENT = "/content";
@@ -151,6 +152,9 @@ public class CommonConstants {
 
     /** The Constant PN_FILE_REFERENCE. */
     public static final String PN_FILE_REFERENCE = "fileReference";
+
+    /** The Constant PN_ALT_TEXT_DAM. */
+    public static final String PN_ALT_TEXT_DAM = "altTextFromDAM";
 
     /** The Constant PN_IMAGE_ALT. */
     public static final String PN_IMAGE_ALT = "imageAlt";
@@ -347,6 +351,18 @@ public class CommonConstants {
     /** The Constant QUERY_ORDERBY. */
     public static final String QUERY_ORDERBY = "orderby";
 
+    public static final String QUERY_GROUP_OR = "group.p.or";
+
+    public static final String QUERY_GROUP1_DATECOMPARISON_PROPERTY1 = "group.1_dateComparison.property1";
+
+    public static final String QUERY_GROUP1_DATECOMPARISON_PROPERTY2 = "group.1_dateComparison.property2";
+
+    public static final String QUERY_GROUP1_DATECOMPARISON_OPERATION = "group.1_dateComparison.operation";
+
+    public static final String QUERY_GROUP2_PROPERTY = "group.3_property";
+
+    public static final String QUERY_GROUP2_PROPERTY_OPERATION = "group.3_property.operation";
+
     /** The Constant GROUP_ADMINISTRATOR. */
     public static final String GROUP_ADMINISTRATOR = "administrators";
 
@@ -410,8 +426,6 @@ public class CommonConstants {
      */
     public static final String EMBARGO_LIFT_DATE = "embargoLiftDate";
 
-
-
     /**
      * The constant LOCALE_AU.
      */
@@ -421,4 +435,12 @@ public class CommonConstants {
      * The constant LOCALE_AU.
      */
     public static final String LOCALE_DE = "de_DE";
+
+    public static final String JCR_LASTMODIFIED = "jcr:lastModified";
+
+    public static final String CQ_LASTREPLICATED = "cq:lastReplicated";
+
+    public static final String GREATER = "greater";
+
+    public static final String NOT = "not";
 }

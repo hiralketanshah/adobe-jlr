@@ -46,10 +46,6 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String disclaimerText;
 
-    /** The image link. */
-    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageLink;
-
     /** The tab name. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String tabName;
@@ -123,16 +119,6 @@ public class VehicleCardModelImpl extends GlobalModelImpl implements VehicleCard
      */
     public String getDisclaimerText() {
         return disclaimerText;
-    }
-
-    /**
-     * Gets image link.
-     *
-     * @return the image link
-     */
-    @Override
-    public String getImageLink() {
-        return imageLink;
     }
 
     /**

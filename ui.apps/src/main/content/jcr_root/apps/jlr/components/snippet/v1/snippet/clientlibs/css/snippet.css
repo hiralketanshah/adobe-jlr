@@ -93,6 +93,7 @@
 
 .cmp-snippet .copy {
 	font-size: 18px;
+	display: block;
 }
 
 /* code fix for defect 567 */
@@ -124,9 +125,8 @@
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 }
 
-@media screen and (min-width: 766px) and (max-width: 900px){
-.snippet .cmp-snippet h1.heading{
-	margin-bottom: 0;
+@media screen and (min-width: 768px) and (max-width: 1279.9px){
+ .cmp-snippet.shelfComponent h1.heading.headingThick, .cmp-snippet.shelfComponent h2.heading.headingThick{
 	line-height:30px;
 	font-size: 30px;
 }
@@ -151,23 +151,41 @@
 }
 .cmp-snippet .secondaryLinkWithStyle {margin-bottom:0;}
 .cmp-snippet .secondaryLinkContainer {clear:both;}
+.cmp-snippet-pad-bottom.snippet .shelfComponent {
+	min-height:38px;
+}
 }
 
 .snippet .fontBodyCopyLarge p{font-family: 'AvenirNext-Regular';}
   /* code fix for defect 567 */
 
   .cmp-snippet .headingThick {
-	margin-bottom: 0;
+	margin-bottom: 24px;
 	font-size: 38px;
+	padding: 0;
 	} 
-	.cmp-snippet h1.heading{
+	.cmp-snippet h1.heading,.snippet .cmp-snippet h2.heading{
 		font-size: 38px;
 	}
 	.cmp-snippet .linkContainer div:first-child .secondaryLinkWithStyle{
 		margin-top: 0;
 	}
+/*  Tabbed container & Snippet */
+	.cmp-snippet-pad-bottom .cmp-snippet.shelfComponent{
+		padding-bottom: 0;
+	}
+	.cmp-snippet-pad-bottom .cmp-snippet h1.heading, 
+	.cmp-snippet-pad-bottom .cmp-snippet h2.heading {
+		margin-bottom:15px;
+	}
 /* wide desktop */
 @media screen and (min-width: 1920px){
+	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+		margin-top: 23px;
+	}
+	.cmp-snippet .copy{
+		margin-bottom: 24px;
+	}
 	.cmp-snippet .copy p{
 		line-height: 24px;
 	}
@@ -178,12 +196,6 @@
 	}
 	.cmp-snippet .primaryLinkWithStyle{
 		line-height: 14px;
-	}
-	.cmp-snippet .linkContainer div a:first-child{
-		margin-top: 25px;
-	}
-	.cmp-snippet .linkContainer div a:last-child{
-		margin-top: 24px;
 	}
 	.cmp-snippet .primaryLinkWithStyle{
 		margin-bottom: 0;
@@ -205,9 +217,19 @@
 	.snippet .fontBodyCopyLarge p{width:880px;}
 	.cmp-snippet .secondaryLinkContainer{clear:both; margin-top:0;} 
 }
-
+@media screen and (min-width: 1280px){
+	.cmp-snippet .primaryLinkContainer+.secondaryLinkContainer{
+		margin-bottom: 0;
+	}
+	.cmp-snippet .secondaryLinkContainer+.secondaryLinkContainer{
+		margin-top: 23px;
+	}
+}
 /* desktop */
 @media screen and (min-width: 1280px) and (max-width:1919.9px){
+	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+		margin-top: 23px;
+	}
 	.cmp-snippet .linkContainer .primaryLinkContainer, .cmp-snippet .linkContainer .secondaryLinkContainer{
 		margin-right: 24px;
 	}
@@ -215,22 +237,25 @@
 		padding: 60px 460px 82px 60px;
 		width: 100%;
 	}
-	.cmp-snippet .linkContainer div a:last-child{
-		margin-top: 24px;
-	}
 	.cmp-snippet .primaryLinkWithStyle{
 		margin-bottom: 0;
+	}
+	.cmp-snippet .copy{
+		margin-bottom: 24px;
 	}
 }
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width:1279.9px){
+	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkType:last-child{
+		padding-top: 23px;
+	}
 	.cmp-snippet .copy p{
 		margin-bottom: 23px;
 	}
 	.cmp-snippet.shelfComponent{
 		width: 100%;
-		padding: 60px 219px 62px 30px;
+		padding: 40px 219px 60px 30px;
 		max-width: 100%;
 		margin-bottom: 0;
 	}
@@ -248,7 +273,7 @@
 	.cmp-snippet .linkContainer{
 		display: block;
 	}
-	.cmp-snippet .linkContainer .secondaryLinkType:last-child{
+	.cmp-snippet .linkContainer .secondaryLinkType+.secondaryLinkType:last-child{
 		margin-top: 23px;
 	}
 	.cmp-snippet .secondaryLinkWithStyle {line-height:12.5px;}
@@ -257,11 +282,6 @@
 	.cmp-snippet .secondaryLinkWithStyle {margin-top: 0;margin-bottom: 0px!important;}
 
 	.cmp-snippet .linkContainer{padding:0;}
-	.snippet .cmp-snippet h1.heading{
-		margin-bottom: 0;
-		line-height:30px;
-		font-size: 30px;
-	}
 	.snippet .fontBodyCopyLarge p{
 		font-size:14px;
 	}
@@ -269,7 +289,7 @@
 
 /* Mobile */
 @media screen and (min-width: 1px) and (max-width:767.9px){
-	.cmp-snippet h1.heading{
+	.cmp-snippet h1.heading,.snippet .cmp-snippet h2.heading{
 		font-size: 26px;
 	}
 	.cmp-snippet.shelfComponent{
@@ -281,7 +301,7 @@
 	.cmp-snippet .primaryLinkWithStyle{
 		margin-bottom:0px;
 	}
-	.cmp-snippet .primaryLinkContainer:last-child{
+	.cmp-snippet .primaryLinkContainer+.primaryLinkContainer:last-child{
 		padding-top: 24px;
 	}
 	.cmp-snippet .Snippet__MarketRegionalPricing {
@@ -322,7 +342,7 @@
 		line-height: 26px;
 	}
 	.cmp-snippet .linkContainer .secondaryLinkType:last-child{
-		margin-top: 23px;
+		padding-top: 23px;
 	}
 	.cmp-snippet .linkContainer .primaryLinkContainer:first-child{
 		margin-top: 0;
@@ -337,13 +357,15 @@
 	}
 	.snippet .headingWrapper p    {margin-top:0}
 .cmp-snippet .headingWrapper p {margin-top:8px;}
-.snippet .headingThick {width:100%;margin-bottom: 0;}  
+.snippet .headingThick {width:100%;}  
 #landrover .cmp-snippet .secondaryLinkWithStyle {line-height:12.5px; margin-top:0px!important; margin-bottom:0;}
 .cmp-snippet .primaryLinkWithStyle {line-height:14px;}
 .cmp-snippet .headingWrapper p{color:#0C121C; margin-top:0}
 .cmp-snippet .linkContainer { margin-top:0; padding-top:0;}
 .cmp-snippet .secondaryLinkContainer{clear:both;}
 .snippet .primaryLinkContainer{clear:both;}
-
+.cmp-snippet-pad-bottom .cmp-snippet h1.heading, 
+.cmp-snippet-pad-bottom .cmp-snippet h2.heading {
+	margin-bottom:14px;
 }
-
+}

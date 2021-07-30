@@ -26,8 +26,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.PricingConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PricingUtils {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(PricingUtils.class);
 
     public static Map<String, String> getMapOfConfigFields(String[] listOfConfigFields) {
         Map<String, String> mapOfConfigFields = new HashMap<>();
@@ -97,6 +101,18 @@ public class PricingUtils {
             modelNode.setProperty(PricingConstants.PN_NET, Double.toString(minNet));
             modelNode.setProperty(PricingConstants.PN_RETAIL, Double.toString(minRetail));
             modelNode.setProperty(PricingConstants.PN_CURRENCY, currency);
+            JcrUtils.setLastModified(modelNode,Calendar.getInstance());
+            Node parentNode=modelNode.getParent();
+            updateParentNodeModifiedDate(parentNode);
+        }
+    }
+
+    public static void updateParentNodeModifiedDate(Node parentNode) throws RepositoryException {
+        while(!parentNode.getName().equalsIgnoreCase(PricingConstants.PRODNODENAME) && !parentNode.getName().equalsIgnoreCase(PricingConstants.STAGENODENAME)){
+            if(!parentNode.hasProperty(CommonConstants.JCR_LASTMODIFIED)){
+                JcrUtils.setLastModified(parentNode,Calendar.getInstance());
+            }
+            parentNode=parentNode.getParent();
         }
     }
 
@@ -106,11 +122,22 @@ public class PricingUtils {
             JsonObject priceObject = priceElement.getAsJsonObject();
             Node productNode = JcrUtils.getOrCreateByPath(destinationPath + productId, JcrConstants.NT_UNSTRUCTURED,
                     session);
-
-            productNode.setProperty(priceType, priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString());
-            double price = priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsDouble();
-            if (minPrice >= price || minPrice == 0) {
-                minPrice = price;
+            String priceFetched=priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsString();
+            if(productNode!=null && StringUtils.isNotBlank(priceFetched)) {
+                if (productNode.hasProperty(priceType) == false || !productNode.getProperty(priceType).getValue().toString().equalsIgnoreCase(priceFetched)) {
+                    productNode.setProperty(priceType, priceFetched);
+                    JcrUtils.setLastModified(productNode, Calendar.getInstance());
+                    if(LOGGER.isDebugEnabled()){
+                        LOGGER.debug("Pricing property Updated at {}",destinationPath + productId );
+                    }
+                }
+                double price = priceObject.get(PricingConstants.JLR_PRICING_JSON_VALUE).getAsDouble();
+                if (minPrice >= price || minPrice == 0) {
+                    minPrice = price;
+                }
+            }
+            else{
+                LOGGER.debug("Unable to get/create Node at {} or No price found",destinationPath+productId);
             }
         }
         return minPrice;
@@ -170,6 +197,9 @@ public class PricingUtils {
         if (null != request) {
             Resource priceResource = request.getResource();
             if (null != priceResource) {
+                if (priceResource.getPath().contains("contentCardList")) {
+                    priceResource = priceResource.getParent().getParent();
+                }
                 ValueMap properties = priceResource.adaptTo(ValueMap.class);
                 resourceType = properties.get(JcrResourceConstants.SLING_RESOURCE_TYPE_PROPERTY, String.class);
             }

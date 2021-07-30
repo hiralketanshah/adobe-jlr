@@ -489,7 +489,8 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
     font-size: 14px;
 	line-height: 19px;
 	letter-spacing:0.2px;  
-	-webkit-font-smoothing: antialiased
+	-webkit-font-smoothing: antialiased;
+	
 }
 .cmp-interactiveNumberedImage__tabItem_summary:first-child::first-letter{
 	text-transform: capitalize;
@@ -502,6 +503,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* wide screen */
 @media screen and (min-width: 1920px){
+	.cmp-interactiveNumberedImage__tabItem_summary p{width:95%;min-width:380px;}
 	.cmp-interactiveNumberedImage__toggle-text{margin-top:3px;}
 	.verticalslider .cmp-interactiveNumberedImage__tabs{margin-top:12px;}
 	.cmp-interactiveNumberedImage__images{
@@ -585,8 +587,11 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* desktop view  */
 
-@media screen and (min-width: 901px) and (max-width:1919px) {
-
+@media screen and (min-width: 1280px) and (max-width:1919.9px) {
+	.cmp-interactiveNumberedImage__tabItem_summary p{
+		min-width: 324px;
+		width: 95%;
+	}
 	.cmp-interactiveNumberedImage__images {
 		margin-bottom: 80px;
 		margin-top:60px;
@@ -683,11 +688,21 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 
 /* tab view  */
 
-@media screen and (min-width: 501px) and (max-width: 900px) {
+@media screen and (min-width: 768px) and (max-width:1279.9px) {
+	.verticalslider	.cmp-interactiveNumberedImage{height: auto!important;}
+	.verticalslider	.cmp-interactiveNumberedImage__content{width:100%;}
+	.verticalslider .cmp-interactiveNumberedImage__images{width:100%;}
+	#landrover .verticalslider .secondaryLinkWithStyle{margin-top:23px;}
+	.verticalslider  .cmp-interactiveNumberedImage__image.target
+	{
+		padding-left:30px ;
+		padding-top:40px;
+		padding-right:30px;
+	}
 	.cmp-interactiveNumberedImage__images {
-		padding-left: 0px ;
-		padding-top:0px;
-		padding-right:0px;
+		padding-left: 30px ;
+		padding-top:40px;
+		padding-right:30px;
 	}
 	.cmp-interactiveNumberedImage__images{height: calc((119.6vw - 40px) / 2);} 
 	.cmp-interactiveNumberedImage__content {
@@ -698,10 +713,10 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	}
 	.verticalslider .cmp-interactiveNumberedImage__tabItem_title{
 		margin-bottom:12px;
-		margin-top:23px;
+		margin-top:0px;
 	}
 	.notimer .cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 0;
+		margin-top: 0px;
 	}
 	.focusStylesOn .cmp-interactiveNumberedImageNumber__toggle:focus:before,
 	.focusStylesOn .cmp-interactiveNumberedImage__toggle:focus:before {
@@ -711,9 +726,10 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		padding-bottom: 0px;
+		padding-bottom: 23px;
+		margin-top: -36px;
 	}
-	
+	.verticalslider .playPauseBtn{margin-bottom:5px;}
 	
 	.cmp-interactiveNumberedImage__toggle-text {
 			border-bottom: 0;
@@ -812,12 +828,13 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
     	height: 42px;
     	left: 25px;
 		bottom: 23px;
-		top:460px!important;
+		top:0!important;
+		position:static;
 		}
 	.verticalslider	.fontBodyCopy p{width:488px;}
 	.verticalslider	.cmp-interactiveNumberedImage__tabitem{width:507px;}
 	.verticalslider .Picture--background .Picture__img{margin-bottom:24px;}
-	.verticalslider .cmp-interactiveNumberedImage__navigation{margin-top:9px;}
+	.verticalslider .cmp-interactiveNumberedImage__navigation{margin-top:0px;}
 		.cmp-interactiveNumberedImageNumber__toggle:first-child,
 		.cmp-interactiveNumberedImage__toggle:first-child{
 			margin-left:0;
@@ -837,21 +854,29 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		}
 		.notimer .cmp-interactiveNumberedImage__toggles{
 			padding-left: 0;
+			padding-top:24px;
 		}
 	
 	
 }
 
 /* mobile view */
-@media screen and (min-width: 1px) and (max-width: 500px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
+	
+	.verticalslider  .cmp-interactiveNumberedImage__image.target
+	{
+		padding-left: 25px ;
+		padding-top:25px;
+		padding-right:25px;
+	}
 	.leftalign .cmp-interactiveNumberedImage__content {
 		order: 2;
 		padding: 24px 90px 48px 40px;
 	}
 	.cmp-interactiveNumberedImage__images {
-		padding-left: 0px ;
-		padding-top:0px;
-		padding-right:0px;
+		padding-left: 25px ;
+		padding-top:25px;
+		padding-right:25px;
 	}
 	.cmp-interactiveNumberedImage__images{
 		height: calc((121.8vw - 40px) / 2);}
@@ -862,16 +887,15 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		padding-bottom: 40px;
 	}
 	.cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 30px;
+		margin-top:0px;
 		margin-bottom: 17px;
-		padding-top:23px;
+		
+	}
+	.verticalslider .playPauseBtn {
+		margin-bottom: 5px;
 	}
 	.notimer .cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 0;
-	}
-
-	.notimer .cmp-interactiveNumberedImage__tabItem_title {
-		margin-top: 0;
+		margin-top: 0px;
 		margin-bottom: 17px;
 	}
 	.focusStylesOn .cmp-interactiveNumberedImageNumber__toggle:focus:before,
@@ -882,7 +906,8 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
-		padding-bottom: 0px
+		padding-bottom: 23px;
+		margin-top:-38px;
 	}
 	
 	.cmp-interactiveNumberedImageNumber__toggle,
@@ -980,10 +1005,11 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
     	height: 42px;
     	left: 25px;
 		bottom: 23px;
-		top: 233px!important;
+		top:0!important;
+		position:static;
 		margin-right:20px;
 	}
-	.verticalslider .cmp-interactiveNumberedImage__navigation{margin-top:9px;}
+	.verticalslider .cmp-interactiveNumberedImage__navigation{margin-top:0px;}
 	
 	.cmp-interactiveNumberedImageNumber__toggle:first-child,
 	.cmp-interactiveNumberedImage__toggle:first-child{
@@ -1004,6 +1030,7 @@ html.no-touch [data-theme="dark"] .cmp-interactiveNumberedImage__controls:hover 
 	}
 	.notimer .cmp-interactiveNumberedImage__toggles{
 		padding-left: 0;
+		padding-top:24px;
 	}
 
 

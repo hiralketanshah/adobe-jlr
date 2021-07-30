@@ -154,9 +154,14 @@
 }
 
 .cmp_footerNav__socialLinks ul .icon-social_facebook:before {
-	margin-top: -4px
+	margin-top: -10px;
 }
-
+.cmp_footerNav__socialLinks ul .icon-social_twitter:before {
+	margin-top: -5px;
+}
+.cmp_footerNav__socialLinks ul .icon-social_instagram:before {
+	margin-top: -8px!important;
+}
 .cmp_footerNav__socialLinks ul .icon-social_google:before {
 	margin-top: -1px;
 	margin-left: 8.6px;
@@ -199,7 +204,7 @@
 }
 
 .cmp_footerNav__socialLinks ul .icon-social_youtube:before {
-	margin-top: 0
+	margin-top: -3px;
 }
 
 .cmp_footerNav .socialLinksFloat {
@@ -227,8 +232,9 @@
 .cmp_footerNav__trustarc-link a:hover {
 	text-decoration: underline
 }
-
+.cmp_footerNav li{line-height: 19px;}
 @media screen and (min-width: 901px) {
+
 	.cmp_footerNav__footerWrapper {
 		overflow: hidden;
 		padding: 43px 70px 0px;

@@ -756,18 +756,9 @@
                   var contentheight = $(".infoContainer .content").css("height");
                   var spriteContainerheight = $(".spriteContainer").css("height");
 
-                  if(window.innerWidth == 1280){
-                    $('.cmp-interactiveSlider').css({ height: 632 });
-                  }
-                  else if(window.innerWidth == 1920){
-                    $('.cmp-interactiveSlider').css({ height: 710 });
-                  }
-                  else{
-                    $('.cmp-interactiveSlider').removeAttr('style');
-                  }
+                  
 
-
-                  if(window.innerWidth >= 901){
+                  if(window.innerWidth >= 1280){
                   var maxheightcontent = Math.max(parseInt(contentheight),parseInt(spriteContainerheight))
                   $('.frameSliderItem').css({ height: maxheightcontent });
                   $('.infoContainer', this.$element).css({
@@ -776,7 +767,7 @@
                   } 
 
 
-                  if(window.innerWidth >= 601  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 768  && window.innerWidth <= 1279.9){
                     var maxheightcontentab = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
                      $('.frameSliderItem').css({ height: maxheightcontentab});
 
@@ -788,15 +779,13 @@
 
                    
                   }
-                  if(window.innerWidth >= 1  && window.innerWidth <= 600){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 767.9){
                    
                    if(parseInt(contentheight)<313){
-                     console.log(parseInt(contentheight));
                      parseInt(contentheight)
                      var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+372;
                      $('.frameSliderItem').css({ height: maxheightcontentmobile});
                      var topCalculation = maxheightcontentmobile - $(this.$arrangementInformationContainer).outerHeight();
-                     console.log(topCalculation);
                      $('.infoContainer', this.$element).css({
                       top: topCalculation -344
                       });
@@ -805,13 +794,10 @@
                    {
                    
                     var maxheightcontentmobile = (parseInt(contentheight)+ parseInt(spriteContainerheight))+28;
-                    console.log("maxheightcontentmobile",maxheightcontentmobile);
                     $('.frameSliderItem').css({ height: maxheightcontentmobile});
 
                      var topCalculation = $('.frameSliderItem').height() - $(this.$arrangementInformationContainer).outerHeight();
 
-                     console.log($('.frameSliderItem').height());
-                     console.log($(this.$arrangementInformationContainer).outerHeight());
                      $('.infoContainer', this.$element).css({
                       top: topCalculation
                       });
@@ -841,16 +827,35 @@
                   }
                   let mm = (len * 2) - 2;
                   
-                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 1279){
                     
-                    sliderWith += mm * 16
+                    if(this._numberOfWaypoints == 4){
+                      sliderWith += mm * 12
+                    }
+                    else if(this._numberOfWaypoints == 5){
+                      sliderWith += mm * 14
+                    }
+                    else{
+                      sliderWith += mm * 16
+                    }
+                    
 
                   }
                   else{
+                    if(this._numberOfWaypoints == 4){
+                      sliderWith += mm * 18
+                    }
+                    else if(this._numberOfWaypoints == 5){
+                      sliderWith += mm * 20
+                    }
+                    else{
+                      sliderWith += mm * 22
+                    }
                     
-                    sliderWith += mm * 22
+                   
 
                   }
+                 
     
                   sliderFlexWidth = sliderWith;
     
@@ -1066,7 +1071,7 @@
                     width: $(this.spriteContainerContextRef, this.activeframeSliderItem.$element).width(),
                     height: $(this.spriteContainerContextRef, this.activeframeSliderItem.$element).height(),
                     animate: false,
-                    frameTime: 40,
+                    frameTime: 80,
                     behavior: 'noBehavior',
                     // Canvas doesn't scale down well (image quality) so we use images on mobile
                     // except Windows Mobile which performs better with canvas
@@ -1166,19 +1171,49 @@
                   let len = this.$sliderContainerUpper[0].children.length;
                   let sliderWith = 0;
                   let sliderBtn = [];
-                  if(window.innerWidth >= 1  && window.innerWidth <= 900){
+                  if(window.innerWidth >= 1  && window.innerWidth <= 1279){
                     for (var i = 0; i < len; i++) {
                       sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
-                      let ss = (sliderWith + ((i + 1) * 34) - 17) - 52;
-                      sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 16)) / sliderWidth)}`));
+                      let ssm;
+                      if(this._numberOfWaypoints == 4){
+                        $('.cmp-interactiveSlider:not(.old) .sliderControls .sliderHandle .handleInner').width('50px');
+                        ssm = (sliderWith + ((i + 1) * 34) - 13) - 52;
+                        sliderBtn.push(parseFloat(`0.${Math.round((100 * (ssm - 12)) / sliderWidth)}`));
+                      }
+                      else if(this._numberOfWaypoints == 5){
+                        ssm = (sliderWith + ((i + 1) * 34) - 15) - 52;
+                        sliderBtn.push(parseFloat(`0.${Math.round((100 * (ssm - 15)) / sliderWidth)}`));
+
+                      }
+                      else{
+                        ssm = (sliderWith + ((i + 1) * 34) - 17) - 52;
+                        sliderBtn.push(parseFloat(`0.${Math.round((100 * (ssm - 16)) / sliderWidth)}`));
+
+                      }
+                     
                     }
 
                   }
                   else{
+                    console.log("ass");
                   for (var i = 0; i < len; i++) {
                     sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
-                    let ss = (sliderWith + ((i + 1) * 44) - 22) - 60;
-                    sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 22)) / sliderWidth)}`));
+                    let ss;
+                    if(this._numberOfWaypoints == 4){
+                      ss = (sliderWith + ((i + 1) * 44) - 18) - 60;
+                      sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 22)) / sliderWidth)}`));
+                    }
+                    else if(this._numberOfWaypoints == 5){
+                      ss = (sliderWith + ((i + 1) * 44) - 20) - 60;
+                      sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 22)) / sliderWidth)}`));
+
+                    }
+                    else
+                    {
+                      ss = (sliderWith + ((i + 1) * 44) - 22) - 60;
+                      sliderBtn.push(parseFloat(`0.${Math.round((100 * (ss - 22)) / sliderWidth)}`));
+                    }
+                   
                   }
                 }
                   sliderBtn[0] = 0;
@@ -1361,10 +1396,11 @@
                     if (initial !== '') {
                       new Odometer({ // eslint-disable-line no-new
                         el: this.odometer,
+                        auto: false,
                         value: initial,
                         //format: '(,ddd).dd',
                         theme: 'default',
-                        duration: 9000
+                        duration: 5000
                       });
     
                       this._noOdometer = false;
@@ -1481,7 +1517,7 @@
     
                       setTimeout(function () {
                         _this10._setElementHeight();
-                      }, 300);
+                      }, 1000);
                     } else {
                       this._setElementHeight();
                     }
@@ -1502,8 +1538,8 @@
     
                       setTimeout(function () {
                         _this10._setElementHeight();
-                      }, 350);
-                    }, 350);
+                      }, 1000);
+                    }, 1000);
                   }
                 },
                 _doMobileResize: function _doMobileResize() {

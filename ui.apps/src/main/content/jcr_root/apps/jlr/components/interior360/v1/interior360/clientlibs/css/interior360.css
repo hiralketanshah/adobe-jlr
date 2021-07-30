@@ -96,7 +96,13 @@ html.no-js .cmp-carousel.cmp-interiorInner {
 html.no-js .cmp-interior360 .carousel > * {
   float: none;
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
+  #landrover .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-bottom: 0;
+  }
+  .cmp-interior360 .fontBodyCopyLarge{
+    margin-bottom: 0;
+  }
   .cmp-carousel.cmp-interiorInner {
     min-height: 0;
   }
@@ -121,13 +127,16 @@ html.no-js .cmp-interior360 .carousel > * {
   padding-right: 0;
   padding-bottom: 0;
   padding-top: 32px;
-  min-height: 189px;
+  min-height: auto;
   min-width: 960px;
 }
 .cmp-interiorInner .cmp-carousel__controls {
   position: relative;
 }
 @media screen and (min-width: 1920px) {
+  .cmp-interior360 .linkContainer .primaryLinkWithStyle{
+    margin-top: 0;
+  }
   .cmp-interior360 .contentClass{
     width: 650px;
   }
@@ -156,6 +165,7 @@ html.no-js .cmp-interior360 .carousel > * {
     margin-left: 130px;
     margin-right: 130px;
     margin-top: 60px;
+    margin-bottom: 79px;
   }
   .cmp-interior360 .headingWrapper p{
     font-size: 24px;
@@ -181,7 +191,7 @@ html.no-js .cmp-interior360 .carousel > * {
     height: 78px;
   }
 }
-@media screen and (min-width: 1280px) and (max-width: 1919px) {
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
   .cmp-interior360 .cmp-genericItem__element-poster {
     min-width: 1160px;
     min-height: 653px;
@@ -202,13 +212,10 @@ html.no-js .cmp-interior360 .carousel > * {
     text-align: left;
   }
   .cmp-interior360 .primaryLinkWithStyle{
-    margin-top: 0px;
+    margin-top: 23px;
   }
   .cmp-interior360 .headingWrapper p{
     font-size: 24px;
-  }
-  .cmp-interior360 .linkContainer{
-    padding-top: 24px !important;
   }
   .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle {
     margin-top: 24px !important;
@@ -239,10 +246,16 @@ html.no-js .cmp-interior360 .carousel > * {
       width: 560px;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+  #landrover .cmp-interior360 .secondaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-bottom: 0;
+  }
+  .cmp-interior360 .linkContainer div:last-child a{
+    margin-bottom: 0;
+  }
   .cmp-interior360{
     margin-top: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 59px;
     margin-left: 0px;
     margin-right: 0px;
   }
@@ -262,7 +275,7 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-left: 30px;
     padding-right: 25px;
     padding-top: 28px;
-    min-height: 247px;
+    min-height: auto;
     min-width: 40%;
     max-width: 75.4%;
   }
@@ -275,7 +288,7 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .cmp-interior360 .headerClass h2 {
     margin-top: 0;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     display: block;
   }
   .fontBodyCopyLarge {
@@ -285,7 +298,6 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   #landrover .secondaryLinkWithStyle {
     margin-top: 0;
-    margin-bottom: 24px;
   }
   .primaryLinkWithStyle {
     margin-top: 0;
@@ -300,7 +312,7 @@ html.no-js .cmp-interior360 .carousel > * {
     font-size: 21px;
   }
   .cmp-interior360 .linkContainer {
-    padding-top: 19px;
+    padding-top: 43px;
   }
   .cmp-interior360 .headerClass .heading p{ 
     min-height: 28px;
@@ -317,7 +329,10 @@ html.no-js .cmp-interior360 .carousel > * {
       width: 524px;
     }
 }
-@media screen and (min-width: 300px) and (max-width: 766px) {
+@media screen and (min-width: 300px) and (max-width: 767.9px) {
+  #landrover .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-bottom: 0;
+  }
   .Interior360__init-container-icon {
     top: -60px;
     width: 45px;
@@ -326,9 +341,10 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .cmp-interior360{
     margin-top: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 39px;
     margin-left: 0px;
     margin-right: 0px;
+    min-height: auto;
   }
   .cmp-carousel.cmp-interiorInner {
     margin-top: 30px;
@@ -350,7 +366,7 @@ html.no-js .cmp-interior360 .carousel > * {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 16px;
-    min-height: 301px;
+    min-height: auto;
     min-width: 40%;
     max-width: 100%;
   }
@@ -362,7 +378,7 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .cmp-interior360 .headerClass h2 {
     margin-top: 0;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     display: block;
   }
   .cmp-interior360 .fontBodyCopyLarge {
@@ -372,7 +388,6 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   #landrover .secondaryLinkWithStyle {
     margin-top: 0;
-    margin-bottom: 24px;
   }
   .primaryLinkWithStyle {
     margin-top: 0;
@@ -386,8 +401,8 @@ html.no-js .cmp-interior360 .carousel > * {
   }
   .Interior360__init-container-icon-backdrop {
     top: -60px;
-    width: 126px;
-    height: 126px;
+    width: 180px;
+    height: 180px;
     position: initial;
     margin: auto;
     background-color: #0C121C;
@@ -731,12 +746,18 @@ html.no-js .cmp-interior360 .carousel > * {
   background-repeat: no-repeat;
   background-size: cover;
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
+  .cmp-interior360 .secondaryLinkContainer{
+    width: 100%;
+    text-align: left;
+  }
   .Interior360__panorama-holder {
     order: 1;
   }
-}
-@media screen and (min-width: 1px) and (max-width: 767px) {
+  .cmp-interior360 .linkContainer div:last-child a{
+    margin-bottom: 0;
+  }
   .Interior360__panorama-holder {
     transition: height 400ms ease-out;
     transform: translate3d(0, 0, 0);
@@ -746,7 +767,11 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__panorama {
   cursor: -webkit-grab;
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+
+.Interior360 .headerBox {
+  z-index: 4;
+}
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
   .Interior360__panorama {
     opacity: 1;
     -webkit-backface-visibility: hidden;
@@ -754,11 +779,6 @@ html.no-js .cmp-interior360 .carousel > * {
     transition: opacity 550ms ease-out;
     overflow: hidden;
   }
-}
-.Interior360 .headerBox {
-  z-index: 4;
-}
-@media screen and (min-width: 1px) and (max-width: 767px) {
   .Interior360 .headerBox {
     order: 2;
   }
@@ -791,6 +811,18 @@ html.no-js .cmp-interior360 .carousel > * {
   }
 }
 @media screen and (min-width: 1280px) {
+  .cmp-interior360 .primaryLinkContainer+.primaryLinkContainer a{
+    margin-bottom: 0;
+  }
+  .cmp-interior360 {
+    margin-bottom: 79px;
+  }
+  .cmp-interior360 .shelfComponent{
+    min-height: auto;
+  }
+  .cmp-interior360 .headerClass{
+    min-height: auto;
+  }
     .Interior360__panorama,
     .Interior360__panorama-holder {
       min-height: 653px;
@@ -1170,7 +1202,7 @@ html.no-js .cmp-interior360 .carousel > * {
   -o-transform: rotate(180deg) translateX(0px);
   transform: rotate(180deg) translateX(0px);
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
   .Interior360 {
     display: flex;
     flex-wrap: wrap;
@@ -1292,7 +1324,7 @@ html.no-js .cmp-interior360 .carousel > * {
 .Interior360__reset-control:before {
   left: 8px;
 }
-@media screen and (min-width: 300px) and (max-width: 766px) {
+@media screen and (min-width: 300px) and (max-width: 767.9px) {
   .Interior360__init-container-icon{
     position: absolute;
  top:-45px;
@@ -1351,6 +1383,9 @@ html.no-js .cmp-interior360 .carousel > * {
 }
 /* FIXES for Image */
 @media screen and (min-width: 1920px) {
+  .cmp-interior360 .linkContainer {
+    padding-top: 24px;
+  }
   .cmp-interior360 .cmp-genericItem__element-poster {
     width: 100%;
     min-height: 935px;
@@ -1375,7 +1410,7 @@ html.no-js .cmp-interior360 .carousel > * {
    min-height:937px;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
   .Interior360__init-container{
     padding-top: 13px;
   }
@@ -1393,7 +1428,6 @@ html.no-js .cmp-interior360 .carousel > * {
     line-height: 12px;
   }
   .cmp-interior360 .headingThick{
-    padding: 2px !important;
     margin-bottom: 16px !important;
   }
   .cmp-interiorInner {
@@ -1404,7 +1438,13 @@ html.no-js .cmp-interior360 .carousel > * {
     line-height: 14px;
   }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px){
+@media screen and (min-width: 768px) and (max-width: 1279.9px){
+ #landrover .cmp-interior360 .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+    margin-bottom: 0;
+  }
+  .cmp-interior360 .fontBodyCopyLarge{
+    margin-bottom: 0;
+  }
   .Interior360__init-container{
     padding-top: 0px;
   }
@@ -1413,6 +1453,8 @@ html.no-js .cmp-interior360 .carousel > * {
     left: 0;
     right: 0;
     top: 23px;
+    width: fit-content;
+    margin: 0 auto;
   }
   .Interior360__init-container-icon-backdrop {
     top: 36%;
@@ -1429,9 +1471,9 @@ html.no-js .cmp-interior360 .carousel > * {
   .cmp-interior360 .headingThick{
     padding: 0px !important;
   }
-  .cmp-interiorInner {
+  .cmp-interior360 .cmp-interiorInner {
     min-width: 780px;
-    min-height:434px;
+    min-height:auto;
    }
   .Interior360__icon {
     background-size: 12px 12px;
@@ -1468,9 +1510,15 @@ html.no-js .cmp-interior360 .carousel > * {
     width: 524px;
   }
 }
-@media screen and (min-width: 1280px) and (max-width: 1919px){
+@media screen and (min-width: 1280px) and (max-width: 1919.9px){
   .Interior360__init-container-caption{
     line-height: 15px !important;
+  }
+  .cmp-interior360 .linkContainer{
+    padding-top: 24px;
+  }
+  .cmp-interior360 .linkContainer .primaryLinkWithStyle{
+    margin-top: 0;
   }
 }
 .Interior360__reset-control{
@@ -1509,6 +1557,9 @@ html.no-js .cmp-interior360 .carousel > * {
 }
 
 @media screen and (min-width: 1280px) {
+  .cmp-interior360 .shelfComponent .heading{
+    margin-bottom: 0;
+  }
   .cmp-interior360 .cmp-genericItem__element-poster{
     margin-bottom: 32px;
   }
@@ -1520,14 +1571,17 @@ html.no-js .cmp-interior360 .carousel > * {
 @media screen and (min-width: 1280px) {
   .cmp-interior360 .headerClass .heading p{
     min-height: 32px;
+    font-size: 24px;
   }
   .cmp-interior360 .headerClass{
     width: 25.12%;
   }
 }
-@media screen and (max-width: 767px) {
-}
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (max-width: 767.9px) {
+  .Interior360__init-container-caption{
+    width: fit-content;
+    margin: 0 auto;
+  }
 }
 /* KESTREL-708 */
 

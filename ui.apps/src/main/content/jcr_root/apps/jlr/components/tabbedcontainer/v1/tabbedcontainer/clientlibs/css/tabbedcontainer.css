@@ -4,7 +4,7 @@
     -webkit-transform-style: preserve-3d;
 }
 
-@media screen and (min-width: 1279px) {
+@media screen and (min-width: 1279.9px) {
 
     .cmp-tabbedContainer_box .fontBodyCopyLarge p{
 		width: 100%;
@@ -23,7 +23,7 @@
     max-height:934px;
     height: auto;
     position: relative;
-    max-width: 1660px;
+    
 }
 .cmp-contentBlocksContainer .cmp-tabbedContainer{
     padding-top: 60px;
@@ -173,7 +173,7 @@
 
 .cmp-tabbedContainer .cmp-carousel__bgImage{
     position: inherit;
-    height: 653px;
+    /* height: 653px; */
 }
 .cmp-tabbedContainer .cmp-fullframe .fontBodyCopyLarge{
     color: #4A4F54;
@@ -194,7 +194,7 @@
 }
 .cmp-tabbedContainer .Exterior360__canvas{
     width: 100%;
-    /* height: 653px; */
+    
 }
 .cmp-tabbedContainer .swiper-container{
     width: 100%;
@@ -221,7 +221,7 @@
     position: relative;
 }
 .cmp-tabbedContainer .videoCustom{
-    height: 653px;
+    
     position: relative;
 }
 
@@ -267,8 +267,10 @@
 .cmp-tabbedContainer .cmp-fullframe .primaryLinkWithStyle {
     margin-bottom: 0 
 }
-.cmp-tabbedContainer .shelfComponent {
+.cmp-tabbedContainer .shelfComponent,
+.cmp-tabbedContainer .cmp-exterior360  .shelfComponent {
     padding: 96px 0px 0px 0px;
+    margin: 0;
 }
 .cmp-tabbedContainer .fullframecarousel .shelfComponent {
     padding-bottom: 40px;
@@ -279,6 +281,9 @@
 .cmp-tabbedContainer .videoCustom:after{
     text-align: center
 }
+.cmp-tabbedContainer .cmp-interior360 .shelfComponent{
+    padding-top: 96px;
+}
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
     .cmp-tabbedContainer{
@@ -287,7 +292,12 @@
     
 }
 
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 63px;
+        padding-left: 25px;
+        width: auto;
+    }
     .cmp-tabbedContainer{
         padding-top: 40px;
     }
@@ -300,11 +310,7 @@
     .cmp-tabbedContainer .swiper-container{
         height:auto;
     }
-    .cmp-tabbedContainer .cmp-carousel__bgImage,
-    .cmp-tabbedContainer .Exterior360__canvas,
-    .cmp-tabbedContainer .videoCustom img,
-    .cmp-tabbedContainer .videoCustom,
-    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    
     .cmp-tabbedContainer .Interior360__panorama, 
     .cmp-tabbedContainer .Interior360__panorama-holder{
         height: 211px !important;
@@ -384,7 +390,9 @@
     }
     .cmp-tabbedContainer .cmp-interior360 .shelfComponent{
         min-height: 24px;
+        padding-top: 63px;
     }
+
 }
 @media screen and (min-width: 1px) and (max-width: 375px) {
     .cmp-tabbedContainer{
@@ -398,9 +406,14 @@
     }
     .cmp-tabbedContainer .DxTabs__tab{
         margin: 0px 10px;
+        padding: 0 !important;
     }
 }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 63px;
+        padding-left: 30px;
+    }
 
     .cmp-tabbedContainer{
         padding: 60px 0px;
@@ -410,12 +423,7 @@
         max-height:432px;
         min-height: 432px;        
     }
-    .cmp-tabbedContainer .cmp-carousel__bgImage, 
-    .cmp-tabbedContainer .Exterior360__canvas,
-    .cmp-tabbedContainer .swiper-container,
-    .cmp-tabbedContainer .videoCustom img,
-    .cmp-tabbedContainer .videoCustom,
-    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    
     .cmp-tabbedContainer .Interior360__panorama, 
     .cmp-tabbedContainer .Interior360__panorama-holder{
         height: 432px !important;
@@ -434,17 +442,21 @@
     }
     .cmp-contentBlocksContainer .cmp-tabbedContainer .DxTabs{
         height: 48px;
+        margin: 0 30px;
+        width: calc(100% - 60px);
     }
     .cmp-tabbedContainer .shelfComponent{
         padding-left: 30px;
         padding-right: 30px;        
         margin: 0;
+        padding-top: 63px ;
     }
     .cmp-tabbedContainer .cmp-fullframe .shelfComponent{ 
         padding-bottom: 40px;
     }
     .tabbedcontainer .cmp-tabbedContainer{
         padding-bottom: 60px;
+        padding-top: 40px;
     }
     .cmp-tabbedContainer .headerClass{
         max-width: 100%;
@@ -481,22 +493,26 @@
     .cmp-tabbedContainer .cmp-fullframe .headerClass h2{
         margin-bottom: 0px
     }
+    .cmp-tabbedContainer .cmp-interior360 .shelfComponent{
+        min-height: 24px;
+        padding-top: 63px;
+    }
 }
 @media screen and (min-width: 1920px) and (max-width: 2500px) {
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
+        padding-top: 96px;
+        width: auto;
+        margin:0 auto;
+    }
     .cmp-tabbedContainer {
         padding: 60px 130px;
     }
     .cmp-tabbedContainer_box{
         width: 1660px;
         max-height:935px;
-        min-height: 935px;
+        min-height: auto;
     }
-    .cmp-tabbedContainer .cmp-carousel__bgImage, 
-    .cmp-tabbedContainer .Exterior360__canvas,
-    .cmp-tabbedContainer .swiper-container,
-    .cmp-tabbedContainer .videoCustom img,
-    .cmp-tabbedContainer .videoCustom,
-    .cmp-tabbedContainer .cmp-genericItem__element-poster,
+    
     .cmp-tabbedContainer .Interior360__panorama, 
     .cmp-tabbedContainer .Interior360__panorama-holder{
         height: 935px !important;
@@ -521,6 +537,9 @@
         max-width: 1340px;
         left: 50%;
         transform: translateX(-50%);
+    }
+    .cmp-tabbedContainer .Exterior360__canvas{
+        width: 100%;
     }
 }
 
@@ -562,3 +581,5 @@
         margin-left: 10px;
       }
 }
+
+

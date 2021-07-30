@@ -10,7 +10,7 @@
 						<span class="tableHeadingWrapper">${table.headerCopy @ context='html'}</span>
 					</h1>
 					<div  data-sly-test="${table.copy}" class="cmp-engineSpecifications__summary">${table.copy @ context='html'}</div>
-					<div class="ctaContainer" data-sly-test="${table.ctaPosition == 'above'}"
+					<div class="clearfix ctaContainer" data-sly-test="${table.ctaPosition == 'above'}"
 						data-sly-list.cta=${table.ctaList}>
 						<span data-sly-test="${cta.linkType=='primary'}" class="primaryLinkContainer">
 							<a class="primaryLinkWithStyle ${cta.target=='_overlay' ? '' : cta.icon}"
@@ -29,7 +29,7 @@
 				</div>
 				<div class="clearfix" />
 
-				<div class="table">
+				<div class="table" style="margin-bottom: 60px;">
 					<table data-sly-test="${table.tableHtml}">
 						<caption data-sly-test="${table.caption}">${table.caption @context = 'html'}</caption>
 						${table.tableHtml @context = 'unsafe'}

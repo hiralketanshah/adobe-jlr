@@ -50,7 +50,7 @@ public class GlobalModelImpl implements GlobalModel {
 
     /** The id. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String id;
+	protected String id;
 
     /** The date. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -78,7 +78,7 @@ public class GlobalModelImpl implements GlobalModel {
 
     /** The logo image. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String logoImage;
+    protected String logoImage;
 
     /** The file reference. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -86,11 +86,11 @@ public class GlobalModelImpl implements GlobalModel {
 
     /** The image alt. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private String imageAlt;
+	protected String imageAlt;
 
     /** To get altTextFromDAM when user checked the check box */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private Boolean altTextFromDAM;
+	protected Boolean altTextFromDAM;
 
     /** The image link. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -98,7 +98,7 @@ public class GlobalModelImpl implements GlobalModel {
 
     /** The is decorative. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
-    private boolean isDecorative;
+	protected boolean isDecorative;
 
     /** The text. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -252,7 +252,6 @@ public class GlobalModelImpl implements GlobalModel {
             damAltText = AltTextUtils.getAltTextFromDAM(fileReference, resourceResolver);
         }
         return damAltText;
-
     }
 
     @Override

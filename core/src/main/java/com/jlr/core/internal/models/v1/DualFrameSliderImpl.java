@@ -43,6 +43,11 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
     /** The type. */
     private String type;
 
+    private String trailingNumber;
+
+    /** The image name trailing counter digits. */
+    private int numberOfDigit;
+
     /** The image count. */
     private int imageCount = 0;
 
@@ -77,7 +82,11 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
                     if (null == type) {
                         type = imageName.substring(imageName.lastIndexOf(CommonConstants.DOT) + 1);
                     }
-                    buildFramePath(imageName);
+                     if(null == trailingNumber && imageName.matches("\\w+_+\\d+.+[a-z A-Z 0-9]") ) {
+                         trailingNumber = imageName.substring(imageName.lastIndexOf(CommonConstants.UNDERSCORE) + 1, imageName.lastIndexOf(CommonConstants.DOT));
+                         numberOfDigit = trailingNumber.toCharArray().length;
+                     }
+                     buildFramePath(imageName);
                 }
             }
             imageCount = imageList.size();
@@ -151,5 +160,10 @@ public class DualFrameSliderImpl extends GlobalModelImpl implements DualFrameSli
     @Override
     public int getImageCount() {
         return imageCount;
+    }
+
+    @Override
+    public Integer getNumberOfDigit() {
+        return numberOfDigit;
     }
 }

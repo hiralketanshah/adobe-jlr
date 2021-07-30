@@ -1,24 +1,6 @@
 package com.jlr.core.httpcache;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.regex.Pattern;
-import javax.servlet.http.Cookie;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.ConfigurationPolicy;
-import org.osgi.service.metatype.annotations.Designate;
 import com.adobe.acs.commons.httpcache.config.HttpCacheConfig;
 import com.adobe.acs.commons.httpcache.config.HttpCacheConfigExtension;
 import com.adobe.acs.commons.httpcache.exception.HttpCacheKeyCreationException;
@@ -30,11 +12,27 @@ import com.jlr.core.httpcache.key.CookieKeyValueMapBuilder;
 import com.jlr.core.httpcache.key.NavigationCacheKey;
 import com.jlr.core.httpcache.key.RequestKeyValueMap;
 import com.jlr.core.httpcache.key.RequestKeyValueMapBuilder;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.ConfigurationPolicy;
+import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.servlet.http.Cookie;
+import java.util.*;
+import java.util.regex.Pattern;
 
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE, service = {HttpCacheConfigExtension.class, CacheKeyFactory.class})
 @Designate(ocd = NavigationCacheExtensionConfig.class, factory = true)
 public class NavigationCacheExtension implements HttpCacheConfigExtension, CacheKeyFactory {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(NavigationCacheExtension.class);
     private List<Pattern> extensionPatterns;
     private Set<String> cookieKeys;
     private Set<String> resourceTypes;
@@ -151,6 +149,11 @@ public class NavigationCacheExtension implements HttpCacheConfigExtension, Cache
 
     @Override
     public boolean doesKeyMatchConfig(CacheKey key, HttpCacheConfig cacheConfig) throws HttpCacheKeyCreationException {
+
+        if(LOGGER.isDebugEnabled()) {
+            LOGGER.debug("doesKeyMatchConfig() - NavigationCacheExtension CacheKey is {}", key);
+        }
+
         // Check if key is instance of GroupCacheKey.
         if (!(key instanceof NavigationCacheKey)) {
             return false;

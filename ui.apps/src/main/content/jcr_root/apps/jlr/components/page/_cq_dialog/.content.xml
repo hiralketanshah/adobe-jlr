@@ -468,6 +468,10 @@
                                                         allowBulkEdit="{Boolean}true"
                                                         cq-msm-lockable="seoFrequency"/>
                                                 <items jcr:primaryType="nt:unstructured">
+                                                    <weekly
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Weekly"
+                                                            value="weekly"/>
                                                     <never
                                                             jcr:primaryType="nt:unstructured"
                                                             text="Never"
@@ -480,10 +484,6 @@
                                                             jcr:primaryType="nt:unstructured"
                                                             text="Monthly"
                                                             value="monthly"/>
-                                                    <weekly
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="Weekly"
-                                                            value="weekly"/>
                                                     <daily
                                                             jcr:primaryType="nt:unstructured"
                                                             text="Daily"
@@ -903,7 +903,7 @@
                             <isInGroup
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="jlr/granite/rendercondition/groups"
-                                    groups="[administrators,global-leads]"/>
+                                    groups="[content-admins,global-leads]"/>
                             <isTemplate
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="jlr/granite/rendercondition/template"

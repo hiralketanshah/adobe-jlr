@@ -6756,18 +6756,30 @@
       let sliderId = swiper.slides[0].id.split('-').slice(0,2).join('-');
       e.preventDefault();
       if (swiper.isBeginning && !swiper.params.loop) return;
-      let pre = swiper.activeIndex - 1;
+     let pre = 0;
+      if(swiper.activeIndex == 1){        
+         pre = swiper.slides.length - 3;
+      }
+      else{
+       pre = swiper.activeIndex - 2;
+      }      
       $(`#${sliderId} [data-pip-index="${pre}"]`).trigger("click");
-      // swiper.slidePrev();
+      swiper.slidePrev();
       },
       onNextClick(e) {
       const swiper = this;
       let sliderId = swiper.slides[0].id.split('-').slice(0,2).join('-');
       e.preventDefault();
       if (swiper.isEnd && !swiper.params.loop) return;
-      let next = swiper.activeIndex + 1;
+      let next = 0;
+      if(swiper.activeIndex == swiper.slides.length - 2){        
+        next = 0;
+      }
+      else{
+         next = swiper.activeIndex;
+      }         
       $(`#${sliderId} [data-pip-index="${next}"]`).trigger("click");
-      //swiper.slideNext();
+      swiper.slideNext();
       },
     init() {
       const swiper = this;
@@ -10100,7 +10112,7 @@
   /* harmony export */   "hasBigIntSupport": () => (/* binding */ hasBigIntSupport)
   /* harmony export */ });
   const breakpoints = {
-    small: 740,
+    small: 320,
     medium: 900,
     wider: 1000,
     current: null
@@ -12290,7 +12302,7 @@
             }
           });
         }
-        
+     
         if (!(0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)()) {
            getHighestText();
            
@@ -12299,7 +12311,7 @@
            footerSectionHeight = this.$element.find('.cmp-carousel__item--active .heroFooterSection').outerHeight();
            caveatHeight = this.$element.find('.cmp-carousel__item--active .caveat').outerHeight();
            
-           console.log('footerSectionHeight', footerSectionHeight);
+          
            
            //textHeight += 264; // Add some padding above and below
           
@@ -12310,19 +12322,76 @@
           // To prevent car being cropped on deep screens, limit component's height, relative to its width
           //const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
           //idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
-  
-          reqSliderHeight = $left.height();          
-          if(!textHeight){
-            $slider.height('');
+
+          if(this.$element.find('.accolade').length > 0){
+          }else if(this.$element.find('.fullframecarousel').length > 0){
+
+            textHeight = this.$element.find('.swiper-slide-active .shelfComponent').outerHeight(); 
+            if(textHeight == 137){
+              textHeight = 80;
+            }else if(textHeight == 108){
+              textHeight = 60;
+            }  
+            else if(textHeight == 81){
+              textHeight = 40;              
+            }  
+            imageHeight = this.$element.find('.swiper-slide-active .cmp-genericItem__element-poster').outerHeight();
+            
+            if (windowWidth < 768) {
+              if (this._total == 1) {
+                $slider.height(textHeight + imageHeight );
+              }else{
+                $slider.height(textHeight + imageHeight + 50);
+              }
+              }else{
+                $slider.height(textHeight + imageHeight);
+              }
+
+            }
+            else if(this.$element.find('.herotitlebanner').length > 0){
+              if(this._total == 1){ 
+                 if(this.$element.find('.herotitlebanner.short').length > 0){
+                  if (windowWidth > 1279) {  
+                    $slider.height(imageHeight - footerSectionHeight);
+                  } else if (windowWidth > 767) {      
+                  $slider.height(textHeight + imageHeight - footerSectionHeight);
+                  } else if (windowWidth < 768) {
+                      $slider.height(textHeight + imageHeight + 50);
+                    }
+                 }
+                 else{
+                  if (windowWidth > 1279) {  
+                    $slider.height(imageHeight + footerSectionHeight);
+                  } else if (windowWidth > 767) {      
+                  $slider.height(textHeight + imageHeight + footerSectionHeight);
+                  } else if (windowWidth < 768) {
+                      $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
+                    }
+                }   
+               
+              }else{
+                if (windowWidth > 1279) {  
+                  $slider.height(imageHeight + footerSectionHeight);
+                } else if (windowWidth > 767) {      
+                $slider.height(textHeight + imageHeight + footerSectionHeight);
+                } else if (windowWidth < 768) {
+                    $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
+                  }
+              }   
           }else{
-          if (windowWidth > 1279) {          
-            reqSliderHeight = imageHeight + footerSectionHeight + caveatHeight + 40;
-          }else{
-            reqSliderHeight = imageHeight + textHeight  + 40;
-          }
-         if(selectedSlideHeight){
-          reqSliderHeight =selectedSlideHeight;
-         }
+                    reqSliderHeight = $left.height();          
+                    if(!textHeight){
+                      $slider.height('');
+                    }else{
+                    if (windowWidth > 1279) {          
+                      reqSliderHeight = textHeight + footerSectionHeight + 40;
+                    }else{
+                      reqSliderHeight = imageHeight + textHeight  + 40;
+                    }
+                  if(selectedSlideHeight){
+                    reqSliderHeight =selectedSlideHeight;
+                  }
+          
           
          // reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;
           // Resize slider
@@ -12330,7 +12399,8 @@
           // reqSliderHeight = Math.floor(reqSliderHeight);
           $slider.height(reqSliderHeight);
         }        
-        }       
+        } 
+      }      
       },
   
       _userFinishedInteraction() {
@@ -12540,30 +12610,7 @@
           let img = el.querySelector('.cmp-accolades__img');
           if(img){
             img.style.display="none";
-          }
-          if(window.innerWidth>=1920){
-          
-            if(bgimagevalacc === 'none'){
-             
-              el.style.height = "";
-              el.style.paddingTop = "60px";
-              el.style.paddingBottom = "80px";             
-              
-            }          
-           
-          }
-          if(window.innerWidth>=1280 && window.innerWidth<=1919){
-            if(bgimagevalacc === 'none'){
-             
-              el.style.height = "";
-              el.style.paddingTop = "60px";
-              el.style.paddingBottom = "80px";
-                           
-              
-            }         
-
-          }
-         
+          }         
           if(window.innerWidth>=768 && window.innerWidth<=1279 ){
             el.style.paddingTop = "40px";
             el.style.paddingBottom = "60px";
@@ -12605,14 +12652,13 @@
               $(el).resize(()=>{
                 if(window.innerWidth <=1279){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
-                  let height = accolades.clientHeight ;      
+                  let height = accolades.clientHeight ;
                    controlsFFC.style.top = "0px";
                    controlsFFC.style.top = (height)+"px";      
                 } 
                 if(window.innerWidth >=1280){
                   let controlsFFC = el.querySelector('.cmp-accolades_pagination');
                   let height = accolades.clientHeight ;
-                  
                   controlsFFC.style.top = "0px";
                   controlsFFC.style.top = (height+7)+"px";
                   accolades.style.marginBottom="70px";

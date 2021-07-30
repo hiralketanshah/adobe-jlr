@@ -357,9 +357,9 @@
     	padding-bottom: 60px;
 		max-width: 760px;
 	}
-	.cmp-engineSpecifications .bottomCta {
+	/* .cmp-engineSpecifications .bottomCta {
 		padding-top: 63px;
-	}
+	} */
 
 
 	.cmp-engineSpecifications .ResponsiveTable {
@@ -555,7 +555,7 @@
 }
 /*---------code fix for 585----------*/
 .cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive){border: 1px solid #ffffff}
-@media screen and (min-width:1280px) and (max-width: 1920px){
+@media screen and (min-width:1280px) and (max-width: 1919px){
 
 	.cmp-engineSpecifications .ctaContainer,
 	.cmp-engineSpecifications .bottomCta	{
@@ -659,7 +659,16 @@
 			width: 119px;
 			padding: 20px;
 		}
-		.cmp-engineSpecifications .ctaContainer, .cmp-engineSpecifications .bottomCta {
-			padding-bottom: 60px;
+		
+		.cmp-engineSpecifications .ctaContainer,
+		.cmp-engineSpecifications {
+				padding-left: 30px;
+				/* padding-top: 60px; */
+				margin-bottom : 80px;
+	    }
+		.bottomCta {
+			margin-top: 60px;
+			padding-left: 30px;
+			padding-bottom : 0x;
 		}
 }

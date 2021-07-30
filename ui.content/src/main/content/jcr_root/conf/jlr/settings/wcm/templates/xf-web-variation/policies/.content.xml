@@ -34,25 +34,55 @@
                 </components>
             </mysite>
             <jlr jcr:primaryType="nt:unstructured">
-				<components jcr:primaryType="nt:unstructured">
-					 <carousel jcr:primaryType="nt:unstructured">
-						<v1 jcr:primaryType="nt:unstructured">
-							<carousel
-								cq:policy="jlr/components/carousel/v1/carousel/policy_1617711636936"
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="wcm/core/components/policies/mapping"/>
-						</v1>
-					</carousel>
-					<dualframecarousel jcr:primaryType="nt:unstructured">
-						<v1 jcr:primaryType="nt:unstructured">
-							<dualframecarousel
-								cq:policy="jlr/components/dualframecarousel/v1/dualframecarousel/policy_1619696656661"
-								jcr:primaryType="nt:unstructured"
-								sling:resourceType="wcm/core/components/policies/mapping"/>
-						</v1>
-					</dualframecarousel>
-				</components>
-			</jlr>
+                <components jcr:primaryType="nt:unstructured">
+                    <carousel jcr:primaryType="nt:unstructured">
+                        <v1 jcr:primaryType="nt:unstructured">
+                            <carousel
+                                cq:policy="jlr/components/carousel/v1/carousel/policy_1617711636936"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </v1>
+                    </carousel>
+                    <dualframecarousel jcr:primaryType="nt:unstructured">
+                        <v1 jcr:primaryType="nt:unstructured">
+                            <dualframecarousel
+                                cq:policy="jlr/components/dualframecarousel/v1/dualframecarousel/policy_1619696656661"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </v1>
+                    </dualframecarousel>
+                    <readytogobar jcr:primaryType="nt:unstructured">
+                        <v1 jcr:primaryType="nt:unstructured">
+                            <readytogobar
+                                cq:policy="jlr/components/readytogobar/v1/readytogobar/policy_1617088611211"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </v1>
+                    </readytogobar>
+                    <c-player jcr:primaryType="nt:unstructured">
+                        <v2 jcr:primaryType="nt:unstructured">
+                            <c-player
+                                cq:policy="jlr/components/c-player/v2/c-player/policy_1625074940910"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </v2>
+                        <v1 jcr:primaryType="nt:unstructured">
+                            <c-player
+                                cq:policy="jlr/components/c-player/v1/c-player/policy_1621317733304"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </v1>
+                    </c-player>
+                    <herotitlebanner jcr:primaryType="nt:unstructured">
+                        <v1 jcr:primaryType="nt:unstructured">
+                            <herotitlebanner
+                                cq:policy="jlr/components/herotitlebanner/v1/herotitlebanner/policy_1619626689947"
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"/>
+                        </v1>
+                    </herotitlebanner>
+                </components>
+            </jlr>
         </root>
     </jcr:content>
 </jcr:root>

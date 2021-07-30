@@ -54,6 +54,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/navigation";
     protected static final String SELECTOR_JSON = "json";
+    private static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
+    private static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
+
 
     @Reference
     private transient RequestResponseFactory requestResponseFactory;
@@ -71,7 +74,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     protected void doGet(final SlingHttpServletRequest request, final SlingHttpServletResponse response) {
 
         String locale = request.getParameter("locale"); // en_AU, de_DE
-        Boolean cache = Boolean.valueOf(request.getParameter("cache"));
+        Boolean cache = request.getParameter("cache") == null ? Boolean.TRUE : Boolean.valueOf(request.getParameter("cache"));
         Boolean fullyQualifyDxLinks = Boolean.valueOf(request.getParameter("fullyQualifyDxLinks"));
         String retailerName = request.getParameter("retailerName");
         String retailerUrl = request.getParameter("retailerUrl");
@@ -112,10 +115,12 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         /* Get the retailer and search divs */
         if (!mrp) {
-            NavigationUtils.removeAttribute(document, "li.dxnav__item.dxnav__item-showprices");
-            NavigationUtils.removeAttribute(document, "a.dxnav__mobile-icons-prices.MarketRegionalPricing-triggerer");
-            NavigationUtils.removeAttribute(document, "div.dxnav-NaasMarketRegionalPricing-cta");
-            NavigationUtils.removeAttribute(document, "span.dxnav__item-prices-label");
+            NavigationUtils.removeAttributes(document, "li.dxnav__item.dxnav__item-showprices");
+            NavigationUtils.removeAttributes(document, "a.dxnav__mobile-icons-prices.MarketRegionalPricing-triggerer");
+            NavigationUtils.removeAttributes(document, "div.dxnav-NaasMarketRegionalPricing-cta");
+            NavigationUtils.removeAttributes(document, "span.NaasMarketRegionalPricing-cta__label");
+            NavigationUtils.removeAttributes(document, "div.dxnav-NaasMarketRegionalPricing");
+            NavigationUtils.removeAttributes(document, "span.dxnav-NaasMarketRegionalPricing__label");
         }
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
@@ -164,7 +169,10 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             responseObject.put("cacheIdentifier", cache);
             responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
-            responseObject.put("html", document.getElementsByTag("header").outerHtml());
+            String output = document.getElementsByTag("header").outerHtml();
+            output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
+            output = output.replaceAll(AU_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
+            responseObject.put("html", output);
             responseObject.put("javascriptLink", getExternalLink(config.javascriptLink(), locale, resolver));
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,

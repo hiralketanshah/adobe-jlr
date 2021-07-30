@@ -10,6 +10,9 @@
   right: 0;
   position: absolute;
 }
+
+.cmp-cplayer .secondaryLinkContainer,.cmp-cplayer .primaryLinkContainer, 
+.cmp-cplayer  .thirdLinkContainer, .cmp-cplayer .fourthLinkContainer{display:inline-block;}
 .cmp-cplayer .primaryLinkWithStyle span {
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -124,6 +127,12 @@
 }
 .cmp-cplayer .primaryLinkWithStyle {
   margin-top: 24px;
+  background-color: #0c121c;
+  color: #fff;
+  box-shadow: 0 0 0 1px #0c121c inset;
+}
+.cmp-cplayer .secondaryLinkWithStyle a{
+  color: #0c121c;
 }
 .cplayerImage {
   min-height: 183px;
@@ -272,6 +281,38 @@
     padding-left: 28px;
   }
 }
+.slateblue.cmp-cplayer  a{
+  color: #fff;
+  text-decoration: none;
+}
+.slateblue.cmp-cplayer  a:hover{
+  color: #fff;
+  text-decoration:underline;
+}
+.cmp-cplayer .secondaryLinkWithStyle:hover span,
+.cmp-cplayer .secondaryLinkWithStyle:active span,
+.cmp-cplayer .secondaryLinkWithStyle:focus span {
+  border-bottom: 1px solid #005a2b;
+}
+.slateblue  .cmp-cplayer .secondaryLinkWithStyle:hover span,
+.slateblue .cmp-cplayer .secondaryLinkWithStyle:active span,
+.slateblue .cmp-cplayer .secondaryLinkWithStyle:focus span {
+  border-bottom: 1px solid #fff!important;
+}
+ .slateblue .cmp-cplayer .secondaryLinkWithStyle:hover{color: #fff!important;}
+#landrover  .slateblue .plwsLight:hover, 
+#landrover  .slateblue .primaryLinkWithStyle:hover{
+    background-color:transparent!important; 
+    color: #fff!important;
+    box-shadow: none!important;
+    border:1px solid #fff;
+}
+#landrover  .slateblue .primaryLinkWithStyle{
+  background-color:#fff!important; 
+  color: #0c121c!important;
+  box-shadow: none!important;
+  border:1px solid #fff;
+}
 /* DESKTOP */
 @media only screen and (min-width: 1280px) and (max-width: 1919px) {
   .cmp-cplayer {
@@ -279,7 +320,13 @@
   }
   .cmp-cplayer .secondaryLinkWithStyle {
     margin-top: 23px;
+    color: #0c121c;
   }
+  .cmp-cplayer .secondaryLinkWithStyle:hover {
+    
+    color: #005a2b ;
+  }
+
   .left .span_2_of_3 {
     width: 66.66%;
     padding-right: 2.58%;
@@ -308,6 +355,7 @@
   }
   .cmp-cplayer .secondaryLinkWithStyle {
     margin-top: 23px;
+    color: #0c121c;
   }
   .left .cmp-cplayer {
     display: flex;
@@ -371,6 +419,12 @@
 #landrover .primaryLinkWithStyle:active {
   background-color: #fff;
   color: #0c121c;
+  box-shadow: 0 0 0 1px #0c121c inset;
+}
+
+#landrover  .cmp-cplayer .primaryLinkWithStyle {
+  background-color: #0c121c;
+  color: #fff;
   box-shadow: 0 0 0 1px #0c121c inset;
 }
 @media only screen and (max-width: 767px) {
@@ -505,3 +559,4 @@
     min-height: 460px;
   }
 }
+
