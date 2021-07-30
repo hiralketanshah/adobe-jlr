@@ -9,6 +9,8 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.request.RequestPathInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -21,6 +23,7 @@ import java.util.HashMap;
  */
 public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Serializable {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(NavigationCacheKey.class);
     private RequestKeyValueMap cookieKeyValueMap;
     private RequestKeyValueMap requestKeyValueMap;
     private String extension;
@@ -49,6 +52,9 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
 
     @Override
     public boolean equals(Object o) {
+        if(LOGGER.isDebugEnabled()) {
+            LOGGER.debug("NavigationCacheKey is {}", o);
+        }
 
         if (o == null) {
             return false;
@@ -62,6 +68,7 @@ public class NavigationCacheKey extends AbstractCacheKey implements CacheKey, Se
                 .append(requestKeyValueMap, that.requestKeyValueMap)
                 .append(getExtension(), that.getExtension())
                 .isEquals();
+
     }
 
     @Override
