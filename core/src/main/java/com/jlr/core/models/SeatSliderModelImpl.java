@@ -81,7 +81,7 @@ public class SeatSliderModelImpl extends GlobalModelImpl implements SeatSliderMo
 	public String getMobileFrames() {
         JsonArray imageArr = new JsonArray();
         for (String string : getImageList()) {
-        	imageArr.add(CommonUtils.getSmallImagePath(string));
+        	imageArr.add(CommonUtils.getWebImagePath(string));
         }
         return imageArr.toString();
 	}

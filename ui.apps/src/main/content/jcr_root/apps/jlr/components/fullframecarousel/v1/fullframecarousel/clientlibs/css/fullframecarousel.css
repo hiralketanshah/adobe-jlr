@@ -788,7 +788,7 @@ min-width: 360px;
   padding-right: 0px;
   padding-bottom: 0px;
   padding-top: 32px;
-  min-height:189px;
+  min-height:100%;
   min-width: 960px;
 }
 .cmp-fullframe-carousel .cmp-carousel__controls{
@@ -803,10 +803,19 @@ min-width: 360px;
       position: relative;
       min-width: 1660px;
       max-width:2000px;
-      height:935px ;
+      min-height:935px ;
+      height: calc(((100vw - 260px) / 16 )* 9);
       margin-left: 130px;
       margin-right: 130px;
       margin-bottom: 0 !important;
+    }
+    .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .videoCustom,
+    .cmp-fullframe .cmp-genericItem__element-poster{
+      min-width: 1660px;
+      max-width:2000px;
+      min-height:935px ;
+      height: calc(((100vw - 260px) / 16 )* 9);
+      padding-bottom: 0;
     }
   .cmp-fullframe-carousel .cmp-carousel__controls{
        position: absolute;
@@ -830,7 +839,7 @@ min-width: 360px;
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
     .cmp-genericItem__element-poster{
         min-width: 1160px;
-        max-height:653px ;
+        
     }
     .cmp-carousel .carousel .cmp-genericItem__element-poster {
         position: relative;
@@ -848,18 +857,25 @@ min-width: 360px;
      .video{
        height: 670px;
      }
+     .cmp-fullframe .cmp-genericItem__element-poster{
+      min-width: 1160px;
+      max-width: 1919px;
+      min-height: 653px;
+      height: calc(((100vw - 120px) / 16 )* 9);
+  }
 }
 /* DESKTOP END */
 /* Tablet */
-@media screen and (min-width: 767px) and (max-width: 1279px) {
+@media screen and (min-width: 767px) and (max-width: 1279.9px) {
   .cmp-carousel.cmp-fullframe-carousel{
     margin-top: 40px;
     margin-left: 0px;
     margin-right: 0px;
   }
-  .cmp-genericItem__element-poster{
+  .cmp-fullframe .cmp-genericItem__element-poster{
       width: 100%;
       min-height: 432px;
+      height: calc((100vw  / 16 )* 9);
   }
   .cmp-carousel .carousel .cmp-genericItem__element-poster {
       position: relative;
@@ -906,19 +922,18 @@ min-width: 360px;
 }
 /* Tablet End */
 /* Mobile start */
-@media screen and (min-width: 300px) and (max-width: 766px) {
+@media screen and (min-width: 300px) and (max-width: 767.9px) {
   .cmp-carousel.cmp-fullframe-carousel{
     margin-top: 30px;
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: 0;
   }
-  .cmp-carousel.cmp-fullframe-carousel .carousel{
-    min-height: 339px;
-  }
-  .cmp-genericItem__element-poster{
+ 
+  .cmp-fullframe .cmp-genericItem__element-poster {
       width: 100%;
       min-height: 211px;
+      height: calc((100vw  / 16 )* 9);
   }
   .cmp-carousel .carousel .cmp-genericItem__element-poster {
       position: relative;
@@ -1040,7 +1055,7 @@ fill:black;
 .cmp-fullframe .secondaryLinkWithStyle{margin-top:24px!important; line-height:12.5px;}
 .cmp-fullframe .shelfComponent {
   display: block;
-  padding:28px 0 0 30px;
+  padding:28px 0 60px 30px;
   -webkit-font-smoothing: antialiased;
 }
 .cmp-fullframe .linkContainer{padding-top:0;}
@@ -1077,6 +1092,7 @@ fill:black;
     cursor: pointer;
     opacity: 80%;
 }
+.cmp-fullframe .secondaryLinkContainer{clear:both;}
 @media screen and (min-width:1920px) and (max-width:2700px){
 .cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:auto;letter-spacing:1.2px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
@@ -1084,13 +1100,13 @@ fill:black;
 
   .cmp-fullframe .shelfComponent {
   display: block;
-  padding:32px 0 0 0;
+  padding: 37px 0 80px 0;
   -webkit-font-smoothing: antialiased;
   margin: 0 auto;
   width: 100%;
   max-width: 1340px;
 }
-.cmp-fullframe .headerClass{min-height:150px;}
+.cmp-fullframe .headerClass{min-height:100%;}
 .cmp-fullframe .contentClass{
 float: left;
 width: 650px;}
@@ -1118,12 +1134,12 @@ left: 50px;
   
   .cmp-fullframe .shelfComponent {
     display: block;
-    padding: 28px 0 0 30px;
+    padding: 37px 0 80px 60px;
     -webkit-font-smoothing: antialiased;
     margin-left:0;
     width: 1200px;
 }
-  .cmp-fullframe .headerClass{min-height:150px;}
+  .cmp-fullframe .headerClass{min-height:100%;}
   .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster{
     margin-left:60px;
     margin-right:60px;
@@ -1131,18 +1147,16 @@ left: 50px;
     min-width: 1160px;
     max-width: 1919px;
     min-height:653px;
-    max-height:653px;
-    height: auto;
+    height: calc(((100vw - 120px) / 16 )* 9);
     margin-bottom: 0 !important;
   }
   .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .videoCustom{
     min-width: 1160px;
     max-width: 1919px;
     min-height:653px;
-    max-height:653px;
+    height: calc(((100vw - 120px) / 16 )* 9);
     padding-bottom: 0;
   }
-  .cmp-fullframe .shelfComponent{padding:32px 0 0 60px;}
   .cmp-fullframe-carousel .cmp-carousel__controls{margin-left:-15px;}
   .cmp-fullframe-carousel.cmp-carousel{margin-left:0;margin-right:0;}
   .cmp-fullframe-carousel .swiper-button--next, .cmp-fullframe-carousel .swiper-button--prev {
@@ -1173,7 +1187,7 @@ left: 50px;
 }
 }
 
-@media screen and (min-width: 768px) and (max-width:1279px){
+@media screen and (min-width: 768px) and (max-width:1279.9px){
   .cmp-fullframe-carousel .cmp-carousel__slider{height:auto;}
   
   .cmp-fullframe .secondaryLinkWithStyle{margin-bottom:0;}
@@ -1192,7 +1206,7 @@ left: 50px;
 .cmp-fullframe_pagination .Pagination__pip--active:hover:after, .cmp-fullframe_pagination .Pagination__pip--active:after{background:#fff;}
 }
 
-@media screen and (min-width: 320px) and (max-width:767px){
+@media screen and (min-width: 320px) and (max-width:767.9px){
   .cmp-fullframe_pagination .Pagination__pip--active:hover:after,
   .cmp-fullframe_pagination .Pagination__pip--active:after{background:#000;}
   .slateblue .cmp-fullframe_pagination .Pagination__pip--active:hover:after,
@@ -1207,6 +1221,9 @@ left: 50px;
   margin-bottom: 16px;
 }
 .cmp-fullframe .headingWrapper p{font-size:20px; line-height:19px; color:#0C121C;font-family:LandRoverWeb-Bold;height:auto; letter-spacing:0.64px;}
+.slateblue .cmp-fullframe .headingWrapper p {
+  color:#ffffff;
+}
 /* .cmp-fullframe-carousel .cmp-carousel__controls{top:236px!important;}   */
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
 .cmp-fullframe .fontBodyCopyLarge {

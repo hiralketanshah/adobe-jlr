@@ -7,7 +7,7 @@
     clientToken=""
     delayPurge="30000"
     environment="staging"
-    akamaiCacheClearGroup="administrators"
+    akamaiCacheClearGroup="everyone"
     enableCacheClear="false"
     enableAkamaiAgent="false"
     enableUrlRewrite="false"

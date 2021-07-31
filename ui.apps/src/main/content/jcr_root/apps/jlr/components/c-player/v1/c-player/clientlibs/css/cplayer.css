@@ -10,6 +10,9 @@
   right: 0;
   position: absolute;
 }
+
+.cmp-cplayer .secondaryLinkContainer,.cmp-cplayer .primaryLinkContainer, 
+.cmp-cplayer  .thirdLinkContainer, .cmp-cplayer .fourthLinkContainer{display:inline-block;}
 .cmp-cplayer .primaryLinkWithStyle span {
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -556,3 +559,4 @@
     min-height: 460px;
   }
 }
+

@@ -10112,7 +10112,7 @@
   /* harmony export */   "hasBigIntSupport": () => (/* binding */ hasBigIntSupport)
   /* harmony export */ });
   const breakpoints = {
-    small: 740,
+    small: 320,
     medium: 900,
     wider: 1000,
     current: null
@@ -12302,7 +12302,7 @@
             }
           });
         }
-        
+     
         if (!(0,_resources_dev_js_utils_browserDetection__WEBPACK_IMPORTED_MODULE_3__.isBreakpointSmall)()) {
            getHighestText();
            
@@ -12323,30 +12323,74 @@
           //const maxHeight = windowWidth / 1.45; // 620 is maximum height with screen at 900px before car is cropped
           //idealHeight = idealHeight < maxHeight ? idealHeight : maxHeight;
 
-if(this.$element.find('.accolade').length > 0){
-}else if(this.$element.find('.fullframecarousel').length > 0){   
-  textHeight = this.$element.find('.swiper-slide-active .shelfComponent').outerHeight();   
-  imageHeight = this.$element.find('.swiper-slide-active .cmp-genericItem__element-poster').outerHeight();
-  if (windowWidth > 1279) { 
-    $slider.height(textHeight + imageHeight + 80);
-  } else if (windowWidth > 767) {
-  $slider.height(textHeight + imageHeight + 60);
-  } else if (windowWidth < 768) {
-    $slider.height(textHeight + imageHeight + 40);
-    }
- }else{
-          reqSliderHeight = $left.height();          
-          if(!textHeight){
-            $slider.height('');
+          if(this.$element.find('.accolade').length > 0){
+          }else if(this.$element.find('.fullframecarousel').length > 0){
+
+            textHeight = this.$element.find('.swiper-slide-active .shelfComponent').outerHeight(); 
+            if(textHeight == 137){
+              textHeight = 80;
+            }else if(textHeight == 108){
+              textHeight = 60;
+            }  
+            else if(textHeight == 81){
+              textHeight = 40;              
+            }  
+            imageHeight = this.$element.find('.swiper-slide-active .cmp-genericItem__element-poster').outerHeight();
+            
+            if (windowWidth < 768) {
+              if (this._total == 1) {
+                $slider.height(textHeight + imageHeight );
+              }else{
+                $slider.height(textHeight + imageHeight + 50);
+              }
+              }else{
+                $slider.height(textHeight + imageHeight);
+              }
+
+            }
+            else if(this.$element.find('.herotitlebanner').length > 0){
+              if(this._total == 1){ 
+                 if(this.$element.find('.herotitlebanner.short').length > 0){
+                  if (windowWidth > 1279) {  
+                    $slider.height(imageHeight - footerSectionHeight);
+                  } else if (windowWidth > 767) {      
+                  $slider.height(textHeight + imageHeight - footerSectionHeight);
+                  } else if (windowWidth < 768) {
+                      $slider.height(textHeight + imageHeight + 50);
+                    }
+                 }
+                 else{
+                  if (windowWidth > 1279) {  
+                    $slider.height(imageHeight + footerSectionHeight);
+                  } else if (windowWidth > 767) {      
+                  $slider.height(textHeight + imageHeight + footerSectionHeight);
+                  } else if (windowWidth < 768) {
+                      $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
+                    }
+                }   
+               
+              }else{
+                if (windowWidth > 1279) {  
+                  $slider.height(imageHeight + footerSectionHeight);
+                } else if (windowWidth > 767) {      
+                $slider.height(textHeight + imageHeight + footerSectionHeight);
+                } else if (windowWidth < 768) {
+                    $slider.height(textHeight + imageHeight +footerSectionHeight+ 50);
+                  }
+              }   
           }else{
-          if (windowWidth > 1279) {          
-            reqSliderHeight = imageHeight + footerSectionHeight + caveatHeight + 40;
-          }else{
-            reqSliderHeight = imageHeight + textHeight  + 40;
-          }
-         if(selectedSlideHeight){
-          reqSliderHeight =selectedSlideHeight;
-         }
+                    reqSliderHeight = $left.height();          
+                    if(!textHeight){
+                      $slider.height('');
+                    }else{
+                    if (windowWidth > 1279) {          
+                      reqSliderHeight = textHeight + footerSectionHeight + 40;
+                    }else{
+                      reqSliderHeight = imageHeight + textHeight  + 40;
+                    }
+                  if(selectedSlideHeight){
+                    reqSliderHeight =selectedSlideHeight;
+                  }
           
           
          // reqSliderHeight = reqSliderHeight < selectedSlideHeight ? selectedSlideHeight : reqSliderHeight;

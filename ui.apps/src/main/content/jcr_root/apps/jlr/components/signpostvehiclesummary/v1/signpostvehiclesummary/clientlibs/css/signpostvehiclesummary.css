@@ -16,7 +16,7 @@
     max-height: 357px;
     min-height: 357px;
     justify-content: space-between;
-    padding: 0px 60px 60px 60px;
+    padding: 60px 60px 60px 60px;
 }
 .cmp-signpostGridContext{
     display: flex;
@@ -220,7 +220,7 @@
         position: absolute;
     }
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
     .cmp-signPost.cmp-signPost-auto {
         flex-direction: column;
     }
@@ -354,15 +354,6 @@
     padding: 60px;
 }
 
-.cmp-vehicleSummary .cmp-vehicleSummary__image {        
-    order: 2;
-    flex-grow: 0;
-flex-shrink: 0;
-position: relative;
-min-height: 428px;
-height: 493px;
-    width: 875px;
-}
 
 
 .cmp-vehicleSummary .BazaarVoiceRating {
@@ -383,7 +374,7 @@ height: 493px;
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     text-transform:uppercase;
 }
 
@@ -482,9 +473,9 @@ height: 493px;
 
 @media screen and (min-width: 1px) and (max-width: 1240px) {
     .cmp-vehicleSummary .cmp-vehicleSummary__image {
-        order: 1;
-        width: 70%;
-        flex-grow: 0;
+    order: 1;
+    width: 70%;
+    flex-grow: 0;
     flex-shrink: 0;
     position: relative;
     min-height: 428px;
@@ -616,7 +607,7 @@ height: 493px;
 .cmp-vehicleSummary .cmp-vehicleSummary__image .Picture {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: relative;
     }
     .cmp-vehicleSummary.left .cmp-vehicleSummary__image .Picture {
         width: 100%;
@@ -652,16 +643,42 @@ height: 493px;
     }
     
 
-@media screen and (min-width: 1920px) and (max-width: 2560px) {
+@media screen and (min-width: 1920px)  {
+    .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px!important;margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
+    .cmp-vehicleSummary .headingWrapper{font-size: 24px; letter-spacing: 1.2px;font-family: "LandRoverWeb-Bold";}
+    .cmp-vehicleSummary ul{margin-top:0;}
+    .cmp-vehicleSummary.slateblue li, .cmp-vehicleSummary.slateblue p {
+        color: #fff;
+        font-family: "AvenirNext-Regular";
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .cmp-vehicleSummary li, .cmp-vehicleSummary p {
+    
+        font-family: "AvenirNext-Regular";
+        font-size: 14px;
+        line-height: 19px;
+    }
+    .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
+    .cmp-vehicleSummary .cmp-vehicleSummary__image {        
+        order: 2;
+        flex-grow: 0;
+        flex-shrink: 0;
+        position: relative;
+        min-height: 496px;
+        height:100%;
+        width: 70%;
+        }
+        
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
-        min-height: 320px;
+       
         position: initial;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
     .cmp-vehicleSummary {      
-        padding: 60px 295px 80px 295px;
+        padding: 60px 290px 80px 290px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
@@ -669,7 +686,7 @@ height: 493px;
     .cmp-signPost{
         max-height: 525px;
         min-height: 525px;
-        padding: 0px 290px 60px 290px;
+        padding: 60px 290px 60px 290px;
     }
     .cmp-signPost__content{
         width: 50%;
@@ -683,11 +700,26 @@ height: 493px;
         height: 100%;
     }
     .cmp-vehicleSummary .cmp-vehicleSummary__content{
-        width: 34%;
+        width: 30%;
+        
     }
+    .cmp-vehicleSummary .cmp-vehicleSummary__content {
+        width: 30%;
+        padding-right: 40px;
+    }
+    .cmp-vehicleSummary .Picture--background .Picture__img{
+        height: calc((53.8vw - 40px) / 2);
+        width: calc((93.83vw - 40px) / 2);
+        float: right;
+    }
+       
 }
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
-
+    .cmp-vehicleSummary .Picture--background .Picture__img{
+        height: calc((70.10vw - 40px) / 2);
+        width: calc((121.93vw - 40px) / 2);
+        float: right;
+    }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 320px;
         position: initial;
@@ -708,8 +740,9 @@ height: 493px;
     }
     
     .cmp-vehicleSummary .cmp-vehicleSummary__image{      
-        height: 428px;
-        width: 760px;
+        position: relative;
+        height: calc((70vw - 40px) / 2);
+        width: 70%;
     }
     .cmp-vehicleSummary .cmp-vehicleSummary__content{    
         padding-right: 40px;
@@ -730,6 +763,7 @@ height: 493px;
     }
 }
 @media screen and (min-width: 375px) and (max-width: 768px) {
+  
     .cmp-vehicleSummary {
         padding: 40px 30px
     }
@@ -832,12 +866,19 @@ height: 493px;
 #landrover .slateblue.cmp-vehicleSummary .secondaryLinkWithStyle:focus
    { color: #fff!important;} 
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{ font-family:"AvenirNext-Regular";}
-
-@media screen and (min-width: 1280px) and (max-width: 2560px){
-
+.cmp-vehicleSummary__header.fontQuote .headingWrapper p {
+    font-size: 24px;
+    line-height: 24px!important;
+    color: #0C121C;
+    font-family: "LandRoverWeb-Bold";
+    letter-spacing: 1.2px!important;
+    text-transform: uppercase!important;
+}
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
+  
 .cmp-vehicleSummary.slateblue li,.cmp-vehicleSummary.slateblue p{color:#fff; font-family:"AvenirNext-Regular";}
 .cmp-vehicleSummary  li , .cmp-vehicleSummary p{font-size:14px;}
-.cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px;}
+.cmp-vehicleSummary .cmp-vehicleSummary__content{font-size:14px; line-height:19px; padding-right:40px;}
     .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px!important;margin-bottom:16px; line-height:19px!important; font-size:11px!important;}
  .cmp-vehicleSummary .headingWrapper{
 	font-size:24px; 
@@ -848,7 +889,7 @@ height: 493px;
             }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
-    margin-top: 8px;
+    margin-top: 0px;
     text-transform: capitalize;
         line-height:19px;
         letter-spacing:0.2px;
@@ -876,6 +917,9 @@ height: 493px;
         }
 
 @media screen and (min-width: 1px) and (max-width: 1279px){
+    .cmp-vehicleSummary.slateblue li,
+    .cmp-vehicleSummary.slateblue p
+    {color:#fff!important; font-family:"AvenirNext-Regular";}
     .cmp-vehicleSummary.left .cmp-vehicleSummary__content{padding-left:0!important;}
     .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 0px!important; margin-bottom: 23px;}
 .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
@@ -890,7 +934,20 @@ height: 493px;
     padding-top: 0px; 
  }}
   @media screen and (min-width: 768px) and (max-width: 1279.9px){
-  
+    .cmp-vehicleSummary.right .cmp-vehicleSummary__image{order: 1;
+        position: relative;
+        height: 48.8vw;
+        left: 0;
+        right: auto;
+        overflow: hidden;
+        padding-left: 0;
+        min-height: auto;
+    }
+    .cmp-vehicleSummary .Picture--background .Picture__img{
+        height: calc((109.15vw - 40px) / 2);
+        min-width: calc((189.79vw - 40px) / 2);
+        width: 100%;
+    }
     .cmp-vehicleSummary .cmp-vehicleSummary__subheading p{margin-bottom: 24px;}
  .cmp-vehicleSummary .cmp-vehicleSummary__price  {letter-spacing:1.54px;margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
  .slateblue.cmp-vehicleSummary ul li{color:#fff;}
@@ -903,7 +960,7 @@ height: 493px;
     font-family: "LandRoverWeb-Bold";
 }
   .cmp-vehicleSummary .cmp-vehicleSummary__content {
-    width: 432px;
+    width: calc((117.79vw - 40px) / 2);
     margin-top: 24px!important;
     padding: 0;
 }
@@ -937,7 +994,7 @@ height: 493px;
   font-family: "LandRoverWeb-Bold";
 }
  .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 0px!important; }
-.cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
+.cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:0px;}
 .cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
 .slateblue.cmp-vehicleSummary ul li{color:#fff;}
 .cmp-vehicleSummary ul{margin-top:12px; margin-bottom:24px;}
@@ -975,7 +1032,7 @@ height: 493px;
     border-bottom: 1px solid #fff!important;
 }
 #landrover .cmp-vehicleSummary .primaryLinkWithStyle, #landrover .cmp-signPost .primaryLinkWithStyle{
-    margin-top: 24px;
+    margin-top:0px;
     margin-bottom: 23px;
     font-family: "AvenirNext-DemiBold", "arial", "helvetica", sans-serif;
 }
@@ -991,22 +1048,23 @@ height: 493px;
 #landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:focus
    { color: #fff!important;} 
 
-@media screen and (min-width: 1920px) and (max-width: 2560px){
+@media screen and (min-width: 1920px) {
    
-    .signpost-theme-padding{padding-top:60px;}
+    .signpost-theme-padding{padding-top:0px;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 290px 60px 290px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 290px 60px 290px;}
 .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 290px 60px 290px;}*/
     .cmp-signPost .cmp-signPost__image {height: calc((41.3vw - 40px) / 2)!important;}
     .cmp-signPost .Picture--background .Picture__img{width:100%; height: 366px;}
-    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+    .cmp-signPost__content-headers .cmp-signPost__content-title,
+     .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
 	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 
     .cmp-signPost .cmp-signPost__image{
      width:50%; 
   }
-.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54;margin-bottom:24px;}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:"LandRoverWeb-Bold";}
 .cmp-signPost .cmp-signPost__center{
     top:0;
@@ -1025,7 +1083,7 @@ height: 493px;
 }
 
  .cmp-signPost .cmp-signPost__content .fontBodyCopy{
-	margin-top:16px;
+	margin-top:0px;
    }
 
  .cmp-signPost  .cmp-signPost__content-copy-wrapper{
@@ -1048,8 +1106,8 @@ margin-bottom:10px;
 }
 .cmp-signPost .primaryLinkWithStyle{padding-left:26px; padding-right: 26px;}
 @media screen and (min-width: 1280px) and (max-width: 1919.9px){
-    .cmp-vehicleSummary .summaryItemContent{position: absolute;}
-    .signpost-theme-padding{padding-top:60px;}
+    .cmp-vehicleSummary .summaryItemContent{position: relative;}
+    .signpost-theme-padding{padding-top:0px;}
 .cmp-signPost .cmp-signPost__content-copy-wrapper{margin-bottom:0px!important;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px  60px 60px  60px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 60px 60px  60px;}
@@ -1059,12 +1117,13 @@ margin-bottom:10px;
 .cmp-signPost .Picture--background .Picture__img{width:100%;}
 .cmp-signpostGridContext  {width:100%; max-width: 1280px; height: auto;margin:0 auto;}
 .cmp-signPost{min-height:auto; max-height:525px;}
-.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, 
+.cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 .cmp-signPost .Picture--background .Picture__img{width:560px;height:315px;}
 .cmp-signPost .cmp-signPost__image{
      width:50%;    }
-.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54}
+.cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54;margin-bottom:24px;}
   .cmp-signPost__content .fontH3{line-height:24px;font-family:"LandRoverWeb-Bold";}
 .cmp-signPost .cmp-signPost__center{
     top:0;
@@ -1083,7 +1142,7 @@ margin-bottom:10px;
 }
 
  .cmp-signPost .cmp-signPost__content .fontBodyCopy{
-	margin-top:16px;
+	margin-top:0px;
    }
 
  .cmp-signPost  .cmp-signPost__content-copy-wrapper{
@@ -1105,7 +1164,8 @@ margin-bottom:10px;
 }
 
  @media screen and (min-width: 768px) and (max-width: 1279px){
-    .signpost-theme-padding{padding-top:40px!important;}
+    .cmp-signPost__content-copy-wrapper p{margin-bottom:24px;}
+    .signpost-theme-padding{padding-top:0px!important;}
    /* .cmp-signPost.white + .cmp-signPost.white{padding:0px  30px 68px  30px;}
     .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  30px 68px  30px;}
     .cmp-signPost.light + .cmp-signPost.light{padding:0px  30px 68px  30px;}
@@ -1114,7 +1174,7 @@ margin-bottom:10px;
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:525px;}
 
-    .cmp-signPost{padding:0px 30px 60px 30px;}
+    .cmp-signPost{padding:40px 30px 60px 30px;}
     .cmp-signPost .cmp-signPost__center{
     top:0;
     transform:none;
@@ -1125,7 +1185,8 @@ margin-bottom:10px;
         top:50%;
         transform: translate(0, -50%);   
         }
-    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+    .cmp-signPost__content-headers .cmp-signPost__content-title, 
+    .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
     .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 .cmp-signPost .cmp-signPost__image{width:50%;}
  .cmp-signPost .cmp-signPost__picture {
@@ -1139,7 +1200,7 @@ margin-bottom:10px;
 object-fit: unset;
   }
 .cmp-signPost .cmp-signPost__content{width:50%;}
-.cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:16px;}
+.cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:0px;}
 .cmp-signPost .linkContainer{padding-top:0px;}
 .cmp-signPost.left .cmp-signPost__image{
     padding-right: 14px;
@@ -1157,6 +1218,12 @@ object-fit: unset;
 }
 
 @media screen and (min-width: 300px) and (max-width: 767.9px){
+    .cmp-signpostGridContext{
+        flex-direction: row;
+        width: 100%;
+        display:block;
+    }
+    .cmp-signPost__content-copy-wrapper p{margin-bottom:24px;}
     .cmp-signPost__content, .right .cmp-signPost__content{padding:0;}
     .cmp-signPost .cmp-signPost__center {
         margin: 0;
@@ -1167,15 +1234,16 @@ object-fit: unset;
         padding-right: 20px;
         width: 100%;
     }
-    .signpost-theme-padding{padding-top:25px!important;}
+    .signpost-theme-padding{padding-top:0px!important;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px  25px 60px  25px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  25px 60px  25px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px  25px 60px  25px;}
 .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  25px 60px  25px;}*/
 .cmp-signPost{min-height:auto; max-height:525px;}
-.cmp-signPost{padding:0px 25px 60px 25px;}
+.cmp-signPost{padding:25px 25px 60px 25px;}
 
-    .cmp-signPost .cmp-signPost__image {height: calc((108.3vw - 40px) / 2);}
+    .cmp-signPost .cmp-signPost__image {width:100%;height: calc((108.3vw - 40px) / 2);}
+    .cmp-signPost  .cmp-signPost__content{width:100%;}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:100%;}
    .cmp-signPost .headingWrapper{font-family:"LandRoverWeb-Bold"; font-size:20px; line-height:24px; letter-spacing:0.9px;}
@@ -1186,7 +1254,8 @@ object-fit: unset;
     margin-top: 0;
 }
 .cmp-signPost.left .cmp-signPost__center{padding-left:0;}
-.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-top:16px;margin-bottom:11px;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, 
+.cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-top:16px;margin-bottom:16px;}
 .cmp-signPost .fontBodyCopy{margin-top:0;}
     }
 

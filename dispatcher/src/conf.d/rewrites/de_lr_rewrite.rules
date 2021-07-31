@@ -17,6 +17,8 @@ RewriteCond %{REQUEST_URI} !^/system
 RewriteCond %{REQUEST_URI} !^/tmp
 RewriteCond %{REQUEST_URI} !^/var
 RewriteCond %{REQUEST_URI} !^/naas
+RewriteCond %{REQUEST_URI} !^/nav
+RewriteCond %{REQUEST_URI} !^/akamai
 RewriteCond %{REQUEST_URI} (.html|.jpe?g|.png|.svg)$
 RewriteRule ^/(.*)$ /${DE_CONTENT_PATH}/$1 [PT,L]
 

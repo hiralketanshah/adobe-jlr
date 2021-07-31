@@ -253,7 +253,8 @@
 }
 
 .cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons.active {
-	color: #0C121C
+	color: #0C121C;
+	opacity: 1;
 }
 
 
@@ -545,6 +546,7 @@
 	padding: 0;
 	border: 0;
 	text-align: left;
+	opacity: 0.6;
 }
 
 .cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons:hover {
@@ -901,7 +903,7 @@
 		padding: 59px 289px 91px 291px;
 	
 	}
-	.shelfComponent {
+	.cmp-interactiveSlider .shelfComponent {
 		display: block;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -1057,7 +1059,7 @@
     	transition: top .3s;
 	}
 
-	.shelfComponent {
+	.cmp-interactiveSlider .shelfComponent {
 		display: block;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -1105,7 +1107,7 @@
     	margin-bottom: 16px;
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
-		width: 99.7%;
+		width: 360px;
 		height: 205px;
 		margin:0 auto;
 	}
@@ -1194,7 +1196,7 @@
 	}
 	
 	
-	.shelfComponent {
+	.cmp-interactiveSlider .shelfComponent {
 		display: block;
 		padding: 0;
 		-webkit-font-smoothing: antialiased;
@@ -1245,7 +1247,7 @@
 	}
 	.cmp-interactiveSlider .infoContainer .tabData .literage .litres p{
 		font-size: 21px;
-		margin-left: 3px;
+		margin-left: 6px;
 		letter-spacing: 1.05px;
 		line-height:21px;
 		width:57px;
@@ -1255,7 +1257,7 @@
 	}
 
 	.cmp-interactiveSlider .infoContainer .tabData .literage{
-		line-height: 40px; 
+		line-height: 80px; 
 		margin-bottom: 19px;
 		font-size:60px;
 		letter-spacing:3px;
@@ -1297,13 +1299,34 @@
 	.cmp-interactiveSlider .infoContainer .tabData img{
 		width: 275px;
 		height: 119px;
+		margin:0 auto;
 	}
 	.cmp-interactiveSlider__infoContainerTemplates-content-purpose p{
 		width: 48.9%;
-		height: 15px;
+		min-height: 15px;
 	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons{
 		margin: 0px 12px 0 22px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit,
+	.odometer.odometer-theme-default .odometer-digit{
+		width : 35px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,
+	.odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+		width : 35px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,
+	.odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+		width : 35px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-value,
+	.odometer.odometer-theme-default .odometer-digit .odometer-value{
+		width : 35px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value,
+	.odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
+		width : 35px;
 	}
 
 
@@ -1393,7 +1416,7 @@
 		width: 325px;   	
 	}
 	.cmp-interactiveSlider .infoContainer .tabData img{
-		width: 100%;
+		width: 324px;
 		height: 135px;
 		margin-top:20px;
 	}
@@ -1475,5 +1498,26 @@
 	}
 	.cmp-interactiveSlider .sliderContainer .sliderContainerUpper .cmp-interactiveSlider__buttons{
 		margin: 0px 12px 0 22px;
+	}
+
+	.odometer.odometer-auto-theme .odometer-digit,
+	.odometer.odometer-theme-default .odometer-digit{
+		width : 30px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer,
+	.odometer.odometer-theme-default .odometer-digit .odometer-digit-spacer {
+		width:30px
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner,
+	.odometer.odometer-theme-default .odometer-digit .odometer-digit-inner {
+		width:30px
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-value,
+	.odometer.odometer-theme-default .odometer-digit .odometer-value{
+		width:30px;
+	}
+	.odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value,
+	.odometer.odometer-theme-default .odometer-digit .odometer-value.odometer-last-value {
+		width:30px;
 	}
 }

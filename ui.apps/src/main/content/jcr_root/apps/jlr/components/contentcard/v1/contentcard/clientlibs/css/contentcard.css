@@ -546,9 +546,14 @@ html:not(.touch) .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCards
     padding-top: 54px;
   }
 }
-.cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle {
+.cmp-ContentBlocksContainer .secondaryLinkContainer .secondaryLinkWithStyle{
+  font-family: "AvenirNext-DemiBold"; /*bugfix-1183*/
+
+}
+.cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle{
   padding-top: 17px;
   padding-bottom: 16px;
+  font-family: "AvenirNext-DemiBold"; /*bugfix-1183*/
 }
 .cmp-ContentBlocksContainer .ctaList {
   background-color: #e4e8e8;
