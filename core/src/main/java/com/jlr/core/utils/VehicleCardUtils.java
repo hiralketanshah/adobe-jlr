@@ -76,13 +76,13 @@ public class VehicleCardUtils {
         VehicleLink vehicleLink = new VehicleLink();
         vehicleLink.setText(ctaPojo.getText());
         vehicleLink.setIcon(ctaPojo.getIcon());
+        String link = ctaPojo.getLink();
         if(isNotAuthor) {
-            String link = ctaPojo.getLink();
             link = link.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
             link = link.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
-            vehicleLink.setHref(link);
-            vehicleLink.setExternalLink(link);
         }
+        vehicleLink.setHref(link);
+        vehicleLink.setExternalLink(link);
         vehicleLink.setTargetKeyword(ctaPojo.getTarget());
         vehicleLink.setAccessibleText(JSONObject.NULL + StringUtils.EMPTY);
         vehicleLink.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
