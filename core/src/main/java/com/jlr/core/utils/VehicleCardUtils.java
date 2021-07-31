@@ -77,7 +77,7 @@ public class VehicleCardUtils {
         vehicleLink.setText(ctaPojo.getText());
         vehicleLink.setIcon(ctaPojo.getIcon());
         String link = ctaPojo.getLink();
-        if(isNotAuthor) {
+        if(isNotAuthor && StringUtils.isNotBlank(link)) {
             link = link.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
             link = link.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
         }
