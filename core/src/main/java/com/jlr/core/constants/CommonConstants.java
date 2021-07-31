@@ -444,4 +444,7 @@ public class CommonConstants {
     public static final String GREATER = "greater";
 
     public static final String NOT = "not";
+
+    public static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
+    public static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
 }

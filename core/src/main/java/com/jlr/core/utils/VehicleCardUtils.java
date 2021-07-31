@@ -15,12 +15,16 @@ import com.jlr.core.pojos.Image;
 import com.jlr.core.pojos.PublishedImage;
 import com.jlr.core.pojos.VehicleLink;
 
+import static com.jlr.core.constants.CommonConstants.AU_PUBLISHED_SITES;
+import static com.jlr.core.constants.CommonConstants.DE_PUBLISHED_SITES;
+
 /**
  * The type Vehicle card utils.
  *
  * @author Adobe
  */
 public class VehicleCardUtils {
+
     /**
      * Sets image to vehicle link.
      *
@@ -65,15 +69,21 @@ public class VehicleCardUtils {
      *
      * @param ctaPojo
      *            the cta pojo
+     * @param isNotAuthor
      * @return the cta to vehicle link
      */
-    public static VehicleLink setCtaToVehicleLink(CTAPojo ctaPojo) {
+    public static VehicleLink setCtaToVehicleLink(CTAPojo ctaPojo, boolean isNotAuthor) {
         VehicleLink vehicleLink = new VehicleLink();
         vehicleLink.setText(ctaPojo.getText());
         vehicleLink.setIcon(ctaPojo.getIcon());
-        vehicleLink.setHref(ctaPojo.getLink());
+        if(isNotAuthor) {
+            String link = ctaPojo.getLink();
+            link = link.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
+            link = link.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
+            vehicleLink.setHref(link);
+            vehicleLink.setExternalLink(link);
+        }
         vehicleLink.setTargetKeyword(ctaPojo.getTarget());
-        vehicleLink.setExternalLink(ctaPojo.getLink());
         vehicleLink.setAccessibleText(JSONObject.NULL + StringUtils.EMPTY);
         vehicleLink.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
         return vehicleLink;
