@@ -123,7 +123,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                     }
                     if (StringUtils.isEmpty(vehicleImageLink)) {
                         vehicleImageLink = vehicleCardModel.getImageLink();
-                        if(isNotAuthor) {
+                        if(isNotAuthor && StringUtils.isNotBlank(vehicleImageLink)) {
                             vehicleImageLink = vehicleImageLink.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
                             vehicleImageLink = vehicleImageLink.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
                         }
