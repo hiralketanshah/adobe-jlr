@@ -2074,8 +2074,13 @@ var panoId = 0;
 (function ($, window) {
   $('.cmp-interior360').each(function (index, element){ 
         //check for making shelfComponent display none to remove extra padding
-        if((element.querySelectorAll('p').length == 0) || element.querySelectorAll('a').length == 0){
-          //assuming author doest not author anything
+       
+
+
+        
+        if((element.querySelectorAll('.headingWrapper p').length == 0) && element.querySelectorAll('a').length == 0){
+        
+        //assuming author doest not author anything
           let shelfComponent = element.querySelector('.shelfComponent');
           if(shelfComponent){
             element.querySelector('.cmp-genericItem__element-poster').style.marginBottom="0px";
@@ -2083,6 +2088,7 @@ var panoId = 0;
             element.style.minHeight ="auto";
           }
         }
+        
   })
 
   $('.Interior360').each(function (index, element) {
