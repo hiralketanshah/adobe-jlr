@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
+
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -23,9 +25,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
-import com.jlr.core.constants.CommonConstants;
 import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.constants.VehicleCardConstants;
 import com.jlr.core.models.VehicleCardContainerModel;
@@ -41,10 +43,9 @@ import com.jlr.core.utils.VehicleCardUtils;
  *
  * @author Adobe
  */
-@Model(adaptables = {Resource.class, SlingHttpServletRequest.class}, adapters = {VehicleCardContainerModel.class},
-                defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
+@Model(adaptables = { Resource.class, SlingHttpServletRequest.class }, adapters = {
+        VehicleCardContainerModel.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 public class VehicleCardContainerModelImpl extends GlobalModelImpl implements VehicleCardContainerModel {
-
 
     /** The logger. */
     private static Logger LOGGER = LoggerFactory.getLogger(VehicleCardContainerModelImpl.class);
@@ -97,7 +98,6 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     private String vehiclePrice;
     private String vehiclePriceConfigValue;
 
-
     /**
      * Init.
      */
@@ -130,7 +130,8 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
 
     private String getVehicleModelPrice(String priceMacro) {
         AtomicReference<String> modelPrice = new AtomicReference<>();
-        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage, pageProperties, priceMacro, key);
+        Map<String, String> modelPriceMap = tcoService.getModelPrice(resourceResolver, request, currentPage,
+                pageProperties, priceMacro, key);
         modelPriceMap.entrySet().iterator().forEachRemaining(entry -> {
             vehiclePriceConfigValue = entry.getKey();
             modelPrice.set(entry.getValue());
@@ -141,7 +142,8 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     /**
      * Creates the json structure.
      *
-     * @param vehicleCardModelList the vehicle card model list
+     * @param vehicleCardModelList
+     *            the vehicle card model list
      * @return the JSON object
      */
     private JSONObject createJsonStructure(List<VehicleCardModelImpl> vehicleCardModelList) {
@@ -159,8 +161,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
             }
             jsonResponseObject.put(VehicleCardConstants.TABS, model);
         } catch (JSONException e) {
-            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
-                            ErrorUtilsConstants.MODULE_SERVICE, this.getClass().getSimpleName(), e));
+            LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION,
+                    ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE, ErrorUtilsConstants.MODULE_SERVICE,
+                    this.getClass().getSimpleName(), e));
         }
         return jsonResponseObject;
     }
@@ -168,8 +171,10 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     /**
      * Map vehicle card details.
      *
-     * @param vehicleCardModel the vehicle card model
-     * @param order the order
+     * @param vehicleCardModel
+     *            the vehicle card model
+     * @param order
+     *            the order
      * @return the vehicle card
      */
     private VehicleCard mapVehicleCardDetails(VehicleCardModelImpl vehicleCardModel, int order) {
@@ -188,7 +193,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                 if (VehicleCardConstants.PRIMARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                     vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else if (VehicleCardConstants.SECONDARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
-                	ctaPojo.setIcon("Chevron_Right");
+                    ctaPojo.setIcon("Chevron_Right");
                     secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
                 } else {
                     extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
@@ -197,11 +202,12 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         }
         vehicleCard.setSecondaryLinks(secondaryLinks);
         vehicleCard.setExtraSecondaryLinks(extraSecondaryLinks);
-        vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink());
-        vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink());
+        vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink(vehicleCardModel.getImageLink()));
+        vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink(vehicleCardModel.getImageLink()));
         vehicleCard.setDisclaimer(vehicleCardModel.getDisclaimer());
-        vehicleCard.setImage(VehicleCardUtils.setImageToVehicleLink(vehicleCardModel.getFileReference(), vehicleCardModel.getImageAlt()));
-        vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink());
+        vehicleCard.setImage(VehicleCardUtils.setImageToVehicleLink(vehicleCardModel.getFileReference(),
+                vehicleCardModel.getImageAlt()));
+        vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink(vehicleCardModel.getImageLink()));
         vehicleCard.setFeatures(VehicleCardUtils.addFeaturesToVehicleCard(vehicleCardModel.getFeatures()));
 
         return vehicleCard;
@@ -236,7 +242,6 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     public String getVehicleCardScript() {
         return "<script id=\"dxnav-" + uniqueID + "\" type=\"application/json\">" + vehicleCardJson + "</script>";
     }
-
 
     /**
      * Gets vehicle image reference.
@@ -277,4 +282,3 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         return vehiclePriceConfigValue;
     }
 }
-

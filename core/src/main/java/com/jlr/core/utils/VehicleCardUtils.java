@@ -48,11 +48,11 @@ public class VehicleCardUtils {
      *
      * @return the empty vehicle link
      */
-    public static VehicleLink getEmptyVehicleLink() {
+    public static VehicleLink getEmptyVehicleLink(String href) {
         VehicleLink empty = new VehicleLink();
         empty.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
         empty.setExternalLink(JSONObject.NULL + StringUtils.EMPTY);
-        empty.setHref(null);
+        empty.setHref(href);
         empty.setIcon(null);
         empty.setText(null);
         empty.setTargetKeyword("same_window");
