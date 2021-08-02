@@ -1195,7 +1195,6 @@
 
                   }
                   else{
-                    console.log("ass");
                   for (var i = 0; i < len; i++) {
                     sliderWith += this.$sliderContainerUpper[0].children[i].clientWidth;
                     let ss;
