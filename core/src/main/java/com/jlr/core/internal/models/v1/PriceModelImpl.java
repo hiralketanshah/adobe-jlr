@@ -68,7 +68,10 @@ public class PriceModelImpl implements PriceModel {
         }
         String resourceType = PricingUtils.getResourceType(request);
         setIfHeroOrDerivative(resourceType);
-        String cleansedPrice = price.replaceAll(".nocache", "").replaceAll("#", "/");
+        String cleansedPrice = StringUtils.EMPTY;
+        if(StringUtils.isNotBlank(price)) {
+            cleansedPrice =  price.replaceAll(".nocache", "").replaceAll("#", "/");
+        }
 
         Map<String, String> modelPriceMap =
                 tcoService.getModelPrice(resourceResolver, request, currentPage, pageProperties, cleansedPrice, PricingUtils.getKey(resourceType));
