@@ -411,7 +411,7 @@ public class GlobalModelImpl implements GlobalModel {
      */
     @Override
     public String getPrice() {
-        if (StringUtils.isNotBlank(price)) {
+        if (StringUtils.isNotBlank(price) && price.contains("{{")) {
             return price.replaceAll("/", "#");
         }
         return price;
