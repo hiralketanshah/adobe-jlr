@@ -411,6 +411,9 @@ public class GlobalModelImpl implements GlobalModel {
      */
     @Override
     public String getPrice() {
+        if (StringUtils.isNotBlank(price)) {
+            return price.replaceAll("/", "#");
+        }
         return price;
     }
 
