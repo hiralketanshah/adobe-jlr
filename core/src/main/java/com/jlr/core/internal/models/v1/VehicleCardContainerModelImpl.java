@@ -208,11 +208,11 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         }
         vehicleCard.setSecondaryLinks(secondaryLinks);
         vehicleCard.setExtraSecondaryLinks(extraSecondaryLinks);
-        vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink(vehicleImageLink));
-        vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink(vehicleImageLink));
+        vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink(vehicleCardModel.getImageLink()));
+        vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink(vehicleCardModel.getImageLink()));
         vehicleCard.setDisclaimer(vehicleCardModel.getDisclaimer());
         vehicleCard.setImage(VehicleCardUtils.setImageToVehicleLink(vehicleCardModel.getFileReference(), vehicleCardModel.getImageAlt()));
-        vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink(vehicleImageLink));
+        vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink(vehicleCardModel.getImageLink()));
         vehicleCard.setFeatures(VehicleCardUtils.addFeaturesToVehicleCard(vehicleCardModel.getFeatures()));
 
         return vehicleCard;
