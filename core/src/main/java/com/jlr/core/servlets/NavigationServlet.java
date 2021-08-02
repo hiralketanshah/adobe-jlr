@@ -15,6 +15,7 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.engine.SlingRequestProcessor;
+import org.apache.sling.settings.SlingSettingsService;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -28,6 +29,7 @@ import org.osgi.service.metatype.annotations.Designate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Inject;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -36,8 +38,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
-import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+import static com.jlr.core.constants.CommonConstants.*;
 import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
 import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
 import static com.jlr.core.utils.NavigationUtils.getExternalLink;
@@ -63,6 +64,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
     @Reference
     private transient SlingRequestProcessor requestProcessor;
+
+    @Reference
+    private transient SlingSettingsService slingSettingsService;
     private transient NavigationServletConfig config;
 
     @Activate
@@ -167,7 +171,8 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
-            responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
+            String cssFontsLink = getCssFontImportsLink();
+            responseObject.put("cssFontImportsLink", getExternalLink(cssFontsLink, locale, resolver));
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             String output = document.getElementsByTag("header").outerHtml();
             output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
@@ -190,6 +195,16 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
         }
+    }
+
+    private String getCssFontImportsLink() {
+        String cssFontsLink = config.cssFontImportsLink();
+        if(slingSettingsService.getRunModes().contains(RUNMODE_DEV)) {
+            cssFontsLink = cssFontsLink.replace(".css", "-dev.css");
+        } else if(slingSettingsService.getRunModes().contains(RUNMODE_STAGE)) {
+            cssFontsLink =cssFontsLink.replace(".css", "-stage.css");
+        }
+        return cssFontsLink;
     }
 
 }

@@ -333,6 +333,9 @@ public class CommonConstants {
     /** The Constant RUNMODE_AUTHOR. */
     public static final String RUNMODE_AUTHOR = "author";
 
+    /** The Constant RUNMODE_DEV. */
+    public static final String RUNMODE_DEV = "dev";
+
     /** The Constant RUNMODE_STAGE. */
     public static final String RUNMODE_STAGE = "stage";
 
