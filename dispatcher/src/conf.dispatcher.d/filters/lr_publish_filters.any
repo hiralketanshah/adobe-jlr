@@ -70,5 +70,5 @@
 /0040 { /type "allow" /url "/akamai/sla-test-object.html" }
 /0041 { /type "allow" /url "/akamai/sureroute-test-object.html" }
 
-/0042 { /type "allow" /url "content/landrover/global/europe/published-sites/de_de/*/*.*.html" }
+/0042 { /type "allow" /url "/content/landrover/global/europe/published-sites/de_de/*/*.*.html" }
 /0043 { /type "allow" /url "/content/landrover/global/row/published-sites/en_au/*/*.*.html" }
