@@ -1,28 +1,5 @@
 package com.jlr.core.internal.models.v1;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicReference;
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.models.annotations.DefaultInjectionStrategy;
-import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.InjectionStrategy;
-import org.apache.sling.models.annotations.injectorspecific.OSGiService;
-import org.apache.sling.models.annotations.injectorspecific.RequestAttribute;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.day.cq.commons.inherit.InheritanceValueMap;
 import com.day.cq.wcm.api.Page;
 import com.jlr.core.constants.CommonConstants;
@@ -35,6 +12,30 @@ import com.jlr.core.services.TcoService;
 import com.jlr.core.utils.CommonUtils;
 import com.jlr.core.utils.ErrorUtils;
 import com.jlr.core.utils.VehicleCardUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.models.annotations.DefaultInjectionStrategy;
+import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.*;
+import org.apache.sling.settings.SlingSettingsService;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicReference;
+
+import static com.jlr.core.constants.CommonConstants.AU_PUBLISHED_SITES;
+import static com.jlr.core.constants.CommonConstants.DE_PUBLISHED_SITES;
 
 /**
  * The type Vehicle card container model.
@@ -71,6 +72,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     private SlingHttpServletRequest request;
 
     @Inject
+    private SlingSettingsService slingSettingsService;
+
+    @Inject
     private Page currentPage;
 
     @Inject
@@ -96,7 +100,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     private String vehicleImageLink;
     private String vehiclePrice;
     private String vehiclePriceConfigValue;
-
+    private boolean isNotAuthor;
 
     /**
      * Init.
@@ -104,6 +108,9 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
     @PostConstruct
     public void init() {
 
+        if (!slingSettingsService.getRunModes().contains(CommonConstants.RUNMODE_AUTHOR)) {
+            isNotAuthor = Boolean.TRUE;
+        }
         List<VehicleCardModelImpl> vehicleCardModelList = new ArrayList<>();
 
         if (resource.hasChildren()) {
@@ -116,6 +123,10 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                     }
                     if (StringUtils.isEmpty(vehicleImageLink)) {
                         vehicleImageLink = vehicleCardModel.getImageLink();
+                        if(isNotAuthor && StringUtils.isNotBlank(vehicleImageLink)) {
+                            vehicleImageLink = vehicleImageLink.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
+                            vehicleImageLink = vehicleImageLink.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
+                        }
                     }
                     if (StringUtils.isEmpty(vehiclePrice)) {
                         vehiclePrice = getVehicleModelPrice(vehicleCardModel.getPrice());
@@ -186,22 +197,22 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
         if (CollectionUtils.isNotEmpty(vehicleCardModel.getCtaList())) {
             vehicleCardModel.getCtaList().stream().forEach(ctaPojo -> {
                 if (VehicleCardConstants.PRIMARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
-                    vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
+                    vehicleCard.setPrimaryLink(VehicleCardUtils.setCtaToVehicleLink(ctaPojo, isNotAuthor));
                 } else if (VehicleCardConstants.SECONDARY.equalsIgnoreCase(ctaPojo.getLinkType())) {
                 	ctaPojo.setIcon("Chevron_Right");
-                    secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
+                    secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo, isNotAuthor));
                 } else {
-                    extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo));
+                    extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo, isNotAuthor));
                 }
             });
         }
         vehicleCard.setSecondaryLinks(secondaryLinks);
         vehicleCard.setExtraSecondaryLinks(extraSecondaryLinks);
-        vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink());
-        vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink());
+        vehicleCard.setDisclaimerLink1(VehicleCardUtils.getEmptyVehicleLink(vehicleImageLink));
+        vehicleCard.setDisclaimerLink2(VehicleCardUtils.getEmptyVehicleLink(vehicleImageLink));
         vehicleCard.setDisclaimer(vehicleCardModel.getDisclaimer());
         vehicleCard.setImage(VehicleCardUtils.setImageToVehicleLink(vehicleCardModel.getFileReference(), vehicleCardModel.getImageAlt()));
-        vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink());
+        vehicleCard.setImageLink(VehicleCardUtils.getEmptyVehicleLink(vehicleImageLink));
         vehicleCard.setFeatures(VehicleCardUtils.addFeaturesToVehicleCard(vehicleCardModel.getFeatures()));
 
         return vehicleCard;

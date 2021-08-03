@@ -15,12 +15,16 @@ import com.jlr.core.pojos.Image;
 import com.jlr.core.pojos.PublishedImage;
 import com.jlr.core.pojos.VehicleLink;
 
+import static com.jlr.core.constants.CommonConstants.AU_PUBLISHED_SITES;
+import static com.jlr.core.constants.CommonConstants.DE_PUBLISHED_SITES;
+
 /**
  * The type Vehicle card utils.
  *
  * @author Adobe
  */
 public class VehicleCardUtils {
+
     /**
      * Sets image to vehicle link.
      *
@@ -48,11 +52,11 @@ public class VehicleCardUtils {
      *
      * @return the empty vehicle link
      */
-    public static VehicleLink getEmptyVehicleLink() {
+    public static VehicleLink getEmptyVehicleLink(String href) {
         VehicleLink empty = new VehicleLink();
         empty.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
         empty.setExternalLink(JSONObject.NULL + StringUtils.EMPTY);
-        empty.setHref(null);
+        empty.setHref(href);
         empty.setIcon(null);
         empty.setText(null);
         empty.setTargetKeyword("same_window");
@@ -65,15 +69,21 @@ public class VehicleCardUtils {
      *
      * @param ctaPojo
      *            the cta pojo
+     * @param isNotAuthor
      * @return the cta to vehicle link
      */
-    public static VehicleLink setCtaToVehicleLink(CTAPojo ctaPojo) {
+    public static VehicleLink setCtaToVehicleLink(CTAPojo ctaPojo, boolean isNotAuthor) {
         VehicleLink vehicleLink = new VehicleLink();
         vehicleLink.setText(ctaPojo.getText());
         vehicleLink.setIcon(ctaPojo.getIcon());
-        vehicleLink.setHref(ctaPojo.getLink());
+        String link = ctaPojo.getLink();
+        if(isNotAuthor && StringUtils.isNotBlank(link)) {
+            link = link.replaceAll(DE_PUBLISHED_SITES, StringUtils.EMPTY);
+            link = link.replaceAll(AU_PUBLISHED_SITES, StringUtils.EMPTY);
+        }
+        vehicleLink.setHref(link);
+        vehicleLink.setExternalLink(link);
         vehicleLink.setTargetKeyword(ctaPojo.getTarget());
-        vehicleLink.setExternalLink(ctaPojo.getLink());
         vehicleLink.setAccessibleText(JSONObject.NULL + StringUtils.EMPTY);
         vehicleLink.setInternalLink(JSONObject.NULL + StringUtils.EMPTY);
         return vehicleLink;
