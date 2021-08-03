@@ -101,8 +101,8 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         String html = out.toString();
 
         Document document = null;
-        externalLink = getExternalLink(StringUtils.EMPTY, locale, resourceResolver);
         if (fullyQualifyDxLinks) {
+            externalLink = getExternalLink(StringUtils.EMPTY, locale, resourceResolver);
             document = Jsoup.parse(html, externalLink);
             NavigationUtils.processUrls(document);
         } else {
@@ -172,7 +172,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             String output = document.getElementsByTag("header").outerHtml();
-            output = output.replaceAll("\"/", externalLink);
+            if(StringUtils.isNotBlank(externalLink)) {
+                output = output.replaceAll("\"/", externalLink);
+            }
             output = output.replaceAll("&nbsp;", " ");
             output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
             output = output.replaceAll(AU_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
