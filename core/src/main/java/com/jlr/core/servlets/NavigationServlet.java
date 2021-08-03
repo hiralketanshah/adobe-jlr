@@ -173,7 +173,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             String output = document.getElementsByTag("header").outerHtml();
             if(StringUtils.isNotBlank(externalLink)) {
-                output = output.replaceAll("\"/", externalLink);
+                output = output.replaceAll("\"/", "\""+externalLink);
             }
             output = output.replaceAll("&nbsp;", " ");
             output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
