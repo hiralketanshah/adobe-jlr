@@ -64,6 +64,7 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     @Reference
     private transient SlingRequestProcessor requestProcessor;
     private transient NavigationServletConfig config;
+    private String externalLink;
 
     @Activate
     protected void activate(NavigationServletConfig config) {
@@ -100,8 +101,9 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         String html = out.toString();
 
         Document document = null;
+        externalLink = getExternalLink(StringUtils.EMPTY, locale, resourceResolver);
         if (fullyQualifyDxLinks) {
-            document = Jsoup.parse(html, getExternalLink(StringUtils.EMPTY, locale, resourceResolver));
+            document = Jsoup.parse(html, externalLink);
             NavigationUtils.processUrls(document);
         } else {
             document = Jsoup.parse(html);
@@ -170,6 +172,8 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
             String output = document.getElementsByTag("header").outerHtml();
+            output = output.replaceAll("\"/", externalLink);
+            output = output.replaceAll("&nbsp;", " ");
             output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
             output = output.replaceAll(AU_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
             responseObject.put("html", output);
