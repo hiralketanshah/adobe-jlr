@@ -240,10 +240,8 @@
                   <div class="dxnav-vehicle-dropdown-shortcuts__instructions" style="display: none;"
                      id="dxnav-vehicle-dropdown-shortcuts__instructions"></div>
                   <div class="dxnav-links-dropdown__container dxnav-links-dropdown__container--desktop" role="document">
-                     <div class="dxnav-vehicle-nav-desktop"
-                        data-dxnav-dropdown-from-text="${config.configMap['navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown']}"
-                        data-dxnav-dropdown-from-lease-text="??navigation.shared.vehicleDropdownFromLeaseText_en_AU??"
-                        data-dx-modals-closedialog-aria-label="Close item">
+                     
+                        <div data-sly-resource="${'pricing' @ resourceType='jlr/components/primarynavigation/v1/marketpricing',selectors='vehiclemarketpricing'}" data-sly-unwrap="${!wcmmode.edit}"></div>
                         <div class="dxnav-dropdown-primary-tabs" data-naastabs-id="vehicle-dropdown">
                            <div role="tablist"
                               class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible"
