@@ -23,13 +23,7 @@
          </a>
          <div class="dxnav__mobile-icons">
             <sly data-sly-test="${pageConfig.marketRegionPath}">
-               <a class="dxnav__mobile-icons-prices cmp-marketButton MarketRegionalPricing-triggerer" href="#"
-                  aria-label="${config.configMap['marketregionpricing.dxnav.selectregion']}" aria-haspopup="dialog"
-                  role="button">
-                  <svg class="dxnav-icon">
-                     <use xlink:href="#Show_Prices"></use>
-                  </svg>
-               </a>
+               <div data-sly-resource="${'pricing' @ resourceType='jlr/components/primarynavigation/v1/marketpricing',selectors='marketpricingmobile'}" data-sly-unwrap="${!wcmmode.edit}"></div>
             </sly>
             <a class="dxnav__mobile-icons-search" href="#" aria-label="${model.searchAriaLabel}" aria-expanded="false"
                aria-haspopup="dialog" role="button">
@@ -98,19 +92,7 @@
          <div class="dxnav dxnav__secondary-items">
             <ul>
                <sly data-sly-test="${pageConfig.marketRegionPath}">
-                  <li class="dxnav__item dxnav__item-showprices" data-market-region="${pageConfig.marketRegionPath}">
-                     <a class="dxnav-showprices cmp-marketButton MarketRegionalPricing-triggerer" href="#"
-                        aria-label="${config.configMap['marketregionpricing.dxnav.selectregion']}" aria-expanded="false"
-                        aria-haspopup="dialog" role="button">
-                        <svg class="dxnav-icon ${pageConfig.state=='' ? '' : 'dxnav-hide-desktop'}">
-                           <use xlink:href="#Show_Prices"></use>
-                        </svg>
-                        <span data-sly-test="${pageConfig.state}"
-                           class="dxnav__item-prices-region-text">${pageConfig.state}</span>
-                        <span
-                           class="dxnav__item-prices-label dxnav-hide-desktop">${config.configMap['marketregionpricing.dxnav.selectregion']}</span>
-                     </a>
-                  </li>
+                  <div data-sly-resource="${'pricing' @ resourceType='jlr/components/primarynavigation/v1/marketpricing'}" data-sly-unwrap="${!wcmmode.edit}"></div>
                </sly>
                <li id="dxnav-search" class="dxnav__item dxnav__item-search" data-dropdown="dxnav__search"
                    data-search-results-url="/content/misc/search.html?locale=">
@@ -258,10 +240,8 @@
                   <div class="dxnav-vehicle-dropdown-shortcuts__instructions" style="display: none;"
                      id="dxnav-vehicle-dropdown-shortcuts__instructions"></div>
                   <div class="dxnav-links-dropdown__container dxnav-links-dropdown__container--desktop" role="document">
-                     <div class="dxnav-vehicle-nav-desktop"
-                        data-dxnav-dropdown-from-text="${config.configMap['navigation.shared.vehicleDropdownFromText.overrides_vehicleDropdown']}"
-                        data-dxnav-dropdown-from-lease-text="??navigation.shared.vehicleDropdownFromLeaseText_en_AU??"
-                        data-dx-modals-closedialog-aria-label="Close item">
+                     
+                        <div data-sly-resource="${'pricing' @ resourceType='jlr/components/primarynavigation/v1/marketpricing',selectors='vehiclemarketpricing'}" data-sly-unwrap="${!wcmmode.edit}"></div>
                         <div class="dxnav-dropdown-primary-tabs" data-naastabs-id="vehicle-dropdown">
                            <div role="tablist"
                               class="dxnav-dropdown-primary-tabs__tablist dxnav-dropdown-primary-tabs__tablist--visible"
