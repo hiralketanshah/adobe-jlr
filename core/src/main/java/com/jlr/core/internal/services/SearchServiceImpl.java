@@ -45,31 +45,7 @@ import com.jlr.core.pojos.ResultPojo;
 import com.jlr.core.pojos.SearchPojo;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.metatype.annotations.Designate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import java.util.*;
-import java.util.stream.Collectors;
-
-import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
-import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
-import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
-import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
 import static com.day.cq.wcm.api.NameConstants.PN_PAGE_TITLE;
-import static com.jlr.core.constants.CommonConstants.*;
-import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 
 @Component(immediate = true, service = SearchService.class)
 @Designate(ocd = SearchConfig.class)
