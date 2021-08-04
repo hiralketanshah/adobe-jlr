@@ -1,35 +1,5 @@
 package com.jlr.core.internal.services;
 
-import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
-import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
-import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
-import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
-import static com.jlr.core.constants.CommonConstants.LOCALE_AU;
-import static com.jlr.core.constants.CommonConstants.LOCALE_DE;
-import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
-import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
-import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.stream.Collectors;
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.MapUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.metatype.annotations.Designate;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import com.day.cq.commons.Externalizer;
 import com.day.cq.search.PredicateGroup;
 import com.day.cq.search.Query;
@@ -46,6 +16,31 @@ import com.jlr.core.pojos.ResultPojo;
 import com.jlr.core.pojos.SearchPojo;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.MapUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ValueMap;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.util.*;
+import java.util.stream.Collectors;
+
+import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
+import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
+import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
+import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
+import static com.day.cq.wcm.api.NameConstants.PN_PAGE_TITLE;
+import static com.jlr.core.constants.CommonConstants.*;
+import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
 
 @Component(immediate = true, service = SearchService.class)
 @Designate(ocd = SearchConfig.class)
@@ -88,8 +83,8 @@ public class SearchServiceImpl implements SearchService {
                     linkPojo.setUrl(hit.getPath());
                     ResultPojo resultPojo = new ResultPojo();
                     resultPojo.setLink(linkPojo);
-                    resultPojo.setTitle(getOnlyTextFromHTML(hit.getTitle()));
-                    resultPojo.setSummary(getDescription(hit.getResource()));
+                    resultPojo.setTitle(getPagePropertyValue(hit.getResource(), PN_PAGE_TITLE));
+                    resultPojo.setSummary(getPagePropertyValue(hit.getResource(), JCR_DESCRIPTION));
                     results.add(resultPojo);
                 }
             }
@@ -101,11 +96,11 @@ public class SearchServiceImpl implements SearchService {
         return gson.toJson(searchPojo);
     }
 
-    private String getDescription(Resource resource) {
+    private String getPagePropertyValue(Resource resource, String property) {
         if (resource.getChild(JCR_CONTENT) != null) {
             ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
             if (valueMap != null) {
-                return valueMap.get(JCR_DESCRIPTION, String.class);
+                return valueMap.get(property, String.class);
             }
         }
         return StringUtils.EMPTY;
