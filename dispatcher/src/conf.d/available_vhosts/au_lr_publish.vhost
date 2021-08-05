@@ -21,10 +21,10 @@ PassEnv DISP_ID
 			Header always add X-Dispatcher ${DISP_ID}
 			Header always add X-Vhost "publish"
             Header always add X-Market "au"
-            #Header merge X-Frame-Options ${HEADER-SAMEORIGIN} "expr=%{resp:X-Frame-Options}!='SAMEORIGIN'"
-            #### Adding SAME ORIGIN Header to all requests except Naas URL
-			SetEnvIf Request_URI "/content/nav/naasconfig/(en_au|de_de).html" is_naas
-			Header always add X-Frame-Options "SAMEORIGIN"  env=!is_naas
+			Header set X-Frame-Options "SAMEORIGIN"
+    #### Adding SAME ORIGIN Header to all requests except Naas URL
+            SetEnvIf Request_URI "/en_au.html" is_naas
+            Header unset X-Frame-Options env=is_naas
 			Header merge X-Content-Type-Options nosniff "expr=%{resp:X-Content-Type-Options}!='nosniff'"
 			SetEnvIf Request_URI "(\.min)?\.[a-f0-9]+\.js" long_expires=true
             SetEnvIf Request_URI "(\.min)?\.[a-f0-9]+\.css" long_expires=true
