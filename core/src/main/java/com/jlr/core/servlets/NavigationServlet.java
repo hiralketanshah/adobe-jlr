@@ -126,6 +126,11 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             NavigationUtils.removeAttributes(document, "span.NaasMarketRegionalPricing-cta__label");
             NavigationUtils.removeAttributes(document, "div.dxnav-NaasMarketRegionalPricing");
             NavigationUtils.removeAttributes(document, "span.dxnav-NaasMarketRegionalPricing__label");
+        } else {
+            if(null != request.getCookie(JLR_LOCALE_PRICING)) {
+                String stateCode = request.getCookie(JLR_LOCALE_PRICING).getValue();
+                NavigationUtils.addAttributes(document,"a.dxnav-showprices.cmp-marketButton.MarketRegionalPricing-triggerer", "dxnav__item-prices-region-text", stateCode );
+            }
         }
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
