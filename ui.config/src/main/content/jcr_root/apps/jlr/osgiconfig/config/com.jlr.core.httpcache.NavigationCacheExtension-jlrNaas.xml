@@ -5,8 +5,8 @@
           allowedCookieKeys="[JLR_locale-pricing]"
           emptyCookieKeySetAllowed="{Boolean}true"
           configName="jlrNaas"
-          resourceTypes="[jlr/components/request/navigation,jlr/components/request/fullsearch]"
+          resourceTypes="[jlr/components/request/navigation]"
           extensions="[json,html]"
-          requestParameters="[locale,cache,fullyQualifyDxLinks,retailerName,retailerUrl,search,yourRetailer,retailerLocatorLink,myJLRProfile,mrp,query]"
+          requestParameters="[locale,cache,fullyQualifyDxLinks,retailerName,retailerUrl,search,yourRetailer,retailerLocatorLink,myJLRProfile,mrp]"
           requestParameterValues="[locale=de_DE;en_AU;de-DE;en-AU;de_de;en_au;de-de;en-au]"
 />
