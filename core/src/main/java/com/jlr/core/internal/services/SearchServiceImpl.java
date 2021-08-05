@@ -8,7 +8,6 @@ import static com.jlr.core.constants.CommonConstants.LOCALE_AU;
 import static com.jlr.core.constants.CommonConstants.LOCALE_DE;
 import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
 import static com.jlr.core.utils.CommonUtils.getExternalizerDomainByLocale;
-import static com.jlr.core.utils.CommonUtils.getOnlyTextFromHTML;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -46,6 +45,7 @@ import com.jlr.core.pojos.ResultPojo;
 import com.jlr.core.pojos.SearchPojo;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
+import static com.day.cq.wcm.api.NameConstants.PN_PAGE_TITLE;
 
 @Component(immediate = true, service = SearchService.class)
 @Designate(ocd = SearchConfig.class)
@@ -88,8 +88,8 @@ public class SearchServiceImpl implements SearchService {
                     linkPojo.setUrl(hit.getPath());
                     ResultPojo resultPojo = new ResultPojo();
                     resultPojo.setLink(linkPojo);
-                    resultPojo.setTitle(getOnlyTextFromHTML(hit.getTitle()));
-                    resultPojo.setSummary(getDescription(hit.getResource()));
+                    resultPojo.setTitle(getPagePropertyValue(hit.getResource(), PN_PAGE_TITLE));
+                    resultPojo.setSummary(getPagePropertyValue(hit.getResource(), JCR_DESCRIPTION));
                     results.add(resultPojo);
                 }
             }
@@ -101,11 +101,11 @@ public class SearchServiceImpl implements SearchService {
         return gson.toJson(searchPojo);
     }
 
-    private String getDescription(Resource resource) {
+    private String getPagePropertyValue(Resource resource, String property) {
         if (resource.getChild(JCR_CONTENT) != null) {
             ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
             if (valueMap != null) {
-                return valueMap.get(JCR_DESCRIPTION, String.class);
+                return valueMap.get(property, String.class);
             }
         }
         return StringUtils.EMPTY;
