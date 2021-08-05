@@ -88,7 +88,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     position: relative;
-    max-height: 366px;
+    max-height: none;
 }
 .cmp-signPost__picture {
     width: 100%;
@@ -684,7 +684,7 @@
         min-height: 490px
     }
     .cmp-signPost{
-        max-height: 525px;
+        max-height: none;
         min-height: 525px;
         padding: 60px 290px 60px 290px;
     }
@@ -692,7 +692,7 @@
         width: 50%;
     }
     .cmp-signPost__image{
-        max-height: 366px;
+        max-height: none;
         min-height: 366px;
         width: 650px;
     }
@@ -752,7 +752,7 @@
         width: 560px;
         height: 315px;
         min-height: 315px;
-        max-height:315px;
+        max-height:none;
     }
     .cmp-signPost__picture{
         width: 100%;
@@ -1055,8 +1055,8 @@
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 290px 60px 290px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 290px 60px 290px;}
 .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 290px 60px 290px;}*/
-    .cmp-signPost .cmp-signPost__image {height: calc((41.3vw - 40px) / 2)!important;}
-    .cmp-signPost .Picture--background .Picture__img{width:100%; height: 366px;}
+    .cmp-signPost .cmp-signPost__image {height: calc(((50vw - 310px) /16) * 9);}
+    .cmp-signPost .Picture--background .Picture__img{width:100%; height: 100%;}
     .cmp-signPost__content-headers .cmp-signPost__content-title,
      .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
 	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
@@ -1090,7 +1090,7 @@
 margin-bottom:10px;
   }
  .cmp-signPost .linkContainer{padding-top:0px;}
- .cmp-signPost{min-height:auto;max-height:525px;}
+ .cmp-signPost{min-height:auto;max-height:none;}
  .cmp-signPost.left .cmp-signPost__image{
     padding-right: 20px;
     padding-left: 0;
@@ -1113,14 +1113,14 @@ margin-bottom:10px;
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 60px 60px  60px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 60px 60px  60px;}
 .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 60px 60px  60px;}*/
-.cmp-signPost .cmp-signPost__image {height:calc((52.4vw - 40px) / 2);}
+.cmp-signPost .cmp-signPost__image {height:calc(((50vw - 80px) /16) * 9);}
 .cmp-signPost .Picture--background .Picture__img{width:100%;}
-.cmp-signpostGridContext  {width:100%; max-width: 1280px; height: auto;margin:0 auto;}
-.cmp-signPost{min-height:auto; max-height:525px;}
+.cmp-signpostGridContext  {width:100%; max-width: 100%; height: auto;margin:0 auto;}
+.cmp-signPost{min-height:auto; max-height:none;}
 .cmp-signPost__content-headers .cmp-signPost__content-title, 
 .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
-.cmp-signPost .Picture--background .Picture__img{width:560px;height:315px;}
+.cmp-signPost .Picture--background .Picture__img{width:100%;height:100%;}
 .cmp-signPost .cmp-signPost__image{
      width:50%;    }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54;margin-bottom:24px;}
@@ -1170,9 +1170,9 @@ margin-bottom:10px;
     .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  30px 68px  30px;}
     .cmp-signPost.light + .cmp-signPost.light{padding:0px  30px 68px  30px;}
     .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  30px 68px  30px;}*/
-    .cmp-signPost .cmp-signPost__image {height:calc((55.1vw - 40px) / 2);}
+    .cmp-signPost .cmp-signPost__image {height:calc(((50vw - 44px) /16) * 9);}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
-    .cmp-signPost{min-height:auto; max-height:525px;}
+    .cmp-signPost{min-height:auto; max-height:none;}
 
     .cmp-signPost{padding:40px 30px 60px 30px;}
     .cmp-signPost .cmp-signPost__center{
@@ -1242,7 +1242,7 @@ object-fit: unset;
 .cmp-signPost{min-height:auto; max-height:525px;}
 .cmp-signPost{padding:25px 25px 60px 25px;}
 
-    .cmp-signPost .cmp-signPost__image {width:100%;height: calc((108.3vw - 40px) / 2);}
+    .cmp-signPost .cmp-signPost__image {width:100%;height: calc(((100vw - 50px) / 16)*9);}
     .cmp-signPost  .cmp-signPost__content{width:100%;}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:100%;}
@@ -1267,4 +1267,6 @@ object-fit: unset;
     padding-right: 24px;
 }
   /*------code fix for bug 584----- new code*/
-
+  #landrover .cmp-signPost .secondaryLinkWithStyle {
+    margin-bottom: 23px;
+  }
