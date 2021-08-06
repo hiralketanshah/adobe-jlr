@@ -1,4 +1,4 @@
-<sly data-sly-use.hygienelink="com.jlr.core.models.HygieneLinksModel"
+<sly data-sly-use.hygienelink="com.jlr.core.models.HygieneLinksModel" data-sly-use.pageConfig="com.jlr.core.models.PageModel"
 data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"/>
 	<div data-sly-test="${!hygienelink.hygienelinksList|| !hygienelink.countryName }" class="cq-placeholder" data-emptytext="Hygiene Links Component"></div>
@@ -20,6 +20,25 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
 			</ul>
 		</li>
 	</ul>
+	<sly data-sly-test="${pageConfig.locale == 'de_DE'}">
+		<div class="FooterNav__trustarc-link" id="teconsent"></div>
+		<script>
+		  (function () {
+			const container = document.getElementById('teconsent');
+			const links = document.querySelector('.cmp_footerNav__hygieneLinks ul.toggleContent');
+			if (links) {
+			  const link = document.createElement('li');
+			  link.append(container);
+			  links.append(link);
+			}
+			const evidonLink = document.querySelector('.cmp_footerNav__evidon-link');
+			if (evidonLink) {
+			  evidonLink.remove();
+			}
+		  })();
+		</script>
+    </sly>
+    </div>
     <div data-sly-test="${hygienelink.hygienelinksList}" class="cmp_footerNav__mobile-links" id="mobileKeyLinks">
     <ul class="cmp_footerNav__primary-link-list">
         <sly data-sly-list.item="${hygienelink.hygienelinksList}">
