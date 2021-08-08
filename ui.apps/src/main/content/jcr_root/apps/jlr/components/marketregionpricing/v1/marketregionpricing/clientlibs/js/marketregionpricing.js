@@ -1486,7 +1486,8 @@
           });
           this.submitButton.addEventListener('click',e=>{
             if(this.dropDownSelectionKey!=""){
-             document.cookie = `JLR_locale-pricing=${this.dropDownSelectionKey};path=/`;
+             var updateDomain = document.domain.substring(3);
+             document.cookie = `JLR_locale-pricing=${this.dropDownSelectionKey};path=/;domain=`+updateDomain;
             }
            location.reload();
            });
