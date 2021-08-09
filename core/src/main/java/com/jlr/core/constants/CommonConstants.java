@@ -449,4 +449,6 @@ public class CommonConstants {
 
     public static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
     public static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
+    public static final String DISPATCHER_FLUSH_SUBSERVICE = "dispatcheflushsubservice";
+    public static final String VEHICLE_PAGE = "/config/navigation/header/vehicles";
 }
