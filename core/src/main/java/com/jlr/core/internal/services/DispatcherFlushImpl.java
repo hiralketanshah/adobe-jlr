@@ -53,7 +53,6 @@ public class DispatcherFlushImpl implements DispatcherFlush {
 				replicationOptions.setFilter(new AgentIdsAgentFilter(agents));
 				replicator.replicate(serviceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE,
 						vehicleResource.getPath(), replicationOptions);
-				LOGGER.trace("Dispatcher flush : Replicated path - {}", vehicleResource.getPath());
 				if (LOGGER.isTraceEnabled()) {
 					LOGGER.trace("Dispatcher flush : Replicated path - {}", vehicleResource.getPath());
 				}

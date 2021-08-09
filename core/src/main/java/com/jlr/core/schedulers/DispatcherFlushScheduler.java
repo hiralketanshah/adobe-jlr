@@ -7,16 +7,15 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.metatype.annotations.AttributeDefinition;
-import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.Designate;
-import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.jlr.core.config.DispatcherFlushConfig;
 import com.jlr.core.services.DispatcherFlush;
 
 @Component(immediate = true, service = Runnable.class)
-@Designate(ocd = DispatcherFlushScheduler.SchedulerConfig.class)
+@Designate(ocd = DispatcherFlushConfig.class)
 public class DispatcherFlushScheduler implements Runnable {
 
 	@Reference
@@ -34,12 +33,12 @@ public class DispatcherFlushScheduler implements Runnable {
 	private Scheduler scheduler;
 
 	@Activate
-	public void activate(DispatcherFlushScheduler.SchedulerConfig config) {
+	public void activate(DispatcherFlushConfig config) {
 		addScheduler(config);
 	}
 
 	@Modified
-	protected void modified(SchedulerConfig config) {
+	protected void modified(DispatcherFlushConfig config) {
 		removeScheduler();
 		if (null != schedulerName) {
 			schedulerId = schedulerName.hashCode();
@@ -48,7 +47,7 @@ public class DispatcherFlushScheduler implements Runnable {
 	}
 
 	@Deactivate
-	protected void deactivate(SchedulerConfig config) {
+	protected void deactivate(DispatcherFlushConfig config) {
 		removeScheduler();
 	}
 
@@ -56,7 +55,7 @@ public class DispatcherFlushScheduler implements Runnable {
 		scheduler.unschedule(String.valueOf(schedulerId));
 	}
 
-	private void addScheduler(SchedulerConfig config) {
+	private void addScheduler(DispatcherFlushConfig config) {
 		isEnabled = config.serviceEnabled();
 		if (isEnabled) {
 			schedulerName = config.schedulerName();
@@ -68,9 +67,7 @@ public class DispatcherFlushScheduler implements Runnable {
 			if (LOGGER.isTraceEnabled()) {
 				LOGGER.trace("JLR Dispatcher Flush Scheduler is added");
 			}
-			LOGGER.trace("JLR Dispatcher Flush Scheduler is added");
 		}
-
 	}
 
 	@Override
@@ -80,19 +77,4 @@ public class DispatcherFlushScheduler implements Runnable {
 			dispatcherFlush.flushDispatcher();
 		}
 	}
-
-	@ObjectClassDefinition(name = "JLR Dispatcher Flush Scheduler Configuration", description = "Dispatchher Flush Scheduler Configuration")
-	public @interface SchedulerConfig {
-
-		@AttributeDefinition(name = "Enabled", description = "Enable Scheduler", type = AttributeType.BOOLEAN)
-		boolean serviceEnabled() default false;
-
-		@AttributeDefinition(name = "Cron Job Expression", description = "Cron Job Expression", type = AttributeType.STRING)
-		public String cronExpression() default "0 0/15 * 1/1 * ? *";
-
-		@AttributeDefinition(name = "Scheduler name", description = "Scheduler name", type = AttributeType.STRING)
-		public String schedulerName() default "JLR Dispatcher Flush Scheduler";
-
-	}
-
 }
