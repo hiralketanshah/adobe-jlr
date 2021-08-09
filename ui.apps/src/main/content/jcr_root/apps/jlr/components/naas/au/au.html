@@ -14,7 +14,7 @@
         var expiry = new Date();
         expiry.setDate(expiry.getDate() + parseInt(e.data.expiryPeriod));
         if (e.data.locale !== undefined) {
-          NaaSRetailer[e.data.locale] = {
+          NaaSRetailer["en_AU"] = {
             expiryDate: expiry.getTime(),
             name: e.data.retailerName,
             url: e.data.retailerUrl
