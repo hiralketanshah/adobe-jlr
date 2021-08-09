@@ -27,6 +27,13 @@
           path: ${systemUserPath}
           isSystemUser: "true"
 
+    - dispatcher-flush-service:
+
+        - name: "System user for flushing dispatcher"
+          isMemberOf: content-admins
+          path: ${systemUserPath}
+          isSystemUser: "true"
+
 - ace_config:
 
   - pricing-service:
