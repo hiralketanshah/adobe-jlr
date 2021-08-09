@@ -1486,8 +1486,14 @@
           });
           this.submitButton.addEventListener('click',e=>{
             if(this.dropDownSelectionKey!=""){
-             var updateDomain = document.domain.substring(3);
-             document.cookie = `JLR_locale-pricing=${this.dropDownSelectionKey};path=/;domain=`+updateDomain;
+             var cvalue;
+             if(document.domain == "www.landrover.com.au") {
+                var updatedDomain = document.domain.substring(3);
+                cvalue = `JLR_locale-pricing=${this.dropDownSelectionKey};path=/;domain=`+updatedDomain;
+             } else {
+                cvalue = `JLR_locale-pricing=${this.dropDownSelectionKey};path=/`;
+             }
+           document.cookie = cvalue;
             }
            location.reload();
            });
