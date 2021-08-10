@@ -1,5 +1,9 @@
 package com.jlr.core.schedulers;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.sling.commons.scheduler.ScheduleOptions;
 import org.apache.sling.commons.scheduler.Scheduler;
 import org.osgi.service.component.annotations.Activate;
@@ -25,6 +29,7 @@ public class DispatcherFlushScheduler implements Runnable {
 	private int schedulerId;
 	private String schedulerName;
 	private boolean isEnabled;
+	private String replicationAgent;
 
 	/** LOGGER */
 	private static final Logger LOGGER = LoggerFactory.getLogger(DispatcherFlushScheduler.class);
@@ -58,6 +63,7 @@ public class DispatcherFlushScheduler implements Runnable {
 	private void addScheduler(DispatcherFlushConfig config) {
 		isEnabled = config.serviceEnabled();
 		if (isEnabled) {
+			replicationAgent = config.replicationAgent();
 			schedulerName = config.schedulerName();
 			cronExpression = config.cronExpression();
 			ScheduleOptions scheduleOptions = scheduler.EXPR(cronExpression);
@@ -74,7 +80,8 @@ public class DispatcherFlushScheduler implements Runnable {
 	public void run() {
 
 		if (isEnabled) {
-			dispatcherFlush.flushDispatcher();
+			List<String> agents = Arrays.asList(StringUtils.split(replicationAgent, ","));
+			dispatcherFlush.flushDispatcher(agents);
 		}
 	}
 }
