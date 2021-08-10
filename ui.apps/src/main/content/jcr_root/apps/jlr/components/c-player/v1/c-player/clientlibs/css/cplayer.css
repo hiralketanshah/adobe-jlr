@@ -84,9 +84,10 @@
   width: 100%;
 }
 .cmp-cplayer .span_2_of_3 {
-  width: 66.66%;
-  padding-right: 4.7%;
-  padding-left: 2.58%;
+  width: 68.30%;
+  padding-right: 60px;
+  padding-left: 40px;
+  height: calc(((68.30vw - 100px) /16) * 9);
 }
 .cmp-cplayer .span_1_of_3 {
   width: 33.33%;
@@ -201,7 +202,7 @@
   }
 }
 /* TABLET */
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
+@media only screen and (min-width: 768px) and (max-width: 1279.9px) {
   .cmp-cplayer .span_1_of_3 {
     padding-right: 0%;
   }
@@ -274,7 +275,7 @@
   }
   .cmp-cplayer .headingMain {
     margin-bottom: 16px;
-    height: 28px;
+    /* height: 28px; */
   }
   .cmp-cplayer .message,.cmp-cplayer .linkContainer{
     border-left: 1px solid #e0e0e0;
@@ -454,14 +455,14 @@
     text-transform: uppercase;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1279px) {
+@media only screen and (min-width: 768px) and (max-width: 1279.9px) {
   .cmp-cplayer .heading {
     line-height: 21px;
     font-size: 21px;
     text-align: left;
     letter-spacing: 1.07px;
     text-transform: uppercase;
-    /* margin-bottom: 19px; */
+    margin-bottom: 0;
   }
   .cmp-cplayer .vechicleSummary {
     text-align: left;
@@ -490,9 +491,17 @@
     margin-top: 23px;
   }
 }
-@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+@media only screen and (min-width: 1280px) and (max-width: 1919.9px) {
+  .cmp-cplayer .heading {
+    margin-bottom: 19px;
+    padding: 0;
+  }
 }
 @media only screen and (min-width: 1920px) {
+  .cmp-cplayer .heading {
+    margin-bottom: 19px;
+    padding: 0;
+  }
 }
 .ConfiguratorPrompt {
   display: none;
@@ -526,9 +535,9 @@
 		justify-content: space-between;
 		overflow: hidden;
 	  }
-  .cmp-cplayer .headingMain p {
+  /* .cmp-cplayer .headingMain p {
     height: 32px;
-  }
+  } */
 
   .ConfiguratorPrompt--show {
     display: flex;
@@ -554,9 +563,9 @@
   .cmp-cplayer .actionItems {
     border-top: 1px solid #e0e0e0;
   }
-  .ConfiguratorPrompt {
+  /* .ConfiguratorPrompt {
     max-height: 460px;
     min-height: 460px;
-  }
+  } */
 }
 
