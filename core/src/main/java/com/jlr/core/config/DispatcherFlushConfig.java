@@ -15,5 +15,7 @@ public @interface DispatcherFlushConfig {
 
 	@AttributeDefinition(name = "Scheduler name", description = "Scheduler name", type = AttributeType.STRING)
 	public String schedulerName() default "JLR Dispatcher Flush Scheduler";
-
+	
+    @AttributeDefinition(name = "Replication Agents", description = "Comma separated list of replication agents", type = AttributeType.STRING)
+    public String replicationAgent() default "publish";
 }

@@ -40,7 +40,7 @@ public class DispatcherFlushImpl implements DispatcherFlush {
 	private Replicator replicator;
 
 	@Override
-	public void flushDispatcher() {
+	public void flushDispatcher(List<String> agents) {
 		try (ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory,
 				CommonConstants.DISPATCHER_FLUSH_SUBSERVICE)) {
 			Resource vehicleResource = serviceResolver
@@ -48,8 +48,6 @@ public class DispatcherFlushImpl implements DispatcherFlush {
 			if (null != vehicleResource) {
 				ReplicationOptions replicationOptions = new ReplicationOptions();
 				replicationOptions.setSynchronous(Boolean.TRUE);
-				List<String> agents = new ArrayList<>();
-				agents.add("publish");
 				replicationOptions.setFilter(new AgentIdsAgentFilter(agents));
 				replicator.replicate(serviceResolver.adaptTo(Session.class), ReplicationActionType.ACTIVATE,
 						vehicleResource.getPath(), replicationOptions);
