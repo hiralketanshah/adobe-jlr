@@ -84,10 +84,10 @@
   width: 100%;
 }
 .cmp-cplayer .span_2_of_3 {
-  width: 68.30%;
+  width: 66.53%;
   padding-right: 60px;
   padding-left: 40px;
-  height: calc(((68.30vw - 100px) /16) * 9);
+  /* height: calc(((68.30vw - 100px) /16) * 9); */
 }
 .cmp-cplayer .span_1_of_3 {
   width: 33.33%;
@@ -349,7 +349,7 @@
 /* WIDESCREEN */
 @media only screen and (min-width: 1920px) {
   .cmp-cplayer .col {
-    margin-top: 2.61%;
+    margin-top: 50px;
   }
   .cmp-cplayer {
     margin-bottom: 80px;
@@ -376,24 +376,27 @@
     padding-right: 1.53%;
   }
   .cmp-cplayer .col:first-child {
-    margin-left: 15.11%;
+    margin-left: 290px;
   }
   .cmp-cplayer .cplayerImageDiv {
-    margin-right: 15.11%;
+    margin-right: 290px;
     padding-left: 0px;
   }
   .left .cmp-cplayer .cplayerCopy {
     padding-top: 1px;
     padding-left: 0px;
     margin-left: 10px;
-    margin-right: 15.11%;
+    margin-right: 290px;
     padding-right: 0px;
     padding-left: 1.53%;
   }
   .left .cmp-cplayer .cplayerImageDiv {
-    margin-left: 15.11%;
+    margin-left: 290px;
     margin-right: 0px;
     padding-right: 0px;
+  }
+  .ConfiguratorPrompt {
+    height: calc(((66.53vw) /16) * 9);
   }
 }
 
