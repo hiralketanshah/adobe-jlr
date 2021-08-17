@@ -31,3 +31,11 @@
 	/glob "/*.nocache.html"
 	/type "deny"
 }
+/0006 {
+	/glob "*/*.nocache.html/*"
+	/type "deny"
+}
+/0007 {
+	/glob "*/config/*"
+	/type "deny"
+}

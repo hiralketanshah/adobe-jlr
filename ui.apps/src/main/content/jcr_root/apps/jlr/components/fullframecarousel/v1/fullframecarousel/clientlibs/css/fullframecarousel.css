@@ -809,7 +809,8 @@ min-width: 360px;
       margin-right: 130px;
       margin-bottom: 0 !important;
     }
-    .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .videoCustom{
+    .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .videoCustom,
+    .cmp-fullframe .cmp-genericItem__element-poster{
       min-width: 1660px;
       max-width:2000px;
       min-height:935px ;
@@ -856,6 +857,12 @@ min-width: 360px;
      .video{
        height: 670px;
      }
+     .cmp-fullframe .cmp-genericItem__element-poster{
+      min-width: 1160px;
+      max-width: 1919px;
+      min-height: 653px;
+      height: calc(((100vw - 120px) / 16 )* 9);
+  }
 }
 /* DESKTOP END */
 /* Tablet */
@@ -922,9 +929,7 @@ min-width: 360px;
     margin-right: 0px;
     margin-bottom: 0;
   }
-  .cmp-carousel.cmp-fullframe-carousel .carousel{
-    min-height: 339px;
-  }
+ 
   .cmp-fullframe .cmp-genericItem__element-poster {
       width: 100%;
       min-height: 211px;

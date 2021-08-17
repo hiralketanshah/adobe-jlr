@@ -88,7 +88,7 @@
     flex-grow: 0;
     flex-shrink: 0;
     position: relative;
-    max-height: 366px;
+    max-height: none;
 }
 .cmp-signPost__picture {
     width: 100%;
@@ -220,7 +220,7 @@
         position: absolute;
     }
 }
-@media screen and (min-width: 1px) and (max-width: 767px) {
+@media screen and (min-width: 1px) and (max-width: 767.9px) {
     .cmp-signPost.cmp-signPost-auto {
         flex-direction: column;
     }
@@ -374,7 +374,7 @@
 }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__header {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     text-transform:uppercase;
 }
 
@@ -678,13 +678,13 @@
         justify-content: space-between;
     }
     .cmp-vehicleSummary {      
-        padding: 60px 295px 80px 295px;
+        padding: 60px 290px 80px 290px;
     }
     .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
         min-height: 490px
     }
     .cmp-signPost{
-        max-height: 525px;
+        max-height: none;
         min-height: 525px;
         padding: 60px 290px 60px 290px;
     }
@@ -692,7 +692,7 @@
         width: 50%;
     }
     .cmp-signPost__image{
-        max-height: 366px;
+        max-height: none;
         min-height: 366px;
         width: 650px;
     }
@@ -752,7 +752,7 @@
         width: 560px;
         height: 315px;
         min-height: 315px;
-        max-height:315px;
+        max-height:none;
     }
     .cmp-signPost__picture{
         width: 100%;
@@ -889,7 +889,7 @@
             }
 
 .cmp-vehicleSummary .cmp-vehicleSummary__content p {
-    margin-top: 8px;
+    margin-top: 0px;
     text-transform: capitalize;
         line-height:19px;
         letter-spacing:0.2px;
@@ -917,6 +917,9 @@
         }
 
 @media screen and (min-width: 1px) and (max-width: 1279px){
+    .cmp-vehicleSummary.slateblue li,
+    .cmp-vehicleSummary.slateblue p
+    {color:#fff!important; font-family:"AvenirNext-Regular";}
     .cmp-vehicleSummary.left .cmp-vehicleSummary__content{padding-left:0!important;}
     .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 0px!important; margin-bottom: 23px;}
 .cmp-vehicleSummary .cmp-vehicleSummaryGridContext {
@@ -991,7 +994,7 @@
   font-family: "LandRoverWeb-Bold";
 }
  .cmp-vehicleSummary .secondaryLinkWithStyle{line-height:12.5px; margin-top: 0px!important; }
-.cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:8px;}
+.cmp-vehicleSummary .cmp-vehicleSummary__content p{margin-top:0px;}
 .cmp-vehicleSummary .cmp-vehicleSummary__price{margin-bottom:16px; line-height:19px!important; font-family:"AvenirNext-Regular"; font-size: 11px!important;}
 .slateblue.cmp-vehicleSummary ul li{color:#fff;}
 .cmp-vehicleSummary ul{margin-top:12px; margin-bottom:24px;}
@@ -1045,16 +1048,17 @@
 #landrover .slateblue.cmp-signPost .secondaryLinkWithStyle:focus
    { color: #fff!important;} 
 
-@media screen and (min-width: 1920px) and (max-width: 2560px){
+@media screen and (min-width: 1920px) {
    
     .signpost-theme-padding{padding-top:0px;}
 /*.cmp-signPost.white + .cmp-signPost.white{padding:0px 290px 60px 290px;}
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 290px 60px 290px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 290px 60px 290px;}
 .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 290px 60px 290px;}*/
-    .cmp-signPost .cmp-signPost__image {height: calc((41.3vw - 40px) / 2)!important;}
-    .cmp-signPost .Picture--background .Picture__img{width:100%; height: 366px;}
-    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+    .cmp-signPost .cmp-signPost__image {height: calc(((50vw - 310px) /16) * 9);}
+    .cmp-signPost .Picture--background .Picture__img{width:100%; height: 100%;}
+    .cmp-signPost__content-headers .cmp-signPost__content-title,
+     .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
 	  .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 
     .cmp-signPost .cmp-signPost__image{
@@ -1079,14 +1083,14 @@
 }
 
  .cmp-signPost .cmp-signPost__content .fontBodyCopy{
-	margin-top:16px;
+	margin-top:0px;
    }
 
  .cmp-signPost  .cmp-signPost__content-copy-wrapper{
 margin-bottom:10px;
   }
  .cmp-signPost .linkContainer{padding-top:0px;}
- .cmp-signPost{min-height:auto;max-height:525px;}
+ .cmp-signPost{min-height:auto;max-height:none;}
  .cmp-signPost.left .cmp-signPost__image{
     padding-right: 20px;
     padding-left: 0;
@@ -1109,13 +1113,14 @@ margin-bottom:10px;
 .cmp-signPost.grey + .cmp-signPost.grey{padding:0px 60px 60px  60px;}
 .cmp-signPost.light + .cmp-signPost.light{padding:0px 60px 60px  60px;}
 .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px 60px 60px  60px;}*/
-.cmp-signPost .cmp-signPost__image {height:calc((52.4vw - 40px) / 2);}
+.cmp-signPost .cmp-signPost__image {height:calc(((50vw - 80px) /16) * 9);}
 .cmp-signPost .Picture--background .Picture__img{width:100%;}
-.cmp-signpostGridContext  {width:100%; max-width: 1280px; height: auto;margin:0 auto;}
-.cmp-signPost{min-height:auto; max-height:525px;}
-.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+.cmp-signpostGridContext  {width:100%; max-width: 100%; height: auto;margin:0 auto;}
+.cmp-signPost{min-height:auto; max-height:none;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, 
+.cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
 .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
-.cmp-signPost .Picture--background .Picture__img{width:560px;height:315px;}
+.cmp-signPost .Picture--background .Picture__img{width:100%;height:100%;}
 .cmp-signPost .cmp-signPost__image{
      width:50%;    }
 .cmp-signPost__content-copy-wrapper p{font-size:14px; line-height:19px;color:#4A4F54;margin-bottom:24px;}
@@ -1137,7 +1142,7 @@ margin-bottom:10px;
 }
 
  .cmp-signPost .cmp-signPost__content .fontBodyCopy{
-	margin-top:16px;
+	margin-top:0px;
    }
 
  .cmp-signPost  .cmp-signPost__content-copy-wrapper{
@@ -1165,9 +1170,9 @@ margin-bottom:10px;
     .cmp-signPost.grey + .cmp-signPost.grey{padding:0px  30px 68px  30px;}
     .cmp-signPost.light + .cmp-signPost.light{padding:0px  30px 68px  30px;}
     .cmp-signPost.slateblue  + .cmp-signPost.slateblue {padding:0px  30px 68px  30px;}*/
-    .cmp-signPost .cmp-signPost__image {height:calc((55.1vw - 40px) / 2);}
+    .cmp-signPost .cmp-signPost__image {height:calc(((50vw - 44px) /16) * 9);}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
-    .cmp-signPost{min-height:auto; max-height:525px;}
+    .cmp-signPost{min-height:auto; max-height:none;}
 
     .cmp-signPost{padding:40px 30px 60px 30px;}
     .cmp-signPost .cmp-signPost__center{
@@ -1180,7 +1185,8 @@ margin-bottom:10px;
         top:50%;
         transform: translate(0, -50%);   
         }
-    .cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:0!important;}
+    .cmp-signPost__content-headers .cmp-signPost__content-title, 
+    .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-bottom:16px!important;}
     .cmp-signPost .primaryLinkWithStyle{margin-top:24px; line-height:14px;}
 .cmp-signPost .cmp-signPost__image{width:50%;}
  .cmp-signPost .cmp-signPost__picture {
@@ -1194,7 +1200,7 @@ margin-bottom:10px;
 object-fit: unset;
   }
 .cmp-signPost .cmp-signPost__content{width:50%;}
-.cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:16px;}
+.cmp-signPost .cmp-signPost__content .fontBodyCopy{margin-top:0px;}
 .cmp-signPost .linkContainer{padding-top:0px;}
 .cmp-signPost.left .cmp-signPost__image{
     padding-right: 14px;
@@ -1212,6 +1218,11 @@ object-fit: unset;
 }
 
 @media screen and (min-width: 300px) and (max-width: 767.9px){
+    .cmp-signpostGridContext{
+        flex-direction: row;
+        width: 100%;
+        display:block;
+    }
     .cmp-signPost__content-copy-wrapper p{margin-bottom:24px;}
     .cmp-signPost__content, .right .cmp-signPost__content{padding:0;}
     .cmp-signPost .cmp-signPost__center {
@@ -1231,7 +1242,8 @@ object-fit: unset;
 .cmp-signPost{min-height:auto; max-height:525px;}
 .cmp-signPost{padding:25px 25px 60px 25px;}
 
-    .cmp-signPost .cmp-signPost__image {height: calc((108.3vw - 40px) / 2);}
+    .cmp-signPost .cmp-signPost__image {width:100%;height: calc(((100vw - 50px) / 16)*9);}
+    .cmp-signPost  .cmp-signPost__content{width:100%;}
     .cmp-signPost .Picture--background .Picture__img{width:100%;}
     .cmp-signPost{min-height:auto; max-height:100%;}
    .cmp-signPost .headingWrapper{font-family:"LandRoverWeb-Bold"; font-size:20px; line-height:24px; letter-spacing:0.9px;}
@@ -1242,7 +1254,8 @@ object-fit: unset;
     margin-top: 0;
 }
 .cmp-signPost.left .cmp-signPost__center{padding-left:0;}
-.cmp-signPost__content-headers .cmp-signPost__content-title, .cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-top:16px;margin-bottom:11px;}
+.cmp-signPost__content-headers .cmp-signPost__content-title, 
+.cmp-signPost__content-headers .cmp-signPost__content-subtitle{margin-top:16px;margin-bottom:16px;}
 .cmp-signPost .fontBodyCopy{margin-top:0;}
     }
 
@@ -1254,4 +1267,6 @@ object-fit: unset;
     padding-right: 24px;
 }
   /*------code fix for bug 584----- new code*/
-
+  #landrover .cmp-signPost .secondaryLinkWithStyle {
+    margin-bottom: 23px;
+  }

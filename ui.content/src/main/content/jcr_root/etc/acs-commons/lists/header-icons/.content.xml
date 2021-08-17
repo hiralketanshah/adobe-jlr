@@ -187,121 +187,125 @@
                     value="Notes"/>
             <item44
                     jcr:primaryType="nt:unstructured"
+                    jcr:title="Offer Dollar"
+                    value="Offers_Dollar"/>
+            <item45
+                    jcr:primaryType="nt:unstructured"
                     jcr:title="Offer Euro"
                     value="Offers_Euro"/>
-            <item45
+            <item46
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Ownership"
                     value="Owners"/>
-            <item46
+            <item47
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Parts"
                     value="Parts"/>
-            <item47
+            <item48
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Phone"
                     value="Phone"/>
-            <item48
+            <item49
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Pinnacle"
                     value="Pinnacle"/>
-            <item49
+            <item50
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Plug-in Hybrid Electic Vehicle"
                     value="Plug-in_Hybrid_Electric_Vehicle"/>
-            <item50
+            <item51
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Print"
                     value="Print"/>
-            <item51
+            <item52
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Question Mark"
                     value="Question_Mark"/>
-            <item52
+            <item53
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Reduce View"
                     value="Reduce_View"/>
-            <item53
+            <item54
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Reminders"
                     value="Reminders"/>
-            <item54
+            <item55
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Request a Quote Dollar"
                     value="Request_Quote_Dollar"/>
-            <item55
+            <item56
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Request a Quote Euro"
                     value="Request_A_Quote_Euro"/>
-            <item56
+            <item57
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Save"
                     value="Save"/>
-            <item57
+            <item58
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Search"
                     value="Search"/>
-            <item58
+            <item59
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Search Inventory"
                     value="Search_Inventory"/>
-            <item59
+            <item60
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Seats"
                     value="Seats"/>
-            <item60
+            <item61
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Secure"
                     value="Secure"/>
-            <item61
+            <item62
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Service"
                     value="Service"/>
-            <item62
+            <item63
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Service History"
                     value="Service_History"/>
-            <item63
+            <item64
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Service Retailer"
                     value="Service_Retailer"/>
-            <item64
+            <item65
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Share"
                     value="Share"/>
-            <item65
+            <item66
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Shop"
                     value="Shop"/>
-            <item66
+            <item67
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Special Vehicle Operations"
                     value="SVO"/>
-            <item67
+            <item68
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Speed"
                     value="Speed"/>
-            <item68
+            <item69
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Time"
                     value="Time"/>
-            <item69
+            <item70
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Vehicle"
                     value="Vehicle"/>
-            <item70
+            <item71
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Vehicle Price Dollar"
                     value="Vehicle_Price_Dollar"/>
-            <item71
+            <item72
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Vehicle Price Euro"
                     value="Vehicle_Price_Euro"/>
-            <item72
+            <item73
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Video Guides"
                     value="Video_Guides"/>
-            <item73
+            <item74
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Warning"
                     value="Warning"/>

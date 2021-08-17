@@ -351,7 +351,10 @@ public class GlobalModelImpl implements GlobalModel {
      */
     @Override
     public String getVideoId() {
-        return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
+    	if(videoId !=null) {
+    		return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
+    	}
+    	return StringUtils.EMPTY;
     }
 
     /*
@@ -411,6 +414,9 @@ public class GlobalModelImpl implements GlobalModel {
      */
     @Override
     public String getPrice() {
+        if (StringUtils.isNotBlank(price) && price.contains("{{")) {
+            return price.replaceAll("/", "#");
+        }
         return price;
     }
 

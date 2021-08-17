@@ -15,6 +15,7 @@ import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
 import org.apache.sling.engine.SlingRequestProcessor;
+import org.apache.sling.settings.SlingSettingsService;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
@@ -36,8 +37,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static com.jlr.core.constants.CommonConstants.APPLICATION_JSON;
-import static com.jlr.core.constants.CommonConstants.JLR_LOCALE_PRICING;
+import static com.jlr.core.constants.CommonConstants.*;
 import static com.jlr.core.servlets.NavigationServlet.RESOURCE_TYPES;
 import static com.jlr.core.utils.CommonUtils.sendResponseStatus;
 import static com.jlr.core.utils.NavigationUtils.getExternalLink;
@@ -54,13 +54,20 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(NavigationServlet.class);
     protected static final String RESOURCE_TYPES = "jlr/components/request/navigation";
     protected static final String SELECTOR_JSON = "json";
+    private static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
+    private static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
+
 
     @Reference
     private transient RequestResponseFactory requestResponseFactory;
 
     @Reference
     private transient SlingRequestProcessor requestProcessor;
+
+    @Reference
+    private transient SlingSettingsService slingSettingsService;
     private transient NavigationServletConfig config;
+    private String externalLink;
 
     @Activate
     protected void activate(NavigationServletConfig config) {
@@ -98,7 +105,8 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
 
         Document document = null;
         if (fullyQualifyDxLinks) {
-            document = Jsoup.parse(html, getExternalLink(StringUtils.EMPTY, locale, resourceResolver));
+            externalLink = getExternalLink(StringUtils.EMPTY, locale, resourceResolver);
+            document = Jsoup.parse(html, externalLink);
             NavigationUtils.processUrls(document);
         } else {
             document = Jsoup.parse(html);
@@ -118,6 +126,11 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             NavigationUtils.removeAttributes(document, "span.NaasMarketRegionalPricing-cta__label");
             NavigationUtils.removeAttributes(document, "div.dxnav-NaasMarketRegionalPricing");
             NavigationUtils.removeAttributes(document, "span.dxnav-NaasMarketRegionalPricing__label");
+        } else {
+            if(null != request.getCookie(JLR_LOCALE_PRICING)) {
+                String stateCode = request.getCookie(JLR_LOCALE_PRICING).getValue();
+                NavigationUtils.addAttributes(document,"a.dxnav-showprices.cmp-marketButton.MarketRegionalPricing-triggerer", "dxnav__item-prices-region-text", stateCode );
+            }
         }
         if (!search) {
             NavigationUtils.removeAttribute(document, "li#dxnav-search");
@@ -164,9 +177,17 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
         JSONObject responseObject = new JSONObject();
         try {
             responseObject.put("cacheIdentifier", cache);
-            responseObject.put("cssFontImportsLink", getExternalLink(config.cssFontImportsLink(), locale, resolver));
+            String cssFontsLink = getCssFontImportsLink();
+            responseObject.put("cssFontImportsLink", getExternalLink(cssFontsLink, locale, resolver));
             responseObject.put("cssLink", getExternalLink(config.cssLink(), locale, resolver));
-            responseObject.put("html", document.getElementsByTag("header").outerHtml());
+            String output = document.getElementsByTag("header").outerHtml();
+            if(StringUtils.isNotBlank(externalLink)) {
+                output = output.replaceAll("\"/", "\""+externalLink);
+            }
+            output = output.replaceAll("&nbsp;", " ");
+            output = output.replaceAll(DE_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
+            output = output.replaceAll(AU_PUBLISHED_SITES, org.apache.commons.lang3.StringUtils.EMPTY);
+            responseObject.put("html", output);
             responseObject.put("javascriptLink", getExternalLink(config.javascriptLink(), locale, resolver));
         } catch (JSONException e) {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_JSON_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
@@ -184,6 +205,16 @@ public class NavigationServlet extends SlingSafeMethodsServlet {
             LOGGER.error(ErrorUtils.createErrorMessage(ErrorUtilsConstants.AEM_IO_EXCEPTION, ErrorUtilsConstants.TECHNICAL, ErrorUtilsConstants.AEM_SITE,
                             ErrorUtilsConstants.MODULE_SERVLET, this.getClass().getSimpleName(), e));
         }
+    }
+
+    private String getCssFontImportsLink() {
+        String cssFontsLink = config.cssFontImportsLink();
+        if(slingSettingsService.getRunModes().contains(RUNMODE_DEV)) {
+            cssFontsLink = cssFontsLink.replace(".css", "-dev.css");
+        } else if(slingSettingsService.getRunModes().contains(RUNMODE_STAGE)) {
+            cssFontsLink =cssFontsLink.replace(".css", "-stage.css");
+        }
+        return cssFontsLink;
     }
 
 }

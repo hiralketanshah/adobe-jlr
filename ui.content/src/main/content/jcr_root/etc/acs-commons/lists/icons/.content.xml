@@ -187,121 +187,125 @@
                 value="icon-notes"/>
             <item44
                 jcr:primaryType="nt:unstructured"
+                jcr:title="Offer Dollar"
+                value="icon-dx-offers-dollar"/>
+            <item45
+                jcr:primaryType="nt:unstructured"
                 jcr:title="Offer Euro"
                 value="icon-dx-offers-euro"/>
-            <item45
+            <item46
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Ownership"
                 value="icon-owners"/>
-            <item46
+            <item47
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Parts"
                 value="icon-parts"/>
-            <item47
+            <item48
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Phone"
                 value="icon-phone"/>
-            <item48
+            <item49
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Pinnacle"
                 value="icon-pinnacle"/>
-            <item49
+            <item50
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Plug-in Hybrid Electic Vehicle"
                 value="icon-plug-in-hybrid-electic-vehicle"/>
-            <item50
+            <item51
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Print"
                 value="icon-print"/>
-            <item51
+            <item52
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Question Mark"
                 value="icon-question-mark"/>
-            <item52
+            <item53
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Reduce View"
                 value="icon-dx-reduce-view"/>
-            <item53
+            <item54
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Reminders"
                 value="icon-reminder-evo-jaguar"/>
-            <item54
+            <item55
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Request a Quote Dollar"
                 value="icon-request-quote-dollar"/>
-            <item55
+            <item56
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Request a Quote Euro"
                 value="icon-request-quote-euro"/>
-            <item56
+            <item57
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Save"
                 value="icon-dx-save"/>
-            <item57
+            <item58
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Search"
                 value="icon-search"/>
-            <item58
+            <item59
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Search Inventory"
                 value="icon-dx-search-inventory"/>
-            <item59
+            <item60
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Seats"
                 value="icon-dx-Seats"/>
-            <item60
+            <item61
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Secure"
                 value="icon-dx-secure"/>
-            <item61
+            <item62
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Service"
                 value="icon-service"/>
-            <item62
+            <item63
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Service History"
                 value="icon-servicehistory"/>
-            <item63
+            <item64
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Service Retailer"
                 value="icon-servicepreferred-evo-jaguar"/>
-            <item64
+            <item65
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Share"
                 value="icon-dx-share"/>
-            <item65
+            <item66
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Shop"
                 value="icon-shop"/>
-            <item66
+            <item67
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Special Vehicle Operations"
                 value="icon-dx-svo"/>
-            <item67
+            <item68
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Speed"
                 value="icon-speed"/>
-            <item68
+            <item69
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Time"
                 value="icon-dx-time"/>
-            <item69
+            <item70
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle"
                 value="icon-view-vehicles"/>
-            <item70
+            <item71
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle Price Dollar"
                 value="icon-vehicle-price-dollar"/>
-            <item71
+            <item72
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Vehicle Price Euro"
                 value="icon-vehicle-price-euro"/>
-            <item72
+            <item73
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Video Guides"
                 value="icon-videoguides-evo-jaguar"/>
-            <item73
+            <item74
                 jcr:primaryType="nt:unstructured"
                 jcr:title="Warning"
                 value="icon-dx-warning"/>

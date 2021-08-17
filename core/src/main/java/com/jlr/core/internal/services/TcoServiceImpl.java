@@ -249,14 +249,15 @@ public class TcoServiceImpl implements TcoService {
 
     private void fetchPriceFromResource(PricingPojo pricingPojo, String path, ResourceResolver resourceResolver) {
         try (ResourceResolver serviceResolver = CommonUtils.getServiceResolver(resourceResolverFactory, PRICING_READ_SUBSERVICE)) {
-            LOGGER.info("ResourceREsolver created for user : {}", serviceResolver.getUserID());
             Resource varResource = serviceResolver.getResource(path);
-            LOGGER.info("Resource : {} and path is {}", varResource, path);
-            LOGGER.info("Default Price Type: {}", pricingPojo.getDefaultPriceType());
-            LOGGER.info("PriceType :", pricingPojo.getPriceType());
+            if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("ResourceResolver created for user : {}", serviceResolver.getUserID());
+                LOGGER.debug("Resource : {} and path is {}", varResource, path);
+                LOGGER.debug("Default Price Type: {}", pricingPojo.getDefaultPriceType());
+                LOGGER.debug("PriceType :", pricingPojo.getPriceType());
+            }
             if (varResource != null) {
                 ValueMap valueMap = varResource.getValueMap();
-                LOGGER.info("Valuemap", valueMap.get(pricingPojo.getPriceType(), String.class));
                 if (MapUtils.isNotEmpty(valueMap)) {
                     if (StringUtils.isEmpty(pricingPojo.getPriceType())) {
                         pricingPojo.setPriceType(pricingPojo.getDefaultPriceType());

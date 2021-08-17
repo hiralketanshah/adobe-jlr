@@ -333,6 +333,9 @@ public class CommonConstants {
     /** The Constant RUNMODE_AUTHOR. */
     public static final String RUNMODE_AUTHOR = "author";
 
+    /** The Constant RUNMODE_DEV. */
+    public static final String RUNMODE_DEV = "dev";
+
     /** The Constant RUNMODE_STAGE. */
     public static final String RUNMODE_STAGE = "stage";
 
@@ -443,4 +446,9 @@ public class CommonConstants {
     public static final String GREATER = "greater";
 
     public static final String NOT = "not";
+
+    public static final String DE_PUBLISHED_SITES = "/content/landrover/global/europe/published-sites/de_de";
+    public static final String AU_PUBLISHED_SITES = "/content/landrover/global/row/published-sites/en_au";
+    public static final String DISPATCHER_FLUSH_SUBSERVICE = "dispatcheflushsubservice";
+    public static final String VEHICLE_PAGE = "/config/navigation/header/vehicles";
 }

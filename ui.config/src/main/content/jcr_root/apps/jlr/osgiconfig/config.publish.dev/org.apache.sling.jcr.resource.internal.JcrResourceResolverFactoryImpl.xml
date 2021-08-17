@@ -11,7 +11,7 @@
 	resource.resolver.enable.vanitypath="true"
 	resource.resolver.providerhandling.paranoid="false"
 	resource.resolver.allowDirect="true"
-	resource.resolver.mapping="[/:/,/content/landrover/global/europe/published-sites/de_de/:/,/content/landrover/global/row/published-sites/en_au/:/]"
+	resource.resolver.mapping="[/:/,/content/landrover/global/europe/published-sites/de_de/:/,/content/landrover/global/row/published-sites/en_au/:/,/content/landrover/global/europe/language-masters/deu/de/:/,/content/landrover/global/row/language-masters/aus/en/:/]"
 	resource.resolver.vanitypath.whitelist="[]"
 	resource.resolver.map.location="/etc/map"
 	resource.resolver.vanitypath.maxEntries.startup="true"

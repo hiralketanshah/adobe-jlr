@@ -124,6 +124,19 @@ public class NavigationUtils {
         }
     }
 
+    public static void addAttributes(Document document, String elementName, String classValue, String stateCode) {
+        Elements elements = document.select(elementName);
+        for (Element element : elements) {
+            if (element != null) {
+                Element svg = element.child(0);
+                svg.addClass("dxnav-hide-desktop");
+                Element span = element.appendElement("span");
+                span.addClass(classValue);
+                span.text(stateCode);
+            }
+        }
+    }
+
     public static String getBaseUrl(ResourceResolver resourceResolver) {
         Externalizer externalizer = resourceResolver.adaptTo(Externalizer.class);
         return externalizer.publishLink(resourceResolver, StringUtils.EMPTY);
