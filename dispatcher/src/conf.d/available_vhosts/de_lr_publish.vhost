@@ -4,7 +4,6 @@ PassEnv DISP_ID
 
 <VirtualHost *:80>
 		Include /etc/httpd/conf.d/variables/de_lr_dev.vars
-		Include /etc/httpd/conf.d/variables/lr_dev.vars
 		Include /etc/httpd/conf.d/variables/lr_commons.vars
 		
         ## allowing slashes in the URL to be encoded and still honored
