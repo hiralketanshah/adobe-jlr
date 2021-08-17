@@ -202,6 +202,7 @@ public class VehicleCardContainerModelImpl extends GlobalModelImpl implements Ve
                 	ctaPojo.setIcon("Chevron_Right");
                     secondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo, isNotAuthor));
                 } else {
+                	ctaPojo.setIcon("Chevron_Right");
                     extraSecondaryLinks.add(VehicleCardUtils.setCtaToVehicleLink(ctaPojo, isNotAuthor));
                 }
             });
