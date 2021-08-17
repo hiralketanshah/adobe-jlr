@@ -34,7 +34,7 @@
 
 .cmp-snippet .linkContainer .primaryLinkContainer,
 .cmp-snippet .linkContainer .secondaryLinkContainer {
-	margin-top: 26px;
+	margin-top: 24px;
 	margin-right: 20px;
 	display: inline-block;
 	vertical-align: middle;
@@ -160,7 +160,7 @@
   /* code fix for defect 567 */
 
   .cmp-snippet .headingThick {
-	margin-bottom: 24px;
+	margin-bottom: 0px;
 	font-size: 38px;
 	padding: 0;
 	} 
@@ -180,17 +180,21 @@
 	}
 /* wide desktop */
 @media screen and (min-width: 1920px){
-	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
-		margin-top: 23px;
+	.cmp-snippet .linkContainer{
+		margin-top: 24px;
 	}
 	.cmp-snippet .copy{
-		margin-bottom: 24px;
+		margin-bottom: 0px;
+		margin-top: 0;
+	}
+	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
+		margin-top: 23px;
 	}
 	.cmp-snippet .copy p{
 		line-height: 24px;
 	}
 	.snippet .shelfComponent{
-		padding: 60px 750px 82px 290px;
+		padding: 60px 750px 80px 290px;
 		width: 100%;
 		margin-left: 0;
 	}
@@ -227,6 +231,13 @@
 }
 /* desktop */
 @media screen and (min-width: 1280px) and (max-width:1919.9px){
+	.cmp-snippet .linkContainer{
+		margin-top: 24px;
+	}
+	.cmp-snippet .copy{
+		margin-bottom: 0px;
+		margin-top: 0;
+	}
 	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkContainer .secondaryLinkWithStyle{
 		margin-top: 23px;
 	}
@@ -234,24 +245,28 @@
 		margin-right: 24px;
 	}
 	.cmp-snippet.shelfComponent{
-		padding: 60px 460px 82px 60px;
+		padding: 60px 460px 80px 60px;
 		width: 100%;
 	}
 	.cmp-snippet .primaryLinkWithStyle{
 		margin-bottom: 0;
 	}
-	.cmp-snippet .copy{
-		margin-bottom: 24px;
-	}
 }
 
 /* Tablet */
 @media screen and (min-width: 768px) and (max-width:1279.9px){
+	.cmp-snippet .linkContainer{
+		margin-top: 24px;
+	}
+	.cmp-snippet .copy{
+		margin-bottom: 0px;
+		margin-top: 0;
+	}
 	.cmp-snippet .linkContainer .primaryLinkContainer+.secondaryLinkType:last-child{
 		padding-top: 23px;
 	}
 	.cmp-snippet .copy p{
-		margin-bottom: 23px;
+		margin-bottom: 0px;
 	}
 	.cmp-snippet.shelfComponent{
 		width: 100%;
@@ -335,7 +350,7 @@
 	}
 	.cmp-snippet .copy p{
 		margin-top: 16px;
-		margin-bottom: 24px;
+		margin-bottom: 0px;
 		width: 100%;
 	}
 	.cmp-snippet .headingWrapper p {
@@ -344,9 +359,9 @@
 	.cmp-snippet .linkContainer .secondaryLinkType:last-child{
 		padding-top: 23px;
 	}
-	.cmp-snippet .linkContainer .primaryLinkContainer:first-child{
+	/* .cmp-snippet .linkContainer .primaryLinkContainer:first-child{
 		margin-top: 0;
-	}
+	} */
 	.cmp-snippet.Accordion--mobile-hide {
 		display: block;
 		height: 1px;

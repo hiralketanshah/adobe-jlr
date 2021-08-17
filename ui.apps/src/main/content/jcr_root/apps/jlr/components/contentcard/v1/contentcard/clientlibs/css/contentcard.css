@@ -1840,6 +1840,16 @@ padding: 0 0 42px;
 /* TABLET END */
 /* DESKTOP START */
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
+  .GridListWrapper .ctaContainer{
+    text-align: left;
+  }
+  .cmp-ContentBlocksContainer .GridListWrapper .ctaContainer .primaryLinkContainer, 
+  .cmp-ContentBlocksContainer .GridListWrapper .ctaContainer .secondaryLinkContainer{
+    float: none;
+  }
+  .cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle{
+    float: none;
+  }
   /* bugfix-569 start */
   .cmp-ContentBlocksContainer .headerBlock .heading{
     max-width: 760px;
@@ -2196,8 +2206,20 @@ a.primaryLinkWithStyle[class*=" icon-"]:before {
   text-align: left;
   margin-top: 23px;
 }
-
+.cmp-ContentBlocksContainer .GridListWrapper .el a:not([href]):hover .mediaOverlay{
+  cursor: default;
+}
 @media  screen and (min-width:1920px) {
+  .GridListWrapper .ctaContainer{
+    text-align: left;
+  }
+  .cmp-ContentBlocksContainer .GridListWrapper .ctaContainer .primaryLinkContainer, 
+  .cmp-ContentBlocksContainer .GridListWrapper .ctaContainer .secondaryLinkContainer{
+    float: none;
+  }
+  .cmp-ContentBlocksContainer .primaryLinkContainer .primaryLinkWithStyle{
+    float: none;
+  }
   .cmp-ContentBlocksContainer .GridListWrapper .items[data-total="3"] .el{
     width: calc((100% /3) - 27px);
     padding-left: 0;
@@ -2205,7 +2227,7 @@ a.primaryLinkWithStyle[class*=" icon-"]:before {
     margin-right: 40px;
   }
   .cmp-ContentBlocksContainer .GridListWrapper{
-    padding:60px 290px 82px 290px;
+    padding:60px 290px 40px 290px;
   }
   .cmp-ContentBlocksContainer .cmp-contentCards .cmp-contentCardsInner{
     flex-wrap:wrap;

@@ -21,6 +21,13 @@
   width: 100%;
   z-index: 1;
 }
+
+.cmp-carousel[data-total="1"].cmp-carousel , .cmp-carousel[data-total="1"].cmp-carousel .cmp-carousel__slider{
+  cursor: default !important;
+}
+.cmp-carousel[data-total="1"].cmp-carousel .swiper-wrapper{
+  transform: none !important;
+}
 .cmp-carousel[data-total="1"] .cmp-carousel__controls {
   display: none;
 }
