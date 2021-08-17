@@ -1425,7 +1425,7 @@ padding: 0 0 42px;
     padding-top: 0;
     padding-bottom: 5px;
   }
-  .cmp-ContentBlocksContainer .headingWrapper p{
+  .cmp-ContentBlocksContainer .headerBlock .headingWrapper p {
     letter-spacing: 1.3px;
     font-size: 26px;
     line-height: 26px;
@@ -1687,11 +1687,6 @@ padding: 0 0 42px;
     -o-transform: none;
     transform: none;
   }
-  .cmp-ContentBlocksContainer .headingWrapper p{
-    letter-spacing: 1.5px;
-    font-size: 30px;
-    line-height: 30px;
-   }
 }
 /* TABLET START */
 @media screen and (min-width: 768px) and (max-width: 1279.9px){
@@ -1845,6 +1840,11 @@ padding: 0 0 42px;
 .linkContainer.secondaryLinkContainer .secondaryLinkWithStyle{
   line-height: 12.5px;
 }
+.cmp-ContentBlocksContainer .headerBlock .headingWrapper p {
+  letter-spacing: 1.5px;
+  font-size: 30px;
+  line-height: 30px;
+ }
 /* bug fix for KESTREL-969 end*/
 }
 /* TABLET END */
