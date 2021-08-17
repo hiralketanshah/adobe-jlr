@@ -405,7 +405,7 @@ line-height: 12.5px;
 {
     color: #0C121C;
 }
-html:not([dir=rtl]) .DxRangeSlider.noUi-horizontal .noUi-handle{
+html:not([dir=rtl]) .cmp-dualFrameSlider .DxRangeSlider.noUi-horizontal .noUi-handle{
     background: #ffffff
     }
     .dualframeslider .cmp-dualFrameSlider .Slider__left{
