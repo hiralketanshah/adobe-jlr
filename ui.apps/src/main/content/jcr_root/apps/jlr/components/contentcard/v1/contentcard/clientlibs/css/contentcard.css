@@ -1425,6 +1425,11 @@ padding: 0 0 42px;
     padding-top: 0;
     padding-bottom: 5px;
   }
+  .cmp-ContentBlocksContainer .headerBlock .headingWrapper p {
+    letter-spacing: 1.3px;
+    font-size: 26px;
+    line-height: 26px;
+   }
 }
 
 .cmp-ContentBlocksContainer__MarketRegionalPricing {
@@ -1835,6 +1840,11 @@ padding: 0 0 42px;
 .linkContainer.secondaryLinkContainer .secondaryLinkWithStyle{
   line-height: 12.5px;
 }
+.cmp-ContentBlocksContainer .headerBlock .headingWrapper p {
+  letter-spacing: 1.5px;
+  font-size: 30px;
+  line-height: 30px;
+ }
 /* bug fix for KESTREL-969 end*/
 }
 /* TABLET END */
@@ -2243,3 +2253,8 @@ a.primaryLinkWithStyle[class*=" icon-"]:before {
   }
 }
  /* bugfix-569 end */
+ .cmp-ContentBlocksContainer .headingWrapper p{
+  letter-spacing: 1.9px;
+  font-size: 38px;
+  line-height: 38px;
+ }

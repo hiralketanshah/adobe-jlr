@@ -237,7 +237,7 @@ label {
 .slateblue .cmp-carousel[data-total="1"] .cmp-herotitle-carousel .Pagination__play:before{
 	border: 2px solid white !important;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 	.cmp-heroTitleBanner .emissionDetails {
 		padding-left: 25px;
 		padding-top: 11px;
@@ -448,7 +448,12 @@ label {
 		padding-top: 40px;
 	}
   }
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+	.cmp-heroTitleBanner .cmp-genericItem__content .headingWrapper p{
+		letter-spacing: 1.5px;
+		font-size: 30px;
+		line-height: 30px;
+	}
 .cmp-heroTitleBanner .caveat {
 	float: right;
 }
@@ -720,7 +725,7 @@ label {
 	color: #4A4F54;
 }
 /* FONT DEF */
-@media screen and (max-width: 768px){
+@media screen and (max-width: 767.9px){
 	/* HEADING */
 	.cmp-heroTitleBanner .cmp-genericItem__content .headingWrapper p{
 		text-align: left;
@@ -776,16 +781,13 @@ label {
 	}
 
 }
-@media screen and (max-width: 1279px){
+@media screen and (max-width: 1279.9px){
 	/* HEADING */
 	.cmp-heroTitleBanner .cmp-genericItem__content .headingWrapper p{
 		text-align: left;
-		letter-spacing: 1.5px;
 		text-transform: uppercase;
 		font-family: 'LandRoverWeb-Bold';
 		font-weight: bold;
-		font-size: 30px;
-		line-height: 30px;
 		opacity: 1;
 	}	
 	/* HEADING COPY */
