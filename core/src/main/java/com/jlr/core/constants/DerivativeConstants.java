@@ -8,6 +8,8 @@ package com.jlr.core.constants;
 public class DerivativeConstants {
 
     public static final String RT_DERIVATIVE = "jlr/components/derivative/v1/derivativecontainer";
+    
+    public static final String NN_DERIVATIVE = "derivative";
 
     public static final String PN_TAB_HEADING = "tabHeading";
 
@@ -18,6 +20,8 @@ public class DerivativeConstants {
     public static final String PN_URL_PATH = "urlPath";
 
     public static final String PN_LINK = "link";
+    
+    public static final String PN_LAYOUT = "layout";
 
     public static final String LAYOUT_TAB = "tab";
 
