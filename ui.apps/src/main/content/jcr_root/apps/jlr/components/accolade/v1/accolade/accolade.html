@@ -17,11 +17,13 @@
 </div>
 <input type="hidden" name="bgimagetextcolor" id="bgimagetextcolorvalue" value="${model.color @context='html'}"/>
 <input type="hidden" name="bgimage" id="bgimagevalue" value="${model.backgroundImage ? model.backgroundImage : 'none'}"/>
+<div class="bgimageheader">
 <div class="cmp-accolades__copy ${model.logoImage ? '' : 'cmp-onlyCopy'}">
     <div data-sly-test="${model.headerCopy}" class="cmp-accolades__copy--primary fontQuote">${model.headerCopy @context='html'}</div>
     <div  class="cmp-accolades__copy--secondary">${model.copy @context='html'}</div>
     <a data-sly-test="${model.text}" class="cmp-accolades__copy--link secondaryLinkWithStyle ${model.target=='overlay' ? '' : model.icon}" aria-label="${model.ariaLabel}" target="${model.target}" data-target="${model.target}" href="${model.link}">${model.text}</a>
     <p data-sly-test="${model.date}" class="cmp-accolades__copy--tertiary">${model.date}</p>
+</div>
 </div>
 </div>
 </template>
