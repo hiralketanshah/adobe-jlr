@@ -363,6 +363,10 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	position: relative
 }
 
+.dxnav-hide-mobile {
+	display: none!important
+}
+
 .dxnav__body--noscroll {
 	overflow: hidden!important
 }
