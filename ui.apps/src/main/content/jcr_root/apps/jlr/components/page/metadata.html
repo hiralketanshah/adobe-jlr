@@ -142,10 +142,8 @@
 <sly data-sly-test.ogUrl="${properties.ogUrl}">
 	<link rel="canonical" href="${properties.ogUrl}"/>
 </sly>
-<sly data-sly-use.path="${'pageutils.js' @ value=uri}">
-	<sly data-sly-test="${!ogUrl}">
-		<link rel="canonical" href="${scheme}://${servername}${path.updatedPath}"/>
-	</sly>
+<sly data-sly-test="${!ogUrl}">
+	<link rel="canonical" href="${scheme}://${servername}${additionalPage.canonicalPath}"/>
 </sly>
 
 <meta data-sly-test.keywords="${properties.keywords}" name="keywords" content="${keywords}"/>
