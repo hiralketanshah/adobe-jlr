@@ -258,14 +258,18 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
     		while (childResources.hasNext()) {
                 Resource child = childResources.next();
                 if (child.getName().startsWith("derivative")) {
-                	List<String> dynamicUrlList = DerivativeUtils.getDynamicUrls(child);
-                	for(String dynamicUrl : dynamicUrlList) {
-                		String updateUrl = childPage.getPath().concat(CommonConstants.DOT).concat(dynamicUrl);
-                		
-                			listOfDerivativeResources.add(dynamicUrl);
-                		
-                		
-                	}	
+                	ValueMap derivativeProperties = child.adaptTo(ValueMap.class);
+					if (null != derivativeProperties && derivativeProperties.containsKey(DerivativeConstants.PN_LAYOUT)
+							&& DerivativeConstants.LAYOUT_TAB.equalsIgnoreCase(
+									derivativeProperties.get(DerivativeConstants.PN_LAYOUT, String.class))) {
+	                	List<String> dynamicUrlList = DerivativeUtils.getDynamicUrls(child);
+	                	for(String dynamicUrl : dynamicUrlList) {
+	                		String updateUrl = childPage.getPath().concat(CommonConstants.DOT).concat(dynamicUrl);
+	                		
+	                			listOfDerivativeResources.add(dynamicUrl);
+		
+	                	}
+					}
                 }
             }
     	}
