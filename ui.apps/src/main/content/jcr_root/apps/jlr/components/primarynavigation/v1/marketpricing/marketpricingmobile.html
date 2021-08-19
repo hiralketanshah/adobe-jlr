@@ -1,10 +1,12 @@
 <sly data-sly-use.pageConfig="com.jlr.core.models.PageModel"
 	data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='marketregionpricing.dxnav.selectregion'}">
-	<a class="dxnav__mobile-icons-prices cmp-marketButton MarketRegionalPricing-triggerer" href="#"
-                  aria-label="${config.configMap['marketregionpricing.dxnav.selectregion']}" aria-haspopup="dialog"
-                  role="button">
-                  <svg class="dxnav-icon">
-                     <use xlink:href="#Show_Prices"></use>
-                  </svg>
-    </a>
+    <a class="dxnav__mobile-icons-prices cmp-marketButton MarketRegionalPricing-triggerer" href="#"
+		   aria-label="${config.configMap['marketregionpricing.dxnav.selectregion']}" aria-expanded="false"
+		   aria-haspopup="dialog" role="button">
+		   <svg class="dxnav-icon ${pageConfig.state=='' ? '' : 'dxnav-hide-mobile'}">
+			  <use xlink:href="#Show_Prices"></use>
+		   </svg>
+		   <span data-sly-test="${pageConfig.state}"
+			  class="dxnav__item-prices-label">${pageConfig.state}</span>
+		</a>
 </sly>
