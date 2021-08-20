@@ -60,9 +60,10 @@
 	font-weight: bold;
 	padding-top: 30px;
 	position: absolute;
+	letter-spacing: 2.25px;
+	line-height: 15px;
 	margin-left: -89px;
 	border-radius: 70px;
-	letter-spacing: .3em;
 	text-transform: uppercase;
 	text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5)
 }
@@ -188,7 +189,7 @@
 }
 .cmp-exterior360 .fontBodyCopyLarge {
 	text-align: left;
-	padding-right: 40px;
+	padding-right: 0;
 	margin-top: 5px;
 }
 .primaryLinkWithStyle {
@@ -271,9 +272,9 @@
 		font-size: 14px;
 	}
 
-	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
+	#landrover .cmp-exterior360 .secondaryLinkWithStyle {
 		margin-top: 0;
-		margin-bottom: 24px
+		margin-bottom: 0;
 	}
 
 	.cmp-exterior360 .primaryLinkWithStyle {
@@ -321,7 +322,12 @@
 	{
    		width: 420px !important;
     	height: 38px !important;
-	}	 
+	}
+	.Exterior360__canvas-container .bgforcaption{
+		
+		width: 180px;
+		height:180px;
+		}	 
 
 
 }
@@ -341,8 +347,8 @@
 		padding-right: 0;
 		padding-top: 32px;
 		padding-bottom: 0;		
-		width: 1160px;
-    	margin: 0 auto;
+		/* width: 1160px;
+    	margin: 0 auto; */
 		
 	}
 	.cmp-exterior360 .fontBodyCopyLarge {
@@ -418,6 +424,11 @@
    		width: 360px !important;
     	height: 32px !important;
 	}
+	.Exterior360__canvas-container .bgforcaption{
+		
+		width: 180px;
+		height:180px;
+		}
 
 }
 
@@ -428,20 +439,22 @@
 	.cmp-exterior360 {
 		display: flex;
 		flex-wrap: wrap;
+		margin-top:40px;
+		margin-bottom:59px;
+		
 	}
 
 	.Exterior360__canvas-container {
 		order: 1;
-		margin-top:40px;
-		/* margin-bottom:59px; */
+		
 	
 	}
 	.cmp-exterior360 .shelfComponent{
 		order:2;
 		float: left;
-		padding: 16px 214px 59px 30px;
-		min-height:247px;
-		min-width: 768px;
+		padding: 28px 214px 0px 30px;
+		/* /* min-height:247px; */
+		min-width: 768px; 
 	}
 
 	.cmp-exterior360 .headerClass {
@@ -466,7 +479,6 @@
 	.cmp-exterior360 .fontBodyCopyLarge p {
 		width: 100%;
 		margin-bottom: 43px;
-		padding-right: 25px;
 		line-height: 19px;
 		letter-spacing: 0.2px;
 		font-size: 14px;
@@ -474,9 +486,9 @@
 	}
 
 
-	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
+	#landrover .cmp-exterior360 .secondaryLinkWithStyle {
 		margin-top: 0;
-		margin-bottom: 24px;
+		margin-bottom: 0;
 		
 	}
 
@@ -512,6 +524,11 @@
 	.exterior360 .fontBodyCopyLarge {
 		padding-right: 0;
 	}
+	.Exterior360__canvas-container .bgforcaption{
+		
+		width: 180px;
+		height:180px;
+		}
 
 
 	
@@ -522,11 +539,14 @@
 
 	.cmp-exterior360 {
 		display: flex;
-		flex-wrap: wrap
+		flex-wrap: wrap;
+		margin-top:30px;
+		margin-bottom:24px;
+
 	}
 	.Exterior360__canvas-container {
 		order: 1;
-		margin-top:30px;
+		
 	}
 
 	.cmp-exterior360 .shelfComponent{
@@ -535,7 +555,7 @@
 		padding-top:16px;
 		padding-left:25px;
 		padding-right:25px;
-		padding-bottom:24px;
+		padding-bottom:0px;
 	}
 
 	.cmp-exterior360 .headerClass {
@@ -558,16 +578,15 @@
 	.cmp-exterior360 .fontBodyCopyLarge p {
 		width: 100%;
 		margin-bottom: 43px;
-		padding-right: 25px;
 		line-height: 19px;
 		letter-spacing: 0.2px;
 		font-size: 14px;
 
 	}
 
-	.cmp-exterior360 #landrover .secondaryLinkWithStyle {
+	#landrover  .cmp-exterior360 .secondaryLinkWithStyle {
 		margin-top: 0;
-		margin-bottom: 24px;
+		margin-bottom: 0;
 		
 	}
 
@@ -589,6 +608,7 @@
 	.Exterior360__canvas-container .bgforcaption{
 		
 		width: 150px;
+		height:126px;
 		}
 	.Exterior360__init-container-caption--desktop {
 		display: none

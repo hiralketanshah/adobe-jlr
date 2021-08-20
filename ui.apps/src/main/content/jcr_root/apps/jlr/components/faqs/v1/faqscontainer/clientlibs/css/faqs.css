@@ -130,7 +130,6 @@
     letter-spacing: 0;
     line-height: 1.5;
     text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .cmp-faqmodel__accordion__fixed-header {
