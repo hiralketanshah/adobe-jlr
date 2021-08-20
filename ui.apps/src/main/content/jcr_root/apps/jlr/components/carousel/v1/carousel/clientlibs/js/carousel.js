@@ -12428,7 +12428,7 @@
         this.singleHeaderBox.addClass('visible');
        }
        else{
-        $('.cmp-carousel__controls', this.$element).show();
+        $('.cmp-carousel__controls', this.$element).css('display', 'flex');
        }
         this._$videoPlayer = $('.VideoPlayer', this.$element);
         if (this._$videoPlayer.length) {
