@@ -188,9 +188,6 @@ table {
 	clear: both
 }
 
-.dxnav__body--noscroll .dxnav-header {
-	max-width: 2000px
-}
 
 .dxSharedNav .dxnav-header {
 	position: relative

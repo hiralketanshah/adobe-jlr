@@ -490,7 +490,7 @@ margin-bottom: 0;
     padding-left: 0;
 }
 }
-@media screen and (min-width: 1920px) and (max-width: 2500px) {
+@media screen and (min-width: 1920px) {
     .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
         padding-top: 96px;
         width: auto;
@@ -506,7 +506,7 @@ margin-bottom: 0;
         padding: 60px 130px;
     }
     .cmp-tabbedContainer_box{
-        width: 1660px;
+        width: 100%;
         max-height:935px;
         min-height: auto;
     }

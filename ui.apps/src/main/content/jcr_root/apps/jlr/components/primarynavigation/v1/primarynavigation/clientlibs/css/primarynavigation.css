@@ -373,7 +373,8 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 
 .dxnav__body--noscroll .dxnav-header {
 	position: fixed;
-	width: 100%
+	width: 100%;
+	max-width: 100%;
 }
 
 .dxnav-unique-nav {
