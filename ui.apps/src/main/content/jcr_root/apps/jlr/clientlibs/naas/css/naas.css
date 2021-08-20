@@ -363,6 +363,10 @@ html[dir=rtl] .dxnav-unique-nav .dxnav-icon {
 	position: relative
 }
 
+.dxnav-hide-mobile {
+	display: none!important
+}
+
 .dxnav__body--noscroll {
 	overflow: hidden!important
 }
@@ -3136,7 +3140,7 @@ body.focusStylesOn .dxnav-unique-nav .DualModelYear__tab--active:hover .DualMode
 }
 
 .dxnav-unique-nav .dxnav__dropdown-overlay {
-	background: hsla(0, 0%, 98%, .85);
+	background: #ffffffd9;
 	left: 0;
 	max-width: 100vw;
 	position: fixed;

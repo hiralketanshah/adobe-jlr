@@ -2898,6 +2898,10 @@ body.focusStylesOn .DxTabs__tab--active:focus .DxTabs__tab-inner {
     content: "\e926"
 }
 
+.icon-dx-offers-dollar:before {
+    content: "\e954"
+}
+
 .icon-owners:before {
     content: "\e92a"
 }

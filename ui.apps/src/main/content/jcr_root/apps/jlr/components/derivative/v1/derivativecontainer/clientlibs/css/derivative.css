@@ -838,7 +838,7 @@ text-transform: uppercase;
 .cmp-derivative__range .Snippet__MarketRegionalPricing{
     padding-bottom: 16px;
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 767.9px) {
     .cmp-derivativesOverview .toggleLinksItem {
         width: inherit;
         min-width: auto;
@@ -1128,7 +1128,7 @@ text-transform: uppercase;
         margin-right: 20px;
     }
 }
-@media screen and (min-width: 1281px) {
+@media screen and (min-width: 1280px) {
     .js .Derivative__engine-data {
         width: calc(100% + 2.225vw);
     }
@@ -1285,6 +1285,8 @@ text-transform: uppercase;
     }
     .cmp-derivative__range .cmp-derivative__copy .headingThick p{
         font-size: 38px;
+        line-height: 38px;
+        letter-spacing: 1.9px;
     }
     .cmp-derivative__range{
         padding: 60px 290px;
@@ -1416,5 +1418,26 @@ text-transform: uppercase;
     .Derivative__engine-wrapper{
         min-width: 40%;
     width: 40%;
+    }
+}
+@media screen and (max-width: 375px) {
+    .cmp-derivative__range .cmp-derivative__copy .headingThick p {
+        font-size: 26px;
+        line-height: 26px;
+        letter-spacing: 1.3px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1279.9px){ 
+    .cmp-derivative__range .cmp-derivative__copy .headingThick p {
+        font-size: 30px;
+        line-height: 30px;
+        letter-spacing: 1.5px;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 1919.9px) {
+    .cmp-derivative__range .cmp-derivative__copy .headingThick p {
+        font-size: 38px;
+        line-height: 38px;
+        letter-spacing: 1.9px;
     }
 }

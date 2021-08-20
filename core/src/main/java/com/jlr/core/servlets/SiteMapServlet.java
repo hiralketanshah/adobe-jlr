@@ -48,6 +48,8 @@ import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageFilter;
 import com.day.cq.wcm.api.PageManager;
 import com.jlr.core.constants.CommonConstants;
+import com.jlr.core.constants.DerivativeConstants;
+import com.jlr.core.utils.DerivativeUtils;
 
 /**
  * The Class SiteMapServlet.
@@ -212,10 +214,17 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
             stream.writeNamespace("", NS);
 
             // first do the current page
-            write(page, stream, request);
+            write(page, stream, request, null);
 
             for (Iterator<Page> children = page.listChildren(new PageFilter(false, true), true); children.hasNext();) {
-                write(children.next(), stream, request);
+            	Page childPage = children.next();
+            	write(childPage, stream, request, null);
+            	if(isModelPage(childPage)) {
+            		List<String> listOfDynamicUrl = getDerivativePages(childPage,resourceResolver,pageManager);
+            		for(String dynamicUrl : listOfDynamicUrl) {
+            			write(childPage, stream, request, dynamicUrl);
+            		}
+            	}
             }
 
             if (damAssetTypes.size() > 0 && damAssetProperty.length() > 0) {
@@ -240,7 +249,38 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         }
     }
 
-    /**
+    private List<String> getDerivativePages(Page childPage, ResourceResolver resourceResolver, PageManager pageManager) {
+    	List<String> listOfDerivativeResources = new ArrayList<>();
+    	Resource pageResource = childPage.adaptTo(Resource.class);
+    	Resource containerResource = pageResource.getChild("jcr:content/root/container");
+    	if(null != containerResource) {
+    		 Iterator<Resource> childResources = containerResource.listChildren();
+    		while (childResources.hasNext()) {
+                Resource child = childResources.next();
+                if (child.getName().startsWith("derivative")) {
+                	ValueMap derivativeProperties = child.adaptTo(ValueMap.class);
+					if (null != derivativeProperties && derivativeProperties.containsKey(DerivativeConstants.PN_LAYOUT)
+							&& DerivativeConstants.LAYOUT_TAB.equalsIgnoreCase(
+									derivativeProperties.get(DerivativeConstants.PN_LAYOUT, String.class))) {
+	                	List<String> dynamicUrlList = DerivativeUtils.getDynamicUrls(child);
+	                	for(String dynamicUrl : dynamicUrlList) {
+	                		String updateUrl = childPage.getPath().concat(CommonConstants.DOT).concat(dynamicUrl);
+	                		
+	                			listOfDerivativeResources.add(dynamicUrl);
+		
+	                	}
+					}
+                }
+            }
+    	}
+    	return listOfDerivativeResources;
+	}
+
+	private boolean isModelPage(Page childPage) {
+		return null!=childPage.getName() && childPage.getName().contains("model");
+	}
+
+	/**
      * Gets the asset folders.
      *
      * @param page the page
@@ -298,10 +338,11 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
      * @param page the page
      * @param stream the stream
      * @param request the request
+     * @param dynamicUrl 
      * @throws XMLStreamException the XML stream exception
      */
     @SuppressWarnings("squid:S1192")
-    private void write(Page page, XMLStreamWriter stream, SlingHttpServletRequest request) throws XMLStreamException {
+    private void write(Page page, XMLStreamWriter stream, SlingHttpServletRequest request, String dynamicUrl) throws XMLStreamException {
         if (isHiddenByPageProperty(page) || isHiddenByPageTemplate(page) || isPageNotReplicated(page)) {
             return;
         }
@@ -311,7 +352,8 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         if (useVanityUrl && !StringUtils.isEmpty(page.getVanityUrl())) {
             loc = externalizeUri(request, page.getVanityUrl());
         } else if (!extensionlessUrls) {
-            loc = externalizeUri(request, String.format("%s.html", page.getPath()));
+        	String formattedUrl = getFormattedUrl(page.getPath(),dynamicUrl);
+    		loc = externalizeUri(request, formattedUrl);
         } else {
             String urlFormat = removeTrailingSlash ? "%s" : "%s/";
             loc = externalizeUri(request, String.format(urlFormat, page.getPath()));
@@ -341,7 +383,14 @@ public final class SiteMapServlet extends SlingSafeMethodsServlet {
         stream.writeEndElement();
     }
 
-    /**
+    private String getFormattedUrl(String path, String dynamicUrl) {
+		if(null!=dynamicUrl) {
+			return String.format("%s."+dynamicUrl+".html", path);
+		}
+		return String.format("%s.html", path);
+	}
+
+	/**
      * Checks if is hidden by page property.
      *
      * @param page the page

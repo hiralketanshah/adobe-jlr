@@ -24,5 +24,5 @@
         transportUri="http://localhost:4503/content/misc/akamai"
         triggerReceive="true"
         triggerSpecific="true"
-        userId=""/>
+        userId="replication-receiver"/>
 </jcr:root>
