@@ -1153,7 +1153,7 @@ text-transform: uppercase;
         padding: 40px 30px;
     }
     .cmp-derivative__range .cmp-derivative__copy{
-        width: 519px;
+        width: 100%;
     }
     .cmp-derivative__range .cmp-derivative__copy .headingThick{
         font-size: 30px;
@@ -1214,7 +1214,7 @@ text-transform: uppercase;
         height: calc(103.7vw / 2);
     }
     .Derivative__full-derivative-name-wrapper{
-        width: 460px;
+        width: 100%;
     }
     .Derivative__strapline{
         line-height: 19px;
@@ -1227,7 +1227,7 @@ text-transform: uppercase;
     }
     .Derivative__strapline,
     .Derivative__caveat{
-        width: 432px;
+        width: 100%;
     }
     .Derivative__price{
         width: 196px;
@@ -1314,7 +1314,7 @@ text-transform: uppercase;
 }
 @media screen and (max-width: 490px) {
     .Derivative{
-        margin-bottom: 30px;
+        margin-bottom: 90px;
     }
     .cmp-derivative__range{
         padding: 25px 25px;

@@ -214,7 +214,8 @@ label {
 .cmp-hero-carousel .cmp-carousel__controls {
   position: absolute;
 }
-.cmp-hero .headerClass h2 {
+.cmp-hero .headerClass h2,
+.cmp-hero .headerClass h1 {
   margin-bottom: 14px;
 }
 .headerCopy {
