@@ -687,4 +687,13 @@ public class PageModelImpl implements PageModel {
     public String getVsrePriceType() {
         return vsrePriceType;
     }
+    
+    public String getCanonicalPath() {
+    	String uri = request.getRequestURI();
+    	if(StringUtils.isNotBlank(uri)) {
+    		uri = StringUtils.replace(uri, "/content/landrover/global/row/published-sites/en_au/", "/");
+    		uri = StringUtils.replace(uri, "/content/landrover/global/europe/published-sites/de_de/", "/");
+    	}
+        return uri;
+    }
 }
