@@ -2,7 +2,8 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:tags="[workflow:wcm]"
+        cq:lastModified="{Date}2021-08-20T13:18:45.413+05:30"
+        cq:lastModifiedBy="admin"
         cq:template="/libs/cq/workflow/templates/model"
         cq:workflowDetailsPage="/mnt/overlay/dam/gui/content/s7dam/jobmonitoring/encodingjobdetails.html${item}?item=${payload}"
         jcr:description="This workflow manages the update of assets"
@@ -132,7 +133,7 @@
                 sling:resourceType="dam/components/s7imaging/dmimageprocess">
                 <metaData
                     jcr:primaryType="nt:unstructured"
-                    CONFIGS="[140:100:false,48:48:false,319:319:false,650:366:false,800:450:false]"
+                    CONFIGS="[140:100:false,48:48:false,319:319:false]"
                     HEIGHT="1280"
                     MIME_TYPE="image/jpeg"
                     PROCESS="com.adobe.cq.dam.dm.process.workflow.DMImageProcess"
@@ -149,18 +150,51 @@
                 PROCESS_AUTO_ADVANCE="true">
                 <metaData
                     jcr:primaryType="nt:unstructured"
-                    CONFIGS="[140:100:false,48:48:false,319:319:false,650:366:false,800:450:false]"
+                    CONFIGS="[140:100:false,48:48:false,319:319:false]"
                     CREATE_FPO_MIMETYPES="[image/pjpeg,image/jpeg,image/jpg,image/gif,image/x-png,image/tiff,image/png,application/x-photoshop,application/photoshop,image/vnd.adobe.photoshop,application/vnd.adobe.photoshop,image/bmp,image/x-tiff]"
                     FPO_QUALITY="10"
                     HEIGHT="1280"
+                    KEEP_FORMAT_LIST="image/jpeg"
                     MIME_TYPE="image/jpeg"
                     MIMETYPE="image/jpeg"
                     PROCESS="com.day.cq.dam.core.impl.process.ThumbnailProcess"
                     PROCESS_AUTO_ADVANCE="true"
-                    QUALITY="90"
+                    QUALITY="88"
                     SKIP="[audio/mpeg,video/(.*)]"
                     WIDTH="1280"/>
             </thumbnailprocess>
+            <thumbnailprocess_1745902062
+                jcr:description="This process will create one or more thumbnails for the asset, create web enabled rendition and update folder thumbnail."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Process Thumbnails - 650"
+                sling:resourceType="dam/components/workflow/thumbnailprocess">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="650"
+                    KEEP_FORMAT_LIST="image/jpeg"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.ThumbnailProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="650"/>
+            </thumbnailprocess_1745902062>
+            <thumbnailprocess_885228424
+                jcr:description="This process will create one or more thumbnails for the asset, create web enabled rendition and update folder thumbnail."
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Process Thumbnails - 800"
+                sling:resourceType="dam/components/workflow/thumbnailprocess">
+                <metaData
+                    jcr:primaryType="nt:unstructured"
+                    HEIGHT="800"
+                    KEEP_FORMAT_LIST="image/jpeg"
+                    MIME_TYPE="image/jpeg"
+                    PROCESS="com.day.cq.dam.core.process.ThumbnailProcess"
+                    PROCESS_AUTO_ADVANCE="true"
+                    QUALITY="90"
+                    SKIP="[audio/mpeg,video/(.*)]"
+                    WIDTH="800"/>
+            </thumbnailprocess_885228424>
             <deleteimagepreviewpr
                 jcr:description="Process to delete the image preview rendition"
                 jcr:primaryType="nt:unstructured"
