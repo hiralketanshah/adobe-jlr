@@ -3061,22 +3061,17 @@
                       this.breakpointMedium = (0, _browserDetection.isBreakpointMedium)();
                       this.breakpointLarge = !(0, _browserDetection.isBreakpointMedium)() && !(0, _browserDetection.isBreakpointSmall)();
                       this.widthcal = $('body').innerWidth();
-                      //this.width = $('body').innerWidth();
-                      if (this.widthcal >= 1920) {
-                        //this.width = 1660
-                        // this.height = 935
+                      if (this.widthcal >= 1920) {            
                         this.width = $('body').innerWidth() - 260;
                       }
                       else if (this.widthcal >= 1280 && this.widthcal <= 1919.9) {
                         this.width = $('body').innerWidth() - 120;
-                        //this.width = 1160
-                        // this.height = 653
+                      
                       }
-                      // else if(this.widthcal >= 768  && this.widthcal <= 1279.9){
-                      //   this.width = $('body').innerWidth() - 120;
-                      //   //this.width = 768
-                      //   // this.height = 653
-                      // }
+                      else if(this.widthcal >= 768  && this.widthcal <= 1279.9){
+                        this.width = $('body').innerWidth();
+                        
+                      }
                       else {
                         this.width = $('body').innerWidth();
     
@@ -3293,9 +3288,9 @@
               value: true
             });
             var breakpoints = exports.breakpoints = {
-              small: 740,
-              medium: 900,
-              wider: 1000,
+              small: 1279,
+              medium: 1280,
+              wider: 1920,
               current: null
             };
     
