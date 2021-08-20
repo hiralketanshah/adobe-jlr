@@ -4,6 +4,7 @@ import static com.day.cq.commons.jcr.JcrConstants.JCR_CONTENT;
 import static com.day.cq.commons.jcr.JcrConstants.JCR_DESCRIPTION;
 import static com.day.cq.search.eval.FulltextPredicateEvaluator.FULLTEXT;
 import static com.day.cq.wcm.api.NameConstants.NT_PAGE;
+import static com.day.cq.wcm.api.NameConstants.PN_PAGE_TITLE;
 import static com.jlr.core.constants.CommonConstants.LOCALE_AU;
 import static com.jlr.core.constants.CommonConstants.LOCALE_DE;
 import static com.jlr.core.constants.CommonConstants.PN_PRIORITY;
@@ -45,7 +46,6 @@ import com.jlr.core.pojos.ResultPojo;
 import com.jlr.core.pojos.SearchPojo;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
-import static com.day.cq.wcm.api.NameConstants.PN_PAGE_TITLE;
 
 @Component(immediate = true, service = SearchService.class)
 @Designate(ocd = SearchConfig.class)
@@ -138,6 +138,9 @@ public class SearchServiceImpl implements SearchService {
         predicate.put("type", NT_PAGE);
         predicate.put(FULLTEXT, searchText);
         predicate.put("p.limit", "-1");
+        predicate.put("property", "jcr:content/cq:template");
+        predicate.put("property.value", "/conf/jlr/settings/wcm/templates/redirect-page-template");
+        predicate.put("property.operation", "unequals");
         return PredicateGroup.create(predicate);
     }
 
