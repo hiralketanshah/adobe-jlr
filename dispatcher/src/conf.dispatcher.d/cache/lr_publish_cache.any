@@ -32,7 +32,7 @@
 	/type "deny"
 }
 /0006 {
-	/glob "*/*.nocache.html/*"
+	/glob "*/*.nocache.html*"
 	/type "deny"
 }
 /0007 {
