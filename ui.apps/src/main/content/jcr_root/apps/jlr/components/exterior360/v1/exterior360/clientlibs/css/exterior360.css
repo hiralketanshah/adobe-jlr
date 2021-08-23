@@ -437,8 +437,8 @@
 @media screen and (min-width: 768px) and (max-width: 1279.9px) {
 
 	.cmp-exterior360 {
-		/* display: flex;
-		flex-wrap: wrap; */
+		display: flex;
+		flex-wrap: wrap;
 		margin-top:40px;
 		margin-bottom:59px;
 		margin-left:0;
