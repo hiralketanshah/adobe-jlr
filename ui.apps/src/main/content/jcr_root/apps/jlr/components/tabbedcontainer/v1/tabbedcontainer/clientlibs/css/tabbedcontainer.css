@@ -494,7 +494,7 @@ margin-bottom: 0;
     .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{
         padding-top: 96px;
         width: auto;
-        margin:0 auto;
+        margin:0 160px;
         padding-left: 0;
         padding-right: 0;
     }
@@ -517,14 +517,14 @@ margin-bottom: 0;
         max-width: 1340px;
     }
     .cmp-tabbedContainer .shelfComponent{
-        margin: 0 auto;
+        margin: 0 160px;
         width: 100% !important;
         max-width: 1340px;
         left: 50%;
     }
     .cmp-tabbedContainer .fullframecarousel .shelfComponent{
         padding-top: 96px;
-        margin: 0 auto;
+        margin: 0 160px;
     }
     .cmp-tabbedContainer .secondaryLinkWithStyle{
         margin-top: 24px;
