@@ -2,6 +2,7 @@
 .cmp-exterior360 {
 	position: relative;
 	text-align: left;
+	
 }
 
 .cmp-exterior360 .fontBodyCopyLarge p:first-child::first-letter {
@@ -157,7 +158,7 @@
 .Exterior360__canvas-container {
 	display: flex;
 	position: relative;
-	justify-content: center
+	overflow: hidden;
 }
 
 .Exterior360__no-js-notice {
@@ -433,7 +434,6 @@
 }
 
 /* tab view part  */
-
 @media screen and (min-width: 768px) and (max-width: 1279.9px) {
 
 	.cmp-exterior360 {
@@ -441,6 +441,8 @@
 		flex-wrap: wrap;
 		margin-top:40px;
 		margin-bottom:59px;
+		margin-left:0;
+		margin-right: 0;
 		
 	}
 

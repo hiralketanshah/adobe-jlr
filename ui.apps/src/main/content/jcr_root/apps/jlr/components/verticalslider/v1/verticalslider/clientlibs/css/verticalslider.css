@@ -293,7 +293,7 @@
 }
 
 .cmp-interactiveNumberedImage__image.current {
-	z-index: 3
+	z-index: 2
 }
 
 .cmp-interactiveNumberedImage__image.target {
