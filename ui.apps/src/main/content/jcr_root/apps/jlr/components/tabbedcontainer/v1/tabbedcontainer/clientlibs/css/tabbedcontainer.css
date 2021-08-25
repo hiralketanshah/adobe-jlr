@@ -479,16 +479,19 @@ margin-bottom: 0;
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
     .cmp-tabbedContainer .cmp-exterior360 .contentClass{
         width: 560px;
-    float: left;
+        float: left;
+    }
+    .cmp-tabbedContainer .cmp-exterior360 .fontBodyCopyLarge{
+        padding-right: 0;
     }
     .cmp-tabbedContainer .fullframecarousel .shelfComponent,
-.cmp-tabbedContainer .cmp-exterior360 .shelfComponent {
-    padding-top: 96px;
-    margin: 0;
-}
-.cmp-tabbedContainer .fullframecarousel .shelfComponent{
-    padding-left: 0;
-}
+    .cmp-tabbedContainer .cmp-exterior360 .shelfComponent {
+        padding-top: 96px;
+        margin: 0;
+    }
+    .cmp-tabbedContainer .fullframecarousel .shelfComponent{
+        padding-left: 0;
+    }
 }
 @media screen and (min-width: 1920px) {
     .cmp-tabbedContainer .cmp-exterior360 .shelfComponent{

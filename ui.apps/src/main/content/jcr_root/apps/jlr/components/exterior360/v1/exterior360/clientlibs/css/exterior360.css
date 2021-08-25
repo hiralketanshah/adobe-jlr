@@ -234,15 +234,19 @@
 
 	.cmp-exterior360 {
 	
-		margin: 60px 130px 79px 130px;
+		margin: 60px 130px 0px 130px;
 		
+	}
+	.exterior360 .cmp-exterior360.nocopy{
+		margin-bottom:79px;
+
 	}
 	
 	.cmp-exterior360 .shelfComponent {
 		padding-left: 160px;
 		padding-right: 390px;
 		padding-top: 32px;
-		padding-bottom: 0;
+		padding-bottom: 79px;
 		margin-left: 0;
 		width:1660px;
 	}
@@ -341,14 +345,18 @@
 		margin-left:60px;
 		margin-right:60px;
 		margin-top:60px;
+		margin-bottom:0px;
+	}
+	.exterior360 .cmp-exterior360.nocopy{
 		margin-bottom:79px;
+
 	}
 	
 	.cmp-exterior360 .shelfComponent {
 		padding-left: 0;
 		padding-right: 0;
 		padding-top: 32px;
-		padding-bottom: 0;		
+		padding-bottom: 79px;		
 		/* width: 1160px;
     	margin: 0 auto; */
 		
@@ -441,10 +449,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin-top:40px;
-		margin-bottom:59px;
+		margin-bottom:0px;
 		margin-left:0;
 		margin-right: 0;
 		
+	}
+	.exterior360 .cmp-exterior360.nocopy {
+		margin-bottom:59px;
+
 	}
 
 	.Exterior360__canvas-container {
@@ -455,7 +467,7 @@
 	.cmp-exterior360 .shelfComponent{
 		order:2;
 		float: left;
-		padding: 28px 214px 0px 30px;
+		padding: 28px 214px 59px 30px;
 		/* /* min-height:247px; */
 		min-width: 768px; 
 	}
@@ -544,9 +556,10 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin-top:30px;
-		margin-bottom:24px;
+		margin-bottom:0px;
 
 	}
+	
 	.Exterior360__canvas-container {
 		order: 1;
 		
@@ -558,7 +571,7 @@
 		padding-top:16px;
 		padding-left:25px;
 		padding-right:25px;
-		padding-bottom:0px;
+		padding-bottom:39px;
 	}
 
 	.cmp-exterior360 .headerClass {
@@ -1120,28 +1133,32 @@
 	.nocopy .shelfComponent{
 		display:block !important;
 	}
-	.nocopy .Exterior360__slider--visible {
-		left: intial;
+	.exterior360 .cmp-exterior360.nocopy .Exterior360__canvas-container {
+		overflow: inherit;
+	}
+	.exterior360 .cmp-exterior360.nocopy .Exterior360__slider--visible {
+		left: initial;
 		top: 117%;
+		
 	}
 	.nocopy .shelfComponent{ min-height:70px; margin-bottom:24px;}
-	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider--range,
-		.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .DxRangeSlider__custom-connect
-		{
+	.cmp-exterior360.nocopy .DxRangeSlider--exterior360 .DxRangeSlider--range,
+	.cmp-exterior360.nocopy .DxRangeSlider--exterior360 .DxRangeSlider__custom-connect
+	{
 		background: #000;
 		box-shadow: 0 0px 3px rgb(0 0 0/ 30%), 0 1px 3px rgb(0 0 0/ 30%);
 	}
-	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-handle {
+	.cmp-exterior360.nocopy .DxRangeSlider--exterior360 .noUi-handle {
 		border-color: #000;
 		background-color: transparent;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.3);
 	}
-	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-touch-area:after
+	.cmp-exterior360.nocopy .DxRangeSlider--exterior360 .noUi-touch-area:after
 		{
 		color: #000;
 	}
-	.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-handle:hover,
-		.nocopy .cmp-exterior360 .DxRangeSlider--exterior360 .noUi-handle:focus
+	.cmp-exterior360.nocopy .DxRangeSlider--exterior360 .noUi-handle:hover,
+	.cmp-exterior360.nocopy .DxRangeSlider--exterior360 .noUi-handle:focus
 		{
 		border-color: #000;
 		background-color: #fff;
