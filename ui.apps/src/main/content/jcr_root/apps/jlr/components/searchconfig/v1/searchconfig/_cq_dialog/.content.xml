@@ -53,7 +53,7 @@
                                 </field>
                                 <granite:data
                                     jcr:primaryType="nt:unstructured"
-                                    maxlimit="5"/>
+                                    maxlimit="10"/>
                             </Exclusion>
                         </items>
                     </exclusions>
@@ -139,7 +139,7 @@
                                 </field>
                                 <granite:data
                                         jcr:primaryType="nt:unstructured"
-                                        maxlimit="5"/>
+                                        maxlimit="15"/>
                             </priority>
                         </items>
                     </priorities>
