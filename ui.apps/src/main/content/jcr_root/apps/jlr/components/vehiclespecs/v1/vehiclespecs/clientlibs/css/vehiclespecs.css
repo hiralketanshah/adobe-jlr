@@ -4,7 +4,7 @@
 }
 .VehicleSpecsRulesEngine__specs-engine {
   text-align: left;
-  font-family: "AvenirNext", "arial", "helvetica", sans-serif;
+  font-family: "AvenirNext-Regular", "arial", "helvetica", sans-serif;
   font-size: 1.5rem;
   line-height: 1.4;
   letter-spacing: 0;
@@ -118,7 +118,7 @@
   }
 }
 .VehicleSpecsRulesEngine__specs-engine {
-  font-family: "AvenirNext", "arial", "helvetica", sans-serif;
+  font-family: "AvenirNext-Regular", "arial", "helvetica", sans-serif;
   font-size: 1.5rem;
   line-height: 1.4;
   letter-spacing: 0;
@@ -566,7 +566,6 @@ h2.heading,
       .VehicleSpecsRulesEngine__specs-engine{
         letter-spacing: 0.2px;
         text-align: left;
-        font-family: 'AvenirNext';
         font-weight: normal;
         line-height: 14px;
         color: #4A4F54;
@@ -576,7 +575,7 @@ h2.heading,
       }
       /* Accordian title */
       .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
-        font-family: 'AvenirNext';
+        font-family: 'AvenirNext-Regular';
         text-align: left;
         font-size: 15px !important;
         font-weight: bold;
@@ -604,7 +603,6 @@ h2.heading,
       .VehicleSpecsRulesEngine__specs-engine{
         letter-spacing: 0.2px;
         text-align: left;
-        font-family: 'AvenirNext';
         font-weight: normal;
         line-height: 14px;
         color: #4A4F54;
@@ -612,7 +610,7 @@ h2.heading,
       }
       /* Accordian title */
       .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
-        font-family: 'AvenirNext';
+        font-family: 'AvenirNext-Regular';
         text-align: left;
         font-size: 15px;
         font-weight: bold;
@@ -644,7 +642,6 @@ h2.heading,
      .VehicleSpecsRulesEngine__specs-engine{
        letter-spacing: 0.2px;
        text-align: left;
-       font-family: 'AvenirNext';
        font-weight: normal;
        line-height: 18px;
        color: #4A4F54;
@@ -652,7 +649,7 @@ h2.heading,
      }
      /* Accordian title */
      .VehicleSpecsRulesEngine .dxAccordion .dxAccordion__title{
-       font-family: 'AvenirNext';
+       font-family: 'AvenirNext-Regular';
        text-align: left;
        font-size: 15px;
        font-weight: bold;
@@ -712,10 +709,10 @@ h2.heading,
 }
 .RulesEngineDropdown__engine-label{
   min-height: 15px;
-  color: #0C121C;
+  color: #0C121CCC;
 }
 .RulesEngineDropdown__engine-consumption{
-  color: #0C121C;
+  color: #0C121CCC;
   min-height: 15px;
 }
 @media screen and (min-width: 768px)  and (max-width: 1279.9px){
@@ -949,10 +946,11 @@ h2.heading,
   text-transform: uppercase;
 }
 .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-item .dxDropdown__list-item-link{
-  color: #0C121C;
+  color: #0C121CCC;
   font-size: 11px;
   line-height: 19px;
   letter-spacing: 0.45px;
+  font-family: AvenirNext-DemiBold;
 }
 .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-item .dxDropdown__list-item-link:hover {
   background: #F0F0F0;
@@ -960,4 +958,7 @@ h2.heading,
 .cmp-vehicleSpecsRulesEngine .icon-chevron-down:before{
   width: 24px;
   height: 14px;
+}
+.cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p {
+  color: #0C121C;
 }
