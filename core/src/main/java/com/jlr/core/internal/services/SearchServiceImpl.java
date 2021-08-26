@@ -21,6 +21,7 @@ import javax.jcr.Session;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
@@ -36,6 +37,8 @@ import com.day.cq.search.Query;
 import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.Hit;
 import com.day.cq.search.result.SearchResult;
+import com.day.cq.wcm.api.Page;
+import com.day.cq.wcm.api.PageManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jlr.core.config.SearchConfig;
@@ -44,6 +47,7 @@ import com.jlr.core.constants.ErrorUtilsConstants;
 import com.jlr.core.pojos.LinkPojo;
 import com.jlr.core.pojos.ResultPojo;
 import com.jlr.core.pojos.SearchPojo;
+import com.jlr.core.services.Dictionary;
 import com.jlr.core.services.SearchService;
 import com.jlr.core.utils.ErrorUtils;
 
@@ -58,6 +62,9 @@ public class SearchServiceImpl implements SearchService {
 
     @Reference
     private Externalizer externalizer;
+    
+    @Reference
+    private Dictionary dictionary;
 
     /**
      * The config.
@@ -70,9 +77,10 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public String getFullJson(String searchText, String locale, ResourceResolver resolver) {
+    public String getFullJson(String searchText, String locale, SlingHttpServletRequest request) {
 
         List<ResultPojo> results = new ArrayList<>();
+        ResourceResolver resolver = request.getResourceResolver();
         Query query = queryBuilder.createQuery(createQueryPredicate(searchText, locale), resolver.adaptTo(Session.class));
         SearchResult result = query.getResult();
         GsonBuilder gsonBuilder = new GsonBuilder();
@@ -80,7 +88,8 @@ public class SearchServiceImpl implements SearchService {
         SearchPojo searchPojo = new SearchPojo();
         searchPojo.setQuery(searchText);
         searchPojo.setNoResultsText("Sorry, no results containing '" + searchText + "'");
-        searchPojo.setResultsTitleText(result.getHits().size() + " results found for " + searchText);
+        
+        searchPojo.setResultsTitleText(getResultTitleText(request, resolver, request.getResource(), result.getHits().size(), searchText, locale));
         try {
             for (final Hit hit : result.getHits()) {
                 if (null != hit.getResource()) {
@@ -101,7 +110,23 @@ public class SearchServiceImpl implements SearchService {
         return gson.toJson(searchPojo);
     }
 
-    private String getPagePropertyValue(Resource resource, String property) {
+    private String getResultTitleText(SlingHttpServletRequest request, ResourceResolver resolver, Resource resource, int searchSize, String searchText, String locale) {
+    	if(null!=resource) {
+    		String searchConfigPath = getSearchConfigPath(locale);
+    		String path = request.getRequestURI();
+    		PageManager pageManager = resolver.adaptTo(PageManager.class);
+    		Page currentPage = pageManager.getPage(searchConfigPath);
+    		Map<String, String> configMap = dictionary.getConfigMap(resolver, resource, currentPage);
+            String configValue = configMap.get(CommonConstants.CONFIG_SEARCH_RESULT_TITLE);
+            if(StringUtils.isNotBlank(configValue)) {
+            	configValue = configValue.replace("{0}", Integer.toString(searchSize)).replace("{1}", searchText);
+            	return configValue;
+            } 
+    	}
+    	return searchSize + " results found for " + searchText;
+	}
+
+	private String getPagePropertyValue(Resource resource, String property) {
         if (resource.getChild(JCR_CONTENT) != null) {
             ValueMap valueMap = resource.getChild(JCR_CONTENT).getValueMap();
             if (valueMap != null) {
@@ -145,8 +170,8 @@ public class SearchServiceImpl implements SearchService {
     }
 
     @Override
-    public String processResultsByRules(SearchPojo searchPojo, ResourceResolver resolver) {
-
+    public String processResultsByRules(SearchPojo searchPojo, SlingHttpServletRequest request, String locale) {
+    	ResourceResolver resolver = request.getResourceResolver();
         Map<String, ResultPojo> resultsPojoMap = new TreeMap<>();
         Map<String, String> exclusionMap = getExclusion(resolver, searchPojo.getLocale());
         Map<String, String> priorityMap = getPriority(resolver, searchPojo.getLocale());
@@ -182,7 +207,7 @@ public class SearchServiceImpl implements SearchService {
         }
 
         List<ResultPojo> filteredResults = resultsPojoMap.values().stream().sorted().collect(Collectors.toList());
-        List<ResultPojo> finalResultsForPage = getPaginationResults(searchPojo, filteredResults);
+        List<ResultPojo> finalResultsForPage = getPaginationResults(request, searchPojo, filteredResults, locale);
         if (CollectionUtils.isNotEmpty(finalResultsForPage)) {
             finalResultsForPage.stream().forEach(result -> {
                 LinkPojo linkPojo = result.getLink();
@@ -194,7 +219,7 @@ public class SearchServiceImpl implements SearchService {
         return gson.toJson(searchPojo);
     }
 
-    private List<ResultPojo> getPaginationResults(SearchPojo searchPojo, List<ResultPojo> filteredResults) {
+    private List<ResultPojo> getPaginationResults(SlingHttpServletRequest request, SearchPojo searchPojo, List<ResultPojo> filteredResults, String locale) {
         int page = searchPojo.getPage().intValue();
         int PAGE_SIZE = config.resultsPerPage();
         int total = filteredResults.size();
@@ -203,7 +228,8 @@ public class SearchServiceImpl implements SearchService {
             maxPages = maxPages + 1;
         }
         searchPojo.setMaxPage((long) maxPages);
-        searchPojo.setResultsTitleText(filteredResults.size() + " results found for " + searchPojo.getQuery());
+        
+        searchPojo.setResultsTitleText(getResultTitleText(request, request.getResourceResolver(), request.getResource(), filteredResults.size(), searchPojo.getQuery(), locale));
         if (page <= 0 || total <= 0) {
             searchPojo.setMaxPage(0l);
             return new ArrayList<>();

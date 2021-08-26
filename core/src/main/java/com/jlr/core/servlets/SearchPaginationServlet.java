@@ -71,7 +71,7 @@ public class SearchPaginationServlet extends SlingSafeMethodsServlet {
         searchPojo.setLocale(locale);
         searchPojo.setPage(Long.parseLong(pageNumber));
 
-        String finalJson = searchService.processResultsByRules(searchPojo, request.getResourceResolver());
+        String finalJson = searchService.processResultsByRules(searchPojo, request, locale);
 
         sendResponse(response, gson, finalJson);
     }
