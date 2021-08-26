@@ -206,6 +206,7 @@
 .cmp-faqmodel__list a {
     color: #000;
     text-decoration: underline;
+    word-break: break-all;
 }
 .cmp-faqmodel__list a:hover {
     color: #005a2b;

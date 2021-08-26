@@ -246,11 +246,7 @@
   .gallerylist .Gallery__previous{
     padding-left:30px;
   }
-  
-  .gallerylist .playerWrapper{
-    width:841px!important;
-    height:473px!important;
-  }
+ 
   }
   
   @media screen and (min-width: 741px) and (max-width: 900px){
