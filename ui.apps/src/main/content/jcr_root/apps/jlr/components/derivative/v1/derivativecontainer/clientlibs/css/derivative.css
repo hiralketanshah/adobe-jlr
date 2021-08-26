@@ -451,7 +451,7 @@ width: 760px;
 
 .Derivative__engine-attribute-wrapper sup,
 .Derivative__engine-attribute-value sup {
-    font-size: 1em;
+    font-size: 0.6em;
     vertical-align: super;
     line-height: 1;
 }

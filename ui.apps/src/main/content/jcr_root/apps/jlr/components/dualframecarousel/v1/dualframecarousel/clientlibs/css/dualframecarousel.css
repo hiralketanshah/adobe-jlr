@@ -1161,6 +1161,13 @@ order:1;
     font-size: 10px;
     line-height: 12.5px;
   }
+  @media screen and (min-width: 1280px) and (max-width:1919.9px) {
+    .cmp-carousel.cmp-dualframe-carousel{
+      padding-left: 60px;
+      padding-right: 60px;
+    }
+    
+  }
 @media screen and (min-width: 1280px) {
   .cmp-dualframe-carousel .cmp-carousel__controls{
     left: 60px;
@@ -1174,10 +1181,7 @@ order:1;
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--next{
   right: 10px;
 }
-  .cmp-carousel.cmp-dualframe-carousel{
-    padding-left: 60px;
-    padding-right: 0px;
-  }
+ 
   /* HEADING */
   .cmp-dualFrameItem  .summaryItemContent .summaryItemHeader p{
     padding-top: 9px;
