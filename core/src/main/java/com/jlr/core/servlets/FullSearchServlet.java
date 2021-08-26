@@ -40,7 +40,7 @@ public class FullSearchServlet extends SlingSafeMethodsServlet {
 
         String searchTerm = request.getParameter("query");
         String locale = request.getParameter("locale");
-        String resultJson = searchService.getFullJson(searchTerm, locale, request.getResourceResolver());
+        String resultJson = searchService.getFullJson(searchTerm, locale, request);
 
         response.setContentType(APPLICATION_JSON);
         response.setCharacterEncoding(CharEncoding.UTF_8);

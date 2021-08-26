@@ -1,6 +1,8 @@
 package com.jlr.core.services;
 
 import com.jlr.core.pojos.SearchPojo;
+
+import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.ResourceResolver;
 
 /**
@@ -13,17 +15,18 @@ public interface SearchService {
      *
      * @param searchText the search text
      * @param locale     the locale
-     * @param resolver   the resolver
+     * @param request   the request
      * @return the full json
      */
-    String getFullJson(String searchText, String locale, ResourceResolver resolver);
+    String getFullJson(String searchText, String locale, SlingHttpServletRequest request);
 
     /**
      * Process results by rules string.
      *
      * @param searchPojo the search pojo
-     * @param resolver   the resolver
+     * @param request   the request
+     * @param locale 
      * @return the string
      */
-    String processResultsByRules(SearchPojo searchPojo, ResourceResolver resolver);
+    String processResultsByRules(SearchPojo searchPojo, SlingHttpServletRequest request, String locale);
 }
