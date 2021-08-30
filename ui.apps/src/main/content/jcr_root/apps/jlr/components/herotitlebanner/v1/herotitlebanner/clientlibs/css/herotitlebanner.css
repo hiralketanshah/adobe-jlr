@@ -237,7 +237,7 @@ label {
 .grey .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
 .white .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
 .light .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown{
-	stroke:#FFFFFF;
+	stroke:none;
 }
 
 .slateblue .cmp-carousel[data-total="1"] .Pagination__pause:before,
@@ -556,10 +556,10 @@ label {
 	.cmp-carousel.cmp-herotitle-carousel{
 		margin-bottom: 30px;
 	}
-	.grey .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
+.grey .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
 .white .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
 .light .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown{
-	stroke:#000000;
+	stroke:none;
 }
 }
 
