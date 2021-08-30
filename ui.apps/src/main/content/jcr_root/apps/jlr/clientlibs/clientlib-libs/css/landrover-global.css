@@ -16615,13 +16615,20 @@ html[lang=de-DE] .headerBox .totalCostUnderlay .infoColumn .infoBlock {
 	height: 42px;
 	transform: rotateY(-180deg) rotateZ(-90deg)
 }
+.grey .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
+.white .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown, 
+.light .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown,
+.slateblue .cmp-carousel[data-total="1"] .Pagination__pause-timer-icon-countdown
+{
+	stroke:none;
+}
 
 .Pagination__pause-timer-icon-countdown {
 	stroke-dasharray: 124px;
 	stroke-dashoffset: 0;
 	stroke-linecap: round;
 	stroke-width: 2px;
-	stroke: white;
+	stroke: #FFFFFF;
 	fill: none;
 	opacity: 1
 }
