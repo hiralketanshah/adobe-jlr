@@ -395,7 +395,7 @@
 
 }
 
-@media screen and (min-width:376px) and (max-width:767px) {
+@media screen and (min-width: 320px) and (max-width: 767.9px){
 
 	.cmp-engineSpecifications .stickToRight {
 		position: relative;
@@ -408,13 +408,13 @@
 	}
 	
 	.cmp-engineSpecifications .headerBlock .heading {
-		padding-top: 60px;
-		padding-bottom:17px;
-		padding-left: 30px;
-    	padding-right: 30px;
+		padding-top: 40px;
+		padding-bottom:16px;
+		padding-left: 25px;
+    	padding-right: 25px;
 		}
 	.cmp-engineSpecifications__summary{
-		padding-left: 30px;
+		padding-left: 25px;
 		padding-bottom: 24px;
 		max-width: 524px;
 	}
@@ -422,7 +422,7 @@
 	.cmp-engineSpecifications .ctaContainer,
 	.cmp-engineSpecifications .bottomCta	{
 		padding-left: 30px;
-		padding-bottom : 40px;
+		padding-bottom : 0px;
 	}
 	
 	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
@@ -439,7 +439,7 @@
 		padding:18px 18px;
 	}	
 	.cmp-engineSpecifications .ResponsiveTable {
-		padding-left: 30px;
+		padding-left: 25px;
 
 	}
 	.cmp-engineSpecifications .responsiveTableArrow {
@@ -458,104 +458,14 @@
 		margin-top: 60px;
 		margin-bottom: 0
 	}
-
-
-
+	
 
 }
 
-@media screen and  (max-width:375px) {
 
-
-	.cmp-engineSpecifications .tableHeadingWrapper{		
-		font-size: 26px;
-
-	}
-	
-	.cmp-engineSpecifications .headerBlock  {
-		padding: 40px 25px;
-	}
-	.cmp-engineSpecifications__summary{
-    	padding-top : 16px;
-   		padding-right: 25px;
-    	padding-bottom: 24px;
-	}
-	
-    .cmp-engineSpecifications .ctaContainer,
-	.cmp-engineSpecifications .bottomCta{
-	
-		padding-left: 25px;
-   		padding-right: 74px;
-		padding-bottom : 40px;
-		/* padding-right: 2px; */
-	}
-
-	.cmp-engineSpecifications .responsiveTableArrow{
-		padding-bottom:40px;
-	}
-
-	.cmp-engineSpecifications .ResponsiveTable {
-		padding-left:25px;
-	}
-	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
-	.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle
-	{
-		padding-left: 38px;
-		padding-top: 15px;
-		padding-bottom: 16px;
-	}
-	.cmp-engineSpecifications .ctaContainer .icon-arrow-right{
-		padding-left:-2px;
-	}
-
-	.cmp-engineSpecifications .headerBlock {
-		margin: 0 auto 30px
-	}
-	.ResponsiveTable.stickToRight {
-		position: relative
-	}
-	.cmp-engineSpecifications .responsiveTableArrow {
-		margin-top: -25px
-	}
-	.cmp-engineSpecifications th:first-child {
-		font-size: 14px
-	}
-
-	.cmp-engineSpecifications th:first-child span {
-		font-size: 11px
-	}
-	.cmp-engineSpecifications th:first-child a {
-		font-size: 8px;
-		padding-left: 10px;
-		letter-spacing: .12em;
-		padding-top: 3px;
-		padding-bottom: 3px
-	}
-	.cmp-engineSpecifications th:first-child a:before {
-		font-size: 9px;
-		top: 3px
-	}
-	.cmp-engineSpecifications .ctaContainer,
-	.cmp-engineSpecifications .bottomCta{
-		margin-top: 30px;
-		margin-bottom: 0
-	}
-	.cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,
-	.cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{
-		width: 276px;
-	}
-	.cmp-engineSpecifications table:not(.nonResponsive) {
-		font-size: 12px
-	}
-	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr td,
-	.cmp-engineSpecifications table:not(.nonResponsive) tbody tr th {
-		padding: 18px 18px;
-	}
-
-}
 /*---------code fix for 585----------*/
 .cmp-table--table-white .cmp-engineSpecifications table:not(.nonResponsive){border: 1px solid #ffffff}
-@media screen and (min-width:1280px) and (max-width: 1919px){
+@media screen and (min-width:1280px) and (max-width: 1919.9px){
 
 	.cmp-engineSpecifications .ctaContainer,
 	.cmp-engineSpecifications .bottomCta	{
@@ -589,7 +499,7 @@
 	margin-top:0;
 	}
 	.cmp-table .cmp-engineSpecifications .ctaContainer .primaryLinkWithStyle,.cmp-table .cmp-engineSpecifications .bottomCta .primaryLinkWithStyle{width:auto;}
-	@media screen and (min-width: 768px) and (max-width:1279px){
+	@media screen and (min-width: 768px) and (max-width:1279.9px) {
 		.cmp-engineSpecifications .ctaContainer,
 		.cmp-engineSpecifications .bottomCta	{
 			padding-left: 30px;
@@ -605,20 +515,18 @@
         .cmp-table .tableHeadingWrapper p{font-size:33px; line-height:33px;letter-spacing:1.65px;}
 
 	}
-	@media screen and (min-width: 320px) and (max-width: 766px){
+	@media screen and (min-width: 320px) and (max-width: 767.9px){
 	.cmp-table .table th, tr, td{font-size:11px; line-height:19px; letter-spacing:0.16px;}
 	.cmp-table .tableHeadingWrapper p{width:325px; letter-spacing:1.3px; font-size:26px; line-height:26px}
 	.cmp-table .cmp-engineSpecifications__summary p{width:325px;font-size:14px; line-height:19px;letter-spacing:0.2px;}
-	.cmp-table .cmp-engineSpecifications .bottomCta{margin-top:50px;}
 	.cmp-table {
 		padding-bottom: 45px;
 	}
 	.cmp-table .primaryLinkWithStyle {margin-bottom:0;padding-bottom:0}
-	.cmp-table .cmp-engineSpecifications__summary{padding-bottom:0;}
-	.cmp-table .ctaContainer{margin-top:0; padding-left:0;}
+	.cmp-table .ctaContainer{margin-top:0; padding-left:25px;}
 				}
 	.cmp-table .ctaContainer .primaryLinkContainer{margin-top:0!important;}
-	.cmp-table .cmp-engineSpecifications__summary{padding-bottom:25px;}
+	.cmp-table .cmp-engineSpecifications__summary{padding-bottom:24px;}
 		.cmp-table  .cmp-engineSpecifications {
 		overflow-x: hidden;
 	}
@@ -663,7 +571,6 @@
 		.cmp-engineSpecifications .ctaContainer,
 		.cmp-engineSpecifications {
 				padding-left: 30px;
-				/* padding-top: 60px; */
 				margin-bottom : 80px;
 	    }
 		.bottomCta {
