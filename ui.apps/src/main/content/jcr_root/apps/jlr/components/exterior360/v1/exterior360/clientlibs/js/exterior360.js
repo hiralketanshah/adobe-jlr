@@ -3187,7 +3187,6 @@
     
                         this.changeTotal = 0;
                         this.imageIndex = directionalCheck === 1 ? this.imageIndex + 1 : this.imageIndex - 1;
-                        console.log
     
                         if (this.imageIndex >= this.images.length) {
                           this.imageIndex = 0;
