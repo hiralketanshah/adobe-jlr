@@ -3187,6 +3187,7 @@
     
                         this.changeTotal = 0;
                         this.imageIndex = directionalCheck === 1 ? this.imageIndex + 1 : this.imageIndex - 1;
+                        console.log
     
                         if (this.imageIndex >= this.images.length) {
                           this.imageIndex = 0;
@@ -3195,7 +3196,7 @@
                         }
     
                         this._updateCurrentImage();
-                        this._dxRangeSlider.set(this.imageIndex);
+                        // this._dxRangeSlider.set(this.imageIndex);
                       }
                     },
                     _draw: function _draw() {
