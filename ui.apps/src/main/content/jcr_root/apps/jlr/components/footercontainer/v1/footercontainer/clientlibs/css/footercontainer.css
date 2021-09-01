@@ -232,7 +232,7 @@
 .cmp_footerNav__trustarc-link a:hover {
 	text-decoration: underline
 }
-.cmp_footerNav li{line-height: 19px;}
+.cmp_footerNav li{line-height: 19px;font-weight:700}
 @media screen and (min-width: 901px) {
 
 	.cmp_footerNav__footerWrapper {
