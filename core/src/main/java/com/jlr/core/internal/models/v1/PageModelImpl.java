@@ -689,8 +689,14 @@ public class PageModelImpl implements PageModel {
     }
     
     public String getCanonicalPath() {
-    	String uri = request.getRequestURI();
+    	String uri = currentPage.getPath();
     	if(StringUtils.isNotBlank(uri)) {
+    		if(uri.contains("/en_au/")) {
+    			uri = externalizer.externalLink(resourceResolver, CommonConstants.AU_EXTERNALIZER_DOMAIN, uri);
+    		}
+    		else if(uri.contains("/de_de/")) {
+    			uri = externalizer.externalLink(resourceResolver, CommonConstants.DE_EXTERNALIZER_DOMAIN, uri);
+    		}
     		uri = StringUtils.replace(uri, "/content/landrover/global/row/published-sites/en_au/", "/");
     		uri = StringUtils.replace(uri, "/content/landrover/global/europe/published-sites/de_de/", "/");
     	}
