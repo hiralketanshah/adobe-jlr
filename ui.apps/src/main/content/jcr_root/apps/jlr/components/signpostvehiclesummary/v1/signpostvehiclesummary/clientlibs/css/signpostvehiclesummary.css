@@ -712,6 +712,13 @@
         width: calc((93.83vw - 40px) / 2);
         float: right;
     }
+    .cmp-vehicleSummary.left .Picture--background .Picture__img{
+        height: calc((53.8vw - 40px) / 2);
+        width: calc((93.83vw - 40px) / 2);
+        float: left;
+      
+               
+  }
        
 }
 @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
@@ -832,9 +839,14 @@
 
 .cmp-vehicleSummary .secondaryLinkContainer,
 .cmp-signPost .secondaryLinkContainer{clear:both;}
+.cmp-vehicleSummary .primaryLinkWithStyle,
+.cmp-signPost .primaryLinkWithStyle{clear:both;}
 .cmp-vehicleSummary .price{color:#4A4F54!important;}
  .cmp-vehicleSummary.grey p,  .cmp-vehicleSummary.light p,  .cmp-vehicleSummary.white p {
     color: #4A4F54;
+}
+.cmp-vehicleSummary.slateblue p{
+    color:#FFFF;
 }
 .cmp-vehicleSummary.slateblue .headingWrapper{
     color:#FFF;

@@ -3195,7 +3195,7 @@
                         }
     
                         this._updateCurrentImage();
-                        this._dxRangeSlider.set(this.imageIndex);
+                        // this._dxRangeSlider.set(this.imageIndex);
                       }
                     },
                     _draw: function _draw() {
