@@ -529,8 +529,8 @@
     margin-top: 0px;
   }
 
-  .cmp-offersContainer .offerHeading h1,h2 {
-    margin-bottom: 0.45em;
+  .cmp-offersContainer .offerHeading h1, .cmp-offersContainer .offerHeading h2 {
+    margin-bottom: 8px;
   }
 
   .cmp-offersContainer .offer .offerDescription .bullets {
@@ -542,15 +542,15 @@
   }
 
   .cmp-offersContainer .offer .offerDescription {
-    padding: 6.7% 6.7%;
+    padding: 16px 25px 24px 25px;
   }
 
   .cmp-offersContainer .offer .offerLink {
     padding-top: 6.4%;
-    margin-top: 6.4%;
+    margin-top: 25px;
     border-top: 1px solid #E0E0E0;
-    margin-left: 6.7%;
-    margin-right: 6.7%;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
   .cmp-offersContainer .offer .offerInfo {
@@ -558,20 +558,16 @@
   }
 
   .cmp-offersContainer .offer .offerFinanceBoxes {
-    padding-top: 23px;
+    padding-top: 24px;
     border-top: 1px solid #E0E0E0;
-    margin-left: 6.7%;
-    margin-right: 6.7%;
-  }
-
-  .cmp-offersContainer .offer .offerDescription {
-    padding-top: 4.3%;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
   .cmp-offersContainer .offer .offerImage {
-    margin-left: 6.7%;
-    margin-right: 6.7%;
-    margin-top: 6.7%;
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 25px;
     padding: 0 0 48.8%;
   }
 
@@ -717,7 +713,7 @@
   }
 
   .cmp-offersContainer .offerInfoLease {
-    margin-bottom: 39px;
+    margin-bottom: 0;
   }
 
   .cmp-offersContainer .offerDetailsLink span,
