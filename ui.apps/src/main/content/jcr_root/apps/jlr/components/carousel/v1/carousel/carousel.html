@@ -33,6 +33,6 @@ data-cmp-data-layer="${carousel.data.json}" data-autoplay="${carousel.autoplay @
          data-sly-test="${(wcmmode.edit || wcmmode.preview) && carousel.items.size < 1}"></sly>
          <sly data-sly-use.path="${'pageutils.js' @ value=uri}">
             <sly data-sly-test="${path.isExp}"><sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
-                data-sly-call="${clientlib.all @ categories=['jlr.components.carousel.v1']}"/></sly>
+                data-sly-call="${clientlib.js @ categories=['jlr.components.carousel.v1']}"/></sly>
         </sly>
 </div>
