@@ -1,3 +1,4 @@
+<sly data-sly-test.uri="${request.requestURI}"/>
 <div data-sly-use.carousel="com.adobe.cq.wcm.core.components.models.Carousel" data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='generic.slider.label.next,generic.slider.label.pause,generic.slider.label.paused,generic.slider.label.pip,generic.slider.label.play,generic.slider.label.playing,generic.slider.label.previous,generic.slider.label.slideChanged'}" 
      data-sly-use.templates="core/wcm/components/commons/v1/templates.html"
      id="${carousel.id}"
@@ -30,4 +31,8 @@ data-cmp-data-layer="${carousel.data.json}" data-autoplay="${carousel.autoplay @
 	<div data-sly-test="${!wcmmode.edit}" class="cmp-carousel__controls"></div>
     <sly data-sly-resource="${resource.path @ resourceType='wcm/foundation/components/parsys/newpar', appendPath='/*', decorationTagName='div', cssClassName='new section aem-Grid-newComponent'}"
          data-sly-test="${(wcmmode.edit || wcmmode.preview) && carousel.items.size < 1}"></sly>
+         <sly data-sly-use.path="${'pageutils.js' @ value=uri}">
+            <sly data-sly-test="${path.isExp}"><sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html"
+                data-sly-call="${clientlib.all @ categories=['jlr.components.carousel.v1']}"/></sly>
+        </sly>
 </div>
