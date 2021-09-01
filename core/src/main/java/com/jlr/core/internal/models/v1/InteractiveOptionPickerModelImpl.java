@@ -291,9 +291,9 @@ public class InteractiveOptionPickerModelImpl extends GlobalModelImpl implements
                     optionItemDetails.put(JSON_PROPERTY_TOGGLE_TABLET_IMAGEURL,
                                     StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY : optionItem.getOptionImage());
                     optionItemDetails.put(JSON_PROPERTY_TOGGLE_MOBILE_IMAGEURL, StringUtils.isEmpty(optionItem.getOptionImage()) ? StringUtils.EMPTY
-                                    : CommonUtils.getSmallImagePath(optionItem.getOptionImage()));
+                                    : optionItem.getOptionImage());
                     optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_URL, StringUtils.isEmpty(optionItem.getThumbnailImage()) ? StringUtils.EMPTY
-                                    : CommonUtils.getTinyImagePath(optionItem.getThumbnailImage()));
+                                    : optionItem.getThumbnailImage());
                     optionItemDetails.put(JSON_PROPERTY_TOGGLE_IMAGE_ALT,
                                     StringUtils.isEmpty(optionItem.getImgAlt()) ? StringUtils.EMPTY : optionItem.getImgAlt());
                     optionItemDetails.put(JSON_PROPERTY_TOGGLE_THUMBNAIL_IMAGE_ALT, StringUtils.isEmpty(optionItem.getOptionLabel()) ? StringUtils.EMPTY
