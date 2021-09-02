@@ -352,7 +352,7 @@ h2.heading,
     }
     .TechSpecsTable__heading,
     .TechSpecsTable__cell {
-      padding: 20px;
+      padding: 16px;
     }
      #landrover .RulesEngineDropdown__submit .primaryLinkWithStyle{
       margin-left: 0px;
@@ -375,6 +375,13 @@ h2.heading,
     min-height: 45px;
     margin-top: 35px;
     margin-left: 30px;
+  }
+  .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-item .dxDropdown__list-item-link {
+    padding: 13px 41px 14px 14px !important;
+  }
+  .cmp-vehicleSpecsRulesEngine .dxDropdown__button {
+    padding-right: 41px !important;
+    white-space: normal;
   }
   }
   @media screen and (min-width: 768px) and (max-width: 1279.9px)  {
@@ -846,7 +853,6 @@ h2.heading,
   }
   .RulesEngineDropdown__dropdown-button .RulesEngineDropdown__engine-consumption{
     line-height: 13px;
-    color:#4A4F54B2;
   }
   .RulesEngineDropdown__dropdown-button {
     min-height: 15px;
@@ -881,7 +887,6 @@ h2.heading,
 }
 .cmp-vehicleSpecsRulesEngine .dxDropdown__button {
   border: none;
-  padding-right: 34px; /*bugfix 1065 */
 }
 .cmp-vehicleSpecsRulesEngine .dxDropdown__button:after, .cmp-vehicleSpecsRulesEngine .dxDropdown__button:after {
   border: 1px solid #0C121C4D;
