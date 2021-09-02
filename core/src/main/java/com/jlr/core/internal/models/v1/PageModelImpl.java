@@ -700,6 +700,6 @@ public class PageModelImpl implements PageModel {
     		uri = StringUtils.replace(uri, "/content/landrover/global/row/published-sites/en_au/", "/");
     		uri = StringUtils.replace(uri, "/content/landrover/global/europe/published-sites/de_de/", "/");
     	}
-        return uri;
+        return uri.concat(CommonConstants.EXTENSION_DOT_HTML);
     }
 }
