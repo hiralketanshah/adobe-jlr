@@ -54,3 +54,6 @@
 .slateblue .Modal__title{
     color: #FFFF;
 }
+.MarketRegionalPricing__dxDropdown .dxDropdown__list{
+    max-height: 200px;
+}
