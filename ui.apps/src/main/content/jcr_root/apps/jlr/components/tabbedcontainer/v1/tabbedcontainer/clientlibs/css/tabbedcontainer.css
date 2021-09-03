@@ -320,7 +320,6 @@
         margin: 0;
     }
     .cmp-tabbedContainer .DxTabs__tablist.leftShade {
-        -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
         mask-image: linear-gradient(to left, black 50%, transparent 100%);
     }
     .cmp-tabbedContainer .DxTabs__tablist.rightShade {
@@ -501,8 +500,9 @@ margin-bottom: 0;
         padding-left: 0;
         padding-right: 0;
     }
+  
     .cmp-tabbedContainer .cmp-exterior360 .contentClass{
-        width: 560px;
+        width: 650px;
         float: left;
     }
     .cmp-tabbedContainer {
