@@ -967,3 +967,7 @@ h2.heading,
 .cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown-heading p {
   color: #0C121C;
 }
+.cmp-vehicleSpecsRulesEngine .RulesEngineDropdown__dropdown--engine .dxDropdown__list-item-link {
+  color: #4A4F54;
+  line-height: 16px;
+}
