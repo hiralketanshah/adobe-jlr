@@ -30,10 +30,7 @@
     height: auto;
     width: auto;
   }
-  .cmp-accolades__img .Picture__img {
-    height: 100%;
-    width: 100%;
-    
+  .cmp-accolades__img .Picture__img {    
     margin: 0 auto;
   }
   .cmp-accolades__copy {
@@ -70,9 +67,6 @@
     .cmp-accolades {
       overflow: hidden;
       text-align: left;
-      padding-top: 40px;
-      padding-left: 30px;
-      padding-bottom: 16px;
     }
     .cmp-accolades__img .Picture__img {
       margin: 0;
@@ -196,8 +190,8 @@
     .cmp-onlyCopy {
       width: 100%;
     }
-    .cmp-accolades{
-      padding-bottom: 30px;
+    .cmp-accolades {
+      padding: 30px 25px;
     }
     .cmp-accolades__img {
       margin-left: 0px;
@@ -205,10 +199,6 @@
       height: calc(((39.47vw) * 9) / 16);
       max-width: 156px;
       max-height: 88px;
-  }
-  .cmp-accolades {
-    padding-top: 30px;
-    padding-left: 25px;
   }
   .cmp-accolades__copy {
     margin-top:16px;
@@ -232,28 +222,20 @@
     padding-left: 25px;
     margin-bottom: 30px;
   }
+  .cmp-accolades__img .Picture__img {
+    width: calc(39.47vw);
+    height: calc(((39.47vw) * 9) / 16);
+  }
   }
   /* TABLET ACCOLADES WITH LOGO - START*/
   @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .cmp-onlyCopy .cmp-accolades__copy{
+    .cmp-onlyCopy .cmp-accolades__copy {
       padding-top: 0px;
       width: 100%;
     }
     .cmp-accolades .fontQuote{
       width: 100%;
     }
-    .cmp-accolades{
-      padding-bottom: 20px;
-    }
-    .cmp-accolades__img {
-      margin-left: 0px;
-      height: auto;
-      width: auto;
-  }
-  .cmp-accolades {
-    padding-top: 40px;
-    padding-left: 30px;
-  }
   .cmp-accolades__copy {
     margin-top:16px;
   }
@@ -286,7 +268,7 @@
   }
   /* TABLET ACCOLADES WITH LOGO - END*/
   /* DESKTOP ACCOLADES WITH LOGO - START*/
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: 1280px) and (max-width: 1919.9px) {
     .cmp-accolades {
       padding-top: 60px;
       padding-bottom: 40px;
@@ -324,7 +306,6 @@
     width: 100%;
   }
   .cmp-carousel__controls.cmp-accolades_pagination{
-    position: absolute;
     justify-content: left;
     padding-left: 60px;
     margin-top: 0px;
@@ -332,9 +313,9 @@
     padding-bottom: 0;
   }
   .cmp-accolades__img{
-    width: 260px;
-    padding-top: 6px;
-    height: 146px;
+    width: calc(20.3125vw);
+    height: calc(((20.3125vw) * 9 ) / 16 );
+    margin-top: 6px;
   }
   .cmp-accolades-carousel .swiper-button--prev {
     left: 10px;
@@ -345,16 +326,27 @@
   .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
     padding-bottom: 80px;
   }
+  .cmp-accolades__img .Picture__img {
+    width: calc(20.3125vw);
+    height: calc(((20.3125vw) * 9 ) / 16 );
+  }
+  .cmp-accolades__copy {
+    padding-right: 140px;
+    margin: 0px;
+  } 
   }
   /* WIDESCREEN ACCOLADES WITH LOGO - START*/
   
   @media (min-width: 1920px){
   .cmp-accolades {
       padding: 60px 290px 40px 290px;
-      overflow: auto;
+      overflow: auto;display: flex;
+      flex-direction: row-reverse;
+
   }
-  .cmp-accolades__copy{
+  .cmp-accolades__copy {
     width: 100%;
+    padding-right: 155px;
   }
   .cmp-accolades .fontQuote{
     width: 100%;
@@ -390,35 +382,12 @@
   .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
     padding-bottom: 80px;
   }
+  .cmp-accolades__img .Picture__img {
+    width: calc(15.886vw);
+    height: calc(((15.886vw)*9)/16);
   }
-  /* .cmp-carousel__controls.cmp-accolades_pagination {
-    position: fixed;
-  } */
-  
+  }
   /* END WIDESCREEN */
-  
-  /* CAROUSEL CONTROL ISSUES START*/
-  @media screen and (min-width: 768px)   {
-    .cmp-carousel__controls.cmp-accolades_pagination {
-      position: sticky;
-  
-    }
-  }
-  @media screen and (min-width: 1280px)   {
-    .cmp-accolades__copy{
-      padding-right: 140px;
-    }
-    .cmp-accolades__copy{
-      margin: 0px;
-    }  
-  }
-  @media screen and (min-width: 1920px)   {
-    .cmp-accolades__copy{
-      padding-right: 155px;
-    }
-  }
-  /* CAROUSEL CONTROL ISSUES END*/
-  
   
   /* FIXES */
   .cmp-accolades a {
@@ -461,13 +430,6 @@
 .cmp-accolades__copy--tertiary{
 	color:#0C121C ;
 }
-@media screen and (min-width: 200px) and (max-width: 767.9px){
-.cmp-accolades {
-    padding-top: 30px;
-    padding-left: 25px;
-	padding-bottom:40px;
-  }
- }
 .cmp-accolades .swiper-button--next {
   left: auto;
   right: 0;
@@ -482,31 +444,14 @@
 .cmp-accolades__copy--tertiary{
 color:#0C121C ;
 }
-@media screen and (min-width: 768px) and (max-width: 1279px){
-.cmp-accolades {
-  padding-bottom: 60px;
-}
-}
 /* ---code fix for 564--- */
 .cmp-accolades__copy--tertiary{
     color:#0C121C ;
 }
-@media screen and (min-width: 200px) and (max-width: 768px){
-.cmp-accolades {
-    padding-top: 30px;
-    padding-left: 25px;
-    padding-bottom:40px;
-  }
- }
 /*---code fix for 564----*/
 .cmp-accolades .cmp-accolades__copy--tertiary {color:rgba(12, 18, 28, .6);}
 /*---code fix for 564----*/
 @media screen and (max-width: 767.9px){
-  .cmp-accolades{
-    padding-top: 30px;
-    padding-bottom: 30px;
-    padding-right: 25px;
-  }
   .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
     padding-bottom: 40px;
   }
@@ -525,7 +470,7 @@ color:#0C121C ;
     max-height: 146px;
     float: left;
   }
-  .cmp-accolades{
+  .cmp-accolades {
     padding-left: 30px;
     padding-right:  30px;
     padding-top: 40px;
@@ -533,11 +478,12 @@ color:#0C121C ;
     display: flex;
     flex-direction: column;
   }
-  .cmp-accolades-carousel .cmp-carousel__controls {	
-    position: absolute;
-  }
   .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
     padding-bottom: 60px;
+  }
+  .cmp-accolades__img .Picture__img {
+    width: calc(20.314vw);
+    height: calc(((20.314vw) * 9) / 16);
   }
 }
 @media screen and (max-width: 1279px) {
@@ -550,9 +496,7 @@ color:#0C121C ;
   margin-left: 0px;
   margin-right: 0px;
 }
-@media screen and (max-width: 1279.9px){
-  .cmp-accolades-carousel .cmp-carousel__controls {	
-    position: sticky;
-  }
+.cmp-accolades-carousel .cmp-carousel__controls {	
+  position: sticky;
 }
 
