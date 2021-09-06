@@ -26,14 +26,13 @@
     padding-bottom: 30px;
   }
   .cmp-accolades__img {
-    max-width: 260px;
     margin: 0 auto;
     height: auto;
     width: auto;
   }
   .cmp-accolades__img .Picture__img {
-    height: auto;
-    width: auto;
+    height: 100%;
+    width: 100%;
     
     margin: 0 auto;
   }
@@ -194,10 +193,6 @@
   }
   /* MOBILE ACCOLADES START*/
   @media screen and (max-width: 767.9px) {
-    .cmp-accolades__img .Picture__img{
-      width: 100%;
-      height: 100%;
-    }
     .cmp-onlyCopy {
       width: 100%;
     }
@@ -208,6 +203,8 @@
       margin-left: 0px;
       width: calc(39.47vw);
       height: calc(((39.47vw) * 9) / 16);
+      max-width: 156px;
+      max-height: 88px;
   }
   .cmp-accolades {
     padding-top: 30px;
@@ -249,7 +246,6 @@
       padding-bottom: 20px;
     }
     .cmp-accolades__img {
-      max-width: 260px;
       margin-left: 0px;
       height: auto;
       width: auto;
@@ -407,10 +403,6 @@
       position: sticky;
   
     }
-    .cmp-accolades__img .Picture__img {
-      width: 156px;
-      height: 88px;
-    }
   }
   @media screen and (min-width: 1280px)   {
     .cmp-accolades__copy{
@@ -418,12 +410,7 @@
     }
     .cmp-accolades__copy{
       margin: 0px;
-    } 
-    .cmp-accolades__img .Picture__img {
-      width: 260px;
-      height: 146px;
-    }
-  
+    }  
   }
   @media screen and (min-width: 1920px)   {
     .cmp-accolades__copy{
@@ -532,8 +519,10 @@ color:#0C121C ;
     max-width: 524px;
   }
   .cmp-accolades .cmp-accolades__img{
-    width: 156px;
-    height: 88px;
+    width: calc(20.314vw);
+    height: calc(((20.314vw) * 9) / 16);
+    max-width: 260px;
+    max-height: 146px;
     float: left;
   }
   .cmp-accolades{
