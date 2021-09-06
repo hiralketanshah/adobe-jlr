@@ -34,8 +34,7 @@
   .cmp-accolades__img .Picture__img {
     height: auto;
     width: auto;
-    max-width: 260px;
-    max-height: 250px;
+    
     margin: 0 auto;
   }
   .cmp-accolades__copy {
@@ -194,10 +193,10 @@
     color: white;
   }
   /* MOBILE ACCOLADES START*/
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767.9px) {
     .cmp-accolades__img .Picture__img{
-      width: 148px;
-      height: 83px;
+      width: 100%;
+      height: 100%;
     }
     .cmp-onlyCopy {
       width: 100%;
@@ -206,10 +205,9 @@
       padding-bottom: 30px;
     }
     .cmp-accolades__img {
-      max-width: 148px;
       margin-left: 0px;
-      height: auto;
-      width: auto;
+      width: calc(39.47vw);
+      height: calc(((39.47vw) * 9) / 16);
   }
   .cmp-accolades {
     padding-top: 30px;
