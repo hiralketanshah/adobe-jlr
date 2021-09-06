@@ -12767,7 +12767,7 @@
                     elm.forEach((e)=>{
                       e.style.marginBottom="66px";
                     })
-                    controlsFFC.style.top = offsetheight+65+"px";
+                    controlsFFC.style.top = offsetheight+60+"px";
                   }   
                   if(window.innerWidth >=1280){
                     controlsFFC.style.top = "";

@@ -320,6 +320,7 @@
         margin: 0;
     }
     .cmp-tabbedContainer .DxTabs__tablist.leftShade {
+        -webkit-mask-image: linear-gradient(to left, black 50%, transparent 100%);
         mask-image: linear-gradient(to left, black 50%, transparent 100%);
     }
     .cmp-tabbedContainer .DxTabs__tablist.rightShade {
