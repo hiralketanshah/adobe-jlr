@@ -802,7 +802,7 @@ min-width: 360px;
   .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster {
       position: relative;
       min-width: 1660px;
-      max-width:2000px;
+      
       min-height:935px ;
       height: calc(((100vw - 260px) / 16 )* 9);
       margin-left: 130px;
@@ -812,7 +812,7 @@ min-width: 360px;
     .cmp-carousel.cmp-fullframe-carousel .carousel .cmp-genericItem__element-poster .videoCustom,
     .cmp-fullframe .cmp-genericItem__element-poster{
       min-width: 1660px;
-      max-width:2000px;
+      
       min-height:935px ;
       height: calc(((100vw - 260px) / 16 )* 9);
       padding-bottom: 0;
@@ -1093,7 +1093,7 @@ fill:black;
     opacity: 80%;
 }
 .cmp-fullframe .secondaryLinkContainer{clear:both;}
-@media screen and (min-width:1920px) and (max-width:2700px){
+@media screen and (min-width:1920px){
 .cmp-fullframe .headingWrapper p{font-size:24px; line-height:24px;  font-family:LandRoverWeb-Bold; height:auto;letter-spacing:1.2px;}
 .cmp-fullframe .primaryLinkWithStyle{ margin-top:24px;}
 .cmp-fullframe .secondaryLinkWithStyle{margin-top:23px!important; line-height:12.5px}
@@ -1102,7 +1102,7 @@ fill:black;
   display: block;
   padding: 37px 0 80px 0;
   -webkit-font-smoothing: antialiased;
-  margin: 0 auto;
+  margin: 0 290px;
   width: 100%;
   max-width: 1340px;
 }
