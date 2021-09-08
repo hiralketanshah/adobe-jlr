@@ -2606,13 +2606,14 @@
                   $('.cmp_interactiveOptionPicker__option-btn').addClass('btn-second');
                   $('.mobile-add-button').addClass('mobile-addButton');
                 }
+                $('.cmp-option-picker').each(function (index, element) {
+                  $(`#${element.id} .cmp_interactiveOptionPicker__option-card`).mouseenter(function (e) {
+                    $(`#${element.id} .cmp_interactiveOptionPicker__otr`).html($(this).attr('data-otr-price'));
+                  });
 
-
-                $(".cmp_interactiveOptionPicker__option-card ").mouseenter(function (e) {
-                  $(".cmp_interactiveOptionPicker__otr").html($(this).attr('data-otr-price'));
-                });
-                $(".cmp_interactiveOptionPicker__option-card ").mouseout(function (e) {
-                  $(".cmp_interactiveOptionPicker__otr").html($('.cmp_interactiveOptionPicker__option-card--active').attr('data-otr-price'));
+                  $(`#${element.id} .cmp_interactiveOptionPicker__option-card`).mouseout(function (e) {
+                    $(`#${element.id} .cmp_interactiveOptionPicker__otr`).html($(`#${element.id} .cmp_interactiveOptionPicker__option-card--active`).attr('data-otr-price'));
+                  });
                 });
                 if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
                   $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
@@ -4432,12 +4433,14 @@
 
     /******/
   });
+$('.cmp-option-picker').each(function (index, element) {
+  $(`#${element.id} .cmp_interactiveOptionPicker__option-card`).mouseenter(function (e) {
+    $(`#${element.id} .cmp_interactiveOptionPicker__otr`).html($(this).attr('data-otr-price'));
+  });
 
-$(".cmp_interactiveOptionPicker__option-card ").mouseenter(function (e) {
-  $(".cmp_interactiveOptionPicker__otr").html($(this).attr('data-otr-price'));
-});
-$(".cmp_interactiveOptionPicker__option-card ").mouseout(function (e) {
-  $(".cmp_interactiveOptionPicker__otr").html($('.cmp_interactiveOptionPicker__option-card--active').attr('data-otr-price'));
+  $(`#${element.id} .cmp_interactiveOptionPicker__option-card`).mouseout(function (e) {
+    $(`#${element.id} .cmp_interactiveOptionPicker__otr`).html($(`#${element.id} .cmp_interactiveOptionPicker__option-card--active`).attr('data-otr-price'));
+  });
 });
 if ($(".cmp_interactiveOptionPicker__option-btn").hasClass("btn-second")) {
   $('.cmp_interactiveOptionPicker__bottom-container hr').hide();
