@@ -37,6 +37,7 @@
     bottom: 48px;
     position: absolute;
     justify-content: left;
+    margin-top: -8px;
   }
 }
 /* .cmp-carousel.cmp-hero-carousel .swiper-button {
@@ -333,9 +334,7 @@ label {
   .cmp-hero .linkContainer .primaryLinkContainer:nth-child(2), .cmp-hero .linkContainer .secondaryLinkContainer:nth-child(2){
     margin-top: 24px;
   }
-  .cmp-hero-carousel[data-total="1"] .cmp-carousel__controls.cmp-hero_pagination.Pagination {
-    margin-top: -20px;
-  }
+ 
 }
 .cmp-hero-carousel .cmp-carousel__slider {
   height: 100% !important;
@@ -442,6 +441,7 @@ label {
     position: absolute;
     margin-left: 30px;
     width: fit-content;
+    width: -moz-fit-content;
     top: 25%;
   }
   .cmp-hero-carousel .emissionDetails {

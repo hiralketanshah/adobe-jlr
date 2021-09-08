@@ -292,6 +292,7 @@ fill:#ffffff;
   align-items: center;
   height: 100%;
   color: #4a4f54;
+ 
 }
 
 .cmp-carousel.cmp-dualframe-carousel .carousel .cmp-carousel__slide noscript > div,
@@ -1163,6 +1164,10 @@ order:1;
   }
   @media screen and (min-width: 1280px) and (max-width:1919.9px) {
     .cmp-carousel.cmp-dualframe-carousel{
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .cmp-carousel.cmp-dualframe-carousel .carousel .cmp-carousel__slide{
       padding-left: 60px;
       padding-right: 60px;
     }
@@ -1173,13 +1178,13 @@ order:1;
     left: 60px;
   }
   .cmp-dualframe_pagination.left{
-    left: 69.4%;
+    left:calc((70vw - 40px));
   }
   .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--prev{
-    left: -50px;
+    left: 10px;
 }
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--next{
-  right: -50px;
+  right: 10px;
 }
  
   /* HEADING */
@@ -1315,15 +1320,19 @@ order:1;
     left: 290px;
 }
 .cmp-dualframe_pagination.left {
-  left: 73%;
+  left: calc(65.3vw - 40px);
 }
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--prev {
-  left: -59px;
+  left: 165px;
 }
 .cmp-dualframe-carousel .cmp-carousel__slider .swiper-button--next {
-  right: -59px;
+  right: 165px;
 }
 .cmp-carousel.cmp-dualframe-carousel {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.cmp-carousel.cmp-dualframe-carousel .carousel .cmp-carousel__slide {
   padding-left: 290px;
   padding-right: 290px;
 }

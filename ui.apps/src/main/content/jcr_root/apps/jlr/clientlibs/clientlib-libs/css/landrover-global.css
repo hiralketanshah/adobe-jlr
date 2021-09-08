@@ -3079,7 +3079,7 @@ body {
 }
 
 body:not(.isFullscreen) {
-	max-width: 2600px;
+	/* max-width: 2600px; */
 	margin: 0 auto
 }
 
@@ -3222,7 +3222,7 @@ html.noScroll.forceScrollBar.no-touch .pageWrapper {
 body .container {
 	padding: 0;
 	position: relative;
-	max-width: 2600px;
+	/* max-width: 2600px; */
 	margin: 0 auto
 }
 
