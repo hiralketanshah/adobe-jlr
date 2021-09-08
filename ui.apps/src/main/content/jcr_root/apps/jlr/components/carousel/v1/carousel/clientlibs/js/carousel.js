@@ -12756,7 +12756,7 @@
                     let offsetheight = el.querySelector(".cmp-dualFrameItem__image").offsetHeight;
                     let elm = el.querySelectorAll(".cmp-dualFrameItem__image");
                     elm.forEach((e)=>{
-                      e.style.marginBottom="60px";
+                      e.style.marginBottom="70px";
                     })
                     controlsFFC.style.top = offsetheight+50+"px";
                   }   
