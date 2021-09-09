@@ -1,7 +1,6 @@
-<sly data-sly-use.model="${'com.jlr.core.models.OffersModel' @ key='offers.tco.from.txt'}"
-    data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
-    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='offers.terms.cta,overlay.close'}"
-    data-sly-test.hasContent="${model.offersHeaderCopy}" id="${component.id}"></sly>
+<sly data-sly-use.model="${'com.jlr.core.models.OffersModel' @ key='offers.tco.from.txt'}" data-sly-use.commonsTemplates="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.config="${'com.jlr.core.models.SiteConfigModel' @ key='offers.terms.cta,overlay.close'}" data-sly-test.hasContent="${model.offersHeaderCopy}"
+    id="${component.id}"></sly>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-test="${!wcmmode.edit}">
@@ -9,36 +8,34 @@
     </sly>
 </sly>
 <div class="cmp-offersContainer fontSmooth" id="${model.id}">
-   
+
     <div class="pageWrapper">
     </div>
-   
-   
+
+
     <div class="offer">
         <div class="offerMainFrame">
-         
+
             <div class="offerImage">
                 <picture class="Picture Picture--background cmp-offersContainer__picture">
-                    <source data-dimensions="1600x696" media="(min-width: 1201px)"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
-                    <source data-dimensions="900x387" media="(min-width: 501px)"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
-                    <source data-dimensions="500x216" media="(min-width: 0px)"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
+                    <source data-dimensions="1600x696" media="(min-width: 1201px)" srcset="${model.offersImageFileReference}" alt="${model.imageAlt}"
+                    />
+                    <source data-dimensions="900x387" media="(min-width: 501px)" srcset="${model.offersImageFileReference}" alt="${model.imageAlt}"
+                    />
+                    <source data-dimensions="500x216" media="(min-width: 0px)" srcset="${model.offersImageFileReference}" alt="${model.imageAlt}"
+                    />
                     <sly data-sly-test="${model.imageAlt}">
-                        <img class="Picture__img" data-dimensions="1600x696"
-                        srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
+                        <img class="Picture__img" data-dimensions="1600x696" srcset="${model.offersImageFileReference}" alt="${model.imageAlt}" />
                     </sly>
                     <sly data-sly-test="${!model.imageAlt}">
-                        <img class="Picture__img" data-dimensions="1600x696"
-                            srcset="${model.offersImageFileReference}" alt=" " />
+                        <img class="Picture__img" data-dimensions="1600x696" srcset="${model.offersImageFileReference}" alt=" " />
                     </sly>
                 </picture>
             </div>
-           
+
             <div class="offerDescription">
                 <div class="offerHeading">
-                   <sly data-sly-test.forSEO="${model.firstPosition==true}">
+                    <sly data-sly-test.forSEO="${model.firstPosition==true}">
                         <h1 class="heading title headingH3">${model.offersHeaderCopy @context='html'}</h1>
                     </sly>
                     <sly data-sly-test="${!forSEO}">
@@ -48,9 +45,9 @@
                 <sly data-sly-test="${model.price}">
                     <div class="offerPrice">
                         <p class="Offers__price heading price">
-							<sly data-sly-test="${model.isStaticPrice}"> ${model.priceConfigValue} ${model.price} </sly>
-							<sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
-						</p>
+                            <sly data-sly-test="${model.isStaticPrice}"> ${model.priceConfigValue} ${model.price} </sly>
+                            <sly data-sly-test="${!model.isStaticPrice}" data-sly-resource="${'pricecomponent' @ resourceType='jlr/components/pricing/v1/pricecomponent', selectors=model.price, wcmmode='disabled'}"></sly>
+                        </p>
                     </div>
                 </sly>
                 <div class="offerBody">
@@ -62,33 +59,32 @@
                     <sly data-sly-test="${cta.text}">
 
 
-                        <div
-                            class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}" style="float: left;">
+                        <div class="${cta.linkType == 'primary' ? 'primaryLinkContainer' : 'secondaryLinkContainer secondaryLinkType'}" style="float: left;">
                             <a class="${cta.linkType == 'primary' ? 'primaryLinkWithStyle' : 'secondaryLinkWithStyle'} ${cta.target=='overlay' ? '' : cta.icon}"
-                                aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}"
-                                target="${cta.target}" data-target="${cta.target}" data-aria-title="${cta.text}">
+                                aria-label="${cta.ariaLabel}" href="${cta.link}" data-link-desktop="${cta.link}" target="${cta.target}"
+                                data-target="${cta.target}" data-aria-title="${cta.text}">
                                 <span aria-hidden="true">${cta.text}</span>
                             </a>
                         </div>
                     </sly>
                 </div>
             </div>
-           
+
             <div class="offerFinanceBoxes">
                 <sly data-sly-list.offers="${model.offerList}">
                     <sly data-sly-test="${offersList.index==0}">
-                     
+
                         <div class="offerInfo offerInfoLease">
                             <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'} </div>
                             <p class="heading Offers__amount headingH1">
-                                <span class="headingWrapper" role="text">
+                                <span class="headingWrapper">
                                     <span class="currency">
-                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
-                                            @context='html'}</small>
+                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix @context='html'}
+                                        </small>
                                     </span>
                                     <span class="amount">${offers.offerValue @context='html'}</span>
-                                    <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix
-                                        @context='html'}</small>
+                                    <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix @context='html'}
+                                    </small>
                                 </span>
                             </p>
                             <div class="body Offers__info-body">
@@ -96,9 +92,8 @@
                                     ${offers.offerLabel @context='html'}
                                 </span>
                             </div>
-                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
-                                class="offerDetailsLink button-tertiary" data-close-label="close modal"
-                                data-modal-trigger="">
+                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}" class="offerDetailsLink button-tertiary"
+                                data-close-label="close modal" data-modal-trigger="">
                                 <span>${config.configMap['offers.terms.cta']}</span>
                             </button>
                             <div class="offerDetails offerLeaseDetails" data-modal-content="">
@@ -109,19 +104,19 @@
                             </div>
                         </div>
                     </sly>
-                    
+
                     <sly data-sly-test="${offersList.index==1}">
                         <div class="offerInfo offerInfoApr">
                             <div class="heading headingH4 Offers__info-title">${offers.offerCopy @context='html'}</div>
                             <p class="heading Offers__amount headingH1">
-                                <span class="headingWrapper" role="text">
+                                <span class="headingWrapper">
                                     <span class="currency">
-                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix
-                                            @context='html'}</small>
+                                        <small data-sly-test="${offers.offerPrefix}">${offers.offerPrefix @context='html'}
+                                        </small>
                                     </span>
                                     <span class="amount">${offers.offerValue @context='html'}</span>
-                                    <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix
-                                        @context='html'}</small>
+                                    <small class="percent" data-sly-test="${offers.offerSuffix}">${offers.offerSuffix @context='html'}
+                                    </small>
 
                                 </span>
                             </p>
@@ -130,8 +125,7 @@
                                     ${offers.offerLabel @context='html'}
                                 </span>
                             </div>
-                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}"
-                                class="offerDetailsLink button-tertiary"
+                            <button data-sly-test="${offers.offerOverlaySummary || offers.offerOverlayHeader}" class="offerDetailsLink button-tertiary"
                                 data-close-label="${config.configMap['overlay.close']}" data-modal-trigger="">
                                 <span>${config.configMap['offers.terms.cta']}</span>
                             </button>
@@ -146,9 +140,9 @@
                 </sly>
             </div>
         </div>
-       
+
     </div>
-   
+
 
     <sly data-sly-call="${commonsTemplates.placeholder @ isEmpty = !hasContent}"></sly>
 </div>
