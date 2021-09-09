@@ -12759,6 +12759,7 @@
                       e.style.marginBottom="70px";
                     })
                     controlsFFC.style.top = offsetheight+50+"px";
+                    $('.cmp-dualframe_pagination.left').css({left: 1});
                   }   
                   if(window.innerWidth >=768 && window.innerWidth<=1279){
                     controlsFFC.style.top = "0px";
@@ -12768,6 +12769,7 @@
                       e.style.marginBottom="66px";
                     })
                     controlsFFC.style.top = offsetheight+60+"px";
+                    $('.cmp-dualframe_pagination.left').css({left: 0});
                   }   
                   if(window.innerWidth >=1280){
                     controlsFFC.style.top = "";
@@ -12775,6 +12777,16 @@
                     elm.forEach((e)=>{
                       e.style.marginBottom="0px";
                     })
+
+                    var paginationleft = $('.cmp-dualFrameItem__image').width() + 100;
+                    $('.cmp-dualframe_pagination.left').css({left: paginationleft});
+
+                  }
+
+                  if(window.innerWidth >=1920){
+                    var paginationleft = $('.cmp-dualFrameItem__image').width() + 330;
+                    $('.cmp-dualframe_pagination.left').css({left: paginationleft});
+
                   }
                 }
             
