@@ -37,7 +37,7 @@
     bottom: 48px;
     position: absolute;
     justify-content: left;
-    margin-top: -8px;
+   
   }
 }
 /* .cmp-carousel.cmp-hero-carousel .swiper-button {
@@ -322,6 +322,7 @@ label {
   .cmp-hero-carousel .cmp-carousel__controls {
     justify-content: left;
     padding-left: 25px;
+    margin-top: -8px;
   }
   #landrover .cmp-hero .secondaryLinkWithStyle {
     margin-top: 0;
