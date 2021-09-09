@@ -197,8 +197,6 @@
       margin-left: 0px;
       width: calc(39.47vw);
       height: calc(((39.47vw) * 9) / 16);
-      max-width: 156px;
-      max-height: 88px;
   }
   .cmp-accolades__copy {
     margin-top:16px;
@@ -463,11 +461,9 @@ color:#0C121C ;
   .cmp-accolades__copy--secondary{
     max-width: 524px;
   }
-  .cmp-accolades .cmp-accolades__img{
+  .cmp-accolades .cmp-accolades__img {
     width: calc(20.314vw);
     height: calc(((20.314vw) * 9) / 16);
-    max-width: 260px;
-    max-height: 146px;
     float: left;
   }
   .cmp-accolades {
