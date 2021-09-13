@@ -208,6 +208,10 @@ public interface GlobalModel {
     default String getPrice() {
         return StringUtils.EMPTY;
     }
+    
+    default String getPosterImgAltText() {
+        return StringUtils.EMPTY;
+    }
 
     default String getPriceConfigValue() {
         return StringUtils.EMPTY;

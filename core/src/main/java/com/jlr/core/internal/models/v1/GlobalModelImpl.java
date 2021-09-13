@@ -135,6 +135,10 @@ public class GlobalModelImpl implements GlobalModel {
     /** The poster image. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
     private String posterImage;
+    
+    /** The poster image alternate text. */
+    @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
+    private String posterImgAltText;
 
     /** The video title. */
     @ValueMapValue(injectionStrategy = InjectionStrategy.OPTIONAL)
@@ -352,7 +356,7 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getVideoId() {
     	if(videoId !=null) {
-    		return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
+    		return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId).concat(CommonConstants.YOUTUBE_ENABLEJS_API);
     	}
     	return StringUtils.EMPTY;
     }
@@ -375,6 +379,16 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getPosterImage() {
         return posterImage;
+    }
+    
+    /*
+     * (non-Javadoc)
+     * 
+     * @see com.jlr.core.models.GlobalModel#getPosterImgAltText()
+     */
+    @Override
+    public String getPosterImgAltText() {
+        return AltTextUtils.getAltTextFromDAM(posterImage, resourceResolver);
     }
 
     /*
