@@ -12,7 +12,7 @@ var closeBtn = document.getElementsByClassName("contentCardClose")[0];
 
 $('.ContentCard__Youtube').click(function () {
     var url = $(this).attr("data-videourl");
-    url = url + '?autoplay=1';
+    url = url + '?enablejsapi=1&autoplay=1';
     $('.contentCardVideo').attr('src', url);
     modal.style.display = "block";
     $('html').css('overflow', 'hidden');
