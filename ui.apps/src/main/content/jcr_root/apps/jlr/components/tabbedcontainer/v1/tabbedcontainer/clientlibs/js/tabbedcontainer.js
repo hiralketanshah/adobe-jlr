@@ -8076,7 +8076,7 @@
                                         if (ifr) {
                                             var spanElement = $(ifr);
                                             spanElement[0].allow = "autoplay";
-                                            spanElement[0].src = spanElement[0].src + '?autoplay=1&background=1&muted=1';
+                                            spanElement[0].src = spanElement[0].src + '?enablejsapi=1&autoplay=1&background=1&muted=1';
                                             $(spanElement[0]).addClass(`youtube-iframe-${pannelId}`);
                                             elm.addClass("player").html(spanElement);
                                             elm.off("click");
@@ -8097,7 +8097,7 @@
                                     if (ifr) {
                                         var spanElement = $(ifr);
                                         spanElement[0].allow = "autoplay";
-                                        spanElement[0].src = spanElement[0].src + '?autoplay=1&background=1&muted=1';
+                                        spanElement[0].src = spanElement[0].src + '?enablejsapi=1&autoplay=1&background=1&muted=1';
                                         $(spanElement[0]).addClass(`youtube-iframe-${pannelId}`);
                                         elm.addClass("player").html(spanElement);
                                         elm.off("click");
@@ -8176,7 +8176,7 @@
                             if ($(`#${panelID}`).find('.videoCustom').length) {
                                 $(`.youtube-iframe-${panelID}`).each(function (index) {
                                     let oldSrc = $(this).attr('src');
-                                    let newSrc = $(this).attr('src') + "autoplay=1&background=1&muted=1";
+                                    let newSrc = $(this).attr('src') + "enablejsapi=1&autoplay=1&background=1&muted=1";
                                     $(this).attr('src', newSrc);
                                     return false;
                                 });
@@ -8257,7 +8257,7 @@
                             if ($(payload.previousPanel).find('.videoCustom').length) {
                                 $(`.youtube-iframe-${panelID}`).each(function (index) {
                                     let oldSrc = $(this).attr('src');
-                                    let newSrc = oldSrc.replaceAll("autoplay=1&background=1&muted=1", "");
+                                    let newSrc = oldSrc.replaceAll("enablejsapi=1&autoplay=1&background=1&muted=1", "");
                                     $(this).attr('src', newSrc);
                                     return false;
                                 });

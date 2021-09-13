@@ -356,7 +356,7 @@ public class GlobalModelImpl implements GlobalModel {
     @Override
     public String getVideoId() {
     	if(videoId !=null) {
-    		return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId).concat(CommonConstants.YOUTUBE_ENABLEJS_API);
+    		return (CommonConstants.YOUTUBE_EMBED_URL).concat(videoId);
     	}
     	return StringUtils.EMPTY;
     }

@@ -197,9 +197,6 @@ public class CommonConstants {
 
     /** The Constant YOUTUBE_EMBED_URL. */
     public static final String YOUTUBE_EMBED_URL = "https://youtube.com/embed/";
-    
-    /** The Constant YOUTUBE_ENABLEJS_API. */
-    public static final String YOUTUBE_ENABLEJS_API = "?enablejsapi=1";
 
     /** The Constant PN_PRIMARY_LOGO. */
     public static final String PN_PRIMARY_LOGO = "iconPrimary";

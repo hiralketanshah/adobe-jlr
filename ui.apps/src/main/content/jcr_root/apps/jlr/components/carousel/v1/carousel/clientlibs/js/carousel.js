@@ -11863,7 +11863,7 @@
           
           var spanElement = $(ifr);
           spanElement[0].allow = "autoplay";
-          spanElement[0].src = spanElement[0].src+'?autoplay=1&background=1&mute=1';
+          spanElement[0].src = spanElement[0].src+'?enablejsapi=1&autoplay=1&background=1&mute=1';
           elm.addClass("player").html(spanElement);
           elm.off("click");
       });
