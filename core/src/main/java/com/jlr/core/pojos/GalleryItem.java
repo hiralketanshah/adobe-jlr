@@ -1,5 +1,7 @@
 package com.jlr.core.pojos;
 
+import javax.inject.Inject;
+
 import org.apache.sling.api.resource.ResourceResolver;
 
 public class GalleryItem {
@@ -12,6 +14,7 @@ public class GalleryItem {
     private Boolean isDecorative;
     private String videoId;
     private String posterImage;
+    private String posterImgAltText;
     private String thumbnail;
     private String text;
     private String link;
@@ -21,7 +24,7 @@ public class GalleryItem {
     private Boolean altTextFromDAM;
 
     public GalleryItem(String headerCopy, String copy, String assetType, String fileReference, String imageAlt,
-    		Boolean isDecorative, String videoId, String posterImage, String thumbnail, String text, String link,
+    		Boolean isDecorative, String videoId, String posterImage,String posterImgAltText, String thumbnail, String text, String link,
             String icon, String ariaLabel, String target, Boolean altTextFromDAM) {
         super();
         this.headerCopy = headerCopy;
@@ -32,6 +35,7 @@ public class GalleryItem {
         this.isDecorative = isDecorative;
         this.videoId = videoId;
         this.posterImage = posterImage;
+        this.posterImgAltText = posterImgAltText;
         this.thumbnail = thumbnail;
         this.text = text;
         this.link = link;
@@ -103,6 +107,10 @@ public class GalleryItem {
 
     public String getPosterImage() {
         return posterImage;
+    }
+    
+    public String getPosterImgAltText() {
+        return posterImgAltText;
     }
 
     public String getThumbnail() {
