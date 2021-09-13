@@ -13,7 +13,7 @@
                 </sly>
                 </picture>
 				<div data-sly-test="${model.assetType == 'video' && model.videoId && !model.videoPath}" class="videoCustom">
-                    <img src="${model.posterImage}">
+                    <img alt="${model.posterImgAltText}" src="${model.posterImage}">
                      <!-- <iframe width="100%" height="100%" src="${model.videoId}" frameborder="0" allowfullscreen></iframe> -->
                 </div>
 				
