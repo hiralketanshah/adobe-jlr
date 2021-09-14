@@ -79,11 +79,6 @@
     letter-spacing: 0.03rem;
     font-weight: 400;
   }
-  @media screen and (min-width: 1px) and (max-width: 768px) {
-    .cmp-accolades .fontQuote {
-      font-size: 2.3rem;
-    }
-  }
   .cmp-accolades__copy--primary,
   .cmp-accolades__copy--secondary {
     -webkit-font-smoothing: antialiased;
@@ -186,17 +181,17 @@
     color: white;
   }
   /* MOBILE ACCOLADES START*/
-  @media screen and (max-width: 767.9px) {
-    .cmp-onlyCopy {
-      width: 100%;
-    }
-    .cmp-accolades {
-      padding: 30px 25px;
-    }
-    .cmp-accolades__img {
-      margin-left: 0px;
-      width: calc(39.47vw);
-      height: calc(((39.47vw) * 9) / 16);
+@media screen and (max-width: 767.9px) {
+  .cmp-onlyCopy {
+    width: 100%;
+  }
+  .cmp-accolades {
+    padding: 30px 25px;
+  }
+  .cmp-accolades__img {
+     margin-left: 0px;
+    width: calc(39.47vw);
+    height: calc(((39.47vw) * 9) / 16);
   }
   .cmp-accolades__copy {
     margin-top:16px;
@@ -214,19 +209,24 @@
     margin-bottom: 0px;
   }
   .cmp-carousel__controls.cmp-accolades_pagination {
-    position: fixed;
     padding-bottom: 0px;
     justify-content: left;
     padding-left: 25px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
   .cmp-accolades__img .Picture__img {
     width: calc(39.47vw);
     height: calc(((39.47vw) * 9) / 16);
   }
+  .cmp-accolades .fontQuote {
+    font-size: 2.3rem;
   }
+  .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
+    padding-bottom: 40px;
+  }
+}
   /* TABLET ACCOLADES WITH LOGO - START*/
-  @media screen and (min-width: 768px) and (max-width: 1279px) {
+  @media screen and (min-width: 768px) and (max-width: 1279.9px) {
     .cmp-onlyCopy .cmp-accolades__copy {
       padding-top: 0px;
       width: 100%;
@@ -258,6 +258,7 @@
     padding-bottom: 0px;
     justify-content: left;
     padding-left:  30px;
+    margin-bottom: 20px;
   }
   .cmp-onlyCopy .fontQuote,.cmp-onlyCopy .secondaryLinkWithStyle{
     padding-top: 0px;
@@ -449,14 +450,6 @@ color:#0C121C ;
 /*---code fix for 564----*/
 .cmp-accolades .cmp-accolades__copy--tertiary {color:rgba(12, 18, 28, .6);}
 /*---code fix for 564----*/
-@media screen and (max-width: 767.9px){
-  .cmp-accolades-carousel .cmp-carousel__slider:only-child .cmp-accolades{
-    padding-bottom: 40px;
-  }
-  .cmp-carousel__controls.cmp-accolades_pagination {
-    margin-bottom: 40px;
-  }
-}
 @media screen and (min-width: 768px) and (max-width: 1279.9px){
   .cmp-accolades__copy--secondary{
     max-width: 524px;
@@ -482,7 +475,7 @@ color:#0C121C ;
     height: calc(((20.314vw) * 9) / 16);
   }
 }
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1279.9px) {
   .cmp-carousel.cmp-accolades-carousel .swiper-button--prev, .cmp-carousel.cmp-accolades-carousel .swiper-button--next {
     display: none;
   }
