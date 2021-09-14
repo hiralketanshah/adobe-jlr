@@ -55,6 +55,11 @@
         - name: 'JLR Internal Launches Group'
           path: ${groupPath}
 
+    - content-wf-admins:
+
+        - name: 'JLR Content Workflow Admin Group'
+          path: ${groupPath}
+
 - ace_config:
 
     - internal-group:
