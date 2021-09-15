@@ -838,7 +838,7 @@ text-transform: uppercase;
 .cmp-derivative__range .Snippet__MarketRegionalPricing{
     padding-bottom: 16px;
 }
-@media screen and (min-width: 767.9px) {
+@media screen and (min-width: 768.9px) {
     .cmp-derivativesOverview .toggleLinksItem {
         width: inherit;
         min-width: auto;
@@ -1418,6 +1418,11 @@ text-transform: uppercase;
     .Derivative__engine-wrapper{
         min-width: 40%;
     width: 40%;
+    }   
+}
+@media screen and (max-width: 560px) {
+    .Derivative__control-dropdown .dxDropdown__heading{
+        min-height: 38px;
     }
 }
 @media screen and (max-width: 375px) {

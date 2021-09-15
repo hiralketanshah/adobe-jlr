@@ -19,7 +19,9 @@
     padding: 0 30px;
     position: absolute;
 }
-
+.spritespin-stage {
+    display: block !important;
+}
 
 .cmp-dualFrameSlider.frames-loaded .Slider__right {
     opacity: 1;

@@ -1044,7 +1044,8 @@ html.no-js .cmp-interior360 .carousel > * {
 }
 .Interior360__load-button:hover .Interior360__init-container-caption,
 .Interior360__load-button:focus .Interior360__init-container-caption {
-  border-bottom: 2px solid #fff;
+  text-decoration: underline;
+  max-width: 180px;
 }
 .Interior360__load-button.down .Interior360__icon--down {
   -webkit-animation-name: iconAnimateDownMob;
