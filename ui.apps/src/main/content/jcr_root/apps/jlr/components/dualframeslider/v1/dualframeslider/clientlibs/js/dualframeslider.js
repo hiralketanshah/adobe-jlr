@@ -1829,8 +1829,7 @@
 
                   this.$spriteSpinElement = this.ui('mobileFramesViewer');
                 } else {
-                  this.$spriteSpinElement = this.ui('desktopFramesViewer');
-
+                  this.$spriteSpinElement = this.ui('desktopFramesViewer');           
                 }
                 this._multiFrame_InitSpriteSpin(true);
               }
@@ -1915,10 +1914,6 @@
               $(window).smartresize(function () {
                 var MultiFrameSliderWidth = _this5.ui('MultiFrameSlider').width();
 
-                _this5.$spriteSpinElement.spritespin({
-                  width: MultiFrameSliderWidth,
-                  height: MultiFrameSliderWidth * _this5._multiFrame_HeightWidthRatio()
-                });
               });
             },
             _dualFrame__ComparisonClipping: function _dualFrame__ComparisonClipping() {
