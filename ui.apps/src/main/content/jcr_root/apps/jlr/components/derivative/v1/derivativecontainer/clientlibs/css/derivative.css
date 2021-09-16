@@ -838,7 +838,7 @@ text-transform: uppercase;
 .cmp-derivative__range .Snippet__MarketRegionalPricing{
     padding-bottom: 16px;
 }
-@media screen and (min-width: 768.9px) {
+@media screen and (min-width: 1280px) {
     .cmp-derivativesOverview .toggleLinksItem {
         width: inherit;
         min-width: auto;
@@ -1000,7 +1000,7 @@ text-transform: uppercase;
         width: auto;
     }
 }
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 1280px) {
     .js .cmp-derivativesOverview .ToggleLinks .toggleLinksItem {
         width: inherit;
         min-height: auto;
@@ -1145,7 +1145,7 @@ text-transform: uppercase;
         padding-right: 0;
     }
 }
-@media screen and (min-width: 1px) and (max-width: 900px) {
+@media screen and (min-width: 1px) and (max-width: 1279.9px) {
     .cmp-derivativesOverview .DxTabs {
         padding-top: 50px;
     }
@@ -1272,7 +1272,7 @@ text-transform: uppercase;
         margin-bottom: 0px;
     }
 }
-@media screen and (min-width: 901px) {
+@media screen and (min-width: 1280px) {
     .Derivative:after,
     .derivativecard:after {
         bottom: -90px;

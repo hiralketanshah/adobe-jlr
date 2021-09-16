@@ -5288,9 +5288,9 @@
               value: true
             });
             var breakpoints = exports.breakpoints = {
-              small: 768,
-              medium: 900,
-              wider: 1000,
+              small: 375,
+              medium: 1279,
+              wider: 1920,
               current: null
             };
     

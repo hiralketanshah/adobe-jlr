@@ -8185,18 +8185,15 @@
                             this._selectedTab = payload.selectedPanel;
                             setTimeout(() => {
 
-                                
-
-                                let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 30 ;
-
-                                this.$element.parent().css({ height: `${initialHeight}px` ,"min-height":`${initialHeight}px`,"max-height":`${initialHeight}px`});/*bugfix-1180*/                                   
-                                //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
+                                let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 30;
+                                this.$element.parent().css({ height: `${initialHeight}px`, "min-height": `${initialHeight}px`, "max-height": `${initialHeight}px` });/*bugfix-1180*/
+                                $(this._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(this._selectedTab).height() + $(this._selectedTab).find('.shelfComponent').outerHeight());//this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
                                 if ($(this._selectedTab).find('.shelfComponent:visible').length != 0) {
                                     $(this._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(this._selectedTab).height() - $(this._selectedTab).find('.shelfComponent').outerHeight());
 
                                 } else {
                                     let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 160;
-                                    this.$element.parent().css({ height: `${initialHeight}px` ,"min-height":`${initialHeight}px`,"max-height":`${initialHeight}px`});/*bugfix-1180*/
+                                    this.$element.parent().css({ height: `${initialHeight}px`, "min-height": `${initialHeight}px`, "max-height": `${initialHeight}px` });/*bugfix-1180*/
                                     //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 160);
                                 }
 
@@ -8283,30 +8280,32 @@
                             var maxHeight = Math.max.apply(null, $(`#${tabId} .cmp-tabs__tabpanel`).map(function () {
                                 return $(this).height();
                             }).get());
+
                             this.$element.parent().height(maxHeight);
 
 
-                            var isMobile = (0, _browserDetection.isBreakpointSmall)();
-                            var isTablet = (0, _browserDetection.isBreakpointMedium)();
-                            var isDesktop = !isMobile && !isTablet;
+                            // var isMobile = (0, _browserDetection.isBreakpointSmall)();
+                            // var isTablet = (0, _browserDetection.isBreakpointMedium)();
+                            // var isDesktop = !isMobile && !isTablet;
                             if (this._selectedTab) {
-                                if (isDesktop && !this.destroyed) {
-                                    setTimeout(function () {
-                                        let initialHeight = $(_this4._selectedTab).parent('.DxTabs__panels').height() + 60;
-                                        _this4.$element.parent().css({ height: `${initialHeight}px` ,"min-height":`${initialHeight}px`,"max-height":`${initialHeight}px`});/*bugfix-1180*/
-                                        //_this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 60);
-                                        if ($(_this4._selectedTab).find('.shelfComponent:visible').length != 0) {
-                                            $(_this4._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(_this4._selectedTab).height() - $(_this4._selectedTab).find('.shelfComponent').outerHeight());
-                                        } else {
-                                            let initialHeight = $(_this4._selectedTab).parent('.DxTabs__panels').height() + 160;
-                                            _this4.$element.parent().css({ height: `${initialHeight}px` ,"min-height":`${initialHeight}px`,"max-height":`${initialHeight}px`});/*bugfix-1180*/
-                                            //_this4.$element.parent().height($(_this4._selectedTab).parent('.DxTabs__panels').height() + 160);
-                                        }
-                                        // _this4.$element.height($(_this4._selectedTab).height());
-                                    }, 50);
-                                } else {
-                                    this.$element.height('');
-                                }
+
+                                setTimeout(() => {
+
+                                    let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 30;
+                                    this.$element.parent().css({ height: `${initialHeight}px`, "min-height": `${initialHeight}px`, "max-height": `${initialHeight}px` });/*bugfix-1180*/
+                                    $(this._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(this._selectedTab).height() + $(this._selectedTab).find('.shelfComponent').outerHeight());
+                                    //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 60);
+                                    if ($(this._selectedTab).find('.shelfComponent:visible').length != 0) {
+                                        $(this._selectedTab).parent('.DxTabs__panels').parent('.cmp-tabbedContainer_box').css('max-height', $(this._selectedTab).height() - $(this._selectedTab).find('.shelfComponent').outerHeight());
+
+                                    } else {
+                                        let initialHeight = $(this._selectedTab).parent('.DxTabs__panels').height() + 160;
+                                        this.$element.parent().css({ height: `${initialHeight}px`, "min-height": `${initialHeight}px`, "max-height": `${initialHeight}px` });/*bugfix-1180*/
+                                        //this.$element.parent().height($(this._selectedTab).parent('.DxTabs__panels').height() + 160);
+                                    }
+
+                                }, 100);
+
                             }
                         },
                         adjustTabbedContainerHeight: function adjustTabbedContainerHeight() {
@@ -8396,8 +8395,8 @@
                     value: true
                 });
                 var breakpoints = exports.breakpoints = {
-                    small: 740,
-                    medium: 900,
+                    small: 375,
+                    medium: 768,
                     wider: 1000,
                     current: null
                 };
