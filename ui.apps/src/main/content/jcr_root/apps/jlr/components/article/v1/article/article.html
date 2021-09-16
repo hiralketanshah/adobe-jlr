@@ -20,8 +20,9 @@
     </sly>
     <div data-sly-test="${article.assetType == 'video' && article.videoId && article.imagePosition == 'above'}" class="cmp-article__videoframe">
       <div class="cmp-article__video-container">
-        <iframe src="${article.videoId}" frameborder="0" width="560" height="315" allowfullscreen></iframe>
+        <iframe src="${article.videoId}?enablejsapi=1" frameborder="0" width="560" height="315" allowfullscreen></iframe>
       </div>
+      <div data-sly-test="${article.caption}" class="videoCaption bottom">${article.caption @context='html'}</div>
     </div>
     <sly data-sly-test.forSEO="${article.firstPosition==true}">
       <h1 data-sly-test="${article.headerCopy}" class="Article__heading fontH2">${article.headerCopy @context='html'}</h1>
@@ -49,6 +50,7 @@
       <div class="cmp-article__video-container">
         <iframe src="${article.videoId}?enablejsapi=1" frameborder="0" width="560" height="315" allowfullscreen></iframe>
       </div>
+      <div data-sly-test="${article.caption}" class="videoCaption bottom">${article.caption @context='html'}</div>
     </div>
     <sly data-sly-list.cta="${article.ctaList}">
       <div data-sly-test="${cta.text}" class="links">

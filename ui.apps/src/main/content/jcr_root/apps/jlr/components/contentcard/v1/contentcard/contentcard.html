@@ -59,8 +59,14 @@ data-sly-use.component="com.adobe.cq.wcm.core.components.models.Component"
                                             />
                                         </sly>
                                         <sly data-sly-test="${!content.imageAlt}">
+                                            <sly data-sly-test="${content.posterImgAltText}">
+                                            <img alt="${content.posterImgAltText}" class="Picture__img" data-dimensions="680x450" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}"
+                                            />
+                                        </sly>
+                                        <sly data-sly-test="${!content.posterImgAltText}">
                                             <img alt=" " class="Picture__img" data-dimensions="680x450" srcset="${content.assestType =='image' ? content.fileReference : content.posterImage}"
                                             />
+                                        </sly>
                                         </sly>
                                         </picture>
                                         </a>
