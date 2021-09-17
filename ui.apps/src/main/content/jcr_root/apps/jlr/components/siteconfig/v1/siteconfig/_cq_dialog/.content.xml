@@ -12,7 +12,7 @@
                 sling:resourceType="granite/ui/components/coral/foundation/tabs"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
-                    <config
+                    <configs
                         jcr:primaryType="nt:unstructured"
                         jcr:title="Configurations"
                         sling:resourceType="granite/ui/components/coral/foundation/container"
