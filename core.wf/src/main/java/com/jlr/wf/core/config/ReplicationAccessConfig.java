@@ -17,5 +17,5 @@ public @interface ReplicationAccessConfig {
 	 *
 	 */
 	@AttributeDefinition(name = "Group Name", description = "Group Name", type=AttributeType.STRING)
-	String getGroupName();
+	String getGroupName() default "content-wf-admins";
 }

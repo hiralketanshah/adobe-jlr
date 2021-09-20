@@ -173,6 +173,19 @@
           permission: allow
           actions: read
 
+        - path: /libs/cq/core/content/nav/tools/general
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /libs/cq/core/content/nav/tools/general/translationRules
+          permission: allow
+          actions: read
+
+        - path: /conf/global/settings/translation
+          permission: allow
+          actions: read,create,modify,delete
+
     - global-leads:
 
         - path: /apps/cq/core/content/nav/tools/acs-commons/reports
@@ -202,6 +215,19 @@
         - path: /content/misc
           permission: allow
           actions: read
+
+        - path: /libs/cq/core/content/nav/tools/general
+          permission: allow
+          privileges: jcr:read
+          repGlob: ''
+
+        - path: /libs/cq/core/content/nav/tools/general/translationRules
+          permission: allow
+          actions: read
+
+        - path: /conf/global/settings/translation
+          permission: allow
+          actions: read,create,modify,delete
 
     - global-qas:
 
