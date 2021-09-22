@@ -17,6 +17,9 @@
 		font-size: 14px;
 	}
 }
+.cmp-tabbedContainer .exterior360 .cmp-exterior360.nocopy{
+    margin-bottom: 0;
+}
 .cmp-tabbedContainer_box{
     width: 100%;
     margin: 0 auto;
@@ -269,6 +272,7 @@
 .cmp-tabbedContainer .cmp-exterior360 .headerClass{
  min-height: 28px;
 }
+
 
 @media screen and (min-width: 1px) and (max-width: 768px) {
 
