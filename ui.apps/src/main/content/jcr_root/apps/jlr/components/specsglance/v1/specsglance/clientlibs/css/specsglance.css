@@ -87,11 +87,12 @@
     font-weight: normal;
 	font-style: normal;
     letter-spacing: 0.2px;
-    color: #4A4F54;
-    text-transform: capitalize;
+    color: #4A4F54;    
     line-height: 19px;
 }
-
+.cmp-specificationsAtAGlance__items .description p::first-letter {
+    text-transform: capitalize;
+}
 .cmp-specificationsAtAGlance .cmp-ctaContainer .primaryLinkWithStyle {
     margin: 13px 26px 0 0;
 }
